@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: asymob
+Bundle-SymbolicName: asymob; singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore
+Import-Package: generator,
+ generator.impl,
+ org.eclipse.emf.ecore.xmi.impl
