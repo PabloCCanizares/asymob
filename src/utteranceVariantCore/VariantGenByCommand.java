@@ -9,6 +9,7 @@ public class VariantGenByCommand implements IVariantGenerator {
 
 	JavaRunCommand commandRunner;
 	String strCommandIn;
+	String strProgramPath;
 	
 	public VariantGenByCommand(String strProgramPath)
 	{
@@ -21,9 +22,6 @@ public class VariantGenByCommand implements IVariantGenerator {
 	public void configure(String strProgramPath) {
 		commandRunner = new JavaRunCommand();
 		commandRunner.setProgramPath(strProgramPath);
-
-		// Configuramos, y ejecutamos.
-		// Tener en cuenta que cada generador puede tener un path distinto
 	}
 
 	@Override
@@ -40,4 +38,10 @@ public class VariantGenByCommand implements IVariantGenerator {
 		return listRet;
 	}
 
+	public String getProgramPath() {
+		return strProgramPath;
+	}
+	public void setProgramPath(String strProgramPath) {
+		this.strProgramPath = strProgramPath;
+	}
 }

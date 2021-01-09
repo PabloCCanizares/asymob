@@ -2,15 +2,14 @@ package utteranceVariantCore;
 
 import java.util.LinkedList;
 
-import main.MutOpsCfg;
-import operators.MutateUtteranceOp;
+import main.MutationOperatorSet;
 import operators.base.MutationOperator;
 
 public class UtteranceVariantCore {
 
 	LinkedList<String> lastMutatedList;
 
-	public LinkedList<String> generateVariants(MutOpsCfg cfgIn, String strInputPhrase) {
+	public LinkedList<String> generateVariants(MutationOperatorSet cfgIn, String strInputPhrase) {
 		MutationOperator mutOp;
 		LinkedList<String> listRet, listAux;
 

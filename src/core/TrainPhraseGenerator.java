@@ -1,26 +1,18 @@
-package main;
+package core;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.emf.common.util.EList;
-
 import generator.Bot;
 import generator.GeneratorFactory;
-import generator.GeneratorPackage;
-import generator.Input;
 import generator.Intent;
 import generator.IntentInput;
 import generator.IntentLanguageInputs;
 import generator.Literal;
 import generator.ParameterReferenceToken;
-import generator.TextInput;
 import generator.Token;
 import generator.TrainingPhrase;
-import generator.impl.LiteralImpl;
-import generator.impl.TrainingPhraseImpl;
-import operators.base.MutationOperator;
-import utteranceVariantCore.IVariantGenerator;
+import main.MutationOperatorSet;
 import utteranceVariantCore.UtteranceVariantCore;
 
 public class TrainPhraseGenerator {
@@ -31,7 +23,7 @@ public class TrainPhraseGenerator {
 	{
 		oMutCore =  new UtteranceVariantCore();
 	}
-	boolean generateTrainingPhraseFull(Bot botIn, MutOpsCfg cfgIn)
+	boolean generateTrainingPhraseFull(Bot botIn, MutationOperatorSet cfgIn)
 	{
 		boolean bRet;
 		bRet = false;
@@ -43,7 +35,7 @@ public class TrainPhraseGenerator {
 		}
 		return bRet;
 	}
-	boolean generateTrainingPhraseFull(Intent intentIn, MutOpsCfg cfgIn)
+	boolean generateTrainingPhraseFull(Intent intentIn, MutationOperatorSet cfgIn)
 	{
 		boolean bRet;
 		List<IntentLanguageInputs> listLanguages;
@@ -93,7 +85,7 @@ public class TrainPhraseGenerator {
 	 * @param cfgIn
 	 * @return
 	 */
-	boolean createTrainingPhrase(IntentInput inputIn, MutOpsCfg cfgIn)
+	boolean createTrainingPhrase(IntentInput inputIn, MutationOperatorSet cfgIn)
 	{
 		TrainingPhrase trainIn;
 		List<Token> tokenList;
@@ -145,7 +137,7 @@ public class TrainPhraseGenerator {
 	private LinkedList<String> getLastResults() {
 		return tempTrainingPhrases;
 	}
-	boolean generateTrainingPhrase(Token tokenIn, MutOpsCfg cfgIn)
+	boolean generateTrainingPhrase(Token tokenIn, MutationOperatorSet cfgIn)
 	{
 		Literal litIn;
 		ParameterReferenceToken paramRefIn;			
