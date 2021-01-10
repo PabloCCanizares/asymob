@@ -1,27 +1,8 @@
 package main;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
-import aux.BotPrinter;
-import aux.JavaRunCommand;
 import core.Asymob;
-import core.TrainPhraseGenerator;
-import generator.Bot;
-import generator.GeneratorPackage;
-import generator.Intent;
-import generator.IntentLanguageInputs;
 import operators.MutActiveToPassiveOp;
 import operators.MutAdjectivesToSynonymsOp;
 import operators.MutChangeWordToNumberOp;
@@ -35,8 +16,6 @@ import utteranceVariantCore.VariantGenByCommand;
 
 public class test {
 
-	private static ResourceSet resourceSet = null;
-	private static Resource resource = null;
 	public static void main(String[] args) {
 		
 		Asymob botTester;
@@ -46,66 +25,13 @@ public class test {
 		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
 		{
 			mutOpSet = selectMutationOperators();
-			if(botTester.generateTrainingPhraseByIntentId("Hours", mutOpSet))
+			if(botTester.generateTrainingPhrasesByIntentId("Hours", mutOpSet))
 			{
 				botTester.saveToDisk("/localSpace/chatbots/CongaModels/bikeShop_copy.xmi");
 			}
 		}
 		
-		//analyseBot("/localSpace/chatbots/CongaModels/bikeShop.xmi");
 	}
-
-	/*public static void analyseBot(String strPath)
-	{
-		ResourceSet resourceSet;	
-        // register UML
-		JavaRunCommand runComm;
-		TrainPhraseGenerator testGen;
-		OutputStream output;
-		MutationOperatorSet mutOpSet;
-		
-		System.out.println("testConga - Init");
-		
-		//Initialise variables
-		runComm = new JavaRunCommand();
-		resourceSet  = new ResourceSetImpl();	
-				
-		File file = new File(strPath);
-		if (file.exists()) {
-			try {
-				output  = new FileOutputStream(strPath.replaceAll(".xmi", "_copy.xmi"));
-				
-				resource = getResourceSet().getResource(URI.createURI(file.getAbsolutePath()), true);
-				resource.load(null);
-				resource.getAllContents();
-				Bot bot = (Bot) resource.getContents().get(0);
-				
-				//Print the bot
-				BotPrinter.printBot(bot);
-				
-				mutOpSet = selectMutationOperators();
-				testGen = new TrainPhraseGenerator();
-				
-				if(testGen.generateTrainingPhraseFull(bot.getIntent("Hours"), mutOpSet))
-				{
-					if(testGen.generateTrainingPhraseFull(bot.getIntent("Make Appointment"), mutOpSet))
-					{
-						//Save a copy to disk
-						resource.save(System.out, null);
-						resource.save(output, null);
-					}
-
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		else
-			System.out.println("testConga - The file doest not exists!!");
-		
-		System.out.println("testConga - End");
-		
-	}	*/
 		
 	private static LinkedList<String> createLangList(String strLangs) {
 		LinkedList<String> retList;		
@@ -113,32 +39,6 @@ public class test {
 		return 	retList;	 
 	}
 
-	/*public static ResourceSet getResourceSet() {
-		if (resourceSet == null) {
-			resourceSet = new ResourceSetImpl();
-
-			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore",
-					new XMIResourceFactoryImpl());
-			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi",
-					new XMIResourceFactoryImpl());
-			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("bowling",
-					new XMIResourceFactoryImpl());		
-			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("bot",
-					new XMIResourceFactoryImpl());	
-			
-			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("generator",
-							new XMIResourceFactoryImpl());
-					
-			
-			if (!EPackage.Registry.INSTANCE.containsKey(GeneratorPackage.eNS_URI)) {
-				EPackage.Registry.INSTANCE.put(GeneratorPackage.eNS_URI,
-						GeneratorPackage.eINSTANCE);
-			}
-			
-		}
-		return resourceSet;
-	}*/
-	
 	public static MutationOperatorSet selectMutationOperators()
 	{
 		MutationOperatorSet mutOpSetRet;
@@ -194,19 +94,4 @@ public class test {
 		
 		return mutOpSetRet;
 	}
-	public static void extractAllIntentInputs(Bot botIn)
-	{
-		List<Intent> listIntent;
-		List<IntentLanguageInputs> listLanguages;
-		if(botIn != null)
-		{
-			//
-			listIntent =  botIn.getIntents();
-			
-			for (Intent intent : listIntent) {
-				listLanguages = intent.getInputs();
-			}
-		}
-	}
-	
 }

@@ -7,7 +7,6 @@ import operators.base.MutationOperator;
 
 public class MutTraductionChainedOp extends MutationOperator{
 
-	int nPercentage;
 	LinkedList<String> tradChain;
 	
 	public MutTraductionChainedOp()
@@ -20,7 +19,6 @@ public class MutTraductionChainedOp extends MutationOperator{
 		this.eMutOp = EMutationOperators.ETraductionChained;		
 		this.nMax = nMax;
 		this.nMin = nMin;
-		this.nPercentage = nPercentage;
 		
 		if(tradChain != null)
 			this.tradChain = tradChain;		
@@ -40,7 +38,7 @@ public class MutTraductionChainedOp extends MutationOperator{
 	@Override
 	public String ToString() {
 		
-		return String.format("%s %d %s", this.eMutOp, nPercentage, tradChain.toString());
+		return String.format("%s %d %s", this.eMutOp, tradChain.toString());
 	}
 
 	@Override

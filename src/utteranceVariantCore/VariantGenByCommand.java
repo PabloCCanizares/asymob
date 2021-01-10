@@ -3,7 +3,6 @@ package utteranceVariantCore;
 import java.util.LinkedList;
 
 import aux.JavaRunCommand;
-import operators.base.MutationOperator;
 
 public class VariantGenByCommand implements IVariantGenerator {
 

@@ -3,6 +3,8 @@ package core;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
@@ -16,18 +18,18 @@ import generator.Bot;
 import generator.GeneratorPackage;
 import generator.Intent;
 import main.MutationOperatorSet;
+import validation.BotValidation_General;
+import validation.BotValidator;
 
 public class Asymob {
 
 	private Resource botResource = null;
 	private ResourceSet botResourceSet = null;	
 	private Bot currentBot = null;
-	
+	private BotValidator botValidator = null;
 	private TrainPhraseGenerator trainPhraseGen = null;
 	/*Crear una api, dando una funcionalidad comun:
 		
-	- LoadChatbot?
-	- GetAllIntents(LinkedList<String>)
 	- GenerateTrainingSet (Esto es con los operadores que generan 'equivalentes')
 	- GenerateTestSuite (Fijarnos en el formato de charm)
 	- Validate*/
@@ -35,6 +37,7 @@ public class Asymob {
 	public Asymob()
 	{
 		trainPhraseGen = new TrainPhraseGenerator();
+		botValidator = new BotValidation_General();
 	}
 	/**
 	 * Loads a chatbot, given its path.
@@ -92,6 +95,91 @@ public class Asymob {
 		return bRet;
 	}
 	
+	/**
+	 * This method generates all the training phrases of a chatbot.
+	 * @param mutOpSet: Mutation operator set, used to generate the training phrases.
+	 * @return
+	 */
+	public boolean generateTrainingPhrases(MutationOperatorSet mutOpSet) {
+		List<Intent> listIntent;
+		boolean bRet;
+		
+		bRet = true;
+		
+		try
+		{
+			listIntent =  currentBot.getIntents();
+			
+			for (Intent intent : listIntent) {
+				bRet &= generateTrainingPhrasesByIntentId(intent.getName(), mutOpSet);
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("[generateTrainingPhrases] Exception while creating training phrases: "+e.getMessage());
+		}
+		return bRet;
+		
+	}	
+	
+	/**
+	 * This method generates the training phrases of an intent, which is selected given its name.
+	 * @param strIntentName: Identifier of the intent, which is used as basis to create the training phrases.
+	 * @param mutOpSet: Mutation operator set, used to generate the training phrases.
+	 * @return
+	 */
+	public boolean generateTrainingPhrasesByIntentId(String strIntentName, MutationOperatorSet mutOpSet) {
+		Intent botIntent;
+		boolean bRet;
+
+		bRet = false;
+		try
+		{
+			botIntent = currentBot.getIntent("Hours");
+			
+			if(botIntent != null)
+				bRet = trainPhraseGen.generateTrainingPhraseFull(botIntent, mutOpSet);
+		}
+		catch(Exception e)
+		{
+			System.out.println("[generateTrainingPhrasesByIntentId] Exception while creating training phrases: "+e.getMessage());
+		}
+		return bRet;
+		
+	}	
+	
+	public LinkedList<String> getAllIntentsName()
+	{
+		List<Intent> listIntent;
+		LinkedList<String> retList;
+		
+		retList = null;
+		if(currentBot != null)
+		{
+			retList = new LinkedList<String>();
+			listIntent =  currentBot.getIntents();
+			
+			for (Intent intent : listIntent) {
+				retList.add(intent.getName());				
+			}
+		}
+		
+		return retList;
+	}
+	/*private void extractAllIntentInputs(Bot botIn)
+	{
+		List<Intent> listIntent;
+		List<IntentLanguageInputs> listLanguages;
+		if(botIn != null)
+		{
+			//
+			listIntent =  botIn.getIntents();
+			
+			for (Intent intent : listIntent) {
+				listLanguages = intent.getInputs();
+			}
+		}
+	}*/
 	private ResourceSet getResourceSet() {
 		if (botResourceSet == null) {
 			botResourceSet = new ResourceSetImpl();
@@ -115,18 +203,28 @@ public class Asymob {
 		}
 		return botResourceSet;
 	}
-
-	public boolean generateTrainingPhraseByIntentId(String string, MutationOperatorSet mutOpSet) {
-		Intent botIntent;
-		boolean bRet;
-
-		bRet = false;
-		botIntent = currentBot.getIntent("Hours");
-		
-		if(botIntent != null)
-			bRet = trainPhraseGen.generateTrainingPhraseFull(botIntent, mutOpSet);
-		
-		return bRet;
-		
-	}	
+	
+	public boolean validateBot()
+	{
+		//TODO: Create a new package of validation, and include:
+		/*
+		 * Validaciones de Intents (todos ellos warnings):
+			- No debería haber dos frases de entrenamiento iguales
+			- Las frases de entrenamiento deberían tener algo más que parametros 
+			de tipo textual (si solo tiene parametros textuales pueden emparejarse 
+			con cualquier interaccion del usuario)
+			- Los intents deberían tener al menos tres frases de entrenamiento o 
+			una expresion regular
+			- Valido las expresiones regulares
+			- Los intents deberían definir tantos lenguajes como los que tiene el bot
+			
+		 * Validaciones de Flows (todos ellos errores):
+			- Dos flujos de conversacion no pueden empezar por el mismo intent
+			- Para usar una accion que referencie parametros en el flujo de 
+			conversacion, previamente debe estar el intent que contenga el parametro
+			- En el fujo de conversación, Antes de una HttpResponse debe ir la 
+			HttpRequest que hace referencia
+		 */
+		return false;
+	}
 }
