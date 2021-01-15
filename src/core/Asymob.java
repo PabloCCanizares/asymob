@@ -13,11 +13,13 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import analyser.BotAnalyser;
 import aux.BotPrinter;
 import generator.Bot;
 import generator.GeneratorPackage;
 import generator.Intent;
-import main.MutationOperatorSet;
+import operators.base.MutationOperatorSet;
+import training.TrainPhraseGenerator;
 import validation.BotValidation_General;
 import validation.BotValidator;
 
@@ -28,6 +30,7 @@ public class Asymob {
 	private Bot currentBot = null;
 	private BotValidator botValidator = null;
 	private TrainPhraseGenerator trainPhraseGen = null;
+	private BotAnalyser botAnalyser = null;
 	/*Crear una api, dando una funcionalidad comun:
 		
 	- GenerateTrainingSet (Esto es con los operadores que generan 'equivalentes')
@@ -166,20 +169,7 @@ public class Asymob {
 		
 		return retList;
 	}
-	/*private void extractAllIntentInputs(Bot botIn)
-	{
-		List<Intent> listIntent;
-		List<IntentLanguageInputs> listLanguages;
-		if(botIn != null)
-		{
-			//
-			listIntent =  botIn.getIntents();
-			
-			for (Intent intent : listIntent) {
-				listLanguages = intent.getInputs();
-			}
-		}
-	}*/
+
 	private ResourceSet getResourceSet() {
 		if (botResourceSet == null) {
 			botResourceSet = new ResourceSetImpl();
@@ -226,5 +216,31 @@ public class Asymob {
 			HttpRequest que hace referencia
 		 */
 		return false;
+	}
+	
+	public boolean generateTestCases()
+	{
+		boolean bRet;
+		
+		bRet = false;
+		
+		//Q? -> La generacion directa de TCs esta hecha en CONGA?
+		//Load all the entities of a bot
+		
+		return bRet;
+	}
+	public boolean applyTrainingPhrasesToChatbot() {
+		boolean bRet;
+		
+		try
+		{
+			bRet = trainPhraseGen.applyTrainingPhrasesToChatbot();
+		}
+		catch(Exception e)
+		{
+			bRet = false;
+		}
+
+		return bRet;
 	}
 }

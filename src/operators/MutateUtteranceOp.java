@@ -47,6 +47,4 @@ public class MutateUtteranceOp extends MutationOperator{
 		
 		return listRet;
 	}	
-
-	//Podria hacerse un modelo para facilitar el enlace a linea de comandos
 }

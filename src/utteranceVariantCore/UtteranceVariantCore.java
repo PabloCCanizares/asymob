@@ -2,8 +2,8 @@ package utteranceVariantCore;
 
 import java.util.LinkedList;
 
-import main.MutationOperatorSet;
 import operators.base.MutationOperator;
+import operators.base.MutationOperatorSet;
 
 public class UtteranceVariantCore {
 

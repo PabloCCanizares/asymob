@@ -38,6 +38,4 @@ public class MutRandomTraductionChainedOp extends MutationOperator{
 	
 		return null;
 	}	
-
-	//Podria hacerse un modelo para facilitar el enlace a linea de comandos
 }

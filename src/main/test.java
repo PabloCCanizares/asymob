@@ -12,6 +12,7 @@ import operators.MutTraductionChainedOp;
 import operators.MutateUtteranceOp;
 import operators.base.MutantOperatorBuilder;
 import operators.base.MutationOperator;
+import operators.base.MutationOperatorSet;
 import utteranceVariantCore.VariantGenByCommand;
 
 public class test {
@@ -27,7 +28,11 @@ public class test {
 			mutOpSet = selectMutationOperators();
 			if(botTester.generateTrainingPhrasesByIntentId("Hours", mutOpSet))
 			{
-				botTester.saveToDisk("/localSpace/chatbots/CongaModels/bikeShop_copy.xmi");
+				if(botTester.applyTrainingPhrasesToChatbot())
+				{
+					botTester.saveToDisk("/localSpace/chatbots/CongaModels/bikeShop_copy.xmi");
+				}
+				
 			}
 		}
 		

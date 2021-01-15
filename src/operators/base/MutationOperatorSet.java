@@ -1,9 +1,7 @@
-package main;
+package operators.base;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-
-import operators.base.MutationOperator;
 
 public class MutationOperatorSet {
 
@@ -18,17 +16,6 @@ public class MutationOperatorSet {
 	{
 		operatorList.add(opIn);
 	}
-
-	/*
-	public  static MutOpsCfg getInstance() {
-
-		if (mutOps==null) {
-
-			mutOps=new MutOpsCfg();
-		}
-		return mutOps;
-	}	*/
-	
 	public void resetIndex() {
 		itList = operatorList.iterator();
 	}

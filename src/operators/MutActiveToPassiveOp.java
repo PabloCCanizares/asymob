@@ -32,6 +32,4 @@ public class MutActiveToPassiveOp extends MutationOperator{
 		
 		return null;
 	}	
-
-	//Podria hacerse un modelo para facilitar el enlace a linea de comandos
 }
