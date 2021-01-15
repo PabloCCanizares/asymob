@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import generator.Bot;
 import generator.GeneratorFactory;
@@ -30,7 +31,7 @@ public class TrainPhraseGenerator {
 	{
 		boolean bRet;
 		bRet = false;
-		
+
 		//Iterate the intents and call the existing method
 		if(botIn != null)
 		{
@@ -45,7 +46,7 @@ public class TrainPhraseGenerator {
 		List<IntentInput> inputList;
 		LinkedList<TrainingPhraseVariation> listVarPhrase;
 		bRet = true;
-		
+
 		System.out.println("generateTrainingPhraseFull - Init");
 		try
 		{
@@ -54,21 +55,21 @@ public class TrainPhraseGenerator {
 			{
 				//Analyse the different languages
 				listLanguages = intentIn.getInputs();
-				
+
 				for (IntentLanguageInputs intentLan : listLanguages) {
-					
+
 					if(intentLan != null)
 					{
 						System.out.println("generateTrainingPhraseFull - Analysing intent in language "+intentLan.getLanguage().getLiteral());
 						inputList = intentLan.getInputs();
-						
+
 						//Find all the inputs and process them
 						if(inputList != null)
 						{
 							for (IntentInput input : inputList) {
 								listVarPhrase = createTrainingPhrase(input, cfgIn);
-								
-								associateVarListToIntent(input, listVarPhrase);
+
+								associateVarListToIntent(intentLan, listVarPhrase);
 							}
 						}			
 					}
@@ -85,12 +86,12 @@ public class TrainPhraseGenerator {
 		System.out.println("generateTrainingPhraseFull - End");
 		return bRet;
 	}
-	private void associateVarListToIntent(IntentInput input,
+	private void associateVarListToIntent(IntentLanguageInputs intentLan,
 			LinkedList<TrainingPhraseVariation> listVarPhrase) {
-		
-		if(listVarPhrase != null && input != null)
+
+		if(listVarPhrase != null && intentLan != null)
 		{
-			trainingPhraseSet.insertPhrase(input, listVarPhrase);
+			trainingPhraseSet.insertPhrase(intentLan, listVarPhrase);
 		}
 	}
 	/**
@@ -106,19 +107,19 @@ public class TrainPhraseGenerator {
 		LinkedList<TrainingPhraseVarTemplate> mutedTrainingPhrases;
 		TrainingPhraseVarTemplate partialResults;
 		LinkedList<TrainingPhraseVariation> retList;
-		
+
 		retList = null;
 		if(inputIn != null)
 		{
 			retList = new LinkedList<TrainingPhraseVariation>();
 			mutedTrainingPhrases = new LinkedList<TrainingPhraseVarTemplate>();
-			
+
 			//Dynamically check if are training phrases [TrainingPhrase] 
 			if (inputIn instanceof TrainingPhrase) {
 				trainIn = (TrainingPhrase) inputIn;
-				
+
 				tokenList = trainIn.getTokens();
-				
+
 				//Check if the token is literal or composed [Tokens]
 				for(Token tokenIn: tokenList)
 				{
@@ -137,67 +138,87 @@ public class TrainPhraseGenerator {
 				{
 					TrainingPhraseVarTemplate variantPhrase;
 					LinkedList<String> listVariants;
-					
+
 					variantPhrase = mutedTrainingPhrases.getFirst();
-					
+
 					//Flatten the template into individual phrases
 					listVariants = variantPhrase.getVariations();
-					
+
 					for(String strVariant: listVariants)
 					{
 						//Add to the return list, a simple training phrase variation
 						retList.add(new TrainingPhraseVarSimple(variantPhrase.getToken(), strVariant));
-						
-						//Temporally to make it work
-						Literal lit = GeneratorFactory.eINSTANCE.createLiteral();
-						lit.setText(strVariant);
-						trainIn.getTokens().add(lit);
 					}
 				}
 				//Composed list
 				else if (mutedTrainingPhrases.size() > 1)
 				{
-					/*TrainingPhraseVarTemplate variantPhrase, variantChildPhrase;
 					TrainingPhraseVarComposed variantComposedPhrase;
 					
-					variantChildPhrase = mutedTrainingPhrases.getFirst();	
-					if(variantPhrase != null && !variantPhrase.isEmpty())
-					{				
-						variantComposedPhrase = new TrainingPhraseVarComposed();
-						//Recorremos todos los trainingphrasevariation e insertamos (lo sacamos de aqui, mover a save)
-						//Create new training phrase instance
-						variantComposedPhrase.addPart();
-						
-						//At this point we must create combinations of these elements
-						//Depending, at same time, on the maximum mutants to generate
-						
-						for(int nIndexChild=1; nIndexChild<mutedTrainingPhrases.size();nIndexChild++)
-						{
-							//Get the variant
-							variantChildPhrase = mutedTrainingPhrases.get(nIndexChild);
-						}
-						//Here we have a complex  
-					}
-					nIndex++;
-							*/		
+					variantComposedPhrase = new TrainingPhraseVarComposed();
+					
+					//We reserve the size of the composed phrase
+					variantComposedPhrase.reserveSize(mutedTrainingPhrases.size());
+					
+					//Recursive call, to create
+					createComposedPhrase(0, mutedTrainingPhrases, variantComposedPhrase, retList);
 				}
-				
-				//Add to the previous collection of tokens, the mutated ones
-				/*for (String variantPhrase : mutedTrainingPhrases) {
-					lit = GeneratorFactory.eINSTANCE.createLiteral();
-					lit.setText(variantPhrase);
-					trainIn.getTokens().add(lit);
-				}*/
-				//Despues
-				//lit = GeneratorFactory.eINSTANCE.createLiteral();
-				//lit.setText(variantPhrase);
-				//trainIn.getTokens().add(lit);
 			}
 			mutedTrainingPhrases.clear();
 		}
-			
+
 
 		return retList;
+	}
+	private void createComposedPhrase(int nIndex, LinkedList<TrainingPhraseVarTemplate> mutedTrainingPhrases, TrainingPhraseVarComposed variantComposedPhrase,
+			LinkedList<TrainingPhraseVariation> retList) {
+		TrainingPhraseVarTemplate variantChildPhrase;
+		LinkedList<String> listSimple;
+		
+		for(int nIndexChild=nIndex; nIndexChild<mutedTrainingPhrases.size();nIndexChild++)
+		{
+			//Get the variant
+			variantChildPhrase = mutedTrainingPhrases.get(nIndexChild);
+			
+			listSimple = variantChildPhrase.getVariations();
+			
+			//FOR de cada valor
+			for(int i=0;i<listSimple.size(); i++)
+			{
+				String strSimplePhrase;
+				strSimplePhrase = listSimple.get(i);
+				
+				//Add simple value
+				variantComposedPhrase.addOrReplacePhrase(nIndexChild, new TrainingPhraseVarSimple(variantChildPhrase.getToken(), strSimplePhrase));
+				
+				//Recursive call, nIndex+1
+				createComposedPhrase(nIndex+1, mutedTrainingPhrases, variantComposedPhrase, retList);
+				
+				//If is the last element in mutedtraining phrase, store in the return list
+				//But it is necessary to create a copy
+				if(nIndexChild+1 == mutedTrainingPhrases.size())
+					addCopyToRetList(retList, variantComposedPhrase);
+				
+			}
+		}
+	}
+	private void addCopyToRetList(LinkedList<TrainingPhraseVariation> retList,
+			TrainingPhraseVarComposed variantComposedPhrase) {
+		TrainingPhraseVarComposed newCompPhrase;
+		LinkedList<TrainingPhraseVarSimple> list;
+		TrainingPhraseVarSimple newPhrase;
+		
+		if(variantComposedPhrase != null)
+		{
+			newCompPhrase = new TrainingPhraseVarComposed();
+			list = variantComposedPhrase.getTrainingPhrases();
+			
+			for(TrainingPhraseVarSimple oldPhrase: list)
+			{
+				newPhrase = new TrainingPhraseVarSimple(oldPhrase.originalToken, oldPhrase.getTrainingPhrase());
+				newCompPhrase.addPhrase(newPhrase);
+			}
+		}
 	}
 	/*private void releaseLastResults()
 	{
@@ -214,7 +235,7 @@ public class TrainPhraseGenerator {
 		ParameterReferenceToken paramRefIn;		
 		TrainingPhraseVarTemplate trainingRet;
 		boolean bRet;
-		
+
 		//Initialise
 		trainingRet = null;
 		bRet = false;
@@ -225,11 +246,10 @@ public class TrainPhraseGenerator {
 				//process as literal
 				litIn = (Literal) tokenIn;
 				System.out.println("Token/Literal: "+litIn.getText());
-				
+
 				listStrVariants = oMutCore.generateVariants(cfgIn, litIn.getText());		
-				
+
 				//Filter list
-				//Insert in the temporal ... No temporal
 				trainingRet = new TrainingPhraseVarTemplate(tokenIn, listStrVariants);
 			}
 			else if(tokenIn instanceof ParameterReferenceToken)
@@ -239,35 +259,110 @@ public class TrainPhraseGenerator {
 
 				//Generate variants of the token.
 				listStrVariants = oMutCore.generateVariants(cfgIn, paramRefIn.getTextReference());		
-				
+
 				System.out.println("Token/ParameterReferenceToken: "+paramRefIn.getTextReference());	
-				
-				trainingRet = new TrainingPhraseVarTemplate(tokenIn, listStrVariants);
+
+				if(listStrVariants != null && listStrVariants.size() >0)
+					trainingRet = new TrainingPhraseVarTemplate(tokenIn, listStrVariants);
 			}
-			
+
 			bRet = true;
 		}
 
 		if(bRet == false)
 			trainingRet = null;
-		
+
 		return trainingRet;
 	}
 	public boolean applyTrainingPhrasesToChatbot() {
-		boolean bRet;
-		
+		boolean bRet, bInserted;
+
 		bRet = false;
 		if(trainingPhraseSet != null)
 		{
+			IntentLanguageInputs inputVariant;
+			LinkedList<TrainingPhraseVariation> variantList;
+
 			//TODO: Make the iterator private element of the trainingPhraseSet class
-			Iterator iterator = trainingPhraseSet.getHashMap().entrySet().iterator();
-	        while (iterator.hasNext()) {
-	          Map.Entry me2 = (Map.Entry) iterator.next();
-	          System.out.println("Key: "+me2.getKey() + " & Value: " + me2.getValue());
-	        } 
-			//Loop the traiining phrases set
+			Iterator<Entry<IntentLanguageInputs, LinkedList<TrainingPhraseVariation>>> iterator = trainingPhraseSet.getHashMap().entrySet().iterator();
+			while (iterator.hasNext()) {
+				Entry<IntentLanguageInputs, LinkedList<TrainingPhraseVariation>> me2 = iterator.next();
+				System.out.println("Key: "+me2.getKey() + " & Value: " + me2.getValue());
+
+				inputVariant = (IntentLanguageInputs) me2.getKey();
+				variantList = (LinkedList<TrainingPhraseVariation>) me2.getValue();
+
+				//Insert into the intent, the training phrases
+				if(inputVariant != null)
+				{
+					//Go through all the elements of the variant list
+					for(TrainingPhraseVariation tPhraseVar: variantList)
+					{
+						//Create a training phrase
+						TrainingPhrase tPhrase = GeneratorFactory.eINSTANCE.createTrainingPhrase();
+						bInserted = false;
+						//Depending on the type of each trainingPhraseVariation, we must create different types of elements.
+						if(tPhraseVar instanceof TrainingPhraseVarSimple)
+						{
+							bInserted = true;
+							insertSimplePhrase(tPhrase, tPhraseVar);	        			  
+						}
+						else if(tPhraseVar instanceof TrainingPhraseVarComposed)
+						{
+							bInserted = true;
+							insertComposedPhrase(tPhrase, tPhraseVar);
+						}
+						
+						//Add the training phrase to the inputLanguage						
+						if(bInserted)
+							inputVariant.getInputs().add(tPhrase);
+					}
+				}
+			} 
 			bRet = true;
 		}
 		return bRet;
 	}
+
+	private void insertSimplePhrase(TrainingPhrase tPhrase, TrainingPhraseVariation tPhraseVar) {
+		TrainingPhraseVarSimple varSimple;
+		Literal lit;
+
+		varSimple = (TrainingPhraseVarSimple) tPhraseVar;
+		if(varSimple != null && tPhrase != null)
+		{
+			lit = GeneratorFactory.eINSTANCE.createLiteral();
+			lit.setText(varSimple.getTrainingPhrase());
+			tPhrase.getTokens().add(lit);
+		}
+	}
+	private void insertComposedPhrase(TrainingPhrase tPhrase, TrainingPhraseVariation tPhraseVar) {
+		TrainingPhraseVarComposed varComposed;
+		LinkedList<TrainingPhraseVarSimple> simpleList;
+		ParameterReferenceToken parRef;
+		Token originalTokenPhrase;
+
+		varComposed = (TrainingPhraseVarComposed) tPhraseVar;
+		if(varComposed != null && tPhrase != null)
+		{
+			//The varComposed, consist of different varSimple
+			simpleList = varComposed.getTrainingPhrases();
+			for(TrainingPhraseVarSimple varSimplePhrase : simpleList)
+			{
+				originalTokenPhrase = varSimplePhrase.getToken();
+
+				if(originalTokenPhrase instanceof Literal)
+				{
+					insertSimplePhrase(tPhrase, varSimplePhrase);
+				}
+				else if(originalTokenPhrase instanceof ParameterReferenceToken)
+				{
+					parRef = GeneratorFactory.eINSTANCE.createParameterReferenceToken();
+					parRef.setTextReference(varSimplePhrase.getTrainingPhrase());
+					parRef.setParameter(((ParameterReferenceToken) originalTokenPhrase).getParameter());
+					tPhrase.getTokens().add(parRef);
+				}
+			}
+		}
+	}	
 }

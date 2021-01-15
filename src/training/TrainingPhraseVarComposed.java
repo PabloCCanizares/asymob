@@ -11,6 +11,7 @@ public class TrainingPhraseVarComposed extends TrainingPhraseVariation {
 
 	public TrainingPhraseVarComposed() {
 		
+		phraseParts = new LinkedList<TrainingPhraseVarSimple>();
 	}
 
 	public void insertPart()
@@ -24,5 +25,25 @@ public class TrainingPhraseVarComposed extends TrainingPhraseVariation {
 
 	public LinkedList<TrainingPhraseVarSimple> getTrainingPhrases() {
 		return phraseParts;
+	}
+
+	public void reserveSize(int nSize) {
+		
+		for(int i=0;i<nSize;i++)
+			phraseParts.add(i, null);
+	}
+
+	public void addOrReplacePhrase(int nIndexChild, TrainingPhraseVarSimple trainingPhraseVarSimple) {
+		
+		if(phraseParts != null && nIndexChild<phraseParts.size())
+		{
+			phraseParts.add(nIndexChild, trainingPhraseVarSimple);
+		}
+		
+	}
+
+	public void addPhrase(TrainingPhraseVarSimple newPhrase) {
+		phraseParts.add(newPhrase);
+		
 	}
 }

@@ -26,16 +26,15 @@ public class test {
 		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
 		{
 			mutOpSet = selectMutationOperators();
-			if(botTester.generateTrainingPhrasesByIntentId("Hours", mutOpSet))
+			//if(botTester.generateTrainingPhrasesByIntentId("Hours", mutOpSet))
+			if(botTester.generateTrainingPhrasesByIntentId("Make Appointment", mutOpSet))
 			{
 				if(botTester.applyTrainingPhrasesToChatbot())
 				{
 					botTester.saveToDisk("/localSpace/chatbots/CongaModels/bikeShop_copy.xmi");
 				}
-				
 			}
 		}
-		
 	}
 		
 	private static LinkedList<String> createLangList(String strLangs) {
@@ -88,14 +87,14 @@ public class test {
 
 		mutOpSetRet = new MutationOperatorSet(); 
 		mutOpSetRet.insertOperator(mutOp);
-		mutOpSetRet.insertOperator(mutOp2);
+		/*mutOpSetRet.insertOperator(mutOp2);
 		mutOpSetRet.insertOperator(mutOp3);
 		mutOpSetRet.insertOperator(mutOp4);
 		mutOpSetRet.insertOperator(mutOp5);
 		mutOpSetRet.insertOperator(mutOp6);
 		mutOpSetRet.insertOperator(mutOp7);
 		mutOpSetRet.insertOperator(mutOp8);
-		mutOpSetRet.insertOperator(mutOp9);
+		mutOpSetRet.insertOperator(mutOp9);*/
 		
 		return mutOpSetRet;
 	}

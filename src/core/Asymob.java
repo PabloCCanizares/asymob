@@ -138,7 +138,7 @@ public class Asymob {
 		bRet = false;
 		try
 		{
-			botIntent = currentBot.getIntent("Hours");
+			botIntent = currentBot.getIntent(strIntentName);
 			
 			if(botIntent != null)
 				bRet = trainPhraseGen.generateTrainingPhraseFull(botIntent, mutOpSet);
@@ -224,7 +224,7 @@ public class Asymob {
 		
 		bRet = false;
 		
-		//Q? -> La generacion directa de TCs esta hecha en CONGA?
+		//Q? -> La generacion directa de TCs esta hecha en CONGA? -> Está hecha en CHARM unicamente.
 		//Load all the entities of a bot
 		
 		return bRet;
