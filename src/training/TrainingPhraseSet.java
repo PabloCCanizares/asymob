@@ -2,10 +2,6 @@ package training;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
-
-import generator.Intent;
-import generator.IntentInput;
 import generator.IntentLanguageInputs;
 
 public class TrainingPhraseSet {

@@ -1,6 +1,6 @@
 package training;
 
-import generator.Token;
+import operators.base.EMutationOperators;
 
 /**
  * Base-class for storing the information related with training phrase variations
@@ -9,7 +9,6 @@ import generator.Token;
  */
 public abstract class TrainingPhraseVariation {
 
-	String strId;
-	
+	protected EMutationOperators mutOp;
 	protected abstract boolean isEmpty();
 }

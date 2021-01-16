@@ -3,6 +3,7 @@ package training;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -50,6 +51,8 @@ public class TrainPhraseGenerator {
 		System.out.println("generateTrainingPhraseFull - Init");
 		try
 		{
+			//TODO: Aplanar esto con excepciones.
+			
 			//Find all the inputs and process them
 			if(intentIn != null)
 			{
@@ -139,29 +142,56 @@ public class TrainPhraseGenerator {
 					TrainingPhraseVarTemplate variantPhrase;
 					LinkedList<String> listVariants;
 
-					variantPhrase = mutedTrainingPhrases.getFirst();
-
-					//Flatten the template into individual phrases
-					listVariants = variantPhrase.getVariations();
-
-					for(String strVariant: listVariants)
+					if(hasVariations(mutedTrainingPhrases))
 					{
-						//Add to the return list, a simple training phrase variation
-						retList.add(new TrainingPhraseVarSimple(variantPhrase.getToken(), strVariant));
+						variantPhrase = mutedTrainingPhrases.getFirst();
+
+						//Flatten the template into individual phrases
+						listVariants = variantPhrase.getVariations();
+
+						for(String strVariant: listVariants)
+						{
+							//Add to the return list, a simple training phrase variation
+							retList.add(new TrainingPhraseVarSimple(variantPhrase.getToken(), strVariant));
+						}
 					}
+
 				}
 				//Composed list
 				else if (mutedTrainingPhrases.size() > 1)
 				{
 					TrainingPhraseVarComposed variantComposedPhrase;
 					
-					variantComposedPhrase = new TrainingPhraseVarComposed();
+					//First of all, we must check whether almost one of the trainingphrases have been generated.
+					//Let us remember that, due to the restrictions size of a composed phrase,
+					//all the simple sentences that compounds a composed phrase are managed as a single unit.
+					//That is, if the variation have been applied only to a simple phrase, we need to store the
+					//rest of phrases to create a new variation.
 					
-					//We reserve the size of the composed phrase
-					variantComposedPhrase.reserveSize(mutedTrainingPhrases.size());
-					
-					//Recursive call, to create
-					createComposedPhrase(0, mutedTrainingPhrases, variantComposedPhrase, retList);
+					//Ej: if we have the following composed training phrase:
+					/*
+					 *  <inputs xsi:type="generator:TrainingPhrase">
+				        (1) <tokens xsi:type="generator:Literal" text="I need a "/>
+				        (2) <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="repair"/>
+				        (3) <tokens xsi:type="generator:Literal" text="."/>
+				      </inputs>
+					 *
+					 * And the mutation engine only generates variations on the phrase 2. We must create, in the generateTrainingPhrase method,
+					 * a TrainingPhraseVarTemp object with a null value in the list associated in the 
+					 */
+					if(hasVariations(mutedTrainingPhrases))
+					{
+						variantComposedPhrase = new TrainingPhraseVarComposed();
+						
+						//Necessaries to create all the posibilities  the composed phrases
+						includeOriginalTrainPhrases(mutedTrainingPhrases);
+						//We reserve the size of the composed phrase
+						variantComposedPhrase.reserveSize(mutedTrainingPhrases.size());
+						
+						//Recursive call, to create
+						createComposedPhrase(0, mutedTrainingPhrases, variantComposedPhrase, retList);
+					}
+					//I.o.c. we discard the composed phrase.
 				}
 			}
 			mutedTrainingPhrases.clear();
@@ -169,6 +199,71 @@ public class TrainPhraseGenerator {
 
 
 		return retList;
+	}
+	private void includeOriginalTrainPhrases(LinkedList<TrainingPhraseVarTemplate> mutedTrainingPhrases) {
+		ListIterator<TrainingPhraseVarTemplate> iter;
+		TrainingPhraseVarTemplate element;
+		
+		iter = mutedTrainingPhrases.listIterator();
+		
+		//Search almost one element with variations.
+		while( iter.hasNext())
+		{
+			element = iter.next();
+			
+			Token token = element.getToken();
+			String strTokenStr =  getTokenText(token);
+			
+			if(strTokenStr != null)
+				element.insertVariation(0, strTokenStr);
+		}
+	}
+	private String getTokenText(Token token) {
+		String strText;
+		Literal litIn;
+		ParameterReferenceToken paramRefIn;
+		
+		//Initially, the returning string is null
+		strText = null;
+		
+		if(token != null)
+		{
+			if (token instanceof Literal) 
+			{
+				//process as literal
+				litIn = (Literal) token;
+				
+				if(litIn != null)
+					strText = litIn.getText();
+			}
+			else if(token instanceof ParameterReferenceToken)
+			{
+				paramRefIn = (ParameterReferenceToken) token;
+				
+				if(paramRefIn != null)
+					strText = 	paramRefIn.getTextReference();
+			}
+		}
+
+		return strText;
+	}
+	private boolean hasVariations(LinkedList<TrainingPhraseVarTemplate> mutedTrainingPhrases) {
+		
+		boolean bRet;
+		ListIterator<TrainingPhraseVarTemplate> iter;
+		
+		bRet = false;
+		iter = mutedTrainingPhrases.listIterator();
+		
+		//Search almost one element with variations.
+		while( iter.hasNext() && !bRet)
+		{
+			TrainingPhraseVarTemplate element = iter.next();
+			
+			bRet = (!element.isEmpty());
+		}
+		
+		return bRet;
 	}
 	private void createComposedPhrase(int nIndex, LinkedList<TrainingPhraseVarTemplate> mutedTrainingPhrases, TrainingPhraseVarComposed variantComposedPhrase,
 			LinkedList<TrainingPhraseVariation> retList) {
@@ -239,8 +334,10 @@ public class TrainPhraseGenerator {
 		//Initialise
 		trainingRet = null;
 		bRet = false;
+		
 		if(tokenIn != null)
 		{
+			//TODO: it can be reafactorized using getText(Token) method
 			listStrVariants = new LinkedList<String>();
 			if (tokenIn instanceof Literal) {
 				//process as literal
@@ -250,7 +347,12 @@ public class TrainPhraseGenerator {
 				listStrVariants = oMutCore.generateVariants(cfgIn, litIn.getText());		
 
 				//Filter list
-				trainingRet = new TrainingPhraseVarTemplate(tokenIn, listStrVariants);
+				if(listStrVariants != null && listStrVariants.size() >0)
+					trainingRet = new TrainingPhraseVarTemplate(tokenIn, listStrVariants);
+				else
+					//We store a null value, to store the associated token to this training phrase.
+					//It is possible that this token will be necessary to create a composed training phrase in the next steps.
+					trainingRet = new TrainingPhraseVarTemplate(tokenIn, null);				
 			}
 			else if(tokenIn instanceof ParameterReferenceToken)
 			{
@@ -260,10 +362,16 @@ public class TrainPhraseGenerator {
 				//Generate variants of the token.
 				listStrVariants = oMutCore.generateVariants(cfgIn, paramRefIn.getTextReference());		
 
+				Ojo que hay algunos objetos de listStrVariants que se estan compartiendo, revisar.
+				
 				System.out.println("Token/ParameterReferenceToken: "+paramRefIn.getTextReference());	
 
 				if(listStrVariants != null && listStrVariants.size() >0)
 					trainingRet = new TrainingPhraseVarTemplate(tokenIn, listStrVariants);
+				else
+					//We store a null value, to store the associated token to this training phrase.
+					//It is possible that this token will be necessary to create a composed training phrase in the next steps.
+					trainingRet = new TrainingPhraseVarTemplate(tokenIn, null);
 			}
 
 			bRet = true;

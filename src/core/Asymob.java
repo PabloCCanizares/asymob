@@ -31,12 +31,7 @@ public class Asymob {
 	private BotValidator botValidator = null;
 	private TrainPhraseGenerator trainPhraseGen = null;
 	private BotAnalyser botAnalyser = null;
-	/*Crear una api, dando una funcionalidad comun:
 		
-	- GenerateTrainingSet (Esto es con los operadores que generan 'equivalentes')
-	- GenerateTestSuite (Fijarnos en el formato de charm)
-	- Validate*/
-	
 	public Asymob()
 	{
 		trainPhraseGen = new TrainPhraseGenerator();

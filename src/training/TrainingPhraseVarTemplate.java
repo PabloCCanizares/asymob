@@ -7,7 +7,6 @@ import generator.Token;
 
 public class TrainingPhraseVarTemplate extends TrainingPhraseVarBase {
 
-	Token originalToken;
 	LinkedList<String> trainingVariationList;
 
 
@@ -23,5 +22,14 @@ public class TrainingPhraseVarTemplate extends TrainingPhraseVarBase {
 
 	public LinkedList<String> getVariations() {
 		return trainingVariationList;
+	}
+
+	public void insertVariation(int nIndex, String strToken) {
+		if(trainingVariationList == null)
+			trainingVariationList = new LinkedList<String>();
+		
+		if(nIndex <= trainingVariationList.size())
+			trainingVariationList.add(nIndex, strToken);
+		
 	}
 }

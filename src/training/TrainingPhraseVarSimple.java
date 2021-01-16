@@ -4,9 +4,7 @@ import generator.Token;
 
 public class TrainingPhraseVarSimple extends TrainingPhraseVarBase {
 
-	Token originalToken;
 	String trainingPhrase;
-
 
 	public TrainingPhraseVarSimple(Token tokenIn, String trainingPhrase) {
 		super(tokenIn);
