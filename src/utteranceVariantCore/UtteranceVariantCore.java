@@ -16,7 +16,7 @@ public class UtteranceVariantCore {
 		listRet = null;
 		
 		//Check if the input configuration is correct
-		if (cfgIn != null) {
+		if (cfgIn != null && strInputPhrase != null && !strInputPhrase.isEmpty() && !strInputPhrase.isBlank()) {
 			cfgIn.resetIndex();
 			
 			//Loop the active mutation operators and apply them to the phrase			

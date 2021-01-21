@@ -72,6 +72,7 @@ public class TrainPhraseGenerator {
 							for (IntentInput input : inputList) {
 								listVarPhrase = createTrainingPhrase(input, cfgIn);
 
+								//remove the first one, due to its identical to the original one								
 								associateVarListToIntent(intentLan, listVarPhrase);
 							}
 						}			
@@ -190,6 +191,10 @@ public class TrainPhraseGenerator {
 						
 						//Recursive call, to create
 						createComposedPhrase(0, mutedTrainingPhrases, variantComposedPhrase, retList);
+						
+						//if not is empty, remove the first element
+						if(retList != null && retList.size()>0)
+							retList.removeFirst();
 					}
 					//I.o.c. we discard the composed phrase.
 				}
@@ -270,10 +275,12 @@ public class TrainPhraseGenerator {
 		TrainingPhraseVarTemplate variantChildPhrase;
 		LinkedList<String> listSimple;
 		
-		for(int nIndexChild=nIndex; nIndexChild<mutedTrainingPhrases.size();nIndexChild++)
+		//for(int nIndexChild=nIndex; nIndexChild<mutedTrainingPhrases.size();nIndexChild++)
+		if(nIndex < mutedTrainingPhrases.size())
 		{
+			int nIndexChild = nIndex;
 			//Get the variant
-			variantChildPhrase = mutedTrainingPhrases.get(nIndexChild);
+			variantChildPhrase = mutedTrainingPhrases.get(nIndex);
 			
 			listSimple = variantChildPhrase.getVariations();
 			
@@ -310,9 +317,13 @@ public class TrainPhraseGenerator {
 			
 			for(TrainingPhraseVarSimple oldPhrase: list)
 			{
-				newPhrase = new TrainingPhraseVarSimple(oldPhrase.originalToken, oldPhrase.getTrainingPhrase());
-				newCompPhrase.addPhrase(newPhrase);
+				if(oldPhrase != null)
+				{
+					newPhrase = new TrainingPhraseVarSimple(oldPhrase.originalToken, oldPhrase.getTrainingPhrase());
+					newCompPhrase.addPhrase(newPhrase);
+				}				
 			}
+			retList.add(newCompPhrase);
 		}
 	}
 	/*private void releaseLastResults()
@@ -360,9 +371,7 @@ public class TrainPhraseGenerator {
 				paramRefIn = (ParameterReferenceToken) tokenIn;
 
 				//Generate variants of the token.
-				listStrVariants = oMutCore.generateVariants(cfgIn, paramRefIn.getTextReference());		
-
-				Ojo que hay algunos objetos de listStrVariants que se estan compartiendo, revisar.
+				listStrVariants = oMutCore.generateVariants(cfgIn, paramRefIn.getTextReference());						
 				
 				System.out.println("Token/ParameterReferenceToken: "+paramRefIn.getTextReference());	
 

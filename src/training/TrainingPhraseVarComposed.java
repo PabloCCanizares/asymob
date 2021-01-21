@@ -37,6 +37,7 @@ public class TrainingPhraseVarComposed extends TrainingPhraseVariation {
 		
 		if(phraseParts != null && nIndexChild<phraseParts.size())
 		{
+			phraseParts.remove(nIndexChild);
 			phraseParts.add(nIndexChild, trainingPhraseVarSimple);
 		}
 		

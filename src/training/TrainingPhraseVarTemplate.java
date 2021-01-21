@@ -12,7 +12,14 @@ public class TrainingPhraseVarTemplate extends TrainingPhraseVarBase {
 
 	public TrainingPhraseVarTemplate(Token tokenIn, LinkedList<String> listStrVariants) {
 		super(tokenIn);
-		trainingVariationList = listStrVariants;
+		
+		if(listStrVariants != null)
+		{
+			trainingVariationList = new LinkedList<String>();
+			trainingVariationList.addAll(listStrVariants);
+		}
+		else
+			this.trainingVariationList = null;
 	}
 
 	public boolean isEmpty() {
