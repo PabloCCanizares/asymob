@@ -1,0 +1,61 @@
+*Asymob: A framework for SYsteMatic testing Of chatBots 
+==================================================================================================
+DONE.
+
+*Vaciar el proyecto bowling
+*Incluir los operadores:
+  -deleteChars
+  -traductionChained
+  -randomTraductionChained
+  -changeWordToNumber
+  -activeToPassive (DONE 08/01/21)
+  -convertAdjectivesToSynonyms (DONE 04/01/21)
+  -convertAdjectivesToAntonyms (DONE 04/01/21)
+  -convertObjectsToSynonyms (DONE 28/12/20)
+  -convertAdverbsToSynonyms (DONE 28/12/20)
+  -convertAdverbsToAntonyms (DONE 28/12/20)
+  
+ *Analizar como asociar cada tipo de operador de mutacion. (DONE 18/12/20)
+   - Poder encajar el operador de mutacion y su cfg, a su implementacion.
+   - Para permitir asi incluir, operadores de mutacion con implementaciones distintas.
+     · MutUtterance: desde java + desde python1 + desde python2
+   
+   
+*Adaptar el .py para que pueda gestionar los operadores correctamente, no hardcoded. (DONE 11/12/20)
+
+*Elegir la estructura de codigo, para que encajen correctamente los operadores de mut.  (DONE 15/12/20)
+
+*Problema con wordnet: escribe en linea de comandos, pese a redireccionar la salida en linux (DONE 29/12/20)
+
+*Inclusion nuevo sistema de traduccion, apertium. Hay un problema, depende del flujo de traduccion, traduce mejor o peor. No puede ser generico (DONE 05/01/21)
+
+*Inclusion de conversion de frases en pasiva a activa, utilizando 'spacy' (DONE 08/01/21)
+
+*Crear un nuevo proyecto (DONE 08/01/21)
+
+*Empaquetar el codigo en modo api y dejar funciones completas. (DONE 08/01/21)
+
+*Gestionar las frases compuestas, que tienen mezcla de Literal y ParameterReferenceToken. (DONE 18/01/21)
+
+==================================================================================================
+PENDING.
+
+* Terminar test cases
+
+*Funcionamiento correcto de max y min
+
+*Gestion de frases de entrenamiento: una vez procesadas, poder extraerlas en texto plano (por intent id ó todas), o aplicarlas al bot
+
+*Comentar codigo
+
+*Diagrama de clases, para visualizar los componentes del sistema y su interacción.
+
+*Hay un lio bastante grande con los nombres (el funcionamiento esta bien) del package training. Además, estaría bien saber que operadores han sido
+los artifices de la generación de cada frase. Pair<EMutationOperator, String>
+
+*Hacer un operador en java, para dejarlo como basico. (creo que nos seria de valor re-hacer el de los sinonimos y antonimos)
+
+==================================================================================================
+Posibles nuevos operadores:
+* Intercambio de simbolos de interrogación, a exclamacion.
+* Eliminación de tildes de manera aleatoria. 

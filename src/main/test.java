@@ -2,6 +2,8 @@ package main;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+
+import aux.BotPrinter;
 import core.Asymob;
 import operators.MutActiveToPassiveOp;
 import operators.MutAdjectivesToSynonymsOp;
@@ -25,7 +27,11 @@ public class test {
 		
 		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
 		{
-			mutOpSet = selectMutationOperators();
+			botTester.printBotSummary();
+			
+			botTester.generateTestCases();
+			
+			/*mutOpSet = selectMutationOperators();
 			//if(botTester.generateTrainingPhrasesByIntentId("Hours", mutOpSet))
 			if(botTester.generateTrainingPhrasesByIntentId("Make Appointment", mutOpSet))
 			{
@@ -33,7 +39,7 @@ public class test {
 				{
 					botTester.saveToDisk("/localSpace/chatbots/CongaModels/bikeShop_copy.xmi");
 				}
-			}
+			}*/
 		}
 	}
 		

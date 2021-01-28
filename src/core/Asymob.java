@@ -19,6 +19,8 @@ import generator.Bot;
 import generator.GeneratorPackage;
 import generator.Intent;
 import operators.base.MutationOperatorSet;
+import testCases.ITestCaseGenerator;
+import testCases.TcGenBotium;
 import training.TrainPhraseGenerator;
 import validation.BotValidation_General;
 import validation.BotValidator;
@@ -219,9 +221,12 @@ public class Asymob {
 		
 		bRet = false;
 		
-		//Q? -> La generacion directa de TCs esta hecha en CONGA? -> Está hecha en CHARM unicamente.
-		//Load all the entities of a bot
-		
+		if(currentBot != null)
+		{
+			ITestCaseGenerator tcGen = new TcGenBotium();
+			tcGen.generateTestCases("test", currentBot);
+		}
+				
 		return bRet;
 	}
 	public boolean applyTrainingPhrasesToChatbot() {
@@ -237,5 +242,10 @@ public class Asymob {
 		}
 
 		return bRet;
+	}
+	public void printBotSummary() {
+		BotPrinter botPrinter = new BotPrinter();
+		
+		botPrinter.printBot(currentBot);
 	}
 }
