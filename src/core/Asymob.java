@@ -215,7 +215,7 @@ public class Asymob {
 		return false;
 	}
 	
-	public boolean generateTestCases()
+	public boolean generateTestCases(String strPath)
 	{
 		boolean bRet;
 		
@@ -224,7 +224,7 @@ public class Asymob {
 		if(currentBot != null)
 		{
 			ITestCaseGenerator tcGen = new TcGenBotium();
-			tcGen.generateTestCases("test", currentBot);
+			tcGen.generateTestCases(strPath, currentBot);
 		}
 				
 		return bRet;

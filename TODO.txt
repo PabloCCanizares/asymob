@@ -40,13 +40,15 @@ DONE.
 ==================================================================================================
 PENDING.
 
-* Terminar test cases
+* Terminar test cases. Se complica con la generacion de las frases compuestas, unidas a los distintos parametros que han podido generarse con los operadores de mutacion
 
 *Funcionamiento correcto de max y min
 
 *Gestion de frases de entrenamiento: una vez procesadas, poder extraerlas en texto plano (por intent id ó todas), o aplicarlas al bot
 
 *Comentar codigo
+
+*Mejora entities
 
 *Diagrama de clases, para visualizar los componentes del sistema y su interacción.
 

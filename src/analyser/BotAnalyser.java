@@ -16,6 +16,7 @@ import generator.IntentInput;
 import generator.IntentLanguageInputs;
 import generator.Literal;
 import generator.ParameterReferenceToken;
+import generator.ParameterToken;
 import generator.Text;
 import generator.TextInput;
 import generator.TextLanguageInput;
@@ -136,11 +137,10 @@ public class BotAnalyser {
 		
 		if(actionIn != null)
 		{
-			retList = new LinkedList<String>();
 			//text
 			if (actionIn instanceof Text)
 			{								
-				handleTextAction(actionIn);
+				retList = handleTextAction(actionIn);
 			}
 			//image
 			else if (actionIn instanceof Image)
@@ -156,7 +156,7 @@ public class BotAnalyser {
 			else if(actionIn instanceof HTTPResponse)
 			{
 				//TODO: Ver como enfocarlo y terminar esta parte
-				aaa
+				
 			}
 		}
 		return retList;
@@ -167,25 +167,72 @@ public class BotAnalyser {
 		
 	}
 
-	private void handleTextAction(Action actionIn) {
+	private LinkedList<String> handleTextAction(Action actionIn) {
 		Text actionText;
 		EList<TextLanguageInput> textLanInputList;
 		EList<TextInput> textInputList;
+		LinkedList<String> retList, auxList;
 		actionText = (Text) actionIn;
 		
+		retList = null;
 		textLanInputList = actionText.getInputs();
 		
 		if(textLanInputList != null)
 		{
+			retList = new LinkedList<String>();
 			for(TextLanguageInput textLanIn: textLanInputList)
 			{
 				textInputList = textLanIn.getInputs();
 				if(textInputList != null)
 				{
-					
+					for(TextInput textIn: textInputList)
+					{
+						auxList =extractPhrasesFromTextAction(textIn);
+						retList.addAll(auxList);
+					}
 				}
 			}	
 		}
+		return retList;
+	}
+
+	//Aqui viene lo complejo. Hay que tener en cuenta todas las frases complejas generadas previamente
+	//para poder añadirlas como opciones de respuesta del bot.
+	private LinkedList<String> extractPhrasesFromTextAction(TextInput textIn) {
+		EList<Token> tokenList;
+		LinkedList<String> retList;
+		Literal lit;
+		ParameterToken paramToken;
+		
+		retList = null;
+		if(textIn != null)
+		{
+			retList = new LinkedList<String>();
+			tokenList = textIn.getTokens();
+			
+			//If the token list size is greater than 1, it means that the phrase is composed.
+			//So, it is neccesary to create combinations of the parameters if it have different values.
+			for(Token tokIndex: tokenList)
+			{
+				if(tokIndex != null)
+				{
+					//Check the type of the token
+					if(tokIndex instanceof Literal)
+					{
+						lit = (Literal) tokIndex;
+						
+						if(lit != null)
+							retList.add(lit.getText());
+					}
+					else if(tokIndex instanceof ParameterToken)
+					{
+						paramToken = (ParameterToken) tokIndex;
+						paramToken.getParameter();
+					}
+				}
+			}
+		}
+		return retList;
 	}
 
 	public EList<Action> extractActionList(UserInteraction userActIn) {

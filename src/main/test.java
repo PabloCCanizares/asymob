@@ -29,7 +29,7 @@ public class test {
 		{
 			botTester.printBotSummary();
 			
-			botTester.generateTestCases();
+			botTester.generateTestCases("/localSpace/chatbots/CongaModels/bikeShop");
 			
 			/*mutOpSet = selectMutationOperators();
 			//if(botTester.generateTrainingPhrasesByIntentId("Hours", mutOpSet))
