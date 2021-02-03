@@ -84,6 +84,7 @@ public class TcGenBotium implements ITestCaseGenerator {
 			writer.write("#me\n");
 			System.out.printf("%s_input\n", strIntentName);
 			
+			//TODO: If nested flows are allowed, it is necessary to return a map/list of pairs <intent, list<actions>>. [check outcomming]
 			retList = botAnalyser.extractAllIntentPhrases(intent);
 			
 			if(retList != null)
@@ -103,14 +104,17 @@ public class TcGenBotium implements ITestCaseGenerator {
 			System.out.println("#bot");
 			writer.write("#bot\n");
 			System.out.printf("%s_output", strIntentName);
-			System.out.println("");			
+			System.out.println("");		
+			
+			//Here we extract a plained tree: <Intent, List<Actions>>
 			actionList = botAnalyser.extractActionList(flow);
 			
 			if(actionList!=null && actionList.size()>0)
 			{
 				for(Action actIndex: actionList)
 				{
-					retList = botAnalyser.extractAllActionPhrases(actIndex);
+					//TODO: Este intent tiene que salir del arbol aplanado
+					retList = botAnalyser.extractAllActionPhrases(actIndex, flow.getIntent());
 					if(retList != null)
 					{
 						for(String phrase: retList)

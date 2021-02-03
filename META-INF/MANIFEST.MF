@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: asymob
 Bundle-SymbolicName: asymob; singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Require-Bundle: org.eclipse.emf.ecore
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.common
 Import-Package: generator,
  generator.impl,
  org.eclipse.emf.ecore.xmi.impl

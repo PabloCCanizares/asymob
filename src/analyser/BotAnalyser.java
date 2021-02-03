@@ -1,9 +1,12 @@
 package analyser;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
+
 
 import generator.Action;
 import generator.Bot;
@@ -26,7 +29,12 @@ import generator.UserInteraction;
 
 public class BotAnalyser {
 
+	FlowAnalyser flowAnalyser;
 	
+	public BotAnalyser()
+	{
+		flowAnalyser = new FlowAnalyser();
+	}
 	private void extractAllIntentInputs(Bot botIn)
 	{
 		List<Intent> listIntent;
@@ -129,111 +137,9 @@ public class BotAnalyser {
 		return strText;
 	}
 
-	public LinkedList<String> extractAllActionPhrases(Action actionIn) {
-		
-		LinkedList<String> retList;
-		
-		retList = null;
-		
-		if(actionIn != null)
-		{
-			//text
-			if (actionIn instanceof Text)
-			{								
-				retList = handleTextAction(actionIn);
-			}
-			//image
-			else if (actionIn instanceof Image)
-			{
-				handleImageAction(actionIn);
-			}
-			//HttpRequest
-			else if(actionIn instanceof HTTPRequest)
-			{
-				//TODO: Ver como enfocarlo y terminar esta parte
-			}
-			//HttpResponse
-			else if(actionIn instanceof HTTPResponse)
-			{
-				//TODO: Ver como enfocarlo y terminar esta parte
-				
-			}
-		}
-		return retList;
-	}
+	
 
-	private void handleImageAction(Action actionIn) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private LinkedList<String> handleTextAction(Action actionIn) {
-		Text actionText;
-		EList<TextLanguageInput> textLanInputList;
-		EList<TextInput> textInputList;
-		LinkedList<String> retList, auxList;
-		actionText = (Text) actionIn;
-		
-		retList = null;
-		textLanInputList = actionText.getInputs();
-		
-		if(textLanInputList != null)
-		{
-			retList = new LinkedList<String>();
-			for(TextLanguageInput textLanIn: textLanInputList)
-			{
-				textInputList = textLanIn.getInputs();
-				if(textInputList != null)
-				{
-					for(TextInput textIn: textInputList)
-					{
-						auxList =extractPhrasesFromTextAction(textIn);
-						retList.addAll(auxList);
-					}
-				}
-			}	
-		}
-		return retList;
-	}
-
-	//Aqui viene lo complejo. Hay que tener en cuenta todas las frases complejas generadas previamente
-	//para poder añadirlas como opciones de respuesta del bot.
-	private LinkedList<String> extractPhrasesFromTextAction(TextInput textIn) {
-		EList<Token> tokenList;
-		LinkedList<String> retList;
-		Literal lit;
-		ParameterToken paramToken;
-		
-		retList = null;
-		if(textIn != null)
-		{
-			retList = new LinkedList<String>();
-			tokenList = textIn.getTokens();
-			
-			//If the token list size is greater than 1, it means that the phrase is composed.
-			//So, it is neccesary to create combinations of the parameters if it have different values.
-			for(Token tokIndex: tokenList)
-			{
-				if(tokIndex != null)
-				{
-					//Check the type of the token
-					if(tokIndex instanceof Literal)
-					{
-						lit = (Literal) tokIndex;
-						
-						if(lit != null)
-							retList.add(lit.getText());
-					}
-					else if(tokIndex instanceof ParameterToken)
-					{
-						paramToken = (ParameterToken) tokIndex;
-						paramToken.getParameter();
-					}
-				}
-			}
-		}
-		return retList;
-	}
+	
 
 	public EList<Action> extractActionList(UserInteraction userActIn) {
 		EList<Action> retList;
@@ -246,8 +152,21 @@ public class BotAnalyser {
 			
 			if(botInteraction != null)
 				retList = botInteraction.getActions();
+			
+			if(botInteraction.getOutcoming() != null)
+			{
+				//Here we have another intent with a action list
+			}
 				
 		}
 		return retList;
 	}
+
+	public LinkedList<String> extractAllActionPhrases(Action actIndex, Intent intent) {
+		// TODO Auto-generated method stub
+		flowAnalyser.configureIntent(intent);
+		return flowAnalyser.extractAllActionPhrases(actIndex);
+	}
+	
+
 }
