@@ -12,7 +12,6 @@ import generator.Parameter;
 import generator.ParameterReferenceToken;
 import generator.Token;
 import generator.TrainingPhrase;
-import training.TrainingPhraseVariation;
 
 public class IntentAnalyser {
 

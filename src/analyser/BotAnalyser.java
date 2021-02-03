@@ -137,10 +137,6 @@ public class BotAnalyser {
 		return strText;
 	}
 
-	
-
-	
-
 	public EList<Action> extractActionList(UserInteraction userActIn) {
 		EList<Action> retList;
 		BotInteraction botInteraction;
@@ -163,9 +159,7 @@ public class BotAnalyser {
 	}
 
 	public LinkedList<String> extractAllActionPhrases(Action actIndex, Intent intent) {
-		// TODO Auto-generated method stub
-		flowAnalyser.configureIntent(intent);
-		return flowAnalyser.extractAllActionPhrases(actIndex);
+		return flowAnalyser != null ? flowAnalyser.extractAllActionPhrases(actIndex) : null;
 	}
 	
 

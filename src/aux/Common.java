@@ -1,6 +1,7 @@
 package aux;
 
 import java.io.File;
+import java.util.LinkedList;
 
 public class Common {
 
@@ -27,5 +28,41 @@ public class Common {
 	    }
 	    	
 	    return bRet;
+	}
+
+	public static void addOrReplaceToken(LinkedList<String> currentPhrase, int nIndex, String strText) {
+		
+		//Protegemos
+		if(currentPhrase != null && nIndex >=0 && strText != null)
+		{
+			if(nIndex<currentPhrase.size())
+			{
+				//Replace
+				currentPhrase.remove(nIndex);
+				currentPhrase.add(nIndex, strText);
+			}
+			else
+			{
+				currentPhrase.add(nIndex, strText);
+			}
+		}
+		
+	}
+
+
+	public static void addCopyToRetList(LinkedList<String> composedPhrasesList,
+			LinkedList<String> currentPhrase) {
+		String strPhrase;
+		
+		if(composedPhrasesList != null && currentPhrase != null)
+		{
+			strPhrase = "";
+			for(String strPhrasePart: currentPhrase)
+			{
+				strPhrase += strPhrasePart;
+			}
+			composedPhrasesList.add(strPhrase);
+		}
+		
 	}
 }

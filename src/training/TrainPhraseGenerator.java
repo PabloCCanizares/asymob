@@ -4,9 +4,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Map;
 import java.util.Map.Entry;
 
+import analyser.TokenAnalyser;
 import generator.Bot;
 import generator.GeneratorFactory;
 import generator.Intent;
@@ -23,10 +23,12 @@ public class TrainPhraseGenerator {
 
 	UtteranceVariantCore oMutCore;
 	TrainingPhraseSet trainingPhraseSet;
+	TokenAnalyser tokenAnalyser;
 	public TrainPhraseGenerator()
 	{
 		oMutCore =  new UtteranceVariantCore();
 		trainingPhraseSet = new TrainingPhraseSet();
+		tokenAnalyser = new TokenAnalyser();
 	}
 	boolean generateTrainingPhraseFull(Bot botIn, MutationOperatorSet cfgIn)
 	{
@@ -208,50 +210,25 @@ public class TrainPhraseGenerator {
 	private void includeOriginalTrainPhrases(LinkedList<TrainingPhraseVarTemplate> mutedTrainingPhrases) {
 		ListIterator<TrainingPhraseVarTemplate> iter;
 		TrainingPhraseVarTemplate element;
+		Token token;
+		String strTokenStr;
 		
 		iter = mutedTrainingPhrases.listIterator();
+		
 		
 		//Search almost one element with variations.
 		while( iter.hasNext())
 		{
 			element = iter.next();
 			
-			Token token = element.getToken();
-			String strTokenStr =  getTokenText(token);
+			token = element.getToken();
+			strTokenStr =  tokenAnalyser.getTokenText(token);
 			
 			if(strTokenStr != null)
 				element.insertVariation(0, strTokenStr);
 		}
 	}
-	private String getTokenText(Token token) {
-		String strText;
-		Literal litIn;
-		ParameterReferenceToken paramRefIn;
-		
-		//Initially, the returning string is null
-		strText = null;
-		
-		if(token != null)
-		{
-			if (token instanceof Literal) 
-			{
-				//process as literal
-				litIn = (Literal) token;
-				
-				if(litIn != null)
-					strText = litIn.getText();
-			}
-			else if(token instanceof ParameterReferenceToken)
-			{
-				paramRefIn = (ParameterReferenceToken) token;
-				
-				if(paramRefIn != null)
-					strText = 	paramRefIn.getTextReference();
-			}
-		}
-
-		return strText;
-	}
+	
 	private boolean hasVariations(LinkedList<TrainingPhraseVarTemplate> mutedTrainingPhrases) {
 		
 		boolean bRet;

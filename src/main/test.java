@@ -25,7 +25,7 @@ public class test {
 		MutationOperatorSet mutOpSet;
 		botTester = new Asymob();
 		
-		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
+		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
 		{
 			botTester.printBotSummary();
 			

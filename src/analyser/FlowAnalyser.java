@@ -1,17 +1,21 @@
 package analyser;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 
+import aux.Common;
 import generator.Action;
 import generator.HTTPRequest;
 import generator.HTTPResponse;
 import generator.Image;
 import generator.Intent;
 import generator.Literal;
+import generator.ParameterReferenceToken;
 import generator.ParameterToken;
 import generator.Text;
 import generator.TextInput;
@@ -20,8 +24,16 @@ import generator.Token;
 
 public class FlowAnalyser {
 
-	Intent currentIntent;
+	IntentAnalyser intentAnalyser;
+	InputAnalyser inputAnalyser;
+	TokenAnalyser tokenAnalyser; 
 	
+	public FlowAnalyser()
+	{
+		intentAnalyser = new IntentAnalyser();
+		inputAnalyser = new InputAnalyser();
+		tokenAnalyser = new TokenAnalyser();
+	}
 	public LinkedList<String> extractAllActionPhrases(Action actionIn) {
 
 		LinkedList<String> retList;
@@ -93,10 +105,10 @@ public class FlowAnalyser {
 	//para poder añadirlas como opciones de respuesta del bot.
 	private LinkedList<String> extractPhrasesFromTextAction(TextInput textIn) {
 		EList<Token> tokenList;
-		LinkedList<String> retList;
-		Literal lit;
-		ParameterToken paramToken;
+		LinkedList<String> retList, currentPhrase;		
 		Map<ParameterToken, LinkedList<String>> paramPhrasesMap;
+		LinkedList<String> composedPhrasesList;
+		String strText;
 		boolean bIsComposedPhrase;
 
 		//Initialise
@@ -104,31 +116,22 @@ public class FlowAnalyser {
 		paramPhrasesMap = null;
 		bIsComposedPhrase = false;
 
+		//TODO: Aplanar aqui, y gestionar excepciones.
 		if(textIn != null)
 		{
 			retList = new LinkedList<String>();
 			tokenList = textIn.getTokens();
 
-			//If the token list size is greater than 1, it means that the phrase is composed.
+			//If the token list size is greater than 1, it means that the phrase may be composed.
 			//BUT It is possible (but rare) to have a single element.
-			//So, it is neccesary to create combinations of the parameters if it have different values.
-
+			//If the phrase is composed, it is neccesary to create combinations of the parameters whether it have different values.
 			bIsComposedPhrase = checkComposedPhrase(textIn);
 			if(!bIsComposedPhrase)
 			{
 				for(Token tokIndex: tokenList)
 				{
-					if(tokIndex != null)
-					{
-						//Check the type of the token
-						if(tokIndex instanceof Literal)
-						{
-							lit = (Literal) tokIndex;
-
-							if(lit != null)
-								retList.add(lit.getText());
-						}
-					}
+					strText = tokenAnalyser.getTokenText(tokIndex);
+					retList.add(strText);
 				}
 			}
 			else
@@ -139,34 +142,82 @@ public class FlowAnalyser {
 				//compose the phrases using the map
 				if(paramPhrasesMap != null)
 				{
-
-				}
-			}
-			for(Token tokIndex: tokenList)
-			{
-				if(tokIndex != null)
-				{
-					//Check the type of the token
-					if(tokIndex instanceof Literal)
-					{
-						lit = (Literal) tokIndex;
-
-						if(lit != null)
-							retList.add(lit.getText());
-					}
-					else if(tokIndex instanceof ParameterToken)
-					{
-						paramToken = (ParameterToken) tokIndex;
-						paramToken.getParameter();
-
-						bIsComposedPhrase = true;
-					}
+					composedPhrasesList = new LinkedList<String>();
+					currentPhrase = new LinkedList<String>();
+					composePhrases(0, tokenList, paramPhrasesMap, currentPhrase,composedPhrasesList);
+					
+					retList = composedPhrasesList;
 				}
 			}
 		}
 		return retList;
 	}
 
+	private void composePhrases(int nIndex, EList<Token> tokenList, Map<ParameterToken, LinkedList<String>> paramPhrasesMap, LinkedList<String> currentPhrase,
+			LinkedList<String> composedPhrasesList) {
+		Token tokenIn;
+		String strTokenText, strText;
+		Literal litIn;
+		ParameterToken paramRefIn;
+		LinkedList<String> nestedStringList;
+		strTokenText = null;
+			
+		//Not null elements
+		if(nIndex >=0 && tokenList != null && paramPhrasesMap != null && composedPhrasesList != null && currentPhrase != null)
+		{
+			if(nIndex<tokenList.size())
+			{
+				tokenIn = tokenList.get(nIndex);
+				
+				if(tokenIn != null)
+				{
+					if (tokenIn instanceof Literal) 
+					{
+						//process as literal
+						litIn = (Literal) tokenIn;
+						
+						if(litIn != null)
+						{
+							strText = litIn.getText();
+							
+							Common.addOrReplaceToken(currentPhrase, nIndex, strText);
+							
+							//Recursive call, nIndex+1
+							composePhrases(nIndex+1, tokenList, paramPhrasesMap, currentPhrase, composedPhrasesList);
+							
+							//If is the last element in mutedtraining phrase, store in the return list
+							//But it is necessary to create a copy
+							if(nIndex+1 == tokenList.size())
+								Common.addCopyToRetList(composedPhrasesList, currentPhrase);
+						}
+					}
+					else if(tokenIn instanceof ParameterToken)
+					{
+						paramRefIn = (ParameterToken) tokenIn;
+						
+						nestedStringList = paramPhrasesMap.get(paramRefIn);
+							
+						if(nestedStringList != null)
+						{
+							for(String strPhrase: nestedStringList)
+							{
+								Common.addOrReplaceToken(currentPhrase, nIndex, strPhrase);
+								
+								//Recursive call, nIndex+1
+								composePhrases(nIndex+1, tokenList, paramPhrasesMap, currentPhrase, composedPhrasesList);
+								
+								//If is the last element in mutedtraining phrase, store in the return list
+								//But it is necessary to create a copy
+								if(nIndex+1 == tokenList.size())
+									Common.addCopyToRetList(composedPhrasesList, currentPhrase);
+							}
+						}
+					}
+				}
+			}
+		}
+		
+	}
 	private Map<ParameterToken, LinkedList<String>> createParamPhrasesMap(TextInput textIn) {
 
 		Map<ParameterToken, LinkedList<String>> retMap;
@@ -194,8 +245,10 @@ public class FlowAnalyser {
 						paramToken = (ParameterToken) tokIndex;
 
 						phrasesList = extractTextFragmentsFromParameter(paramToken);
-						//and inser them in the map
-						retMap.put(paramToken, phrasesList);
+						
+						//and insert them in the map
+						if(phrasesList != null && phrasesList.size()>0)
+							retMap.put(paramToken, phrasesList);
 					}
 				}
 				nIndex++;
@@ -236,23 +289,24 @@ public class FlowAnalyser {
 	//Given a ParameterToken -> return back a list of possible elements that can be included in a phrase.
 	LinkedList<String> extractTextFragmentsFromParameter(ParameterToken paramToken)
 	{
-		IntentAnalyser intentAnalyser;
-		LinkedList<String>  retList;
-		
+		Intent currentIntent;
+		LinkedList<String>  retListAux, retList;
+		LinkedList<Token> tokenList;
 		retList = null;
+		
+		//Get the intent container of the parameter
+		currentIntent = tokenAnalyser.getIntentContainer(paramToken);
+		
 		//Check if we have associated a current intent, for searching on it.
 		if(currentIntent != null)
 		{
-			intentAnalyser = new IntentAnalyser();
-			ya tienes los datos sacados, = intentAnalyser.searchTokensByParam(currentIntent,paramToken.getParameter());
+			tokenList = intentAnalyser.searchTokensByParam(currentIntent,paramToken.getParameter());
+			retList = inputAnalyser.extractStringsFromTokenList(tokenList);
 			
-			gestionarlos, sacarlos en String y devolverlos.
+			retList = new LinkedList<>(new HashSet<>(retList));
 		}
 		
 		return retList;
 	}
 
-	public void configureIntent(Intent intent) {
-		currentIntent = intent;
-	}
 }
