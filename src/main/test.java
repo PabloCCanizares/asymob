@@ -25,13 +25,13 @@ public class test {
 		MutationOperatorSet mutOpSet;
 		botTester = new Asymob();
 		
-		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
+		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
 		{
 			botTester.printBotSummary();
 			
 			botTester.generateTestCases("/localSpace/chatbots/CongaModels/bikeShop");
 			
-			/*mutOpSet = selectMutationOperators();
+			mutOpSet = selectMutationOperators();
 			//if(botTester.generateTrainingPhrasesByIntentId("Hours", mutOpSet))
 			if(botTester.generateTrainingPhrasesByIntentId("Make Appointment", mutOpSet))
 			{
@@ -39,7 +39,7 @@ public class test {
 				{
 					botTester.saveToDisk("/localSpace/chatbots/CongaModels/bikeShop_copy.xmi");
 				}
-			}*/
+			}
 		}
 	}
 		
@@ -53,7 +53,7 @@ public class test {
 	{
 		MutationOperatorSet mutOpSetRet;
 		MutantOperatorBuilder opBuilder;
-		MutationOperator mutOp, mutOp2, mutOp3, mutOp4, mutOp5, mutOp6, mutOp7, mutOp8, mutOp9;
+		MutationOperator mutOp, mutOp2, mutOp3, mutOp4, mutOp5, mutOp6, mutOp7, mutOp8, mutOp9, mutOp10;
 		
 		opBuilder = new MutantOperatorBuilder();
 		
@@ -91,8 +91,11 @@ public class test {
 				new MutPassiveToActiveOp(), 
 				new VariantGenByCommand("/localSpace/chatbots/python_tests/spa_adapter.py"));
 
+		mutOp10 = opBuilder.buildMutationOperator(
+				new MutObjectsToSynonymsOp());
+		
 		mutOpSetRet = new MutationOperatorSet(); 
-		mutOpSetRet.insertOperator(mutOp);
+		mutOpSetRet.insertOperator(mutOp10);
 		/*mutOpSetRet.insertOperator(mutOp2);
 		mutOpSetRet.insertOperator(mutOp3);
 		mutOpSetRet.insertOperator(mutOp4);

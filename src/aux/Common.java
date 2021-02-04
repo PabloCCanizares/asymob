@@ -1,7 +1,11 @@
 package aux;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.StringTokenizer;
 
 public class Common {
 
@@ -51,18 +55,62 @@ public class Common {
 
 
 	public static void addCopyToRetList(LinkedList<String> composedPhrasesList,
-			LinkedList<String> currentPhrase) {
-		String strPhrase;
+			LinkedList<String> currentPhrase, String strSeparator) {
+		String strPhrase, strPhrasePart;
 		
 		if(composedPhrasesList != null && currentPhrase != null)
 		{
+			
 			strPhrase = "";
-			for(String strPhrasePart: currentPhrase)
+			for(int i=0;i<currentPhrase.size();i++)
 			{
-				strPhrase += strPhrasePart;
+				strPhrasePart = currentPhrase.get(i);
+				if(i+1 < currentPhrase.size())
+					strPhrase += strPhrasePart+strSeparator;
+				else
+					strPhrase += strPhrasePart;
 			}
 			composedPhrasesList.add(strPhrase);
 		}
+	}
+	
+	public static URL openWordNet()
+	{
+		String wnhome;
+		String strPath;
+		URL url;
 		
+		url = null;		
+		try{
+			wnhome = System.getenv("WNHOME");
+			
+			if(wnhome == null)
+				wnhome = "/usr/local/WordNet-3.0";
+			strPath = wnhome + File.separator + "dict";
+			url = new URL("file", null, strPath); 
+		} 
+		catch(MalformedURLException e)
+		{
+			e.printStackTrace(); 
+		}
+		
+		return url;
+	}
+	
+	public static LinkedList<String> SplitUsingTokenizer(String subject, String delimiters) {
+		   StringTokenizer strTkn;
+		   LinkedList<String> retList;
+		   
+		   strTkn = new StringTokenizer(subject, delimiters);		   
+		   retList = new LinkedList<String>();
+
+		   while(strTkn.hasMoreTokens())
+			   retList.add(strTkn.nextToken());
+
+		   return retList;
+		}
+
+	public static LinkedList<String> deleteRepeatedTerms(LinkedList<String> retList) {
+		return retList = new LinkedList<>(new HashSet<>(retList));
 	}
 }

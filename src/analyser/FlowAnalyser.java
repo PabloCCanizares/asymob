@@ -80,24 +80,28 @@ public class FlowAnalyser {
 		actionText = (Text) actionIn;
 
 		retList = null;
-		textLanInputList = actionText.getInputs();
-
-		if(textLanInputList != null)
+		if(actionIn != null)
 		{
-			retList = new LinkedList<String>();
-			for(TextLanguageInput textLanIn: textLanInputList)
+			textLanInputList = actionText.getInputs();
+
+			if(textLanInputList != null)
 			{
-				textInputList = textLanIn.getInputs();
-				if(textInputList != null)
+				retList = new LinkedList<String>();
+				for(TextLanguageInput textLanIn: textLanInputList)
 				{
-					for(TextInput textIn: textInputList)
+					textInputList = textLanIn.getInputs();
+					if(textInputList != null)
 					{
-						auxList =extractPhrasesFromTextAction(textIn);
-						retList.addAll(auxList);
+						for(TextInput textIn: textInputList)
+						{
+							auxList =extractPhrasesFromTextAction(textIn);
+							retList.addAll(auxList);
+						}
 					}
-				}
-			}	
+				}	
+			}
 		}
+
 		return retList;
 	}
 
@@ -188,7 +192,7 @@ public class FlowAnalyser {
 							//If is the last element in mutedtraining phrase, store in the return list
 							//But it is necessary to create a copy
 							if(nIndex+1 == tokenList.size())
-								Common.addCopyToRetList(composedPhrasesList, currentPhrase);
+								Common.addCopyToRetList(composedPhrasesList, currentPhrase, "");
 						}
 					}
 					else if(tokenIn instanceof ParameterToken)
@@ -209,7 +213,7 @@ public class FlowAnalyser {
 								//If is the last element in mutedtraining phrase, store in the return list
 								//But it is necessary to create a copy
 								if(nIndex+1 == tokenList.size())
-									Common.addCopyToRetList(composedPhrasesList, currentPhrase);
+									Common.addCopyToRetList(composedPhrasesList, currentPhrase, "");
 							}
 						}
 					}
@@ -270,18 +274,21 @@ public class FlowAnalyser {
 		{
 			tokenList = textIn.getTokens();
 
-			do
+			if(tokenList != null)
 			{
-				tokIndex = tokenList.get(nIndex);
-				if(tokIndex != null)
+				do
 				{
-					if(tokIndex instanceof ParameterToken)
+					tokIndex = tokenList.get(nIndex);
+					if(tokIndex != null)
 					{
-						bRet = true;
+						if(tokIndex instanceof ParameterToken)
+						{
+							bRet = true;
+						}
 					}
-				}
-				nIndex++;
-			}while(tokIndex != null && !bRet);
+					nIndex++;
+				}while(tokIndex != null && !bRet && nIndex < tokenList.size());
+			}
 		}
 
 		return bRet;

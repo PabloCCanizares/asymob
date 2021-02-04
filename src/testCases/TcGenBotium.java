@@ -62,20 +62,31 @@ public class TcGenBotium implements ITestCaseGenerator {
 	}
 
 	private void handleFlow(int nIndex, BotAnalyser botAnalyser, UserInteraction flow) throws IOException {
-		String strIntentName;
+		String strIntentName, strActionName;
 		Intent intent;
 		LinkedList<String> retList;
 		EList<Action> actionList;
-		File intentFile;
-		BufferedWriter writer;
+		File intentFile, utterancesActionFile; 
+		BufferedWriter writer, writerUtter;
 		
-		if(flow != null)
+		//TODO:: 
+		//	· desenrollamos el arbol
+		//	· partimos este metodo en dos, y bien ordenadito
+		//	· dejamos los TCs bien definidos y se comprueba si el archivo existe o no antes de generarlo de nuevo..
+			
+		writer = writerUtter = null;
+		try
 		{
+			if(flow == null)
+				throw new Exception ("Null flow");
+			
 			intent = flow.getIntent();
 			strIntentName = flow.getIntent().getName();
+			strIntentName = strIntentName.replace(" ", "_");
 			intentFile = Common.fileWithDirectoryAssurance(this.strPath, String.format("%s.combo.txt",strIntentName));
 			
 			writer = new BufferedWriter(new FileWriter(intentFile));
+			
 			
 			System.out.printf("===========>%s.combo.txt\n", strIntentName);
 			writer.write(strIntentName+"-combo\n");
@@ -87,15 +98,15 @@ public class TcGenBotium implements ITestCaseGenerator {
 			//TODO: If nested flows are allowed, it is necessary to return a map/list of pairs <intent, list<actions>>. [check outcomming]
 			retList = botAnalyser.extractAllIntentPhrases(intent);
 			
-			if(retList != null)
+			if(retList == null)
+				throw new Exception("Null phrases extrated from: "+intent.getName());
+			
+			for(String phrase: retList)
 			{
-				for(String phrase: retList)
-				{
-					System.out.printf("%s\n", phrase);
-					writer.write(phrase+"\n");
-				}									
-			}
-
+				System.out.printf("%s\n", phrase);
+				writer.write(phrase+"\n");
+			}									
+	
 			System.out.println("");
 			writer.write("\n");
 			
@@ -113,19 +124,26 @@ public class TcGenBotium implements ITestCaseGenerator {
 			{
 				for(Action actIndex: actionList)
 				{
+					strActionName = actIndex.getName();
+					strActionName = strActionName.replace(" ", "_");					
+					utterancesActionFile = Common.fileWithDirectoryAssurance(this.strPath, String.format("%s.utterances.txt",strActionName));
+					writerUtter = new BufferedWriter(new FileWriter(utterancesActionFile));
+					
 					//TODO: Este intent tiene que salir del arbol aplanado
 					retList = botAnalyser.extractAllActionPhrases(actIndex, flow.getIntent());
+					writer.write(strActionName.toUpperCase()+"\n");
+					writerUtter.write(strActionName.toUpperCase()+"\n");
 					if(retList != null)
 					{
 						for(String phrase: retList)
 						{
 							System.out.printf("%s\n", phrase);
-							writer.write(phrase+"\n");
+							writerUtter.write(phrase+"\n");
 						}
 					}
 				}					
 			}
-
+	
 			writer.write("\n");
 			System.out.printf("INTENT %s\n", strIntentName);
 			//writer.write("INTENT "+strIntentName+"\n");
@@ -133,6 +151,19 @@ public class TcGenBotium implements ITestCaseGenerator {
 			
 			writer.flush();
 			writer.close();
+			writerUtter.flush();
+			writerUtter.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println("[handleFlow] Exception catched: "+e.getMessage());
+		}
+		finally
+		{
+			if(writer != null)
+			{
+				writer.close();
+			}
 		}
 	}
 

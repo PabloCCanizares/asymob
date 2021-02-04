@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="bikeShop">
+  <intents name="Hours">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="When do you open?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are your hours?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How late are you open?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Make Appointment">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I setup an appointment to service my bike "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="tomorrow"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.1" textReference="at 2pm"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can you fix my road bike?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I schedule service for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.1" textReference="4pm"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="tomorrow"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="My bike is broken"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I have a mountain bike that needs servicing"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to get my bike fixed"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to schedule an appointment for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="next Thursday"/>
+      </inputs>
+    </inputs>
+    <parameters name="date" defaultEntity="DATE" required="true">
+      <prompts language="ENGLISH">
+        <prompts>What day do you want to come in?</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="time" defaultEntity="TIME" required="true">
+      <prompts language="ENGLISH">
+        <prompts>What time works for you?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="Fallback Intent" fallbackIntent="true"/>
+  <intents name="Make Appointment - custom">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="service"/>
+        <tokens xsi:type="generator:Literal" text=" my bike?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="repair"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+    </inputs>
+    <parameters name="AppointmentType" entity="//@entities.0" required="true">
+      <prompts language="ENGLISH">
+        <prompts>We can service or repair your bike.  Which one would you like?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="Welcome Intent">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <entities name="AppointmentType">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="service">
+        <values>service</values>
+        <values>overhaul</values>
+        <values>maintenance</values>
+        <values>tune-up</values>
+        <values>tune up</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="fix">
+        <values>fix</values>
+        <values>repair</values>
+        <values>mend</values>
+        <values>broken</values>
+        <values>flat tire</values>
+        <values>fixed</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="https://dimo1.ii.uam.es" method="POST"/>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="HoursTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We are open every weekday from 9am to 5:30pm "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Make AppointmentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ok, let me see if we can fit you in. Tomorrow at 3pm is fine! Do you need a repair or just a tune-up? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Fallback IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I'm sorry it's a little loud in my shop, can you say that again? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Make Appointment - customTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Okay, we&#x2019;ll schedule a "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.3/@parameters.0"/>
+        <tokens xsi:type="generator:Literal" text="for tomorrow, "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.1/@parameters.0"/>
+        <tokens xsi:type="generator:Literal" text="at "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.1/@parameters.1"/>
+        <tokens xsi:type="generator:Literal" text=" We&#x2019;ll see you then. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Welcome IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Welcome IntentTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hi, welcome to Hogarth's bike shop.  How can I help you? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.0 //@actions.1 //@actions.2"/>
+  </flows>
+  <flows intent="//@intents.1">
+    <target actions="//@actions.0 //@actions.1 //@actions.3">
+      <outcoming intent="//@intents.3">
+        <target actions="//@actions.5"/>
+      </outcoming>
+    </target>
+  </flows>
+  <flows intent="//@intents.2">
+    <target actions="//@actions.4"/>
+  </flows>
+  <flows intent="//@intents.4">
+    <target actions="//@actions.6 //@actions.7"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

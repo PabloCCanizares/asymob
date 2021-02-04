@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="lib" path="/home/j0hn/Documents/GitHub/asymob/edu.mit.jwi_2.4.0.jar"/>
+	<classpathentry kind="lib" path="/home/j0hn/Documents/GitHub/asymob/stanford-postagger.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
