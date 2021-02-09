@@ -37,10 +37,10 @@ DONE.
 
 *Gestionar las frases compuestas, que tienen mezcla de Literal y ParameterReferenceToken. (DONE 18/01/21)
 
+* Terminar test cases. Se complica con la generacion de las frases compuestas, unidas a los distintos parametros que han podido generarse con los operadores de mutacion
+
 ==================================================================================================
 PENDING.
-
-* Terminar test cases. Se complica con la generacion de las frases compuestas, unidas a los distintos parametros que han podido generarse con los operadores de mutacion
 
 *Funcionamiento correcto de max y min
 
@@ -61,3 +61,12 @@ los artifices de la generación de cada frase. Pair<EMutationOperator, String>
 Posibles nuevos operadores:
 * Intercambio de simbolos de interrogación, a exclamacion.
 * Eliminación de tildes de manera aleatoria. 
+
+*Parónimos, homónimos.
+
+==================================================================================================
+Ideas:
+Bot de discord.
+
+CORENLP (https://corenlp.run/)
+

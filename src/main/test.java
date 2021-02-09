@@ -25,7 +25,8 @@ public class test {
 		MutationOperatorSet mutOpSet;
 		botTester = new Asymob();
 		
-		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
+		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
+		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
 		{
 			botTester.printBotSummary();
 			
@@ -34,10 +35,11 @@ public class test {
 			mutOpSet = selectMutationOperators();
 			//if(botTester.generateTrainingPhrasesByIntentId("Hours", mutOpSet))
 			if(botTester.generateTrainingPhrasesByIntentId("Make Appointment", mutOpSet))
+			//if(botTester.generateTrainingPhrases(mutOpSet))
 			{
 				if(botTester.applyTrainingPhrasesToChatbot())
 				{
-					botTester.saveToDisk("/localSpace/chatbots/CongaModels/bikeShop_copy.xmi");
+					botTester.saveToDisk("/localSpace/chatbots/CongaModels/mysteryAnimal_copy.xmi");
 				}
 			}
 		}

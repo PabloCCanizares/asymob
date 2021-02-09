@@ -3,6 +3,7 @@ package aux;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
@@ -112,5 +113,21 @@ public class Common {
 
 	public static LinkedList<String> deleteRepeatedTerms(LinkedList<String> retList) {
 		return retList = new LinkedList<>(new HashSet<>(retList));
+	}
+	
+	public static LinkedList<String> splitPhrase(String strPhrase)
+	{
+		LinkedList<String> retList;
+		String[] inputs;
+		
+		retList = null;
+		inputs = strPhrase.split("(?!^)\\b");
+		
+		if(inputs != null)
+		{
+			retList = new LinkedList<String>(Arrays.asList(inputs));
+		}
+	
+		return retList;
 	}
 }

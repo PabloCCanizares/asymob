@@ -2,9 +2,13 @@ package operators;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 import aux.Common;
+import aux.StandfordTagger;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
@@ -12,13 +16,18 @@ import edu.mit.jwi.item.ISynset;
 import edu.mit.jwi.item.IWord;
 import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
+import edu.stanford.nlp.ling.TaggedWord;
 import operators.base.EMutationOperators;
 import operators.base.MutationOperator;
+import operators.wordvariation.EWordType;
+import operators.wordvariation.WordVariation;
+import operators.wordvariation.WordVariationSyn;
 
 public class MutObjectsToSynonymsOp extends MutationOperator{
 
 	int nPercentage;
-
+	WordVariation oWordVariation;
+	
 	public MutObjectsToSynonymsOp()
 	{
 		this(1,1,10);
@@ -30,7 +39,7 @@ public class MutObjectsToSynonymsOp extends MutationOperator{
 		this.nMax = nMax;
 		this.nMin = nMin;
 		this.nPercentage = nPercentage;
-		bCommandLineOp = true;
+		bCommandLineOp = true;		
 	}
 
 	@Override
@@ -41,111 +50,76 @@ public class MutObjectsToSynonymsOp extends MutationOperator{
 	@Override
 	protected LinkedList<String> doVariantsByDefault(String strInputPhrase) {
 
-		// construct the URL to the Wordnet dictionary directory
-		LinkedList<String> retList, indexList, phraseList;
-		LinkedList<LinkedList<String>> composedList;
-		URL url;
-
-		url = Common.openWordNet();
-		retList = null;
+		WordVariation oWordVariation;
 		
-		if(url != null)
-		{
-			// construct the dictionary object and open it
-			IDictionary dict = new Dictionary(url);
-			try {
-				dict.open();
-
-
-				phraseList = Common.SplitUsingTokenizer(strInputPhrase, " ");
-				
-				if(phraseList != null)
-				{
-					retList = new LinkedList<String>();
-					composedList = new LinkedList<LinkedList<String>>();
-					for(String strIndex: phraseList)
-					{
-						
-						//Split the input phrase in parts
-						indexList = getSynonyms(dict, strIndex);
-						
-						if(indexList == null || indexList.size()==0)
-						{
-							indexList = new LinkedList<String>();
-							indexList.add(strIndex);
-						}
-					    
-						//delete the repeated phrases
-						if(indexList.size()>0)
-							indexList = Common.deleteRepeatedTerms(indexList);
-						composedList.add(indexList);
-					}
-					
-					indexList = new LinkedList<String>();
-					composeList(0, composedList, indexList, retList);
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
+		oWordVariation = new WordVariationSyn(EWordType.eNoun);
+		LinkedList<String> retList = oWordVariation.wordNetVariation(strInputPhrase);
 
 		return retList;
 	}
 
-	private void composeList(int nIndex, LinkedList<LinkedList<String>> composedPhraseList, LinkedList<String> currentPhrase, LinkedList<String> retList) {
-
-		LinkedList<String> indexList;
-		if(nIndex<composedPhraseList.size())
-		{
-			indexList = composedPhraseList.get(nIndex);
-			
-			for(String strIndex: indexList)
-			{
-				Common.addOrReplaceToken(currentPhrase, nIndex, strIndex);
-				
-				composeList(nIndex+1, composedPhraseList, currentPhrase, retList);
-				
-				if(nIndex+1==composedPhraseList.size())
-					Common.addCopyToRetList(retList, currentPhrase, " ");
-			}
-		}
-		
-	}
-
-	private LinkedList<String> getSynonyms(IDictionary dict, String strInputWord) {
-		LinkedList<String> retList;
-		String strLemma;
-		
-		IIndexWord idxWord = dict.getIndexWord(strInputWord, POS.NOUN);
-		
-		retList = null;
-		try {
-			System.out.print(strInputWord);	
-		    int x = idxWord.getTagSenseCount();
-		    retList = new LinkedList<String>();
-		    for (int i = 0; i < x; i++) {
-		        IWordID wordID = idxWord.getWordIDs().get(i);
-		        IWord word = dict.getWord(wordID);
-
-		        // Adding Related Words to List of Realted Words
-		        ISynset synset = word.getSynset();
-		        for (IWord w : synset.getWords()) {
-		            System.out.println(" "+w.getLemma());
-		            strLemma = w.getLemma();
-		            
-		            if(strLemma != null)
-		            {
-		            	strLemma = strLemma.replace("_",  " ");
-		            	retList.add(strLemma);
-		            }
-		        }
-		    }
-		} catch (Exception ex) {
-		    System.out.println("> No synonym found!");		    
-		}
-		return retList;
-	}
+	
 
 }
+
+/*
+ * '''Synonym generator using NLTK WordNet Interface: http://www.nltk.org/howto/wordnet.html
+    'ss': synset
+    'hyp': hyponym
+    'sim': similar to
+    'ant': antonym
+    'also' also see
+
+'''
+
+from nltk.corpus import wordnet as wn
+
+
+def get_all_synsets(word, pos=None):
+    for ss in wn.synsets(word):
+        for lemma in ss.lemma_names():
+            yield (lemma, ss.name())
+
+
+def get_all_hyponyms(word, pos=None):
+    for ss in wn.synsets(word, pos=pos):
+            for hyp in ss.hyponyms():
+                for lemma in hyp.lemma_names():
+                    yield (lemma, hyp.name())
+
+
+def get_all_similar_tos(word, pos=None):
+    for ss in wn.synsets(word):
+            for sim in ss.similar_tos():
+                for lemma in sim.lemma_names():
+                    yield (lemma, sim.name())
+
+
+def get_all_antonyms(word, pos=None):
+    for ss in wn.synsets(word, pos=None):
+        for sslema in ss.lemmas():
+            for antlemma in sslema.antonyms():
+                    yield (antlemma.name(), antlemma.synset().name())
+
+
+def get_all_also_sees(word, pos=None):
+        for ss in wn.synsets(word):
+            for also in ss.also_sees():
+                for lemma in also.lemma_names():
+                    yield (lemma, also.name())
+
+
+def get_all_synonyms(word, pos=None):
+    for x in get_all_synsets(word, pos):
+        yield (x[0], x[1], 'ss')
+    for x in get_all_hyponyms(word, pos):
+        yield (x[0], x[1], 'hyp')
+    for x in get_all_similar_tos(word, pos):
+        yield (x[0], x[1], 'sim')
+    for x in get_all_antonyms(word, pos):
+        yield (x[0], x[1], 'ant')
+    for x in get_all_also_sees(word, pos):
+        yield (x[0], x[1], 'also')
+
+for x in get_all_synonyms('love'):
+    print x*/
