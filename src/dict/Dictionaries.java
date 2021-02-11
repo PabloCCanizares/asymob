@@ -1,4 +1,4 @@
-package aux;
+package dict;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.util.Set;
 import edu.stanford.nlp.io.IOUtils;
 import edu.stanford.nlp.io.RuntimeIOException;
 
-public class Dictionaries /*extends edu.stanford.nlp.dcoref.Dictionaries*/{
+public class Dictionaries extends edu.stanford.nlp.dcoref.Dictionaries{
     
     public enum Definiteness {DEFINITE, GENERIC};
     
@@ -105,10 +105,10 @@ public class Dictionaries /*extends edu.stanford.nlp.dcoref.Dictionaries*/{
         }
     }
     
-  /* public Dictionaries(Properties props) {
+   public Dictionaries(Properties props) {
         super(props);
         this.allPronouns.add("'s");
         
         loadAnimalList(props.getProperty("cmucoref.animal", "cmucoref_models/models/animals.txt"));
-    }*/
+    }
 }

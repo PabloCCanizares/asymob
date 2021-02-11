@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import dict.Dictionaries.SemanticClass;
 //import cmucoref.mention.Dictionaries.SemanticClass;
 import edu.mit.jwi.IRAMDictionary;
 import edu.mit.jwi.RAMDictionary;
@@ -20,7 +21,7 @@ import edu.mit.jwi.item.POS;
 import edu.mit.jwi.item.Pointer;
 import edu.mit.jwi.item.SynsetID;
 
-public class WordNet {
+public class WordNet_old {
     
     protected IRAMDictionary dict = null;
     
@@ -67,7 +68,7 @@ public class WordNet {
         FEMALE = new SynsetID(9482706, POS.NOUN);
     }
 
-    public WordNet(String wnDir) throws IOException {
+    public WordNet_old(String wnDir) throws IOException {
         dict = new RAMDictionary(new File(wnDir + File.separator + "dict"), ILoadPolicy.IMMEDIATE_LOAD);
         dict.open();
         init();
@@ -76,7 +77,7 @@ public class WordNet {
     public void close() {
         dict.close();
     }
-    /*
+    
     public SemanticClass getSemanticClass(String lemma) {
         IIndexWord indexWord = dict.getIndexWord(lemma, POS.NOUN);
         if(indexWord == null) {
@@ -115,7 +116,7 @@ public class WordNet {
             return SemanticClass.PERCENT;
         }
         return SemanticClass.UNKNOWN;
-    }*/
+    }
     
     protected boolean isHypernym(Set<ISynsetID> semClass, ISynsetID term) {
         List<ISynsetID> hypernyms = new ArrayList<ISynsetID>();
@@ -145,6 +146,48 @@ public class WordNet {
         return false;
     }
     
+    protected ISynsetID getSynID(String strTerm)
+    {
+    	ISynsetID synIdRet;
+    	IIndexWord indexWord1;
+    	IWord sense1;
+    	
+    	//Initialise
+    	synIdRet = null;
+    	
+    	if(dict != null)
+    	{
+        	indexWord1 = dict.getIndexWord(strTerm, POS.NOUN);
+        	
+            if(indexWord1 != null) {
+                sense1 = dict.getWord(indexWord1.getWordIDs().get(0));
+                synIdRet = sense1.getSynset().getID();
+            } 		
+    	}
+
+        return synIdRet;
+    }
+    protected ISynsetID getHyponym(ISynsetID term)
+    {
+    	ISynsetID idRet;
+    	
+    	idRet = null;
+    	
+    	return idRet;
+    }
+    protected boolean isHyponym(ISynsetID hyponym, ISynsetID term) {
+        List<ISynsetID> hypernyms = new ArrayList<ISynsetID>();
+        hypernyms.add(term);
+        for(int s = 0, e = 1; s < e; s++) {
+            ISynsetID synsetId = hypernyms.get(s);
+            if(hyponym.equals(synsetId)) {
+                return true;
+            }
+            hypernyms.addAll(dict.getSynset(synsetId).getRelatedSynsets(Pointer.HYPONYM));
+            e = hypernyms.size();
+        }
+        return false;
+    }    
     public int isMaleOrFemale(String lemma) {
         IIndexWord indexWord = dict.getIndexWord(lemma, POS.NOUN);
         if(indexWord == null) {
@@ -185,8 +228,25 @@ public class WordNet {
         return isHypernym(term1, term2) || isHypernym(term2, term1);
     }
     
+    public boolean senseMatchHyponim(String lemma1, String lemma2)
+    {
+    	boolean bRet;
+    	
+    	IIndexWord indexWord1 = dict.getIndexWord(lemma1, POS.NOUN);
+        IIndexWord indexWord2 = dict.getIndexWord(lemma2, POS.NOUN);
+        if(indexWord1 == null || indexWord2 == null) {
+            return lemma1.equalsIgnoreCase(lemma2);
+        }
+        IWord sense1 = dict.getWord(indexWord1.getWordIDs().get(0));
+        ISynsetID term1 = sense1.getSynset().getID();
+        
+        IWord sense2 = dict.getWord(indexWord2.getWordIDs().get(0));
+        ISynsetID term2 = sense2.getSynset().getID();
+        
+        return isHypernym(term1, term2) || isHypernym(term2, term1);
+    }
     public static void main(String[] args) throws IOException {
-        WordNet wordNet = new WordNet(args[0]);
+        WordNet_old wordNet = new WordNet_old(args[0]);
         IIndexWord idxWord = wordNet.dict.getIndexWord("person", POS.NOUN);
         IWord word = wordNet.dict.getWord(idxWord.getWordIDs().get(0));
         ISynset synset = word.getSynset();
@@ -282,7 +342,7 @@ public class WordNet {
         }       
         
         
-        idxWord = wordNet.dict.getIndexWord("tomorrow", POS.NOUN);
+        idxWord = wordNet.dict.getIndexWord("cat", POS.NOUN);
         word = wordNet.dict.getWord(idxWord.getWordIDs().get(0));
         synset = word.getSynset();
         hypernyms = synset.getRelatedSynsets(Pointer.HYPONYM);
@@ -294,7 +354,7 @@ public class WordNet {
             
             wordNet.getListHypernym(sid);
         }
-        /*
+        
         String lemma = "night";
         System.out.println(lemma + " " + wordNet.getSemanticClass(lemma));
         
@@ -329,13 +389,14 @@ public class WordNet {
         System.out.println(lemma + " " + wordNet.getSemanticClass(lemma));
         
         lemma = "paper";
-        System.out.println(lemma + " " + wordNet.getSemanticClass(lemma));*/
+        System.out.println(lemma + " " + wordNet.getSemanticClass(lemma));
         
         System.out.println(wordNet.isMaleOrFemale("man"));
         System.out.println(wordNet.isMaleOrFemale("woman"));
         System.out.println(wordNet.isMaleOrFemale("boy"));
         System.out.println(wordNet.isMaleOrFemale("girl"));
         System.out.println(wordNet.isMaleOrFemale("dog"));
+        System.out.println("SenseMatch: "+wordNet.senseMatch("Thursday", "Th"));
     }
     
     public List<ISynsetID> getListHypernym(ISynsetID sid_pa) throws IOException {

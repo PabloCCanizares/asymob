@@ -69,4 +69,8 @@ Ideas:
 Bot de discord.
 
 CORENLP (https://corenlp.run/)
+WORDNET (http://wordnetweb.princeton.edu/perl/webwn)
 
+//Check if a word is recognised
+SentimentModel model = SentimentModel.loadSerialized("edu/stanford/nlp/models/sentiment/sentiment.ser.gz");
+boolean knownWord = model.wordVectors.containsKey("foo");

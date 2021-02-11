@@ -1,13 +1,16 @@
 package operators.wordvariation;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
 import edu.mit.jwi.item.ISynset;
+import edu.mit.jwi.item.ISynsetID;
 import edu.mit.jwi.item.IWord;
 import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
+import edu.mit.jwi.item.Pointer;
 import edu.stanford.nlp.ling.TaggedWord;
 
 public class WordVariationSyn extends WordVariation {
@@ -20,7 +23,7 @@ public class WordVariationSyn extends WordVariation {
 
 	@Override
 	public LinkedList<String> doOperation(IDictionary dict, String strInputWord) {
-		LinkedList<String> retList;
+		LinkedList<String> retList, indexList;
 		String strLemma;
 		IWordID wordID;
 		IWord word;
@@ -43,17 +46,18 @@ public class WordVariationSyn extends WordVariation {
 
 		        // Adding Related Words to List of Realted Words
 		        synset = word.getSynset();		        
-		        for (IWord w : synset.getWords()) {
-		            System.out.println(" "+w.getLemma());
-		            strLemma = w.getLemma();
-		          
-		            //Filter variations marked with '_'
-		            if(strLemma != null && strLemma.indexOf("_")==-1)
-		            {
-		            	strLemma = strLemma.replace("_",  " ");
-		            	retList.add(strLemma);
-		            }
-		        }
+		        
+		        //Metodo mas general
+		        indexList = getWords(synset);
+		        
+		        
+		        indexList = getHypernym(dict, synset);
+
+		        indexList = getSimilarWords(dict, synset);
+		        //TODO: Filter by hyper
+		        
+		        if(indexList != null && indexList.size()>0)
+		        	retList.addAll(indexList);
 		        /*Set<String> lexicon = new HashSet<>();
 
 		        for (POS p : POS.values()) {
@@ -72,6 +76,64 @@ public class WordVariationSyn extends WordVariation {
 		    }
 		} catch (Exception ex) {
 		    System.out.println("> No synonym found!");		    
+		}
+		return retList;
+	}
+
+
+	private LinkedList<String> getSimilarWords(IDictionary dict, ISynset synset) {
+		   LinkedList<String> retList;
+	       List<ISynsetID> hypernyms = synset.getRelatedSynsets(Pointer.SIMILAR_TO);
+	       
+	       retList = null;
+	       
+	       for(ISynsetID sid : hypernyms) {
+	            System.out.println(sid + " " + dict.getSynset(sid).getGloss());
+	            for(IWord w : dict.getSynset(sid).getWords()) {
+	                System.out.println("similar> "+w.getLemma());
+	            }
+	        }
+	        return retList;
+	}
+
+
+	private LinkedList<String> getHypernym(IDictionary dict, ISynset synset)
+	{
+	   LinkedList<String> retList;
+       List<ISynsetID> hypernyms = synset.getRelatedSynsets(Pointer.HYPERNYM);
+       
+       retList = null;
+       
+       for(ISynsetID sid : hypernyms) {
+            System.out.println(sid + " " + dict.getSynset(sid).getGloss());
+            for(IWord w : dict.getSynset(sid).getWords()) {
+                System.out.println(w.getLemma());
+            }
+        }
+        return retList;
+	}
+	private LinkedList<String> getWords(ISynset synset) {
+		LinkedList<String> retList;
+		String strLemma;
+		
+		retList = null;
+		if(synset != null && synset.getWords() != null)
+		{
+			retList = new LinkedList<String>();
+			for (IWord w : synset.getWords()) {
+				if(w != null)
+				{
+				    System.out.println(" "+w.getLemma());
+				    strLemma = w.getLemma();
+				  
+				    //Filter variations marked with '_'
+				    if(strLemma != null && strLemma.indexOf("_")==-1)
+				    {
+				    	strLemma = strLemma.replace("_",  " ");
+				    	retList.add(strLemma);
+				    }					
+				}
+			}
 		}
 		return retList;
 	}

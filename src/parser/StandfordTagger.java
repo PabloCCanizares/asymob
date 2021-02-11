@@ -1,4 +1,4 @@
-package aux;
+package parser;
 
 import java.io.StringReader;
 import java.util.ArrayList;

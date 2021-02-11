@@ -6,15 +6,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 import aux.Common;
-import aux.StandfordTagger;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
-import edu.mit.jwi.item.IIndexWord;
-import edu.mit.jwi.item.ISynset;
-import edu.mit.jwi.item.IWord;
-import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
 import edu.stanford.nlp.ling.TaggedWord;
+import parser.StandfordTagger;
 
 public abstract class WordVariation {
 
@@ -103,10 +99,12 @@ public abstract class WordVariation {
 					}
 					indexList = new LinkedList<String>();
 					composeList(0, composedList, indexList, retList);
-				}				
+				}		
+				wordnetDict.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+				if(wordnetDict != null)
+					wordnetDict.close();
 			}
 		}
 		return retList;

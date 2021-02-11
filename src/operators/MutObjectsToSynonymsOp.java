@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Set;
 
 import aux.Common;
-import aux.StandfordTagger;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
@@ -22,6 +21,7 @@ import operators.base.MutationOperator;
 import operators.wordvariation.EWordType;
 import operators.wordvariation.WordVariation;
 import operators.wordvariation.WordVariationSyn;
+import parser.StandfordTagger;
 
 public class MutObjectsToSynonymsOp extends MutationOperator{
 

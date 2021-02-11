@@ -39,7 +39,7 @@ public class wordnetExample {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		    WordNet wordNet;
+		    WordNet_old wordNet;
 		    // look up first sense of the word "dog"
 		    IIndexWord idxWord = dict.getIndexWord("dog", POS.NOUN);
 		    IWordID wordID = idxWord.getWordIDs().get(0);
