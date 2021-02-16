@@ -3,24 +3,45 @@ package dict;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import edu.mit.jwi.IRAMDictionary;
 import edu.mit.jwi.RAMDictionary;
 import edu.mit.jwi.data.ILoadPolicy;
 import edu.mit.jwi.item.IIndexWord;
+import edu.mit.jwi.item.ISynset;
 import edu.mit.jwi.item.ISynsetID;
 import edu.mit.jwi.item.IWord;
+import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
 import edu.mit.jwi.item.Pointer;
 
 public class WordNet {
 
+	protected static WordNet wnInstance=null;
 	protected IRAMDictionary dict = null;
+	private final String WNDIR = "/usr/local/WordNet-3.0";
 	
-    private WordNet(String wnDir) throws IOException {
-        dict = new RAMDictionary(new File(wnDir + File.separator + "dict"), ILoadPolicy.IMMEDIATE_LOAD);
+	public void reloadDict(String wnDir) throws IOException {
+		
+		//For the cost of several hundred megabytes of memory, you get a significant speedup.
+    	dict = new RAMDictionary(new File(wnDir + File.separator + "dict"), ILoadPolicy.IMMEDIATE_LOAD);
         dict.open();
+	}
+    private WordNet(String wnDir){
+    	
+    	if(wnDir == null)
+    		dict = new RAMDictionary(new File(WNDIR + File.separator + "dict"), ILoadPolicy.IMMEDIATE_LOAD);
+    	else
+    		dict = new RAMDictionary(new File(wnDir + File.separator + "dict"), ILoadPolicy.IMMEDIATE_LOAD);
+    	
+        try {
+			dict.open();
+		} catch (IOException e) {
+			dict = null;
+		}
     }
     
     public void close() {
@@ -76,7 +97,7 @@ public class WordNet {
         return isHypernym(term1, term2) || isHypernym(term2, term1);
     }    
     
-    public ISynsetID getSynID(String strTerm)
+    public ISynsetID getSynsetID(String strTerm, POS pos)
     {
     	ISynsetID synIdRet;
     	IIndexWord indexWord1;
@@ -87,7 +108,7 @@ public class WordNet {
     	
     	if(dict != null)
     	{
-        	indexWord1 = dict.getIndexWord(strTerm, POS.NOUN);
+        	indexWord1 = dict.getIndexWord(strTerm, pos);
         	
             if(indexWord1 != null) {
                 sense1 = dict.getWord(indexWord1.getWordIDs().get(0));
@@ -97,4 +118,78 @@ public class WordNet {
 
         return synIdRet;
     }    
+    
+    //getSynonym
+    public HashMap<Integer, LinkedList<String>> getSynonymsMap(String strTerm, POS pos) {
+    	ISynset syn;
+        IIndexWord idxWord;
+        IWord word;
+        IWordID wId;
+        List<IWordID> wordList;
+        LinkedList<String> indexList;
+        HashMap<Integer, LinkedList<String>> mapRet;
+        
+        mapRet = null;
+        idxWord = dict.getIndexWord(strTerm, pos);
+        if(idxWord != null)
+        {
+        	mapRet = new HashMap<Integer, LinkedList<String>>();
+        	wordList = idxWord.getWordIDs();
+        	if(wordList != null)
+        	{
+        		for(int i=0;i<wordList.size();i++)
+            	{
+        			wId = wordList.get(i);
+        			
+        			word = dict.getWord(wId);
+        			syn = word.getSynset();
+        			indexList = getSynonyms(syn, false);
+        			mapRet.put(i, indexList);
+            	}
+        	}
+        }
+        
+		return mapRet;
+	}
+    public LinkedList<String> getSynonyms(ISynset synset, boolean bFilterComposed) {
+		LinkedList<String> retList;
+		String strLemma;
+		
+		retList = null;
+		if(synset != null && synset.getWords() != null)
+		{
+			retList = new LinkedList<String>();
+			for (IWord w : synset.getWords()) {
+				if(w != null)
+				{
+				    strLemma = w.getLemma();
+				  
+				    //Filter variations marked with '_'
+				    if(!bFilterComposed && (strLemma != null && strLemma.indexOf("_")==-1))
+				    {
+				    	strLemma = strLemma.replace("_",  " ");
+				    	retList.add(strLemma);
+				    }					
+				}
+			}
+		}
+		return retList;
+	}    
+    //getAntonym
+
+    //getMeronym
+    
+    //getHypernym
+    
+    //file:///home/j0hn/Downloads/edu.mit.jwi_2.2.0_manual.pdf
+	public static WordNet getInstance() {
+				
+		if(wnInstance == null)
+			wnInstance = new WordNet(null);
+		
+		return wnInstance;
+	}
+	
+    
+    
 }

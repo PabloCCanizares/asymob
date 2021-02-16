@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Set;
 
 import dict.Dictionaries.SemanticClass;
-//import cmucoref.mention.Dictionaries.SemanticClass;
 import edu.mit.jwi.IRAMDictionary;
 import edu.mit.jwi.RAMDictionary;
 import edu.mit.jwi.data.ILoadPolicy;
@@ -55,6 +54,7 @@ public class WordNet_old {
         TIME.add(new SynsetID(14923492, POS.NOUN));
         TIME.add(new SynsetID(15069770, POS.NOUN));
         TIME.add(new SynsetID(14931076, POS.NOUN));
+        //TIME.add(new SynsetID(WordNet.getInstance().getSynsetID("night", POS.NOUN), POS.NOUN));
         
         NUMBER.add(new SynsetID(13407358, POS.NOUN));
         

@@ -7,6 +7,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import dict.WordNet;
+import dict.disambiguate.SenseRelate_AllWords;
+import dict.disambiguate.WSD_Disambiguator;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
@@ -50,6 +53,20 @@ public class wordnetExample {
 		  
 		    String lemma = "dog";
 	      //  System.out.println(lemma + " " + dict.getSemanticClass(lemma));
+		    
+		    System.out.println("=============================================");
+		    System.out.println("HashMap-synonyms> [dog]"+WordNet.getInstance().getSynonymsMap("dog", POS.NOUN));
+		    System.out.println("HashMapsynonyms> [cat]"+WordNet.getInstance().getSynonymsMap("cat", POS.NOUN));
+		    System.out.println("HashMapsynonyms> [author]"+WordNet.getInstance().getSynonymsMap("author", POS.NOUN));
+		    System.out.println("HashMapsynonyms> [can]"+WordNet.getInstance().getSynonymsMap("can", POS.NOUN));
+		    System.out.println("HashMapsynonyms> [service]"+WordNet.getInstance().getSynonymsMap("service", POS.NOUN));
+		    
+		    check_disambiguator();
 	 }
+	private static void check_disambiguator() {
+		WSD_Disambiguator disamb = new SenseRelate_AllWords();
+		disamb.disambiguatePhrase("Can I set up an appointment to service my bike tomorrow at 2pm?");
+		
+	}
 	
 }

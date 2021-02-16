@@ -6,11 +6,14 @@ public class JavaRunCommand {
 
 	private String strInputPhrase;
 	private String strProgramPath;
+	private String strProgram;
+	
 	private LinkedList<String> outputList;
 	
 	public JavaRunCommand()
 	{
-		this.strInputPhrase = "";	
+		this.strInputPhrase = "";
+		this.strProgram = "python3";
 		this.outputList = new LinkedList<String>();
 	}
 
@@ -32,29 +35,39 @@ public class JavaRunCommand {
 		return outputList;
 	}
 	
+	public void setProgram(String strProgramId)
+	{
+		strProgram = strProgramId;
+	}
 	public boolean runCommand(String strCommand)
 	{
 		boolean bRet = false;
 		String s = null;
 		
-		if(!strCommand.isEmpty() && !strInputPhrase.isEmpty() && !strProgramPath.isEmpty())
+		if(!strCommand.isEmpty() && !strProgramPath.isEmpty())
 		{	
 			try {
 				
 				// run the Unix "ps -ef" command
 				// using the Runtime exec method:
 				//Process p = Runtime.getRuntime().exec("ps -ef");
-				System.out.println("Executing command: python3 "+strProgramPath+" "+strCommand);
+				//if(strProgram.isEmpty())
+				//	strProgram = "python3";
+				System.out.println("Executing command:"+strProgram+" "+strProgramPath+" "+strCommand);
 				
-				Process p = Runtime.getRuntime().exec("python3 "+strProgramPath+" "+strCommand);
+				Process p = Runtime.getRuntime().exec(strProgram+" "+strProgramPath+" "+strCommand);
 
 				//We config
 				BufferedWriter writer = new BufferedWriter(
 						new OutputStreamWriter(p.getOutputStream()));
 
-				writer.write(strInputPhrase);
-				writer.newLine();
-				writer.close();
+				if(!strInputPhrase.isEmpty())
+				{
+					writer.write(strInputPhrase);
+					writer.newLine();
+					writer.close();
+				}
+
 
 				BufferedReader stdInput = new BufferedReader(new 
 						InputStreamReader(p.getInputStream()));

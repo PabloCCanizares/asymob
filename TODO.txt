@@ -70,6 +70,9 @@ Bot de discord.
 
 CORENLP (https://corenlp.run/)
 WORDNET (http://wordnetweb.princeton.edu/perl/webwn)
+LANGUAGE TOOL (https://languagetool.org/)
+
+WS4J (https://ws4jdemo.appspot.com/) Similarity
 
 //Check if a word is recognised
 SentimentModel model = SentimentModel.loadSerialized("edu/stanford/nlp/models/sentiment/sentiment.ser.gz");

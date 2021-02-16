@@ -1,0 +1,62 @@
+
+* WordNet
+* WordNet similarity
+* WordNet::QueryData
+* Text::Similarity
+
+cd /tmp
+     wget http://wordnetcode.princeton.edu/3.0/WordNet-3.0.tar.gz
+     wget https://cpan.metacpan.org/authors/id/J/JR/JRENNIE/WordNet-QueryData-1.49.tar.gz
+     wget https://cpan.metacpan.org/authors/id/T/TP/TPEDERSE/Text-Similarity-0.10.tar.gz
+     wget https://cpan.metacpan.org/authors/id/T/TP/TPEDERSE/WordNet-Similarity-2.07.tar.gz
+
+    Then unpack each one:
+
+     tar -zxvf WordNet-3.0.tar.gz
+     tar -zxvf WordNet-QueryData-1.49.tar.gz
+     tar -zxvf Text-Similarity-0.10.tar.gz
+     tar -zxvf WordNet-Similarity-2.07.tar.gz
+
+    Install WordNet:
+
+     cd /tmp/WordNet-3.0
+     ./configure
+     make
+     su
+     make install
+     exit
+
+    Installing QueryData and Similarity:
+
+     cd /tmp/WordNet-QueryData-1.49
+     perl Makefile.PL
+     make
+     make test
+     su
+     make install
+     exit
+
+     cd /tmp/Text-Similarity-0.10
+     perl Makefile.PL
+     make
+     make test
+     su
+     make install
+     exit
+
+     cd /tmp/WordNet-Similarity-2.05
+     perl Makefile.PL
+     make
+     make test
+     su
+     make install
+     exit
+
+Dependencies:     
+WordNet 2.1+
+JWI
+Stanford Log-linear Part-Of-Speech Tagger
+Illinois Part of Speech Tagger
+Perl
+WordNet-SenseRelate-AllWords
+     

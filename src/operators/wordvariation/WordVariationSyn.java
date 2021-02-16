@@ -3,6 +3,7 @@ package operators.wordvariation;
 import java.util.LinkedList;
 import java.util.List;
 
+import dict.WordNet;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
 import edu.mit.jwi.item.ISynset;
@@ -48,12 +49,11 @@ public class WordVariationSyn extends WordVariation {
 		        synset = word.getSynset();		        
 		        
 		        //Metodo mas general
-		        indexList = getWords(synset);
+		        indexList = WordNet.getInstance().getSynonyms(synset, false);
 		        
-		        
-		        indexList = getHypernym(dict, synset);
+		       // indexList = getHypernym(dict, synset);
 
-		        indexList = getSimilarWords(dict, synset);
+		        //indexList = getSimilarWords(dict, synset);
 		        //TODO: Filter by hyper
 		        
 		        if(indexList != null && indexList.size()>0)
@@ -112,31 +112,7 @@ public class WordVariationSyn extends WordVariation {
         }
         return retList;
 	}
-	private LinkedList<String> getWords(ISynset synset) {
-		LinkedList<String> retList;
-		String strLemma;
-		
-		retList = null;
-		if(synset != null && synset.getWords() != null)
-		{
-			retList = new LinkedList<String>();
-			for (IWord w : synset.getWords()) {
-				if(w != null)
-				{
-				    System.out.println(" "+w.getLemma());
-				    strLemma = w.getLemma();
-				  
-				    //Filter variations marked with '_'
-				    if(strLemma != null && strLemma.indexOf("_")==-1)
-				    {
-				    	strLemma = strLemma.replace("_",  " ");
-				    	retList.add(strLemma);
-				    }					
-				}
-			}
-		}
-		return retList;
-	}
+	
 
 
 

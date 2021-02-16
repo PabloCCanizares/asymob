@@ -17,7 +17,7 @@ import operators.base.MutationOperator;
 import operators.base.MutationOperatorSet;
 import utteranceVariantCore.VariantGenByCommand;
 
-public class test {
+public class asymob_test {
 
 	public static void main(String[] args) {
 		
