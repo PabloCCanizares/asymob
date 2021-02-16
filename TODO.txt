@@ -42,6 +42,8 @@ DONE.
 ==================================================================================================
 PENDING.
 
+*Hacer un operador en java, para dejarlo como basico. (creo que nos seria de valor re-hacer el de los sinonimos y antonimos)
+
 *Funcionamiento correcto de max y min
 
 *Gestion de frases de entrenamiento: una vez procesadas, poder extraerlas en texto plano (por intent id ó todas), o aplicarlas al bot
@@ -55,15 +57,18 @@ PENDING.
 *Hay un lio bastante grande con los nombres (el funcionamiento esta bien) del package training. Además, estaría bien saber que operadores han sido
 los artifices de la generación de cada frase. Pair<EMutationOperator, String>
 
-*Hacer un operador en java, para dejarlo como basico. (creo que nos seria de valor re-hacer el de los sinonimos y antonimos)
+*Gestión de los actions con HTTPRequest y response
+
+*Exportación a Dialogflow.
+
+*Chequeo core botium.
 
 ==================================================================================================
 Posibles nuevos operadores:
 * Intercambio de simbolos de interrogación, a exclamacion.
 * Eliminación de tildes de manera aleatoria. 
 
-*Parónimos, homónimos.
-
+*Parónimos, homónimos, meronimos, hipónimos.
 ==================================================================================================
 Ideas:
 Bot de discord.

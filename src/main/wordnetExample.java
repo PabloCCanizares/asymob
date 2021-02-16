@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 import dict.WordNet;
+import dict.WordNet_old;
 import dict.disambiguate.SenseRelate_AllWords;
-import dict.disambiguate.WSD_Disambiguator;
+import dict.disambiguate.IWSD_Disambiguator;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
@@ -64,7 +65,7 @@ public class wordnetExample {
 		    check_disambiguator();
 	 }
 	private static void check_disambiguator() {
-		WSD_Disambiguator disamb = new SenseRelate_AllWords();
+		IWSD_Disambiguator disamb = new SenseRelate_AllWords();
 		disamb.disambiguatePhrase("Can I set up an appointment to service my bike tomorrow at 2pm?");
 		
 	}

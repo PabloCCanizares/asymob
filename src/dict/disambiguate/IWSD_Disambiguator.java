@@ -1,6 +1,6 @@
 package dict.disambiguate;
 
-public interface WSD_Disambiguator {
+public interface IWSD_Disambiguator {
 
 	public boolean disambiguatePhrase(String strPhrase);
 }

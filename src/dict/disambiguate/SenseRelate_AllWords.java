@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 import aux.JavaRunCommand;
 
-public class SenseRelate_AllWords implements WSD_Disambiguator {
+public class SenseRelate_AllWords implements IWSD_Disambiguator {
 
 	@Override
 	public boolean disambiguatePhrase(String strPhrase) {
@@ -22,7 +22,7 @@ public class SenseRelate_AllWords implements WSD_Disambiguator {
 		{
 			resList = command.getLastResults();
 			
-			if()
+			//if()
 			
 		}
 		

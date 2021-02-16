@@ -1,4 +1,4 @@
-package main;
+package dict;
 
 import java.io.File;
 import java.io.IOException;
