@@ -11,6 +11,8 @@ import generator.Bot;
 import generator.Intent;
 import generator.IntentInput;
 import generator.IntentLanguageInputs;
+import generator.TrainingPhrase;
+import transformation.dialogflow.TrainingPhraseJSON;
 
 public class Transform_Dialogflow implements ITransformation{
 
@@ -34,7 +36,7 @@ public class Transform_Dialogflow implements ITransformation{
 		//Intents: Training phrases
 		exportIntents(botIn.getIntents());
 		//Actions: Bot responses
-		exportActions(botIn.getActions());
+		//exportActions(botIn.getActions());
 		
 		//Nombre: Nombre_intent + '_usersays_' + lan [Default Fallback Intent_usersays_en.json]
 		return bRet;
@@ -74,20 +76,49 @@ public class Transform_Dialogflow implements ITransformation{
 
 	private void exportIntentLanguage(IntentLanguageInputs intentLan) {
 		EList<IntentInput> inputList;
+		TrainingPhrase trainPhrase;
 		String strName;
-		
-		if(intentLan != null)
+		TrainingPhraseJSON trainingJSON;
+		try
 		{
 			inputList = intentLan.getInputs();
-
 			strName = intentLan.getLanguage().getName();
 			//Find all the inputs and process them
-			if(inputList != null)
-			{						
-				for (IntentInput input : inputList) {
-					
+			for (IntentInput input : inputList) 
+			{
+				
+				if(input instanceof TrainingPhrase)
+				{
+					trainPhrase = (TrainingPhrase)input;
 				}
+				
+				//Cada TrainingPhrase tiene:
+				/*"id": "c20be499-5dd0-475f-bedd-a895f76f3aec",
+					    "data": [
+					      {
+					        "text": "tell me some jokes",
+					        "userDefined": false
+					      }
+					    ],
+					    "isTemplate": false,
+					    "count": 0,
+					    "lang": "en",
+					    "updated": 0
+					  },
+				 */
+				
+				//Cada frase tiene:
+				/*
+				 * {
+			        "text": "tell me some jokes",
+			        "userDefined": false
+			       }
+				 */
 			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception while exporting intent");
 		}
 	}
 

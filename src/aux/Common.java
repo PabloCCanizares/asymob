@@ -3,10 +3,14 @@ package aux;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Random;
 import java.util.StringTokenizer;
+import java.util.UUID;
 
 public class Common {
 
@@ -129,5 +133,39 @@ public class Common {
 		}
 	
 		return retList;
+	}
+	private static long get64LeastSignificantBitsForVersion1() {
+		Random random;
+		long random63BitLong, variant3BitFlag;
+		
+	    random = new Random();
+	    random63BitLong = random.nextLong() & 0x3FFFFFFFFFFFFFFFL;
+	    variant3BitFlag = 0x8000000000000000L;
+	    
+	    return random63BitLong + variant3BitFlag;
+	}
+	private static long get64MostSignificantBitsForVersion1() {
+		long seconds, nanos, timeForUuidIn100Nanos, least12SignificatBitOfTime, version;
+		LocalDateTime start;
+		Duration duration;
+		
+	    start = LocalDateTime.of(1582, 10, 15, 0, 0, 0);
+	    duration = Duration.between(start, LocalDateTime.now());
+	    
+	    seconds = duration.getSeconds();
+	    nanos = duration.getNano();
+	    timeForUuidIn100Nanos = seconds * 10000000 + nanos * 100;
+	    least12SignificatBitOfTime = (timeForUuidIn100Nanos & 0x000000000000FFFFL) >> 4;
+	    version = 1 << 12;
+	    
+	    return 
+	      (timeForUuidIn100Nanos & 0xFFFFFFFFFFFF0000L) + version + least12SignificatBitOfTime;
+	}
+	public static UUID generateType1UUID() {
+
+	    long most64SigBits = get64MostSignificantBitsForVersion1();
+	    long least64SigBits = get64LeastSignificantBitsForVersion1();
+
+	    return new UUID(most64SigBits, least64SigBits);
 	}
 }
