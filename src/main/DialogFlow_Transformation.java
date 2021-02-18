@@ -1,15 +1,15 @@
 package main;
 
 import transformation.ITransformation;
-import transformation.Transform_Dialogflow;
+import transformation.BotToAgent;
 
-public class Transformation {
+public class DialogFlow_Transformation {
 
 	public static void main(String argv[])
 	{
 		ITransformation transform;
 		
-		transform = new Transform_Dialogflow();
+		transform = new BotToAgent();
 		
 		transform.transform("/localSpace/chatbots/CongaModels/bikeShop.xmi", "/localSpace/chatbots/CongaModels/bikeShop_dialogFlow");
 	}

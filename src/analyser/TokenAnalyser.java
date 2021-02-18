@@ -58,4 +58,25 @@ public class TokenAnalyser {
 		
 		return intentContainer;
 	}
+
+	public String getParameterToken(Token tokIn) {
+		String strRet;
+		ParameterToken paramToken;
+		Parameter param;
+		
+		strRet = null;
+		//If is instanceof Parameter token, it is necessary to extract the parameter to include it in the JSON
+		if(tokIn instanceof ParameterToken)
+		{
+			paramToken = (ParameterToken)tokIn;
+			if(paramToken != null)
+			{
+				param = paramToken.getParameter();
+				if(param != null)
+					strRet = param.getName();
+			}
+		}
+		
+		return strRet;
+	}
 }
