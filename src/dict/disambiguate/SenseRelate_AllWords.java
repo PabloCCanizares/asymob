@@ -22,6 +22,7 @@ public class SenseRelate_AllWords implements IWSD_Disambiguator {
 		{
 			resList = command.getLastResults();
 			
+			//Here we parse: split in lines ' ' + each component split in lines with #
 			//if()
 			
 		}

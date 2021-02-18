@@ -39,10 +39,11 @@ DONE.
 
 * Terminar test cases. Se complica con la generacion de las frases compuestas, unidas a los distintos parametros que han podido generarse con los operadores de mutacion
 
+* Hacer un operador en java, para dejarlo como basico. (creo que nos seria de valor re-hacer el de los sinonimos y antonimos) (DONE 08/02/21)
 ==================================================================================================
 PENDING.
 
-*Hacer un operador en java, para dejarlo como basico. (creo que nos seria de valor re-hacer el de los sinonimos y antonimos)
+*Exportación a Dialogflow.
 
 *Funcionamiento correcto de max y min
 
@@ -59,7 +60,6 @@ los artifices de la generación de cada frase. Pair<EMutationOperator, String>
 
 *Gestión de los actions con HTTPRequest y response
 
-*Exportación a Dialogflow.
 
 *Chequeo core botium.
 
@@ -67,12 +67,20 @@ los artifices de la generación de cada frase. Pair<EMutationOperator, String>
 Posibles nuevos operadores:
 * Intercambio de simbolos de interrogación, a exclamacion.
 * Eliminación de tildes de manera aleatoria. 
+* Eliminar algun tag? Podemos tener bots muy centrados en sus tags, en sus
+* Incluir un required de más?
 
 *Parónimos, homónimos, meronimos, hipónimos.
+*MEjora de entidades: utilizar hipónimos para incrementar el conjunto de instancia de la entidad, y generar sinónimos de cada uno de ellos (Contracciones) 
+*Mejora de parámetros: Reescribir los prompts
+
+
 ==================================================================================================
 Ideas:
 Bot de discord.
 
+*Anotación automática de frases con coreNLP y uso de entidades?
+==================================================================================================
 CORENLP (https://corenlp.run/)
 WORDNET (http://wordnetweb.princeton.edu/perl/webwn)
 LANGUAGE TOOL (https://languagetool.org/)

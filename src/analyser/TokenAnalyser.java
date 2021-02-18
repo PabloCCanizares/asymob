@@ -1,5 +1,7 @@
 package analyser;
 
+import com.fasterxml.jackson.databind.util.Converter;
+
 import generator.Intent;
 import generator.Literal;
 import generator.Parameter;
@@ -9,10 +11,23 @@ import generator.Token;
 
 public class TokenAnalyser {
 
-	public String getTokenText(Token token) {
+	//Converter class, for conducting changes in 
+	Conversor conversor;
+	
+	public TokenAnalyser()
+	{
+		conversor = null;
+	}
+	public TokenAnalyser(Conversor conversor)
+	{
+		this.conversor = conversor;
+	}
+
+	public String getTokenText(Token token, boolean bRefName) {
 		String strText;
 		Literal litIn;
 		ParameterReferenceToken paramRefIn;
+		ParameterToken paramToken;
 		
 		//Initially, the returning string is null
 		strText = null;
@@ -32,7 +47,34 @@ public class TokenAnalyser {
 				paramRefIn = (ParameterReferenceToken) token;
 				
 				if(paramRefIn != null)
-					strText = 	paramRefIn.getTextReference();
+				{
+					if(bRefName==false)
+						strText = paramRefIn.getTextReference();
+					else
+					{
+						strText = paramRefIn.getParameter().getName();
+						if(conversor!=null)
+						{
+							strText = conversor.convertReferenceToAgent(strText);
+						}
+					}
+				}
+			}
+			else if(token instanceof ParameterToken)
+			{
+				paramToken = (ParameterToken) token;
+				
+				if(paramToken != null)
+				{
+					strText = paramToken.getParameter().getName();
+					if(bRefName)						
+					{
+						if(conversor!=null)
+						{
+							strText = conversor.convertReferenceToAgent(strText);
+						}
+					}
+				}
 			}
 		}
 

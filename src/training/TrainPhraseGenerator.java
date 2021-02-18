@@ -222,7 +222,7 @@ public class TrainPhraseGenerator {
 			element = iter.next();
 			
 			token = element.getToken();
-			strTokenStr =  tokenAnalyser.getTokenText(token);
+			strTokenStr =  tokenAnalyser.getTokenText(token, false);
 			
 			if(strTokenStr != null)
 				element.insertVariation(0, strTokenStr);

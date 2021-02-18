@@ -1,7 +1,7 @@
 package main;
 
 import transformation.ITransformation;
-import transformation.BotToAgent;
+import transformation.dialogflow.BotToAgent;
 
 public class DialogFlow_Transformation {
 

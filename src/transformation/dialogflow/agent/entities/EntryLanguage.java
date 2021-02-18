@@ -14,7 +14,7 @@ public class EntryLanguage {
 		return language;
 	}
 	public void setLanguage(String language) {
-		language = language;
+		this.language = language;
 	}
 	public List<Entry> getEntries() {
 		return entries;

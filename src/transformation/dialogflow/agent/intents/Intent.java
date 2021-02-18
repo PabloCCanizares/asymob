@@ -12,6 +12,7 @@ import transformation.dialogflow.agent.Agent;
 
 public class Intent {
 
+	private String id;
 	private String parentId;
 	private String rootParentId;
 	private String name;
@@ -22,18 +23,28 @@ public class Intent {
 	private boolean webhookUsed;
 	private boolean webhookForSlotFilling;
 	private boolean fallbackIntent;
-	private List<Event> events;
-	private List<ConditionalResponse> conditionalResponses;
+	private List<Event> events= new ArrayList<>();
+	private List<ConditionalResponse> conditionalResponses= new ArrayList<>();
 	private String condition;
-	private List<ConditionalFollowUpEvent> conditionalFollowupEvents;
+	private List<ConditionalFollowUpEvent> conditionalFollowupEvents= new ArrayList<>();
 	private List<UserSaysLanguage> usersays= new ArrayList<>();
 	private generator.Intent intent = null;
 	private List<Action> actions = null;
 
 	public Intent()
 	{
-		conditionalResponses = new LinkedList<ConditionalResponse>();
+		priority = 500000;
+		webhookUsed = false;
+		webhookForSlotFilling =false;
+		fallbackIntent = false;
+		auto = true;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}	
 	public String getParentId() {
 		return parentId;
 	}

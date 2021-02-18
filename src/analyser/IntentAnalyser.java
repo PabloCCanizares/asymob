@@ -15,6 +15,17 @@ import generator.TrainingPhrase;
 
 public class IntentAnalyser {
 
+	private Conversor converter;
+
+	public IntentAnalyser(Conversor converter) {
+		this.converter = converter;
+	}
+
+	public IntentAnalyser() {
+
+		converter =null;
+	}
+
 	/**
 	 * Search the Tokens of an Intent, which have an specific Parameter in parameterReferenceToken.
 	 * @param intentIn: Intent where the search is performed.

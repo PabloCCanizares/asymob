@@ -73,6 +73,7 @@ public class WordNet {
             hypernyms.addAll(dict.getSynset(synsetId).getRelatedSynsets(Pointer.HYPERNYM));
             e = hypernyms.size();
         }
+        
         return false;
     }
     

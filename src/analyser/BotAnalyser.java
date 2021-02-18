@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 
+import com.fasterxml.jackson.databind.util.Converter;
 
 import generator.Action;
 import generator.Bot;
@@ -26,7 +27,7 @@ import generator.TextLanguageInput;
 import generator.Token;
 import generator.TrainingPhrase;
 import generator.UserInteraction;
-
+import org.apache.commons.lang3.tuple.Pair;
 public class BotAnalyser {
 
 	FlowAnalyser flowAnalyser;
@@ -34,6 +35,10 @@ public class BotAnalyser {
 	public BotAnalyser()
 	{
 		flowAnalyser = new FlowAnalyser();
+	}
+	public BotAnalyser(Conversor converter)
+	{
+		flowAnalyser = new FlowAnalyser(converter);
 	}
 	private void extractAllIntentInputs(Bot botIn)
 	{
@@ -137,6 +142,47 @@ public class BotAnalyser {
 		return strText;
 	}
 
+	public List<Pair<Intent, Action>> plainActionTree(UserInteraction userActIn) {
+	
+		List<Pair<Intent, Action>> combinedList, partialList;
+		List<Action> actionList;
+		BotInteraction botInteraction;
+		Pair<Intent, Action> pairIntentAction;
+		EList<UserInteraction> userActionList;
+		
+		combinedList = null;
+		actionList = null;
+		if(userActIn !=null)
+		{
+			combinedList = new LinkedList<Pair<Intent,Action>>();
+			botInteraction = userActIn.getTarget();
+			
+			if(botInteraction != null)
+			{
+				actionList = botInteraction.getActions();
+				
+				for(Action action: actionList)
+				{
+					pairIntentAction = Pair.of(userActIn.getIntent(), action);
+					
+					combinedList.add(pairIntentAction);
+				}
+			}
+			userActionList = botInteraction.getOutcoming();
+			if(botInteraction.getOutcoming() != null)
+			{
+				//Here we have another intent with a action list
+				for(UserInteraction userAct: userActionList)
+				{
+					partialList = plainActionTree(userAct);
+					combinedList.addAll(partialList);
+				}
+			}
+				
+		}
+		
+		return combinedList;
+	}
 	public EList<Action> extractActionList(UserInteraction userActIn) {
 		EList<Action> retList;
 		BotInteraction botInteraction;
@@ -159,7 +205,11 @@ public class BotAnalyser {
 	}
 
 	public LinkedList<String> extractAllActionPhrases(Action actIndex, Intent intent) {
-		return flowAnalyser != null ? flowAnalyser.extractAllActionPhrases(actIndex) : null;
+		return flowAnalyser != null ? flowAnalyser.extractAllActionPhrases(actIndex, false) : null;
+	}
+	public List<String> extractAllActionPhrasesByRef(Action action) {
+		// TODO Auto-generated method stub
+		return flowAnalyser != null ? flowAnalyser.extractAllActionPhrases(action, true) : null;
 	}
 	
 

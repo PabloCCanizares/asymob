@@ -16,13 +16,18 @@ public class Response {
 	private List<Parameter> parameters = new ArrayList<>();
 	private List<Message> messages = new ArrayList<>();
 	private HashMap<String, Boolean> defaultResponsePlatforms;
-	private List<String> speech;
+	private List<String> speech = new ArrayList<>();
+	
 	private int textCounter = 1;
 	private int imgCounter = 1;
+	
+	public Response()
+	{
+		resetContexts = false;		
+	}
 	public boolean isResetContexts() {
 		return resetContexts;
 	}
-
 
 	public void setResetContexts(boolean resetContexts) {
 		this.resetContexts = resetContexts;

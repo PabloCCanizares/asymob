@@ -8,6 +8,8 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 
+import com.fasterxml.jackson.databind.util.Converter;
+
 import aux.Common;
 import generator.Action;
 import generator.HTTPRequest;
@@ -34,7 +36,12 @@ public class FlowAnalyser {
 		inputAnalyser = new InputAnalyser();
 		tokenAnalyser = new TokenAnalyser();
 	}
-	public LinkedList<String> extractAllActionPhrases(Action actionIn) {
+	public FlowAnalyser(Conversor converter) {
+		intentAnalyser = new IntentAnalyser(converter);
+		inputAnalyser = new InputAnalyser(converter);
+		tokenAnalyser = new TokenAnalyser(converter);
+	}
+	public LinkedList<String> extractAllActionPhrases(Action actionIn, boolean bRef) {
 
 		LinkedList<String> retList;
 
@@ -45,7 +52,7 @@ public class FlowAnalyser {
 			//text
 			if (actionIn instanceof Text)
 			{								
-				retList = handleTextAction(actionIn);
+				retList = handleTextAction(actionIn, bRef);
 			}
 			//image
 			else if (actionIn instanceof Image)
@@ -72,7 +79,7 @@ public class FlowAnalyser {
 
 	}
 
-	private LinkedList<String> handleTextAction(Action actionIn) {
+	private LinkedList<String> handleTextAction(Action actionIn, boolean bRef) {
 		Text actionText;
 		EList<TextLanguageInput> textLanInputList;
 		EList<TextInput> textInputList;
@@ -94,7 +101,10 @@ public class FlowAnalyser {
 					{
 						for(TextInput textIn: textInputList)
 						{
-							auxList =extractPhrasesFromTextAction(textIn);
+							if(!bRef)
+								auxList =extractPhrasesFromTextAction(textIn);
+							else
+								auxList = extractPhrasesFromTextActionByRef(textIn);
 							retList.addAll(auxList);
 						}
 					}
@@ -104,6 +114,7 @@ public class FlowAnalyser {
 
 		return retList;
 	}
+
 
 	//Aqui viene lo complejo. Hay que tener en cuenta todas las frases complejas generadas previamente
 	//para poder añadirlas como opciones de respuesta del bot.
@@ -134,7 +145,7 @@ public class FlowAnalyser {
 			{
 				for(Token tokIndex: tokenList)
 				{
-					strText = tokenAnalyser.getTokenText(tokIndex);
+					strText = tokenAnalyser.getTokenText(tokIndex, false);
 					retList.add(strText);
 				}
 			}
@@ -315,5 +326,25 @@ public class FlowAnalyser {
 		
 		return retList;
 	}
+	private LinkedList<String> extractPhrasesFromTextActionByRef(TextInput textIn) {
+		EList<Token> tokenList;
+		String strText;
+		LinkedList<String> retList;
+		
+		retList= null;
+		if(textIn != null)
+		{
+			retList = new LinkedList<String>();
+			tokenList = textIn.getTokens();
+			for(Token tokIndex: tokenList)
+			{
+				strText = tokenAnalyser.getTokenText(tokIndex, true);
+				retList.add(strText);
+			}
+		}
+		
+		return retList;
+	}
+
 
 }
