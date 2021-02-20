@@ -129,13 +129,13 @@ public class Agent {
 
 	public Bot getBot() {
 		Bot bot = GeneratorFactory.eINSTANCE.createBot();
-
 		bot.setName(getName());
-
+		
 		for (String language : getLanguages()) {
 			bot.getLanguages().add(castLanguage(language));
 		}
 		for (Entity entity : getEntities()) {
+			
 			generator.Entity botEntity = entity.getBotEntity();
 			int i=1;
 			String name = botEntity.getName();

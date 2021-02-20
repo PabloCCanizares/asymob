@@ -168,4 +168,18 @@ public class Common {
 
 	    return new UUID(most64SigBits, least64SigBits);
 	}
+	public static String generateType1UUID_String()
+	{
+		String strUuid;
+		UUID intentId;
+		
+		strUuid = null;
+		
+		intentId = Common.generateType1UUID();
+		
+		if(intentId != null)
+			strUuid = intentId.toString();
+		
+		return strUuid;
+	}
 }

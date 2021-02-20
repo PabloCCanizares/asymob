@@ -1,7 +1,11 @@
 package transformation.dialogflow.agent.entities;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import generator.EntityInput;
 import generator.GeneratorFactory;
@@ -9,12 +13,61 @@ import generator.LanguageInput;
 import generator.SimpleInput;
 import transformation.dialogflow.agent.Agent;
 
+@JsonIgnoreProperties({"entriesLanguage", "botEntity"})
 public class Entity {
 
+	private String id;
 	private String name;
+	private boolean isOverridable;
 	private boolean isEnum;
+	private boolean isRegexp;
+	private boolean automatedExpansion;
+	private boolean allowFuzzyExtraction;
 	private List<EntryLanguage> entriesLanguage;
+	
 
+	@JsonProperty("isRegexp")
+	public boolean isRegexp() {
+		return isRegexp;
+	}
+
+	public void setRegexp(boolean isRegexp) {
+		this.isRegexp = isRegexp;
+	}
+
+	public boolean isAutomatedExpansion() {
+		return automatedExpansion;
+	}
+
+	public void setAutomatedExpansion(boolean automatedExpansion) {
+		this.automatedExpansion = automatedExpansion;
+	}
+
+
+	public boolean isAllowFuzzyExtraction() {
+		return allowFuzzyExtraction;
+	}
+
+	public void setAllowFuzzyExtraction(boolean allowFuzzyExtraction) {
+		this.allowFuzzyExtraction = allowFuzzyExtraction;
+	}	
+
+	public String getId() {
+		return id;
+	}
+	@JsonProperty("isOverridable")
+	public boolean isOverridable() {
+		return isOverridable;
+	}
+
+	public void setOverridable(boolean isOverridable) {
+		this.isOverridable = isOverridable;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -23,6 +76,7 @@ public class Entity {
 		this.name = name;
 	}
 
+	@JsonProperty("isEnum")
 	public boolean isEnum() {
 		return isEnum;
 	}
@@ -48,12 +102,12 @@ public class Entity {
 		}
 		entriesLanguage.add(entry);
 	}
-
+	
 	public generator.Entity getBotEntity() {
-		if (isEnum() == false) {
+		if (this.isEnum() == false) {
 			generator.Entity ret = GeneratorFactory.eINSTANCE.createEntity();
-			ret.setName(getName());
-			for (EntryLanguage entryLan : getEntriesLanguage()) {
+			ret.setName(this.getName());
+			for (EntryLanguage entryLan : this.getEntriesLanguage()) {
 				LanguageInput input = GeneratorFactory.eINSTANCE.createLanguageInput();
 				input.setLanguage(Agent.castLanguage(entryLan.getLanguage()));
 				for (Entry entry : entryLan.getEntries()) {
@@ -81,5 +135,4 @@ public class Entity {
 			return null;
 		}
 	}
-
 }
