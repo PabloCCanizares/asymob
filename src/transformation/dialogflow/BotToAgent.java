@@ -48,6 +48,7 @@ import generator.Token;
 import generator.TrainingPhrase;
 import generator.UserInteraction;
 import transformation.ITransformation;
+import transformation.dialogflow.agent.Agent;
 import transformation.dialogflow.agent.entities.Entry;
 import transformation.dialogflow.agent.intents.Data;
 import transformation.dialogflow.agent.intents.Message;
@@ -80,12 +81,10 @@ public class BotToAgent implements ITransformation{
 		
 		this.strOutputPath = strOutputPath;
 		
-		//Agent: se mantiene. No tenemos forma de gestionarlo despues de procesarlo en Conga.
+		//Agent
+		exportAgent(botIn);
+		
 		//Package: se mantiene
-		//
-		//Los cambios vienen en los intents
-		//Intent: respuestas+message?+affectedContexts?action?
-		//Training phrases: fichero usersays con formato -> Fácil [Pero hay aspectos como @sysingore]
 		
 		//Entities
 		exportEntities(botIn.getEntities());
@@ -96,13 +95,29 @@ public class BotToAgent implements ITransformation{
 		//Actions: Bot responses
 		exportFlows(botIn.getFlows());
 		
-		
 		//Zip del archivo.
 		//doZip();
 		return bRet;
 	}
 
 
+	private void exportAgent(Bot botIn) {
+		Agent agent;
+		String strName;
+		Webhook
+		//Initialisation
+		agent = new Agent();
+		
+		//language
+		strName = botIn.getLanguages().get(0).getName();
+		strName = conversor.convertLanguageToAgent(strName);		
+		agent.setLanguage(strName);
+		
+		//defaultTimezone
+		agent.setDefaultTimezone("Europe/Madrid");
+		
+		//agent.set
+	}
 	private void exportEntities(EList<Entity> entities) {
 		int nEntity;
 		
@@ -148,7 +163,7 @@ public class BotToAgent implements ITransformation{
 		for(LanguageInput lan: entityIn.getInputs())
 		{
 			strLanguage = lan.getLanguage().getName();
-			
+			strLanguage = conversor.convertLanguageToAgent(strLanguage);
 			//TODO: reverse language
 			for(EntityInput entityInput : lan.getInputs())
 			{
@@ -438,11 +453,7 @@ public class BotToAgent implements ITransformation{
 		inputList = intentLan.getInputs();
 		strName = intentLan.getLanguage().getName();
 		
-		//TODO: Cambiar esto a generico.
-		if(strName.equals(LAN_ENGLISH))
-			strLan = "en";
-		else
-			strLan = "unk";
+		strLan = conversor.convertLanguageToAgent(strName);
 		
 		jsonList = transformInputListoToJSON(inputList, strLan);
 		
@@ -691,54 +702,8 @@ public class BotToAgent implements ITransformation{
 
 		return retList;
 	}	*/
-	//TODO: darle la vuelta a los terminos y utilizar
-	/*
-	private Language reverseGetLanguage(String language) {
-		switch (language) {
-		case :
-			return "en"Language.ENGLISH;
-		case "es":
-			return Language.SPANISH;
-		case "da":
-			return Language.DANISH;
-		case "de":
-			return Language.GERMAN;
-		case "fr":
-			return Language.FRENCH;
-		case "hi":
-			return Language.HINDI;
-		case "id":
-			return Language.INDONESIAN;
-		case "it":
-			return Language.ITALIAN;
-		case "ja":
-			return Language.JAPANESE;
-		case "ko":
-			return Language.KOREAN;
-		case "nl":
-			return Language.DUTCH;
-		case "no":
-			return Language.NORWEGIAN;
-		case "pl":
-			return Language.POLISH;
-		case "pt":
-			return Language.PORTUGUESE;
-		case "ru":
-			return Language.RUSIAN;
-		case "sv":
-			return Language.SWEDISH;
-		case "th":
-			return Language.THAI;
-		case "tr":
-			return Language.TURKISH;
-		case "uk":
-			return Language.UKRANIAN;
-		case "zh":
-			return Language.CHINESE;
-		default:
-			return Language.ENGLISH;
-		}
-	}*/
+
+	
 
 	
 }

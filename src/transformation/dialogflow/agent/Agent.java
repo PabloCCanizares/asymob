@@ -28,14 +28,23 @@ public class Agent {
 	private String id;
 	private String name;
 	private String language;
+	private String defaultTimezone;
+	private String username;
 	private Webhook webhook;
+	private boolean available;
+	private String customClassifierMode;
+	private float mlMinConfidence;	
 	private List<String> supportedLanguages = new ArrayList<>();
-	private List<Intent> intents = new ArrayList<>();
-	private List<Entity> entities = new ArrayList<>();
-
+	private String onePlatformApiVersion;
+	private boolean analyzeQueryTextSentiment;
+	private List<Intent> enabledKnowledgeBaseNames = new ArrayList<>();
+	private float knowledgeServiceConfidenceAdjustment;
+	private boolean dialogBuilderMode;
+	private String baseActionPackagesUrl;
 	private HTTPRequest request;
 	private HTTPResponse response;
-
+	private List<Intent> intents = new ArrayList<>();
+	private List<Entity> entities = new ArrayList<>();	
 	private Map<Action, List<Action>> similarActions = new HashMap<Action, List<Action>>();
 	private Map<generator.Intent, List<generator.Intent>> similarIntents = new HashMap<>();
 
@@ -127,6 +136,85 @@ public class Agent {
 		this.entities = entities;
 	}
 
+	public String getDefaultTimezone() {
+		return defaultTimezone;
+	}
+
+	public void setDefaultTimezone(String defaultTimezone) {
+		this.defaultTimezone = defaultTimezone;
+	}
+
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+
+	public String getCustomClassifierMode() {
+		return customClassifierMode;
+	}
+
+	public void setCustomClassifierMode(String customClassifierMode) {
+		this.customClassifierMode = customClassifierMode;
+	}
+
+	public float getMlMinConfidence() {
+		return mlMinConfidence;
+	}
+
+	public void setMlMinConfidence(float mlMinConfidence) {
+		this.mlMinConfidence = mlMinConfidence;
+	}
+
+	public String getOnePlatformApiVersion() {
+		return onePlatformApiVersion;
+	}
+
+	public void setOnePlatformApiVersion(String onePlatformApiVersion) {
+		this.onePlatformApiVersion = onePlatformApiVersion;
+	}
+
+	public boolean isAnalyzeQueryTextSentiment() {
+		return analyzeQueryTextSentiment;
+	}
+
+	public void setAnalyzeQueryTextSentiment(boolean analyzeQueryTextSentiment) {
+		this.analyzeQueryTextSentiment = analyzeQueryTextSentiment;
+	}
+
+	public List<Intent> getEnabledKnowledgeBaseNames() {
+		return enabledKnowledgeBaseNames;
+	}
+
+	public void setEnabledKnowledgeBaseNames(List<Intent> enabledKnowledgeBaseNames) {
+		this.enabledKnowledgeBaseNames = enabledKnowledgeBaseNames;
+	}
+
+	public float getKnowledgeServiceConfidenceAdjustment() {
+		return knowledgeServiceConfidenceAdjustment;
+	}
+
+	public void setKnowledgeServiceConfidenceAdjustment(float knowledgeServiceConfidenceAdjustment) {
+		this.knowledgeServiceConfidenceAdjustment = knowledgeServiceConfidenceAdjustment;
+	}
+
+	public boolean isDialogBuilderMode() {
+		return dialogBuilderMode;
+	}
+
+	public void setDialogBuilderMode(boolean dialogBuilderMode) {
+		this.dialogBuilderMode = dialogBuilderMode;
+	}
+
+	public String getBaseActionPackagesUrl() {
+		return baseActionPackagesUrl;
+	}
+
+	public void setBaseActionPackagesUrl(String baseActionPackagesUrl) {
+		this.baseActionPackagesUrl = baseActionPackagesUrl;
+	}
 	public Bot getBot() {
 		Bot bot = GeneratorFactory.eINSTANCE.createBot();
 		bot.setName(getName());

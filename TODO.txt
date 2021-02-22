@@ -80,13 +80,24 @@ Ideas:
 Bot de discord.
 
 *Anotación automática de frases con coreNLP y uso de entidades?
+
+*Medición de cohesion, separation and confusing phrases. []
+  -> Tensorflow y universal sentence encoding [https://www.javacodegeeks.com/2019/07/similarity-using-universal-sentence-encoder.html]
+     · https://github.com/awslabs/djl/blob/master/examples/src/main/java/ai/djl/examples/inference/UniversalSentenceEncoder.java
+*Medicion de intentDetectionConfidence: https://stackoverflow.com/questions/48039722/how-to-determine-confidence-level-in-dialogflow/56122074#56122074
+   
 ==================================================================================================
-CORENLP (https://corenlp.run/)
-WORDNET (http://wordnetweb.princeton.edu/perl/webwn)
-LANGUAGE TOOL (https://languagetool.org/)
+CORENLP (OpenSource)(https://corenlp.run/)
+WORDNET (OpenSource)(http://wordnetweb.princeton.edu/perl/webwn)
+LANGUAGE TOOL (OpenSource)(https://languagetool.org/)
 
-WS4J (https://ws4jdemo.appspot.com/) Similarity
-
+WS4J (OpenSource)(https://ws4jdemo.appspot.com/) Similarity
+Deep Java Library (OpenSource)(https://djl.ai/)
+Quillbot (privado)(https://quillbot.com/)
+ · Reescritura de frases
+FastText (OpenSource)(https://fasttext.cc/) -> Es una biblioteca para el aprendizaje de incrustaciones de palabras y clasificación de texto creada por el laboratorio de investigación de inteligencia artificial de Facebook.
+ · Etiquetado de frases.
+ 
 //Check if a word is recognised
 SentimentModel model = SentimentModel.loadSerialized("edu/stanford/nlp/models/sentiment/sentiment.ser.gz");
 boolean knownWord = model.wordVectors.containsKey("foo");
