@@ -12,8 +12,44 @@ public class Webhook {
 	private String url;
 	private String username;
 	private Map<String, String> headers;
-
+	private boolean available;
+	private boolean useForDomains;
+	private boolean cloudFunctionsEnabled;
+	private boolean cloudFunctionsInitialized;
+	
 	public Webhook() {
+	}
+
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+
+	public boolean isUseForDomains() {
+		return useForDomains;
+	}
+
+	public void setUseForDomains(boolean useForDomains) {
+		this.useForDomains = useForDomains;
+	}
+
+	public boolean isCloudFunctionsEnabled() {
+		return cloudFunctionsEnabled;
+	}
+
+	public void setCloudFunctionsEnabled(boolean cloudFunctionsEnabled) {
+		this.cloudFunctionsEnabled = cloudFunctionsEnabled;
+	}
+
+	public boolean isCloudFunctionsInitialized() {
+		return cloudFunctionsInitialized;
+	}
+
+	public void setCloudFunctionsInitialized(boolean cloudFunctionsInitialized) {
+		this.cloudFunctionsInitialized = cloudFunctionsInitialized;
 	}
 
 	public String getUrl() {

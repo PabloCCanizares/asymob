@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -35,6 +36,8 @@ import generator.Image;
 import generator.Intent;
 import generator.IntentInput;
 import generator.IntentLanguageInputs;
+import generator.KeyValue;
+import generator.Language;
 import generator.LanguageInput;
 import generator.Literal;
 import generator.Parameter;
@@ -49,6 +52,7 @@ import generator.TrainingPhrase;
 import generator.UserInteraction;
 import transformation.ITransformation;
 import transformation.dialogflow.agent.Agent;
+import transformation.dialogflow.agent.Webhook;
 import transformation.dialogflow.agent.entities.Entry;
 import transformation.dialogflow.agent.intents.Data;
 import transformation.dialogflow.agent.intents.Message;
@@ -58,17 +62,23 @@ import zipUtils.Zip;
 public class BotToAgent implements ITransformation{
 
 	Conversor conversor;
+	private BotResourcesManager botManager;
 	private BotAnalyser botAnalyser;
 	private TokenAnalyser tokAnalyser;
 	private final String LAN_ENGLISH = "ENGLISH";
 	private final String USER_SAYS_FILE_TAG= "_usersays_";
-	private final String FOLDER_ENTITIES = "entities";
+	private final String FOLDER_ENTITIES_TAG = "entities";
+	private final String FOLDER_INTENTS_TAG = "intents";
 	private final String JSON_DOT_TAG = ".json";
+	private final String PACKAGE_TAG = "package";
+	private final String AGENT_TAG = "agent";
 	private Zip zip;
 	
 	String strOutputPath;
 	
 	public BotToAgent() {
+		zip = null;
+		botManager = new BotResourcesManager();
 		conversor = new ConversorDialogFlow();
 		tokAnalyser = new TokenAnalyser(conversor);
 		botAnalyser = new BotAnalyser(conversor);		
@@ -78,45 +88,172 @@ public class BotToAgent implements ITransformation{
 		boolean bRet;
 		
 		bRet =  false;
-		
 		this.strOutputPath = strOutputPath;
 		
-		//Agent
-		exportAgent(botIn);
-		
-		//Package: se mantiene
-		
-		//Entities
-		exportEntities(botIn.getEntities());
-		
-		//Intents: Training phrases
-		exportTrainingPhrases(botIn.getIntents());
-		
-		//Actions: Bot responses
-		exportFlows(botIn.getFlows());
-		
-		//Zip del archivo.
-		//doZip();
+		try
+		{
+			//Agent
+			exportAgent(botIn);
+			
+			//Package
+			exportPackage();
+			
+			//Entities
+			exportEntities(botIn.getEntities());
+			
+			//Intents: Training phrases
+			exportTrainingPhrases(botIn.getIntents());
+			
+			//Actions: Bot responses
+			exportFlows(botIn.getFlows());
+			
+			//Zip del archivo.
+			//doZip();
+		}
+		catch(Exception e)
+		{
+			System.out.println("[transform] Exception while transforming the bot to DialogFlow");
+			bRet = false;
+		}
 		return bRet;
 	}
 
 
+	private void exportPackage() {
+		
+		String jsonString;
+		transformation.dialogflow.agent.Package packageIn;
+		
+		packageIn = new transformation.dialogflow.agent.Package();
+		packageIn.setVersion("1.0.0");
+		try {
+			jsonString = jsonifyObject(packageIn);
+			exportData(this.strOutputPath, PACKAGE_TAG+JSON_DOT_TAG, jsonString);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	private void exportAgent(Bot botIn) {
 		Agent agent;
-		String strName;
-		Webhook
-		//Initialisation
-		agent = new Agent();
+		String strName, jsonString;
+		Webhook webHook;
+		HTTPRequest request;
+		List<String> langList;
 		
-		//language
-		strName = botIn.getLanguages().get(0).getName();
-		strName = conversor.convertLanguageToAgent(strName);		
-		agent.setLanguage(strName);
+		try
+		{
+			//Initialisation
+			agent = new Agent();
+			request = null; //TODO: Esto hay que saber de donde lo sacamos.
+			
+			//language
+			strName = botIn.getLanguages().get(0).getName();
+			strName = conversor.convertLanguageToAgent(strName);		
+			agent.setLanguage(strName);
+			
+			//defaultTimezone
+			agent.setDefaultTimezone("Europe/Madrid");
+			
+			//Webhook
+			webHook = processWebHook(request);
+			agent.setWebhook(webHook);
+			
+			//Private, Customclassifier, minconfidence
+			agent.setPrivate(false);
+			agent.setCustomClassifierMode("use.after");
+			agent.setMlMinConfidence(0.3);
+			
+			//Supported languages
+			langList = processLanguages(botIn.getLanguages()); 
+			agent.setSupportedLanguages(langList);
+			
+			//OneplatformApiversion, 
+			agent.setOnePlatformApiVersion("v2");
+			agent.setAnalyzeQueryTextSentiment(false);
+			agent.setKnowledgeServiceConfidenceAdjustment(-0.4);
+			agent.setDialogBuilderMode(false);
+			agent.setBaseActionPackagesUrl("");
+			
+			//Converting the Object to JSONString
+			jsonString = jsonifyObject(agent);
+					
+			//Export
+			exportData(this.strOutputPath, AGENT_TAG+JSON_DOT_TAG, jsonString);
+			
+			//Add to the zip file
+			//TODO:
+		}
+		catch(Exception e)
+		{
+		}
+	}
+	private List<String> processLanguages(EList<Language> languages) {
+		List<String> listRet;
+		String strLanIndex;
 		
-		//defaultTimezone
-		agent.setDefaultTimezone("Europe/Madrid");
+		listRet = null;
+		if(languages != null)
+		{
+			listRet = new LinkedList<String>();
+			for(Language lan: languages)
+			{
+				strLanIndex = lan.getName();
+				if(conversor != null)
+					strLanIndex = conversor.convertLanguageToAgent(strLanIndex);
+				
+				listRet.add(strLanIndex);
+			}
+		}
+		return listRet;
+	}
+	private Webhook processWebHook(HTTPRequest request) {
+		Webhook webHook;
+		Map<String, String> rqHeaders;
+		String strKey, strValue;
+		Token tokValue;
+		webHook = new Webhook();
+		if(request == null)
+		{
+			webHook.setUrl("");
+			webHook.setUsername("");
+			webHook.setHeaders(null);
+			webHook.setAvailable(false);
+			webHook.setUseForDomains(false);
+			webHook.setCloudFunctionsEnabled(false);
+			webHook.setCloudFunctionsInitialized(false);
+		}
+		else
+		{
+			webHook.setUrl(request.getURL());
+			if(request.getHeaders() != null)
+			{
+				rqHeaders = new HashMap<String, String>();
+				
+				for(KeyValue keyVal: request.getHeaders())
+				{
+					strKey = keyVal.getKey();
+					tokValue = keyVal.getValue();
+					strValue = tokAnalyser.getTokenText(tokValue);
+					
+					if(strKey != null && strValue != null)
+					{
+						rqHeaders.put(strKey, strValue);
+					}
+				}
+				webHook.setHeaders(rqHeaders);			
+			}
+			else
+				webHook.setHeaders(null);
+			
+			webHook.setAvailable(true);
+			webHook.setUseForDomains(false);
+			webHook.setCloudFunctionsEnabled(false);
+			webHook.setCloudFunctionsInitialized(false);	
+		}
 		
-		//agent.set
+		return webHook;
 	}
 	private void exportEntities(EList<Entity> entities) {
 		int nEntity;
@@ -140,8 +277,7 @@ public class BotToAgent implements ITransformation{
 		}
 	}
 	private void exportEntity(Entity entityIn) throws Exception {
-		ObjectMapper mapper;
-		String strEntityName, jsonString, strLanguage;
+		String strEntityName, strLanguage;
 		transformation.dialogflow.agent.entities.Entity entityOut;
 		Entry entryOut;
 		List<Entry> entryList;
@@ -164,7 +300,6 @@ public class BotToAgent implements ITransformation{
 		{
 			strLanguage = lan.getLanguage().getName();
 			strLanguage = conversor.convertLanguageToAgent(strLanguage);
-			//TODO: reverse language
 			for(EntityInput entityInput : lan.getInputs())
 			{
 				entryOut = processEntityInput(entityInput);				
@@ -211,19 +346,12 @@ public class BotToAgent implements ITransformation{
 	}
 	private void saveEntryInputFile(String strEntryName, List<Entry> entryList) throws JsonProcessingException {
 		String jsonString;
-		/*ObjectMapper mapper;
-		
-		mapper = new ObjectMapper();
-		//transform to JSON
-		mapper.setSerializationInclusion(Include.NON_NULL);
-	    			
-		jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(entryOut);*/
 		
 		//Converting the Object to JSONString
 		jsonString = jsonifyObject(entryList);
 		
 		//Export
-		exportData(this.strOutputPath+ File.separator+this.FOLDER_ENTITIES, strEntryName, jsonString);
+		exportData(this.strOutputPath+ File.separator+this.FOLDER_ENTITIES_TAG, strEntryName, jsonString);
 	}
 	private void saveEntityFile(String strEntityName,
 			transformation.dialogflow.agent.entities.Entity entityOut) throws JsonProcessingException {
@@ -231,7 +359,7 @@ public class BotToAgent implements ITransformation{
 		jsonString = jsonifyObject(entityOut);
 		
 		//Export
-		exportData(this.strOutputPath+ File.separator+this.FOLDER_ENTITIES, strEntityName, jsonString);
+		exportData(this.strOutputPath+ File.separator+this.FOLDER_ENTITIES_TAG, strEntityName, jsonString);
 	}
 
 	private transformation.dialogflow.agent.entities.Entity processEntity(Entity entity) {
@@ -291,13 +419,9 @@ public class BotToAgent implements ITransformation{
 		
 	}
 	private void exportIntent(Intent intent, List<Action> actionList) throws Exception {
-		
-		EList<IntentInput> inputList;
-		String strName, strLan, jsonString;
+		String strName, jsonString;
 		List<Response> jsonList;
-		ObjectMapper mapper;
 		transformation.dialogflow.agent.intents.Intent intentJSON;
-		UUID intentId;
 		
 		try
 		{
@@ -313,7 +437,7 @@ public class BotToAgent implements ITransformation{
 			intentJSON.setId(Common.generateType1UUID_String());
 			
 			//Contexts
-			//TODO: Rellenar
+			TODO: Rellenar
 			
 			//Responses
 			jsonList = createResponseList(intent, actionList);
@@ -322,7 +446,7 @@ public class BotToAgent implements ITransformation{
 			//transform to JSON
 			jsonString = jsonifyObject(intentJSON);
 			
-			exportData(this.strOutputPath, strName+JSON_DOT_TAG, jsonString);
+			exportData(this.strOutputPath+File.separator+FOLDER_INTENTS_TAG, strName+JSON_DOT_TAG, jsonString);
 		}
 		catch(Exception e)
 		{
@@ -343,6 +467,7 @@ public class BotToAgent implements ITransformation{
 		speech = new LinkedList<String>();
 
 		//reset context
+		Ver por aqui
 		
 		//action
 		
@@ -446,7 +571,7 @@ public class BotToAgent implements ITransformation{
 	private void exportIntentLanguage(String strIntenName, IntentLanguageInputs intentLan) throws JsonProcessingException {
 		EList<IntentInput> inputList;
 		String strName, strLan, jsonString;
-		List<transformation.dialogflow.agent.intents.TrainingPhrase> jsonList;
+		List<transformation.dialogflow.agent.intents.TrainingPhrase> trainingPhrasesList;
 		ObjectMapper mapper;
 			
 		//ID
@@ -455,17 +580,20 @@ public class BotToAgent implements ITransformation{
 		
 		strLan = conversor.convertLanguageToAgent(strName);
 		
-		jsonList = transformInputListoToJSON(inputList, strLan);
+		trainingPhrasesList = processTrainingPhrases(inputList, strLan);
+		
+		jsonString = jsonifyObject(trainingPhrasesList);
 		
 		strName = strIntenName+USER_SAYS_FILE_TAG+strLan+JSON_DOT_TAG;
 		
 		//transform to JSON
-		mapper = new ObjectMapper();
+		/*mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(Include.NON_NULL);
+		//jsonifyObject(objIn)
 	    //Converting the Object to JSONString			
-		jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonList);
+		jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonList);*/
 		
-		exportData(this.strOutputPath, strName, jsonString);
+		exportData(this.strOutputPath+File.separator+FOLDER_INTENTS_TAG, strName, jsonString);
 	}
 	private void exportData(String strOutput, String strName, String jsonString) {
 		File fileToSave;
@@ -501,7 +629,7 @@ public class BotToAgent implements ITransformation{
 		    "updated": 0
 		  },
 	 */
-	private List<transformation.dialogflow.agent.intents.TrainingPhrase> transformInputListoToJSON(EList<IntentInput> inputList, String strLan) {
+	private List<transformation.dialogflow.agent.intents.TrainingPhrase> processTrainingPhrases(EList<IntentInput> inputList, String strLan) {
 		TrainingPhrase trainPhrase;
 		UUID trainingId;
 		Data tokenJson;
@@ -602,13 +730,11 @@ public class BotToAgent implements ITransformation{
 	@Override
 	public boolean transform(String strPathIn, String strPathOut) {
 		boolean bRet;
-		BotResourcesManager botManager;
 		Bot bot;
 		
 		bRet = false;
-		if(strPathIn != null)
+		if(strPathIn != null && botManager != null)
 		{
-			botManager = new BotResourcesManager();
 			if(botManager.loadChatbot(strPathIn))
 			{
 				bot = botManager.getCurrentBot();

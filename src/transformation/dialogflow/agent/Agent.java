@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import generator.Action;
 import generator.Bot;
 import generator.BotInteraction;
@@ -29,16 +31,16 @@ public class Agent {
 	private String name;
 	private String language;
 	private String defaultTimezone;
-	private String username;
 	private Webhook webhook;
+	private boolean isPrivate;
 	private boolean available;
 	private String customClassifierMode;
-	private float mlMinConfidence;	
+	private double mlMinConfidence;	
 	private List<String> supportedLanguages = new ArrayList<>();
 	private String onePlatformApiVersion;
 	private boolean analyzeQueryTextSentiment;
 	private List<Intent> enabledKnowledgeBaseNames = new ArrayList<>();
-	private float knowledgeServiceConfidenceAdjustment;
+	private double knowledgeServiceConfidenceAdjustment;
 	private boolean dialogBuilderMode;
 	private String baseActionPackagesUrl;
 	private HTTPRequest request;
@@ -74,7 +76,14 @@ public class Agent {
 	public Webhook getWebhook() {
 		return webhook;
 	}
+	@JsonProperty("isPrivate")
+	public boolean isPrivate() {
+		return isPrivate;
+	}
 
+	public void setPrivate(boolean isPrivate) {
+		this.isPrivate = isPrivate;
+	}	
 	@Override
 	public String toString() {
 		return "Agent [language=" + language + ", webhook=" + webhook + "]";
@@ -160,12 +169,12 @@ public class Agent {
 		this.customClassifierMode = customClassifierMode;
 	}
 
-	public float getMlMinConfidence() {
+	public double getMlMinConfidence() {
 		return mlMinConfidence;
 	}
 
-	public void setMlMinConfidence(float mlMinConfidence) {
-		this.mlMinConfidence = mlMinConfidence;
+	public void setMlMinConfidence(double d) {
+		this.mlMinConfidence = d;
 	}
 
 	public String getOnePlatformApiVersion() {
@@ -192,12 +201,12 @@ public class Agent {
 		this.enabledKnowledgeBaseNames = enabledKnowledgeBaseNames;
 	}
 
-	public float getKnowledgeServiceConfidenceAdjustment() {
+	public double getKnowledgeServiceConfidenceAdjustment() {
 		return knowledgeServiceConfidenceAdjustment;
 	}
 
-	public void setKnowledgeServiceConfidenceAdjustment(float knowledgeServiceConfidenceAdjustment) {
-		this.knowledgeServiceConfidenceAdjustment = knowledgeServiceConfidenceAdjustment;
+	public void setKnowledgeServiceConfidenceAdjustment(double d) {
+		this.knowledgeServiceConfidenceAdjustment = d;
 	}
 
 	public boolean isDialogBuilderMode() {
@@ -300,6 +309,7 @@ public class Agent {
 
 	private void saveAction(Action action, Bot bot) {
 		boolean hasSimiliar = false;
+		int i;
 		for (Action key : similarActions.keySet()) {
 			if (action.isSimilarTo(key)) {
 				List<Action> list = similarActions.get(key);
@@ -311,7 +321,7 @@ public class Agent {
 			}
 		}
 		if (hasSimiliar == false) {
-			int i=1;
+			i=1;
 			String name = action.getName();
 			while (bot.containsElement(action.getName())==true) {
 				action.setName(name+i);

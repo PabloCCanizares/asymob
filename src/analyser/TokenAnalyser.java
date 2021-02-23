@@ -23,6 +23,10 @@ public class TokenAnalyser {
 		this.conversor = conversor;
 	}
 
+	public String getTokenText(Token token)
+	{
+		return getTokenText(token, false);
+	}
 	public String getTokenText(Token token, boolean bRefName) {
 		String strText;
 		Literal litIn;

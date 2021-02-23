@@ -58,71 +58,76 @@ public class ConversorDialogFlow implements Conversor {
 	public String convertLanguageToAgent(String strLan) {
 		String strRet;
 		
-		switch (strLan) {
-		case "ENGLISH":
-			strRet ="en"; 
-			break;
-		case "SPANISH":
-			strRet ="es";
-			break;
-		case "DANISH":
-			strRet ="da";
-			break;
-		case "GERMAN":
-			strRet ="de";
-			break;
-		case "FRENCH":
-			strRet ="fr";
-			break;
-		case "HINDI":
-			strRet ="hi";
-			break;
-		case "INDONESIAN":
-			strRet ="id";
-			break;			
-		case "ITALIAN":
-			strRet ="it";
-			break;			
-		case "JAPANESE":
-			strRet ="ja";
-			break;			
-		case "KOREAN":
-			strRet ="ko";
-			break;			
-		case "DUTCH":
-			strRet ="nl";
-			break;			
-		case "NORWEGIAN":
-			strRet ="no";
-			break;			
-		case "POLISH":
-			strRet ="pl";
-			break;			
-		case "PORTUGUESE":
-			strRet ="pt";
-			break;			
-		case "RUSIAN":
-			strRet ="ru";
-			break;			
-		case "SWEDISH":
-			strRet ="sv";
-			break;			
-		case "THAI":
-			strRet ="th";
-			break;			
-		case "TURKISH":
-			strRet ="tr";
-			break;			
-		case "UKRANIAN":
-			strRet ="uk";
-			break;			
-		case "CHINESE":
-			strRet ="zh";
-			break;			
-		default:
-			strRet ="en";
-			break;			
+		if(strLan != null)
+		{
+			switch (strLan) {
+			case "ENGLISH":
+				strRet ="en"; 
+				break;
+			case "SPANISH":
+				strRet ="es";
+				break;
+			case "DANISH":
+				strRet ="da";
+				break;
+			case "GERMAN":
+				strRet ="de";
+				break;
+			case "FRENCH":
+				strRet ="fr";
+				break;
+			case "HINDI":
+				strRet ="hi";
+				break;
+			case "INDONESIAN":
+				strRet ="id";
+				break;			
+			case "ITALIAN":
+				strRet ="it";
+				break;			
+			case "JAPANESE":
+				strRet ="ja";
+				break;			
+			case "KOREAN":
+				strRet ="ko";
+				break;			
+			case "DUTCH":
+				strRet ="nl";
+				break;			
+			case "NORWEGIAN":
+				strRet ="no";
+				break;			
+			case "POLISH":
+				strRet ="pl";
+				break;			
+			case "PORTUGUESE":
+				strRet ="pt";
+				break;			
+			case "RUSIAN":
+				strRet ="ru";
+				break;			
+			case "SWEDISH":
+				strRet ="sv";
+				break;			
+			case "THAI":
+				strRet ="th";
+				break;			
+			case "TURKISH":
+				strRet ="tr";
+				break;			
+			case "UKRANIAN":
+				strRet ="uk";
+				break;			
+			case "CHINESE":
+				strRet ="zh";
+				break;			
+			default:
+				strRet ="en";
+				break;			
+			}
 		}
+		else
+			strRet = null;
 		
 		return strRet;
 	}
