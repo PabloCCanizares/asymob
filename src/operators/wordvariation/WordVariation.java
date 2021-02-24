@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import aux.Common;
+import dict.WordNet;
+import dict.disambiguate.IWSD_Disambiguator;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.POS;
@@ -15,15 +17,17 @@ import parser.StandfordTagger;
 public abstract class WordVariation {
 
 	protected EWordType eWordType;
+	protected IWSD_Disambiguator wordSenseDisambiguator;
 	
-	private LinkedList<String> generateWordVariation(IDictionary dict, TaggedWord tag) {
+	
+	private LinkedList<String> generateWordVariation(TaggedWord tag, int nSense) {
 		LinkedList<String> indexList;
 		
 		indexList = null;
-		if(dict != null && tag != null && tag.word() != null)
+		if(tag != null && tag.word() != null)
 		{
 			//Split the input phrase in parts
-			indexList = doOperation(dict, tag.word());// getSynonyms(dict, tag.word());
+			indexList = doOperation(tag.word(), nSense);// getSynonyms(dict, tag.word());
 			
 			if(indexList == null || indexList.size()==0)
 			{
@@ -33,6 +37,10 @@ public abstract class WordVariation {
 			//delete the repeated phrases
 			if(indexList.size()>0)
 				indexList = Common.deleteRepeatedTerms(indexList);			
+			
+			//If 
+			//if(indexList.indexOf(tag.word()) != -1)
+			//	indexList.remove(tag.word());
 		}
 		
 		return indexList;
@@ -58,55 +66,76 @@ public abstract class WordVariation {
 		List<List<TaggedWord>>  phraseList;
 		LinkedList<LinkedList<String>> composedList;
 		URL urlWordnet;
-
-		urlWordnet = Common.openWordNet();
+		int nSense, nOrder, nChangesPerformed;
+				
 		retList = null;
+		nChangesPerformed = 0;
+		nOrder = 0;
 		
-		if(urlWordnet != null)
+		//Tokenize the phrase and tag it.,
+		phraseList = StandfordTagger.getInstance().getTaggedWordList(strInputPhrase);
+		
+		if(phraseList != null)
 		{
-			// construct the dictionary object and open it
-			IDictionary wordnetDict = new Dictionary(urlWordnet);
-			try {
-				wordnetDict.open();
-				
-				//Tokenize the phrase and tag it.,
-				phraseList = StandfordTagger.getInstance().getTaggedWordList(strInputPhrase);
-				
-				if(phraseList != null)
+			retList = new LinkedList<String>();
+			composedList = new LinkedList<LinkedList<String>>();
+			
+			//If the dissambiguator is enabled, use it
+			if(wordSenseDisambiguator != null)
+				wordSenseDisambiguator.disambiguatePhrase(strInputPhrase);
+			
+			for(List<TaggedWord> tagList: phraseList)
+			{int i=0;
+				if(tagList != null)
 				{
-					retList = new LinkedList<String>();
-					composedList = new LinkedList<LinkedList<String>>();
-					for(List<TaggedWord> tagList: phraseList)
+					for(TaggedWord tag: tagList)
 					{
-						if(tagList != null)
+						//Analyse if the word satisfies a property (NOUN in this case)
+						if(checkTagProperty(tag))
 						{
-							for(TaggedWord tag: tagList)
+							nChangesPerformed++;
+							if(wordSenseDisambiguator == null)
 							{
-								//Analyse if the word satisfies a property (NOUN in this case)
-								if(checkTagProperty(tag))
-								{
-									//Create a semantic 
-									indexList = generateWordVariation(wordnetDict, tag);
-								}
+								//Create a semantic
+								indexList = generateWordVariation(tag, -1);
+							}
+							else
+							{					
+								nSense = wordSenseDisambiguator.getSense(tagList, tag, nOrder);
+								//It means that the tag is not a noun
+								if(nSense != -1)
+									indexList = generateWordVariation(tag, nSense);
 								else
 								{
-									indexList = createUnitaryList(tag);
+									indexList= null;
+									nChangesPerformed--;
 								}
-								
-								composedList.add(indexList);
 							}
+							//If 
+							if(indexList != null && indexList.size()==1 && indexList.indexOf(tag.value())!= -1)
+								nChangesPerformed--;							
 						}
+						else
+						{
+							indexList = createUnitaryList(tag);
+						}
+						if(indexList != null)
+							composedList.add(indexList);
+						
+						nOrder++;
 					}
-					indexList = new LinkedList<String>();
-					composeList(0, composedList, indexList, retList);
-				}		
-				wordnetDict.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-				if(wordnetDict != null)
-					wordnetDict.close();
+				}
 			}
-		}
+			indexList = new LinkedList<String>();
+			if(nChangesPerformed>0)
+				composeList(0, composedList, indexList, retList);
+			else
+			{
+				retList = null;
+			}
+		}		
+
+		
 		return retList;
 	}
 
@@ -177,5 +206,5 @@ public abstract class WordVariation {
 		return posType;
 	}
 	
-	abstract public LinkedList<String> doOperation(IDictionary dict, String word);
+	abstract public LinkedList<String> doOperation(String word, int nSense);
 }

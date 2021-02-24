@@ -86,6 +86,7 @@ Bot de discord.
      · https://github.com/awslabs/djl/blob/master/examples/src/main/java/ai/djl/examples/inference/UniversalSentenceEncoder.java
 *Medicion de intentDetectionConfidence: https://stackoverflow.com/questions/48039722/how-to-determine-confidence-level-in-dialogflow/56122074#56122074
    
+*Caracteristicas del texto: text statistics (number of words per sentence), sentiment analysis, readability metrics (Flesch-Reading-Ease)   
 ==================================================================================================
 CORENLP (OpenSource)(https://corenlp.run/)
 WORDNET (OpenSource)(http://wordnetweb.princeton.edu/perl/webwn)

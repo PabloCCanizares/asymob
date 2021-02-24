@@ -22,6 +22,7 @@ import operators.base.MutationOperatorSet;
 import testCases.ITestCaseGenerator;
 import testCases.TcGenBotium;
 import training.TrainPhraseGenerator;
+import transformation.ITransformation;
 import validation.BotValidation_General;
 import validation.BotValidator;
 
@@ -33,11 +34,15 @@ public class Asymob {
 	private BotValidator botValidator = null;
 	private TrainPhraseGenerator trainPhraseGen = null;
 	private BotAnalyser botAnalyser = null;
-		
+	private ITransformation botTransformation = null;	
 	public Asymob()
 	{
 		trainPhraseGen = new TrainPhraseGenerator();
 		botValidator = new BotValidation_General();
+	}
+	public void setTransformation(ITransformation botTransformation)
+	{
+		this.botTransformation = botTransformation;
 	}
 	/**
 	 * Loads a chatbot, given its path.
@@ -247,5 +252,27 @@ public class Asymob {
 		BotPrinter botPrinter = new BotPrinter();
 		
 		botPrinter.printBot(currentBot);
+	}
+	public boolean transform(String strPathOut) {
+		boolean bRet;
+		
+		try
+		{
+			bRet = botTransformation.transform(this.currentBot, strPathOut);
+		}
+		catch(Exception e)
+		{
+			bRet = false;
+			System.out.print("[transform] Exception while transforming bot: ");
+			if(botTransformation == null)
+				System.out.print("<transformation module is null>");
+			if(currentBot == null)
+				System.out.print("<the chatbot is null>");
+			
+			System.out.print("\n");
+		}
+		
+		return bRet;
+		
 	}
 }

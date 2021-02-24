@@ -149,7 +149,7 @@ public class ConversorDialogFlow implements Conversor {
 		else if(dataType.equals(DefaultEntity.DATE.getName()))
 			strRet ="@sys.date";
 		else if(dataType.equals(DefaultEntity.TIME.getName()))
-			strRet ="@sys.number-time";
+			strRet ="@sys.time";
 		else
 			strRet = "@sys.text";
 		

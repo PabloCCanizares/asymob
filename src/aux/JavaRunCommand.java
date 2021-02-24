@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 public class JavaRunCommand {
 
+	private final boolean DEBUG_COMMAND = false;
 	private String strInputPhrase;
 	private String strProgramPath;
 	private String strProgram;
@@ -53,7 +54,8 @@ public class JavaRunCommand {
 				//Process p = Runtime.getRuntime().exec("ps -ef");
 				//if(strProgram.isEmpty())
 				//	strProgram = "python3";
-				System.out.println("Executing command:"+strProgram+" "+strProgramPath+" "+strCommand);
+				if(DEBUG_COMMAND)
+					System.out.println("Executing command:"+strProgram+" "+strProgramPath+" "+strCommand);
 				
 				Process p = Runtime.getRuntime().exec(strProgram+" "+strProgramPath+" "+strCommand);
 
@@ -76,17 +78,23 @@ public class JavaRunCommand {
 						InputStreamReader(p.getErrorStream()));
 
 				// read the output from the command
-				System.out.println("Here is the standard output of the command:\n");
+				if(DEBUG_COMMAND)
+					System.out.println("Here is the standard output of the command:\n");
 				while ((s = stdInput.readLine()) != null) {
-					System.out.println(s);
+					if(DEBUG_COMMAND)
+						System.out.println(s);
 					outputList.add(s);
 				}
 
 				// read any errors from the attempted command
-				System.out.println("Here is the standard error of the command (if any):\n");
-				while ((s = stdError.readLine()) != null) {
-					System.out.println(s);
-				}	
+				if(DEBUG_COMMAND)
+				{
+					System.out.println("Here is the standard error of the command (if any):\n");
+					while ((s = stdError.readLine()) != null) {
+						System.out.println(s);
+					}
+				}
+	
 				bRet = true; 
 				
 			}

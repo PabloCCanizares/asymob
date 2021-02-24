@@ -182,4 +182,15 @@ public class Common {
 		
 		return strUuid;
 	}
+
+	public static boolean checkStringContainedIn(String tag, String tag2) {
+		boolean bRet;
+		
+		bRet  = false;
+		if(tag != null &tag2!=null)
+		{
+			bRet = tag.contains(tag2) || tag2.contains(tag);
+		}
+		return bRet;
+	}
 }

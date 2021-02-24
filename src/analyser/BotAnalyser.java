@@ -142,19 +142,19 @@ public class BotAnalyser {
 		return strText;
 	}
 
-	public List<Pair<Intent, Action>> plainActionTree(UserInteraction userActIn) {
+	public List<Pair<UserInteraction, Action>> plainActionTree(UserInteraction userActIn) {
 	
-		List<Pair<Intent, Action>> combinedList, partialList;
+		List<Pair<UserInteraction, Action>> combinedList, partialList;
 		List<Action> actionList;
 		BotInteraction botInteraction;
-		Pair<Intent, Action> pairIntentAction;
+		Pair<UserInteraction, Action> pairIntentAction;
 		EList<UserInteraction> userActionList;
 		
 		combinedList = null;
 		actionList = null;
 		if(userActIn !=null)
 		{
-			combinedList = new LinkedList<Pair<Intent,Action>>();
+			combinedList = new LinkedList<Pair<UserInteraction,Action>>();
 			botInteraction = userActIn.getTarget();
 			
 			if(botInteraction != null)
@@ -163,7 +163,7 @@ public class BotAnalyser {
 				
 				for(Action action: actionList)
 				{
-					pairIntentAction = Pair.of(userActIn.getIntent(), action);
+					pairIntentAction = Pair.of(userActIn, action);
 					
 					combinedList.add(pairIntentAction);
 				}

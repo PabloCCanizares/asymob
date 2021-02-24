@@ -67,6 +67,7 @@ public class BotToAgent implements ITransformation{
 	private TokenAnalyser tokAnalyser;
 	private final String LAN_ENGLISH = "ENGLISH";
 	private final String USER_SAYS_FILE_TAG= "_usersays_";
+	private final String ENTRIES_FILE_TAG= "_entries_";
 	private final String FOLDER_ENTITIES_TAG = "entities";
 	private final String FOLDER_INTENTS_TAG = "intents";
 	private final String JSON_DOT_TAG = ".json";
@@ -130,7 +131,6 @@ public class BotToAgent implements ITransformation{
 			jsonString = jsonifyObject(packageIn);
 			exportData(this.strOutputPath, PACKAGE_TAG+JSON_DOT_TAG, jsonString);
 		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -305,7 +305,7 @@ public class BotToAgent implements ITransformation{
 				entryOut = processEntityInput(entityInput);				
 				entryList.add(entryOut);
 			}
-			saveEntryInputFile(strEntityName+USER_SAYS_FILE_TAG+strLanguage+JSON_DOT_TAG, entryList);
+			saveEntryInputFile(strEntityName+ENTRIES_FILE_TAG+strLanguage+JSON_DOT_TAG, entryList);
 		}
 	}
 
@@ -386,31 +386,36 @@ public class BotToAgent implements ITransformation{
 		return entityOut;
 	}
 	private void exportFlows(EList<UserInteraction> flows) {
-		List<Pair<Intent, Action>> indexList;
-		HashMap<Intent,List<Action>> intentActionMap;
-		Intent intent;
+		List<Pair<UserInteraction, Action>> indexList;
+		HashMap<UserInteraction,List<Action>> intentActionMap;
+		UserInteraction interaction;
 		List<Action> actionList;
 
 		if(flows != null)
 		{
-			intentActionMap = new HashMap<Intent,List<Action>>();
+			intentActionMap = new HashMap<UserInteraction,List<Action>>();
 			//Group the user interactions in a map
-			for(UserInteraction userIn: flows)
+			/*for(UserInteraction userIn: flows)
+			{
+				//indexList = botAnalyser.plainActionTree(userIn);
+				//processIntentListIntoMap(intentActionMap, indexList);
+				createTransitionFiles(userIn, "");
+			}*/
+			 for(UserInteraction userIn: flows)
 			{
 				indexList = botAnalyser.plainActionTree(userIn);
-				processIntentListIntoMap(intentActionMap, indexList);
+				processIntentListIntoMap(intentActionMap, indexList);				
 			}
-			
 			//Now, for each intent and its associated list of actions: we export it!
 			Iterator<?> iterator = intentActionMap.entrySet().iterator();
 	        while (iterator.hasNext()) {
 	          Map.Entry me2 = (Map.Entry) iterator.next();
 	          System.out.println("Key: "+me2.getKey() + " & Value: " + me2.getValue());
-	          intent = (Intent)me2.getKey();
+	          interaction = (UserInteraction)me2.getKey();
 	          actionList = (List<Action>) me2.getValue();
 	          
 		        try {
-					exportIntent(intent, actionList);
+					exportInteraction(interaction, actionList);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -418,13 +423,34 @@ public class BotToAgent implements ITransformation{
 		}
 		
 	}
-	private void exportIntent(Intent intent, List<Action> actionList) throws Exception {
+	private void createTransitionFiles(UserInteraction userIn, String string) {
+		Intent intent;
+		
+		if(userIn != null)
+		{
+			intent = userIn.getIntent();
+			
+			if(userIn.getTarget() != null)
+			{
+				for(UserInteraction user: userIn.getTarget().getOutcoming())
+				{
+					//indexList = botAnalyser.plainActionTree(userIn);
+					//processIntentListIntoMap(intentActionMap, indexList);
+					createTransitionFiles(user, "");
+				}
+			}
+		}
+	}
+	private void exportInteraction(UserInteraction userInter, List<Action> actionList) throws Exception {
 		String strName, jsonString;
 		List<Response> jsonList;
 		transformation.dialogflow.agent.intents.Intent intentJSON;
+		Intent intent;
 		
 		try
 		{
+			intent = userInter.getIntent();
+			
 			//TODO: Here its necessary to check if we have previously loaded the Chabot
 			//In this case, we try to re-use all the data included, instead of creating new data.
 			intentJSON = new transformation.dialogflow.agent.intents.Intent();
@@ -437,7 +463,11 @@ public class BotToAgent implements ITransformation{
 			intentJSON.setId(Common.generateType1UUID_String());
 			
 			//Contexts
-			TODO: Rellenar
+			/*if(userInter.getSrc() != null)
+				createContext();
+			else*/
+					
+			//TODO: Rellenar
 			
 			//Responses
 			jsonList = createResponseList(intent, actionList);
@@ -459,6 +489,10 @@ public class BotToAgent implements ITransformation{
 		List<String> speech, textList;
 		Response response;
 		Message message;
+		int nType;
+		boolean bWebHook;
+		String strMessage, strLan;
+		Language lan;
 		
 		response = new Response();
 		message = new Message();
@@ -466,50 +500,90 @@ public class BotToAgent implements ITransformation{
 		messageList = new LinkedList<Message>();
 		speech = new LinkedList<String>();
 
+		strLan = "";
+		bWebHook = false;
+		textList = null;
+		
+		//TODO: Revisar esto, no se si estara bien
+		
 		//reset context
-		Ver por aqui
+		//Ver por aqui
 		
 		//action
 		
+		//ResetContexts
+		response.setResetContexts(false);
+		
 		//affectedContexts
+		//TODO:
 		
 		//Parameters!
+		//TODO: 
 		
 		//Messages
 		for(Action action: actionList)
 		{
 			if(action != null)
 			{
-				textList = botAnalyser.extractAllActionPhrasesByRef(action);
-				speech.addAll(textList);
+				
+				if(action!= null)
+				{
+					if(action instanceof Text)
+					{
+						message.setType("0");
+						message.setCondition("");
+						
+						textList = botAnalyser.extractAllActionPhrasesByRef(action);
+						if(textList != null)
+							speech.addAll(textList);
+						/*
+						for(TextLanguageInput texIn: ((Text) action).getInputs())
+						{
+							textList = null;
+							strLan = conversor.convertLanguageToAgent(strLan);
+							message.setLang(strLan);							
+							
+							//strMessage = texIn.
+							
+						}*/
+						
+					}
+					else if(action instanceof Image)
+					{
+						message.setType("3");
+					}
+					else if(action instanceof HTTPRequest)
+					{
+						bWebHook = true;
+					}
+				}
 			}
 		}
+
 		//Add speech to the message
 		message.setSpeech(speech);
-		//Message to lists
-		messageList.add(message);
 		//Message list to response
 		response.setMessages(messageList);
 		resList.add(response);
 		
 		return resList;
 	}
-	private void processIntentListIntoMap(HashMap<Intent, List<Action>> intentActionMap,
-			List<Pair<Intent, Action>> indexList) {
+	private void processIntentListIntoMap(HashMap<UserInteraction, List<Action>> intentActionMap,
+			List<Pair<UserInteraction, Action>> indexList) {
 		List<Action> actionList;
 		Action action;
-		Intent intent;
+		UserInteraction intent;
 		
 		action = null;
 		intent = null;
 		actionList = null;
 		if(intentActionMap!= null && indexList != null)
 		{
-			for(Pair<Intent, Action> pairIntentAction: indexList)
+			for(Pair<UserInteraction, Action> pairIntentAction: indexList)
 			{				
 				if (pairIntentAction != null)
 				{
-					intent = (Intent) pairIntentAction.getLeft();
+					intent = (UserInteraction) pairIntentAction.getLeft();
 					action = (Action) pairIntentAction.getRight();
 				}
 				

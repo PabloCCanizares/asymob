@@ -31,7 +31,8 @@ public abstract class MutationOperator {
 			listRet = doVariantsByDefault(strInputPhrase);
 			 
 		//Delete all the equivalent results
-		listRet.removeAll(Collections.singleton(strInputPhrase));
+		if(listRet != null)
+			listRet.removeAll(Collections.singleton(strInputPhrase));
 		
 		return listRet;
 	}

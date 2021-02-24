@@ -190,6 +190,25 @@ public class WordNet {
 		
 		return wnInstance;
 	}
+	public IIndexWord getIndexWord(String strInputWord, POS pos) {
+		IIndexWord idxWord;
+		
+		idxWord = null;
+		
+		if(dict != null)
+			idxWord = dict.getIndexWord(strInputWord, pos);
+		
+		return idxWord;
+	}
+	public IWord getWord(IWordID wordID) {
+		IWord wordRet;
+		if(dict != null)
+			wordRet = dict.getWord(wordID);
+		else 
+			wordRet =null;
+		
+		return wordRet;
+	}
 	
     
     

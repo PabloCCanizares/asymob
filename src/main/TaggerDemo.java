@@ -41,7 +41,7 @@ public class TaggerDemo  {
 		MaxentTagger tagger = new MaxentTagger(System.getProperty("user.dir")+"/tagmodels/english-bidirectional-distsim.tagger");
 		// print the adjectives in one more sentence. This shows how to get at words and tags in a tagged sentence.
 
-		extractNouns(tagger, "The slimy slug crawled over the long, green grass.");
+		extractNouns(tagger, "Can I set up an appointment to service my bike tomorrow at 2pm?");
 		String tagged = tagger.tagString("The. slimy slug. ");
 		System.out.println(tagged);
 		//List<HasWord> sent = SentenceUtils.toWordList("The slimy slug. ");
@@ -79,8 +79,8 @@ public class TaggerDemo  {
 		}
 
 
-		List<List<HasWord>> sentences = MaxentTagger.tokenizeText(new StringReader("The slimy slug crawled over the long , green grass."));
-
+		//List<List<HasWord>> sentences = MaxentTagger.tokenizeText(new StringReader("The slimy slug crawled over the long , green grass."));
+		List<List<HasWord>> sentences = MaxentTagger.tokenizeText(new StringReader("Can I set up an appointment to service my bike tomorrow at 2pm?"));
 		for (List<HasWord> sentence : sentences) {
 
 			/*List<TaggedWord> tSentence = tagger.tagSentence(sentence);

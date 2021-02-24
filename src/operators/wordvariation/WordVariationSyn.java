@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import dict.WordNet;
+import dict.disambiguate.SenseRelate_AllWords;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
 import edu.mit.jwi.item.ISynset;
@@ -19,11 +20,12 @@ public class WordVariationSyn extends WordVariation {
 	public WordVariationSyn(EWordType eWordType) {
 
 		this.eWordType = eWordType;
+		wordSenseDisambiguator = new SenseRelate_AllWords();
 	}
 
 
 	@Override
-	public LinkedList<String> doOperation(IDictionary dict, String strInputWord) {
+	public LinkedList<String> doOperation(String strInputWord, int nPosition) {
 		LinkedList<String> retList, indexList;
 		String strLemma;
 		IWordID wordID;
@@ -32,52 +34,87 @@ public class WordVariationSyn extends WordVariation {
 		IIndexWord idxWord;
 		POS posWordType;
 		
-		posWordType = getPosPerType(eWordType);
-		
-		idxWord = dict.getIndexWord(strInputWord, posWordType);
 		
 		retList = null;
 		try {
-			System.out.print(strInputWord);	
+			posWordType = getPosPerType(eWordType);
+			idxWord = WordNet.getInstance().getIndexWord(strInputWord, posWordType);
+			
 		    int x = idxWord.getTagSenseCount();
 		    retList = new LinkedList<String>();
-		    for (int i = 0; i < x; i++) {
-		        wordID = idxWord.getWordIDs().get(i);
-		        word = dict.getWord(wordID);
-
-		        // Adding Related Words to List of Realted Words
-		        synset = word.getSynset();		        
-		        
-		        //Metodo mas general
-		        indexList = WordNet.getInstance().getSynonyms(synset, false);
-		        
-		       // indexList = getHypernym(dict, synset);
-
-		        //indexList = getSimilarWords(dict, synset);
-		        //TODO: Filter by hyper
-		        
-		        if(indexList != null && indexList.size()>0)
-		        	retList.addAll(indexList);
-		        /*Set<String> lexicon = new HashSet<>();
-
-		        for (POS p : POS.values()) {
-		            idxWord = dict.getIndexWord(strInputWord, p);
-		            if (idxWord != null) {
-		                System.out.println("\t : " + idxWord.getWordIDs().size());
-		                wordID = idxWord.getWordIDs().get(0);
-		                word = dict.getWord(wordID);
-		                synset = word.getSynset();
-		                System.out.print(synset.getWords().size());
-		                for (IWord w : synset.getWords()) {
-		                    lexicon.add(w.getLemma());
-		                }
-		            }
-		        }*/
+		    
+		    //If the sense/context of the word is not provided, return back all
+		    if(nPosition == -1)
+		    {
+		    	for (int i = 0; i < x; i++) {
+			        indexList = getSynonymsFromSense(idxWord,  i);
+			        
+			        //TODO: Filter by hyper
+			        //indexList = getHypernym(dict, synset);
+			        //indexList = getSimilarWords(dict, synset);
+			        
+			        if(indexList != null && indexList.size()>0)
+			        	retList.addAll(indexList);
+			        /*Set<String> lexicon = new HashSet<>();
+	
+			        for (POS p : POS.values()) {
+			            idxWord = dict.getIndexWord(strInputWord, p);
+			            if (idxWord != null) {
+			                System.out.println("\t : " + idxWord.getWordIDs().size());
+			                wordID = idxWord.getWordIDs().get(0);
+			                word = dict.getWord(wordID);
+			                synset = word.getSynset();
+			                System.out.print(synset.getWords().size());
+			                for (IWord w : synset.getWords()) {
+			                    lexicon.add(w.getLemma());
+			                }
+			            }
+			        }*/
+		    	}
 		    }
+		    else
+		    { 
+		    	if(nPosition<idxWord.getWordIDs().size())
+		    	{
+		    		indexList = getSynonymsFromSense(idxWord, nPosition);
+			        
+			        if(indexList != null && indexList.size()>0)
+			        	retList.addAll(indexList);
+		    	}
+		    	
+		    }
+			    
 		} catch (Exception ex) {
 		    System.out.println("> No synonym found!");		    
 		}
 		return retList;
+	}
+
+
+	private LinkedList<String> getSynonymsFromSense(IIndexWord idxWord, int nPosition) {
+		LinkedList<String> indexList;
+		IWordID wordID;
+		IWord word;
+		ISynset synset;
+		
+		try
+		{
+			//GEt the word related in this position
+			wordID = idxWord.getWordIDs().get(nPosition);
+			word = WordNet.getInstance().getWord(wordID);
+			
+			// Adding Related Words to List of Realted Words
+			synset = word.getSynset();		        
+			
+			//Metodo mas general
+			indexList = WordNet.getInstance().getSynonyms(synset, false);	
+		}
+		catch(Exception e)
+		{
+			indexList = null;
+		}
+		
+		return indexList;
 	}
 
 

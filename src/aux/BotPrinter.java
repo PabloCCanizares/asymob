@@ -9,7 +9,11 @@ import generator.Bot;
 import generator.Entity;
 import generator.Intent;
 import generator.UserInteraction;
-
+/**
+ * 
+ * @author Pablo C. Ca&ntildeizares
+ *
+ */
 public class BotPrinter {
 
 	public static void printBot(Bot botIn)

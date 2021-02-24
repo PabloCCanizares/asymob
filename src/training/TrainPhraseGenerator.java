@@ -74,8 +74,9 @@ public class TrainPhraseGenerator {
 							for (IntentInput input : inputList) {
 								listVarPhrase = createTrainingPhrase(input, cfgIn);
 
-								//remove the first one, due to its identical to the original one								
-								associateVarListToIntent(intentLan, listVarPhrase);
+								//remove the first one, due to its identical to the original one
+								if(listVarPhrase != null)
+									associateVarListToIntent(intentLan, listVarPhrase);
 							}
 						}			
 					}
@@ -131,7 +132,7 @@ public class TrainPhraseGenerator {
 				{
 					//This method generates a list of elements, which have a pointer to the input token,
 					//and a list of sentences variations in form of strings. 
-					partialResults = generateTrainingPhrase(tokenIn, cfgIn); 
+					partialResults = generateTrainingPhrase(tokenIn, cfgIn); //TODO: Procesar con la lista entera de tokens
 					if(partialResults != null) 
 					{
 						mutedTrainingPhrases.add(partialResults);
