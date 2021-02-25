@@ -9,6 +9,9 @@ import org.eclipse.emf.common.util.EList;
 
 import com.fasterxml.jackson.databind.util.Converter;
 
+import analyser.flowTree.TreeBranch;
+import analyser.flowTree.TreeBranchList;
+import analyser.flowTree.TreeInterAction;
 import generator.Action;
 import generator.Bot;
 import generator.BotInteraction;
@@ -27,6 +30,8 @@ import generator.TextLanguageInput;
 import generator.Token;
 import generator.TrainingPhrase;
 import generator.UserInteraction;
+
+import org.apache.commons.lang3.SerializationUtils;
 import org.apache.commons.lang3.tuple.Pair;
 public class BotAnalyser {
 
@@ -183,6 +188,44 @@ public class BotAnalyser {
 		
 		return combinedList;
 	}
+	
+	/*public List<TreeBranch> plainActionTreeList(UserInteraction userActIn, TreeBranchList listIn) {
+		TreeBranchList combinedList, partialList;
+		List<Action> actionList;
+		BotInteraction botInteraction;
+		TreeInterAction pairIntentAction;
+		EList<UserInteraction> userActionList;
+		
+		combinedList = null;
+		actionList = null;
+		try
+		{
+			combinedList = new TreeBranchList();
+			botInteraction = userActIn.getTarget();
+			actionList = botInteraction.getActions();
+			if(actionList != null)
+			{
+				//combinedList = (TreeBranchList) SerializationUtils.clone((T) listIn); 
+				//listIn.insertIntentActionList(userActIn, actionList);				
+			}
+
+			userActionList = botInteraction.getOutcoming();
+			if(botInteraction.getOutcoming() != null)
+			{
+				//Here we have another intent with a action list
+				for(UserInteraction userAct: userActionList)
+				{
+					partialList = plainActionTreeList(userAct);
+					combinedList.addAll(partialList);
+				}
+			}
+		}catch(Exception e)
+		{
+			System.out.println("[plainActionTreeList] Exception plaining tree");
+		}
+		
+		return combinedList;
+	}*/
 	public EList<Action> extractActionList(UserInteraction userActIn) {
 		EList<Action> retList;
 		BotInteraction botInteraction;

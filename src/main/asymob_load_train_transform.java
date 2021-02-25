@@ -35,10 +35,10 @@ public class asymob_load_train_transform {
 			//botTester.generateTestCases("/localSpace/chatbots/CongaModels/bikeShop");
 			
 			mutOpSet = selectMutationOperators();
+			//if(botTester.generateTrainingPhrasesByIntentId("Make Appointment - custom", mutOpSet))
+			if(botTester.generateTrainingPhrases(mutOpSet))
 			//if(botTester.generateTrainingPhrasesByIntentId("Hours", mutOpSet))
-			//if(botTester.generateTrainingPhrasesByIntentId("Make Appointment", mutOpSet))
-			if(botTester.generateTrainingPhrasesByIntentId("Make Appointment - custom", mutOpSet))
-			//if(botTester.generateTrainingPhrases(mutOpSet))
+			//if(botTester.generateTrainingPhrasesByIntentId("Make Appointment", mutOpSet))				
 			{
 				if(botTester.applyTrainingPhrasesToChatbot())
 				{

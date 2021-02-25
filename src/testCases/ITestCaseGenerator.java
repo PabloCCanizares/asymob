@@ -4,5 +4,5 @@ import generator.Bot;
 
 public interface ITestCaseGenerator {
 
-	boolean generateTestCases(String strPath, Bot botIn);
+	boolean generateTestCases(Bot botIn, String strPathOut);
 }

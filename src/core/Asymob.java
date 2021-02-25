@@ -229,7 +229,7 @@ public class Asymob {
 		if(currentBot != null)
 		{
 			ITestCaseGenerator tcGen = new TcGenBotium();
-			tcGen.generateTestCases(strPath, currentBot);
+			tcGen.generateTestCases(currentBot, strPath);
 		}
 				
 		return bRet;
