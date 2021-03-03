@@ -11,6 +11,9 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.emf.common.util.EList;
 
 import analyser.BotAnalyser;
+import analyser.flowTree.TreeBranch;
+import analyser.flowTree.TreeBranchList;
+import analyser.flowTree.TreeInterAction;
 import aux.Common;
 import generator.Action;
 import generator.Bot;
@@ -34,17 +37,21 @@ public class TcGenBotium implements ITestCaseGenerator {
 		
 		try
 		{
+
 			this.strPath = strPath; 
 			botAnalyser = new BotAnalyser();
 			
 			//Check if the path exists, if not -> create it
 			if(Common.checkDirectory(strPath))
 			{
-				//depthExport(botIn);
+				//Export the flows
+				depthExport(botIn);
+
+				//Export the AsUnits (Asymob Unit Tests)
 				for(UserInteraction flow: botIn.getFlows())
 				{
 					System.out.printf("Handling flow %d\n", nIndex);
-					handleFlow(nIndex, botAnalyser, flow);
+					handleFlow(nIndex, flow);
 					nIndex++;
 				}
 			}
@@ -65,39 +72,103 @@ public class TcGenBotium implements ITestCaseGenerator {
 		return bRet;
 	}
 
-	private void depthExport(Bot botIn) {
+	private boolean depthExport(Bot botIn) {
 
-		List<Pair<UserInteraction, Action>> flowActions;
+		List<Pair<UserInteraction, List<Action>>> flowActionsTemp;
+		TreeBranch treeBranch;
+		boolean bRet;
+		
+		//Initialise
+		bRet = false;
 		if(botIn != null)
 		{
 			botAnalyser = new BotAnalyser();
 			
 			for(UserInteraction flow: botIn.getFlows())
 			{
-				flowActions = botAnalyser.plainActionTree(flow);
+				//Explore the flow, and extract a tree in form of a list of pairs <UserInteraction, List<Action>>
+				flowActionsTemp = botAnalyser.plainActionTreeInBranches(flow);
+				
+				//Create the tree branch, and save into list
+				treeBranch = new TreeBranch(flowActionsTemp);
+				
+				createFlowTestCase(treeBranch);
 				/*
 				System.out.printf("Handling flow %d\n", nIndex);
 				handleFlow(nIndex, botAnalyser, flow);
 				nIndex++;*/
 			}
 		}
+		return bRet;
 	}
 
-	private void handleFlow(int nIndex, BotAnalyser botAnalyser, UserInteraction flow) throws IOException {
+	private void createFlowTestCase(TreeBranch treeBranch) {
+
+		String strIntentName, strConvoName, strConvoBuffer;
+		TreeInterAction treeIntentAction;
+		Intent intent;
+		
+		try
+		{
+			//Initialise
+			strConvoName ="";
+			treeBranch.resetIndex();
+			
+			//This represents a single convo, whose name is composed by appending the names of the intents
+			//We will only know the name of the convo, once the whole branch has been completely explored. 
+			while(treeBranch.hasNext())
+			{
+				treeIntentAction = treeBranch.getNext();
+				
+				//Update convoName
+				strConvoName = updateConvoName(strConvoName, treeIntentAction);
+				
+				//Update convoBuffer
+				strConvoBuffer = updateConvoBuffer(treeIntentAction); 
+						
+				//Single intent
+				exportIntentFile(treeIntentAction.getIntent());
+				
+				//Multiple Actions
+				exportActionsFile(treeIntentAction.getActions());
+				
+			}
+			//exportConvoFile
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+	}
+
+	private String updateConvoName(String strConvoName, TreeInterAction treeIntentAction) {
+		String strIntentName;
+		
+		if(treeIntentAction != nu)
+		strIntentName = treeIntentAction.getIntentName();
+		if(!strConvoName.isBlank())
+			strConvoName = strConvoName+" - "+ treeIntentAction.getIntentName();
+		else
+			strConvoName = treeIntentAction.getIntentName();
+		return strConvoName;
+	}
+
+	private void handleFlow(int nIndex, UserInteraction flow) throws IOException {
 		String strIntentName, strActionName, strIntentNameFile, strActionFileName;
 		Intent intent;
 		LinkedList<String> retList;
 		EList<Action> actionList;
-		File intentFile, utterancesActionFile, utteranceUserFile; 
-		BufferedWriter writer, writerUtter;
+		File intentFile; 
+		BufferedWriter writer;
 		
 		//TODO:: Creo que no hace falta un arbol, se puede ir generando de manera secuencial. 
 		//	· desenrollamos el arbol
 		//	· partimos este metodo en dos, y bien ordenadito
 		//	· dejamos los TCs bien definidos y se comprueba si el archivo existe o no antes de generarlo de nuevo..
 			
-		writer = writerUtter = null;
-		utterancesActionFile = intentFile = utteranceUserFile = null;
+		writer = null;
+		intentFile = null;
 		try
 		{
 			if(flow == null)
@@ -243,7 +314,6 @@ public class TcGenBotium implements ITestCaseGenerator {
 			writerUserUtter.flush();
 			writerUserUtter.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			bRet = false;
 		}

@@ -147,8 +147,43 @@ public class BotAnalyser {
 		return strText;
 	}
 
-	public List<Pair<UserInteraction, Action>> plainActionTree(UserInteraction userActIn) {
+	public List<Pair<UserInteraction, List<Action>>> plainActionTreeInBranches(UserInteraction userActIn) {
 	
+		List<Pair<UserInteraction, List<Action>>> combinedList, partialList;
+		List<Action> actionList;
+		BotInteraction botInteraction;
+		Pair<UserInteraction, List<Action>> pairIntentAction;
+		EList<UserInteraction> userActionList;
+		
+		combinedList = null;
+		actionList = null;
+		if(userActIn !=null)
+		{
+			combinedList = new LinkedList<Pair<UserInteraction,List<Action>>>();
+			botInteraction = userActIn.getTarget();
+			
+			if(botInteraction != null)
+			{
+				actionList = botInteraction.getActions();
+				pairIntentAction = Pair.of(userActIn, actionList);
+				combinedList.add(pairIntentAction);
+			}
+			userActionList = botInteraction.getOutcoming();
+			if(botInteraction.getOutcoming() != null)
+			{
+				//Here we have another intent with a action list
+				for(UserInteraction userAct: userActionList)
+				{
+					partialList = plainActionTreeInBranches(userAct);
+					combinedList.addAll(partialList);
+				}
+			}
+				
+		}
+		
+		return combinedList;
+	}
+	public List<Pair<UserInteraction, Action>> plainActionTree(UserInteraction userActIn) {
 		List<Pair<UserInteraction, Action>> combinedList, partialList;
 		List<Action> actionList;
 		BotInteraction botInteraction;
@@ -165,13 +200,12 @@ public class BotAnalyser {
 			if(botInteraction != null)
 			{
 				actionList = botInteraction.getActions();
-				
-				for(Action action: actionList)
+				for(Action action : actionList)
 				{
 					pairIntentAction = Pair.of(userActIn, action);
-					
 					combinedList.add(pairIntentAction);
 				}
+				
 			}
 			userActionList = botInteraction.getOutcoming();
 			if(botInteraction.getOutcoming() != null)
@@ -188,7 +222,6 @@ public class BotAnalyser {
 		
 		return combinedList;
 	}
-	
 	/*public List<TreeBranch> plainActionTreeList(UserInteraction userActIn, TreeBranchList listIn) {
 		TreeBranchList combinedList, partialList;
 		List<Action> actionList;
@@ -254,6 +287,7 @@ public class BotAnalyser {
 		// TODO Auto-generated method stub
 		return flowAnalyser != null ? flowAnalyser.extractAllActionPhrases(action, true) : null;
 	}
+
 	
 
 }

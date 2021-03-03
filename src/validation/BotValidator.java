@@ -23,7 +23,8 @@ public abstract class BotValidator {
 		{
 			for(IBotValidationMethod valMethod: methodList)
 			{
-				bRet = valMethod.doValidate(botIn);
+				if(valMethod != null)
+					bRet = valMethod.doValidate(botIn);
 			}
 		}catch(Exception e)
 		{
