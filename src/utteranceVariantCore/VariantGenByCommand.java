@@ -21,6 +21,7 @@ public class VariantGenByCommand implements IVariantGenerator {
 	public void configure(String strProgramPath) {
 		commandRunner = new JavaRunCommand();
 		commandRunner.setProgramPath(strProgramPath);
+		this.setProgramPath(strProgramPath);
 	}
 
 	@Override

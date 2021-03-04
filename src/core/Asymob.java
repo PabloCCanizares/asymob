@@ -3,6 +3,7 @@ package core;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,7 +22,9 @@ import generator.Intent;
 import operators.base.MutationOperatorSet;
 import testCases.ITestCaseGenerator;
 import testCases.TcGenBotium;
-import training.TrainPhraseGenerator;
+import training.IVariantPhraseGenerator;
+import training.VariationsCollectionText;
+import training.chaos.ChaosPhraseGenerator;
 import transformation.ITransformation;
 import validation.BotValidation_General;
 import validation.BotValidator;
@@ -32,12 +35,12 @@ public class Asymob {
 	private ResourceSet botResourceSet = null;	
 	private Bot currentBot = null;
 	private BotValidator botValidator = null;
-	private TrainPhraseGenerator trainPhraseGen = null;
+	private IVariantPhraseGenerator trainPhraseGen = null;
 	private BotAnalyser botAnalyser = null;
 	private ITransformation botTransformation = null;	
 	public Asymob()
 	{
-		trainPhraseGen = new TrainPhraseGenerator();
+		trainPhraseGen = new ChaosPhraseGenerator();
 		botValidator = new BotValidation_General();
 	}
 	public void setTransformation(ITransformation botTransformation)
@@ -143,7 +146,7 @@ public class Asymob {
 			botIntent = currentBot.getIntent(strIntentName);
 			
 			if(botIntent != null)
-				bRet = trainPhraseGen.generateTrainingPhraseFull(botIntent, mutOpSet);
+				bRet = trainPhraseGen.generateTrainingPhrase(botIntent, mutOpSet);
 		}
 		catch(Exception e)
 		{
@@ -248,6 +251,20 @@ public class Asymob {
 
 		return bRet;
 	}
+	public VariationsCollectionText getGeneratedTrainingPhrases() {
+		boolean bRet;
+		VariationsCollectionText mapRet;
+		try
+		{
+			mapRet = trainPhraseGen.getVariationsCollectionTxt();
+		}
+		catch(Exception e)
+		{
+			mapRet = null;
+		}
+
+		return mapRet;
+	}	
 	public void printBotSummary() {
 		BotPrinter botPrinter = new BotPrinter();
 		

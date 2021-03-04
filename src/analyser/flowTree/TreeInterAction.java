@@ -1,5 +1,6 @@
 package analyser.flowTree;
 
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -37,5 +38,25 @@ public class TreeInterAction {
 			strRet = intentRet.getName();
 		
 		return strRet;
+	}
+
+	public LinkedList<String> getActionNames() {
+		LinkedList<String> retList;
+		
+		retList = null;
+		if(action != null && action.size()>0)
+		{
+			retList = new LinkedList<String>();
+			for(Action actIndex: action)
+			{
+				retList.add(actIndex.getName());
+			}
+		}
+		
+		return retList;
+	}
+
+	public List<Action> getActions() {
+		return action;
 	}
 }

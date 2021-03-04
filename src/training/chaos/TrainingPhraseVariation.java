@@ -1,4 +1,4 @@
-package training;
+package training.chaos;
 
 import operators.base.EMutationOperators;
 
@@ -10,5 +10,6 @@ import operators.base.EMutationOperators;
 public abstract class TrainingPhraseVariation {
 
 	protected EMutationOperators mutOp;
-	protected abstract boolean isEmpty();
+	protected abstract boolean isEmpty();	
+	
 }

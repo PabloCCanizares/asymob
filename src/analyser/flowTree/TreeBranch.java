@@ -11,7 +11,7 @@ import generator.UserInteraction;
 
 public class TreeBranch {
 
-	ListIterator iterator;
+	ListIterator<TreeInterAction> iterator;
 	List<TreeInterAction> branch;
 	public TreeBranch(List<Pair<UserInteraction, List<Action>>> flowActionsTemp) {
 		branch = new LinkedList<TreeInterAction>();
@@ -30,6 +30,15 @@ public class TreeBranch {
 	{
 		if(branch != null)
 			iterator = branch.listIterator();
+	}
+
+	public boolean hasNext() {
+		
+		return iterator != null ? iterator.hasNext() : null;
+	}
+
+	public TreeInterAction getNext() {
+		return iterator != null ? iterator.next() : null;
 	}
 	
 }

@@ -1,4 +1,4 @@
-package training;
+package training.chaos;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -17,97 +17,28 @@ import generator.ParameterReferenceToken;
 import generator.Token;
 import generator.TrainingPhrase;
 import operators.base.MutationOperatorSet;
+import training.VariantPhraseGeneratorBase;
+import training.VariationsCollectionText;
 import utteranceVariantCore.UtteranceVariantCore;
 
-public class TrainPhraseGenerator {
+public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 
-	UtteranceVariantCore oMutCore;
-	TrainingPhraseSet trainingPhraseSet;
-	TokenAnalyser tokenAnalyser;
-	public TrainPhraseGenerator()
+
+	public ChaosPhraseGenerator()
 	{
 		oMutCore =  new UtteranceVariantCore();
 		trainingPhraseSet = new TrainingPhraseSet();
 		tokenAnalyser = new TokenAnalyser();
 	}
-	boolean generateTrainingPhraseFull(Bot botIn, MutationOperatorSet cfgIn)
-	{
-		boolean bRet;
-		bRet = false;
+	
 
-		//Iterate the intents and call the existing method
-		if(botIn != null)
-		{
-			//TODO: 
-		}
-		return bRet;
-	}
-	public boolean generateTrainingPhraseFull(Intent intentIn, MutationOperatorSet cfgIn)
-	{
-		boolean bRet;
-		List<IntentLanguageInputs> listLanguages;
-		List<IntentInput> inputList;
-		LinkedList<TrainingPhraseVariation> listVarPhrase;
-		bRet = true;
-
-		System.out.println("generateTrainingPhraseFull - Init");
-		try
-		{
-			//TODO: Aplanar esto con excepciones.
-			
-			//Find all the inputs and process them
-			if(intentIn != null)
-			{
-				//Analyse the different languages
-				listLanguages = intentIn.getInputs();
-
-				for (IntentLanguageInputs intentLan : listLanguages) {
-
-					if(intentLan != null)
-					{
-						System.out.println("generateTrainingPhraseFull - Analysing intent in language "+intentLan.getLanguage().getLiteral());
-						inputList = intentLan.getInputs();
-
-						//Find all the inputs and process them
-						if(inputList != null)
-						{
-							for (IntentInput input : inputList) {
-								listVarPhrase = createTrainingPhrase(input, cfgIn);
-
-								//remove the first one, due to its identical to the original one
-								if(listVarPhrase != null)
-									associateVarListToIntent(intentLan, listVarPhrase);
-							}
-						}			
-					}
-				}
-			}			
-		}
-		catch(Exception e)
-		{
-			System.out.println("generateTrainingPhraseFull - Exception generating train phrases: "+e.getMessage());
-
-			bRet = false;
-		}
-
-		System.out.println("generateTrainingPhraseFull - End");
-		return bRet;
-	}
-	private void associateVarListToIntent(IntentLanguageInputs intentLan,
-			LinkedList<TrainingPhraseVariation> listVarPhrase) {
-
-		if(listVarPhrase != null && intentLan != null)
-		{
-			trainingPhraseSet.insertPhrase(intentLan, listVarPhrase);
-		}
-	}
 	/**
 	 * Generates a set of training phrases taking into consideration both an IOntentInput and a set of mutation operators
 	 * @param inputIn: Input used as base to generate the new set of phrases
 	 * @param cfgIn
 	 * @return
 	 */
-	LinkedList<TrainingPhraseVariation> createTrainingPhrase(IntentInput inputIn, MutationOperatorSet cfgIn)
+	protected LinkedList<TrainingPhraseVariation> createTrainingPhrase(IntentInput inputIn, MutationOperatorSet cfgIn)
 	{
 		TrainingPhrase trainIn;
 		List<Token> tokenList;
@@ -132,7 +63,7 @@ public class TrainPhraseGenerator {
 				{
 					//This method generates a list of elements, which have a pointer to the input token,
 					//and a list of sentences variations in form of strings. 
-					partialResults = generateTrainingPhrase(tokenIn, cfgIn); //TODO: Procesar con la lista entera de tokens
+					partialResults = generateTrainingPhrase(tokenIn, cfgIn); //TODO: Procesar con la lista entera de tokens para generar un contexto
 					if(partialResults != null) 
 					{
 						mutedTrainingPhrases.add(partialResults);
@@ -304,15 +235,8 @@ public class TrainPhraseGenerator {
 			retList.add(newCompPhrase);
 		}
 	}
-	/*private void releaseLastResults()
-	{
-		if(tempTrainingPhrases != null)
-			tempTrainingPhrases.clear();
-	}
-	private LinkedList<TrainingPhraseVariation> getLastResults() {
-		return tempTrainingPhrases;
-	}*/
-	TrainingPhraseVarTemplate generateTrainingPhrase(Token tokenIn, MutationOperatorSet cfgIn)
+
+	private TrainingPhraseVarTemplate generateTrainingPhrase(Token tokenIn, MutationOperatorSet cfgIn)
 	{
 		Literal litIn;
 		LinkedList<String> listStrVariants;
@@ -419,6 +343,112 @@ public class TrainPhraseGenerator {
 		return bRet;
 	}
 
+	public VariationsCollectionText getVariationsCollectionTxt() {
+		LinkedList<String> strRetList;
+		String strPartialPhrase, strIntentName;
+		VariationsCollectionText colRet;
+		boolean bRet, bInserted;
+		
+		bRet = false;
+		strRetList = null;
+		colRet = null;
+		if(trainingPhraseSet != null)
+		{
+			IntentLanguageInputs inputVariant;
+			LinkedList<TrainingPhraseVariation> variantList;
+			
+			colRet = new VariationsCollectionText();
+			//TODO: Make the iterator private element of the trainingPhraseSet class
+			Iterator<Entry<IntentLanguageInputs, LinkedList<TrainingPhraseVariation>>> iterator = trainingPhraseSet.getHashMap().entrySet().iterator();
+			while (iterator.hasNext()) {
+				Entry<IntentLanguageInputs, LinkedList<TrainingPhraseVariation>> me2 = iterator.next();
+				System.out.println("Key: "+me2.getKey() + " & Value: " + me2.getValue());
+
+				inputVariant = (IntentLanguageInputs) me2.getKey();
+				variantList = (LinkedList<TrainingPhraseVariation>) me2.getValue();
+				
+				//Insert into the intent, the training phrases
+				if(inputVariant != null)
+				{
+					strRetList = new LinkedList<String>();
+					//Go through all the elements of the variant list
+					for(TrainingPhraseVariation tPhraseVar: variantList)
+					{
+						//Create a training phrase
+						
+						bInserted = false;
+						//Depending on the type of each trainingPhraseVariation, we must create different types of elements.
+						if(tPhraseVar instanceof TrainingPhraseVarSimple)
+						{
+							bInserted = true;
+							strPartialPhrase =((TrainingPhraseVarSimple) tPhraseVar).getTrainingPhrase();
+							
+							if(strPartialPhrase != null)
+								strRetList.add(strPartialPhrase);	        			  
+						}
+						else if(tPhraseVar instanceof TrainingPhraseVarComposed)
+						{
+							bInserted = true;
+							strPartialPhrase = getComposedPhraseString(tPhraseVar);
+							
+							if(strPartialPhrase != null)
+								strRetList.add(strPartialPhrase);								
+						}
+						
+						//Add the training phrase to the inputLanguage						
+						//if(bInserted)
+						//	inputVariant.getInputs().add(tPhrase);
+					}
+					if(strRetList != null && strRetList.size()>0)
+					{
+						strIntentName = ((Intent)inputVariant.eContainer()).getName();
+						colRet.insertIntentPhrases(strIntentName, strRetList);
+					}
+						//trainingPhraseSet.insertStringIntentPhrases(inputVariant, strRetList);
+				}
+			} 
+			bRet = true;
+		}
+		return colRet;
+	}
+	
+	private String getComposedPhraseString(TrainingPhraseVariation tPhraseVar) {
+		TrainingPhraseVarComposed varComposed;
+		LinkedList<TrainingPhraseVarSimple> simpleList;
+		ParameterReferenceToken parRef;
+		Token originalTokenPhrase;
+		String strRet;
+		String strTrainingPhrase;
+		
+		strRet = null;
+		varComposed = (TrainingPhraseVarComposed) tPhraseVar;
+		if(varComposed != null)
+		{
+			strRet = "";
+			//The varComposed, consist of different varSimple
+			simpleList = varComposed.getTrainingPhrases();
+			for(TrainingPhraseVarSimple varSimplePhrase : simpleList)
+			{
+				originalTokenPhrase = varSimplePhrase.getToken();
+
+				if(originalTokenPhrase instanceof Literal)
+				{
+					strTrainingPhrase =varSimplePhrase.getTrainingPhrase(); 
+					
+					if(strTrainingPhrase != null)
+						strRet = strRet.concat(strTrainingPhrase);
+				}
+				else if(originalTokenPhrase instanceof ParameterReferenceToken)
+				{
+					strTrainingPhrase =varSimplePhrase.getTrainingPhrase();
+					//parRef.setParameter(((ParameterReferenceToken) originalTokenPhrase).getParameter());
+					if(strTrainingPhrase != null)
+						strRet = strRet.concat(strTrainingPhrase);
+				}
+			}
+		}
+		return strRet;
+	}
 	private void insertSimplePhrase(TrainingPhrase tPhrase, TrainingPhraseVariation tPhraseVar) {
 		TrainingPhraseVarSimple varSimple;
 		Literal lit;
@@ -459,5 +489,5 @@ public class TrainPhraseGenerator {
 				}
 			}
 		}
-	}	
+	}
 }

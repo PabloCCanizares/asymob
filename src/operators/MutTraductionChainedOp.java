@@ -38,7 +38,7 @@ public class MutTraductionChainedOp extends MutationOperator{
 	@Override
 	public String ToString() {
 		
-		return String.format("%s %d %s", this.eMutOp, tradChain.toString());
+		return String.format("%s %s", this.eMutOp, tradChain.toString());
 	}
 
 	@Override

@@ -18,13 +18,16 @@ import aux.Common;
 import generator.Action;
 import generator.Bot;
 import generator.Intent;
+import generator.Text;
 import generator.UserInteraction;
 
 public class TcGenBotium implements ITestCaseGenerator {
 
+	BotAnalyser botAnalyser;
 	String strPath;
 	private final String USER_UTTER_TAG = "user";
-	BotAnalyser botAnalyser;
+	private final String BOT_UTTER_TAG = "actions";
+	
 	public boolean generateTestCases(Bot botIn, String strPath) {
 		
 		int nIndex;
@@ -48,12 +51,12 @@ public class TcGenBotium implements ITestCaseGenerator {
 				depthExport(botIn);
 
 				//Export the AsUnits (Asymob Unit Tests)
-				for(UserInteraction flow: botIn.getFlows())
+				/*for(UserInteraction flow: botIn.getFlows())
 				{
 					System.out.printf("Handling flow %d\n", nIndex);
 					handleFlow(nIndex, flow);
 					nIndex++;
-				}
+				}*/
 			}
 			else
 			{
@@ -111,7 +114,7 @@ public class TcGenBotium implements ITestCaseGenerator {
 		try
 		{
 			//Initialise
-			strConvoName ="";
+			strConvoName = strConvoBuffer = "";
 			treeBranch.resetIndex();
 			
 			//This represents a single convo, whose name is composed by appending the names of the intents
@@ -124,7 +127,7 @@ public class TcGenBotium implements ITestCaseGenerator {
 				strConvoName = updateConvoName(strConvoName, treeIntentAction);
 				
 				//Update convoBuffer
-				strConvoBuffer = updateConvoBuffer(treeIntentAction); 
+				strConvoBuffer = updateConvoBuffer(treeIntentAction, strConvoBuffer); 
 						
 				//Single intent
 				exportIntentFile(treeIntentAction.getIntent());
@@ -133,27 +136,160 @@ public class TcGenBotium implements ITestCaseGenerator {
 				exportActionsFile(treeIntentAction.getActions());
 				
 			}
-			//exportConvoFile
+			exportConvoFile(strConvoName, strConvoBuffer);
 		}
 		catch(Exception e)
 		{
-			
+			System.out.println("[TcGenBotium::createFlowTestCase] Exception while creating a flow");
 		}
 		
 	}
 
+	private void exportConvoFile(String strConvoName, String strConvoBuffer) {
+		File convoFile;
+		BufferedWriter writer;
+
+		try {
+			convoFile = Common.fileWithDirectoryAssurance(this.strPath, String.format("%s.convo.txt",strConvoName));
+			writer = new BufferedWriter(new FileWriter(convoFile));
+			
+			writer.write("TC-"+strConvoName+"-convo\n\n");
+			writer.write(strConvoBuffer);
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	private void exportActionsFile(List<Action> actions) {		
+		String strActionFileName;
+		LinkedList<String> retList;
+		
+		for(Action actIndex: actions)
+		{
+			strActionFileName = constructActionFileName(actIndex);
+			
+			retList = botAnalyser.extractAllActionPhrases(actIndex);
+
+			if(retList != null)
+			{
+				//Bot utterance fil
+				createUtteranceFile(strActionFileName, retList);
+			}
+		}
+		
+	}
+
+	private void exportIntentFile(Intent intent) {
+		String strIntentFileName;
+		LinkedList<String> userPhrases;
+		
+		//Construct intent name
+		strIntentFileName = constructIntentFileName(intent);
+		
+		//Intent phrase
+		userPhrases = botAnalyser.extractAllIntentPhrases(intent);
+		
+		//User utterance file
+		createUtteranceFile(strIntentFileName, userPhrases);	
+		
+	}
+
+	private String updateConvoBuffer(TreeInterAction treeIntentAction, String strConvoBuffer) {
+		String strRet, strIntentName, strActionName;
+		List<Action> actionList;
+		strRet = strConvoBuffer;
+		
+		//#me+intentName
+		strIntentName = constructIntentFileName(treeIntentAction.getIntent());
+		strIntentName = strIntentName.toUpperCase();
+		strRet = strRet.concat("#me\n"+strIntentName+"\n");
+		
+		//#bot+actions
+		strRet = strRet.concat("\n#bot\n");
+		actionList = treeIntentAction.getActions();
+		for(Action actionIndex: actionList)
+		{
+			//TODO: En botium no se como funcionan los HTTPRequest y Response.
+			if(actionIndex instanceof Text)
+			{
+				strActionName =  constructActionFileName(actionIndex);
+				strActionName = strActionName.toUpperCase();
+				strRet = strRet.concat(strActionName+"\n");
+			}
+		}
+		strRet = strRet.concat("\n");
+		
+		return strRet;
+	}
 	private String updateConvoName(String strConvoName, TreeInterAction treeIntentAction) {
 		String strIntentName;
 		
-		if(treeIntentAction != nu)
 		strIntentName = treeIntentAction.getIntentName();
+		strIntentName = strIntentName.replace(" ", "_");
 		if(!strConvoName.isBlank())
-			strConvoName = strConvoName+" - "+ treeIntentAction.getIntentName();
+			strConvoName = strConvoName+"->"+ strIntentName;
 		else
-			strConvoName = treeIntentAction.getIntentName();
+			strConvoName = strIntentName;
+		
 		return strConvoName;
 	}
 
+	private boolean  createUtteranceFile(String strIntentNameFile, LinkedList<String> retList){
+		File utteranceUserFile;
+		BufferedWriter writerUserUtter;
+		boolean bRet;
+		
+		bRet = true;
+		try {
+			
+			//Check if the file exists and has content
+			
+			//Configure File
+			utteranceUserFile = Common.fileWithDirectoryAssurance(this.strPath, String.format("%s.utterances.txt",strIntentNameFile));
+			writerUserUtter = new BufferedWriter(new FileWriter(utteranceUserFile));
+			writerUserUtter.write(strIntentNameFile.toUpperCase()+"\n");
+			
+			//Save files
+			for(String phrase: retList)
+			{
+				System.out.printf("%s\n", phrase);
+				writerUserUtter.write(phrase+"\n");
+			}
+			
+			//Flush and close
+			writerUserUtter.flush();
+			writerUserUtter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+			bRet = false;
+		}
+		return bRet;
+	}
+	private String constructIntentFileName(Intent intent)
+	{
+		String strIntentName, strIntentNameFile;
+		
+		strIntentName = intent.getName();
+		strIntentName = strIntentName.replace(" ", "_");
+		strIntentNameFile = strIntentName+"_"+USER_UTTER_TAG;
+		
+		return strIntentNameFile;
+	}
+	private String constructActionFileName(Action action) {
+		String strActionName, strActionNameFile;
+		
+		strActionName = action.getName();
+		strActionName = strActionName.replace(" ", "_");
+		strActionName = strActionName+"_"+BOT_UTTER_TAG;
+		
+		return strActionName;
+	}
+	
+	/*
 	private void handleFlow(int nIndex, UserInteraction flow) throws IOException {
 		String strIntentName, strActionName, strIntentNameFile, strActionFileName;
 		Intent intent;
@@ -236,7 +372,7 @@ public class TcGenBotium implements ITestCaseGenerator {
 					strActionName = strActionName.replace(" ", "_");					
 					
 					//TODO: Este intent tiene que salir del arbol aplanado
-					retList = botAnalyser.extractAllActionPhrases(actIndex, flow.getIntent());
+					retList = botAnalyser.extractAllActionPhrases(actIndex);
 
 					if(retList != null)
 					{
@@ -266,58 +402,5 @@ public class TcGenBotium implements ITestCaseGenerator {
 				writer.close();
 			}
 		}
-	}
-
-	/*private BufferedWriter createBotUtteranceFile(String strActionFileName, LinkedList<String> retList)
-			throws IOException {
-		File utterancesActionFile;
-		BufferedWriter writerUtter;
-		utterancesActionFile = Common.fileWithDirectoryAssurance(this.strPath, String.format("%s.utterances.txt",strActionFileName));
-		writerUtter = new BufferedWriter(new FileWriter(utterancesActionFile));
-		
-		writerUtter.write(strActionFileName.toUpperCase()+"\n");
-		
-		for(String phrase: retList)
-		{
-			if(phrase != null && !phrase.isBlank())
-			{
-				System.out.printf("%s\n", phrase);
-				writerUtter.write(phrase+"\n");
-			}
-		}
-		
-		writerUtter.flush();
-		writerUtter.close();
-		return writerUtter;
 	}*/
-
-	private boolean  createUtteranceFile(String strIntentNameFile, LinkedList<String> retList){
-		File utteranceUserFile;
-		BufferedWriter writerUserUtter;
-		boolean bRet;
-		
-		bRet = true;
-		try {
-			//Configure File
-			utteranceUserFile = Common.fileWithDirectoryAssurance(this.strPath, String.format("%s.utterances.txt",strIntentNameFile));
-			writerUserUtter = new BufferedWriter(new FileWriter(utteranceUserFile));
-			writerUserUtter.write(strIntentNameFile.toUpperCase()+"\n");
-			
-			//Save files
-			for(String phrase: retList)
-			{
-				System.out.printf("%s\n", phrase);
-				writerUserUtter.write(phrase+"\n");
-			}
-			
-			//Flush and close
-			writerUserUtter.flush();
-			writerUserUtter.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-			bRet = false;
-		}
-		return bRet;
-	}
-
 }

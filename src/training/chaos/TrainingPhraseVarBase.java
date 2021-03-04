@@ -1,4 +1,4 @@
-package training;
+package training.chaos;
 
 import generator.Token;
 

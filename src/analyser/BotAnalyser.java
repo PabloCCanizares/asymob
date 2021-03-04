@@ -280,7 +280,7 @@ public class BotAnalyser {
 		return retList;
 	}
 
-	public LinkedList<String> extractAllActionPhrases(Action actIndex, Intent intent) {
+	public LinkedList<String> extractAllActionPhrases(Action actIndex) {
 		return flowAnalyser != null ? flowAnalyser.extractAllActionPhrases(actIndex, false) : null;
 	}
 	public List<String> extractAllActionPhrasesByRef(Action action) {
