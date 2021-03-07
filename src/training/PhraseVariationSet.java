@@ -1,4 +1,4 @@
-package training.chaos;
+package training;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -6,23 +6,24 @@ import java.util.LinkedList;
 import generator.Intent;
 import generator.IntentLanguageInputs;
 
-public class TrainingPhraseSet {
+public class PhraseVariationSet {
 
 	//Map that correlates an intent with a new generated training phrase
-	HashMap<IntentLanguageInputs,LinkedList<TrainingPhraseVariation>> intentMap;
+	HashMap<IntentLanguageInputs,LinkedList<PhraseVariation>> intentMap;
 	
 	//Result of processing the intentMap
 	HashMap<String,LinkedList<String>> intentStringMap;
-	public TrainingPhraseSet()
+	
+	public PhraseVariationSet()
 	{
-		intentMap = new HashMap<IntentLanguageInputs,LinkedList<TrainingPhraseVariation>>();
+		intentMap = new HashMap<IntentLanguageInputs,LinkedList<PhraseVariation>>();
 		intentStringMap = null;
 	}
 
 	//Se debe tener una lista de las nuevas frases que hay que introducir, asociadas a su 'nodo padre'.
-	public void insertPhrase(IntentLanguageInputs intentLan, LinkedList<TrainingPhraseVariation> listVarPhrase) {
+	public void insertPhrase(IntentLanguageInputs intentLan, LinkedList<PhraseVariation> listVarPhrase) {
 
-		LinkedList<TrainingPhraseVariation> listActualPhrases;
+		LinkedList<PhraseVariation> listActualPhrases;
 		if(intentLan != null && listVarPhrase != null)
 		{
 			//search the intentLan in the hashmap
@@ -43,7 +44,7 @@ public class TrainingPhraseSet {
 	}
 	
 	// TODO: Borrar esto y adaptarlo
-	public HashMap<IntentLanguageInputs,LinkedList<TrainingPhraseVariation>> getHashMap() {
+	public HashMap<IntentLanguageInputs,LinkedList<PhraseVariation>> getHashMap() {
 		
 		return intentMap;
 	}

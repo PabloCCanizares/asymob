@@ -3,15 +3,16 @@ package training.chaos;
 import java.util.LinkedList;
 
 import generator.Token;
+import training.PhraseVariation;
 
-public class TrainingPhraseVarComposed extends TrainingPhraseVariation {
+public class TrainingPhraseVarChaosComposed extends PhraseVariation {
 
 	Token originalToken;
-	LinkedList<TrainingPhraseVarSimple> phraseParts; 
+	LinkedList<TrainingPhraseVarChaosSingle> phraseParts; 
 
-	public TrainingPhraseVarComposed() {
+	public TrainingPhraseVarChaosComposed() {
 		
-		phraseParts = new LinkedList<TrainingPhraseVarSimple>();
+		phraseParts = new LinkedList<TrainingPhraseVarChaosSingle>();
 	}
 
 	public void insertPart()
@@ -23,7 +24,7 @@ public class TrainingPhraseVarComposed extends TrainingPhraseVariation {
 		return phraseParts == null || phraseParts.size()==0;
 	}
 
-	public LinkedList<TrainingPhraseVarSimple> getTrainingPhrases() {
+	public LinkedList<TrainingPhraseVarChaosSingle> getTrainingPhrases() {
 		return phraseParts;
 	}
 
@@ -33,7 +34,7 @@ public class TrainingPhraseVarComposed extends TrainingPhraseVariation {
 			phraseParts.add(i, null);
 	}
 
-	public void addOrReplacePhrase(int nIndexChild, TrainingPhraseVarSimple trainingPhraseVarSimple) {
+	public void addOrReplacePhrase(int nIndexChild, TrainingPhraseVarChaosSingle trainingPhraseVarSimple) {
 		
 		if(phraseParts != null && nIndexChild<phraseParts.size())
 		{
@@ -43,7 +44,7 @@ public class TrainingPhraseVarComposed extends TrainingPhraseVariation {
 		
 	}
 
-	public void addPhrase(TrainingPhraseVarSimple newPhrase) {
+	public void addPhrase(TrainingPhraseVarChaosSingle newPhrase) {
 		phraseParts.add(newPhrase);
 		
 	}

@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.Random;
 import java.util.StringTokenizer;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Common {
 
@@ -192,5 +193,32 @@ public class Common {
 			bRet = tag.contains(tag2) || tag2.contains(tag);
 		}
 		return bRet;
+	}
+	
+	public static String progressBar(int currentValue, int maxValue) {
+	    int progressBarLength = 33; //
+	    if (progressBarLength < 9 || progressBarLength % 2 == 0) {
+	        throw new ArithmeticException("formattedPercent.length() = 9! + even number of chars (one for each side)");
+	    }
+	    int currentProgressBarIndex = (int) Math.ceil(((double) progressBarLength / maxValue) * currentValue);
+	    String formattedPercent = String.format(" %5.1f %% ", (100 * currentProgressBarIndex) / (double) progressBarLength);
+	    int percentStartIndex = ((progressBarLength - formattedPercent.length()) / 2);
+
+	    StringBuilder sb = new StringBuilder();
+	    sb.append("[");
+	    for (int progressBarIndex = 0; progressBarIndex < progressBarLength; progressBarIndex++) {
+	        if (progressBarIndex <= percentStartIndex - 1
+	        ||  progressBarIndex >= percentStartIndex + formattedPercent.length()) {
+	            sb.append(currentProgressBarIndex <= progressBarIndex ? " " : "=");
+	        } else if (progressBarIndex == percentStartIndex) {
+	            sb.append(formattedPercent);
+	        }
+	    }
+	    sb.append("]");
+	    return sb.toString();
+	}
+
+	public static int generateRandom(int min, int max) {
+		return ThreadLocalRandom.current().nextInt(min, max + 1);
 	}
 }

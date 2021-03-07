@@ -15,7 +15,7 @@ public class MutObjectsToSynonymsOp extends MutationOperator{
 	
 	public MutObjectsToSynonymsOp()
 	{
-		this(1,1,10);
+		this(1,10,10);
 	}
 
 	public MutObjectsToSynonymsOp(int nMin, int nMax, int nPercentage)

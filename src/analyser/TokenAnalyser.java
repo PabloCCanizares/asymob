@@ -1,5 +1,8 @@
 package analyser;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import com.fasterxml.jackson.databind.util.Converter;
 
 import generator.Intent;
@@ -124,5 +127,33 @@ public class TokenAnalyser {
 		}
 		
 		return strRet;
+	}
+	public String convertListToString(List<Token> tokenList) {
+		String strRet;
+		
+		strRet = null;
+		if(tokenList != null)
+		{
+			strRet="";
+			for(Token tokIn: tokenList)
+			{
+				strRet+= getTokenText(tokIn);
+			}
+		}
+		return strRet;
+	}
+	public LinkedList<String> convertTokenListToStringList(List<Token> tokenList) {
+		LinkedList<String> retList;
+		
+		retList = null;
+		if(tokenList != null)
+		{
+			retList = new LinkedList<String>();
+			for(Token tokIn: tokenList)
+			{
+				retList.add(getTokenText(tokIn));
+			}
+		}
+		return retList;
 	}
 }

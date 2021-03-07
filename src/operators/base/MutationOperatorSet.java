@@ -40,4 +40,8 @@ public class MutationOperatorSet {
 		}
 		return opRet;
 	}
+	public int getActiveOperators()
+	{
+		return operatorList != null ? operatorList.size() : 0;
+	}
 }

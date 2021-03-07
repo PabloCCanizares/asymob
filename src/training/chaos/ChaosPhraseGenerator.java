@@ -17,6 +17,8 @@ import generator.ParameterReferenceToken;
 import generator.Token;
 import generator.TrainingPhrase;
 import operators.base.MutationOperatorSet;
+import training.PhraseVariation;
+import training.PhraseVariationSet;
 import training.VariantPhraseGeneratorBase;
 import training.VariationsCollectionText;
 import utteranceVariantCore.UtteranceVariantCore;
@@ -27,7 +29,7 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 	public ChaosPhraseGenerator()
 	{
 		oMutCore =  new UtteranceVariantCore();
-		trainingPhraseSet = new TrainingPhraseSet();
+		trainingPhraseSet = new PhraseVariationSet();
 		tokenAnalyser = new TokenAnalyser();
 	}
 	
@@ -38,19 +40,19 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 	 * @param cfgIn
 	 * @return
 	 */
-	protected LinkedList<TrainingPhraseVariation> createTrainingPhrase(IntentInput inputIn, MutationOperatorSet cfgIn)
+	protected LinkedList<PhraseVariation> createTrainingPhrase(IntentInput inputIn, MutationOperatorSet cfgIn)
 	{
 		TrainingPhrase trainIn;
 		List<Token> tokenList;
-		LinkedList<TrainingPhraseVarTemplate> mutedTrainingPhrases;
-		TrainingPhraseVarTemplate partialResults;
-		LinkedList<TrainingPhraseVariation> retList;
+		LinkedList<TrainingPhraseVarChaosTemplate> mutedTrainingPhrases;
+		TrainingPhraseVarChaosTemplate partialResults;
+		LinkedList<PhraseVariation> retList;
 
 		retList = null;
 		if(inputIn != null)
 		{
-			retList = new LinkedList<TrainingPhraseVariation>();
-			mutedTrainingPhrases = new LinkedList<TrainingPhraseVarTemplate>();
+			retList = new LinkedList<PhraseVariation>();
+			mutedTrainingPhrases = new LinkedList<TrainingPhraseVarChaosTemplate>();
 
 			//Dynamically check if are training phrases [TrainingPhrase] 
 			if (inputIn instanceof TrainingPhrase) {
@@ -74,7 +76,7 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 				//En este caso, lo suyo es asociarlo a un intentlanguage y guardarlo hasta despues.
 				if(mutedTrainingPhrases.size() == 1)
 				{
-					TrainingPhraseVarTemplate variantPhrase;
+					TrainingPhraseVarChaosTemplate variantPhrase;
 					LinkedList<String> listVariants;
 
 					if(hasVariations(mutedTrainingPhrases))
@@ -87,7 +89,7 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 						for(String strVariant: listVariants)
 						{
 							//Add to the return list, a simple training phrase variation
-							retList.add(new TrainingPhraseVarSimple(variantPhrase.getToken(), strVariant));
+							retList.add(new TrainingPhraseVarChaosSingle(variantPhrase.getToken(), strVariant));
 						}
 					}
 
@@ -95,7 +97,7 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 				//Composed list
 				else if (mutedTrainingPhrases.size() > 1)
 				{
-					TrainingPhraseVarComposed variantComposedPhrase;
+					TrainingPhraseVarChaosComposed variantComposedPhrase;
 					
 					//First of all, we must check whether almost one of the trainingphrases have been generated.
 					//Let us remember that, due to the restrictions size of a composed phrase,
@@ -116,7 +118,7 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 					 */
 					if(hasVariations(mutedTrainingPhrases))
 					{
-						variantComposedPhrase = new TrainingPhraseVarComposed();
+						variantComposedPhrase = new TrainingPhraseVarChaosComposed();
 						
 						//Necessaries to create all the posibilities  the composed phrases
 						includeOriginalTrainPhrases(mutedTrainingPhrases);
@@ -139,9 +141,11 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 
 		return retList;
 	}
-	private void includeOriginalTrainPhrases(LinkedList<TrainingPhraseVarTemplate> mutedTrainingPhrases) {
-		ListIterator<TrainingPhraseVarTemplate> iter;
-		TrainingPhraseVarTemplate element;
+	
+	
+	private void includeOriginalTrainPhrases(LinkedList<TrainingPhraseVarChaosTemplate> mutedTrainingPhrases) {
+		ListIterator<TrainingPhraseVarChaosTemplate> iter;
+		TrainingPhraseVarChaosTemplate element;
 		Token token;
 		String strTokenStr;
 		
@@ -161,10 +165,10 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 		}
 	}
 	
-	private boolean hasVariations(LinkedList<TrainingPhraseVarTemplate> mutedTrainingPhrases) {
+	private boolean hasVariations(LinkedList<TrainingPhraseVarChaosTemplate> mutedTrainingPhrases) {
 		
 		boolean bRet;
-		ListIterator<TrainingPhraseVarTemplate> iter;
+		ListIterator<TrainingPhraseVarChaosTemplate> iter;
 		
 		bRet = false;
 		iter = mutedTrainingPhrases.listIterator();
@@ -172,16 +176,16 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 		//Search almost one element with variations.
 		while( iter.hasNext() && !bRet)
 		{
-			TrainingPhraseVarTemplate element = iter.next();
+			TrainingPhraseVarChaosTemplate element = iter.next();
 			
 			bRet = (!element.isEmpty());
 		}
 		
 		return bRet;
 	}
-	private void createComposedPhrase(int nIndex, LinkedList<TrainingPhraseVarTemplate> mutedTrainingPhrases, TrainingPhraseVarComposed variantComposedPhrase,
-			LinkedList<TrainingPhraseVariation> retList) {
-		TrainingPhraseVarTemplate variantChildPhrase;
+	private void createComposedPhrase(int nIndex, LinkedList<TrainingPhraseVarChaosTemplate> mutedTrainingPhrases, TrainingPhraseVarChaosComposed variantComposedPhrase,
+			LinkedList<PhraseVariation> retList) {
+		TrainingPhraseVarChaosTemplate variantChildPhrase;
 		LinkedList<String> listSimple;
 		
 		//for(int nIndexChild=nIndex; nIndexChild<mutedTrainingPhrases.size();nIndexChild++)
@@ -200,7 +204,7 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 				strSimplePhrase = listSimple.get(i);
 				
 				//Add simple value
-				variantComposedPhrase.addOrReplacePhrase(nIndexChild, new TrainingPhraseVarSimple(variantChildPhrase.getToken(), strSimplePhrase));
+				variantComposedPhrase.addOrReplacePhrase(nIndexChild, new TrainingPhraseVarChaosSingle(variantChildPhrase.getToken(), strSimplePhrase));
 				
 				//Recursive call, nIndex+1
 				createComposedPhrase(nIndex+1, mutedTrainingPhrases, variantComposedPhrase, retList);
@@ -213,22 +217,22 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 			}
 		}
 	}
-	private void addCopyToRetList(LinkedList<TrainingPhraseVariation> retList,
-			TrainingPhraseVarComposed variantComposedPhrase) {
-		TrainingPhraseVarComposed newCompPhrase;
-		LinkedList<TrainingPhraseVarSimple> list;
-		TrainingPhraseVarSimple newPhrase;
+	private void addCopyToRetList(LinkedList<PhraseVariation> retList,
+			TrainingPhraseVarChaosComposed variantComposedPhrase) {
+		TrainingPhraseVarChaosComposed newCompPhrase;
+		LinkedList<TrainingPhraseVarChaosSingle> list;
+		TrainingPhraseVarChaosSingle newPhrase;
 		
 		if(variantComposedPhrase != null)
 		{
-			newCompPhrase = new TrainingPhraseVarComposed();
+			newCompPhrase = new TrainingPhraseVarChaosComposed();
 			list = variantComposedPhrase.getTrainingPhrases();
 			
-			for(TrainingPhraseVarSimple oldPhrase: list)
+			for(TrainingPhraseVarChaosSingle oldPhrase: list)
 			{
 				if(oldPhrase != null)
 				{
-					newPhrase = new TrainingPhraseVarSimple(oldPhrase.originalToken, oldPhrase.getTrainingPhrase());
+					newPhrase = new TrainingPhraseVarChaosSingle(oldPhrase.originalToken, oldPhrase.getTrainingPhrase());
 					newCompPhrase.addPhrase(newPhrase);
 				}				
 			}
@@ -236,12 +240,12 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 		}
 	}
 
-	private TrainingPhraseVarTemplate generateTrainingPhrase(Token tokenIn, MutationOperatorSet cfgIn)
+	private TrainingPhraseVarChaosTemplate generateTrainingPhrase(Token tokenIn, MutationOperatorSet cfgIn)
 	{
 		Literal litIn;
 		LinkedList<String> listStrVariants;
 		ParameterReferenceToken paramRefIn;		
-		TrainingPhraseVarTemplate trainingRet;
+		TrainingPhraseVarChaosTemplate trainingRet;
 		boolean bRet;
 
 		//Initialise
@@ -257,15 +261,15 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 				litIn = (Literal) tokenIn;
 				System.out.println("Token/Literal: "+litIn.getText());
 
-				listStrVariants = oMutCore.generateVariants(cfgIn, litIn.getText());		
+				listStrVariants = oMutCore.generateVariantsPlain(cfgIn, litIn.getText());		
 
 				//Filter list
 				if(listStrVariants != null && listStrVariants.size() >0)
-					trainingRet = new TrainingPhraseVarTemplate(tokenIn, listStrVariants);
+					trainingRet = new TrainingPhraseVarChaosTemplate(tokenIn, listStrVariants);
 				else
 					//We store a null value, to store the associated token to this training phrase.
 					//It is possible that this token will be necessary to create a composed training phrase in the next steps.
-					trainingRet = new TrainingPhraseVarTemplate(tokenIn, null);				
+					trainingRet = new TrainingPhraseVarChaosTemplate(tokenIn, null);				
 			}
 			else if(tokenIn instanceof ParameterReferenceToken)
 			{
@@ -273,16 +277,16 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 				paramRefIn = (ParameterReferenceToken) tokenIn;
 
 				//Generate variants of the token.
-				listStrVariants = oMutCore.generateVariants(cfgIn, paramRefIn.getTextReference());						
+				listStrVariants = oMutCore.generateVariantsPlain(cfgIn, paramRefIn.getTextReference());						
 				
 				System.out.println("Token/ParameterReferenceToken: "+paramRefIn.getTextReference());	
 
 				if(listStrVariants != null && listStrVariants.size() >0)
-					trainingRet = new TrainingPhraseVarTemplate(tokenIn, listStrVariants);
+					trainingRet = new TrainingPhraseVarChaosTemplate(tokenIn, listStrVariants);
 				else
 					//We store a null value, to store the associated token to this training phrase.
 					//It is possible that this token will be necessary to create a composed training phrase in the next steps.
-					trainingRet = new TrainingPhraseVarTemplate(tokenIn, null);
+					trainingRet = new TrainingPhraseVarChaosTemplate(tokenIn, null);
 			}
 
 			bRet = true;
@@ -293,55 +297,7 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 
 		return trainingRet;
 	}
-	public boolean applyTrainingPhrasesToChatbot() {
-		boolean bRet, bInserted;
-
-		bRet = false;
-		if(trainingPhraseSet != null)
-		{
-			IntentLanguageInputs inputVariant;
-			LinkedList<TrainingPhraseVariation> variantList;
-
-			//TODO: Make the iterator private element of the trainingPhraseSet class
-			Iterator<Entry<IntentLanguageInputs, LinkedList<TrainingPhraseVariation>>> iterator = trainingPhraseSet.getHashMap().entrySet().iterator();
-			while (iterator.hasNext()) {
-				Entry<IntentLanguageInputs, LinkedList<TrainingPhraseVariation>> me2 = iterator.next();
-				System.out.println("Key: "+me2.getKey() + " & Value: " + me2.getValue());
-
-				inputVariant = (IntentLanguageInputs) me2.getKey();
-				variantList = (LinkedList<TrainingPhraseVariation>) me2.getValue();
-
-				//Insert into the intent, the training phrases
-				if(inputVariant != null)
-				{
-					//Go through all the elements of the variant list
-					for(TrainingPhraseVariation tPhraseVar: variantList)
-					{
-						//Create a training phrase
-						TrainingPhrase tPhrase = GeneratorFactory.eINSTANCE.createTrainingPhrase();
-						bInserted = false;
-						//Depending on the type of each trainingPhraseVariation, we must create different types of elements.
-						if(tPhraseVar instanceof TrainingPhraseVarSimple)
-						{
-							bInserted = true;
-							insertSimplePhrase(tPhrase, tPhraseVar);	        			  
-						}
-						else if(tPhraseVar instanceof TrainingPhraseVarComposed)
-						{
-							bInserted = true;
-							insertComposedPhrase(tPhrase, tPhraseVar);
-						}
-						
-						//Add the training phrase to the inputLanguage						
-						if(bInserted)
-							inputVariant.getInputs().add(tPhrase);
-					}
-				}
-			} 
-			bRet = true;
-		}
-		return bRet;
-	}
+	
 
 	public VariationsCollectionText getVariationsCollectionTxt() {
 		LinkedList<String> strRetList;
@@ -355,38 +311,38 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 		if(trainingPhraseSet != null)
 		{
 			IntentLanguageInputs inputVariant;
-			LinkedList<TrainingPhraseVariation> variantList;
+			LinkedList<PhraseVariation> variantList;
 			
 			colRet = new VariationsCollectionText();
 			//TODO: Make the iterator private element of the trainingPhraseSet class
-			Iterator<Entry<IntentLanguageInputs, LinkedList<TrainingPhraseVariation>>> iterator = trainingPhraseSet.getHashMap().entrySet().iterator();
+			Iterator<Entry<IntentLanguageInputs, LinkedList<PhraseVariation>>> iterator = trainingPhraseSet.getHashMap().entrySet().iterator();
 			while (iterator.hasNext()) {
-				Entry<IntentLanguageInputs, LinkedList<TrainingPhraseVariation>> me2 = iterator.next();
+				Entry<IntentLanguageInputs, LinkedList<PhraseVariation>> me2 = iterator.next();
 				System.out.println("Key: "+me2.getKey() + " & Value: " + me2.getValue());
 
 				inputVariant = (IntentLanguageInputs) me2.getKey();
-				variantList = (LinkedList<TrainingPhraseVariation>) me2.getValue();
+				variantList = (LinkedList<PhraseVariation>) me2.getValue();
 				
 				//Insert into the intent, the training phrases
 				if(inputVariant != null)
 				{
 					strRetList = new LinkedList<String>();
 					//Go through all the elements of the variant list
-					for(TrainingPhraseVariation tPhraseVar: variantList)
+					for(PhraseVariation tPhraseVar: variantList)
 					{
 						//Create a training phrase
 						
 						bInserted = false;
 						//Depending on the type of each trainingPhraseVariation, we must create different types of elements.
-						if(tPhraseVar instanceof TrainingPhraseVarSimple)
+						if(tPhraseVar instanceof TrainingPhraseVarChaosSingle)
 						{
 							bInserted = true;
-							strPartialPhrase =((TrainingPhraseVarSimple) tPhraseVar).getTrainingPhrase();
+							strPartialPhrase =((TrainingPhraseVarChaosSingle) tPhraseVar).getTrainingPhrase();
 							
 							if(strPartialPhrase != null)
 								strRetList.add(strPartialPhrase);	        			  
 						}
-						else if(tPhraseVar instanceof TrainingPhraseVarComposed)
+						else if(tPhraseVar instanceof TrainingPhraseVarChaosComposed)
 						{
 							bInserted = true;
 							strPartialPhrase = getComposedPhraseString(tPhraseVar);
@@ -412,22 +368,22 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 		return colRet;
 	}
 	
-	private String getComposedPhraseString(TrainingPhraseVariation tPhraseVar) {
-		TrainingPhraseVarComposed varComposed;
-		LinkedList<TrainingPhraseVarSimple> simpleList;
+	private String getComposedPhraseString(PhraseVariation tPhraseVar) {
+		TrainingPhraseVarChaosComposed varComposed;
+		LinkedList<TrainingPhraseVarChaosSingle> simpleList;
 		ParameterReferenceToken parRef;
 		Token originalTokenPhrase;
 		String strRet;
 		String strTrainingPhrase;
 		
 		strRet = null;
-		varComposed = (TrainingPhraseVarComposed) tPhraseVar;
+		varComposed = (TrainingPhraseVarChaosComposed) tPhraseVar;
 		if(varComposed != null)
 		{
 			strRet = "";
 			//The varComposed, consist of different varSimple
 			simpleList = varComposed.getTrainingPhrases();
-			for(TrainingPhraseVarSimple varSimplePhrase : simpleList)
+			for(TrainingPhraseVarChaosSingle varSimplePhrase : simpleList)
 			{
 				originalTokenPhrase = varSimplePhrase.getToken();
 
@@ -449,11 +405,11 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 		}
 		return strRet;
 	}
-	private void insertSimplePhrase(TrainingPhrase tPhrase, TrainingPhraseVariation tPhraseVar) {
-		TrainingPhraseVarSimple varSimple;
+	private void insertSimplePhrase(TrainingPhrase tPhrase, PhraseVariation tPhraseVar) {
+		TrainingPhraseVarChaosSingle varSimple;
 		Literal lit;
 
-		varSimple = (TrainingPhraseVarSimple) tPhraseVar;
+		varSimple = (TrainingPhraseVarChaosSingle) tPhraseVar;
 		if(varSimple != null && tPhrase != null)
 		{
 			lit = GeneratorFactory.eINSTANCE.createLiteral();
@@ -461,18 +417,18 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 			tPhrase.getTokens().add(lit);
 		}
 	}
-	private void insertComposedPhrase(TrainingPhrase tPhrase, TrainingPhraseVariation tPhraseVar) {
-		TrainingPhraseVarComposed varComposed;
-		LinkedList<TrainingPhraseVarSimple> simpleList;
+	private void insertComposedPhrase(TrainingPhrase tPhrase, PhraseVariation tPhraseVar) {
+		TrainingPhraseVarChaosComposed varComposed;
+		LinkedList<TrainingPhraseVarChaosSingle> simpleList;
 		ParameterReferenceToken parRef;
 		Token originalTokenPhrase;
 
-		varComposed = (TrainingPhraseVarComposed) tPhraseVar;
+		varComposed = (TrainingPhraseVarChaosComposed) tPhraseVar;
 		if(varComposed != null && tPhrase != null)
 		{
 			//The varComposed, consist of different varSimple
 			simpleList = varComposed.getTrainingPhrases();
-			for(TrainingPhraseVarSimple varSimplePhrase : simpleList)
+			for(TrainingPhraseVarChaosSingle varSimplePhrase : simpleList)
 			{
 				originalTokenPhrase = varSimplePhrase.getToken();
 
@@ -489,5 +445,31 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 				}
 			}
 		}
+	}
+
+
+	@Override
+	protected TrainingPhrase createPhrase(PhraseVariation tPhraseVar) {
+		TrainingPhrase tPhrase;
+		boolean bInserted;
+		
+		bInserted = false;
+		tPhrase =  GeneratorFactory.eINSTANCE.createTrainingPhrase();;
+		//Depending on the type of each trainingPhraseVariation, we must create different types of elements.
+		if(tPhraseVar instanceof TrainingPhraseVarChaosSingle)
+		{
+			bInserted = true;
+			insertSimplePhrase(tPhrase, tPhraseVar);	        			  
+		}
+		else if(tPhraseVar instanceof TrainingPhraseVarChaosComposed)
+		{
+			bInserted = true;
+			insertComposedPhrase(tPhrase, tPhraseVar);
+		}
+		
+		if(!bInserted)
+			tPhrase = null;
+		
+		return tPhrase;
 	}
 }

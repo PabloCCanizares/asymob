@@ -38,11 +38,13 @@ public class asymob_load_train_print {
 		//Initialise
 		botTester = new Asymob();
 		transformation = new BotToAgent();
-		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
+		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
+		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/mysteryAnimal.xmi"))
 		{
 			botTester.printBotSummary();
 			
 			mutOpSet = selectMutationOperators();
+			//mutOpSet = selectMultipleMutationOperators();
 			//if(botTester.generateTrainingPhrasesByIntentId("Make Appointment - custom", mutOpSet))
 			if(botTester.generateTrainingPhrases(mutOpSet))			
 			{

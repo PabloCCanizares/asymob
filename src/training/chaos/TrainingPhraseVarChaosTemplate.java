@@ -5,12 +5,12 @@ import java.util.LinkedList;
 import generator.ParameterReferenceToken;
 import generator.Token;
 
-public class TrainingPhraseVarTemplate extends TrainingPhraseVarBase {
+public class TrainingPhraseVarChaosTemplate extends PhraseVarChaosBase {
 
 	LinkedList<String> trainingVariationList;
 
 
-	public TrainingPhraseVarTemplate(Token tokenIn, LinkedList<String> listStrVariants) {
+	public TrainingPhraseVarChaosTemplate(Token tokenIn, LinkedList<String> listStrVariants) {
 		super(tokenIn);
 		
 		if(listStrVariants != null)

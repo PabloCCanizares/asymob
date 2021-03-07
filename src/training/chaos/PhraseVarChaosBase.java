@@ -1,13 +1,14 @@
 package training.chaos;
 
 import generator.Token;
+import training.PhraseVariation;
 
 /**
  * Base-class for storing the information related with training phrase variations
  * @author Pablo C. Cañizares
  *
  */
-public abstract class TrainingPhraseVarBase extends TrainingPhraseVariation {
+public abstract class PhraseVarChaosBase extends PhraseVariation {
 
 	Token originalToken;
 	
@@ -15,8 +16,9 @@ public abstract class TrainingPhraseVarBase extends TrainingPhraseVariation {
 		return originalToken;
 	}
 	
-	public TrainingPhraseVarBase(Token originalToken)
+	public PhraseVarChaosBase(Token originalToken)
 	{
+		
 		this.originalToken = originalToken;
 	}
 

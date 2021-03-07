@@ -13,11 +13,11 @@ public abstract class MutationOperator {
 	protected EMutationOperators eMutOp;
 	protected IVariantGenerator oVariantGen;
 	
-	//En principio no nos importa tampoco el tipo
 	public EMutationOperators getType() {
 		return this.eMutOp;
 	}
 	
+	//Create the variations
 	public LinkedList<String> doVariants(String strInputPhrase)
 	{
 		LinkedList<String> listRet;
@@ -25,7 +25,7 @@ public abstract class MutationOperator {
 		
 		if(oVariantGen != null)
 		{			
-			listRet =oVariantGen.doMutate(strInputPhrase);
+			listRet = oVariantGen.doMutate(strInputPhrase);
 		}
 		else
 			listRet = doVariantsByDefault(strInputPhrase);
@@ -41,6 +41,10 @@ public abstract class MutationOperator {
 		this.oVariantGen = oVariantGen; 
 	}
 	
+	public int getMaxMutants()
+	{
+		return nMax;
+	}
 	public abstract String ToString();
 	
 	protected abstract LinkedList<String> doVariantsByDefault(String strInputPhrase);

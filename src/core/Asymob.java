@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import analyser.BotAnalyser;
 import aux.BotPrinter;
+import aux.Common;
 import generator.Bot;
 import generator.GeneratorPackage;
 import generator.Intent;
@@ -25,6 +26,7 @@ import testCases.TcGenBotium;
 import training.IVariantPhraseGenerator;
 import training.VariationsCollectionText;
 import training.chaos.ChaosPhraseGenerator;
+import training.simple.SimplePhraseGenerator;
 import transformation.ITransformation;
 import validation.BotValidation_General;
 import validation.BotValidator;
@@ -40,7 +42,7 @@ public class Asymob {
 	private ITransformation botTransformation = null;	
 	public Asymob()
 	{
-		trainPhraseGen = new ChaosPhraseGenerator();
+		trainPhraseGen = new SimplePhraseGenerator();
 		botValidator = new BotValidation_General();
 	}
 	public void setTransformation(ITransformation botTransformation)
@@ -111,15 +113,21 @@ public class Asymob {
 	public boolean generateTrainingPhrases(MutationOperatorSet mutOpSet) {
 		List<Intent> listIntent;
 		boolean bRet;
-		
+		int nIndex;
 		bRet = true;
 		
 		try
 		{
+			nIndex = 0;
 			listIntent =  currentBot.getIntents();
+			
+			System.out.println("Total progress "+Common.progressBar(0, listIntent.size()));
 			
 			for (Intent intent : listIntent) {
 				bRet &= generateTrainingPhrasesByIntentId(intent.getName(), mutOpSet);
+				
+				nIndex++;
+				System.out.printf("[generateTrainingPhrases] Total progress [%d/%d] %s>", nIndex, listIntent.size(), Common.progressBar(nIndex, listIntent.size()));
 			}
 		}
 		catch(Exception e)

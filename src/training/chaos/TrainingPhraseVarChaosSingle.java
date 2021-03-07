@@ -2,11 +2,11 @@ package training.chaos;
 
 import generator.Token;
 
-public class TrainingPhraseVarSimple extends TrainingPhraseVarBase {
+public class TrainingPhraseVarChaosSingle extends PhraseVarChaosBase {
 
 	String trainingPhrase;
 
-	public TrainingPhraseVarSimple(Token tokenIn, String trainingPhrase) {
+	public TrainingPhraseVarChaosSingle(Token tokenIn, String trainingPhrase) {
 		super(tokenIn);
 		this.trainingPhrase = trainingPhrase;
 	}
