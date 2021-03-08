@@ -1,18 +1,21 @@
 package training.simple;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.apache.commons.lang3.tuple.Pair;
 
 import analyser.TokenAnalyser;
 import generator.GeneratorFactory;
+import generator.Intent;
 import generator.IntentInput;
+import generator.IntentLanguageInputs;
 import generator.Literal;
 import generator.ParameterReferenceToken;
 import generator.Token;
 import generator.TrainingPhrase;
-import operators.base.MutationOperatorSet;
 import training.PhraseVariation;
 import training.PhraseVariationSet;
 import training.VariantPhraseGeneratorBase;
@@ -20,7 +23,8 @@ import training.VariationsCollectionText;
 import training.chaos.TrainingPhraseVarChaosComposed;
 import training.chaos.TrainingPhraseVarChaosSingle;
 import training.chaos.TrainingPhraseVarChaosTemplate;
-import utteranceVariantCore.UtteranceVariantCore;
+import variants.UtteranceVariantCore;
+import variants.operators.base.MutationOperatorSet;
 
 public class SimplePhraseGenerator extends VariantPhraseGeneratorBase {
 
@@ -32,11 +36,6 @@ public class SimplePhraseGenerator extends VariantPhraseGeneratorBase {
 		tokenAnalyser = new TokenAnalyser();
 	}
 
-	@Override
-	public VariationsCollectionText getVariationsCollectionTxt() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	protected LinkedList<PhraseVariation> createTrainingPhrase(IntentInput inputIn, MutationOperatorSet cfgIn) {
@@ -207,8 +206,6 @@ public class SimplePhraseGenerator extends VariantPhraseGeneratorBase {
 		}
 	}
 
-	
-
 	private void addLiteralToken(TrainingPhrase tPhrase, PhraseVariation tPhraseVar, int nInit, int nEnd) {
 		String strPartialPhrase;
 		Literal lit;
@@ -254,6 +251,20 @@ public class SimplePhraseGenerator extends VariantPhraseGeneratorBase {
 			parRef.setParameter(((ParameterReferenceToken) tokIn).getParameter());
 			tPhrase.getTokens().add(parRef);
 		}
+	}
+
+	@Override
+	protected String handleTrainingPhrase(PhraseVariation tPhraseVar) {
+		String strRet;
+		
+		strRet = null;
+		//Depending on the type of each trainingPhraseVariation, we must create different types of elements.
+		if(tPhraseVar instanceof PhraseVarSimple)
+		{
+			strRet =((PhraseVarSimple) tPhraseVar).getPhrase();     			  
+		}
+		
+		return strRet;
 	}
 
 }

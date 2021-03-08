@@ -176,13 +176,13 @@ public class WordNet {
 		}
 		return retList;
 	}    
-    //getAntonym
-
-    //getMeronym
+    //TODO: getAntonym
     
-    //getHypernym
+    //TODO: getMeronym
     
-    //file:///home/j0hn/Downloads/edu.mit.jwi_2.2.0_manual.pdf
+    //TODO: getHypernym
+    
+    //file: .. edu.mit.jwi_2.2.0_manual.pdf
 	public static WordNet getInstance() {
 				
 		if(wnInstance == null)

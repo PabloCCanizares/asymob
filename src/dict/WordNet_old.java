@@ -230,8 +230,6 @@ public class WordNet_old {
     
     public boolean senseMatchHyponim(String lemma1, String lemma2)
     {
-    	boolean bRet;
-    	
     	IIndexWord indexWord1 = dict.getIndexWord(lemma1, POS.NOUN);
         IIndexWord indexWord2 = dict.getIndexWord(lemma2, POS.NOUN);
         if(indexWord1 == null || indexWord2 == null) {

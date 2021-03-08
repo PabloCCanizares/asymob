@@ -1,26 +1,21 @@
 package main;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Map.Entry;
 
 import core.Asymob;
-import operators.MutActiveToPassiveOp;
-import operators.MutAdjectivesToSynonymsOp;
-import operators.MutChangeWordToNumberOp;
-import operators.MutObjectsToSynonymsOp;
-import operators.MutPassiveToActiveOp;
-import operators.MutTraductionChainedOp;
-import operators.MutateUtteranceOp;
-import operators.base.MutantOperatorBuilder;
-import operators.base.MutationOperator;
-import operators.base.MutationOperatorSet;
 import training.VariationsCollectionText;
-import transformation.ITransformation;
-import transformation.dialogflow.BotToAgent;
-import utteranceVariantCore.VariantGenByCommand;
+import variants.VariantGenByCommand;
+import variants.operators.MutActiveToPassiveOp;
+import variants.operators.MutAdjectivesToSynonymsOp;
+import variants.operators.MutChangeWordToNumberOp;
+import variants.operators.MutObjectsToSynonymsOp;
+import variants.operators.MutPassiveToActiveOp;
+import variants.operators.MutTraductionChainedOp;
+import variants.operators.MutateUtteranceOp;
+import variants.operators.base.MutantOperatorBuilder;
+import variants.operators.base.MutationOperator;
+import variants.operators.base.MutationOperatorSet;
 
 public class asymob_load_train_print {
 
@@ -28,24 +23,20 @@ public class asymob_load_train_print {
 	{
 		Asymob botTester;
 		MutationOperatorSet mutOpSet;
-		ITransformation transformation;
 		//HashMap<String, LinkedList<String>> trainingPhrasesMap;
 		VariationsCollectionText variationsCol;
-		LinkedList<String> phraseList;
 		
 		System.out.println("[asymob_load_train_transform] Begin");
 		
 		//Initialise
 		botTester = new Asymob();
-		transformation = new BotToAgent();
-		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
-		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/mysteryAnimal.xmi"))
+		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
+		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/mysteryAnimal.xmi"))
 		{
 			botTester.printBotSummary();
 			
-			mutOpSet = selectMutationOperators();
-			//mutOpSet = selectMultipleMutationOperators();
-			//if(botTester.generateTrainingPhrasesByIntentId("Make Appointment - custom", mutOpSet))
+			//mutOpSet = selectMutationOperators();
+			mutOpSet = selectMultipleMutationOperators();
 			if(botTester.generateTrainingPhrases(mutOpSet))			
 			{
 				variationsCol = botTester.getGeneratedTrainingPhrases(); 
@@ -57,21 +48,6 @@ public class asymob_load_train_print {
 					System.out.println("===============");
 					System.out.println("ACTIONS");
 					System.out.println(variationsCol.getActionsString());					
-					/*
-					Iterator<Entry<String, LinkedList<String>>> iterator = trainingPhrasesMap.entrySet().iterator();
-					while (iterator.hasNext()) {
-						Entry<String, LinkedList<String>> mapObject = iterator.next();
-						
-						phraseList = mapObject.getValue();
-						System.out.println("Key: "+mapObject.getKey() + " & Value: " + mapObject.getValue());
-						System.out.println("Intent: "+mapObject.getKey()+" | #"+phraseList.size());
-						
-						for(String phrase: phraseList)
-						{
-							System.out.println(phrase);
-						}
-						System.out.println();
-					}*/
 				}
 			}
 		}
@@ -145,15 +121,17 @@ public class asymob_load_train_print {
 				new MutObjectsToSynonymsOp());
 		
 		mutOpSetRet = new MutationOperatorSet(); 
-		mutOpSetRet.insertOperator(mutOp10);
+		
+		mutOpSetRet.insertOperator(mutOp);
 		mutOpSetRet.insertOperator(mutOp2);
 		mutOpSetRet.insertOperator(mutOp3);
 		mutOpSetRet.insertOperator(mutOp4);
-		//mutOpSetRet.insertOperator(mutOp5);
+		mutOpSetRet.insertOperator(mutOp5);
 		mutOpSetRet.insertOperator(mutOp6);
 		mutOpSetRet.insertOperator(mutOp7);
 		mutOpSetRet.insertOperator(mutOp8);
 		mutOpSetRet.insertOperator(mutOp9);
+		mutOpSetRet.insertOperator(mutOp10);
 		
 		return mutOpSetRet;
 	}

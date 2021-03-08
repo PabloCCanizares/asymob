@@ -1,19 +1,12 @@
 package main;
 
 import core.Asymob;
-import operators.MutActiveToPassiveOp;
-import operators.MutAdjectivesToSynonymsOp;
-import operators.MutChangeWordToNumberOp;
-import operators.MutObjectsToSynonymsOp;
-import operators.MutPassiveToActiveOp;
-import operators.MutTraductionChainedOp;
-import operators.MutateUtteranceOp;
-import operators.base.MutantOperatorBuilder;
-import operators.base.MutationOperator;
-import operators.base.MutationOperatorSet;
 import transformation.ITransformation;
 import transformation.dialogflow.BotToAgent;
-import utteranceVariantCore.VariantGenByCommand;
+import variants.operators.MutObjectsToSynonymsOp;
+import variants.operators.base.MutantOperatorBuilder;
+import variants.operators.base.MutationOperator;
+import variants.operators.base.MutationOperatorSet;
 
 public class asymob_load_train_transform {
 

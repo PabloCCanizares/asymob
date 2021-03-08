@@ -2,8 +2,8 @@ package training;
 
 import edu.stanford.nlp.patterns.PatternsAnnotations.LongestMatchedPhraseForEachLabel;
 import generator.TrainingPhrase;
-import operators.base.EMutationOperators;
-import operators.base.MutationOperator;
+import variants.operators.base.EMutationOperators;
+import variants.operators.base.MutationOperator;
 
 /**
  * Base-class for storing the information related with training phrase variations

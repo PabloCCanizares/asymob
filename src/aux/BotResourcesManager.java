@@ -11,7 +11,11 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import generator.Bot;
 import generator.GeneratorPackage;
-
+/**
+ * Manages the resources of the chatbot
+ * @author Pablo C. Ca&ntildeizares
+ *
+ */
 public class BotResourcesManager {
 
 	private Resource botResource = null;

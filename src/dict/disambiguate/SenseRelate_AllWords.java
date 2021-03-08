@@ -160,14 +160,12 @@ public class SenseRelate_AllWords implements IWSD_Disambiguator {
 	private int getPosition(LinkedList<DisTaggedWord> disPhrase, TaggedWord tag, int nTimes) {
 		int nRet, nIndex;
 		DisTaggedWord disTag;
-		String strName, strCompare;
 		
 		nRet = -1;
 		nIndex = 0;
 		
 		if(disPhrase != null &tag!= null)
 		{
-			strName = tag.tag();
 			while(nTimes>0 && nIndex <disPhrase.size())
 			{
 				disTag = disPhrase.get(nIndex);

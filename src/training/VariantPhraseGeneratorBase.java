@@ -14,10 +14,10 @@ import generator.Intent;
 import generator.IntentInput;
 import generator.IntentLanguageInputs;
 import generator.TrainingPhrase;
-import operators.base.MutationOperatorSet;
 import training.chaos.TrainingPhraseVarChaosComposed;
 import training.chaos.TrainingPhraseVarChaosSingle;
-import utteranceVariantCore.UtteranceVariantCore;
+import variants.UtteranceVariantCore;
+import variants.operators.base.MutationOperatorSet;
 
 public abstract class VariantPhraseGeneratorBase implements IVariantPhraseGenerator {
 
@@ -27,9 +27,63 @@ public abstract class VariantPhraseGeneratorBase implements IVariantPhraseGenera
 	
 	
 	protected abstract LinkedList<PhraseVariation> createTrainingPhrase(IntentInput inputIn, MutationOperatorSet cfgIn);
-	public abstract VariationsCollectionText getVariationsCollectionTxt();
+	
+	public VariationsCollectionText getVariationsCollectionTxt() {
+		LinkedList<String> strRetList;
+		String strPartialPhrase, strIntentName;
+		VariationsCollectionText colRet;
+		boolean bRet, bInserted;
+		
+		bRet = false;
+		strRetList = null;
+		colRet = null;
+		if(trainingPhraseSet != null)
+		{
+			IntentLanguageInputs inputVariant;
+			LinkedList<PhraseVariation> variantList;
+			
+			colRet = new VariationsCollectionText();
+			//TODO: Make the iterator private element of the trainingPhraseSet class
+			Iterator<Entry<IntentLanguageInputs, LinkedList<PhraseVariation>>> iterator = trainingPhraseSet.getHashMap().entrySet().iterator();
+			while (iterator.hasNext()) {
+				Entry<IntentLanguageInputs, LinkedList<PhraseVariation>> me2 = iterator.next();
+
+				inputVariant = (IntentLanguageInputs) me2.getKey();
+				variantList = (LinkedList<PhraseVariation>) me2.getValue();
+				
+				//Insert into the intent, the training phrases
+				if(inputVariant != null)
+				{
+					strRetList = new LinkedList<String>();
+					//Go through all the elements of the variant list
+					for(PhraseVariation tPhraseVar: variantList)
+					{
+						//Create a training phrase
+						strPartialPhrase = handleTrainingPhrase(tPhraseVar);
+						
+						if(strPartialPhrase != null)
+							strRetList.add(strPartialPhrase);
+						
+						//Add the training phrase to the inputLanguage						
+						//if(bInserted)
+						//	inputVariant.getInputs().add(tPhrase);
+					}
+					if(strRetList != null && strRetList.size()>0)
+					{
+						strIntentName = ((Intent)inputVariant.eContainer()).getName();
+						colRet.insertIntentPhrases(strIntentName, strRetList);
+					}
+						//trainingPhraseSet.insertStringIntentPhrases(inputVariant, strRetList);
+				}
+			} 
+			bRet = true;
+		}
+		return colRet;
+	}
 	
 	
+	protected abstract String handleTrainingPhrase(PhraseVariation tPhraseVar);
+
 	public boolean applyTrainingPhrasesToChatbot() {
 		boolean bRet, bInserted;
 		TrainingPhrase tPhrase;

@@ -5,17 +5,17 @@ import java.util.LinkedList;
 
 import aux.BotPrinter;
 import core.Asymob;
-import operators.MutActiveToPassiveOp;
-import operators.MutAdjectivesToSynonymsOp;
-import operators.MutChangeWordToNumberOp;
-import operators.MutObjectsToSynonymsOp;
-import operators.MutPassiveToActiveOp;
-import operators.MutTraductionChainedOp;
-import operators.MutateUtteranceOp;
-import operators.base.MutantOperatorBuilder;
-import operators.base.MutationOperator;
-import operators.base.MutationOperatorSet;
-import utteranceVariantCore.VariantGenByCommand;
+import variants.VariantGenByCommand;
+import variants.operators.MutActiveToPassiveOp;
+import variants.operators.MutAdjectivesToSynonymsOp;
+import variants.operators.MutChangeWordToNumberOp;
+import variants.operators.MutObjectsToSynonymsOp;
+import variants.operators.MutPassiveToActiveOp;
+import variants.operators.MutTraductionChainedOp;
+import variants.operators.MutateUtteranceOp;
+import variants.operators.base.MutantOperatorBuilder;
+import variants.operators.base.MutationOperator;
+import variants.operators.base.MutationOperatorSet;
 
 public class asymob_test {
 

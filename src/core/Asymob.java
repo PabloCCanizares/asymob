@@ -20,7 +20,6 @@ import aux.Common;
 import generator.Bot;
 import generator.GeneratorPackage;
 import generator.Intent;
-import operators.base.MutationOperatorSet;
 import testCases.ITestCaseGenerator;
 import testCases.TcGenBotium;
 import training.IVariantPhraseGenerator;
@@ -30,6 +29,7 @@ import training.simple.SimplePhraseGenerator;
 import transformation.ITransformation;
 import validation.BotValidation_General;
 import validation.BotValidator;
+import variants.operators.base.MutationOperatorSet;
 
 public class Asymob {
 

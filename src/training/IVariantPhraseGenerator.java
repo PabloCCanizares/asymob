@@ -2,7 +2,7 @@ package training;
 
 import generator.Bot;
 import generator.Intent;
-import operators.base.MutationOperatorSet;
+import variants.operators.base.MutationOperatorSet;
 
 public interface IVariantPhraseGenerator {
 
