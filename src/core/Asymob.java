@@ -28,7 +28,7 @@ import training.chaos.ChaosPhraseGenerator;
 import training.simple.SimplePhraseGenerator;
 import transformation.ITransformation;
 import validation.BotValidation_General;
-import validation.BotValidator;
+import validation.BotValidatorManager;
 import variants.operators.base.MutationOperatorSet;
 
 public class Asymob {
@@ -36,7 +36,7 @@ public class Asymob {
 	private Resource botResource = null;
 	private ResourceSet botResourceSet = null;	
 	private Bot currentBot = null;
-	private BotValidator botValidator = null;
+	private BotValidatorManager botValidator = null;
 	private IVariantPhraseGenerator trainPhraseGen = null;
 	private BotAnalyser botAnalyser = null;
 	private ITransformation botTransformation = null;	

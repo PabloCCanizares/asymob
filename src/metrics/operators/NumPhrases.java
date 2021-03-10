@@ -1,7 +1,10 @@
 package metrics.operators;
 
+import generator.Bot;
+import generator.Element;
 import metrics.Metric;
-import metrics.category.EMetricCategory;
+import metrics.base.EMetricCategory;
+import metrics.base.EMetricUnit;
 
 public class NumPhrases extends Metric{
 
@@ -10,8 +13,12 @@ public class NumPhrases extends Metric{
 	}
 
 	@Override
-	public void calculateMetric() {
-		// TODO Auto-generated method stub
+	public void calculateMetric(Element elemIn) {
+		Bot botIn;
+		if(elemIn instanceof Bot)
+		{
+			botIn = (Bot) elemIn;
+		}
 	}
 
 	@Override
@@ -21,7 +28,7 @@ public class NumPhrases extends Metric{
 	}
 
 	@Override
-	public String getResults() {
+	public EMetricUnit getResults() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -4,11 +4,11 @@ import java.util.LinkedList;
 
 import generator.Bot;
 
-public abstract class BotValidator {
+public abstract class BotValidatorManager {
 
 	LinkedList<IBotValidationMethod> methodList;
 	
-	protected BotValidator()
+	protected BotValidatorManager()
 	{
 		methodList = new LinkedList<IBotValidationMethod>();
 	}

@@ -1,4 +1,4 @@
-package metrics.category;
+package metrics.base;
 
 public enum EMetricCategory {
 
