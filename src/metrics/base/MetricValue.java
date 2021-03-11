@@ -1,7 +1,5 @@
 package metrics.base;
 
-import metrics.Metric;
-
 /**
  * Represents the generic results of a metric
  * @author Pablo C. Ca&ntildeizares

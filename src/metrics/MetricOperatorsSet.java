@@ -3,6 +3,7 @@ package metrics;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import metrics.base.Metric;
 import variants.operators.base.MutationOperator;
 
 public class MetricOperatorsSet {
@@ -26,10 +27,11 @@ public class MetricOperatorsSet {
 	//Intent metrics
 	LinkedList<Metric> intentMetricsList;
 	
-	Iterator<Metric> itBotMetricList;
+	LinkedList<Metric> itBotMetricList;
+	LinkedList<Metric> itFlowMetricList;
 	
 	//Iterator
-	Iterator<Metric> itList, itBotMetric;
+	Iterator<Metric> itList, itBotMetric, itFlowMetric;
 	public MetricOperatorsSet()
 	{
 		operatorList =  botMetricsList = globalFlowMetricsList = flowMetricsList = entityMetricsList = intentMetricsList = null;
@@ -78,10 +80,17 @@ public class MetricOperatorsSet {
 	public Metric getNext() {
 		return itList!= null ? itList.next() : null;
 	}
-	public boolean hasNextBoxMetric() {
+	public boolean hasNextBotMetric() {
 		return itBotMetric!= null ? itBotMetric.hasNext() : false;
 	}	
+	public boolean hasNextFlowMetric() {
+		return itFlowMetric!= null ? itFlowMetric.hasNext() : false;
+	}		
 	public Metric getNextBotMetric() {
 		return itBotMetric!= null ? itBotMetric.next() : null;
+	}
+
+	public Metric getNextFlowMetric() {
+		return itFlowMetric!= null ? itFlowMetric.next() : null;
 	}
 }

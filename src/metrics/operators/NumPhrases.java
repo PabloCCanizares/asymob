@@ -2,23 +2,25 @@ package metrics.operators;
 
 import generator.Bot;
 import generator.Element;
-import metrics.Metric;
 import metrics.base.EMetricCategory;
 import metrics.base.EMetricUnit;
+import metrics.base.Metric;
+import metrics.operators.base.BotMetricBase;
 
-public class NumPhrases extends Metric{
+public class NumPhrases extends BotMetricBase{
 
 	public NumPhrases() {
-		super(EMetricOperator.eNumPhrases, EMetricCategory.eIntent);
+		super(EMetricOperator.eNumPhrases);
 	}
 
 	@Override
-	public void calculateMetric(Element elemIn) {
+	public void calculateMetric() {
 		Bot botIn;
-		if(elemIn instanceof Bot)
+		if(this.botIn != null)
 		{
-			botIn = (Bot) elemIn;
+			//TODO: Calculamos metrica
 		}
+
 	}
 
 	@Override

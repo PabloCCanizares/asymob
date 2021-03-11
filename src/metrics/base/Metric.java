@@ -1,8 +1,6 @@
-package metrics;
+package metrics.base;
 
 import generator.Element;
-import metrics.base.EMetricCategory;
-import metrics.base.EMetricUnit;
 import metrics.operators.EMetricOperator;
 
 public abstract class Metric {
@@ -23,6 +21,6 @@ public abstract class Metric {
 	}
 	
 	public abstract void reset();
-	public abstract void calculateMetric(Element elementIn);
+	public abstract void calculateMetric();
 	public abstract EMetricUnit getResults();
 }
