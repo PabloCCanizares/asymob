@@ -4,8 +4,9 @@ import generator.Bot;
 
 public interface IMetricAnalyser {
 
+	boolean doAnalyse(String strPathIn, MetricOperatorsSet metricOps);
 	boolean doAnalyse(Bot botIn, MetricOperatorsSet metricOps);
 	
 	void getAnalysisSummary();//Obtener un resumen: pensar que tipo de formato . MEtricas cumplidas, no cumplidas, warnings, etc.
-	void getMetricsReport();//Obtener todas las metricas
+	String getMetricsReport();//Obtener todas las metricas
 }

@@ -24,4 +24,11 @@ public class MetricValue {
 	public void setValue(String strValue) {
 		this.strValue = strValue;
 	}
+	public String getMetricApplied()
+	{
+		return metricApplied != null ? metricApplied.getMetricName() : "null";
+	}
+	public void setMetricApplied(Metric metricApplied)	{
+		this.metricApplied = metricApplied;
+	}
 }

@@ -44,7 +44,7 @@ public class MetricOperatorsSet {
 			switch(metricIn.getCategory())
 			{
 			case eBot:
-				if(botMetricsList != null)
+				if(botMetricsList == null)
 					botMetricsList = new LinkedList<Metric>();
 				botMetricsList.add(metricIn);
 				break;
@@ -61,7 +61,11 @@ public class MetricOperatorsSet {
 				break;
 			}
 			//Add to the general list
+			if(operatorList == null)
+				operatorList = new LinkedList<Metric>();
 			operatorList.add(metricIn);
+			
+			resetIndex();
 		}catch(Exception e)
 		{
 			System.out.println("[MetricOperator::insertMetric] - Exception while inserting a metric");

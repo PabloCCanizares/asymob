@@ -20,6 +20,9 @@ import aux.Common;
 import generator.Bot;
 import generator.GeneratorPackage;
 import generator.Intent;
+import metrics.IMetricAnalyser;
+import metrics.MetricAnalyserManager;
+import metrics.MetricOperatorsSet;
 import testCases.ITestCaseGenerator;
 import testCases.TcGenBotium;
 import training.IVariantPhraseGenerator;
@@ -39,11 +42,13 @@ public class Asymob {
 	private BotValidatorManager botValidator = null;
 	private IVariantPhraseGenerator trainPhraseGen = null;
 	private BotAnalyser botAnalyser = null;
-	private ITransformation botTransformation = null;	
+	private ITransformation botTransformation = null;
+	private IMetricAnalyser botMetrics = null;
 	public Asymob()
 	{
 		trainPhraseGen = new SimplePhraseGenerator();
 		botValidator = new BotValidation_General();
+		botMetrics = new MetricAnalyserManager();
 	}
 	public void setTransformation(ITransformation botTransformation)
 	{
@@ -299,5 +304,23 @@ public class Asymob {
 		
 		return bRet;
 		
+	}
+	public boolean measureMetrics(MetricOperatorsSet metricOps) {
+		boolean bRet;
+		
+		bRet =  false;
+		if(botMetrics != null)
+			bRet =  botMetrics.doAnalyse(currentBot, metricOps);
+		
+		return bRet;
+	}
+	public String getMetricReport() {
+		String strRet;
+		
+		strRet="";
+		if(botMetrics != null)
+			strRet =  botMetrics.getMetricsReport();
+		
+		return strRet;
 	}
 }

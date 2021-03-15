@@ -8,6 +8,7 @@ import metrics.operators.EMetricOperator;
 public abstract class BotMetricBase extends Metric{
 
 	protected Bot botIn;
+	
 	public BotMetricBase(EMetricOperator metric) {
 		super(metric, EMetricCategory.eBot);
 	}

@@ -1,14 +1,22 @@
 package metrics;
 
+import java.util.LinkedList;
+
+import aux.BotResourcesManager;
 import generator.Bot;
 import generator.UserInteraction;
-import metrics.base.EMetricUnit;
 import metrics.base.Metric;
+import metrics.base.MetricValue;
 import metrics.operators.base.BotMetricBase;
 import metrics.operators.base.FlowMetricBase;
 
 public class MetricAnalyserManager implements IMetricAnalyser {
 
+	LinkedList<MetricValue> botMetrics;
+	
+	public MetricAnalyserManager() {
+		botMetrics = new LinkedList<MetricValue>();
+	}
 	@Override
 	public boolean doAnalyse(Bot botIn, MetricOperatorsSet metricOps) {
 		boolean bRet;
@@ -37,7 +45,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 
 	private void analyseFlowMetrics(Bot botIn, MetricOperatorsSet metricOps) {
 		Metric metricIn;
-		EMetricUnit metricRes;
+		MetricValue metricRes;
 		
 		while(metricOps.hasNextFlowMetric())
 		{
@@ -56,6 +64,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 					
 					//Get the results
 					metricRes =  metricIn.getResults();
+					
 				}
 				
 			}catch(Exception e)
@@ -65,10 +74,12 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 		}
 	}
 
-	private void analyseBotMetrics(Bot botIn, MetricOperatorsSet metricOps) {
+	private boolean analyseBotMetrics(Bot botIn, MetricOperatorsSet metricOps) {
 		Metric metricIn;
-		EMetricUnit metricRes;
+		MetricValue metricRes;
+		boolean bRet;
 		
+		bRet = true;
 		while(metricOps.hasNextBotMetric())
 		{
 			try
@@ -85,14 +96,19 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 				//GEt the results
 				metricRes =  metricIn.getResults();
 				
-				//Store the results
+				if(metricRes != null)
+				{
+					//Store the results
+					botMetrics.add(metricRes);
+				}
 				
 			}catch(Exception e)
 			{
 				//Exception while processing a bot metric
+				System.out.println("Exception while calculating a bot metric");
 			}
 		}
-		
+		return bRet;
 	}
 
 	@Override
@@ -102,9 +118,52 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 	}
 
 	@Override
-	public void getMetricsReport() {
-		// TODO Auto-generated method stub
+	public String getMetricsReport() {
+		String strRet;
 		
+		strRet = "";
+		if(botMetrics != null)
+		{
+			System.out.println("============================");
+			System.out.println("BOT METRICS");
+			for(MetricValue met: botMetrics)
+			{
+				System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
+			}
+			
+		}
+		return strRet;
+	}
+	public String logMetricReport() {
+		String strRet;
+		
+		strRet = "";
+		if(botMetrics != null)
+		{
+			System.out.println("============================");
+			System.out.println("BOT METRICS");
+			for(MetricValue met: botMetrics)
+			{
+				System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
+			}
+			
+		}
+		return strRet;
+	}
+	@Override
+	public boolean doAnalyse(String strPathIn, MetricOperatorsSet metricOps) {
+		boolean bRet;
+		BotResourcesManager botLoader;
+		Bot botIn;
+		
+		bRet = false;
+		botLoader = new BotResourcesManager();
+		if(botLoader.loadChatbot(strPathIn))
+		{
+			botIn = botLoader.getCurrentBot();
+			bRet = this.analyseBotMetrics(botIn, metricOps);
+		}
+		return bRet;
 	}
 
 }

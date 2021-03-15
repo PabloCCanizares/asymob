@@ -1,12 +1,13 @@
 package metrics.base;
 
-import generator.Element;
 import metrics.operators.EMetricOperator;
 
 public abstract class Metric {
 
 	EMetricOperator metric;
 	EMetricCategory category;
+	
+	protected MetricValue metricRet;
 	
 	public Metric(EMetricOperator metric, EMetricCategory category)
 	{
@@ -20,7 +21,15 @@ public abstract class Metric {
 		this.category = category;
 	}
 	
+	public String getMetricName()
+	{
+		return metric != null ? metric.name() : "null";
+	}
+	
+	public MetricValue getResults() {
+		return metricRet;
+	}
+	
 	public abstract void reset();
 	public abstract void calculateMetric();
-	public abstract EMetricUnit getResults();
 }

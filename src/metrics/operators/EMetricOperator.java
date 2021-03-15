@@ -2,7 +2,7 @@ package metrics.operators;
 
 public enum EMetricOperator {
 
-	eNumPhrases, eAverageLength, eSentiment, eAvgParameters, eExtended
+	eNumEntities, eNumPhrases, eAverageLength, eSentiment, eAvgParameters, eExtended, eNumLanguages, eNumIntents, eNumFlows, eNumPaths
 	
 	//TODO: Incluir el resto
 }
