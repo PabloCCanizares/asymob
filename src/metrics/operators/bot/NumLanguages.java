@@ -38,9 +38,4 @@ public class NumLanguages extends BotMetricBase{
 		
 	}
 
-	@Override
-	public MetricValue getResults() {
-		return metricRet;
-	}
-
 }

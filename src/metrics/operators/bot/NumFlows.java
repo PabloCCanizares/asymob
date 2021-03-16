@@ -11,26 +11,16 @@ public class NumFlows extends BotMetricBase{
 	public NumFlows() {
 		super(EMetricOperator.eNumFlows);
 	}
-
-	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Override
 	public void calculateMetric() {
 		int nFlows;
 		metricRet = new MetricValue();
-		System.out.println("[NumFlows::calculateMetric] - Init");
-		
-		
+
 		nFlows = getFlowsSize();
 		metricRet.setUnit(EMetricUnit.eInt);
 		metricRet.setValue(Integer.toString(nFlows));
 		
 		metricRet.setMetricApplied((Metric) this);
-		System.out.printf("[NumFlows::calculateMetric] - Metric: %s Value: %s \n", metricRet.getUnit(), metricRet.getValue());
 	}
 
 	private int getFlowsSize() {

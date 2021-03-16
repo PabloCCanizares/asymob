@@ -18,21 +18,12 @@ public class NumIntents extends BotMetricBase{
 		if(this.botIn != null)
 		{
 			metricRet = new MetricValue();
-			System.out.println("[NumIntents::calculateMetric] - Init");
 			
 			nIntents = this.botIn.getIntents().size();
 			metricRet.setUnit(EMetricUnit.eInt);
 			metricRet.setValue(Integer.toString(nIntents));
 			
 			metricRet.setMetricApplied((Metric) this);
-			System.out.printf("[NumIntents::calculateMetric] - Metric: %s Value: %s \n", metricRet.getUnit(), metricRet.getValue());
 		}
 	}
-
-	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

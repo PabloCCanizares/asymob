@@ -30,6 +30,9 @@ public abstract class Metric {
 		return metricRet;
 	}
 	
-	public abstract void reset();
+	public void reset()
+	{
+		metricRet = null;
+	}
 	public abstract void calculateMetric();
 }

@@ -1,9 +1,12 @@
 package metrics;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 import aux.BotResourcesManager;
 import generator.Bot;
+import generator.Entity;
 import generator.UserInteraction;
 import metrics.base.Metric;
 import metrics.base.MetricValue;
@@ -12,10 +15,11 @@ import metrics.operators.base.FlowMetricBase;
 
 public class MetricAnalyserManager implements IMetricAnalyser {
 
-	LinkedList<MetricValue> botMetrics;
+	MetricReport metricReport;
 	
 	public MetricAnalyserManager() {
-		botMetrics = new LinkedList<MetricValue>();
+		
+		metricReport = new MetricReport();
 	}
 	@Override
 	public boolean doAnalyse(Bot botIn, MetricOperatorsSet metricOps) {
@@ -99,7 +103,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 				if(metricRes != null)
 				{
 					//Store the results
-					botMetrics.add(metricRes);
+					metricReport.addBotMetric(metricRes);
 				}
 				
 			}catch(Exception e)
@@ -119,26 +123,15 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 
 	@Override
 	public String getMetricsReport() {
-		String strRet;
-		
-		strRet = "";
-		if(botMetrics != null)
-		{
-			System.out.println("============================");
-			System.out.println("BOT METRICS");
-			for(MetricValue met: botMetrics)
-			{
-				System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
-			}
-			
-		}
-		return strRet;
+	
+		return metricReport.getStringReport();
 	}
+	
 	public String logMetricReport() {
 		String strRet;
 		
 		strRet = "";
-		if(botMetrics != null)
+		/*if(botMetrics != null)
 		{
 			System.out.println("============================");
 			System.out.println("BOT METRICS");
@@ -147,7 +140,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 				System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
 			}
 			
-		}
+		}*/
 		return strRet;
 	}
 	@Override
