@@ -11,6 +11,7 @@ import generator.UserInteraction;
 import metrics.base.Metric;
 import metrics.base.MetricValue;
 import metrics.operators.base.BotMetricBase;
+import metrics.operators.base.EntityMetricBase;
 import metrics.operators.base.FlowMetricBase;
 
 public class MetricAnalyserManager implements IMetricAnalyser {
@@ -35,6 +36,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 			analyseFlowMetrics(botIn, metricOps);
 			
 			//Analyse Entity metrics
+			analyseEntityMetrics(botIn, metricOps);
 			
 			//Intent metrics
 			
@@ -46,6 +48,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 		}
 		return bRet;
 	}
+
 
 	private void analyseFlowMetrics(Bot botIn, MetricOperatorsSet metricOps) {
 		Metric metricIn;
@@ -114,7 +117,39 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 		}
 		return bRet;
 	}
-
+	private void analyseEntityMetrics(Bot botIn, MetricOperatorsSet metricOps) {
+		Metric metricIn;
+		MetricValue metricRes;
+		
+		while(metricOps.hasNextEntityMetric())
+		{
+			try
+			{
+				metricIn = metricOps.getNextEntityMetric();
+				
+				for(Entity enIn: botIn.getEntities())
+				{
+					//Configure the instance
+					if(metricIn instanceof EntityMetricBase)
+						((EntityMetricBase)metricIn).configure(enIn);
+					
+					//Calculate the metric
+					metricIn.calculateMetric();
+					
+					//Get the results
+					metricRes =  metricIn.getResults();
+					
+					if(metricRes != null)
+						//Store the results
+						metricReport.addEntityMetric(enIn, metricRes);
+				}
+				
+			}catch(Exception e)
+			{
+				//Exception while processing a bot metric
+			}
+		}
+	}
 	@Override
 	public void getAnalysisSummary() {
 		// TODO Auto-generated method stub

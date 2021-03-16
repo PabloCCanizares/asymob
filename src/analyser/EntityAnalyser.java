@@ -1,5 +1,7 @@
 package analyser;
 
+import org.eclipse.emf.common.util.EList;
+
 import generator.Entity;
 import generator.EntityInput;
 import generator.LanguageInput;
@@ -21,7 +23,7 @@ public class EntityAnalyser {
 				{
 					if(enIn instanceof SimpleInput)
 					{
-						nRet ++;
+						nRet++;
 					}
 				}
 			}
@@ -31,6 +33,21 @@ public class EntityAnalyser {
 			nRet = 0;
 		}
 		
+		return nRet;
+	}
+
+	public int analyseNumSynonyms(SimpleInput enIn) {
+		int nRet;
+		EList<String> retList;
+		
+		nRet = 0;
+		if(enIn != null)
+		{
+			retList = enIn.getValues();
+			
+			if(retList != null)
+				nRet = retList.size();
+		}
 		return nRet;
 	}
 }

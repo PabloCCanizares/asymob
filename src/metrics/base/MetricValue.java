@@ -31,4 +31,9 @@ public class MetricValue {
 	public void setMetricApplied(Metric metricApplied)	{
 		this.metricApplied = metricApplied;
 	}
+	
+	public String toString()
+	{
+		return String.format("%s = %s", metricApplied.getMetricName(), strValue);
+	}
 }

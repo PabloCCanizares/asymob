@@ -24,6 +24,7 @@ public class NumLiterals extends EntityMetricBase{
 		//Calculate
 		nLiterals = enAnalyser.analyseNumLiterals(entityIn);		
 		metricRet = new IntegerMetricValue(nLiterals);
+		metricRet.setMetricApplied(this);
 	}
 
 }

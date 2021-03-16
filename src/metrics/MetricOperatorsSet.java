@@ -31,7 +31,7 @@ public class MetricOperatorsSet {
 	LinkedList<Metric> itFlowMetricList;
 	
 	//Iterator
-	Iterator<Metric> itList, itBotMetric, itFlowMetric;
+	Iterator<Metric> itList, itBotMetric, itFlowMetric, itEntityMetric;
 	public MetricOperatorsSet()
 	{
 		operatorList =  botMetricsList = globalFlowMetricsList = flowMetricsList = entityMetricsList = intentMetricsList = null;
@@ -51,6 +51,9 @@ public class MetricOperatorsSet {
 			case eGlobalFlow:
 				break;
 			case eEntity:
+				if(entityMetricsList == null)
+					entityMetricsList = new LinkedList<Metric>();
+				entityMetricsList.add(metricIn);					
 				break;
 			case eFlow:
 				break;
@@ -77,6 +80,9 @@ public class MetricOperatorsSet {
 		
 		if(botMetricsList != null)
 			itBotMetric =botMetricsList.iterator(); 
+		
+		if(entityMetricsList != null)
+			itEntityMetric = entityMetricsList.iterator();
 	}
 	public boolean hasNext() {
 		return itList!= null ? itList.hasNext() : false;
@@ -90,6 +96,9 @@ public class MetricOperatorsSet {
 	public boolean hasNextFlowMetric() {
 		return itFlowMetric!= null ? itFlowMetric.hasNext() : false;
 	}		
+	public boolean hasNextEntityMetric() {
+		return itEntityMetric!= null ? itEntityMetric.hasNext() : false;
+	}	
 	public Metric getNextBotMetric() {
 		return itBotMetric!= null ? itBotMetric.next() : null;
 	}
@@ -97,4 +106,9 @@ public class MetricOperatorsSet {
 	public Metric getNextFlowMetric() {
 		return itFlowMetric!= null ? itFlowMetric.next() : null;
 	}
+
+	public Metric getNextEntityMetric() {
+		return itEntityMetric!= null ? itEntityMetric.next() : null;
+	}
+
 }
