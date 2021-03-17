@@ -176,19 +176,22 @@ public class BotAnalyser {
 				if(userActionList != null)
 				{
 					nSize = 0;
-					nRet = userActionList.size();
+					
+					if(userActionList.size()>0)
+						nRet = userActionList.size()-1;
 					
 					//Here we have another intent with a action list
 					for(UserInteraction userAct: userActionList)
 					{
 						nSize += analyseNumPaths(userAct);
 					}
-					nRet += nSize;
+					nRet += (nSize);
 				}
 			}
 		}
 		return nRet;
 	}
+	//TODO: Ask for the convention of counting lenght (nodes or edges)
 	public int analyseMaxLenght(UserInteraction userActIn)
 	{
 		BotInteraction botInteraction;
@@ -204,7 +207,7 @@ public class BotAnalyser {
 			if(botInteraction != null)
 			{
 				userActionList = botInteraction.getOutcoming();
-				if(botInteraction.getOutcoming() != null)
+				if(botInteraction.getOutcoming() != null && botInteraction.getOutcoming().size()>0)
 				{
 					nSizeAux = nSize = 0;
 					//Here we have another intent with a action list
@@ -220,6 +223,7 @@ public class BotAnalyser {
 		}
 		return nRet;
 	}
+	
 	public List<Pair<UserInteraction, List<Action>>> plainActionTreeInBranches(UserInteraction userActIn) {
 	
 		List<Pair<UserInteraction, List<Action>>> combinedList, partialList;
@@ -360,7 +364,4 @@ public class BotAnalyser {
 		// TODO Auto-generated method stub
 		return flowAnalyser != null ? flowAnalyser.extractAllActionPhrases(action, true) : null;
 	}
-
-	
-
 }

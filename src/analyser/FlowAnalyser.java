@@ -6,12 +6,14 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
 
+import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.emf.common.util.EList;
 
 import com.fasterxml.jackson.databind.util.Converter;
 
 import aux.Common;
 import generator.Action;
+import generator.BotInteraction;
 import generator.HTTPRequest;
 import generator.HTTPResponse;
 import generator.Image;
@@ -23,6 +25,7 @@ import generator.Text;
 import generator.TextInput;
 import generator.TextLanguageInput;
 import generator.Token;
+import generator.UserInteraction;
 
 public class FlowAnalyser {
 
@@ -345,6 +348,65 @@ public class FlowAnalyser {
 		
 		return retList;
 	}
-
+	public int getTotalEdges(UserInteraction userActIn)
+	{
+		BotInteraction botInteraction;
+		EList<UserInteraction> userActionList;
+		int nRet, nSize, nSizeAux;
+		
+		nRet = 0;
+		if(userActIn !=null)
+		{
+			nRet = 1;
+			botInteraction = userActIn.getTarget();
+			
+			if(botInteraction != null)
+			{
+				userActionList = botInteraction.getOutcoming();
+				if(botInteraction.getOutcoming() != null && botInteraction.getOutcoming().size()>0)
+				{
+					nSizeAux = nSize = 0;
+					//Here we have another intent with a action list
+					for(UserInteraction userAct: userActionList)
+					{
+						nSizeAux = getTotalEdges(userAct);
+						nRet += nSizeAux;
+					}
+				}
+			}
+		}
+		return nRet;
+	}
+	public int getTotalActions(UserInteraction userActIn) {
+		BotInteraction botInteraction;
+		EList<UserInteraction> userActionList;
+		int nRet, nSize, nSizeAux;
+		
+		nRet = 0;
+		if(userActIn !=null)
+		{
+			
+			botInteraction = userActIn.getTarget();
+			
+			if(botInteraction != null)
+			{
+				if(botInteraction.getActions() != null)
+					nRet = botInteraction.getActions().size();
+				
+				userActionList = botInteraction.getOutcoming();
+				if(botInteraction.getOutcoming() != null && botInteraction.getOutcoming().size()>0)
+				{
+					nSizeAux = nSize = 0;
+					//Here we have another intent with a action list
+					for(UserInteraction userAct: userActionList)
+					{
+						nSizeAux = getTotalActions(userAct);
+						nRet += nSizeAux;
+					}
+				}
+			}
+		}
+		return nRet;
+	}
 
 }

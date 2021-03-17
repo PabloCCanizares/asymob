@@ -155,4 +155,21 @@ public class IntentAnalyser {
 		
 		return retList;
 	}
+	
+	public int getTotalPhrases(Intent intentIn)
+	{
+		LinkedList<IntentInput>  retList;
+		int nRet;
+
+		nRet = 0;
+		if(intentIn != null)
+		{
+			retList = extractAllInputs(intentIn);
+			
+			if(retList != null)
+				nRet = retList.size();
+		}
+		
+		return nRet;
+	}
 }

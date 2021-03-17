@@ -7,12 +7,14 @@ import java.util.List;
 import aux.BotResourcesManager;
 import generator.Bot;
 import generator.Entity;
+import generator.Intent;
 import generator.UserInteraction;
 import metrics.base.Metric;
 import metrics.base.MetricValue;
 import metrics.operators.base.BotMetricBase;
 import metrics.operators.base.EntityMetricBase;
 import metrics.operators.base.FlowMetricBase;
+import metrics.operators.base.IntentMetricBase;
 
 public class MetricAnalyserManager implements IMetricAnalyser {
 
@@ -39,6 +41,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 			analyseEntityMetrics(botIn, metricOps);
 			
 			//Intent metrics
+			analyseIntentMetrics(botIn, metricOps);
 			
 			//Others
 		}
@@ -50,6 +53,39 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 	}
 
 
+	private void analyseIntentMetrics(Bot botIn, MetricOperatorsSet metricOps) {
+		Metric metricIn;
+		MetricValue metricRes;
+		
+		while(metricOps.hasNextIntentMetric())
+		{
+			try
+			{
+				metricIn = metricOps.getNextIntentMetric();
+				
+				for(Intent intentIn: botIn.getIntents())
+				{
+					//Configure the instance
+					if(metricIn instanceof IntentMetricBase)
+						((IntentMetricBase)metricIn).configure(intentIn);
+					
+					//Calculate the metric
+					metricIn.calculateMetric();
+					
+					//Get the results
+					metricRes =  metricIn.getResults();
+
+					//Store the results
+					if(metricRes != null)
+						metricReport.addIntentMetric(intentIn, metricRes);
+				}
+				
+			}catch(Exception e)
+			{
+				//Exception while processing a bot metric
+			}
+		}
+	}
 	private void analyseFlowMetrics(Bot botIn, MetricOperatorsSet metricOps) {
 		Metric metricIn;
 		MetricValue metricRes;
@@ -71,7 +107,10 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 					
 					//Get the results
 					metricRes =  metricIn.getResults();
-					
+
+					//Store the results
+					if(metricRes != null)
+						metricReport.addFlowMetric(flowIn, metricRes);
 				}
 				
 			}catch(Exception e)

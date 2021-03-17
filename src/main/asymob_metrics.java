@@ -9,9 +9,13 @@ import metrics.operators.bot.NumLanguages;
 import metrics.operators.entity.AverageSynonyms;
 import metrics.operators.entity.EntityWordLenght;
 import metrics.operators.entity.NumLiterals;
+import metrics.operators.flow.FlowActionsAverage;
+import metrics.operators.flow.FlowLength;
+import metrics.operators.flow.FlowNumPaths;
 import metrics.operators.globalflow.AveragePathsFlow;
 import metrics.operators.globalflow.FlowAverageLen;
 import metrics.operators.globalflow.NumPaths;
+import metrics.operators.intents.IntentNumPhrases;
 
 public class asymob_metrics {
 
@@ -37,6 +41,15 @@ public class asymob_metrics {
 		metricOps.insertMetric(new NumLiterals());
 		metricOps.insertMetric(new AverageSynonyms());
 		metricOps.insertMetric(new EntityWordLenght());
+		
+		//Flow metrics
+		metricOps.insertMetric(new FlowNumPaths());
+		metricOps.insertMetric(new FlowLength());
+		metricOps.insertMetric(new FlowActionsAverage());
+		
+		//Intent metrics
+		metricOps.insertMetric(new IntentNumPhrases());
+		
 		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
 		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
 		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/mysteryAnimal.xmi"))

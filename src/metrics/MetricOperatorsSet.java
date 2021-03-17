@@ -27,14 +27,12 @@ public class MetricOperatorsSet {
 	//Intent metrics
 	LinkedList<Metric> intentMetricsList;
 	
-	LinkedList<Metric> itBotMetricList;
-	LinkedList<Metric> itFlowMetricList;
-	
 	//Iterator
-	Iterator<Metric> itList, itBotMetric, itFlowMetric, itEntityMetric;
+	Iterator<Metric> itList, itBotMetric, itFlowMetric, itEntityMetric, itIntentMetric;
 	public MetricOperatorsSet()
 	{
 		operatorList =  botMetricsList = globalFlowMetricsList = flowMetricsList = entityMetricsList = intentMetricsList = null;
+		itIntentMetric = itList = itBotMetric = itFlowMetric = itEntityMetric = null;
 	}
 	
 	public void insertMetric(Metric metricIn)
@@ -56,8 +54,14 @@ public class MetricOperatorsSet {
 				entityMetricsList.add(metricIn);					
 				break;
 			case eFlow:
+				if(flowMetricsList == null)
+					flowMetricsList = new LinkedList<Metric>();
+				flowMetricsList.add(metricIn);				
 				break;
 			case eIntent:
+				if(intentMetricsList == null)
+					intentMetricsList = new LinkedList<Metric>();
+				intentMetricsList.add(metricIn);				
 				break;
 				//TODO: Create rest of 
 			default:
@@ -83,6 +87,12 @@ public class MetricOperatorsSet {
 		
 		if(entityMetricsList != null)
 			itEntityMetric = entityMetricsList.iterator();
+		
+		if(flowMetricsList != null)
+			itFlowMetric = flowMetricsList.iterator();
+		
+		if(intentMetricsList != null)
+			itIntentMetric = intentMetricsList.iterator();
 	}
 	public boolean hasNext() {
 		return itList!= null ? itList.hasNext() : false;
@@ -98,11 +108,18 @@ public class MetricOperatorsSet {
 	}		
 	public boolean hasNextEntityMetric() {
 		return itEntityMetric!= null ? itEntityMetric.hasNext() : false;
+	}
+	public boolean hasNextIntentMetric() {
+		return itIntentMetric!= null ? itIntentMetric.hasNext() : false;
 	}	
 	public Metric getNextBotMetric() {
 		return itBotMetric!= null ? itBotMetric.next() : null;
 	}
 
+	public Metric getNextIntentMetric()
+	{
+		return itIntentMetric!= null ? itIntentMetric.next() : null;
+	}
 	public Metric getNextFlowMetric() {
 		return itFlowMetric!= null ? itFlowMetric.next() : null;
 	}
