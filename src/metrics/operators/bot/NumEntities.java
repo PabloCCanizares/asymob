@@ -8,7 +8,6 @@ import metrics.operators.base.BotMetricBase;
 
 public class NumEntities extends BotMetricBase{
 
-	MetricValue metricRet;
 	public NumEntities() {
 		super(EMetricOperator.eNumEntities);
 	}

@@ -15,7 +15,9 @@ import metrics.operators.flow.FlowNumPaths;
 import metrics.operators.globalflow.AveragePathsFlow;
 import metrics.operators.globalflow.FlowAverageLen;
 import metrics.operators.globalflow.NumPaths;
+import metrics.operators.intents.IntentAvgCharsPerPhrase;
 import metrics.operators.intents.IntentAvgWordsPerPhrase;
+import metrics.operators.intents.IntentNumParameters;
 import metrics.operators.intents.IntentNumPhrases;
 
 public class asymob_metrics {
@@ -51,6 +53,9 @@ public class asymob_metrics {
 		//Intent metrics
 		metricOps.insertMetric(new IntentNumPhrases());
 		metricOps.insertMetric(new IntentAvgWordsPerPhrase());
+		metricOps.insertMetric(new IntentAvgCharsPerPhrase());
+		metricOps.insertMetric(new IntentNumParameters());
+		
 		
 		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
 		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))

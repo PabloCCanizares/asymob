@@ -231,4 +231,36 @@ public class IntentAnalyser {
 		}
 		return retList;
 	}
+
+	public int getTotalChars(Intent intentIn) {
+		LinkedList<String>  retList, auxList;
+		int nRet;
+
+		nRet = 0;
+		if(intentIn != null)
+		{
+			retList = extractStringPhrasesFromIntent(intentIn);
+			
+			if(retList != null)
+			{
+				for(String strIn: retList)
+				{
+					//Split in parts
+					//TODO: Tener cuidado con las comas y caracteres
+					auxList = Common.SplitUsingTokenizer(strIn);
+					
+					//Count the words
+					if(auxList != null)
+					{
+						for(String strAux: auxList)
+						{
+							nRet +=strAux.length();
+						}
+					}
+				}
+			}
+		}
+		
+		return nRet;
+	}
 }

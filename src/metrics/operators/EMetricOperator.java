@@ -10,7 +10,7 @@ public enum EMetricOperator {
 	//Flows
 	eFlowNumPaths, eFlowLength, eFlowActionsAverage,
 	//Intents
-	eIntentNumPhrases, eIntentAvgWordsPerPhrase,
+	eIntentNumPhrases, eIntentAvgWordsPerPhrase, eIntentAvgCharsPerPhrase,eIntentNumParameters,  
 	//Extended
 	eExtended
 	
