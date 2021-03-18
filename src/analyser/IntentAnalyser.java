@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 
+import aux.Common;
 import generator.Intent;
 import generator.IntentInput;
 import generator.IntentLanguageInputs;
@@ -16,7 +17,7 @@ import generator.TrainingPhrase;
 public class IntentAnalyser {
 
 	private Conversor converter;
-
+	
 	public IntentAnalyser(Conversor converter) {
 		this.converter = converter;
 	}
@@ -171,5 +172,63 @@ public class IntentAnalyser {
 		}
 		
 		return nRet;
+	}
+
+	public int getTotalWords(Intent intentIn) {
+		LinkedList<String>  retList, auxList;
+		int nRet;
+
+		nRet = 0;
+		if(intentIn != null)
+		{
+			retList = extractStringPhrasesFromIntent(intentIn);
+			
+			if(retList != null)
+			{
+				for(String strIn: retList)
+				{
+					//Split in parts
+					//TODO: Tener cuidado con las comas y caracteres
+					auxList = Common.SplitUsingTokenizer(strIn);
+					
+					//Count the words
+					if(auxList != null)
+						nRet +=auxList.size();
+				}
+			}
+		}
+		
+		return nRet;
+	}
+	public LinkedList<String> extractStringPhrasesFromIntent(Intent intentIn)
+	{
+		LinkedList<IntentInput>  intentList;
+		LinkedList<String> retList;
+		List<Token> tokList;
+		String strToken;
+		TokenAnalyser tokenAnalyser;
+		int nRet;
+
+		nRet = 0;
+		retList = null;
+		if(intentIn != null)
+		{
+			tokenAnalyser = new TokenAnalyser();
+			intentList = extractAllInputs(intentIn);
+			
+			if(intentList != null)
+			{
+				retList = new LinkedList<String>();
+				for(IntentInput inIn: intentList)
+				{
+					tokList = extractTokensFromInput(inIn);
+					
+					strToken = tokenAnalyser.convertListToString(tokList);
+					if(strToken != null)
+						retList.add(strToken);
+				}
+			}
+		}
+		return retList;
 	}
 }

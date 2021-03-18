@@ -115,7 +115,18 @@ public class Common {
 
 		   return retList;
 		}
+	public static LinkedList<String> SplitUsingTokenizer(String subject) {
+		   StringTokenizer strTkn;
+		   LinkedList<String> retList;
+		   
+		   strTkn = new StringTokenizer(subject);		   
+		   retList = new LinkedList<String>();
 
+		   while(strTkn.hasMoreTokens())
+			   retList.add(strTkn.nextToken());
+
+		   return retList;
+		}
 	public static LinkedList<String> deleteRepeatedTerms(LinkedList<String> retList) {
 		return retList = new LinkedList<>(new HashSet<>(retList));
 	}
