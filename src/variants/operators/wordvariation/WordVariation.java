@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 
-import aux.Common;
+import auxiliar.Common;
 import dict.WordNet;
 import dict.disambiguate.IWSD_Disambiguator;
 import edu.mit.jwi.Dictionary;

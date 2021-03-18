@@ -2,7 +2,7 @@ package variants;
 
 import java.util.LinkedList;
 
-import aux.Common;
+import auxiliar.Common;
 import training.PhraseVariation;
 
 public class RandomReduce implements IMutantsReduceMethod{

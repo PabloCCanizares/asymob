@@ -1,4 +1,4 @@
-package aux;
+package auxiliar;
 import java.io.*;
 import java.util.LinkedList;
 

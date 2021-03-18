@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import aux.BotResourcesManager;
+import auxiliar.BotResourcesManager;
 import generator.Bot;
 import generator.Entity;
 import generator.Intent;

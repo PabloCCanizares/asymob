@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import analyser.BotAnalyser;
-import aux.BotPrinter;
-import aux.Common;
+import auxiliar.BotPrinter;
+import auxiliar.Common;
 import generator.Bot;
 import generator.GeneratorPackage;
 import generator.Intent;

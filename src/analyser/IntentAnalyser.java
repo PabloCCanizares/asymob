@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 
-import aux.Common;
+import auxiliar.Common;
 import generator.Intent;
 import generator.IntentInput;
 import generator.IntentLanguageInputs;

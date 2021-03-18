@@ -2,7 +2,7 @@ package variants;
 
 import java.util.LinkedList;
 
-import aux.JavaRunCommand;
+import auxiliar.JavaRunCommand;
 
 public class VariantGenByCommand implements IVariantGenerator {
 

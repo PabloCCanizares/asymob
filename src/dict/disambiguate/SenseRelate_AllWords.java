@@ -3,8 +3,8 @@ package dict.disambiguate;
 import java.util.LinkedList;
 import java.util.List;
 
-import aux.Common;
-import aux.JavaRunCommand;
+import auxiliar.Common;
+import auxiliar.JavaRunCommand;
 import edu.stanford.nlp.ling.TaggedWord;
 
 public class SenseRelate_AllWords implements IWSD_Disambiguator {

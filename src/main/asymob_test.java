@@ -3,7 +3,7 @@ package main;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-import aux.BotPrinter;
+import auxiliar.BotPrinter;
 import core.Asymob;
 import variants.VariantGenByCommand;
 import variants.operators.MutActiveToPassiveOp;

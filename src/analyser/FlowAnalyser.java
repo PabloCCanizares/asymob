@@ -11,7 +11,7 @@ import org.eclipse.emf.common.util.EList;
 
 import com.fasterxml.jackson.databind.util.Converter;
 
-import aux.Common;
+import auxiliar.Common;
 import generator.Action;
 import generator.BotInteraction;
 import generator.HTTPRequest;

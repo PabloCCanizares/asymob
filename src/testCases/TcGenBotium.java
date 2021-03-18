@@ -14,7 +14,7 @@ import analyser.BotAnalyser;
 import analyser.flowTree.TreeBranch;
 import analyser.flowTree.TreeBranchList;
 import analyser.flowTree.TreeInterAction;
-import aux.Common;
+import auxiliar.Common;
 import generator.Action;
 import generator.Bot;
 import generator.Intent;
