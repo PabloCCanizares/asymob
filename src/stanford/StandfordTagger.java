@@ -1,4 +1,4 @@
-package parser;
+package stanford;
 
 import java.io.StringReader;
 import java.util.ArrayList;

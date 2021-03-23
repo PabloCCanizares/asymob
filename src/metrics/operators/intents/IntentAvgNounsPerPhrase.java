@@ -8,7 +8,7 @@ import edu.stanford.nlp.ling.TaggedWord;
 import metrics.base.FloatMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.IntentMetricBase;
-import parser.StandfordTagger;
+import stanford.StandfordTagger;
 
 public class IntentAvgNounsPerPhrase extends IntentMetricBase{
 

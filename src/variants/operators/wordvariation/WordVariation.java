@@ -12,7 +12,7 @@ import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.POS;
 import edu.stanford.nlp.ling.TaggedWord;
-import parser.StandfordTagger;
+import stanford.StandfordTagger;
 
 public abstract class WordVariation {
 

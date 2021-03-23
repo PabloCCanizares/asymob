@@ -83,6 +83,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 			}catch(Exception e)
 			{
 				//Exception while processing a bot metric
+				System.out.println("[analyseIntentMetrics] Exception catched: "+e.getMessage());
 			}
 		}
 	}

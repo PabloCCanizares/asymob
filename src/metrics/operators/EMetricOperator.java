@@ -11,7 +11,8 @@ public enum EMetricOperator {
 	eFlowNumPaths, eFlowLength, eFlowActionsAverage,
 	//Intents
 	eIntentNumPhrases, eIntentAvgWordsPerPhrase, eIntentAvgCharsPerPhrase, 
-	eIntentNumParameters, eIntentAvgNounsPerPhrase, eIntentAvgVerbsPerPhrase, 
+	eIntentNumParameters, eIntentAvgNounsPerPhrase, eIntentAvgVerbsPerPhrase,
+	ePositiveSentiment,
 	//Extended
 	eExtended 
 	

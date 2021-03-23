@@ -70,7 +70,14 @@ public class MetricReport {
 				
 				for(MetricValue met: metricList)
 				{
-					buffOut.append(met.toString()).append(" | ");
+					try
+					{
+						buffOut.append(met.toString()).append(" | ");
+					}
+					catch(Exception e)
+					{
+						System.err.println("[intentMetricsToString] Exception catched while creating string report");
+					}
 				}
 				buffOut.append("]\n");
 				

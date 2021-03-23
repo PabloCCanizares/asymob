@@ -14,5 +14,9 @@
 	<classpathentry kind="lib" path="jackson-annotations-2.9.9.jar"/>
 	<classpathentry kind="lib" path="jackson-databind-2.9.9.jar"/>
 	<classpathentry kind="lib" path="commons-lang3-3.11.jar" sourcepath="commons-lang3-3.11-sources.jar"/>
+	<classpathentry kind="lib" path="/home/j0hn/Documents/GitHub/asymob/ejml-simple-0.39.jar" sourcepath="ejml-core-0.39-sources.jar"/>
+	<classpathentry kind="lib" path="/home/j0hn/Documents/GitHub/asymob/stanford-corenlp-4.2.0-models.jar"/>
+	<classpathentry kind="lib" path="ejml-core-0.39.jar"/>
+	<classpathentry kind="lib" path="ejml-ddense-0.39.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
