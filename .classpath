@@ -7,18 +7,18 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="lib" path="/home/j0hn/Documents/GitHub/asymob/edu.mit.jwi_2.4.0.jar" sourcepath="edu.mit.jwi_2.4.0_jdk.jar"/>
-	<classpathentry kind="lib" path="/home/j0hn/Documents/GitHub/asymob/stanford-postagger.jar"/>
 	<classpathentry kind="lib" path="stanford-corenlp-4.2.0.jar" sourcepath="stanford-corenlp-4.2.0-sources.jar"/>
 	<classpathentry kind="lib" path="jackson-core-2.9.9.jar" sourcepath="stanford-corenlp-4.2.0-sources.jar"/>
 	<classpathentry kind="lib" path="jackson-annotations-2.9.9.jar"/>
 	<classpathentry kind="lib" path="jackson-databind-2.9.9.jar"/>
 	<classpathentry kind="lib" path="commons-lang3-3.11.jar" sourcepath="commons-lang3-3.11-sources.jar"/>
-	<classpathentry kind="lib" path="/home/j0hn/Documents/GitHub/asymob/ejml-simple-0.39.jar" sourcepath="ejml-core-0.39-sources.jar"/>
-	<classpathentry kind="lib" path="/home/j0hn/Documents/GitHub/asymob/stanford-corenlp-4.2.0-models.jar"/>
 	<classpathentry kind="lib" path="ejml-core-0.39.jar"/>
 	<classpathentry kind="lib" path="ejml-ddense-0.39.jar"/>
 	<classpathentry kind="lib" path="lib/dkpro-core-corenlp-gpl-1.12.0.jar"/>
 	<classpathentry kind="lib" path="lib/dkpro-core-readability-asl-2.0.0.jar"/>
+	<classpathentry kind="lib" path="edu.mit.jwi_2.4.0.jar"/>
+	<classpathentry kind="lib" path="ejml-simple-0.39.jar"/>
+	<classpathentry kind="lib" path="stanford-postagger.jar"/>
+	<classpathentry kind="lib" path="lib/botGenerator.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

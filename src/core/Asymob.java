@@ -69,7 +69,7 @@ public class Asymob {
 		
 		if (file.exists()) {
 			try {
-				botResource = getResourceSet().getResource(URI.createURI(file.getAbsolutePath()), true);
+				botResource = getResourceSet().getResource(URI.createFileURI(file.getAbsolutePath()), true);
 				botResource.load(null);
 				botResource.getAllContents();
 				currentBot = (Bot) botResource.getContents().get(0);
