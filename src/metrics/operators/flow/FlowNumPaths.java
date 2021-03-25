@@ -22,7 +22,7 @@ public class FlowNumPaths extends FlowMetricBase{
 		
 		nPaths++;
 		
-		metricRet = new IntegerMetricValue(nPaths);
+		metricRet = new IntegerMetricValue(this, nPaths);
 		
 		//Set applied metric
 		metricRet.setMetricApplied(this);

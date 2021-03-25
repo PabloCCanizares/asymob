@@ -31,7 +31,7 @@ public class IntentNumParameters extends IntentMetricBase{
 				nParameters = paramList.size();
 		}
 		
-		metricRet = new IntegerMetricValue(nParameters);
+		metricRet = new IntegerMetricValue(this, nParameters);
 		metricRet.setMetricApplied(this);
 	}
 

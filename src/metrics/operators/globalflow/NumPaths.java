@@ -18,16 +18,13 @@ public class NumPaths extends BotMetricBase{
 	@Override
 	public void calculateMetric() {
 		int nPaths;
-		metricRet = new MetricValue();
+		metricRet = new MetricValue(this);
 		System.out.println("[NumFlows::calculateMetric] - Init");
 		
 		
 		nPaths = getNumPaths();
 		metricRet.setUnit(EMetricUnit.eInt);
 		metricRet.setValue(Integer.toString(nPaths));
-		
-		metricRet.setMetricApplied((Metric) this);
-		
 	}
 
 	private int getNumPaths() {

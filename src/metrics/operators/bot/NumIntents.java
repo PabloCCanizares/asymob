@@ -17,7 +17,7 @@ public class NumIntents extends BotMetricBase{
 		int nIntents;
 		if(this.botIn != null)
 		{
-			metricRet = new MetricValue();
+			metricRet = new MetricValue(this);
 			
 			nIntents = this.botIn.getIntents().size();
 			metricRet.setUnit(EMetricUnit.eInt);

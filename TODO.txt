@@ -101,7 +101,9 @@ Quillbot (privado)(https://quillbot.com/)
  · Reescritura de frases
 FastText (OpenSource)(https://fasttext.cc/) -> Es una biblioteca para el aprendizaje de incrustaciones de palabras y clasificación de texto creada por el laboratorio de investigación de inteligencia artificial de Facebook.
  · Etiquetado de frases.
- 
+
+RAT (https://github.com/MatthiasHoldorf/readability-analysis-tool)
+Python textstat (https://github.com/shivam5992/textstat) 
 //Check if a word is recognised
 SentimentModel model = SentimentModel.loadSerialized("edu/stanford/nlp/models/sentiment/sentiment.ser.gz");
 boolean knownWord = model.wordVectors.containsKey("foo");

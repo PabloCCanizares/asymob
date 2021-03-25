@@ -18,5 +18,7 @@
 	<classpathentry kind="lib" path="/home/j0hn/Documents/GitHub/asymob/stanford-corenlp-4.2.0-models.jar"/>
 	<classpathentry kind="lib" path="ejml-core-0.39.jar"/>
 	<classpathentry kind="lib" path="ejml-ddense-0.39.jar"/>
+	<classpathentry kind="lib" path="lib/dkpro-core-corenlp-gpl-1.12.0.jar"/>
+	<classpathentry kind="lib" path="lib/dkpro-core-readability-asl-2.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

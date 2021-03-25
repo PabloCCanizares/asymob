@@ -27,7 +27,7 @@ public class IntentAvgWordsPerPhrase extends IntentMetricBase{
 		if(nWords >0 && nPhrases >0)
 			fAverage = (float)((float)nWords/(float)nPhrases);
 		
-		metricRet = new FloatMetricValue(fAverage);
+		metricRet = new FloatMetricValue(this, fAverage);
 		metricRet.setMetricApplied(this);
 	}
 

@@ -20,7 +20,7 @@ public class FlowLength extends FlowMetricBase{
 		botAnalyser = new BotAnalyser();
 		nPaths = botAnalyser.analyseMaxLenght(flow);
 		
-		metricRet = new IntegerMetricValue(nPaths);
+		metricRet = new IntegerMetricValue(this, nPaths);
 		
 		//Set applied metric
 		metricRet.setMetricApplied(this);

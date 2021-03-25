@@ -14,7 +14,7 @@ public class NumFlows extends BotMetricBase{
 	@Override
 	public void calculateMetric() {
 		int nFlows;
-		metricRet = new MetricValue();
+		metricRet = new MetricValue(this);
 
 		nFlows = getFlowsSize();
 		metricRet.setUnit(EMetricUnit.eInt);

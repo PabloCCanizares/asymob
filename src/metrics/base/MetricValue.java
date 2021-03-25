@@ -12,6 +12,10 @@ public class MetricValue {
 	EMetricUnit eUnit;
 	String strValue;
 	
+	public MetricValue(Metric metricApplied)
+	{
+		setMetricApplied(metricApplied);
+	}
 	public EMetricUnit getUnit() {
 		return eUnit;
 	}

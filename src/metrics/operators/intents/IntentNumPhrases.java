@@ -20,8 +20,7 @@ public class IntentNumPhrases extends IntentMetricBase{
 		inAnalyser = new IntentAnalyser();
 		nPhrases = inAnalyser.getTotalPhrases(this.intentIn);
 		
-		metricRet = new IntegerMetricValue(nPhrases);
-		metricRet.setMetricApplied(this);
+		metricRet = new IntegerMetricValue(this, nPhrases);
 	}
 
 }

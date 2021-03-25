@@ -47,8 +47,7 @@ public class IntentAvgVerbsPerPhrase extends IntentMetricBase{
 		}
 
 		
-		metricRet = new FloatMetricValue(fAverage);
-		metricRet.setMetricApplied(this);
+		metricRet = new FloatMetricValue(this, fAverage);
 	}
 
 	private int countNouns(List<List<TaggedWord>> taggedPhraseList) {

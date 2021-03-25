@@ -25,7 +25,7 @@ public class NumLanguages extends BotMetricBase{
 		nLanguages = 0;
 		if(this.botIn != null)
 		{
-			metricRet = new MetricValue();
+			metricRet = new MetricValue(this);
 			System.out.println("[NumLanguages::calculateMetric] - Init");
 			
 			nLanguages = botIn.getLanguages().size();

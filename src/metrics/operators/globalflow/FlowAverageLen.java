@@ -34,7 +34,7 @@ public class FlowAverageLen extends BotMetricBase{
 			}
 			fValue =  (float)((float)nLength / (float)userInList.size());
 			
-			metricRet = new FloatMetricValue(fValue);
+			metricRet = new FloatMetricValue(this, fValue);
 			
 			//Set applied metric
 			metricRet.setMetricApplied(this);

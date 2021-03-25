@@ -47,7 +47,7 @@ public class IntentAvgNounsPerPhrase extends IntentMetricBase{
 		}
 
 		
-		metricRet = new FloatMetricValue(fAverage);
+		metricRet = new FloatMetricValue(this, fAverage);
 		metricRet.setMetricApplied(this);
 	}
 

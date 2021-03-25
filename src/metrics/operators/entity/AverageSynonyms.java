@@ -41,8 +41,7 @@ public class AverageSynonyms extends EntityMetricBase{
 				}
 			}
 			fAverage = (float) nSynonyms/ (float)nEntities;
-			metricRet = new FloatMetricValue(fAverage);
-			metricRet.setMetricApplied(this);
+			metricRet = new FloatMetricValue(this, fAverage);
 		}catch(Exception e)
 		{
 			metricRet = null;

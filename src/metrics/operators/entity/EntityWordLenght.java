@@ -51,8 +51,7 @@ public class EntityWordLenght extends EntityMetricBase{
 				}
 			}
 			fAverage = (float) nWordLen/ (float)nEntities;
-			metricRet = new FloatMetricValue(fAverage);
-			metricRet.setMetricApplied(this);
+			metricRet = new FloatMetricValue(this, fAverage);
 		}catch(Exception e)
 		{
 			metricRet = null;

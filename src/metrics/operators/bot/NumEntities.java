@@ -17,11 +17,10 @@ public class NumEntities extends BotMetricBase{
 		int nEntities;
 		if(this.botIn != null)
 		{
-			metricRet = new MetricValue();
+			metricRet = new MetricValue(this);
 			nEntities = this.botIn.getEntities().size();
 			metricRet.setUnit(EMetricUnit.eInt);
 			metricRet.setValue(Integer.toString(nEntities));
-			metricRet.setMetricApplied((Metric) this);
 		}
 	}
 }

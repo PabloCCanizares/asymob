@@ -263,4 +263,35 @@ public class IntentAnalyser {
 		
 		return nRet;
 	}
+	public int getMaxWordLen(Intent intentIn) {
+		LinkedList<String>  retList, auxList;
+		int nRet, nMax;
+
+		nRet = nMax = 0;
+		if(intentIn != null)
+		{
+			retList = extractStringPhrasesFromIntent(intentIn);
+			
+			if(retList != null)
+			{
+				for(String strIn: retList)
+				{
+					//Split in parts
+					//TODO: Tener cuidado con las comas y caracteres
+					auxList = Common.SplitUsingTokenizer(strIn);
+					
+					//Count the words
+					if(auxList != null)
+					{
+						for(String strAux: auxList)
+						{
+							nMax = Math.max(nMax, strAux.length());							
+						}
+					}
+				}
+			}
+		}
+		
+		return nMax;
+	}
 }

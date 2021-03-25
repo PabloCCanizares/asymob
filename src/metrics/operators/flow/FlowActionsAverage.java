@@ -27,7 +27,7 @@ public class FlowActionsAverage extends FlowMetricBase{
 		if(nEdges >0)
 			fAverage = (float) nActions/ (float) nEdges;
 		
-		metricRet = new FloatMetricValue(fAverage);
+		metricRet = new FloatMetricValue(this, fAverage);
 		
 		//Set applied metric
 		metricRet.setMetricApplied(this);

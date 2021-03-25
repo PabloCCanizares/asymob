@@ -4,8 +4,9 @@ public class IntegerMetricValue extends MetricValue{
 
 	int nValue;
 	
-	public IntegerMetricValue(int nValue)
+	public IntegerMetricValue(Metric metricApplied, int nValue)
 	{
+		super(metricApplied);
 		this.nValue = nValue;
 		
 		super.setUnit(EMetricUnit.eInt);

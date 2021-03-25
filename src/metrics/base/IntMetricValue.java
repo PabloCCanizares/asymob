@@ -2,6 +2,10 @@ package metrics.base;
 
 public class IntMetricValue extends MetricValue{
 
+	public IntMetricValue(Metric metricApplied) {
+		super(metricApplied);
+	}
+
 	int nValue;
 
 	public int getnValue() {
