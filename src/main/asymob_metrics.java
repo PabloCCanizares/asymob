@@ -22,6 +22,7 @@ import metrics.operators.intents.IntentAvgWordsPerPhrase;
 import metrics.operators.intents.IntentMaxWordLen;
 import metrics.operators.intents.IntentNumParameters;
 import metrics.operators.intents.IntentNumPhrases;
+import metrics.operators.intents.IntentReadabilityMetrics;
 import metrics.operators.intents.IntentTrainingSentiment;
 
 public class asymob_metrics {
@@ -63,6 +64,7 @@ public class asymob_metrics {
 		metricOps.insertMetric(new IntentAvgVerbsPerPhrase());
 		metricOps.insertMetric(new IntentTrainingSentiment());
 		metricOps.insertMetric(new IntentMaxWordLen());
+		metricOps.insertMetric(new IntentReadabilityMetrics());
 		
 		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
 		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))

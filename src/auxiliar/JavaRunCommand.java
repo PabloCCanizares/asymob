@@ -45,7 +45,7 @@ public class JavaRunCommand {
 		boolean bRet = false;
 		String s = null;
 		
-		if(!strCommand.isEmpty() && !strProgramPath.isEmpty())
+		if(!strProgramPath.isEmpty())
 		{	
 			try {
 				

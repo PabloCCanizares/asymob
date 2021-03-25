@@ -6,12 +6,9 @@ import java.util.List;
 import analyser.IntentAnalyser;
 import auxiliar.Common;
 import auxiliar.JavaRunCommand;
-import edu.stanford.nlp.ling.TaggedWord;
-import metrics.base.FloatMetricValue;
 import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.IntentMetricBase;
-import stanford.StandfordTagger;
 
 public class IntentReadabilityMetrics extends IntentMetricBase{
 	
@@ -25,16 +22,11 @@ public class IntentReadabilityMetrics extends IntentMetricBase{
 	public void calculateMetric() {
 
 		IntentAnalyser inAnalyser;
-		int nPhrases, nNouns;
-		float fAverage;
 		LinkedList<String> phrasesList, listRet = null;
-		List<List<TaggedWord>>  taggedPhraseList;
 		String strCompleteText, strMetrics;
 		JavaRunCommand commandRunner;
 		
 		//Initialise
-		nNouns = 0;
-		fAverage = 0;
 		inAnalyser = new IntentAnalyser();
 		commandRunner = new JavaRunCommand();
 		strCompleteText="";
@@ -45,20 +37,21 @@ public class IntentReadabilityMetrics extends IntentMetricBase{
 		{
 			for(String strPhrase: phrasesList)
 			{
-				strCompleteText+=strPhrase;
+				strCompleteText+=" "+strPhrase;
 			}
 			//commandRunner.setProgram(strProgramId);
-			commandRunner.setInputPhrase(strCompleteText);
+			if(!strCompleteText.isBlank())
+			{
+				commandRunner.setInputPhrase(strCompleteText);
+				commandRunner.setProgramPath(System.getProperty("user.dir")+textStatPath);
+				commandRunner.resetLastResults();
+				if (commandRunner.runCommand(""))
+					listRet = commandRunner.getLastResults();			
 			
-			commandRunner.resetLastResults();
-			if (commandRunner.runCommand(""))
-				listRet = commandRunner.getLastResults();			
-		
-			strMetrics = Common.listToString(listRet);
-			metricRet = new MetricValue(this);
-			metricRet.setValue(strMetrics);
+				strMetrics = Common.listToString(listRet);
+				metricRet = new MetricValue(this);
+				metricRet.setValue(strMetrics);
+			}
 		}
 	}
-
-	
 }

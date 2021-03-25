@@ -234,7 +234,16 @@ public class Common {
 	}
 
 	public static String listToString(LinkedList<String> listRet) {
-		// TODO Auto-generated method stub
-		return null;
+		String strRet;
+		
+		strRet="";
+		if(listRet != null)
+		{
+			for(String strIn: listRet)
+			{
+				strRet += strIn;
+			}
+		}
+		return strRet;
 	}
 }
