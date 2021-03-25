@@ -232,4 +232,9 @@ public class Common {
 	public static int generateRandom(int min, int max) {
 		return ThreadLocalRandom.current().nextInt(min, max + 1);
 	}
+
+	public static String listToString(LinkedList<String> listRet) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -12,9 +12,9 @@ public enum EMetricOperator {
 	//Intents
 	eIntentNumPhrases, eIntentAvgWordsPerPhrase, eIntentAvgCharsPerPhrase, 
 	eIntentNumParameters, eIntentAvgNounsPerPhrase, eIntentAvgVerbsPerPhrase,
-	ePositiveSentiment,eIntentMaxWordLen,
+	ePositiveSentiment,eIntentMaxWordLen, eReadabilityMetrics, 
 	//Extended
-	eExtended  
+	eExtended,   
 	
 	//TODO: Incluir el resto
 }
