@@ -42,7 +42,8 @@ public class JSON_test {
 		Agent agent;
 
 		//Initialise
-		strPath = "/localSpace/chatbots/Charm/chatbots/Jokes/dialogflow/Jokes.zip";
+		//strPath = "/localSpace/chatbots/Charm/chatbots/Jokes/dialogflow/Jokes.zip";
+		strPath = "C:\\research\\asymob.git\\trunk\\chatbots\\dialogFlow\\malaynayak.zip";		
 		agentReader = new ReadAgent();
 		agent = null;
 		
