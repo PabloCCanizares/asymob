@@ -42,15 +42,14 @@ public class JSON_test {
 		Agent agent;
 
 		//Initialise
-		//strPath = "/localSpace/chatbots/Charm/chatbots/Jokes/dialogflow/Jokes.zip";
-		strPath = "C:\\research\\asymob.git\\trunk\\chatbots\\dialogFlow\\prebuilt\\Date.zip";		
+		strPath = "/localSpace/chatbots/Charm/chatbots/Jokes/dialogflow/Jokes.zip";
+		//strPath = "C:\\research\\asymob.git\\trunk\\chatbots\\dialogFlow\\prebuilt\\Date.zip";		
 		agentReader = new ReadAgent();
 		agent = null;
 		
 		try {
 			agent = agentReader.getAgent(new File(strPath));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(agent != null)

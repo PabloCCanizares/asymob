@@ -23,7 +23,7 @@ public class jython_test {
 	        
 	        int nSyllabes = syllableCounter.countSyllables("here you are");
 	        
-	        
+	        System.out.printf("Num syllabes %d\n", nSyllabes);
 	        /*engine.eval("import textstat");
 	        engine.eval("y = textstat.flesch_reading_ease(\"hi there!\")");
 	        Object y = engine.get("y");
