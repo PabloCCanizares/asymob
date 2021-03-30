@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="lib" path="stanford-corenlp-4.2.0.jar" sourcepath="stanford-corenlp-4.2.0-sources.jar"/>
 	<classpathentry kind="lib" path="jackson-core-2.9.9.jar" sourcepath="stanford-corenlp-4.2.0-sources.jar"/>
@@ -20,5 +15,6 @@
 	<classpathentry kind="lib" path="ejml-simple-0.39.jar"/>
 	<classpathentry kind="lib" path="stanford-postagger.jar"/>
 	<classpathentry kind="lib" path="lib/botGenerator.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
