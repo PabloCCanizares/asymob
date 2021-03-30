@@ -43,7 +43,7 @@ public class JSON_test {
 
 		//Initialise
 		//strPath = "/localSpace/chatbots/Charm/chatbots/Jokes/dialogflow/Jokes.zip";
-		strPath = "C:\\research\\asymob.git\\trunk\\chatbots\\dialogFlow\\pakhi.zip";		
+		strPath = "C:\\research\\asymob.git\\trunk\\chatbots\\dialogFlow\\prebuilt\\Currency-Converter.zip";		
 		agentReader = new ReadAgent();
 		agent = null;
 		
