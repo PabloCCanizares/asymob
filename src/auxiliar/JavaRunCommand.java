@@ -14,7 +14,9 @@ public class JavaRunCommand {
 	public JavaRunCommand()
 	{
 		this.strInputPhrase = "";
-		this.strProgram = "python3";
+		this.strProgram = AsymobProperties.getInstance().getProperty("python");
+		//this.strProgram = "python3";
+		//this.strProgram = "C:\\Users\\Juan\\AppData\\Local\\Programs\\Python\\Python38\\python.exe";
 		this.outputList = new LinkedList<String>();
 	}
 

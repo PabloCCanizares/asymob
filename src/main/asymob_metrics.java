@@ -69,7 +69,7 @@ public class asymob_metrics {
 		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
 		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
 		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/mysteryAnimal.xmi"))
-		if(botTester.loadChatbot("C:\\Proyectos\\asymob\\asymob\\model\\bikeShop.xmi"))
+		if(botTester.loadChatbot("model\\bikeShop.xmi"))
 		{
 			if(botTester.measureMetrics(metricOps))
 			{
