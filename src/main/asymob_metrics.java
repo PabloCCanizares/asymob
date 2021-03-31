@@ -32,6 +32,7 @@ public class asymob_metrics {
 		Asymob botTester;
 		MetricOperatorsSet metricOps;
 		String strReport;
+		boolean bZipFile;
 		
 		botTester = new Asymob();
 		metricOps = new MetricOperatorsSet();

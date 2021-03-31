@@ -20,5 +20,6 @@
 	<classpathentry kind="lib" path="ejml-simple-0.39.jar"/>
 	<classpathentry kind="lib" path="lib/botGenerator.jar"/>
 	<classpathentry kind="lib" path="lib/stanford-postagger.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.8.0.jar" sourcepath="lib/commons-io-2.8.0-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

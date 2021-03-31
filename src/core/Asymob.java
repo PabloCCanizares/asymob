@@ -44,6 +44,7 @@ public class Asymob {
 	private BotAnalyser botAnalyser = null;
 	private ITransformation botTransformation = null;
 	private IMetricAnalyser botMetrics = null;
+	
 	public Asymob()
 	{
 		trainPhraseGen = new SimplePhraseGenerator();
@@ -82,7 +83,7 @@ public class Asymob {
 			}
 		}
 		else
-			System.out.println("testConga - The file doest not exists!!");		
+			System.out.println("[loadChatbot] - The file does not exists!!");		
 		
 		return bRet;
 	}
