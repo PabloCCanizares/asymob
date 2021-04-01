@@ -80,7 +80,12 @@ public class asymob_metrics {
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"pizza.zip")) OK		
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"hotel-booking.zip")) OK
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"googleChallenge.zip")) OK
-		if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
+		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
+
+		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
+		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
+		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/mysteryAnimal.xmi"))
+		if(botTester.loadChatbot("chatbots\\conga\\mysteryAnimal.xmi"))
 		{
 			if(botTester.measureMetrics(metricOps))
 			{
