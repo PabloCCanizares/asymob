@@ -235,12 +235,15 @@ public class Agent {
 			
 			generator.Entity botEntity = entity.getBotEntity();
 			int i=1;
-			String name = botEntity.getName();
-			while (bot.containsElement(botEntity.getName())==true) {
-				botEntity.setName(name+i);
-				i++;
+			if(botEntity != null)
+			{
+				String name = botEntity.getName();
+				while (bot.containsElement(botEntity.getName())==true) {
+					botEntity.setName(name+i);
+					i++;
+				}
+				bot.getEntities().add(botEntity);
 			}
-			bot.getEntities().add(botEntity);
 		}
 
 		if (getWebhook() != null) {

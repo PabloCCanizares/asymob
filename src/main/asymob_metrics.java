@@ -1,5 +1,7 @@
 package main;
 
+import java.io.File;
+
 import core.Asymob;
 import metrics.MetricOperatorsSet;
 import metrics.operators.bot.NumEntities;
@@ -32,7 +34,6 @@ public class asymob_metrics {
 		Asymob botTester;
 		MetricOperatorsSet metricOps;
 		String strReport;
-		boolean bZipFile;
 		
 		botTester = new Asymob();
 		metricOps = new MetricOperatorsSet();
@@ -67,10 +68,19 @@ public class asymob_metrics {
 		metricOps.insertMetric(new IntentMaxWordLen());
 		metricOps.insertMetric(new IntentReadabilityMetrics());
 		
-		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
-		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
-		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/mysteryAnimal.xmi"))
-		if(botTester.loadChatbot("model\\bikeShop.xmi"))
+		//if(botTester.loadChatbot("model\\bikeShop.xmi"))
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Flights.zip")) -> Flights no carga
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Support.zip")) -> Support no carga
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"MediCare.zip")) -> No carga
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"interviewer.zip")) -> No carga
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"andreanaji007.zip")) -> No carga
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"avaire.zip")) -> No carga
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Date.zip")) OK
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Car.zip")) OK
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"pizza.zip")) OK		
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"hotel-booking.zip")) OK
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"googleChallenge.zip")) OK
+		if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
 		{
 			if(botTester.measureMetrics(metricOps))
 			{

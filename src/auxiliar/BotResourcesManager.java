@@ -25,6 +25,12 @@ public class BotResourcesManager {
 	private ResourceSet botResourceSet = null;	
 	private Bot currentBot = null;
 	
+	public BotResourcesManager()
+	{
+		botResource = null;
+		botResourceSet = null;
+		currentBot = null;
+	}
 	/**
 	 * Loads a chatbot, given its path.
 	 * @param strPath
@@ -62,7 +68,7 @@ public class BotResourcesManager {
 		Agent agent;
 		boolean bRet;
 		
-		botResourceSet = getResourceSet();
+		
 		//La duda aqui, es como gestionar despues el botResource. 
 		//En este punto del desarrollo no se podria salvar a disco sin el.
 		//Ver como solventar esto
@@ -82,7 +88,14 @@ public class BotResourcesManager {
 		try {
 			agent = agentReader.getAgent(file);
 			currentBot = agent.getBot();
-			bRet = true;
+			
+			if(currentBot != null)
+			{
+				BotPrinter.printBot(currentBot);
+				botResourceSet = getResourceSet();
+				bRet = true;
+			}
+			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -162,4 +175,11 @@ public class BotResourcesManager {
 		return currentBot;
 	}
 
+	public Resource getBotResource() {
+		return botResource;
+	}
+	
+	public ResourceSet getBotResourceSet() {
+		return getResourceSet();
+	}
 }

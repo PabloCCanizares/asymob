@@ -1,24 +1,19 @@
 package core;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
 import analyser.BotAnalyser;
 import auxiliar.BotPrinter;
+import auxiliar.BotResourcesManager;
 import auxiliar.Common;
 import generator.Bot;
-import generator.GeneratorPackage;
 import generator.Intent;
 import metrics.IMetricAnalyser;
 import metrics.MetricAnalyserManager;
@@ -27,7 +22,6 @@ import testCases.ITestCaseGenerator;
 import testCases.TcGenBotium;
 import training.IVariantPhraseGenerator;
 import training.VariationsCollectionText;
-import training.chaos.ChaosPhraseGenerator;
 import training.simple.SimplePhraseGenerator;
 import transformation.ITransformation;
 import validation.BotValidation_General;
@@ -36,20 +30,20 @@ import variants.operators.base.MutationOperatorSet;
 
 public class Asymob {
 
-	private Resource botResource = null;
-	private ResourceSet botResourceSet = null;	
 	private Bot currentBot = null;
 	private BotValidatorManager botValidator = null;
 	private IVariantPhraseGenerator trainPhraseGen = null;
 	private BotAnalyser botAnalyser = null;
 	private ITransformation botTransformation = null;
 	private IMetricAnalyser botMetrics = null;
+	private BotResourcesManager botResourceManager = null;
 	
 	public Asymob()
 	{
 		trainPhraseGen = new SimplePhraseGenerator();
 		botValidator = new BotValidation_General();
 		botMetrics = new MetricAnalyserManager();
+		botResourceManager = new BotResourcesManager();
 	}
 	public void setTransformation(ITransformation botTransformation)
 	{
@@ -62,9 +56,18 @@ public class Asymob {
 	 */
 	public boolean loadChatbot(String strPath)
 	{
-		File file;
 		boolean bRet;
 		
+		bRet = false;
+		
+		if(botResourceManager != null)
+			bRet = botResourceManager.loadChatbot(strPath);
+		
+		if(bRet)
+		{
+			currentBot = botResourceManager.getCurrentBot();
+		}
+		/* PAblo: Paso la carga a botResourceManager, si teneis problemas al cargar, comentadme.
 		file = new File(strPath);
 		bRet = false;
 		
@@ -83,7 +86,7 @@ public class Asymob {
 			}
 		}
 		else
-			System.out.println("[loadChatbot] - The file does not exists!!");		
+			System.out.println("[loadChatbot] - The file does not exists!!");	*/	
 		
 		return bRet;
 	}
@@ -91,16 +94,37 @@ public class Asymob {
 	public boolean saveToDisk(String strPath)
 	{
 		OutputStream output;
+		Resource botResource;
+		ResourceSet botResourceSet;
 		boolean bRet;
 		
 		bRet = true;
 		try
 		{
+			//TODO: Beware! Debug line, once the project has been finished, delete it (replace part)!
 			output  = new FileOutputStream(strPath.replaceAll(".xmi", "_copy.xmi"));
 			
+			botResource = botResourceManager.getBotResource();
+			botResourceSet = botResourceManager.getBotResourceSet();
 			//Save a copy to disk
-			botResource.save(System.out, null);
-			botResource.save(output, null);			
+			if(botResource == null)
+			{
+				if(botResourceSet == null)
+					botResourceSet = botResourceManager.getBotResourceSet();
+				
+				Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+				java.util.Map<String, Object> m = reg.getExtensionToFactoryMap();
+				m.put("xmi", new XMIResourceFactoryImpl());
+				botResource = botResourceSet.createResource(URI.createFileURI(strPath));
+				botResource.getContents().add(currentBot);
+				botResource.save(Collections.EMPTY_MAP);
+			}
+			else
+			{
+				botResource.save(System.out, null);
+				botResource.save(output, null);			
+
+			}
 		}
 		catch(Exception e)
 		{
@@ -189,7 +213,8 @@ public class Asymob {
 		return retList;
 	}
 
-	private ResourceSet getResourceSet() {
+	/* Este metodo ha pasado a la clase BotResourcesManager
+	 * private ResourceSet getResourceSet() {
 		if (botResourceSet == null) {
 			botResourceSet = new ResourceSetImpl();
 
@@ -211,7 +236,7 @@ public class Asymob {
 			
 		}
 		return botResourceSet;
-	}
+	}*/
 	
 	public boolean validateBot()
 	{
@@ -266,7 +291,6 @@ public class Asymob {
 		return bRet;
 	}
 	public VariationsCollectionText getGeneratedTrainingPhrases() {
-		boolean bRet;
 		VariationsCollectionText mapRet;
 		try
 		{
@@ -280,9 +304,7 @@ public class Asymob {
 		return mapRet;
 	}	
 	public void printBotSummary() {
-		BotPrinter botPrinter = new BotPrinter();
-		
-		botPrinter.printBot(currentBot);
+		BotPrinter.printBot(currentBot);
 	}
 	public boolean transform(String strPathOut) {
 		boolean bRet;
