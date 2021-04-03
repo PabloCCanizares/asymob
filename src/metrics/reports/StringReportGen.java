@@ -1,4 +1,4 @@
-package metrics;
+package metrics.reports;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -9,26 +9,49 @@ import generator.Entity;
 import generator.Intent;
 import generator.UserInteraction;
 import metrics.base.MetricValue;
+import metrics.db.MetricDataBase;
 
-public class MetricReport {
+public class StringReportGen extends MetricReportGenerator{
 
-	LinkedList<MetricValue> botMetrics;
-	HashMap<Entity, List<MetricValue>> entityMap;
-	HashMap<UserInteraction, List<MetricValue>> flowMap;
-	HashMap<Intent, List<MetricValue>> intentMap;
+	String strReport;
+	StringReport repString;
 	
-	public MetricReport()
-	{
-		botMetrics = new LinkedList<MetricValue>();
-		entityMap = new HashMap<Entity, List<MetricValue>>();
-		flowMap = new HashMap<UserInteraction, List<MetricValue>>();
-		intentMap = new HashMap<Intent, List<MetricValue>>();
-	}
-	public void addBotMetric(MetricValue metricRes) {
-
-		botMetrics.add(metricRes);
+	public StringReportGen() {
+		super(null);
+		
+		repString = null;
+		strReport = null;
 	}
 	
+	public StringReportGen(MetricDataBase dbIn) {
+		super(dbIn);
+		
+		repString = null;
+		strReport = null;
+	}
+	
+	@Override
+	public void configure() {
+	}
+
+	@Override
+	public boolean generateReport() {
+		boolean bRet;
+		
+		try {
+			bRet = true;
+			strReport = getStringReport();
+			repString = new StringReport(strReport);
+		}
+		catch(Exception e)
+		{
+			bRet = false;
+		}
+		
+		return bRet;
+	}
+
+
 	public String getStringReport()
 	{
 		StringBuffer buffOut;
@@ -56,7 +79,8 @@ public class MetricReport {
 		Intent intentIn;
 		
 		buffOut = new StringBuffer();
-		if(flowMap != null && flowMap.size()>0)
+		intentMap = db.getIntentMap();
+		if(intentMap != null && intentMap.size()>0)
 		{
 			buffOut = buffOut.append("============================\n");
 			buffOut = buffOut.append("INTENT METRICS: \n");
@@ -85,17 +109,23 @@ public class MetricReport {
 		}
 		return buffOut.toString();
 	}
+	
+	HashMap<UserInteraction, List<MetricValue>> flowMap;
+	HashMap<Intent, List<MetricValue>> intentMap;
+	
 	private String entityMetricsToString() {
 		StringBuffer buffOut;
 		LinkedList<MetricValue> metricList;
 		Entity en;
+		HashMap<Entity, List<MetricValue>> entityMap;
+		
+		entityMap = db.getEntityMap();
 		
 		buffOut = new StringBuffer();
 		if(entityMap != null && entityMap.size()>0)
 		{
 			buffOut = buffOut.append("============================\n");
 			buffOut = buffOut.append("ENTITY METRICS: \n");
-			
 			
 			for (Map.Entry me : entityMap.entrySet()) {
 				
@@ -116,7 +146,10 @@ public class MetricReport {
 	private String botMetricsToString() {
 		
 		StringBuffer buffOut;
+		LinkedList<MetricValue> botMetrics;
+		
 		buffOut = new StringBuffer();
+		botMetrics = db.getBotMetrics();
 		if(botMetrics != null && botMetrics.size()>0)
 		{
 			//System.out.println("============================");
@@ -139,6 +172,7 @@ public class MetricReport {
 		UserInteraction userIn;
 		
 		buffOut = new StringBuffer();
+		flowMap = db.getFlowMap();
 		if(flowMap != null && flowMap.size()>0)
 		{
 			buffOut = buffOut.append("============================\n");
@@ -161,35 +195,10 @@ public class MetricReport {
 		}
 		return buffOut.toString();
 	}
-	public void addEntityMetric(Entity enIn, MetricValue metricRes) {
-		List<MetricValue> metricList;
-		
-		if(!entityMap.containsKey(enIn))
-			entityMap.put(enIn, new LinkedList<MetricValue>());
-		
-		metricList = entityMap.get(enIn);
-		if(metricList != null)
-			metricList.add(metricRes);
-	}
-	public void addFlowMetric(UserInteraction flowIn, MetricValue metricRes) {
-		List<MetricValue> metricList;
-		
-		if(!flowMap.containsKey(flowIn))
-			flowMap.put(flowIn, new LinkedList<MetricValue>());
-		
-		metricList = flowMap.get(flowIn);
-		if(metricList != null)
-			metricList.add(metricRes);
-		
-	}
-	public void addIntentMetric(Intent intentIn, MetricValue metricRes) {
-		List<MetricValue> metricList;
-		
-		if(!intentMap.containsKey(intentIn))
-			intentMap.put(intentIn, new LinkedList<MetricValue>());
-		
-		metricList = intentMap.get(intentIn);
-		if(metricList != null)
-			metricList.add(metricRes);
+
+
+	@Override
+	public MetricReport getReport() {
+		return repString;
 	}
 }

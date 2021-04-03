@@ -26,6 +26,10 @@ import metrics.operators.intents.IntentNumParameters;
 import metrics.operators.intents.IntentNumPhrases;
 import metrics.operators.intents.IntentReadabilityMetrics;
 import metrics.operators.intents.IntentTrainingSentiment;
+import metrics.reports.MetricReport;
+import metrics.reports.MetricReportGenerator;
+import metrics.reports.StringReport;
+import metrics.reports.StringReportGen;
 
 public class asymob_metrics {
 
@@ -33,8 +37,11 @@ public class asymob_metrics {
 	{
 		Asymob botTester;
 		MetricOperatorsSet metricOps;
-		String strReport;
+		StringReport metReport;
+		MetricReportGenerator metricReport;
 		
+		metReport = new StringReport();
+		metricReport = new StringReportGen();
 		botTester = new Asymob();
 		metricOps = new MetricOperatorsSet();
 		
@@ -69,28 +76,15 @@ public class asymob_metrics {
 		metricOps.insertMetric(new IntentReadabilityMetrics());
 		
 		//if(botTester.loadChatbot("model\\bikeShop.xmi"))
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Flights.zip")) -> Flights no carga
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Support.zip")) -> Support no carga
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"MediCare.zip")) -> No carga
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"interviewer.zip")) -> No carga
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"andreanaji007.zip")) -> No carga
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"avaire.zip")) -> No carga
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Date.zip")) OK
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Car.zip")) OK
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"pizza.zip")) OK		
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"hotel-booking.zip")) OK
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"googleChallenge.zip")) OK
-		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
-
-		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
-		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
-		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/mysteryAnimal.xmi"))
-		if(botTester.loadChatbot("chatbots\\conga\\mysteryAnimal.xmi"))
+		if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
+		//if(botTester.loadChatbot("chatbots\\conga\\mysteryAnimal.xmi"))
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee_demo.zip"))
 		{
 			if(botTester.measureMetrics(metricOps))
 			{
-				strReport = botTester.getMetricReport();
-				System.out.println(strReport);
+				metReport = (StringReport) botTester.getMetricReport(metricReport);
+				System.out.println(metReport.getReport());
 			}
 		}
 		else

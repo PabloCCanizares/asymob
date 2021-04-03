@@ -18,6 +18,8 @@ import generator.Intent;
 import metrics.IMetricAnalyser;
 import metrics.MetricAnalyserManager;
 import metrics.MetricOperatorsSet;
+import metrics.reports.MetricReport;
+import metrics.reports.MetricReportGenerator;
 import testCases.ITestCaseGenerator;
 import testCases.TcGenBotium;
 import training.IVariantPhraseGenerator;
@@ -337,13 +339,13 @@ public class Asymob {
 		
 		return bRet;
 	}
-	public String getMetricReport() {
-		String strRet;
+	public MetricReport getMetricReport(MetricReportGenerator metricReport) {
+		MetricReport metricRep;
 		
-		strRet="";
+		metricRep=null;
 		if(botMetrics != null)
-			strRet =  botMetrics.getMetricsReport();
+			metricRep =  botMetrics.getMetricsReport(metricReport);
 		
-		return strRet;
+		return metricRep;
 	}
 }

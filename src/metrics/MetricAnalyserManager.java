@@ -1,9 +1,5 @@
 package metrics;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-
 import auxiliar.BotResourcesManager;
 import generator.Bot;
 import generator.Entity;
@@ -11,18 +7,28 @@ import generator.Intent;
 import generator.UserInteraction;
 import metrics.base.Metric;
 import metrics.base.MetricValue;
+import metrics.db.MetricDataBase;
 import metrics.operators.base.BotMetricBase;
 import metrics.operators.base.EntityMetricBase;
 import metrics.operators.base.FlowMetricBase;
 import metrics.operators.base.IntentMetricBase;
+import metrics.reports.MetricReport;
+import metrics.reports.MetricReportGenerator;
 
 public class MetricAnalyserManager implements IMetricAnalyser {
 
-	MetricReport metricReport;
+	//MetricReport metricReport;
+	MetricDataBase metricDB;
+	MetricReportGenerator reportGen;
 	
 	public MetricAnalyserManager() {
 		
-		metricReport = new MetricReport();
+		metricDB = new MetricDataBase();
+	}
+	public void configureReport(MetricReportGenerator genIn)
+	{
+		genIn.setDB(metricDB);
+		this.reportGen = genIn;
 	}
 	@Override
 	public boolean doAnalyse(Bot botIn, MetricOperatorsSet metricOps) {
@@ -31,19 +37,20 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 		bRet = true;
 		try
 		{
-			//Analyse Bot metrics (#Intents, #entities, #languages + global flow metrics)
-			analyseBotMetrics(botIn, metricOps);
-			
-			//Analyse Flow Metrics
-			analyseFlowMetrics(botIn, metricOps);
-			
-			//Analyse Entity metrics
-			analyseEntityMetrics(botIn, metricOps);
+			//Others
 			
 			//Intent metrics
 			analyseIntentMetrics(botIn, metricOps);
 			
-			//Others
+			//Analyse Entity metrics
+			analyseEntityMetrics(botIn, metricOps);
+			
+			//Analyse Flow Metrics
+			analyseFlowMetrics(botIn, metricOps);
+			
+			//Analyse Bot metrics (#Intents, #entities, #languages + global flow metrics)
+			analyseBotMetrics(botIn, metricOps);
+			
 		}
 		catch(Exception e)
 		{
@@ -77,7 +84,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 
 					//Store the results
 					if(metricRes != null)
-						metricReport.addIntentMetric(intentIn, metricRes);
+						metricDB.addIntentMetric(intentIn, metricRes);
 				}
 				
 			}catch(Exception e)
@@ -111,7 +118,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 
 					//Store the results
 					if(metricRes != null)
-						metricReport.addFlowMetric(flowIn, metricRes);
+						metricDB.addFlowMetric(flowIn, metricRes);
 				}
 				
 			}catch(Exception e)
@@ -146,7 +153,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 				if(metricRes != null)
 				{
 					//Store the results
-					metricReport.addBotMetric(metricRes);
+					metricDB.addBotMetric(metricRes);
 				}
 				
 			}catch(Exception e)
@@ -181,7 +188,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 					
 					if(metricRes != null)
 						//Store the results
-						metricReport.addEntityMetric(enIn, metricRes);
+						metricDB.addEntityMetric(enIn, metricRes);
 				}
 				
 			}catch(Exception e)
@@ -197,27 +204,22 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 	}
 
 	@Override
-	public String getMetricsReport() {
-	
-		return metricReport.getStringReport();
-	}
-	
-	public String logMetricReport() {
-		String strRet;
+	public MetricReport getMetricsReport(MetricReportGenerator metricReport) {
+		MetricReport report;
 		
-		strRet = "";
-		/*if(botMetrics != null)
+		configureReport(metricReport);
+		
+		if(reportGen != null && reportGen.generateReport())
 		{
-			System.out.println("============================");
-			System.out.println("BOT METRICS");
-			for(MetricValue met: botMetrics)
-			{
-				System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
-			}
-			
-		}*/
-		return strRet;
+			report = reportGen.getReport();
+		}
+		else
+			report = null;
+		
+		return report;
 	}
+	
+
 	@Override
 	public boolean doAnalyse(String strPathIn, MetricOperatorsSet metricOps) {
 		boolean bRet;
