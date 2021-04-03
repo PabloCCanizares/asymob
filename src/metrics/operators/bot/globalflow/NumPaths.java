@@ -1,4 +1,4 @@
-package metrics.operators.globalflow;
+package metrics.operators.bot.globalflow;
 
 import analyser.BotAnalyser;
 import analyser.FlowAnalyser;

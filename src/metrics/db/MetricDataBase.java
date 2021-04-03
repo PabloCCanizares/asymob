@@ -9,24 +9,15 @@ import generator.Entity;
 import generator.Intent;
 import generator.UserInteraction;
 import metrics.base.MetricValue;
+import metrics.operators.EMetricOperator;
 
 public class MetricDataBase {
-
-	private static MetricDataBase instanceDB;
 
 	LinkedList<MetricValue> botMetrics;
 	HashMap<Entity, List<MetricValue>> entityMap;
 	HashMap<UserInteraction, List<MetricValue>> flowMap;
 	HashMap<Intent, List<MetricValue>> intentMap;
-	
-	/*public static MetricDataBase getInstance() {
 
-		if (instanceDB==null) {
-
-			instanceDB=new MetricDataBase();
-		}
-		return instanceDB;
-	}*/
 	
 	public MetricDataBase()
 	{
@@ -84,5 +75,32 @@ public class MetricDataBase {
 	}
 	public HashMap<Intent, List<MetricValue>> getIntentMap() {
 		return intentMap;
+	}
+	public LinkedList<MetricValue> getEntityMetric(EMetricOperator eMetricIn) {
+
+		Entity en;
+		String strName;
+		LinkedList<MetricValue> metricRet;
+		LinkedList<MetricValue> auxList;
+		
+		metricRet = null;
+		if(entityMap != null)
+		{
+			metricRet= new LinkedList<MetricValue>();
+			for (Map.Entry me : entityMap.entrySet()) {
+				
+				en = (Entity) me.getKey();
+				auxList = (LinkedList<MetricValue>) me.getValue();
+				
+				for(MetricValue met: auxList)
+				{
+					strName = met.getMetricApplied(); 
+					
+					if(strName.equals(eMetricIn.name()))
+						metricRet.add(met);
+				}
+	        }
+		}
+		return metricRet;
 	}
 }

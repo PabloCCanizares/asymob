@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import metrics.base.Metric;
-import variants.operators.base.MutationOperator;
 
 public class MetricOperatorsSet {
 

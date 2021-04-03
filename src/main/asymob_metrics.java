@@ -8,15 +8,15 @@ import metrics.operators.bot.NumEntities;
 import metrics.operators.bot.NumFlows;
 import metrics.operators.bot.NumIntents;
 import metrics.operators.bot.NumLanguages;
+import metrics.operators.bot.globalEntities.AvgEntityLiterals;
+import metrics.operators.bot.globalflow.AveragePathsFlow;
+import metrics.operators.bot.globalflow.FlowAverageLen;
 import metrics.operators.entity.AverageSynonyms;
 import metrics.operators.entity.EntityWordLenght;
 import metrics.operators.entity.NumLiterals;
 import metrics.operators.flow.FlowActionsAverage;
 import metrics.operators.flow.FlowLength;
 import metrics.operators.flow.FlowNumPaths;
-import metrics.operators.globalflow.AveragePathsFlow;
-import metrics.operators.globalflow.FlowAverageLen;
-import metrics.operators.globalflow.NumPaths;
 import metrics.operators.intents.IntentAvgCharsPerPhrase;
 import metrics.operators.intents.IntentAvgNounsPerPhrase;
 import metrics.operators.intents.IntentAvgVerbsPerPhrase;
@@ -50,7 +50,7 @@ public class asymob_metrics {
 		metricOps.insertMetric(new NumIntents());
 		metricOps.insertMetric(new NumLanguages());
 		metricOps.insertMetric(new NumFlows());
-		metricOps.insertMetric(new NumPaths());
+		metricOps.insertMetric(new AvgEntityLiterals());
 		metricOps.insertMetric(new FlowAverageLen());
 		metricOps.insertMetric(new AveragePathsFlow());
 		

@@ -12,7 +12,7 @@ import metrics.operators.base.EntityMetricBase;
 public class AverageSynonyms extends EntityMetricBase{
 
 	public AverageSynonyms() {
-		super(EMetricOperator.eAverageSynonyms);
+		super(EMetricOperator.eEntityAvgSynonyms);
 	}
 
 	@Override

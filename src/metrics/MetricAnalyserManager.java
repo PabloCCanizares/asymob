@@ -142,7 +142,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 				
 				//Configure the instance
 				if(metricIn instanceof BotMetricBase)
-					((BotMetricBase)metricIn).configure(botIn);
+					((BotMetricBase)metricIn).configure(botIn, metricDB);
 								
 				//Calculates metrics
 				metricIn.calculateMetric();

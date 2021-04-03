@@ -1,5 +1,6 @@
 package metrics.base;
 
+import metrics.db.MetricDataBase;
 import metrics.operators.EMetricOperator;
 
 public abstract class Metric {
@@ -7,10 +8,12 @@ public abstract class Metric {
 	EMetricOperator metric;
 	EMetricCategory category;
 	
+	protected MetricDataBase db;
 	protected MetricValue metricRet;
 	
 	public Metric(EMetricOperator metric, EMetricCategory category)
 	{
+		this.db = null;
 		this.metric = metric;
 		this.category = category;
 	}

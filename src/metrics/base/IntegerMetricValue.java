@@ -12,4 +12,9 @@ public class IntegerMetricValue extends MetricValue{
 		super.setUnit(EMetricUnit.eInt);
 		super.setValue(String.format("%d",nValue));
 	}
+	
+	public int getIntValue()
+	{
+		return nValue;
+	}
 }

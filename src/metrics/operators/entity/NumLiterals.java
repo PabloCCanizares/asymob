@@ -8,7 +8,7 @@ import metrics.operators.base.EntityMetricBase;
 public class NumLiterals extends EntityMetricBase{
 
 	public NumLiterals() {
-		super(EMetricOperator.eNumLiterals);
+		super(EMetricOperator.eEntityNumLiterals);
 	}
 
 	@Override

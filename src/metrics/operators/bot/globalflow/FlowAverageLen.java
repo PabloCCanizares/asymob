@@ -1,4 +1,4 @@
-package metrics.operators.globalflow;
+package metrics.operators.bot.globalflow;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -8,10 +8,10 @@ import metrics.base.FloatMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 
-public class AveragePathsFlow extends BotMetricBase{
+public class FlowAverageLen extends BotMetricBase{
 
-	public AveragePathsFlow() {
-		super(EMetricOperator.eAveragePathFlow);
+	public FlowAverageLen() {
+		super(EMetricOperator.eAverageLength);
 	}
 
 	@Override
@@ -29,10 +29,8 @@ public class AveragePathsFlow extends BotMetricBase{
 			EList<UserInteraction> userInList = botIn.getFlows();
 			for(UserInteraction userIn: userInList)
 			{
-				nLength += botAnalyser.analyseNumPaths(userIn);
+				nLength += botAnalyser.analyseMaxLenght(userIn);
 
-				//One per element
-				nLength++;
 			}
 			fValue =  (float)((float)nLength / (float)userInList.size());
 			
