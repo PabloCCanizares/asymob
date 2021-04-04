@@ -11,4 +11,9 @@ public class FloatMetricValue extends MetricValue{
 		super.setUnit(EMetricUnit.eFloat);
 		super.setValue(String.format("%.02f",fValue));
 	}
+	
+	public float getFloatValue()
+	{
+		return fValue;
+	}
 }

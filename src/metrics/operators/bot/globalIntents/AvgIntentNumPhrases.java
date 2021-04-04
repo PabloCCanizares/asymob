@@ -1,4 +1,4 @@
-package metrics.operators.bot.globalEntities;
+package metrics.operators.bot.globalIntents;
 
 import java.util.LinkedList;
 
@@ -9,10 +9,10 @@ import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 
-public class AvgEntityLiterals extends BotMetricBase{
+public class AvgIntentNumPhrases extends BotMetricBase{
 
-	public AvgEntityLiterals() {
-		super(EMetricOperator.eGlobalAvgEntityLiterals);
+	public AvgIntentNumPhrases() {
+		super(EMetricOperator.eGlobalAvgIntentPhrases);
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class AvgEntityLiterals extends BotMetricBase{
 		//access to the DB
 		if(db != null)
 		{
-			metricResList = db.getEntityMetric(EMetricOperator.eEntityNumLiterals);
+			metricResList = db.getIntentMetric(EMetricOperator.eIntentNumPhrases);
 			
 			for(MetricValue metricVal: metricResList)
 			{

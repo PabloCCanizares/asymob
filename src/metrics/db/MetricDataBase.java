@@ -103,4 +103,54 @@ public class MetricDataBase {
 		}
 		return metricRet;
 	}
+	public LinkedList<MetricValue> getFlowMetric(EMetricOperator eMetricIn) {
+		UserInteraction userIn;
+		String strName;
+		LinkedList<MetricValue> metricRet;
+		LinkedList<MetricValue> auxList;
+		
+		metricRet = null;
+		if(entityMap != null)
+		{
+			metricRet= new LinkedList<MetricValue>();
+			for (Map.Entry me : flowMap.entrySet()) {
+				
+				userIn = (UserInteraction) me.getKey();
+				auxList = (LinkedList<MetricValue>) me.getValue();
+				
+				for(MetricValue met: auxList)
+				{
+					strName = met.getMetricApplied(); 
+					
+					if(strName.equals(eMetricIn.name()))
+						metricRet.add(met);
+				}
+	        }
+		}
+		return metricRet;
+	}
+	public LinkedList<MetricValue> getIntentMetric(EMetricOperator eMetricIn) {
+		String strName;
+		LinkedList<MetricValue> metricRet;
+		LinkedList<MetricValue> auxList;
+		
+		metricRet = null;
+		if(entityMap != null)
+		{
+			metricRet= new LinkedList<MetricValue>();
+			for (Map.Entry me : intentMap.entrySet()) {
+				
+				auxList = (LinkedList<MetricValue>) me.getValue();
+				
+				for(MetricValue met: auxList)
+				{
+					strName = met.getMetricApplied(); 
+					
+					if(strName.equals(eMetricIn.name()))
+						metricRet.add(met);
+				}
+	        }
+		}
+		return metricRet;
+	}
 }

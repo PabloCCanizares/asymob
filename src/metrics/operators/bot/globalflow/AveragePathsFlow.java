@@ -11,7 +11,7 @@ import metrics.operators.base.BotMetricBase;
 public class AveragePathsFlow extends BotMetricBase{
 
 	public AveragePathsFlow() {
-		super(EMetricOperator.eAveragePathFlow);
+		super(EMetricOperator.eGlobalAveragePathFlow);
 	}
 
 	@Override

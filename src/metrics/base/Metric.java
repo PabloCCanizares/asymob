@@ -1,6 +1,7 @@
 package metrics.base;
 
 import metrics.db.MetricDataBase;
+import metrics.db.ReadOnlyMetricDB;
 import metrics.operators.EMetricOperator;
 
 public abstract class Metric {
@@ -8,7 +9,7 @@ public abstract class Metric {
 	EMetricOperator metric;
 	EMetricCategory category;
 	
-	protected MetricDataBase db;
+	protected ReadOnlyMetricDB db;
 	protected MetricValue metricRet;
 	
 	public Metric(EMetricOperator metric, EMetricCategory category)

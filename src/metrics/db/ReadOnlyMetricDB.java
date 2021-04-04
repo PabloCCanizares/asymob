@@ -8,6 +8,7 @@ import generator.Entity;
 import generator.Intent;
 import generator.UserInteraction;
 import metrics.base.MetricValue;
+import metrics.operators.EMetricOperator;
 
 public class ReadOnlyMetricDB {
 
@@ -28,6 +29,16 @@ public class ReadOnlyMetricDB {
 		return this.mdb.getFlowMap();
 	}
 	public HashMap<Intent, List<MetricValue>> getIntentMap() {		
-		return this.mdb.getIntentMap();
+		return mdb == null ? null : mdb.getIntentMap();
 	}
+	public LinkedList<MetricValue> getEntityMetric(EMetricOperator eMetricIn) {
+		return mdb == null ? null : mdb.getEntityMetric(eMetricIn);
+	}
+	public LinkedList<MetricValue> getFlowMetric(EMetricOperator eMetricIn) {
+		return mdb == null ? null : mdb.getFlowMetric(eMetricIn);
+	}
+	public LinkedList<MetricValue> getIntentMetric(EMetricOperator eMetricIn) {
+		return mdb == null ? null : mdb.getIntentMetric(eMetricIn);
+	}
+	
 }

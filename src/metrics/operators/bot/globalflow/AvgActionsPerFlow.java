@@ -1,18 +1,16 @@
-package metrics.operators.bot.globalEntities;
+package metrics.operators.bot.globalflow;
 
 import java.util.LinkedList;
 
-import metrics.base.EMetricUnit;
 import metrics.base.FloatMetricValue;
-import metrics.base.IntegerMetricValue;
 import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 
-public class AvgEntityLiterals extends BotMetricBase{
+public class AvgActionsPerFlow extends BotMetricBase{
 
-	public AvgEntityLiterals() {
-		super(EMetricOperator.eGlobalAvgEntityLiterals);
+	public AvgActionsPerFlow() {
+		super(EMetricOperator.eGlobalFlowAvgActions);
 	}
 
 	@Override
@@ -24,28 +22,29 @@ public class AvgEntityLiterals extends BotMetricBase{
 	}
 
 	private float getNumLiterals() {
-		int nLiterals, nElements;
-		float fValue;
+		int nElements;
+		float fValue, fAcc;
 		LinkedList<MetricValue> metricResList;
 		
-		nLiterals=nElements=0;
+		nElements=0;
 		fValue = 0;
+		fAcc = 0;
 		
 		//access to the DB
 		if(db != null)
 		{
-			metricResList = db.getEntityMetric(EMetricOperator.eEntityNumLiterals);
+			metricResList = db.getFlowMetric(EMetricOperator.eFlowActionsAverage);
 			
 			for(MetricValue metricVal: metricResList)
 			{
-				if(metricVal != null && metricVal instanceof IntegerMetricValue)
+				if(metricVal != null && metricVal instanceof FloatMetricValue)
 				{
-					nLiterals += ((IntegerMetricValue)metricVal).getIntValue();
+					fAcc += ((FloatMetricValue)metricVal).getFloatValue();
 					nElements++;
 				}
 			}
-			if(nLiterals >0 && nElements >0)
-				fValue = (float)((float)nLiterals/(float)nElements);
+			if(fAcc >0 && nElements >0)
+				fValue = (float)((float)fAcc/(float)nElements);
 			else
 				fValue =0;
 					

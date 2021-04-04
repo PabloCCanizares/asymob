@@ -1,4 +1,4 @@
-package metrics.operators.bot.globalEntities;
+package metrics.operators.bot.globalIntents;
 
 import java.util.LinkedList;
 
@@ -9,10 +9,10 @@ import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 
-public class AvgEntityLiterals extends BotMetricBase{
+public class AvgIntentCharsPerPhrase extends BotMetricBase{
 
-	public AvgEntityLiterals() {
-		super(EMetricOperator.eGlobalAvgEntityLiterals);
+	public AvgIntentCharsPerPhrase() {
+		super(EMetricOperator.eGlobalAvgIntentWordPerPhrase);
 	}
 
 	@Override
@@ -24,28 +24,28 @@ public class AvgEntityLiterals extends BotMetricBase{
 	}
 
 	private float getNumLiterals() {
-		int nLiterals, nElements;
-		float fValue;
+		int nElements;
+		float fValue, fAvg;
 		LinkedList<MetricValue> metricResList;
 		
-		nLiterals=nElements=0;
-		fValue = 0;
+		nElements=0;
+		fValue = fAvg = 0;
 		
 		//access to the DB
 		if(db != null)
 		{
-			metricResList = db.getEntityMetric(EMetricOperator.eEntityNumLiterals);
+			metricResList = db.getIntentMetric(EMetricOperator.eIntentAvgWordsPerPhrase);
 			
 			for(MetricValue metricVal: metricResList)
 			{
-				if(metricVal != null && metricVal instanceof IntegerMetricValue)
+				if(metricVal != null && metricVal instanceof FloatMetricValue)
 				{
-					nLiterals += ((IntegerMetricValue)metricVal).getIntValue();
+					fAvg += ((FloatMetricValue)metricVal).getFloatValue();
 					nElements++;
 				}
 			}
-			if(nLiterals >0 && nElements >0)
-				fValue = (float)((float)nLiterals/(float)nElements);
+			if(fAvg >0 && nElements >0)
+				fValue = (float)((float)fAvg/(float)nElements);
 			else
 				fValue =0;
 					

@@ -8,6 +8,7 @@ import generator.UserInteraction;
 import metrics.base.Metric;
 import metrics.base.MetricValue;
 import metrics.db.MetricDataBase;
+import metrics.db.ReadOnlyMetricDB;
 import metrics.operators.base.BotMetricBase;
 import metrics.operators.base.EntityMetricBase;
 import metrics.operators.base.FlowMetricBase;
@@ -142,7 +143,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 				
 				//Configure the instance
 				if(metricIn instanceof BotMetricBase)
-					((BotMetricBase)metricIn).configure(botIn, metricDB);
+					((BotMetricBase)metricIn).configure(botIn, new ReadOnlyMetricDB(metricDB));
 								
 				//Calculates metrics
 				metricIn.calculateMetric();

@@ -1,4 +1,4 @@
-package metrics.operators.bot.globalEntities;
+package metrics.operators.bot.globalIntents;
 
 import java.util.LinkedList;
 
@@ -9,10 +9,10 @@ import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 
-public class AvgEntityLiterals extends BotMetricBase{
+public class AvgIntentParameters extends BotMetricBase{
 
-	public AvgEntityLiterals() {
-		super(EMetricOperator.eGlobalAvgEntityLiterals);
+	public AvgIntentParameters() {
+		super(EMetricOperator.eGlobalAvgIntentParameters);
 	}
 
 	@Override
@@ -24,34 +24,31 @@ public class AvgEntityLiterals extends BotMetricBase{
 	}
 
 	private float getNumLiterals() {
-		int nLiterals, nElements;
+		int nElements, nParams;
 		float fValue;
 		LinkedList<MetricValue> metricResList;
 		
-		nLiterals=nElements=0;
+		nElements=nParams=0;
 		fValue = 0;
 		
 		//access to the DB
 		if(db != null)
 		{
-			metricResList = db.getEntityMetric(EMetricOperator.eEntityNumLiterals);
+			metricResList = db.getIntentMetric(EMetricOperator.eIntentNumParameters);
 			
 			for(MetricValue metricVal: metricResList)
 			{
 				if(metricVal != null && metricVal instanceof IntegerMetricValue)
 				{
-					nLiterals += ((IntegerMetricValue)metricVal).getIntValue();
+					nParams += ((IntegerMetricValue)metricVal).getIntValue();
 					nElements++;
 				}
 			}
-			if(nLiterals >0 && nElements >0)
-				fValue = (float)((float)nLiterals/(float)nElements);
+			if(nParams >0 && nElements >0)
+				fValue = (float)((float)nParams/(float)nElements);
 			else
 				fValue =0;
-					
-			
 		}
 		return fValue;
 	}
-
 }

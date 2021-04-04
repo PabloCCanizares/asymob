@@ -9,8 +9,16 @@ import metrics.operators.bot.NumFlows;
 import metrics.operators.bot.NumIntents;
 import metrics.operators.bot.NumLanguages;
 import metrics.operators.bot.globalEntities.AvgEntityLiterals;
+import metrics.operators.bot.globalEntities.AvgEntitySynonyms;
+import metrics.operators.bot.globalEntities.AvgEntityWordLen;
+import metrics.operators.bot.globalIntents.AvgIntentCharsPerPhrase;
+import metrics.operators.bot.globalIntents.AvgIntentNumPhrases;
+import metrics.operators.bot.globalIntents.AvgIntentParameters;
+import metrics.operators.bot.globalIntents.AvgIntentWordPerPhrase;
 import metrics.operators.bot.globalflow.AveragePathsFlow;
+import metrics.operators.bot.globalflow.AvgActionsPerFlow;
 import metrics.operators.bot.globalflow.FlowAverageLen;
+import metrics.operators.bot.globalflow.NumPaths;
 import metrics.operators.entity.AverageSynonyms;
 import metrics.operators.entity.EntityWordLenght;
 import metrics.operators.entity.NumLiterals;
@@ -50,9 +58,17 @@ public class asymob_metrics {
 		metricOps.insertMetric(new NumIntents());
 		metricOps.insertMetric(new NumLanguages());
 		metricOps.insertMetric(new NumFlows());
+		metricOps.insertMetric(new NumPaths());
 		metricOps.insertMetric(new AvgEntityLiterals());
+		metricOps.insertMetric(new AvgEntitySynonyms());
+		metricOps.insertMetric(new AvgEntityWordLen());
 		metricOps.insertMetric(new FlowAverageLen());
 		metricOps.insertMetric(new AveragePathsFlow());
+		metricOps.insertMetric(new AvgActionsPerFlow());
+		metricOps.insertMetric(new AvgIntentNumPhrases());
+		metricOps.insertMetric(new AvgIntentWordPerPhrase());
+		metricOps.insertMetric(new AvgIntentParameters());
+		metricOps.insertMetric(new AvgIntentCharsPerPhrase());
 		
 		//Entity metrics
 		metricOps.insertMetric(new NumLiterals());
@@ -71,14 +87,14 @@ public class asymob_metrics {
 		metricOps.insertMetric(new IntentNumParameters());
 		metricOps.insertMetric(new IntentAvgNounsPerPhrase());
 		metricOps.insertMetric(new IntentAvgVerbsPerPhrase());
-		metricOps.insertMetric(new IntentTrainingSentiment());
+		//metricOps.insertMetric(new IntentTrainingSentiment());
 		metricOps.insertMetric(new IntentMaxWordLen());
 		metricOps.insertMetric(new IntentReadabilityMetrics());
 		
 		//if(botTester.loadChatbot("model\\bikeShop.xmi"))
-		if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
+		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots\\conga\\mysteryAnimal.xmi"))
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
+		if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee_demo.zip"))
 		{
 			if(botTester.measureMetrics(metricOps))
