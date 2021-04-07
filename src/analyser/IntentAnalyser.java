@@ -157,6 +157,43 @@ public class IntentAnalyser {
 		return retList;
 	}
 	
+	public LinkedList<LinkedList<String>> getAllPhrases(Intent intentIn)
+	{
+		List<IntentLanguageInputs> listLanguages;
+		EList<IntentInput> inputList;
+		LinkedList<LinkedList<String>> stringList;
+		LinkedList<String> listAux;
+		
+		listLanguages = null;
+		stringList = new LinkedList<LinkedList<String>>();
+		
+		if(intentIn != null)
+		{
+			//Analyse the different languages
+			listLanguages = intentIn.getInputs();
+			
+			for (IntentLanguageInputs intentLan : listLanguages) {
+
+				if(intentLan != null)
+				{
+					listAux = new LinkedList<String>();
+					inputList = intentLan.getInputs();
+
+					//Find all the inputs and process them
+					if(inputList != null)
+					{						
+						for (IntentInput input : inputList) {
+							
+							listAux = extractStringPhrasesFromIntent(intentIn);
+						}
+					}
+					stringList.add(listAux);
+				}
+			}
+		}
+		
+		return stringList;
+	}
 	public int getTotalPhrases(Intent intentIn)
 	{
 		LinkedList<IntentInput>  retList;

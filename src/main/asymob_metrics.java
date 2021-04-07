@@ -26,6 +26,7 @@ import metrics.operators.flow.FlowActionsAverage;
 import metrics.operators.flow.FlowLength;
 import metrics.operators.flow.FlowNumPaths;
 import metrics.operators.intents.IntentAvgCharsPerPhrase;
+import metrics.operators.intents.IntentAvgCosineSimilarity;
 import metrics.operators.intents.IntentAvgNounsPerPhrase;
 import metrics.operators.intents.IntentAvgVerbsPerPhrase;
 import metrics.operators.intents.IntentAvgWordsPerPhrase;
@@ -90,12 +91,13 @@ public class asymob_metrics {
 		//metricOps.insertMetric(new IntentTrainingSentiment());
 		metricOps.insertMetric(new IntentMaxWordLen());
 		metricOps.insertMetric(new IntentReadabilityMetrics());
+		metricOps.insertMetric(new IntentAvgCosineSimilarity());
 		
 		//if(botTester.loadChatbot("model\\bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots\\conga\\mysteryAnimal.xmi"))
 		if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee_demo.zip"))
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip"))
 		{
 			if(botTester.measureMetrics(metricOps))
 			{

@@ -28,7 +28,6 @@ public class IntentAvgCharsPerPhrase extends IntentMetricBase{
 			fAverage = (float)((float)nChars/(float)nPhrases);
 		
 		metricRet = new FloatMetricValue(this, fAverage);
-		metricRet.setMetricApplied(this);
 	}
 
 }

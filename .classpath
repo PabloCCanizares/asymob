@@ -21,5 +21,18 @@
 	<classpathentry kind="lib" path="lib/botGenerator.jar"/>
 	<classpathentry kind="lib" path="lib/stanford-postagger.jar"/>
 	<classpathentry kind="lib" path="lib/commons-io-2.8.0.jar" sourcepath="lib/commons-io-2.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="lib/djl/tensorflow/tensorflow-api/0.10.0-SNAPSHOT/tensorflow-api-0.10.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/djl/api/0.10.0-SNAPSHOT/api-0.10.0-SNAPSHOT.jar" sourcepath="lib/djl/api/0.10.0-SNAPSHOT/api-0.10.0-SNAPSHOT-sources.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/djl/tensorflow/tensorflow-native-auto/2.3.1/tensorflow-native-auto-2.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/djl/tensorflow/tensorflow-engine/0.10.0-SNAPSHOT/tensorflow-engine-0.10.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/djl/jna-5.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/djl/tensorflow-core-platform-0.2.0.jar"/>
+	<classpathentry kind="lib" path="lib/djl/bytedeco/javacpp/1.5.4/javacpp-1.5.4.jar"/>
+	<classpathentry kind="lib" path="lib/djl/protobuf/protobuf-java/3.8.0/protobuf-java-3.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/djl/gson/gson/2.8.5/gson-2.8.5.jar"/>
+	<classpathentry kind="lib" path="lib/djl/commons-compress-1.20.jar"/>
+	<classpathentry kind="lib" path="lib/djl/slf4j-api-1.7.21.jar"/>
+	<classpathentry kind="lib" path="lib/djl/slf4j-simple-1.7.21.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
