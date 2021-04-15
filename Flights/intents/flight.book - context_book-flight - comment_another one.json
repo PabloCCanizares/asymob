@@ -1,0 +1,34 @@
+{
+  "id": "0a41a7ba-c2d6-44e8-af1e-80c4364eea16",
+  "name": "flight.book - context:book-flight - comment:another one",
+  "auto": true,
+  "contexts": [
+    "book-flight"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "flight.book",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

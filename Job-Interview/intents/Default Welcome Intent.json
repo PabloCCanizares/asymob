@@ -1,0 +1,108 @@
+{
+  "id": "899cc80e-a7ec-417d-bc5b-697e506e0389",
+  "name": "Default Welcome Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.welcome",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "2",
+          "platform": "kik",
+          "title": "",
+          "replies": [
+            "About yourself",
+            "Strengths",
+            "Weaknesses",
+            "CV",
+            "Hobby"
+          ],
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "2",
+          "platform": "telegram",
+          "title": "",
+          "replies": [
+            "About Yourself",
+            "Strengths",
+            "Weaknesses",
+            "CV",
+            "Hobby"
+          ],
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "2",
+          "platform": "slack",
+          "title": "",
+          "replies": [
+            "About yourself",
+            "Strengths",
+            "Weaknesses",
+            "CV",
+            "Hobby"
+          ],
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "2",
+          "platform": "facebook",
+          "title": "",
+          "replies": [
+            "About yourself",
+            "Strengths",
+            "Weaknesses",
+            "CV",
+            "Hobby"
+          ],
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Hi! My name is Bob. I like flowers!",
+            "Hello! I\u0027m Bob. I like flowers!",
+            "Good day! My name is Bob. I like flowers!",
+            "Greetings! I\u0027m Bob. I like flowers!"
+          ],
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "facebook": true,
+        "slack": true,
+        "telegram": true,
+        "kik": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "WELCOME"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

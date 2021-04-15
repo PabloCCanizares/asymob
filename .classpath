@@ -7,17 +7,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="lib" path="stanford-corenlp-4.2.0.jar" sourcepath="stanford-corenlp-4.2.0-sources.jar"/>
-	<classpathentry kind="lib" path="jackson-core-2.9.9.jar" sourcepath="stanford-corenlp-4.2.0-sources.jar"/>
-	<classpathentry kind="lib" path="jackson-annotations-2.9.9.jar"/>
-	<classpathentry kind="lib" path="jackson-databind-2.9.9.jar"/>
-	<classpathentry kind="lib" path="commons-lang3-3.11.jar" sourcepath="commons-lang3-3.11-sources.jar"/>
-	<classpathentry kind="lib" path="ejml-core-0.39.jar"/>
-	<classpathentry kind="lib" path="ejml-ddense-0.39.jar"/>
 	<classpathentry kind="lib" path="lib/dkpro-core-corenlp-gpl-1.12.0.jar"/>
 	<classpathentry kind="lib" path="lib/dkpro-core-readability-asl-2.0.0.jar"/>
-	<classpathentry kind="lib" path="edu.mit.jwi_2.4.0.jar"/>
-	<classpathentry kind="lib" path="ejml-simple-0.39.jar"/>
 	<classpathentry kind="lib" path="lib/botGenerator.jar"/>
 	<classpathentry kind="lib" path="lib/stanford-postagger.jar"/>
 	<classpathentry kind="lib" path="lib/commons-io-2.8.0.jar" sourcepath="lib/commons-io-2.8.0-sources.jar"/>
@@ -34,5 +25,16 @@
 	<classpathentry kind="lib" path="lib/djl/commons-compress-1.20.jar"/>
 	<classpathentry kind="lib" path="lib/djl/slf4j-api-1.7.21.jar"/>
 	<classpathentry kind="lib" path="lib/djl/slf4j-simple-1.7.21.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.11.jar"/>
+	<classpathentry kind="lib" path="lib/edu.mit.jwi_2.4.0_jdk.jar"/>
+	<classpathentry kind="lib" path="lib/edu.mit.jwi_2.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/ejml-core-0.39.jar"/>
+	<classpathentry kind="lib" path="lib/ejml-ddense-0.39.jar"/>
+	<classpathentry kind="lib" path="lib/ejml-simple-0.39.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-annotations-2.9.9.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.9.9.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.9.9.jar"/>
+	<classpathentry kind="lib" path="lib/stanford-corenlp-4.2.0.jar" sourcepath="lib/stanford-corenlp-4.2.0-sources.jar"/>
+	<classpathentry kind="lib" path="lib/stanford-corenlp-4.2.0-models.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

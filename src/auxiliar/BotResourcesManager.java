@@ -68,18 +68,6 @@ public class BotResourcesManager {
 		Agent agent;
 		boolean bRet;
 		
-		
-		//La duda aqui, es como gestionar despues el botResource. 
-		//En este punto del desarrollo no se podria salvar a disco sin el.
-		//Ver como solventar esto
-		//botResource ??
-				
-		/*
-		 * resource.getContents().clear();
-		   resource.getContents().add(bot);
-		   resource.save(null);
-		 */
-		
 		//Initialise
 		agentReader = new ReadAgent();
 		agent = null;
@@ -95,8 +83,6 @@ public class BotResourcesManager {
 				botResourceSet = getResourceSet();
 				bRet = true;
 			}
-			
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

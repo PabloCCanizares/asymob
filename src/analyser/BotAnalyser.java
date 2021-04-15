@@ -1,38 +1,20 @@
 package analyser;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-
+import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.emf.common.util.EList;
-
-import com.fasterxml.jackson.databind.util.Converter;
-
-import analyser.flowTree.TreeBranch;
-import analyser.flowTree.TreeBranchList;
-import analyser.flowTree.TreeInterAction;
 import generator.Action;
 import generator.Bot;
 import generator.BotInteraction;
-import generator.HTTPRequest;
-import generator.HTTPResponse;
-import generator.Image;
 import generator.Intent;
 import generator.IntentInput;
 import generator.IntentLanguageInputs;
 import generator.Literal;
 import generator.ParameterReferenceToken;
-import generator.ParameterToken;
-import generator.Text;
-import generator.TextInput;
-import generator.TextLanguageInput;
 import generator.Token;
 import generator.TrainingPhrase;
 import generator.UserInteraction;
-
-import org.apache.commons.lang3.SerializationUtils;
-import org.apache.commons.lang3.tuple.Pair;
 public class BotAnalyser {
 
 	FlowAnalyser flowAnalyser;
@@ -45,6 +27,7 @@ public class BotAnalyser {
 	{
 		flowAnalyser = new FlowAnalyser(converter);
 	}
+	@SuppressWarnings("unused")
 	private void extractAllIntentInputs(Bot botIn)
 	{
 		List<Intent> listIntent;

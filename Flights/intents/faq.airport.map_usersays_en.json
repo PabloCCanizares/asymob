@@ -1,0 +1,118 @@
+[
+  {
+    "id": "fa472ee7-2fba-411a-b4cf-bc9265900699",
+    "data": [
+      {
+        "text": "I\u0027m lost in ",
+        "userDefined": false
+      },
+      {
+        "text": "SFO",
+        "meta": "@sys.airport",
+        "alias": "airport",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8413811d-2b24-405a-b690-6fb26edf210a",
+    "data": [
+      {
+        "text": "map",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "32b6ff94-4c45-484c-a2fa-68051c10663e",
+    "data": [
+      {
+        "text": "I need a map",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "7ec666c0-12ca-4331-bcb0-516a1d24b708",
+    "data": [
+      {
+        "text": "Where can I find an airport map",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "39ed19fd-fb0a-42c9-a0a9-0a0f7a64542f",
+    "data": [
+      {
+        "text": "Hey there, can you provide me with an airport map?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "432d2258-c790-49c7-947e-713856bee8f5",
+    "data": [
+      {
+        "text": "Where can I get airport map for ",
+        "userDefined": false
+      },
+      {
+        "text": "LAX",
+        "meta": "@sys.airport",
+        "alias": "airport",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "58c11ba3-624b-417f-b2b3-105e699cab97",
+    "data": [
+      {
+        "text": "terminal map",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "4f8b55b5-4c9b-4b88-8581-e577ab0a181b",
+    "data": [
+      {
+        "text": "map please",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

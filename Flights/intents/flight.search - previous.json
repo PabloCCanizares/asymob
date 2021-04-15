@@ -1,0 +1,42 @@
+{
+  "id": "eddd7c89-6b1a-410b-9f9c-e30a4a712556",
+  "parentId": "1c36dd18-b92c-41f3-a5d8-ad66d0166d50",
+  "rootParentId": "1c36dd18-b92c-41f3-a5d8-ad66d0166d50",
+  "name": "flight.search - previous",
+  "auto": true,
+  "contexts": [
+    "flightsearch-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "flight.search.previous",
+      "affectedContexts": [
+        {
+          "name": "flightsearch-followup",
+          "lifespan": 5,
+          "parameters": {}
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

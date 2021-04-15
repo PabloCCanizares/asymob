@@ -48,7 +48,6 @@ public class AvgActionsPerFlow extends BotMetricBase{
 			else
 				fValue =0;
 					
-			
 		}
 		return fValue;
 	}

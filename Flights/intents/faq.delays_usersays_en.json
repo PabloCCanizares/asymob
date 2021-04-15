@@ -1,0 +1,54 @@
+[
+  {
+    "id": "2c750320-a4d8-42e5-a0c3-dc01eb32ebb2",
+    "data": [
+      {
+        "text": "what should I do if my flight is delayed or cancelled",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "ee40a0a8-1570-4ceb-bb92-62eec05363f4",
+    "data": [
+      {
+        "text": "what if my flight is delayed",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "7c91891b-20fd-49e1-b93e-87d00f7e0f20",
+    "data": [
+      {
+        "text": "What happens when my flight is delayed",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "74920cd3-15d1-4c4b-8d2f-1718919849d1",
+    "data": [
+      {
+        "text": "my flight was delayed!",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

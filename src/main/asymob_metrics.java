@@ -14,6 +14,8 @@ import metrics.operators.bot.globalEntities.AvgEntityWordLen;
 import metrics.operators.bot.globalIntents.AvgIntentCharsPerPhrase;
 import metrics.operators.bot.globalIntents.AvgIntentNumPhrases;
 import metrics.operators.bot.globalIntents.AvgIntentParameters;
+import metrics.operators.bot.globalIntents.AvgIntentReadingTime;
+import metrics.operators.bot.globalIntents.AvgIntentReqParameters;
 import metrics.operators.bot.globalIntents.AvgIntentWordPerPhrase;
 import metrics.operators.bot.globalflow.AveragePathsFlow;
 import metrics.operators.bot.globalflow.AvgActionsPerFlow;
@@ -40,6 +42,11 @@ import metrics.reports.MetricReportGenerator;
 import metrics.reports.StringReport;
 import metrics.reports.StringReportGen;
 
+/**
+ * Main method for extracting different chatbot metrics
+ * @author Pablo C. Ca&ntildeizares
+ *
+ */
 public class asymob_metrics {
 
 	public static void main(String[] argv)
@@ -69,7 +76,9 @@ public class asymob_metrics {
 		metricOps.insertMetric(new AvgIntentNumPhrases());
 		metricOps.insertMetric(new AvgIntentWordPerPhrase());
 		metricOps.insertMetric(new AvgIntentParameters());
+		metricOps.insertMetric(new AvgIntentReqParameters());
 		metricOps.insertMetric(new AvgIntentCharsPerPhrase());
+		metricOps.insertMetric(new AvgIntentReadingTime());
 		
 		//Entity metrics
 		metricOps.insertMetric(new NumLiterals());
@@ -88,15 +97,15 @@ public class asymob_metrics {
 		metricOps.insertMetric(new IntentNumParameters());
 		metricOps.insertMetric(new IntentAvgNounsPerPhrase());
 		metricOps.insertMetric(new IntentAvgVerbsPerPhrase());
-		//metricOps.insertMetric(new IntentTrainingSentiment());
+		metricOps.insertMetric(new IntentTrainingSentiment());
 		metricOps.insertMetric(new IntentMaxWordLen());
 		metricOps.insertMetric(new IntentReadabilityMetrics());
 		metricOps.insertMetric(new IntentAvgCosineSimilarity());
 		
-		//if(botTester.loadChatbot("model\\bikeShop.xmi"))
+		if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots\\conga\\mysteryAnimal.xmi"))
-		if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip"))
 		{
 			if(botTester.measureMetrics(metricOps))

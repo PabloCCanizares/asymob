@@ -1,0 +1,9 @@
+{
+  "id": "fc89ee5c-f341-4cd1-8c70-abcd58ef50b7",
+  "name": "nonstop",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

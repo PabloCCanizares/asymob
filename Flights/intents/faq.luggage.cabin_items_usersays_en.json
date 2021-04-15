@@ -1,0 +1,144 @@
+[
+  {
+    "id": "3569b5ee-84c8-4ebb-b72f-8e507364a453",
+    "data": [
+      {
+        "text": "can I take my ",
+        "userDefined": false
+      },
+      {
+        "text": "overcoat",
+        "meta": "@cabin-items",
+        "alias": "cabin-item",
+        "userDefined": false
+      },
+      {
+        "text": " on board",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8ddc8930-2554-412e-8e5c-528a71f0bdb0",
+    "data": [
+      {
+        "text": "cabin items",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "a894308f-4066-4f94-a5df-bfdf04eda527",
+    "data": [
+      {
+        "text": "are ",
+        "userDefined": false
+      },
+      {
+        "text": "crutches",
+        "meta": "@cabin-items",
+        "alias": "cabin-item",
+        "userDefined": false
+      },
+      {
+        "text": " allowed on board",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "f205cdfe-e2b7-4873-a581-390e293dde46",
+    "data": [
+      {
+        "text": "can I take an ",
+        "userDefined": false
+      },
+      {
+        "text": "umbrella",
+        "meta": "@cabin-items",
+        "alias": "cabin-item",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "86b83fd2-98ce-47bb-bbe7-68d820a1912a",
+    "data": [
+      {
+        "text": "is it allowed to take a ",
+        "userDefined": false
+      },
+      {
+        "text": "walking stick",
+        "meta": "@cabin-items",
+        "alias": "cabin-item",
+        "userDefined": false
+      },
+      {
+        "text": " on board",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "bc2b933d-2b1e-474c-bb89-d05363d6a6ed",
+    "data": [
+      {
+        "text": "If I buy something in ",
+        "userDefined": false
+      },
+      {
+        "text": "duty free",
+        "meta": "@cabin-items",
+        "alias": "cabin-item",
+        "userDefined": false
+      },
+      {
+        "text": " how do I take it on board if ",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " can take only ",
+        "userDefined": false
+      },
+      {
+        "text": "1",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " cabin bag",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

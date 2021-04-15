@@ -1,0 +1,9 @@
+{
+  "id": "4fb9049b-f6ce-4b4a-b20a-4efc10d5b3ba",
+  "name": "special-requests",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

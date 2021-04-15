@@ -2,7 +2,6 @@ package metrics.operators.bot.globalIntents;
 
 import java.util.LinkedList;
 
-import metrics.base.EMetricUnit;
 import metrics.base.FloatMetricValue;
 import metrics.base.IntegerMetricValue;
 import metrics.base.MetricValue;
@@ -19,7 +18,8 @@ public class AvgIntentParameters extends BotMetricBase{
 	public void calculateMetric() {
 		float fLiteralsAvg;
 		
-		fLiteralsAvg = getNumLiterals();
+		fLiteralsAvg = getNumLiterals() ;
+		//fLiteralsAvg = DBOperations.getAverage(db, EMetricOperator.eIntentNumParameters);
 		metricRet = new FloatMetricValue(this, fLiteralsAvg);
 	}
 

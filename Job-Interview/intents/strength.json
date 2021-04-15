@@ -1,0 +1,121 @@
+{
+  "id": "a2b9ab87-07af-4b09-8701-ef970306b8db",
+  "name": "strength",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "strength",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "platform": "kik",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "My biggest strength is my passion for the job. I love creating beautiful things that make people happy.",
+            "My passion for the job is definitely my biggest strength. It\u0027s great when you can share beautiful things with the others.",
+            "I love sharing my joy with people. It\u0027s wonderful when you are able to cheer up a person with something beautiful."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "kik",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "☀️"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "telegram",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "My biggest strength is my passion for the job. I love creating beautiful things that make people happy.",
+            "My passion for the job is definitely my biggest strength. It\u0027s great when you can share beautiful things with the others.",
+            "I love sharing my joy with people. It\u0027s wonderful when you are able to cheer up a person with something beautiful."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "telegram",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "☀️"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "slack",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "My biggest strength is my passion for the job. I love creating beautiful things that make people happy.",
+            "My passion for the job is definitely my biggest strength. It\u0027s great when you can share beautiful things with the others.",
+            "I love sharing my joy with people. It\u0027s wonderful when you are able to cheer up a person with something beautiful."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "slack",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "☀️"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "facebook",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "My biggest strength is my passion for the job. I love creating beautiful things that make people happy.",
+            "My passion for the job is definitely my biggest strength. It\u0027s great when you can share beautiful things with the others.",
+            "I love sharing my joy with people. It\u0027s wonderful when you are able to cheer up a person with something beautiful."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "facebook",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "☀️"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

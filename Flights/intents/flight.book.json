@@ -1,0 +1,259 @@
+{
+  "id": "255ecdd1-8f19-4fa9-96ed-66b30557e9e3",
+  "name": "flight.book",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "flight.book",
+      "affectedContexts": [
+        {
+          "name": "book-flight",
+          "lifespan": 2,
+          "parameters": {}
+        },
+        {
+          "name": "flight",
+          "lifespan": 5,
+          "parameters": {}
+        },
+        {
+          "name": "flightbook-followup",
+          "lifespan": 2,
+          "parameters": {}
+        }
+      ],
+      "parameters": [
+        {
+          "id": "f2a81b2e-0abe-49eb-aca7-ca98154bae24",
+          "name": "from",
+          "required": false,
+          "dataType": "@sys.location",
+          "value": "$from",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "b65921ee-11da-40ec-be3c-3a2b060a2abf",
+          "name": "to",
+          "required": false,
+          "dataType": "@sys.location",
+          "value": "$to",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "c8bdb3ca-315a-46c5-b2ad-993bbe611eab",
+          "name": "departure",
+          "required": false,
+          "dataType": "@sys.date-time",
+          "value": "$departure",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "9ec9daf0-2885-40be-8159-3234cc3f6c13",
+          "name": "return",
+          "required": false,
+          "dataType": "@sys.date-time",
+          "value": "$return",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "9e76e5a2-aa18-4940-a6ea-1a739998b919",
+          "name": "ticket-type",
+          "required": false,
+          "dataType": "@ticket-type",
+          "value": "$ticket-type",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "c3e82668-0986-4e1c-a474-97f76def1db9",
+          "name": "adult",
+          "required": false,
+          "dataType": "@sys.number",
+          "value": "$adult",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "29fca9b1-9f92-48be-9bde-1dbf500ae689",
+          "name": "child",
+          "required": false,
+          "dataType": "@sys.number",
+          "value": "$child",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "2e6ace92-f4d4-47f9-a4a8-5e775b3ee4fd",
+          "name": "class",
+          "required": false,
+          "dataType": "@class",
+          "value": "$class",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "7b45bd14-9f82-405a-8c9a-0a253e11b888",
+          "name": "nonstop",
+          "required": false,
+          "dataType": "@nonstop",
+          "value": "$nonstop",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "16acd33f-db6f-44fc-9222-2e1b33968ae3",
+          "name": "refundable",
+          "required": false,
+          "dataType": "@refundable",
+          "value": "$refundable",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "41800505-9ee8-4e91-a366-6d69202f3d61",
+          "name": "airline",
+          "required": false,
+          "dataType": "@airline",
+          "value": "$airline",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "2c04bb67-e0bb-436e-a7b9-dcdd6d9c2b20",
+          "name": "sort",
+          "required": false,
+          "dataType": "@map-sort",
+          "value": "$sort",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "fb2483d4-fdcb-4a01-bcdb-88ea48f661b7",
+          "name": "price",
+          "required": false,
+          "dataType": "@sys.unit-currency",
+          "value": "$price",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "497a834b-5b12-48d7-b238-3239ff4cec5a",
+          "name": "stops",
+          "required": false,
+          "dataType": "@sys.number",
+          "value": "$stops",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "433a5403-0dc5-4e5b-8944-f6a12b93050d",
+          "name": "date-period",
+          "required": false,
+          "dataType": "@sys.date-period",
+          "value": "$date-period",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "b1de711c-c33c-4141-9bae-bd164643f117",
+    "data": [
+      {
+        "text": "limit of personal bags on board",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "0131f106-fb7a-4b88-a90a-36738056861d",
+    "data": [
+      {
+        "text": "Is there a weight limit for cabin bags",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "e3a176ad-5def-468f-90dc-36f9ab6f7597",
+    "data": [
+      {
+        "text": "How many bags can I take on board?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "e2b3c07c-f108-478a-af0f-26832a229860",
+    "data": [
+      {
+        "text": "how many carry-ons per person",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "00cac47d-5d75-4fb2-aedc-20c64728a262",
+    "data": [
+      {
+        "text": "what\u0027s the maximum size of a cabin bag",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "7345786f-7feb-4f56-91a3-8f2c4d79aa22",
+    "data": [
+      {
+        "text": "cabin bags",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "id": "4eafbcef-40bc-4c4e-a5cc-be2923445751",
+  "parentId": "255ecdd1-8f19-4fa9-96ed-66b30557e9e3",
+  "rootParentId": "255ecdd1-8f19-4fa9-96ed-66b30557e9e3",
+  "name": "flight.book - repeat",
+  "auto": true,
+  "contexts": [
+    "flightbook-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "flight.book.repeat",
+      "affectedContexts": [
+        {
+          "name": "flightbook-followup",
+          "lifespan": 5,
+          "parameters": {}
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,35 @@
+{
+  "id": "bf186524-6f9c-4239-8d37-37acab541f66",
+  "name": "faq.luggage.hold_luggage",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "faq.luggage.hold_luggage",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Maximum total size (length + width + height) \u003d under 275cm\n\nEach customer including children and infants can buy up to three hold bags. A standard hold bag is 20kg. You can buy extra weight in 3kg units, up to a maximum of 32kg per bag."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

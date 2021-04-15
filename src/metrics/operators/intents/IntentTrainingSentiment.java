@@ -13,6 +13,7 @@ import edu.stanford.nlp.util.CoreMap;
 import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.IntentMetricBase;
+import stanford.StandfordPipeline;
 import stanford.StandfordTagger;
 
 public class IntentTrainingSentiment extends IntentMetricBase{
@@ -34,11 +35,12 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 		int nPositive, nNegative, nNeutral, nTotal;
 		
 		// Add in sentiment
-		Properties props = new Properties();
+		/*Properties props = new Properties();
 		props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref, sentiment");
 		//props.setProperty("annotators", "tokenize,ssplit,parse,sentiment");
 
 		StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+		*/
 		inAnalyser = new IntentAnalyser();
 
 		nPositive = nNegative = nNeutral = nTotal = 0;
@@ -50,8 +52,8 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 			for(String strPhrase: phrasesList)
 			{
 				// run all the selected Annotators on this text
-				annotation =new Annotation(strPhrase);
-				pipeline.annotate(annotation);
+				annotation = new Annotation(strPhrase);
+				StandfordPipeline.getInstance().annotate(annotation);
 				nTotal++;
 			
 			

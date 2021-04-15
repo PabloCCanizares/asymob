@@ -1,0 +1,93 @@
+[
+  {
+    "id": "107ed697-a321-4d30-84a4-4893d142a1ba",
+    "data": [
+      {
+        "text": "tell me about your strengths",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "5e15a5b1-817f-424e-8ab2-fd6e755fe7f1",
+    "data": [
+      {
+        "text": "what are your strengths",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "1f5f6c49-ccb1-4071-aaeb-151532251dc9",
+    "data": [
+      {
+        "text": "what are some of your strengths",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "952d7fc0-87c9-4f54-9b18-9d19ff3c6f25",
+    "data": [
+      {
+        "text": "do you have strong points",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "9414c71c-76d0-4622-85ad-4981f455345a",
+    "data": [
+      {
+        "text": "could you tell me about your biggest strength",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "5e9824f5-715e-44b1-b7d0-bdc5aaf3583e",
+    "data": [
+      {
+        "text": "what would you say are your strengths",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "90eafa81-7e1b-4d79-9d61-6486945f7e34",
+    "data": [
+      {
+        "text": "what is your biggest strength",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

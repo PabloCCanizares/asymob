@@ -1,0 +1,118 @@
+[
+  {
+    "id": "77c71c33-be02-49bc-b292-51daaefee0c8",
+    "data": [
+      {
+        "text": "Hi, how do I submit a complaint?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "afa8ff27-b1d8-4e77-b300-4355bbeb1af2",
+    "data": [
+      {
+        "text": "file a complaint: ",
+        "userDefined": false
+      },
+      {
+        "text": "your website sucks",
+        "meta": "@sys.any",
+        "alias": "complaint",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "f01b1568-7258-4214-b49f-3f49cd797478",
+    "data": [
+      {
+        "text": "I have a complaint: ",
+        "userDefined": false
+      },
+      {
+        "text": "I didn\u0027t get my reward miles.",
+        "meta": "@sys.any",
+        "alias": "complaint",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "c6b218a9-9cbe-487d-a5a5-7e2205211469",
+    "data": [
+      {
+        "text": "I am so angry",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "e6c0ff67-b7e5-403b-bc11-992a9e936dcb",
+    "data": [
+      {
+        "text": "File a complaint",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "723a928c-39bd-44f2-9b07-ba90748a9e3b",
+    "data": [
+      {
+        "text": "hate your service",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "7f6eba4a-3f95-4e59-b719-d4e3da1fe000",
+    "data": [
+      {
+        "text": "I am pissed off",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "2d942874-dec1-4410-ac2b-a4a87337b162",
+    "data": [
+      {
+        "text": "my experience was awful",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

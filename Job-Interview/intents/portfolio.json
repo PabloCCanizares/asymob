@@ -1,0 +1,189 @@
+{
+  "id": "fb0b814a-b558-4e6c-8f3f-883a53b421a8",
+  "name": "portfolio",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "portfolio",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "platform": "kik",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Here! Take a look at my latest works.",
+            "Here are my latest works, take a look!",
+            "Here are my latest pieces, hope you\u0027ll like them!",
+            "Sure! Here are the most beautiful bouquets I\u0027ve picked for you."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "kik",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_1.jpg",
+          "title": "Sunny Day",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "kik",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_2.jpg",
+          "title": "Charmed",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "kik",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_3.jpg",
+          "title": "Fabulous You",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "telegram",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Here! Take a look at my latest works.",
+            "Here are my latest works, take a look!",
+            "Here are my latest pieces, hope you\u0027ll like them!",
+            "Sure! Here are the most beautiful bouquets I\u0027ve picked for you."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "telegram",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_1.jpg",
+          "title": "Sunny Day",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "telegram",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_2.jpg",
+          "title": "Charmed",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "telegram",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_3.jpg",
+          "title": "Fabulous You",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "slack",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Here! Take a look at my latest works.",
+            "Here are my latest works, take a look!",
+            "Here are my latest pieces, hope you\u0027ll like them!",
+            "Sure! Here are the most beautiful bouquets I\u0027ve picked for you."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "slack",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_1.jpg",
+          "title": "Sunny Day",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "slack",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_2.jpg",
+          "title": "Charmed",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "slack",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_3.jpg",
+          "title": "Fabulous You",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "facebook",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Here! Take a look at my latest works.",
+            "Here are my latest works, take a look!",
+            "Here are my latest pieces, hope you\u0027ll like them!",
+            "Sure! Here are the most beautiful bouquets I\u0027ve picked for you."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "facebook",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_1.jpg",
+          "title": "Sunny Day",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "facebook",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_2.jpg",
+          "title": "Charmed",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "1",
+          "platform": "facebook",
+          "imageUrl": "https://api.ai/docs/images/samples/for-agents/agent-store/Flowers_3.jpg",
+          "title": "Fabulous You",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

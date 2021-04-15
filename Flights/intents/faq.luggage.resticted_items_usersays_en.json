@@ -1,0 +1,146 @@
+[
+  {
+    "id": "b7242dfa-54a5-429e-b39b-8484d8cb4047",
+    "data": [
+      {
+        "text": "which items are prohibited",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "d0f63470-8654-4f00-8d37-f70e7d9abff2",
+    "data": [
+      {
+        "text": "prohibited articles",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "68b2bb81-6eda-43af-8a19-5663058fe42f",
+    "data": [
+      {
+        "text": "can I take ",
+        "userDefined": false
+      },
+      {
+        "text": "lithium batteries",
+        "meta": "@restricted-items",
+        "alias": "restricted-items",
+        "userDefined": false
+      },
+      {
+        "text": " on board",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "1fcc86ce-8955-4c2c-9308-4d695ca9d1f4",
+    "data": [
+      {
+        "text": "list of restricted items",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "b8cae9f7-a769-4326-b6d5-51ce1d0d9aaf",
+    "data": [
+      {
+        "text": "are there any restricted items I should know of",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "3a512563-ce8c-47bd-9ab8-fd9658b5ca99",
+    "data": [
+      {
+        "text": "can my son take a ",
+        "userDefined": false
+      },
+      {
+        "text": "toy gun",
+        "meta": "@restricted-items",
+        "alias": "restricted-items",
+        "userDefined": false
+      },
+      {
+        "text": " on board",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "a03e9932-d44f-426d-ae87-c285cf69793c",
+    "data": [
+      {
+        "text": "is a ",
+        "userDefined": false
+      },
+      {
+        "text": "gun",
+        "meta": "@restricted-items",
+        "alias": "restricted-items",
+        "userDefined": false
+      },
+      {
+        "text": " in your list of restricted iltems",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "4b52a011-fe96-4e0c-bf9a-0ecfc20c7792",
+    "data": [
+      {
+        "text": "are ",
+        "userDefined": false
+      },
+      {
+        "text": "aerosols",
+        "meta": "@restricted-items",
+        "alias": "restricted-items",
+        "userDefined": false
+      },
+      {
+        "text": " allowed on board",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

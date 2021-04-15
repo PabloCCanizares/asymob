@@ -1,0 +1,9 @@
+{
+  "id": "466656db-66ce-4fe1-94c2-bdc594d76645",
+  "name": "baggage",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": true,
+  "allowFuzzyExtraction": false
+}

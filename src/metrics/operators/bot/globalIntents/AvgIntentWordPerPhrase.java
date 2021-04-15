@@ -12,7 +12,7 @@ import metrics.operators.base.BotMetricBase;
 public class AvgIntentWordPerPhrase extends BotMetricBase{
 
 	public AvgIntentWordPerPhrase() {
-		super(EMetricOperator.eGlobalAvgIntentCharsPerPhrase);
+		super(EMetricOperator.eGlobalAvgIntentWordPerPhrase);
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class AvgIntentWordPerPhrase extends BotMetricBase{
 		//access to the DB
 		if(db != null)
 		{
-			metricResList = db.getIntentMetric(EMetricOperator.eIntentAvgCharsPerPhrase);
+			metricResList = db.getIntentMetric(EMetricOperator.eIntentAvgWordsPerPhrase);
 			
 			for(MetricValue metricVal: metricResList)
 			{

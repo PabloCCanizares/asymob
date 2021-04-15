@@ -1,0 +1,9 @@
+{
+  "id": "33e6388f-394b-414d-8c37-761f1890dd31",
+  "name": "cabin-items",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

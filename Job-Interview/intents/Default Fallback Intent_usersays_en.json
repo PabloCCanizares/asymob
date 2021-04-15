@@ -1,0 +1,132 @@
+[
+  {
+    "id": "e02350db-d4b7-483c-a031-69e416a5c440",
+    "data": [
+      {
+        "text": "do you have any education",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "04144fd4-1869-47f6-94c7-e05416d33007",
+    "data": [
+      {
+        "text": "do you have kids",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "868c1fe5-fbae-4ce5-bcc1-0df339f59ba8",
+    "data": [
+      {
+        "text": "let\u0027s talk about politics",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "993b2c7a-1df0-4342-b055-dbe3ab7bb009",
+    "data": [
+      {
+        "text": "let\u0027s talk about weather",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "9e7b4c9c-b65a-48ed-8084-0be0d5862c3b",
+    "data": [
+      {
+        "text": "could you show me your house",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "1c6b3c75-34a9-4763-a5c9-fbcda33c5aaf",
+    "data": [
+      {
+        "text": "what is your biggest fear",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "e7729551-4543-43e7-848b-af1f4d2a0052",
+    "data": [
+      {
+        "text": "what is your biggest dream",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "10305ba3-ba8c-4abf-847d-bdb2ed8da415",
+    "data": [
+      {
+        "text": "can you show your passport",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "9115de67-e9b7-446d-92ce-458f8d54c64d",
+    "data": [
+      {
+        "text": "may I see your photo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "2880735f-6d19-4d87-87fc-c5cd8d560d36",
+    "data": [
+      {
+        "text": "do you have free time",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

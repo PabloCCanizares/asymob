@@ -1,0 +1,49 @@
+{
+  "id": "453d7f5d-2631-4b85-b74e-4c333978f2a3",
+  "name": "flight.check - context:check-flight - comment:to",
+  "auto": true,
+  "contexts": [
+    "check-flight"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "flight.check",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "a78b1eaf-71e7-4feb-9a23-fb2a0884f60e",
+          "name": "to",
+          "required": false,
+          "dataType": "@sys.location",
+          "value": "$to",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

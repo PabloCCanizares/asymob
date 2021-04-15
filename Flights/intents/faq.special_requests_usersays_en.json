@@ -1,0 +1,183 @@
+[
+  {
+    "id": "bb2af4f8-b82e-4d32-bd30-3815c869c4bf",
+    "data": [
+      {
+        "text": "are there ",
+        "userDefined": false
+      },
+      {
+        "text": "blankets",
+        "meta": "@special-requests",
+        "alias": "special-requests",
+        "userDefined": false
+      },
+      {
+        "text": " on board?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "a8f75bfa-a1fe-4735-9cef-2dc58663f1dc",
+    "data": [
+      {
+        "text": "I have a special request",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "02eaddcd-1329-47cd-acde-252b517effb3",
+    "data": [
+      {
+        "text": "I\u0027ll need help at the airport, my reservation number is ",
+        "userDefined": false
+      },
+      {
+        "text": "QWERT1234",
+        "meta": "@sys.any",
+        "alias": "reservation-number",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "b6530389-8f31-41ee-8edc-d8f69b57e424",
+    "data": [
+      {
+        "text": "I need an ",
+        "userDefined": false
+      },
+      {
+        "text": "assistant",
+        "meta": "@special-requests",
+        "alias": "special-requests",
+        "userDefined": false
+      },
+      {
+        "text": " at the airport",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "f9521078-0bc3-4851-9ec2-6d7e7db6927c",
+    "data": [
+      {
+        "text": "Hi, I would like to know if you can have a ",
+        "userDefined": false
+      },
+      {
+        "text": "wheelchair",
+        "meta": "@special-requests",
+        "alias": "special-requests",
+        "userDefined": false
+      },
+      {
+        "text": " available for a traveler",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "21febd32-447a-446f-a00c-e6f2dd011f8f",
+    "data": [
+      {
+        "text": "can I ask for ",
+        "userDefined": false
+      },
+      {
+        "text": "assistance",
+        "meta": "@special-requests",
+        "alias": "special-requests",
+        "userDefined": false
+      },
+      {
+        "text": " in the airport?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "6ec623ad-4fe8-41eb-8e4e-c50a048ba938",
+    "data": [
+      {
+        "text": "wheelchair",
+        "meta": "@special-requests",
+        "alias": "special-requests",
+        "userDefined": false
+      },
+      {
+        "text": " needed",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "a3766d78-9171-4264-8535-1b990d80840b",
+    "data": [
+      {
+        "text": "special ",
+        "userDefined": false
+      },
+      {
+        "text": "assistance",
+        "meta": "@special-requests",
+        "alias": "special-requests",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "337b8a5a-33bf-4c5a-a900-0e447e7763cd",
+    "data": [
+      {
+        "text": "on-flight ",
+        "userDefined": false
+      },
+      {
+        "text": "assistant for minors",
+        "meta": "@special-requests",
+        "alias": "special-requests",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

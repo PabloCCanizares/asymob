@@ -1,0 +1,25 @@
+[
+  {
+    "value": "multiple",
+    "synonyms": [
+      "multiple"
+    ]
+  },
+  {
+    "value": "oneway",
+    "synonyms": [
+      "one way",
+      "one-way",
+      "oneway",
+      "without return"
+    ]
+  },
+  {
+    "value": "roundtrip",
+    "synonyms": [
+      "round",
+      "round trip",
+      "roundtrip"
+    ]
+  }
+]

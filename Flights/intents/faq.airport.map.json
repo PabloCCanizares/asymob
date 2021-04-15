@@ -1,0 +1,55 @@
+{
+  "id": "eae774f2-7284-4762-b822-3cc3c81180dc",
+  "name": "faq.airport.map",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "faq.airport.map",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "4412604d-91ab-43f7-bc80-b2e48bbca7f5",
+          "name": "airport",
+          "required": true,
+          "dataType": "@sys.airport",
+          "value": "$airport",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Sure, for what airport?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Here’s a map for $airport.original."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

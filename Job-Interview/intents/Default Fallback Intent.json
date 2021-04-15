@@ -1,0 +1,119 @@
+{
+  "id": "62f53181-2f82-4967-a8ca-fec05c13c12c",
+  "name": "Default Fallback Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.unknown",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "platform": "kik",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "I\u0027m sorry. I\u0027m having trouble understanding the question.",
+            "I think I may have misunderstood your last statement.",
+            "I\u0027m sorry. I didn\u0027t quite grasp what you just said.",
+            "I don\u0027t think I\u0027m qualified to answer that yet.",
+            "I\u0027m a bit confused by that last part.",
+            "I\u0027m not totally sure about that.",
+            "I\u0027m not sure I follow.",
+            "I\u0027m afraid I don\u0027t understand.",
+            "I\u0027m a bit confused."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "telegram",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "I\u0027m sorry. I\u0027m having trouble understanding the question.",
+            "I think I may have misunderstood your last statement.",
+            "I\u0027m sorry. I didn\u0027t quite grasp what you just said.",
+            "I don\u0027t think I\u0027m qualified to answer that yet.",
+            "I\u0027m a bit confused by that last part.",
+            "I\u0027m not totally sure about that.",
+            "I\u0027m not sure I follow.",
+            "I\u0027m afraid I don\u0027t understand.",
+            "I\u0027m a bit confused."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "slack",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "I\u0027m sorry. I\u0027m having trouble understanding the question.",
+            "I think I may have misunderstood your last statement.",
+            "I\u0027m sorry. I didn\u0027t quite grasp what you just said.",
+            "I don\u0027t think I\u0027m qualified to answer that yet.",
+            "I\u0027m a bit confused by that last part.",
+            "I\u0027m not totally sure about that.",
+            "I\u0027m not sure I follow.",
+            "I\u0027m afraid I don\u0027t understand.",
+            "I\u0027m a bit confused."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "platform": "facebook",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "I\u0027m sorry. I\u0027m having trouble understanding the question.",
+            "I think I may have misunderstood your last statement.",
+            "I\u0027m sorry. I didn\u0027t quite grasp what you just said.",
+            "I don\u0027t think I\u0027m qualified to answer that yet.",
+            "I\u0027m a bit confused by that last part.",
+            "I\u0027m not totally sure about that.",
+            "I\u0027m not sure I follow.",
+            "I\u0027m afraid I don\u0027t understand.",
+            "I\u0027m a bit confused."
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "I\u0027m sorry. I\u0027m having trouble understanding the question.",
+            "I think I may have misunderstood your last statement.",
+            "I\u0027m sorry. I didn\u0027t quite grasp what you just said.",
+            "I don\u0027t think I\u0027m qualified to answer that yet.",
+            "I\u0027m a bit confused by that last part.",
+            "I\u0027m not totally sure about that.",
+            "I\u0027m not sure I follow.",
+            "I\u0027m afraid I don\u0027t understand.",
+            "I\u0027m a bit confused."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,49 @@
+{
+  "id": "d597414c-d894-4d05-bbc4-b9c3ebcbc40e",
+  "name": "flight - context:flight - comment:to",
+  "auto": true,
+  "contexts": [
+    "flight"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "#flight.intent_action",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "93232e66-683c-478b-a252-9949802a6617",
+          "name": "to",
+          "required": false,
+          "dataType": "@sys.location",
+          "value": "$to",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
