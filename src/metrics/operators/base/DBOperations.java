@@ -1,4 +1,4 @@
-package metrics.operators.bot.globalIntents;
+package metrics.operators.base;
 
 import java.util.LinkedList;
 

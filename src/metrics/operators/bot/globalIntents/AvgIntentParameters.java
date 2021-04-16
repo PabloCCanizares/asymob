@@ -7,6 +7,7 @@ import metrics.base.IntegerMetricValue;
 import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
+import metrics.operators.base.DBOperations;
 
 public class AvgIntentParameters extends BotMetricBase{
 
@@ -18,11 +19,11 @@ public class AvgIntentParameters extends BotMetricBase{
 	public void calculateMetric() {
 		float fLiteralsAvg;
 		
-		fLiteralsAvg = getNumLiterals() ;
-		//fLiteralsAvg = DBOperations.getAverage(db, EMetricOperator.eIntentNumParameters);
+		//fLiteralsAvg = getNumLiterals() ;
+		fLiteralsAvg = DBOperations.getAverage(db, EMetricOperator.eIntentNumParameters);
 		metricRet = new FloatMetricValue(this, fLiteralsAvg);
 	}
-
+/*
 	private float getNumLiterals() {
 		int nElements, nParams;
 		float fValue;
@@ -50,5 +51,5 @@ public class AvgIntentParameters extends BotMetricBase{
 				fValue =0;
 		}
 		return fValue;
-	}
+	}*/
 }

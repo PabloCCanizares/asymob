@@ -1,35 +1,14 @@
 package metrics.operators.bot;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import ai.djl.Application;
-import ai.djl.MalformedModelException;
-import ai.djl.engine.Engine;
-import ai.djl.inference.Predictor;
-import ai.djl.ndarray.NDArray;
-import ai.djl.ndarray.NDArrays;
-import ai.djl.ndarray.NDList;
-import ai.djl.ndarray.NDManager;
-import ai.djl.repository.zoo.Criteria;
-import ai.djl.repository.zoo.ModelNotFoundException;
-import ai.djl.repository.zoo.ModelZoo;
-import ai.djl.repository.zoo.ZooModel;
-import ai.djl.training.util.ProgressBar;
-import ai.djl.translate.Batchifier;
-import ai.djl.translate.TranslateException;
-import ai.djl.translate.Translator;
-import ai.djl.translate.TranslatorContext;
 import analyser.IntentAnalyser;
-import main.UniversalSentenceEncoder;
-import main.UniversalSentenceEncoder.MyTranslator;
 import metrics.base.FloatMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.IntentMetricBase;
+import metrics.tensorflow.TensorflowHandler;
 
 public class BotConfusingPhrases extends IntentMetricBase{
 
@@ -66,6 +45,7 @@ public class BotConfusingPhrases extends IntentMetricBase{
 		double dAcc;
 		int nElements;
 		float fReturn;
+		float[][] embeddings;
 		List<String> inputs = new ArrayList<>();
 	        
 		fReturn = 0;
@@ -74,9 +54,10 @@ public class BotConfusingPhrases extends IntentMetricBase{
 			 inputs.add(strPhrase);
 		}
 		
-		try {
-			float[][] embeddings = UniversalSentenceEncoder.predict(inputs);
-			
+		embeddings = TensorflowHandler.getInstance().predict(inputs);
+		
+		if(embeddings != null)
+		{
 			dAcc = 0;
 			nElements = 0;
 			for(int i=0;i<phrasesList.size();i++)
@@ -91,16 +72,9 @@ public class BotConfusingPhrases extends IntentMetricBase{
 				}
 			}
 			fReturn = (float) ((float)dAcc/(float)nElements);
-		} catch (MalformedModelException e) {
-			e.printStackTrace();
-		} catch (ModelNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (TranslateException e) {
-			e.printStackTrace();
 		}
-		
+		else
+			fReturn = 0;
 		
 		return fReturn;
 	}
@@ -115,6 +89,7 @@ public class BotConfusingPhrases extends IntentMetricBase{
         }   
         return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
     }
+	/*
     public static float[][] predict(List<String> inputs)
             throws MalformedModelException, ModelNotFoundException, IOException,
                     TranslateException {
@@ -169,5 +144,5 @@ public class BotConfusingPhrases extends IntentMetricBase{
         public Batchifier getBatchifier() {
             return null;
         }
-    }
+    }*/
 }

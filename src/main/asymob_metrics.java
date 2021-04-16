@@ -102,10 +102,10 @@ public class asymob_metrics {
 		metricOps.insertMetric(new IntentReadabilityMetrics());
 		metricOps.insertMetric(new IntentAvgCosineSimilarity());
 		
-		if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
+		//if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots\\conga\\mysteryAnimal.xmi"))
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
+		if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip"))
 		{
 			if(botTester.measureMetrics(metricOps))
