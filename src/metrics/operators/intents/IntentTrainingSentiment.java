@@ -10,6 +10,7 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.util.CoreMap;
+import metrics.base.IntegerListMetricValue;
 import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.IntentMetricBase;
@@ -23,7 +24,7 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 	}
 
 	public IntentTrainingSentiment() {
-		super(EMetricOperator.ePositiveSentiment);
+		super(EMetricOperator.eIntentSentiment);
 	}
 
 	@Override
@@ -32,6 +33,7 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 		Annotation annotation;
 		IntentAnalyser inAnalyser = null;
 		LinkedList<String> phrasesList;
+		LinkedList<Integer> intList;
 		int nPositive, nNegative, nNeutral, nTotal;
 		
 		// Add in sentiment
@@ -77,8 +79,13 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 				strValue = String.format("Negative [%d, %d, %d]", nPositive, nNeutral, nNegative);
 			else  
 				strValue = String.format("Neutral [%d, %d, %d]", nPositive, nNeutral, nNegative);
-				
-			this.metricRet = new MetricValue(this);
+			
+			intList = new LinkedList<Integer>();
+			intList.add(nPositive);
+			intList.add(nNeutral);
+			intList.add(nNegative);
+			
+			this.metricRet = new IntegerListMetricValue(this, intList);
 			this.metricRet.setValue(strValue); 
 		}
 

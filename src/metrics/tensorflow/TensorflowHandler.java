@@ -134,12 +134,13 @@ public class TensorflowHandler {
 
 	        @Override
 	        public float[][] processOutput(TranslatorContext ctx, NDList list) {
-	            NDList result = new NDList();
-	            long numOutputs = list.singletonOrThrow().getShape().get(0);
-	            for (int i = 0; i < numOutputs; i++) {
-	                result.add(list.singletonOrThrow().get(i));
-	            }
-	            return result.stream().map(NDArray::toFloatArray).toArray(float[][]::new);
+	            try (NDList result = new NDList()) {
+					long numOutputs = list.singletonOrThrow().getShape().get(0);
+					for (int i = 0; i < numOutputs; i++) {
+					    result.add(list.singletonOrThrow().get(i));
+					}
+					return result.stream().map(NDArray::toFloatArray).toArray(float[][]::new);
+				}
 	        }
 
 	        @Override

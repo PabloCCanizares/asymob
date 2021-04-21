@@ -11,6 +11,12 @@ import edu.stanford.nlp.ling.SentenceUtils;
 import edu.stanford.nlp.ling.TaggedWord;
 import edu.stanford.nlp.ling.HasWord;
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
+@SuppressWarnings("unused")
+/**
+ * Program for trying different features of tagger
+ * @author Pablo C. Ca&ntildeizares
+ *
+ */
 public class TaggerDemo  {
 
 	/** A logger for this class */

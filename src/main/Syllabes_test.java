@@ -1,11 +1,11 @@
 package main;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 import org.dkpro.core.readability.measure.WordSyllableCounter;
+/**
+ * Program test for counting the syllabes of a given phrase
+ * @author Pablo C. Ca&ntildeizares
+ *
+ */
 public class Syllabes_test {
-
-
 
 	    public static void main(String[] args){
 	        org.dkpro.core.readability.measure.WordSyllableCounter syllableCounter;        

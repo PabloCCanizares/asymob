@@ -3,7 +3,6 @@ package main;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-import auxiliar.BotPrinter;
 import core.Asymob;
 import variants.VariantGenByCommand;
 import variants.operators.MutActiveToPassiveOp;
@@ -51,6 +50,7 @@ public class asymob_test {
 		return 	retList;	 
 	}
 
+	@SuppressWarnings("unused")
 	public static MutationOperatorSet selectMutationOperators()
 	{
 		MutationOperatorSet mutOpSetRet;

@@ -4,6 +4,7 @@ import java.io.File;
 
 import core.Asymob;
 import metrics.MetricOperatorsSet;
+import metrics.operators.bot.BotSentiment;
 import metrics.operators.bot.NumEntities;
 import metrics.operators.bot.NumFlows;
 import metrics.operators.bot.NumIntents;
@@ -37,7 +38,6 @@ import metrics.operators.intents.IntentNumParameters;
 import metrics.operators.intents.IntentNumPhrases;
 import metrics.operators.intents.IntentReadabilityMetrics;
 import metrics.operators.intents.IntentTrainingSentiment;
-import metrics.reports.MetricReport;
 import metrics.reports.MetricReportGenerator;
 import metrics.reports.StringReport;
 import metrics.reports.StringReportGen;
@@ -79,6 +79,7 @@ public class asymob_metrics {
 		metricOps.insertMetric(new AvgIntentReqParameters());
 		metricOps.insertMetric(new AvgIntentCharsPerPhrase());
 		metricOps.insertMetric(new AvgIntentReadingTime());
+		metricOps.insertMetric(new BotSentiment());
 		
 		//Entity metrics
 		metricOps.insertMetric(new NumLiterals());

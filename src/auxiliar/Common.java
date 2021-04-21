@@ -247,6 +247,19 @@ public class Common {
 		}
 		return strRet;
 	}
+	public static String intListToString(LinkedList<Integer> listRet) {
+		String strRet;
+		
+		strRet="";
+		if(listRet != null)
+		{
+			for(int nInteger: listRet)
+			{
+				strRet += Integer.toString(nInteger)+" ";
+			}
+		}
+		return strRet;
+	}
 	public static String getExtension(String filename) {
 	    return FilenameUtils.getExtension(filename);
 	}
