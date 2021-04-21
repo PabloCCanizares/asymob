@@ -1,5 +1,6 @@
 package analyser;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import org.apache.commons.lang3.tuple.Pair;
@@ -10,6 +11,7 @@ import generator.BotInteraction;
 import generator.Intent;
 import generator.IntentInput;
 import generator.IntentLanguageInputs;
+import generator.Language;
 import generator.Literal;
 import generator.ParameterReferenceToken;
 import generator.Token;
@@ -27,32 +29,26 @@ public class BotAnalyser {
 	{
 		flowAnalyser = new FlowAnalyser(converter);
 	}
-	@SuppressWarnings("unused")
-	private void extractAllIntentInputs(Bot botIn)
+	private List<Intent> extractAllIntentInputs(Bot botIn)
 	{
 		List<Intent> listIntent;
-		List<IntentLanguageInputs> listLanguages;
+		
+		listIntent = null;
 		if(botIn != null)
 		{
-			//
 			listIntent =  botIn.getIntents();
-			
-			for (Intent intent : listIntent) {
-				listLanguages = intent.getInputs();
-			}
 		}
+		
+		return listIntent;
 	}
+	
 	
 	public LinkedList<String> extractAllIntentPhrases(Intent intentIn)
 	{
 		LinkedList<String> retList;
 		EList<IntentLanguageInputs> listLanguages;
 		EList<IntentInput> inputList;
-		TrainingPhrase trainIn;
-		EList<Token> tokenList;
 
-		//TODO: Refactor y bien
-		
 		retList = null;
 		if(intentIn != null)
 		{
@@ -67,36 +63,46 @@ public class BotAnalyser {
 					//System.out.println("extractAllPhrases - Analysing intent in language "+intentLan.getLanguage().getLiteral());
 					inputList = intentLan.getInputs();
 
-					//Find all the inputs and process them
-					if(inputList != null)
-					{
-						for (IntentInput input : inputList) {
-							
-							if (input instanceof TrainingPhrase) {
-								trainIn = (TrainingPhrase) input;
-
-								if(trainIn != null)
-								{
-									tokenList = trainIn.getTokens();
-									
-									String strPhrase;
-									
-									strPhrase = "";
-									for(Token tokIn: tokenList)
-									{
-										strPhrase+=getTokenText(tokIn);
-										
-									}
-									if(!strPhrase.isEmpty() && !strPhrase.isBlank())
-										retList.add(strPhrase);
-								}
-							}
-						}
-					}			
+					retList = extractPhrasesFromInput(inputList);			
 				}
 			}
 		}	
 		
+		return retList;
+	}
+	private LinkedList<String> extractPhrasesFromInput(EList<IntentInput> inputList) {
+		TrainingPhrase trainIn;
+		EList<Token> tokenList;
+		LinkedList<String> retList;
+		
+		retList = null;
+		//Find all the inputs and process them
+		if(inputList != null)
+		{
+			retList = new LinkedList<String>();
+			for (IntentInput input : inputList) {
+				
+				if (input instanceof TrainingPhrase) {
+					trainIn = (TrainingPhrase) input;
+
+					if(trainIn != null)
+					{
+						tokenList = trainIn.getTokens();
+						
+						String strPhrase;
+						
+						strPhrase = "";
+						for(Token tokIn: tokenList)
+						{
+							strPhrase+=getTokenText(tokIn);
+							
+						}
+						if(!strPhrase.isEmpty() && !strPhrase.isBlank())
+							retList.add(strPhrase);
+					}
+				}
+			}
+		}
 		return retList;
 	}
 	
@@ -346,5 +352,59 @@ public class BotAnalyser {
 	public List<String> extractAllActionPhrasesByRef(Action action) {
 		// TODO Auto-generated method stub
 		return flowAnalyser != null ? flowAnalyser.extractAllActionPhrases(action, true) : null;
+	}
+	/**
+	 * Gets a Hashmap of the phrases associated to each intent, in different languages.
+	 * @param botIn
+	 * @return
+	 */
+	public HashMap<Language, LinkedList<LinkedList<String>>> getPhrasesHashMap(Bot botIn) {
+		
+		HashMap<Language, LinkedList<LinkedList<String>>> hashMapPrhases;
+		LinkedList<LinkedList<String>> languagePhrases;
+		LinkedList<String> intentPhrases, retList;
+		EList<IntentLanguageInputs> listLanguages;
+		EList<IntentInput> inputList;
+		List<Intent> intentList;
+		Language lan;
+		
+		hashMapPrhases = null;
+		intentList = extractAllIntentInputs(botIn);
+		
+		if(intentList != null)
+		{
+			hashMapPrhases = new HashMap<Language, LinkedList<LinkedList<String>>>();
+			for(Intent intentIn: intentList)
+			{
+				if(intentIn != null)
+				{
+					retList = new LinkedList<String>();
+					//Analyse the different languages
+					listLanguages = intentIn.getInputs();
+
+					for (IntentLanguageInputs intentLan : listLanguages) {
+
+						if(intentLan != null)
+						{
+							lan = intentLan.getLanguage();
+							
+							//System.out.println("extractAllPhrases - Analysing intent in language "+intentLan.getLanguage().getLiteral());
+							inputList = intentLan.getInputs();
+
+							retList = extractPhrasesFromInput(inputList);		
+							
+							if(hashMapPrhases.containsKey(lan))
+								languagePhrases = hashMapPrhases.get(lan);
+							else
+								languagePhrases = new LinkedList<LinkedList<String>>();
+							languagePhrases.add(retList);
+							hashMapPrhases.put(lan, languagePhrases);
+						}
+					}
+				}
+			}
+		}
+		
+		return hashMapPrhases;
 	}
 }

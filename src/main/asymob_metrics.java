@@ -4,6 +4,7 @@ import java.io.File;
 
 import core.Asymob;
 import metrics.MetricOperatorsSet;
+import metrics.operators.bot.BotConfusingPhrases;
 import metrics.operators.bot.BotSentiment;
 import metrics.operators.bot.NumEntities;
 import metrics.operators.bot.NumFlows;
@@ -80,6 +81,7 @@ public class asymob_metrics {
 		metricOps.insertMetric(new AvgIntentCharsPerPhrase());
 		metricOps.insertMetric(new AvgIntentReadingTime());
 		metricOps.insertMetric(new BotSentiment());
+		metricOps.insertMetric(new BotConfusingPhrases());
 		
 		//Entity metrics
 		metricOps.insertMetric(new NumLiterals());
@@ -103,10 +105,10 @@ public class asymob_metrics {
 		metricOps.insertMetric(new IntentReadabilityMetrics());
 		metricOps.insertMetric(new IntentAvgCosineSimilarity());
 		
-		//if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
+		if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots\\conga\\mysteryAnimal.xmi"))
-		if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
+		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip"))
 		{
 			if(botTester.measureMetrics(metricOps))

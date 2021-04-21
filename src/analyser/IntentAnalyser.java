@@ -173,7 +173,6 @@ public class IntentAnalyser {
 			listLanguages = intentIn.getInputs();
 			
 			for (IntentLanguageInputs intentLan : listLanguages) {
-
 				if(intentLan != null)
 				{
 					listAux = new LinkedList<String>();
