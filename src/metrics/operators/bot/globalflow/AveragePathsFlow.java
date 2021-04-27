@@ -44,7 +44,7 @@ public class AveragePathsFlow extends BotMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "FLOW";
+		this.strMetricDescription = "Average numer of conversation entry points";
 	}
 }

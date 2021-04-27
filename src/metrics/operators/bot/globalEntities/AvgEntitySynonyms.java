@@ -56,7 +56,7 @@ public class AvgEntitySynonyms extends BotMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "ASPL";
+		this.strMetricDescription = "Average synonyms per literal";
 	}
 }

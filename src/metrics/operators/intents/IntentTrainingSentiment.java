@@ -89,7 +89,7 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "ITS";
+		this.strMetricDescription = "Intent training sentiment";
 	}	
 }

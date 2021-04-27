@@ -55,7 +55,7 @@ public class AvgEntityLiterals extends BotMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "ALPE";
+		this.strMetricDescription = "Average number of literals per entity";
 	}
 }
