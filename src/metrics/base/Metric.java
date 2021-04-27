@@ -6,12 +6,23 @@ import metrics.operators.EMetricOperator;
 
 public abstract class Metric {
 
+
 	EMetricOperator metric;
 	EMetricCategory category;
 	
 	protected ReadOnlyMetricDB db;
 	protected MetricValue metricRet;
 	
+	protected String strMetricName;
+	protected String strMetricDescription;
+	
+	public String getMetricName()
+	{
+		return strMetricName != null ? strMetricName : "null";
+	}
+	public String getMetricDescription() {
+		return strMetricDescription;
+	}
 	public Metric(EMetricOperator metric, EMetricCategory category)
 	{
 		this.db = null;
@@ -24,11 +35,7 @@ public abstract class Metric {
 	public void setCategory(EMetricCategory category) {
 		this.category = category;
 	}
-	
-	public String getMetricName()
-	{
-		return metric != null ? metric.name() : "null";
-	}
+
 	
 	public MetricValue getResults() {
 		return metricRet;
@@ -39,4 +46,6 @@ public abstract class Metric {
 		metricRet = null;
 	}
 	public abstract void calculateMetric();
+	
+	public abstract void setMetadata();
 }

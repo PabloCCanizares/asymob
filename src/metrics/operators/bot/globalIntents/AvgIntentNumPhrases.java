@@ -54,4 +54,10 @@ public class AvgIntentNumPhrases extends BotMetricBase{
 		return fValue;
 	}
 
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = ""; 
+	}
+
 }

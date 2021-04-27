@@ -20,4 +20,9 @@ public class AvgIntentReqParameters extends BotMetricBase{
 		metricRet = new FloatMetricValue(this, fLiteralsAvg);
 	}
 
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = ""; 
+	}
 }

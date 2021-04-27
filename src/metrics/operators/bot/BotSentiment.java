@@ -72,5 +72,9 @@ public class BotSentiment extends BotMetricBase{
 		}
 		return lRet;
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "SNT";
+		this.strMetricDescription = "Sentiment of the bot's interactions";
+	}
 }

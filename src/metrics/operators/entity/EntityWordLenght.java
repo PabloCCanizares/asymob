@@ -58,5 +58,9 @@ public class EntityWordLenght extends EntityMetricBase{
 			System.out.println("[EntityWordLen::calculateMetric] Exception while applying the metric");
 		}
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "WL";
+		this.strMetricDescription = "Word length";
+	}
 }

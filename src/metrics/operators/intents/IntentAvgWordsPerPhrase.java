@@ -30,5 +30,9 @@ public class IntentAvgWordsPerPhrase extends IntentMetricBase{
 		metricRet = new FloatMetricValue(this, fAverage);
 		metricRet.setMetricApplied(this);
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = "";
+	}
 }

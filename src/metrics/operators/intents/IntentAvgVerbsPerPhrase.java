@@ -70,5 +70,9 @@ public class IntentAvgVerbsPerPhrase extends IntentMetricBase{
 
 		return nRet;
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = "";
+	}
 }

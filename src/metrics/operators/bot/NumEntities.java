@@ -23,4 +23,9 @@ public class NumEntities extends BotMetricBase{
 			metricRet.setValue(Integer.toString(nEntities));
 		}
 	}
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "ENT";
+		this.strMetricDescription = "Number of entities";
+	}
 }

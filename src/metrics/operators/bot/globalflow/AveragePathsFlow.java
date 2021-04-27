@@ -42,5 +42,9 @@ public class AveragePathsFlow extends BotMetricBase{
 			metricRet.setMetricApplied(this);
 		}
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = "";
+	}
 }

@@ -46,8 +46,10 @@ public class AverageSynonyms extends EntityMetricBase{
 		{
 			metricRet = null;
 		}
-		
-		
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "SPL";
+		this.strMetricDescription = "Number of synonyms per literal";
+	}
 }

@@ -11,6 +11,9 @@ import metrics.operators.base.BotMetricBase;
 
 public class AvgIntentCharsPerPhrase extends BotMetricBase{
 
+	private final String METRIC_NAME = "GICPP";
+	private final String METRIC_DESCRIPTION = "Global average intent chart per phrase";
+	
 	public AvgIntentCharsPerPhrase() {
 		super(EMetricOperator.eGlobalAvgIntentCharsPerPhrase);
 	}
@@ -52,6 +55,12 @@ public class AvgIntentCharsPerPhrase extends BotMetricBase{
 			
 		}
 		return fValue;
+	}
+
+	@Override
+	public void setMetadata() {
+		this.strMetricName = METRIC_NAME;
+		this.strMetricDescription = METRIC_DESCRIPTION;
 	}
 
 }

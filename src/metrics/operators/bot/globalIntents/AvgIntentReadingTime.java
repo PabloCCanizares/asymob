@@ -56,5 +56,9 @@ public class AvgIntentReadingTime extends BotMetricBase{
 		}
 		return fValue;
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "READ";
+		this.strMetricDescription = "Average reading time of the bot's interactions"; 
+	}
 }

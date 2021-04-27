@@ -54,4 +54,9 @@ public class IntentReadabilityMetrics extends IntentMetricBase{
 			}
 		}
 	}
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = "";
+	}	
 }

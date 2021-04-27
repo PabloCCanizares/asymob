@@ -53,5 +53,9 @@ public class AvgIntentWordPerPhrase extends BotMetricBase{
 		}
 		return fValue;
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "GWPTP";
+		this.strMetricDescription = "Average word per training phrase"; 
+	}
 }

@@ -22,5 +22,9 @@ public class IntentNumPhrases extends IntentMetricBase{
 		
 		metricRet = new IntegerMetricValue(this, nPhrases);
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = "";
+	}
 }

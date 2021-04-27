@@ -32,4 +32,9 @@ public class NumFlows extends BotMetricBase{
 		
 		return nSize;
 	}
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "FLOW";
+		this.strMetricDescription = "Number of conversation entry points";
+	}	
 }

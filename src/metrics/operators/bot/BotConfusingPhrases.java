@@ -116,4 +116,9 @@ public class BotConfusingPhrases extends BotMetricBase{
         }   
         return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
     }
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "CNF";
+		this.strMetricDescription = "Confusing phrases";
+	}
 }

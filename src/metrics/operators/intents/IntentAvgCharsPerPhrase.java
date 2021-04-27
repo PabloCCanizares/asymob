@@ -29,5 +29,9 @@ public class IntentAvgCharsPerPhrase extends IntentMetricBase{
 		
 		metricRet = new FloatMetricValue(this, fAverage);
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = "";
+	}
 }

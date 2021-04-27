@@ -45,7 +45,10 @@ public class NumPaths extends BotMetricBase{
 		}
 		return numPaths;
 	}
-
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "PATH";
+		this.strMetricDescription = "Number of exit points";
+	}
 
 }

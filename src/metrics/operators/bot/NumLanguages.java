@@ -37,5 +37,9 @@ public class NumLanguages extends BotMetricBase{
 		}
 		
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = "";
+	}
 }

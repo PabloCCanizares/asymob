@@ -2,21 +2,21 @@ package metrics.operators.intents;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Properties;
-
 import analyser.IntentAnalyser;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.pipeline.Annotation;
-import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.util.CoreMap;
 import metrics.base.IntegerListMetricValue;
-import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.IntentMetricBase;
 import stanford.StandfordPipeline;
-import stanford.StandfordTagger;
 
+/**
+ * Implements Socher et al’s sentiment model
+ * @author Pablo C. Ca&ntildeizares
+ *
+ */
 public class IntentTrainingSentiment extends IntentMetricBase{
 
 	public IntentTrainingSentiment(EMetricOperator metric) {
@@ -29,12 +29,12 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 
 	@Override
 	public void calculateMetric() {
+		int nPositive, nNegative, nNeutral;
 		String strValue;
 		Annotation annotation;
 		IntentAnalyser inAnalyser = null;
 		LinkedList<String> phrasesList;
 		LinkedList<Integer> intList;
-		int nPositive, nNegative, nNeutral, nTotal;
 		
 		// Add in sentiment
 		/*Properties props = new Properties();
@@ -45,7 +45,7 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 		*/
 		inAnalyser = new IntentAnalyser();
 
-		nPositive = nNegative = nNeutral = nTotal = 0;
+		nPositive = nNegative = nNeutral = 0;
 		
 		//Extract phrases from intent
 		phrasesList = inAnalyser.extractStringPhrasesFromIntent(this.intentIn);
@@ -56,8 +56,6 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 				// run all the selected Annotators on this text
 				annotation = new Annotation(strPhrase);
 				StandfordPipeline.getInstance().annotate(annotation);
-				nTotal++;
-			
 			
 				List<CoreMap> sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);
 				
@@ -88,7 +86,10 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 			this.metricRet = new IntegerListMetricValue(this, intList);
 			this.metricRet.setValue(strValue); 
 		}
-
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = "";
+	}	
 }

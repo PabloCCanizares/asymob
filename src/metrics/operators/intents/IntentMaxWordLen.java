@@ -25,5 +25,9 @@ public class IntentMaxWordLen extends IntentMetricBase{
 		metricRet = new IntegerMetricValue(this, nMaxWordLen);
 		metricRet.setMetricApplied(this);
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = "";
+	}
 }

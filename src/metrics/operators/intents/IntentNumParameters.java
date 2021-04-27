@@ -34,5 +34,9 @@ public class IntentNumParameters extends IntentMetricBase{
 		metricRet = new IntegerMetricValue(this, nParameters);
 		metricRet.setMetricApplied(this);
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = "";
+	}
 }

@@ -27,5 +27,9 @@ public class FlowNumPaths extends FlowMetricBase{
 		//Set applied metric
 		metricRet.setMetricApplied(this);
 	}
-
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "";
+		this.strMetricDescription = "";
+	}
 }

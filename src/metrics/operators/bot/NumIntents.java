@@ -26,4 +26,9 @@ public class NumIntents extends BotMetricBase{
 			metricRet.setMetricApplied((Metric) this);
 		}
 	}
+	@Override
+	public void setMetadata() {
+		this.strMetricName = "INT";
+		this.strMetricDescription = "Number of intents of the chatbot";
+	}	
 }
