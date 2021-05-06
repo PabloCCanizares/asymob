@@ -13,6 +13,7 @@ import metrics.operators.EMetricOperator;
 
 public class MetricDataBase {
 
+	//TODO: Soportar una lista, para guardar varios bots
 	LinkedList<MetricValue> botMetrics;
 	HashMap<Entity, List<MetricValue>> entityMap;
 	HashMap<UserInteraction, List<MetricValue>> flowMap;

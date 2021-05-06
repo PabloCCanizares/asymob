@@ -30,6 +30,7 @@ public class LatexReportGen extends MetricReportGenerator{
 		strReport = null;
 	}
 	
+	//TODO: Dividir el report en 3 partes, cabeceras, cuerpo y final.
 	@Override
 	public void configure() {
 	}
