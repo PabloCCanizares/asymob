@@ -13,6 +13,7 @@ public abstract class BotMetricBase extends Metric{
 	
 	public BotMetricBase(EMetricOperator metric) {
 		super(metric, EMetricCategory.eBot);
+		
 	}
 
 	public void configure(Bot botIn, ReadOnlyMetricDB metricDB)

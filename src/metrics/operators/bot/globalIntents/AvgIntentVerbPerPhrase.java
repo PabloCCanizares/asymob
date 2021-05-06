@@ -2,6 +2,7 @@ package metrics.operators.bot.globalIntents;
 
 import java.util.LinkedList;
 
+import metrics.base.EMetricUnit;
 import metrics.base.FloatMetricValue;
 import metrics.base.IntegerMetricValue;
 import metrics.base.MetricValue;
@@ -9,26 +10,24 @@ import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 import metrics.operators.base.DBOperations;
 
-public class AvgIntentParameters extends BotMetricBase{
+public class AvgIntentVerbPerPhrase extends BotMetricBase{
 
-	public AvgIntentParameters() {
-		super(EMetricOperator.eGlobalAvgIntentParameters);
+	public AvgIntentVerbPerPhrase() {
+		super(EMetricOperator.eGlobalAvgIntentVerbPerPhrase);
 	}
 
 	@Override
 	public void calculateMetric() {
 		float fLiteralsAvg;
 		
-		//fLiteralsAvg = getNumLiterals() ;
-		if(db != null)
-		{
-			fLiteralsAvg = DBOperations.getAverage(db, EMetricOperator.eIntentNumParameters);
-			metricRet = new FloatMetricValue(this, fLiteralsAvg);
-		}
+		fLiteralsAvg = DBOperations.getAverage(db, EMetricOperator.eIntentNumReqParameters);
+		metricRet = new FloatMetricValue(this, fLiteralsAvg);
 	}
+
+	
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = ""; 
+		this.strMetricName = "VPTP";
+		this.strMetricDescription = "Average verbs per training phrase"; 
 	}
 }

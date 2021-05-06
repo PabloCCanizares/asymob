@@ -8,7 +8,7 @@ public enum EMetricOperator {
 	eGlobalAvgEntityLiterals,  eGlobalAvgEntitySynonyms, eGlobalEntityWordLen,
 	eGlobalFlowAvgActions, eGlobalAvgIntentPhrases, eGlobalAvgIntentWordPerPhrase,
 	eGlobalAvgIntentParameters, eGlobalAvgIntentCharsPerPhrase, eGlobalAvgReadingTime, 
-	eGlobalAvgReqIntentParameters, eBotSentiment, eBotConfusingPhrases, 
+	eGlobalAvgReqIntentParameters, eBotSentiment, eBotConfusingPhrases, eGlobalAvgIntentVerbPerPhrase, 
 	
 	//Entities
 	eEntityAvgSynonyms, eEntityWordLen, eEntityNumLiterals,
@@ -23,5 +23,5 @@ public enum EMetricOperator {
 	eIntentNumReqParameters, 
 	
 	//Extended
-	eExtended,           
+	eExtended,            
 }

@@ -25,9 +25,13 @@ public abstract class Metric {
 	}
 	public Metric(EMetricOperator metric, EMetricCategory category)
 	{
+		//Initialise values
 		this.db = null;
 		this.metric = metric;
 		this.category = category;
+		
+		//Set the meta data
+		setMetadata();
 	}
 	public EMetricCategory getCategory() {
 		return category;
