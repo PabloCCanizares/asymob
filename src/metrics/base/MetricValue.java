@@ -1,5 +1,7 @@
 package metrics.base;
 
+import metrics.operators.EMetricOperator;
+
 /**
  * Represents the generic results of a metric
  * @author Pablo C. Ca&ntildeizares
@@ -28,6 +30,8 @@ public class MetricValue {
 	public void setValue(String strValue) {
 		this.strValue = strValue;
 	}
+
+	//Nam
 	public String getMetricApplied()
 	{
 		return metricApplied != null ? metricApplied.getMetricName() : "null";
@@ -39,5 +43,17 @@ public class MetricValue {
 	public String toString()
 	{
 		return String.format("%s = %s", metricApplied.getMetricName(), strValue);
+	}
+	public boolean matchesMetric(EMetricOperator eMetricIn) {
+		boolean bRet;
+		
+		if(eMetricIn != null && metricApplied != null)
+		{
+			bRet = (eMetricIn == metricApplied.getMetricEnum()); 
+		}
+		else
+			bRet = false;
+		
+		return bRet;
 	}
 }

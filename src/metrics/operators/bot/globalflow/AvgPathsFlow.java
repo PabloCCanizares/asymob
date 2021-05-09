@@ -8,9 +8,9 @@ import metrics.base.FloatMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 
-public class AveragePathsFlow extends BotMetricBase{
+public class AvgPathsFlow extends BotMetricBase{
 
-	public AveragePathsFlow() {
+	public AvgPathsFlow() {
 		super(EMetricOperator.eGlobalAveragePathFlow);
 	}
 

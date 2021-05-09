@@ -158,16 +158,16 @@ public class LatexReportGen extends MetricReportGenerator{
 			for(MetricValue met: botMetrics)
 			{
 				//System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
-				buffOut = buffOut.append(String.format("%s &", met.getMetricApplied()));
+				buffOut = buffOut.append(String.format("&%s ", met.getMetricApplied()));
 			}
 			buffOut = buffOut.append("\n");
 			//Values
 			for(MetricValue met: botMetrics)
 			{
 				//System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
-				buffOut = buffOut.append(String.format("%s &", met.getValue()));
+				buffOut = buffOut.append(String.format("&%s ", met.getValue()));
 			}
-			
+			buffOut = buffOut.append("// /hline");
 		}
 		return buffOut.toString();
 	}

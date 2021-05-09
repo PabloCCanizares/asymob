@@ -136,7 +136,7 @@ public class MetricDataBase {
 		LinkedList<MetricValue> auxList;
 		
 		metricRet = null;
-		if(entityMap != null)
+		if(intentMap != null)
 		{
 			metricRet= new LinkedList<MetricValue>();
 			for (Map.Entry me : intentMap.entrySet()) {
@@ -145,9 +145,7 @@ public class MetricDataBase {
 				
 				for(MetricValue met: auxList)
 				{
-					strName = met.getMetricApplied(); 
-					
-					if(strName.equals(eMetricIn.name()))
+					if(met.matchesMetric(eMetricIn))
 						metricRet.add(met);
 				}
 	        }

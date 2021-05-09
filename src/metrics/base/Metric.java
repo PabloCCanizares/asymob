@@ -16,6 +16,10 @@ public abstract class Metric {
 	protected String strMetricName;
 	protected String strMetricDescription;
 	
+	public EMetricOperator getMetricEnum()
+	{
+		return metric;
+	}
 	public String getMetricName()
 	{
 		return strMetricName != null ? strMetricName : "null";

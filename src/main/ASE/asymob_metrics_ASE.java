@@ -20,9 +20,9 @@ import metrics.operators.bot.globalIntents.AvgIntentReadingTime;
 import metrics.operators.bot.globalIntents.AvgIntentReqParameters;
 import metrics.operators.bot.globalIntents.AvgIntentVerbPerPhrase;
 import metrics.operators.bot.globalIntents.AvgIntentWordPerPhrase;
-import metrics.operators.bot.globalflow.AveragePathsFlow;
+import metrics.operators.bot.globalflow.AvgPathsFlow;
 import metrics.operators.bot.globalflow.AvgActionsPerFlow;
-import metrics.operators.bot.globalflow.FlowAverageLen;
+import metrics.operators.bot.globalflow.AvgFlowLen;
 import metrics.operators.bot.globalflow.NumPaths;
 import metrics.operators.entity.AverageSynonyms;
 import metrics.operators.entity.EntityWordLenght;
@@ -86,13 +86,21 @@ public class asymob_metrics_ASE {
 		metricOps.insertMetric(new AvgEntityWordLen());
 		
 		//Flow metrics
-		metricOps.insertMetric(new FlowAverageLen());
-		metricOps.insertMetric(new AveragePathsFlow());
+		metricOps.insertMetric(new AvgFlowLen());
+		metricOps.insertMetric(new AvgPathsFlow());
 		metricOps.insertMetric(new AvgActionsPerFlow());
+		
+		
+		//Base
+		metricOps.insertMetric(new IntentTrainingSentiment());
+		metricOps.insertMetric(new IntentAvgVerbsPerPhrase());
+		metricOps.insertMetric(new IntentNumPhrases());
+		metricOps.insertMetric(new IntentAvgWordsPerPhrase());
+		metricOps.insertMetric(new IntentAvgCharsPerPhrase());
 		
 		if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
-		//if(botTester.loadChatbot("chatbots\\conga\\mysteryAnimal.xmi"))
+		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"mysteryAnimal.xmi"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip"))
 		{

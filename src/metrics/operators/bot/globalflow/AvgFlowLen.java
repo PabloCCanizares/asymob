@@ -8,9 +8,9 @@ import metrics.base.FloatMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 
-public class FlowAverageLen extends BotMetricBase{
+public class AvgFlowLen extends BotMetricBase{
 
-	public FlowAverageLen() {
+	public AvgFlowLen() {
 		super(EMetricOperator.eAverageLength);
 	}
 
