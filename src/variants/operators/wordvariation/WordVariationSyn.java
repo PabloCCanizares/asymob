@@ -3,8 +3,6 @@ package variants.operators.wordvariation;
 import java.util.LinkedList;
 import java.util.List;
 
-import dict.WordNet;
-import dict.disambiguate.SenseRelate_AllWords;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
 import edu.mit.jwi.item.ISynset;
@@ -14,6 +12,8 @@ import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
 import edu.mit.jwi.item.Pointer;
 import edu.stanford.nlp.ling.TaggedWord;
+import support.wordnet.WordNet;
+import support.wordnet.disambiguate.SenseRelate_AllWords;
 
 public class WordVariationSyn extends WordVariation {
 

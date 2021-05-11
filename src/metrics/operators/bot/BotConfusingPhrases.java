@@ -12,7 +12,7 @@ import metrics.base.IntMetricValue;
 import metrics.base.IntegerMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
-import metrics.tensorflow.TensorflowHandler;
+import support.tensorflow.TensorflowHandler;
 
 public class BotConfusingPhrases extends BotMetricBase{
 

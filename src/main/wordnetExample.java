@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import dict.WordNet;
-import dict.disambiguate.IWSD_Disambiguator;
-import dict.disambiguate.SenseRelate_AllWords;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
 import edu.mit.jwi.item.IWord;
 import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
+import support.wordnet.WordNet;
+import support.wordnet.disambiguate.IWSD_Disambiguator;
+import support.wordnet.disambiguate.SenseRelate_AllWords;
 
 /**
  * Program for trying the different features of wordnet

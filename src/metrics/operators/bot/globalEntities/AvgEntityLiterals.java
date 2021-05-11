@@ -1,13 +1,10 @@
 package metrics.operators.bot.globalEntities;
 
-import java.util.LinkedList;
-
-import metrics.base.EMetricUnit;
+import metrics.base.EMetricCategory;
 import metrics.base.FloatMetricValue;
-import metrics.base.IntegerMetricValue;
-import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
+import metrics.operators.base.DBOperations;
 
 public class AvgEntityLiterals extends BotMetricBase{
 
@@ -19,43 +16,14 @@ public class AvgEntityLiterals extends BotMetricBase{
 	public void calculateMetric() {
 		float fLiteralsAvg;
 		
-		fLiteralsAvg = getNumLiterals();
+		fLiteralsAvg = DBOperations.getAverage(db, EMetricCategory.eEntity, EMetricOperator.eEntityNumLiterals);
 		metricRet = new FloatMetricValue(this, fLiteralsAvg);
 	}
 
-	private float getNumLiterals() {
-		int nLiterals, nElements;
-		float fValue;
-		LinkedList<MetricValue> metricResList;
-		
-		nLiterals=nElements=0;
-		fValue = 0;
-		
-		//access to the DB
-		if(db != null)
-		{
-			metricResList = db.getEntityMetric(EMetricOperator.eEntityNumLiterals);
-			
-			for(MetricValue metricVal: metricResList)
-			{
-				if(metricVal != null && metricVal instanceof IntegerMetricValue)
-				{
-					nLiterals += ((IntegerMetricValue)metricVal).getIntValue();
-					nElements++;
-				}
-			}
-			if(nLiterals >0 && nElements >0)
-				fValue = (float)((float)nLiterals/(float)nElements);
-			else
-				fValue =0;
-					
-			
-		}
-		return fValue;
-	}
+	
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "ALPE";
-		this.strMetricDescription = "Average number of literals per entity";
+		this.strMetricName = "LPE";
+		this.strMetricDescription = "Average literal per entity";
 	}
 }

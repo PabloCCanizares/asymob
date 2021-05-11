@@ -63,14 +63,14 @@ public class BotAnalyser {
 					//System.out.println("extractAllPhrases - Analysing intent in language "+intentLan.getLanguage().getLiteral());
 					inputList = intentLan.getInputs();
 
-					retList = extractPhrasesFromInput(inputList);			
+					retList = extractTrainingPhrasesFromInput(inputList);			
 				}
 			}
 		}	
 		
 		return retList;
 	}
-	private LinkedList<String> extractPhrasesFromInput(EList<IntentInput> inputList) {
+	private LinkedList<String> extractTrainingPhrasesFromInput(EList<IntentInput> inputList) {
 		TrainingPhrase trainIn;
 		EList<Token> tokenList;
 		LinkedList<String> retList;
@@ -346,6 +346,31 @@ public class BotAnalyser {
 		return retList;
 	}
 
+	public LinkedList<String> extractAllBotOutputPhrases(Bot botIn) {
+		
+		EList<Action> actionList;
+		LinkedList<String> retList, auxList;
+		
+		retList = null;
+		if(botIn != null)
+		{
+			actionList = botIn.getActions();
+			
+			if(actionList != null)
+			{
+				retList = new LinkedList<String>();
+				for(Action act: actionList)
+				{
+					
+					auxList = flowAnalyser.extractAllActionPhrases(act, false);
+					if(auxList != null)
+						retList.addAll(auxList);
+				}
+			}
+		}
+		
+		return retList;
+	}
 	public LinkedList<String> extractAllActionPhrases(Action actIndex) {
 		return flowAnalyser != null ? flowAnalyser.extractAllActionPhrases(actIndex, false) : null;
 	}
@@ -391,7 +416,7 @@ public class BotAnalyser {
 							//System.out.println("extractAllPhrases - Analysing intent in language "+intentLan.getLanguage().getLiteral());
 							inputList = intentLan.getInputs();
 
-							retList = extractPhrasesFromInput(inputList);		
+							retList = extractTrainingPhrasesFromInput(inputList);		
 							
 							if(hashMapPrhases.containsKey(lan))
 								languagePhrases = hashMapPrhases.get(lan);

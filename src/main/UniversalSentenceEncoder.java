@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import ai.djl.ModelException;
 import ai.djl.translate.TranslateException;
-import metrics.tensorflow.TensorflowHandler;
+import support.tensorflow.TensorflowHandler;
 
 /**
  * An example of inference using an universal sentence encoder model from TensorFlow Hub.

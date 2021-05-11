@@ -53,7 +53,7 @@ public class AvgActionsPerFlow extends BotMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "FACT";
+		this.strMetricDescription = "Average actions per conversation entry point";
 	}
 }

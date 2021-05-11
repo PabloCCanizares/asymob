@@ -10,7 +10,7 @@ import edu.stanford.nlp.util.CoreMap;
 import metrics.base.IntegerListMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.IntentMetricBase;
-import stanford.StandfordPipeline;
+import support.stanford.StandfordPipeline;
 
 /**
  * Implements Socher et al’s sentiment model

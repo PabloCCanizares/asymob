@@ -1,9 +1,0 @@
-{
-  "id": "026840d7-eb06-45ae-bb39-60bddf4914af",
-  "name": "restricted-items",
-  "isOverridable": true,
-  "isEnum": false,
-  "isRegexp": false,
-  "automatedExpansion": false,
-  "allowFuzzyExtraction": false
-}

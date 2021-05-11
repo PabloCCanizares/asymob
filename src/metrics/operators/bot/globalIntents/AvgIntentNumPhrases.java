@@ -56,8 +56,8 @@ public class AvgIntentNumPhrases extends BotMetricBase{
 
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = ""; 
+		this.strMetricName = "TPI"; 
+		this.strMetricDescription = "Training phrases per intent"; 
 	}
 
 }

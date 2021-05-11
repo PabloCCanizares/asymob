@@ -219,21 +219,30 @@ public class IntentAnalyser {
 		{
 			retList = extractStringPhrasesFromIntent(intentIn);
 			
-			if(retList != null)
-			{
-				for(String strIn: retList)
-				{
-					//Split in parts
-					//TODO: Tener cuidado con las comas y caracteres
-					auxList = Common.SplitUsingTokenizer(strIn);
-					
-					//Count the words
-					if(auxList != null)
-						nRet +=auxList.size();
-				}
-			}
+			nRet = getTotalWords(retList);
 		}
 		
+		return nRet;
+	}
+
+	public int getTotalWords(LinkedList<String> retList) {
+		LinkedList<String> auxList;
+		int nRet;
+		
+		nRet = 0;
+		if(retList != null)
+		{
+			for(String strIn: retList)
+			{
+				//Split in parts
+				//TODO: Tener cuidado con las comas y caracteres
+				auxList = Common.SplitUsingTokenizer(strIn);
+				
+				//Count the words
+				if(auxList != null)
+					nRet +=auxList.size();
+			}
+		}
 		return nRet;
 	}
 	public LinkedList<String> extractStringPhrasesFromIntent(Intent intentIn)
@@ -277,26 +286,35 @@ public class IntentAnalyser {
 		{
 			retList = extractStringPhrasesFromIntent(intentIn);
 			
-			if(retList != null)
+			nRet = getTotalCharsFromList(retList);
+		}
+		
+		return nRet;
+	}
+
+	public int getTotalCharsFromList(LinkedList<String> retList) {
+		int nRet;
+		LinkedList<String> auxList;
+		
+		nRet = 0;
+		if(retList != null)
+		{
+			for(String strIn: retList)
 			{
-				for(String strIn: retList)
+				//Split in parts
+				//TODO: Tener cuidado con las comas y caracteres
+				auxList = Common.SplitUsingTokenizer(strIn);
+				
+				//Count the words
+				if(auxList != null)
 				{
-					//Split in parts
-					//TODO: Tener cuidado con las comas y caracteres
-					auxList = Common.SplitUsingTokenizer(strIn);
-					
-					//Count the words
-					if(auxList != null)
+					for(String strAux: auxList)
 					{
-						for(String strAux: auxList)
-						{
-							nRet +=strAux.length();
-						}
+						nRet +=strAux.length();
 					}
 				}
 			}
 		}
-		
 		return nRet;
 	}
 	public int getMaxWordLen(Intent intentIn) {
@@ -329,5 +347,29 @@ public class IntentAnalyser {
 		}
 		
 		return nMax;
+	}
+
+	public int getTotalWordsFromList(LinkedList<String> phrasesList) {
+		LinkedList<String>  retList, auxList;
+		int nRet, nMax;
+
+		nRet = 0;
+		if(phrasesList != null)
+		{
+			for(String strIn: phrasesList)
+			{
+				//Split in parts
+				//TODO: Tener cuidado con las comas y caracteres
+				auxList = Common.SplitUsingTokenizer(strIn);
+				
+				//Count the words
+				if(auxList != null)
+				{
+					nRet+= auxList.size();
+				}
+			}
+		}
+		
+		return nRet;
 	}
 }

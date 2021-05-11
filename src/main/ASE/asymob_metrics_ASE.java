@@ -13,13 +13,14 @@ import metrics.operators.bot.NumLanguages;
 import metrics.operators.bot.globalEntities.AvgEntityLiterals;
 import metrics.operators.bot.globalEntities.AvgEntitySynonyms;
 import metrics.operators.bot.globalEntities.AvgEntityWordLen;
-import metrics.operators.bot.globalIntents.AvgIntentCharsPerPhrase;
+import metrics.operators.bot.globalIntents.AvgIntentCharsPerOutputPhrase;
 import metrics.operators.bot.globalIntents.AvgIntentNumPhrases;
 import metrics.operators.bot.globalIntents.AvgIntentParameters;
 import metrics.operators.bot.globalIntents.AvgIntentReadingTime;
 import metrics.operators.bot.globalIntents.AvgIntentReqParameters;
 import metrics.operators.bot.globalIntents.AvgIntentVerbPerPhrase;
 import metrics.operators.bot.globalIntents.AvgIntentWordPerPhrase;
+import metrics.operators.bot.globalIntents.AvgIntentWordsPerOutputPhrase;
 import metrics.operators.bot.globalflow.AvgPathsFlow;
 import metrics.operators.bot.globalflow.AvgActionsPerFlow;
 import metrics.operators.bot.globalflow.AvgFlowLen;
@@ -30,7 +31,7 @@ import metrics.operators.entity.NumLiterals;
 import metrics.operators.flow.FlowActionsAverage;
 import metrics.operators.flow.FlowLength;
 import metrics.operators.flow.FlowNumPaths;
-import metrics.operators.intents.IntentAvgCharsPerPhrase;
+import metrics.operators.intents.IntentAvgCharsPerTrainingPhrase;
 import metrics.operators.intents.IntentAvgCosineSimilarity;
 import metrics.operators.intents.IntentAvgNounsPerPhrase;
 import metrics.operators.intents.IntentAvgVerbsPerPhrase;
@@ -78,7 +79,8 @@ public class asymob_metrics_ASE {
 		metricOps.insertMetric(new AvgIntentWordPerPhrase());
 		metricOps.insertMetric(new AvgIntentVerbPerPhrase());
 		metricOps.insertMetric(new AvgIntentParameters());
-		metricOps.insertMetric(new AvgIntentCharsPerPhrase());
+		metricOps.insertMetric(new AvgIntentWordsPerOutputPhrase()); //WPOP			
+		metricOps.insertMetric(new AvgIntentCharsPerOutputPhrase()); //CPOP
 		
 		//Entity
 		metricOps.insertMetric(new AvgEntityLiterals());
@@ -90,13 +92,16 @@ public class asymob_metrics_ASE {
 		metricOps.insertMetric(new AvgPathsFlow());
 		metricOps.insertMetric(new AvgActionsPerFlow());
 		
-		
 		//Base
+		//TODO: Insertar dependencias y que se calculen solas (Ej: AvgEntityLiterals -> NumLiterals)
 		metricOps.insertMetric(new IntentTrainingSentiment());
 		metricOps.insertMetric(new IntentAvgVerbsPerPhrase());
 		metricOps.insertMetric(new IntentNumPhrases());
 		metricOps.insertMetric(new IntentAvgWordsPerPhrase());
-		metricOps.insertMetric(new IntentAvgCharsPerPhrase());
+		metricOps.insertMetric(new IntentAvgCharsPerTrainingPhrase());
+		metricOps.insertMetric(new NumLiterals());
+		metricOps.insertMetric(new AverageSynonyms());
+		metricOps.insertMetric(new EntityWordLenght());
 		
 		if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))

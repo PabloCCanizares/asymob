@@ -97,7 +97,7 @@ public class MetricDataBase {
 				{
 					strName = met.getMetricApplied(); 
 					
-					if(strName.equals(eMetricIn.name()))
+					if(met.matchesMetric(eMetricIn))
 						metricRet.add(met);
 				}
 	        }
@@ -123,7 +123,7 @@ public class MetricDataBase {
 				{
 					strName = met.getMetricApplied(); 
 					
-					if(strName.equals(eMetricIn.name()))
+					if(met.matchesMetric(eMetricIn))
 						metricRet.add(met);
 				}
 	        }

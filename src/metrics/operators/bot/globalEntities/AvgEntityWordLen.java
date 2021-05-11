@@ -56,7 +56,7 @@ public class AvgEntityWordLen extends BotMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "AEWL";
+		this.strMetricName = "WL";
 		this.strMetricDescription = "Average entity word length";
 	}
 }

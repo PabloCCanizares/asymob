@@ -42,7 +42,7 @@ public class AvgFlowLen extends BotMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "MFL";
+		this.strMetricDescription = "Maximum lenght of the conversation flow";
 	}
 }

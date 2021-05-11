@@ -167,7 +167,7 @@ public class LatexReportGen extends MetricReportGenerator{
 				//System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
 				buffOut = buffOut.append(String.format("&%s ", met.getValue()));
 			}
-			buffOut = buffOut.append("// /hline");
+			buffOut = buffOut.append("\\\\ \\hline");
 		}
 		return buffOut.toString();
 	}

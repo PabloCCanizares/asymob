@@ -7,7 +7,7 @@ import analyser.IntentAnalyser;
 import metrics.base.FloatMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.IntentMetricBase;
-import metrics.tensorflow.TensorflowHandler;
+import support.tensorflow.TensorflowHandler;
 
 public class IntentAvgCosineSimilarity extends IntentMetricBase{
 

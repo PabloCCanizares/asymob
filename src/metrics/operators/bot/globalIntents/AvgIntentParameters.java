@@ -28,7 +28,7 @@ public class AvgIntentParameters extends BotMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = ""; 
+		this.strMetricName = "PPTP";
+		this.strMetricDescription = "Parameters per training phrase"; 
 	}
 }

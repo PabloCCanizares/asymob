@@ -6,13 +6,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 import auxiliar.Common;
-import dict.WordNet;
-import dict.disambiguate.IWSD_Disambiguator;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.POS;
 import edu.stanford.nlp.ling.TaggedWord;
-import stanford.StandfordTagger;
+import support.stanford.StandfordTagger;
+import support.wordnet.WordNet;
+import support.wordnet.disambiguate.IWSD_Disambiguator;
 
 public abstract class WordVariation {
 

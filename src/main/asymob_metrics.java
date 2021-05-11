@@ -13,7 +13,7 @@ import metrics.operators.bot.NumLanguages;
 import metrics.operators.bot.globalEntities.AvgEntityLiterals;
 import metrics.operators.bot.globalEntities.AvgEntitySynonyms;
 import metrics.operators.bot.globalEntities.AvgEntityWordLen;
-import metrics.operators.bot.globalIntents.AvgIntentCharsPerPhrase;
+import metrics.operators.bot.globalIntents.AvgIntentCharsPerOutputPhrase;
 import metrics.operators.bot.globalIntents.AvgIntentNumPhrases;
 import metrics.operators.bot.globalIntents.AvgIntentParameters;
 import metrics.operators.bot.globalIntents.AvgIntentReadingTime;
@@ -29,7 +29,7 @@ import metrics.operators.entity.NumLiterals;
 import metrics.operators.flow.FlowActionsAverage;
 import metrics.operators.flow.FlowLength;
 import metrics.operators.flow.FlowNumPaths;
-import metrics.operators.intents.IntentAvgCharsPerPhrase;
+import metrics.operators.intents.IntentAvgCharsPerTrainingPhrase;
 import metrics.operators.intents.IntentAvgCosineSimilarity;
 import metrics.operators.intents.IntentAvgNounsPerPhrase;
 import metrics.operators.intents.IntentAvgVerbsPerPhrase;
@@ -78,7 +78,7 @@ public class asymob_metrics {
 		metricOps.insertMetric(new AvgIntentWordPerPhrase());
 		metricOps.insertMetric(new AvgIntentParameters());
 		metricOps.insertMetric(new AvgIntentReqParameters());
-		metricOps.insertMetric(new AvgIntentCharsPerPhrase());
+		metricOps.insertMetric(new AvgIntentCharsPerOutputPhrase());
 		metricOps.insertMetric(new AvgIntentReadingTime());
 		metricOps.insertMetric(new BotSentiment());
 		metricOps.insertMetric(new BotConfusingPhrases());
@@ -96,7 +96,7 @@ public class asymob_metrics {
 		//Intent metrics
 		metricOps.insertMetric(new IntentNumPhrases());
 		metricOps.insertMetric(new IntentAvgWordsPerPhrase());
-		metricOps.insertMetric(new IntentAvgCharsPerPhrase());
+		metricOps.insertMetric(new IntentAvgCharsPerTrainingPhrase());
 		metricOps.insertMetric(new IntentNumParameters());
 		metricOps.insertMetric(new IntentAvgNounsPerPhrase());
 		metricOps.insertMetric(new IntentAvgVerbsPerPhrase());
