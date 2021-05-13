@@ -79,7 +79,7 @@ public class BotResourcesManager {
 			
 			if(currentBot != null)
 			{
-				BotPrinter.printBot(currentBot);
+				BotPrinter.printSummaryBot(currentBot);
 				botResourceSet = getResourceSet();
 				bRet = true;
 			}
@@ -112,7 +112,7 @@ public class BotResourcesManager {
 			bRet = true;
 			
 			//Print the bot
-			BotPrinter.printBot(currentBot);
+			BotPrinter.printSummaryBot(currentBot);
 		} catch (Exception e) {
 			e.printStackTrace();
 			bRet = false;

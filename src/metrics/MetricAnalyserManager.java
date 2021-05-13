@@ -38,7 +38,13 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 		bRet = true;
 		try
 		{
-			//Others
+			System.out.println("doAnalyse - Init");
+			
+			//Reset operator set
+			metricOps.resetIndex();
+			
+			//Insert bot in DB
+			metricDB.insertNewBot(botIn.getName());
 			
 			//Intent metrics
 			analyseIntentMetrics(botIn, metricOps);
@@ -65,6 +71,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 		Metric metricIn;
 		MetricValue metricRes;
 		
+		System.out.println("analyseIntentMetrics - Analysing intent metrics");
 		while(metricOps.hasNextIntentMetric())
 		{
 			try
@@ -99,6 +106,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 		Metric metricIn;
 		MetricValue metricRes;
 		
+		System.out.println("analyseIntentMetrics - Analysing flow metrics");
 		while(metricOps.hasNextFlowMetric())
 		{
 			try
@@ -135,6 +143,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 		boolean bRet;
 		
 		bRet = true;
+		System.out.println("analyseIntentMetrics - Analysing bot metrics");
 		while(metricOps.hasNextBotMetric())
 		{
 			try
@@ -169,6 +178,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 		Metric metricIn;
 		MetricValue metricRes;
 		
+		System.out.println("analyseIntentMetrics - Analysing entity metrics");
 		while(metricOps.hasNextEntityMetric())
 		{
 			try

@@ -37,7 +37,7 @@ public class IntentAvgVerbsPerPhrase extends IntentMetricBase{
 			{
 				taggedPhraseList = StandfordTagger.getInstance().getTaggedWordList(strPhrase);
 				
-				nNouns += countNouns(taggedPhraseList);
+				nNouns += countVerbs(taggedPhraseList);
 			}
 			
 			nPhrases = phrasesList.size();
@@ -50,7 +50,7 @@ public class IntentAvgVerbsPerPhrase extends IntentMetricBase{
 		metricRet = new FloatMetricValue(this, fAverage);
 	}
 
-	private int countNouns(List<List<TaggedWord>> taggedPhraseList) {
+	private int countVerbs(List<List<TaggedWord>> taggedPhraseList) {
 		int nRet;
 		String strTag;
 		nRet = 0;

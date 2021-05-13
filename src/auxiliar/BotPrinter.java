@@ -112,4 +112,11 @@ public class BotPrinter  {
 		}
 		System.out.println("<entities/>");
 	}
+
+	public static void printSummaryBot(Bot currentBot) {
+		
+		System.out.printf("[BotName: %s | Intents: %d | Entities: %d | Flows: %d | Actions: %d ]\n", currentBot.getName(), 
+				currentBot.getIntents().size(), currentBot.getEntities().size(),  currentBot.getFlows().size(),  currentBot.getActions().size());
+
+	}
 }

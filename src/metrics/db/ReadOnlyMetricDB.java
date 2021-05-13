@@ -41,4 +41,17 @@ public class ReadOnlyMetricDB {
 		return mdb == null ? null : mdb.getIntentMetric(eMetricIn);
 	}
 	
+	public MetricDbSingleEntry getNextEntry()
+	{
+		return mdb == null ? null : mdb.getNextEntry();
+	}
+	public boolean hasNext()
+	{
+		return mdb == null ? null : mdb.hasNext();
+	}
+	public void resetIndex()
+	{
+		if(mdb != null)
+			mdb.resetIndex();
+	}
 }

@@ -19,8 +19,6 @@ public class NumPaths extends BotMetricBase{
 	public void calculateMetric() {
 		int nPaths;
 		metricRet = new MetricValue(this);
-		System.out.println("[NumFlows::calculateMetric] - Init");
-		
 		
 		nPaths = getNumPaths();
 		metricRet.setUnit(EMetricUnit.eInt);

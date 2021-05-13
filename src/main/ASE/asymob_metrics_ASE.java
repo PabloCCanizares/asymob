@@ -1,6 +1,7 @@
 package main.ASE;
 
 import java.io.File;
+import java.util.LinkedList;
 
 import core.Asymob;
 import metrics.MetricOperatorsSet;
@@ -55,16 +56,12 @@ public class asymob_metrics_ASE {
 
 	public static void main(String[] argv)
 	{
-		Asymob botTester;
-		MetricOperatorsSet metricOps;
-		StringReport metReport;
-		MetricReportGenerator metricReport;
-		
-		metReport = new StringReport();
-		metricReport = new LatexReportGen();
-		botTester = new Asymob();
-		metricOps = new MetricOperatorsSet();
-		
+		System.out.println("Asymob empirical study for ASE");
+		//testSingle();
+		testMulti();
+	}
+	private static MetricOperatorsSet createMetricOperators() {
+		MetricOperatorsSet metricOps = new MetricOperatorsSet();
 		//Global metrics
 		metricOps.insertMetric(new NumIntents());
 		metricOps.insertMetric(new NumEntities());
@@ -97,22 +94,96 @@ public class asymob_metrics_ASE {
 		metricOps.insertMetric(new IntentTrainingSentiment());
 		metricOps.insertMetric(new IntentAvgVerbsPerPhrase());
 		metricOps.insertMetric(new IntentNumPhrases());
+		metricOps.insertMetric(new IntentNumParameters());
 		metricOps.insertMetric(new IntentAvgWordsPerPhrase());
 		metricOps.insertMetric(new IntentAvgCharsPerTrainingPhrase());
 		metricOps.insertMetric(new NumLiterals());
 		metricOps.insertMetric(new AverageSynonyms());
 		metricOps.insertMetric(new EntityWordLenght());
 		
-		if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
+		return metricOps;
+	}
+	public static void testMulti()
+	{
+		Asymob botTester;
+		MetricOperatorsSet metricOps;
+		StringReport metReport;
+		MetricReportGenerator metricReport;
+		LinkedList<String> listReport, botList;
+		
+		listReport = new LinkedList<String>();
+		metReport = new StringReport();
+		metricReport = new LatexReportGen();
+		botTester = new Asymob();
+		
+		
+		metricOps = createMetricOperators();
+		
+		//botList = getBotList();
+		botList = getBotPrebuildList();
+
+		if(botList != null)
+		{
+			for(String strBotPath: botList)
+			{
+				try
+				{
+					System.out.printf("Analysing bot in path: %s\n", strBotPath);
+					if(botTester.loadChatbot(strBotPath))
+					{
+						botTester.measureMetrics(metricOps);
+					}
+					else
+					{
+						System.out.println("The file does not exists!");
+					}
+				}
+				catch(Exception e)
+				{
+					System.out.println("Exception catched: "+e.getMessage());
+				}
+			}
+			metReport = (StringReport) botTester.getMetricReport(metricReport);
+			if(metReport != null)
+			{
+				listReport.add(metReport.getReport());
+				System.out.println(metReport.getReport());
+			}
+		}
+		
+		
+	}
+	public void testSingle()
+	{
+		Asymob botTester;
+		MetricOperatorsSet metricOps;
+		StringReport metReport;
+		MetricReportGenerator metricReport;
+		LinkedList<String> listReport, botList;
+		
+		listReport = new LinkedList<String>();
+		metReport = new StringReport();
+		metricReport = new LatexReportGen();
+		botTester = new Asymob();
+		
+		
+		metricOps = createMetricOperators();
+		
+		//if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"mysteryAnimal.xmi"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip"))
+		if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip"))
 		{
 			if(botTester.measureMetrics(metricOps))
 			{
 				metReport = (StringReport) botTester.getMetricReport(metricReport);
-				System.out.println(metReport.getReport());
+				if(metReport != null)
+				{
+					listReport.add(metReport.getReport());
+					System.out.println(metReport.getReport());
+				}
+				
 			}
 		}
 		else
@@ -120,4 +191,51 @@ public class asymob_metrics_ASE {
 			System.out.println("The file does not exists!");
 		}
 	}
+	public static LinkedList<String> getBotList()
+	{
+		LinkedList<String> retList;
+		
+		retList = new LinkedList<String>();
+		retList.add("model"+File.separator+"bikeShop.xmi");
+		//retList.add("chatbots"+File.separator+"conga"+File.separator+"mysteryAnimal.xmi");
+		retList.add("chatbots"+File.separator+"conga"+File.separator+"iot.xmi");
+		//retList.add("chatbots"+File.separator+"conga"+File.separator+"smallTalk.xmi");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"HumanHandoffDemonstrationAgent.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"malikasinger1.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"googleChallenge.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"malaynayak.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"hotel-booking.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"woman.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"pizza.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"hrc.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"pizzabot.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee_demo.zip");
+		return retList;
+	}
+	public static LinkedList<String> getBotPrebuildList()
+	{
+		LinkedList<String> retList;
+		
+		retList = new LinkedList<String>();
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Agent-Name.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"App-Management.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Car.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Coffee-Shop.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Currency-Converter.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Date.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Device.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Dining-Out.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Easter-Eggs.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"FAQ.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Food-Delivery.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Formats.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Hotel-Booking.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"support.zip");
+		
+		
+		return retList;
+	}	
 }

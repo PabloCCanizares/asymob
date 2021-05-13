@@ -26,14 +26,10 @@ public class NumLanguages extends BotMetricBase{
 		if(this.botIn != null)
 		{
 			metricRet = new MetricValue(this);
-			System.out.println("[NumLanguages::calculateMetric] - Init");
-			
 			nLanguages = botIn.getLanguages().size();
 			metricRet.setUnit(EMetricUnit.eInt);
 			metricRet.setValue(Integer.toString(nLanguages));
 			metricRet.setMetricApplied((Metric) this);
-			
-			System.out.printf("[NumLanguages::calculateMetric] - Metric: %s Value: %s \n", metricRet.getUnit(), metricRet.getValue());
 		}
 		
 	}

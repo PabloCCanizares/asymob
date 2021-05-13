@@ -10,6 +10,7 @@ import generator.Intent;
 import generator.UserInteraction;
 import metrics.base.MetricValue;
 import metrics.db.MetricDataBase;
+import metrics.db.MetricDbSingleEntry;
 
 public class LatexReportGen extends MetricReportGenerator{
 
@@ -47,6 +48,7 @@ public class LatexReportGen extends MetricReportGenerator{
 		catch(Exception e)
 		{
 			bRet = false;
+			System.out.println("[generateReport] - Exception catched: "+e.getMessage());
 		}
 		
 		return bRet;
@@ -59,145 +61,80 @@ public class LatexReportGen extends MetricReportGenerator{
 		
 		buffOut = new StringBuffer();
 		
+		//Append headers
+		buffOut = buffOut.append(getLatexHeaders());
+		
 		//Append botMetric report
 		buffOut = buffOut.append(botMetricsToString());
+				
+		//Append footers
+		buffOut = buffOut.append(getLatexFooters());
 		
-		/*//Append entityMetrics report
-		buffOut = buffOut.append(entityMetricsToString());
-		
-		//Append flowMetrics report		
-		buffOut = buffOut.append(flowMetricsToString());
-		
-		//Append flowMetrics report		
-		buffOut = buffOut.append(intentMetricsToString());*/
-				
-				
-		return buffOut.toString();
-	}
-	private Object intentMetricsToString() {
-		StringBuffer buffOut;
-		LinkedList<MetricValue> metricList;
-		Intent intentIn;
-		
-		buffOut = new StringBuffer();
-		intentMap = db.getIntentMap();
-		if(intentMap != null && intentMap.size()>0)
-		{
-			for (Map.Entry me : intentMap.entrySet()) {
-				
-				intentIn = (Intent) me.getKey();
-				metricList = (LinkedList<MetricValue>) me.getValue();
-				buffOut = buffOut.append(" * ").append(intentIn.getName()).append(" [");
-				
-				for(MetricValue met: metricList)
-				{
-					try
-					{
-						buffOut.append(met.toString()).append(" | ");
-					}
-					catch(Exception e)
-					{
-						System.err.println("[intentMetricsToString] Exception catched while creating string report");
-					}
-				}
-				buffOut.append("]\n");
-				
-	        }
-		}
 		return buffOut.toString();
 	}
 	
-	HashMap<UserInteraction, List<MetricValue>> flowMap;
-	HashMap<Intent, List<MetricValue>> intentMap;
-	
-	private String entityMetricsToString() {
-		StringBuffer buffOut;
-		LinkedList<MetricValue> metricList;
-		Entity en;
-		HashMap<Entity, List<MetricValue>> entityMap;
-		
-		entityMap = db.getEntityMap();
-		
-		buffOut = new StringBuffer();
-		if(entityMap != null && entityMap.size()>0)
-		{
-			buffOut = buffOut.append("============================\n");
-			buffOut = buffOut.append("ENTITY METRICS: \n");
-			
-			for (Map.Entry me : entityMap.entrySet()) {
-				
-				en = (Entity) me.getKey();
-				metricList = (LinkedList<MetricValue>) me.getValue();
-				buffOut = buffOut.append(" * ").append(en.getName()).append(" [");
-				
-				for(MetricValue met: metricList)
-				{
-					buffOut.append(met.toString()).append(" | ");
-				}
-				buffOut.append("]\n");
-				
-	        }
-		}
-		return buffOut.toString();
+
+	private String getLatexFooters() {
+		return "";
 	}
-	private String botMetricsToString() {
-		
+
+	private String getLatexHeaders() {
 		StringBuffer buffOut;
+		MetricDbSingleEntry chatbotEntry;
 		LinkedList<MetricValue> botMetrics;
 		
 		buffOut = new StringBuffer();
-		botMetrics = db.getBotMetrics();
-		if(botMetrics != null && botMetrics.size()>0)
+		
+		db.resetIndex();
+		if(db.hasNext())
 		{
-			//System.out.println("============================");
-			//System.out.println("BOT METRICS");
-			buffOut = buffOut.append("============================\n");
-			buffOut = buffOut.append("BOT METRICS: \n");
+			chatbotEntry = db.getNextEntry();
+			botMetrics = chatbotEntry.getBotMetrics();
 			
-			//Titles
 			for(MetricValue met: botMetrics)
 			{
 				//System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
 				buffOut = buffOut.append(String.format("&%s ", met.getMetricApplied()));
 			}
 			buffOut = buffOut.append("\n");
-			//Values
-			for(MetricValue met: botMetrics)
-			{
-				//System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
-				buffOut = buffOut.append(String.format("&%s ", met.getValue()));
-			}
-			buffOut = buffOut.append("\\\\ \\hline");
 		}
 		return buffOut.toString();
 	}
-	private String flowMetricsToString() {
+
+	private String botMetricsToString() {
+		
 		StringBuffer buffOut;
-		LinkedList<MetricValue> metricList;
-		UserInteraction userIn;
+		LinkedList<MetricValue> botMetrics;
+		MetricDbSingleEntry chatbotEntry;
 		
 		buffOut = new StringBuffer();
-		flowMap = db.getFlowMap();
-		if(flowMap != null && flowMap.size()>0)
+		
+		//Iterate all metricsEntry
+		db.resetIndex();
+		while(db.hasNext())
 		{
-			buffOut = buffOut.append("============================\n");
-			buffOut = buffOut.append("FLOW METRICS: \n");
-			
-			
-			for (Map.Entry me : flowMap.entrySet()) {
+			chatbotEntry = db.getNextEntry();
+			botMetrics = chatbotEntry.getBotMetrics();
+			if(botMetrics != null && botMetrics.size()>0)
+			{
 				
-				userIn = (UserInteraction) me.getKey();
-				metricList = (LinkedList<MetricValue>) me.getValue();
-				buffOut = buffOut.append(" * ").append(userIn.getIntent().getName()).append(" [");
-				
-				for(MetricValue met: metricList)
+				buffOut.append(chatbotEntry.getBotName());
+				//Titles
+				/*for(MetricValue met: botMetrics)
 				{
-					buffOut.append(met.toString()).append(" | ");
+					//System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
+					buffOut = buffOut.append(String.format("&%s ", met.getMetricApplied()));
+				}*/
+				//Values
+				for(MetricValue met: botMetrics)
+				{
+					//System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
+					buffOut = buffOut.append(String.format("&%s ", met.getValue()));
 				}
-				buffOut.append("]\n");
-				
-	        }
+				buffOut = buffOut.append("\\\\ \\hline\n");
+			}
 		}
+		
 		return buffOut.toString();
 	}
 

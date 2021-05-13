@@ -20,7 +20,7 @@ public class AvgIntentVerbPerPhrase extends BotMetricBase{
 	public void calculateMetric() {
 		float fLiteralsAvg;
 		
-		fLiteralsAvg = DBOperations.getAverage(db, EMetricOperator.eIntentNumReqParameters);
+		fLiteralsAvg = DBOperations.getAverage(db, EMetricOperator.eIntentAvgVerbsPerPhrase);
 		metricRet = new FloatMetricValue(this, fLiteralsAvg);
 	}
 
