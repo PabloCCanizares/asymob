@@ -82,7 +82,7 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 				{
 					//Configure the instance
 					if(metricIn instanceof IntentMetricBase)
-						((IntentMetricBase)metricIn).configure(intentIn);
+						((IntentMetricBase)metricIn).configure(botIn, intentIn);
 					
 					//Calculate the metric
 					metricIn.calculateMetric();

@@ -8,12 +8,12 @@ import metrics.base.FloatMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 
-public class AvgIntentWordsPerOutputPhrase extends BotMetricBase{
+public class AvgWordsPerOutputPhrase extends BotMetricBase{
 
-	private final String METRIC_NAME = "CPOP";
-	private final String METRIC_DESCRIPTION = "Average characters per bot's output phrase";
+	private final String METRIC_NAME = "WPOP";
+	private final String METRIC_DESCRIPTION = "Average words per bot's output phrase";
 	
-	public AvgIntentWordsPerOutputPhrase() {
+	public AvgWordsPerOutputPhrase() {
 		super(EMetricOperator.eGlobalAvgIntentCharsPerOutputPhrase);
 	}
 

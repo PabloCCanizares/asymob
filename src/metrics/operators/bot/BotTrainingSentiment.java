@@ -8,10 +8,10 @@ import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 
-public class BotSentiment extends BotMetricBase{
+public class BotTrainingSentiment extends BotMetricBase{
 
-	public BotSentiment() {
-		super(EMetricOperator.eBotSentiment);
+	public BotTrainingSentiment() {
+		super(EMetricOperator.eBotTrainingSentiment);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class BotSentiment extends BotMetricBase{
 		//access to the DB
 		if(db != null)
 		{
-			metricResList = db.getIntentMetric(EMetricOperator.eIntentSentiment);
+			metricResList = db.getIntentMetric(EMetricOperator.eIntentTrainingSentiment);
 			
 			for(MetricValue metricVal: metricResList)
 			{

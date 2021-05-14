@@ -6,7 +6,8 @@ import java.util.LinkedList;
 import core.Asymob;
 import metrics.MetricOperatorsSet;
 import metrics.operators.bot.BotConfusingPhrases;
-import metrics.operators.bot.BotSentiment;
+import metrics.operators.bot.BotOutputSentiment;
+import metrics.operators.bot.BotTrainingSentiment;
 import metrics.operators.bot.NumEntities;
 import metrics.operators.bot.NumFlows;
 import metrics.operators.bot.NumIntents;
@@ -21,7 +22,7 @@ import metrics.operators.bot.globalIntents.AvgIntentReadingTime;
 import metrics.operators.bot.globalIntents.AvgIntentReqParameters;
 import metrics.operators.bot.globalIntents.AvgIntentVerbPerPhrase;
 import metrics.operators.bot.globalIntents.AvgIntentWordPerPhrase;
-import metrics.operators.bot.globalIntents.AvgIntentWordsPerOutputPhrase;
+import metrics.operators.bot.globalIntents.AvgWordsPerOutputPhrase;
 import metrics.operators.bot.globalflow.AvgPathsFlow;
 import metrics.operators.bot.globalflow.AvgActionsPerFlow;
 import metrics.operators.bot.globalflow.AvgFlowLen;
@@ -69,14 +70,14 @@ public class asymob_metrics_ASE {
 		metricOps.insertMetric(new NumPaths());
 		metricOps.insertMetric(new AvgIntentReadingTime());
 		metricOps.insertMetric(new BotConfusingPhrases());
-		metricOps.insertMetric(new BotSentiment());
+		metricOps.insertMetric(new BotOutputSentiment());
 		
 		//Intent metrics
 		metricOps.insertMetric(new AvgIntentNumPhrases());
 		metricOps.insertMetric(new AvgIntentWordPerPhrase());
 		metricOps.insertMetric(new AvgIntentVerbPerPhrase());
 		metricOps.insertMetric(new AvgIntentParameters());
-		metricOps.insertMetric(new AvgIntentWordsPerOutputPhrase()); //WPOP			
+		metricOps.insertMetric(new AvgWordsPerOutputPhrase()); //WPOP			
 		metricOps.insertMetric(new AvgIntentCharsPerOutputPhrase()); //CPOP
 		
 		//Entity
@@ -119,8 +120,8 @@ public class asymob_metrics_ASE {
 		
 		metricOps = createMetricOperators();
 		
-		//botList = getBotList();
-		botList = getBotPrebuildList();
+		botList = getBotList();
+		//botList = getBotPrebuildList();
 
 		if(botList != null)
 		{
@@ -197,9 +198,9 @@ public class asymob_metrics_ASE {
 		
 		retList = new LinkedList<String>();
 		retList.add("model"+File.separator+"bikeShop.xmi");
-		//retList.add("chatbots"+File.separator+"conga"+File.separator+"mysteryAnimal.xmi");
 		retList.add("chatbots"+File.separator+"conga"+File.separator+"iot.xmi");
-		//retList.add("chatbots"+File.separator+"conga"+File.separator+"smallTalk.xmi");
+		/*retList.add("chatbots"+File.separator+"conga"+File.separator+"mysteryAnimal.xmi");
+		retList.add("chatbots"+File.separator+"conga"+File.separator+"smallTalk.xmi");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"HumanHandoffDemonstrationAgent.zip");
@@ -211,7 +212,7 @@ public class asymob_metrics_ASE {
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"pizza.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"hrc.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"pizzabot.zip");
-		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee_demo.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee_demo.zip");*/
 		return retList;
 	}
 	public static LinkedList<String> getBotPrebuildList()

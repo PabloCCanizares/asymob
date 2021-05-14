@@ -1,46 +1,51 @@
-package metrics.operators.intents;
+package metrics.operators.bot;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import analyser.BotAnalyser;
 import analyser.IntentAnalyser;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.util.CoreMap;
+import generator.Bot;
+import metrics.base.FloatMetricValue;
 import metrics.base.IntegerListMetricValue;
+import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
-import metrics.operators.base.IntentMetricBase;
+import metrics.operators.base.BotMetricBase;
 import support.stanford.StandfordPipeline;
 
-/**
- * Implements Socher et al’s sentiment model
- * @author Pablo C. Ca&ntildeizares
- *
- */
-public class IntentTrainingSentiment extends IntentMetricBase{
+public class BotOutputSentiment extends BotMetricBase{
 
-	public IntentTrainingSentiment(EMetricOperator metric) {
-		super(metric);
-	}
-
-	public IntentTrainingSentiment() {
-		super(EMetricOperator.eIntentTrainingSentiment);
+	public BotOutputSentiment() {
+		super(EMetricOperator.eBotOutputSentiment);
 	}
 
 	@Override
 	public void calculateMetric() {
+		LinkedList<Integer> intList;
+		
+		intList = getSentiment();
+		metricRet = new IntegerListMetricValue(this, intList);
+	}
+	
+	public LinkedList<Integer> getSentiment(){
 		int nPositive, nNegative, nNeutral;
 		String strValue;
 		Annotation annotation;
-		IntentAnalyser inAnalyser = null;
+		BotAnalyser botAnalyser = null;
 		LinkedList<String> phrasesList;
 		LinkedList<Integer> intList;
 		
-		inAnalyser = new IntentAnalyser();
+		intList = null;
+		botAnalyser = new BotAnalyser();
 		nPositive = nNegative = nNeutral = 0;
 		
 		//Extract phrases from intent
-		phrasesList = inAnalyser.extractStringPhrasesFromIntent(this.intentIn);
+		phrasesList = botAnalyser.extractAllBotOutputPhrases(this.botIn);
+		
 		if(phrasesList != null)
 		{
 			for(String strPhrase: phrasesList)
@@ -75,13 +80,12 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 			intList.add(nNeutral);
 			intList.add(nNegative);
 			
-			this.metricRet = new IntegerListMetricValue(this, intList);
-			this.metricRet.setValue(strValue); 
 		}
+		return intList;
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "ITS";
-		this.strMetricDescription = "Intent training sentiment";
-	}	
+		this.strMetricName = "SNT";
+		this.strMetricDescription = "Sentiment of the bot's interactions";
+	}
 }

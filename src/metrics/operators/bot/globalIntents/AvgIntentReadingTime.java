@@ -2,6 +2,8 @@ package metrics.operators.bot.globalIntents;
 
 import java.util.LinkedList;
 
+import analyser.BotAnalyser;
+import analyser.IntentAnalyser;
 import metrics.base.FloatMetricValue;
 import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
@@ -19,41 +21,36 @@ public class AvgIntentReadingTime extends BotMetricBase{
 		float fWords, fSeconds;
 		
 		fSeconds = 0;
-		fWords = getNumWords();
+		fWords = getAvgNumWordsByOutputPhrases();
 		if(fWords>0)
 			fSeconds = (long) (fWords * (60/WRPM));
 		
 		metricRet = new FloatMetricValue(this, fSeconds);
 	}
 
-	private float getNumWords() {
-		int nElements;
-		float fValue, fAvg;
-		LinkedList<MetricValue> metricResList;
+	private float getAvgNumWordsByOutputPhrases() {
+		BotAnalyser botAnalyser;
+		IntentAnalyser intentAnalyser;
+		LinkedList<String> phrasesList;
+		float fValue;
+		int nAux, nPhrases, nWords;
 		
-		nElements=0;
-		fValue = fAvg = 0;
+		fValue=0;
+		botAnalyser = new BotAnalyser();
+		intentAnalyser = new IntentAnalyser();
 		
-		//access to the DB
-		if(db != null)
+		phrasesList = botAnalyser.extractAllBotOutputPhrases(botIn);
+		
+		if(phrasesList != null)
 		{
-			metricResList = db.getIntentMetric(EMetricOperator.eIntentAvgWordsPerPhrase);
+			nPhrases=phrasesList.size();
+			nWords = intentAnalyser.getTotalWordsFromList(phrasesList);
 			
-			for(MetricValue metricVal: metricResList)
-			{
-				if(metricVal != null && metricVal instanceof FloatMetricValue)
-				{
-					fAvg += ((FloatMetricValue)metricVal).getFloatValue();
-					nElements++;
-				}
-			}
-			if(fAvg >0 && nElements >0)
-				fValue = (float)((float)fAvg/(float)nElements);
-			else
-				fValue =0;
-					
-			
+			if(nWords != 0 && nPhrases != 0)
+				fValue = (float)((float)nWords / (float)nPhrases);
+			else fValue =0;
 		}
+		
 		return fValue;
 	}
 	@Override

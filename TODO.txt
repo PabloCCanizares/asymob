@@ -63,6 +63,7 @@ los artifices de la generación de cada frase. Pair<EMutationOperator, String>
 
 *Chequeo core botium.
 
+*Incluir la deteccion de que la gramatica de las respuestas, y sobre todo de las output (a veces se forman mal)
 ==================================================================================================
 Posibles nuevos operadores:
 * Intercambio de simbolos de interrogación, a exclamacion.

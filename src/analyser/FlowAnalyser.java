@@ -149,7 +149,8 @@ public class FlowAnalyser {
 				for(Token tokIndex: tokenList)
 				{
 					strText = tokenAnalyser.getTokenText(tokIndex, false);
-					retList.add(strText);
+					if(strText != null && !strText.isBlank())
+						retList.add(strText);
 				}
 			}
 			else
