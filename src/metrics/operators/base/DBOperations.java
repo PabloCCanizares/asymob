@@ -50,11 +50,11 @@ public class DBOperations {
 
 	public static float getAverage(ReadOnlyMetricDB db, EMetricCategory eCategory, EMetricOperator metricIn) {
 		int nElements, nParams;
-		float fValue;
+		float fValue, fParams;
 		LinkedList<MetricValue> metricResList;
 		
 		nElements=nParams=0;
-		fValue = 0;
+		fValue = fParams = 0;
 		
 		//access to the DB
 		if(db != null)
@@ -70,9 +70,16 @@ public class DBOperations {
 						nParams += ((IntegerMetricValue)metricVal).getIntValue();
 						nElements++;
 					}
+					else if (metricVal != null && metricVal instanceof FloatMetricValue)
+					{
+						fParams += ((FloatMetricValue) metricVal).getFloatValue();
+						nElements++;
+					}
 				}
 				if(nParams >0 && nElements >0)
 					fValue = (float)((float)nParams/(float)nElements);
+				else if (fParams >0 && nElements >0)
+					fValue = (float)((float)fParams/(float)nElements);
 				else
 					fValue =0;
 			}

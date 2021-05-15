@@ -58,7 +58,7 @@ public class asymob_metrics_ASE {
 	public static void main(String[] argv)
 	{
 		System.out.println("Asymob empirical study for ASE");
-		//testSingle();
+		//testSingle("model"+File.separator+"bikeShop.xmi");
 		testMulti();
 	}
 	private static MetricOperatorsSet createMetricOperators() {
@@ -101,6 +101,7 @@ public class asymob_metrics_ASE {
 		metricOps.insertMetric(new NumLiterals());
 		metricOps.insertMetric(new AverageSynonyms());
 		metricOps.insertMetric(new EntityWordLenght());
+		metricOps.insertMetric(new FlowActionsAverage());
 		
 		return metricOps;
 	}
@@ -154,7 +155,7 @@ public class asymob_metrics_ASE {
 		
 		
 	}
-	public void testSingle()
+	public void testSingle(String strPath)
 	{
 		Asymob botTester;
 		MetricOperatorsSet metricOps;
@@ -170,11 +171,7 @@ public class asymob_metrics_ASE {
 		
 		metricOps = createMetricOperators();
 		
-		//if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
-		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
-		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"mysteryAnimal.xmi"))
-		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
-		if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip"))
+		if(botTester.loadChatbot(strPath))
 		{
 			if(botTester.measureMetrics(metricOps))
 			{
@@ -199,8 +196,8 @@ public class asymob_metrics_ASE {
 		retList = new LinkedList<String>();
 		retList.add("model"+File.separator+"bikeShop.xmi");
 		retList.add("chatbots"+File.separator+"conga"+File.separator+"iot.xmi");
-		/*retList.add("chatbots"+File.separator+"conga"+File.separator+"mysteryAnimal.xmi");
-		retList.add("chatbots"+File.separator+"conga"+File.separator+"smallTalk.xmi");
+		//retList.add("chatbots"+File.separator+"conga"+File.separator+"mysteryAnimal.xmi");
+		//retList.add("chatbots"+File.separator+"conga"+File.separator+"smallTalk.xmi");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"HumanHandoffDemonstrationAgent.zip");
@@ -212,7 +209,7 @@ public class asymob_metrics_ASE {
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"pizza.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"hrc.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"pizzabot.zip");
-		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee_demo.zip");*/
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee_demo.zip");
 		return retList;
 	}
 	public static LinkedList<String> getBotPrebuildList()

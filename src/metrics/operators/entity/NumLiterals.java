@@ -27,7 +27,7 @@ public class NumLiterals extends EntityMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "LPE";
+		this.strMetricDescription = "Number of literals per entity";
 	}
 }

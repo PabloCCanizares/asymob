@@ -5,36 +5,35 @@ import org.eclipse.emf.common.util.EList;
 import analyser.BotAnalyser;
 import generator.UserInteraction;
 import metrics.base.FloatMetricValue;
+import metrics.base.IntegerMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 
 public class AvgFlowLen extends BotMetricBase{
 
 	public AvgFlowLen() {
-		super(EMetricOperator.eAverageLength);
+		super(EMetricOperator.eGlobalMaxFlowLength);
 	}
 
 	@Override
 	public void calculateMetric() {
-		int nLength;
-		float fValue;
+		int nMaxFlow, nAux;
 		BotAnalyser botAnalyser;
 		
 		botAnalyser = new BotAnalyser();
-		nLength = 0;
-		fValue = (float) 0.0;
+		nMaxFlow = 0;
 		
 		if(botIn!= null)
 		{
 			EList<UserInteraction> userInList = botIn.getFlows();
 			for(UserInteraction userIn: userInList)
 			{
-				nLength += botAnalyser.analyseMaxLenght(userIn);
+				nAux = botAnalyser.analyseMaxLenght(userIn);
+				nMaxFlow = Math.max(nAux, nMaxFlow);
 
 			}
-			fValue =  (float)((float)nLength / (float)userInList.size());
 			
-			metricRet = new FloatMetricValue(this, fValue);
+			metricRet = new IntegerMetricValue(this, nMaxFlow);
 			
 			//Set applied metric
 			metricRet.setMetricApplied(this);

@@ -60,7 +60,7 @@ public class EntityWordLenght extends EntityMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "WL";
-		this.strMetricDescription = "Word length";
+		this.strMetricName = "EWL";
+		this.strMetricDescription = "Entity Word length";
 	}
 }

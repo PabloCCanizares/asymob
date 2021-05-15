@@ -8,7 +8,6 @@ import analyser.BotAnalyser;
 import analyser.IntentAnalyser;
 import generator.Language;
 import metrics.base.FloatMetricValue;
-import metrics.base.IntMetricValue;
 import metrics.base.IntegerMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;

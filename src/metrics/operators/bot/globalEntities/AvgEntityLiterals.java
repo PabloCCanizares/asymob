@@ -19,7 +19,6 @@ public class AvgEntityLiterals extends BotMetricBase{
 		fLiteralsAvg = DBOperations.getAverage(db, EMetricCategory.eEntity, EMetricOperator.eEntityNumLiterals);
 		metricRet = new FloatMetricValue(this, fLiteralsAvg);
 	}
-
 	
 	@Override
 	public void setMetadata() {
