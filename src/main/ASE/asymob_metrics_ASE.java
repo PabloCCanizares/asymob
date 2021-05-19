@@ -200,7 +200,7 @@ public class asymob_metrics_ASE {
 		//retList.add("chatbots"+File.separator+"conga"+File.separator+"smallTalk.xmi");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip");
-		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"HumanHandoffDemonstrationAgent.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"HumanHandoffDAgent.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"malikasinger1.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"googleChallenge.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"malaynayak.zip");
@@ -209,7 +209,7 @@ public class asymob_metrics_ASE {
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"pizza.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"hrc.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"pizzabot.zip");
-		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee_demo.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee-demo.zip");
 		return retList;
 	}
 	public static LinkedList<String> getBotPrebuildList()
