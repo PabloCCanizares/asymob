@@ -18,6 +18,7 @@ import generator.Intent;
 import metrics.IMetricAnalyser;
 import metrics.MetricAnalyserManager;
 import metrics.MetricOperatorsSet;
+import metrics.db.MetricDataBase;
 import metrics.reports.MetricReport;
 import metrics.reports.MetricReportGenerator;
 import testCases.ITestCaseGenerator;
@@ -348,4 +349,14 @@ public class Asymob {
 		
 		return metricRep;
 	}
+
+	public MetricDataBase getData() {
+		MetricDataBase ret=null;
+		if(botMetrics != null)
+			ret = ((MetricAnalyserManager) botMetrics).getData();
+	
+		return ret;
+	}
+	
+	
 }

@@ -246,5 +246,8 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 		}
 		return bRet;
 	}
+	public MetricDataBase getData() {
+		return this.metricDB;
+	}
 
 }

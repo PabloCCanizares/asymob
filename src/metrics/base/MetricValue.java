@@ -7,7 +7,7 @@ import metrics.operators.EMetricOperator;
  * @author Pablo C. Ca&ntildeizares
  *
  */
-public class MetricValue {
+public class MetricValue{
 
 	String strId;
 	Metric metricApplied;
@@ -36,6 +36,12 @@ public class MetricValue {
 	{
 		return metricApplied != null ? metricApplied.getMetricName() : "null";
 	}
+
+	public EMetricCategory getCategoryOfMetricApplied()
+	{
+		return metricApplied != null ? metricApplied.getCategory() : null;
+	}
+	
 	public void setMetricApplied(Metric metricApplied)	{
 		this.metricApplied = metricApplied;
 	}
