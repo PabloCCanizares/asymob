@@ -40,7 +40,7 @@ public class IntentTrainingSentiment extends IntentMetricBase{
 		nPositive = nNegative = nNeutral = 0;
 		
 		//Extract phrases from intent
-		phrasesList = inAnalyser.extractStringPhrasesFromIntent(this.intentIn);
+		phrasesList = inAnalyser.extractStringTrainingPhrasesFromIntent(this.intentIn);
 		if(phrasesList != null)
 		{
 			for(String strPhrase: phrasesList)

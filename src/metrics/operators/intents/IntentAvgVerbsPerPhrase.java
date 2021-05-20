@@ -30,7 +30,7 @@ public class IntentAvgVerbsPerPhrase extends IntentMetricBase{
 		
 		//Extract the phrases
 		
-		phrasesList = inAnalyser.extractStringPhrasesFromIntent(this.intentIn);
+		phrasesList = inAnalyser.extractStringTrainingPhrasesFromIntent(this.intentIn);
 		if(phrasesList != null)
 		{
 			for(String strPhrase: phrasesList)
@@ -72,7 +72,7 @@ public class IntentAvgVerbsPerPhrase extends IntentMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "IVPTP";
+		this.strMetricDescription = "Average number of verbs per training phrase";
 	}
 }

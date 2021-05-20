@@ -183,7 +183,7 @@ public class IntentAnalyser {
 					{						
 						for (IntentInput input : inputList) {
 							
-							listAux = extractStringPhrasesFromIntent(intentIn);
+							listAux = extractStringTrainingPhrasesFromIntent(intentIn);
 						}
 					}
 					stringList.add(listAux);
@@ -217,7 +217,7 @@ public class IntentAnalyser {
 		nRet = 0;
 		if(intentIn != null)
 		{
-			retList = extractStringPhrasesFromIntent(intentIn);
+			retList = extractStringTrainingPhrasesFromIntent(intentIn);
 			
 			nRet = getTotalWords(retList);
 		}
@@ -245,7 +245,7 @@ public class IntentAnalyser {
 		}
 		return nRet;
 	}
-	public LinkedList<String> extractStringPhrasesFromIntent(Intent intentIn)
+	public LinkedList<String> extractStringTrainingPhrasesFromIntent(Intent intentIn)
 	{
 		LinkedList<IntentInput>  intentList;
 		LinkedList<String> retList;
@@ -284,7 +284,7 @@ public class IntentAnalyser {
 		nRet = 0;
 		if(intentIn != null)
 		{
-			retList = extractStringPhrasesFromIntent(intentIn);
+			retList = extractStringTrainingPhrasesFromIntent(intentIn);
 			
 			nRet = getTotalCharsFromList(retList);
 		}
@@ -324,7 +324,7 @@ public class IntentAnalyser {
 		nRet = nMax = 0;
 		if(intentIn != null)
 		{
-			retList = extractStringPhrasesFromIntent(intentIn);
+			retList = extractStringTrainingPhrasesFromIntent(intentIn);
 			
 			if(retList != null)
 			{

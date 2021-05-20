@@ -46,7 +46,7 @@ public class NumPaths extends BotMetricBase{
 	@Override
 	public void setMetadata() {
 		this.strMetricName = "PATH";
-		this.strMetricDescription = "Number of exit points";
+		this.strMetricDescription = "Average number of exit points";
 	}
 
 }

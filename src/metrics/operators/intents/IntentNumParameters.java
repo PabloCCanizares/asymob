@@ -17,11 +17,9 @@ public class IntentNumParameters extends IntentMetricBase{
 	@Override
 	public void calculateMetric() {
 
-		IntentAnalyser inAnalyser;
 		EList<Parameter> paramList;
 		int nParameters;
 		
-		inAnalyser = new IntentAnalyser();
 		nParameters=0;
 		
 		if(intentIn != null)
@@ -36,7 +34,7 @@ public class IntentNumParameters extends IntentMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "INP";
+		this.strMetricDescription = "Intent number of parameters";
 	}
 }

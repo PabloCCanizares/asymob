@@ -42,12 +42,13 @@ public class AvgIntentCharsPerOutputPhrase extends BotMetricBase{
 		
 		phrasesList = botAnalyser.extractAllBotOutputPhrases(botIn);
 		
-		if(phrasesList != null)
+		if(phrasesList != null && phrasesList.size()>0)  
 		{
 			nPhrases=phrasesList.size();
 			nChars = intentAnalyser.getTotalCharsFromList(phrasesList);
 			
-			fValue = (float)((float)nChars / (float)nPhrases);
+			if(nChars >0 && nPhrases>0)
+				fValue = (float)((float)nChars / (float)nPhrases);
 		}
 		
 		return fValue;

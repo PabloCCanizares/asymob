@@ -91,7 +91,7 @@ public class IntentAvgCosineSimilarity extends IntentMetricBase{
     }
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "ICS";
+		this.strMetricDescription = "Average cosine similarity";
 	}
 }

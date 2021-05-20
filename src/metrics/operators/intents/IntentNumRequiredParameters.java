@@ -44,7 +44,7 @@ public class IntentNumRequiredParameters extends IntentMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "INRP";
+		this.strMetricDescription = "Number of required parameters";
 	}
 }

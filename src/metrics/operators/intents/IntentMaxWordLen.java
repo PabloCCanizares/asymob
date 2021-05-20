@@ -27,7 +27,7 @@ public class IntentMaxWordLen extends IntentMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "IWL";
+		this.strMetricDescription = "Max word length";
 	}
 }

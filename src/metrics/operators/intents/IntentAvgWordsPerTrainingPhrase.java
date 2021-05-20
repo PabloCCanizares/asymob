@@ -5,9 +5,9 @@ import metrics.base.FloatMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.IntentMetricBase;
 
-public class IntentAvgWordsPerPhrase extends IntentMetricBase{
+public class IntentAvgWordsPerTrainingPhrase extends IntentMetricBase{
 
-	public IntentAvgWordsPerPhrase() {
+	public IntentAvgWordsPerTrainingPhrase() {
 		super(EMetricOperator.eIntentAvgWordsPerPhrase);
 	}
 
@@ -32,7 +32,7 @@ public class IntentAvgWordsPerPhrase extends IntentMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "IWPTP";
+		this.strMetricDescription = "Average word per training phrase";
 	}
 }

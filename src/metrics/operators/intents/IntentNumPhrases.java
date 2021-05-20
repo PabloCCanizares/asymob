@@ -24,7 +24,7 @@ public class IntentNumPhrases extends IntentMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "INTP";
+		this.strMetricDescription = "Number of training phrases";
 	}
 }

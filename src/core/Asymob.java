@@ -354,9 +354,7 @@ public class Asymob {
 		MetricDataBase ret=null;
 		if(botMetrics != null)
 			ret = ((MetricAnalyserManager) botMetrics).getData();
-	
 		return ret;
 	}
-	
 	
 }

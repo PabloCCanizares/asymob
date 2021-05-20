@@ -79,10 +79,7 @@ public class BotOutputSentiment extends BotMetricBase{
 			
 			
 			if(nPositive>0)
-				//intSentiments[0] = (int) (Math.floor((float)100*((float)nNeutral/(float)nTotal)));
 				fPositive = (float)100.0*((float)nPositive/(float)nTotal);
-				//floatList.add((float)nAux-((float)100.0*((float)nPositive/(float)nTotal))); 
-			
 			
 			if(nNeutral>0)
 				fNeutral = (float)100*((float)nNeutral/(float)nTotal);		
@@ -131,7 +128,7 @@ public class BotOutputSentiment extends BotMetricBase{
 		}
 		nAdjustIndex = 100 - nPartialSum;
 		
-		if(nAdjustIndex>0)
+		if(nPartialSum > 0 && nAdjustIndex>0)
 		{
 			flArray = new float[3];
 			intOrderArray = new int[3];
@@ -143,8 +140,8 @@ public class BotOutputSentiment extends BotMetricBase{
 			}
 			
 			//store the decimal part
-			flArray[0] = (float)fNeutral-intSentiments[0];
-			flArray[1] = (float)fPositive-intSentiments[1];
+			flArray[0] = (float)fPositive-intSentiments[0];
+			flArray[1] = (float)fNeutral-intSentiments[1];
 			flArray[2] = (float)fNegative-intSentiments[2];
 			
 			//sort the decimal part
@@ -171,7 +168,7 @@ public class BotOutputSentiment extends BotMetricBase{
 			
 			for(int i=0;i<nAdjustIndex;i++)
 			{
-				intSentiments[i]++;
+				intSentiments[i%intSentiments.length]++;
 			}
 		}
 		for(int i=0;i<intSentiments.length;i++)

@@ -34,7 +34,7 @@ public class FlowActionsAverage extends FlowMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "FFACT";
+		this.strMetricDescription = "Actions per flow";
 	}
 }

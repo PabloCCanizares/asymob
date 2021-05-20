@@ -37,7 +37,7 @@ import metrics.operators.intents.IntentAvgCharsPerTrainingPhrase;
 import metrics.operators.intents.IntentAvgCosineSimilarity;
 import metrics.operators.intents.IntentAvgNounsPerPhrase;
 import metrics.operators.intents.IntentAvgVerbsPerPhrase;
-import metrics.operators.intents.IntentAvgWordsPerPhrase;
+import metrics.operators.intents.IntentAvgWordsPerTrainingPhrase;
 import metrics.operators.intents.IntentMaxWordLen;
 import metrics.operators.intents.IntentNumParameters;
 import metrics.operators.intents.IntentNumPhrases;
@@ -96,7 +96,7 @@ public class asymob_metrics_ASE {
 		metricOps.insertMetric(new IntentAvgVerbsPerPhrase());
 		metricOps.insertMetric(new IntentNumPhrases());
 		metricOps.insertMetric(new IntentNumParameters());
-		metricOps.insertMetric(new IntentAvgWordsPerPhrase());
+		metricOps.insertMetric(new IntentAvgWordsPerTrainingPhrase());
 		metricOps.insertMetric(new IntentAvgCharsPerTrainingPhrase());
 		metricOps.insertMetric(new NumLiterals());
 		metricOps.insertMetric(new AverageSynonyms());
@@ -196,8 +196,8 @@ public class asymob_metrics_ASE {
 		retList = new LinkedList<String>();
 		retList.add("model"+File.separator+"bikeShop.xmi");
 		retList.add("chatbots"+File.separator+"conga"+File.separator+"iot.xmi");
-		//retList.add("chatbots"+File.separator+"conga"+File.separator+"mysteryAnimal.xmi");
-		//retList.add("chatbots"+File.separator+"conga"+File.separator+"smallTalk.xmi");
+		retList.add("chatbots"+File.separator+"conga"+File.separator+"mysteryAnimal.xmi");
+		retList.add("chatbots"+File.separator+"conga"+File.separator+"smallTalk.xmi");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"HumanHandoffDAgent.zip");
@@ -217,20 +217,23 @@ public class asymob_metrics_ASE {
 		LinkedList<String> retList;
 		
 		retList = new LinkedList<String>();
+		
+		
+		
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Hotel-Booking.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Agent-Name.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"App-Management.zip");
-		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Car.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Coffee-Shop.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Currency-Converter.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Date.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Device.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Dining-Out.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Easter-Eggs.zip");
-		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"FAQ.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Food-Delivery.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Formats.zip");
-		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Hotel-Booking.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"FAQ.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Car.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"support.zip");
 		
 		

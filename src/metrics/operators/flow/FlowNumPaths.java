@@ -29,7 +29,7 @@ public class FlowNumPaths extends FlowMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "FPATH";
+		this.strMetricDescription = "Number of exit points";
 	}
 }

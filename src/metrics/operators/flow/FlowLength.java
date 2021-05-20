@@ -27,7 +27,7 @@ public class FlowLength extends FlowMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "FFL";
+		this.strMetricDescription = "Flow length";
 	}
 }

@@ -31,7 +31,7 @@ public class IntentAvgCharsPerTrainingPhrase extends IntentMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "ICPTP";
+		this.strMetricDescription = "Characters per training phrase";
 	}
 }

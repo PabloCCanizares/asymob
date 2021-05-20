@@ -33,7 +33,7 @@ import metrics.operators.intents.IntentAvgCharsPerTrainingPhrase;
 import metrics.operators.intents.IntentAvgCosineSimilarity;
 import metrics.operators.intents.IntentAvgNounsPerPhrase;
 import metrics.operators.intents.IntentAvgVerbsPerPhrase;
-import metrics.operators.intents.IntentAvgWordsPerPhrase;
+import metrics.operators.intents.IntentAvgWordsPerTrainingPhrase;
 import metrics.operators.intents.IntentMaxWordLen;
 import metrics.operators.intents.IntentNumParameters;
 import metrics.operators.intents.IntentNumPhrases;
@@ -95,7 +95,7 @@ public class asymob_metrics {
 		
 		//Intent metrics
 		metricOps.insertMetric(new IntentNumPhrases());
-		metricOps.insertMetric(new IntentAvgWordsPerPhrase());
+		metricOps.insertMetric(new IntentAvgWordsPerTrainingPhrase());
 		metricOps.insertMetric(new IntentAvgCharsPerTrainingPhrase());
 		metricOps.insertMetric(new IntentNumParameters());
 		metricOps.insertMetric(new IntentAvgNounsPerPhrase());

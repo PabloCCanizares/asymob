@@ -32,7 +32,7 @@ public class IntentReadabilityMetrics extends IntentMetricBase{
 		strCompleteText="";
 		//Extract the phrases
 		
-		phrasesList = inAnalyser.extractStringPhrasesFromIntent(this.intentIn);
+		phrasesList = inAnalyser.extractStringTrainingPhrasesFromIntent(this.intentIn);
 		if(phrasesList != null)
 		{
 			for(String strPhrase: phrasesList)
@@ -56,7 +56,7 @@ public class IntentReadabilityMetrics extends IntentMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "";
-		this.strMetricDescription = "";
+		this.strMetricName = "IMRM";
+		this.strMetricDescription = "Intent multiple readability metrics";
 	}	
 }
