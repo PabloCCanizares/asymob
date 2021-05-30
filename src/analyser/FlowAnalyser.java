@@ -29,6 +29,8 @@ import generator.UserInteraction;
 
 public class FlowAnalyser {
 
+	private final int ALL_PHRASES = 0;
+	private final int SINGLE_PHRASE = 1;
 	IntentAnalyser intentAnalyser;
 	InputAnalyser inputAnalyser;
 	TokenAnalyser tokenAnalyser; 
@@ -55,7 +57,7 @@ public class FlowAnalyser {
 			//text
 			if (actionIn instanceof Text)
 			{								
-				retList = handleTextAction(actionIn, bRef);
+				retList = handleTextAction(actionIn, bRef, ALL_PHRASES);
 			}
 			//image
 			else if (actionIn instanceof Image)
@@ -82,7 +84,7 @@ public class FlowAnalyser {
 
 	}
 
-	private LinkedList<String> handleTextAction(Action actionIn, boolean bRef) {
+	private LinkedList<String> handleTextAction(Action actionIn, boolean bRef, int nComposingDeep) {
 		Text actionText;
 		EList<TextLanguageInput> textLanInputList;
 		EList<TextInput> textInputList;
@@ -105,10 +107,12 @@ public class FlowAnalyser {
 						for(TextInput textIn: textInputList)
 						{
 							if(!bRef)
-								auxList =extractPhrasesFromTextAction(textIn);
+								auxList =extractPhrasesFromTextAction(textIn,nComposingDeep);
 							else
 								auxList = extractPhrasesFromTextActionByRef(textIn);
-							retList.addAll(auxList);
+							
+							if(auxList != null && auxList.size()>0)
+								retList.addAll(auxList);
 						}
 					}
 				}	
@@ -121,7 +125,7 @@ public class FlowAnalyser {
 
 	//Aqui viene lo complejo. Hay que tener en cuenta todas las frases complejas generadas previamente
 	//para poder añadirlas como opciones de respuesta del bot.
-	private LinkedList<String> extractPhrasesFromTextAction(TextInput textIn) {
+	private LinkedList<String> extractPhrasesFromTextAction(TextInput textIn, int nComposingDeep) {
 		EList<Token> tokenList;
 		LinkedList<String> retList, currentPhrase;		
 		Map<ParameterToken, LinkedList<String>> paramPhrasesMap;
@@ -166,12 +170,20 @@ public class FlowAnalyser {
 					composePhrases(0, tokenList, paramPhrasesMap, currentPhrase,composedPhrasesList);
 					
 					retList = composedPhrasesList;
+					
+					if(nComposingDeep != 0)
+					{
+						while(retList.size()>nComposingDeep)
+						{
+							retList.removeLast();
+						}
+					}
 				}
 			}
 		}
 		return retList;
 	}
-
+	
 	private void composePhrases(int nIndex, EList<Token> tokenList, Map<ParameterToken, LinkedList<String>> paramPhrasesMap, LinkedList<String> currentPhrase,
 			LinkedList<String> composedPhrasesList) {
 		Token tokenIn;
@@ -408,6 +420,37 @@ public class FlowAnalyser {
 			}
 		}
 		return nRet;
+	}
+	public LinkedList<String> extractAllOutputPhrases(Action actionIn, boolean bRef) {
+		LinkedList<String> retList;
+
+		retList = null;
+
+		if(actionIn != null)
+		{
+			//text
+			if (actionIn instanceof Text)
+			{								
+				retList = handleTextAction(actionIn, bRef, SINGLE_PHRASE);
+			}
+			//image
+			else if (actionIn instanceof Image)
+			{
+				handleImageAction(actionIn);
+			}
+			//HttpRequest
+			else if(actionIn instanceof HTTPRequest)
+			{
+				//TODO: Ver como enfocarlo y terminar esta parte
+			}
+			//HttpResponse
+			else if(actionIn instanceof HTTPResponse)
+			{
+				//TODO: Ver como enfocarlo y terminar esta parte
+
+			}
+		}
+		return retList;
 	}
 
 }

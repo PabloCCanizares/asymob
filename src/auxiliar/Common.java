@@ -14,6 +14,8 @@ import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 import org.apache.commons.io.FilenameUtils;
 
+import metrics.base.confusingmatrix.ConfusingMatrix;
+
 public class Common {
 
 	/** Creates parent directories if necessary. Then returns file */
@@ -262,5 +264,18 @@ public class Common {
 	}
 	public static String getExtension(String filename) {
 	    return FilenameUtils.getExtension(filename);
+	}
+
+
+	public static String ConfMatrixListToString(LinkedList<ConfusingMatrix> matrixList) {
+		String strRet;
+		strRet = "";
+		for(ConfusingMatrix cnfMatrix: matrixList)
+		{
+			strRet += cnfMatrix.ToString();
+			strRet +="\n";
+		}
+		
+		return strRet;
 	}
 }

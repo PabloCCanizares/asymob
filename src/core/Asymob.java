@@ -352,9 +352,16 @@ public class Asymob {
 
 	public MetricDataBase getData() {
 		MetricDataBase ret=null;
+		
 		if(botMetrics != null)
 			ret = ((MetricAnalyserManager) botMetrics).getData();
+		
 		return ret;
+	}
+	
+	public void analyseConfusingMatrix()
+	{
+		
 	}
 	
 }

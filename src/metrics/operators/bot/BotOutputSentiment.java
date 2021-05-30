@@ -51,7 +51,7 @@ public class BotOutputSentiment extends BotMetricBase{
 		//Extract phrases from intent
 		phrasesList = botAnalyser.extractAllBotOutputPhrases(this.botIn);
 		
-		if(phrasesList != null)
+		if(phrasesList != null/* && phrasesList.size()>0*/)
 		{
 			for(String strPhrase: phrasesList)
 			{
@@ -68,7 +68,10 @@ public class BotOutputSentiment extends BotMetricBase{
 					if(strValue.contains("Positive"))
 						nPositive++;
 					else if (strValue.contains("Negative"))
+					{
+						System.out.println("Negative phrase:"+strPhrase);
 						nNegative++;
+					}
 					else if (strValue.contains("Neutral"))
 						nNeutral++;
 					
@@ -100,6 +103,10 @@ public class BotOutputSentiment extends BotMetricBase{
 			else  
 				strValue = String.format("Neutral [%d, %d, %d]", nPositive, nNeutral, nNegative);
 			
+		}
+		else
+		{
+			intList = ConvertFloatToPercentages(0, 0, 0);
 		}
 		return intList;
 	}

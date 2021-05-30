@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 import core.Asymob;
 import metrics.MetricOperatorsSet;
+import metrics.operators.bot.BotConfusingMatrix;
 import metrics.operators.bot.BotConfusingPhrases;
 import metrics.operators.bot.BotOutputSentiment;
 import metrics.operators.bot.BotTrainingSentiment;
@@ -64,6 +65,8 @@ public class asymob_metrics_ASE {
 	private static MetricOperatorsSet createMetricOperators() {
 		MetricOperatorsSet metricOps = new MetricOperatorsSet();
 		//Global metrics
+		
+		
 		metricOps.insertMetric(new NumIntents());
 		metricOps.insertMetric(new NumEntities());
 		metricOps.insertMetric(new NumFlows());		
@@ -195,7 +198,7 @@ public class asymob_metrics_ASE {
 		
 		retList = new LinkedList<String>();
 		retList.add("model"+File.separator+"bikeShop.xmi");
-		retList.add("chatbots"+File.separator+"conga"+File.separator+"iot.xmi");
+		/*retList.add("chatbots"+File.separator+"conga"+File.separator+"iot.xmi");
 		retList.add("chatbots"+File.separator+"conga"+File.separator+"mysteryAnimal.xmi");
 		retList.add("chatbots"+File.separator+"conga"+File.separator+"smallTalk.xmi");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip");
@@ -209,7 +212,7 @@ public class asymob_metrics_ASE {
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"pizza.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"hrc.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"pizzabot.zip");
-		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee-demo.zip");
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"savelee-demo.zip");*/
 		return retList;
 	}
 	public static LinkedList<String> getBotPrebuildList()
@@ -217,8 +220,6 @@ public class asymob_metrics_ASE {
 		LinkedList<String> retList;
 		
 		retList = new LinkedList<String>();
-		
-		
 		
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Hotel-Booking.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Agent-Name.zip");
@@ -233,9 +234,8 @@ public class asymob_metrics_ASE {
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Formats.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"FAQ.zip");
-		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Car.zip");
 		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"support.zip");
-		
+		retList.add("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Car.zip");
 		
 		return retList;
 	}	

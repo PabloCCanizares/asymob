@@ -19,6 +19,7 @@ import generator.TrainingPhrase;
 import generator.UserInteraction;
 public class BotAnalyser {
 
+	private final int ALL_PHRASES = 0;
 	FlowAnalyser flowAnalyser;
 	
 	public BotAnalyser()
@@ -361,9 +362,8 @@ public class BotAnalyser {
 				retList = new LinkedList<String>();
 				for(Action act: actionList)
 				{
-					
-					auxList = flowAnalyser.extractAllActionPhrases(act, false);
-					if(auxList != null)
+					auxList = flowAnalyser.extractAllOutputPhrases(act, false);
+					if(auxList != null && auxList.size()>0)
 						retList.addAll(auxList);
 				}
 			}
@@ -375,7 +375,6 @@ public class BotAnalyser {
 		return flowAnalyser != null ? flowAnalyser.extractAllActionPhrases(actIndex, false) : null;
 	}
 	public List<String> extractAllActionPhrasesByRef(Action action) {
-		// TODO Auto-generated method stub
 		return flowAnalyser != null ? flowAnalyser.extractAllActionPhrases(action, true) : null;
 	}
 	/**
