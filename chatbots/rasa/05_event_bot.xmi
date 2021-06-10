@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="05_event_bot">
+  <intents name="greet">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="good morning"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="good evening"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="goodbye">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="bye"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="goodbye"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="see you around"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="see you later"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="venues_confrence">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="venues"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Venues"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="VENUES"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="batman_room_confrence">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View Session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="batman room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Batman Room"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="view_information">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="view info"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View Information"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View Info"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="view information"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="subsctibition_to_update">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Subscribe to update"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="subsribe to update"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="SUBCRIBE TO UPDATE"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="superman_room_confrence">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View Session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Superman Room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="superman room"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="hero_room_confrence">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View Session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hero Room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hero room"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="speakers_confrence">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Speakers"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="speakers"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="SPEAKERS"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Speakeres"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Speakers"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="view_session_speaker1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View Session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="view session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="VIEW SESSION"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Andrew King"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="view_session_speaker2">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View Session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="view session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="VIEW SESSION"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Daniel Evanas"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="session_speaker3">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Show More"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show more"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Rose Stone"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rose stone"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="session_rosestone">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View Session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Session Of Rose Stone"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rose stone session"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="session_freyabruke">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View Session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Session Of Freya Bruke"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="freya bruke session"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="session_confrence">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="session"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="SESSION"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Show Session"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="session_one_speaker_details">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View Speakers"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="view speakers"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="session speakers"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="session chatbot with dialogflow"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="session_two_speaker">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="View Speakers"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="view speaker"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="session chatbot in 2018"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <actions xsi:type="generator:Text" name="utter_subscribe_message_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Thanks! You'll be notified by message when there are updates about Chatbot Summit Confrence."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_session_speaker_confrence_details_empty"/>
+  <actions xsi:type="generator:Empty" name="action_speaker_confrence_more_details_empty"/>
+  <actions xsi:type="generator:Text" name="utter_greet_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hi Guest, welcome to the Chatbot Summit Confrence??"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_speaker_freya_details_empty"/>
+  <actions xsi:type="generator:Empty" name="action_speakerone_details_empty"/>
+  <actions xsi:type="generator:Text" name="utter_welcome_message_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What do you want to know about Chatbot Summit Confrence??"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_session_more_confrence_details_empty"/>
+  <actions xsi:type="generator:Empty" name="action_superman_rooom_details_empty"/>
+  <actions xsi:type="generator:Empty" name="action_speakertwo_details_empty"/>
+  <actions xsi:type="generator:Text" name="utter_view_information_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Chatbot Summit is the world's leading international event series connecting the eminent professionals and organisations who believe that Conversational A.I. will be the next curve in customer experiences."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_session_two_speaker_confrence_details_empty"/>
+  <actions xsi:type="generator:Empty" name="action_speaker_rosestone_details_empty"/>
+  <actions xsi:type="generator:Empty" name="action_session_confrence_details_empty"/>
+  <actions xsi:type="generator:Empty" name="action_hero_rooom_details_empty"/>
+  <actions xsi:type="generator:Empty" name="action_venu_confrence_details_empty"/>
+  <actions xsi:type="generator:Empty" name="action_speaker_confrence_details_empty"/>
+  <actions xsi:type="generator:Empty" name="action_batman_rooom_details_empty"/>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.3 //@actions.6">
+      <outcoming intent="//@intents.2">
+        <target actions="//@actions.15">
+          <outcoming intent="//@intents.3">
+            <target actions="//@actions.17">
+              <outcoming intent="//@intents.4">
+                <target actions="//@actions.10"/>
+              </outcoming>
+              <outcoming intent="//@intents.5">
+                <target actions="//@actions.0">
+                  <outcoming intent="//@intents.4">
+                    <target actions="//@actions.10"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+            </target>
+          </outcoming>
+          <outcoming intent="//@intents.6">
+            <target actions="//@actions.8">
+              <outcoming intent="//@intents.4">
+                <target actions="//@actions.10"/>
+              </outcoming>
+              <outcoming intent="//@intents.5">
+                <target actions="//@actions.0">
+                  <outcoming intent="//@intents.4">
+                    <target actions="//@actions.10"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+            </target>
+          </outcoming>
+          <outcoming intent="//@intents.7">
+            <target actions="//@actions.14">
+              <outcoming intent="//@intents.4">
+                <target actions="//@actions.10"/>
+              </outcoming>
+              <outcoming intent="//@intents.5">
+                <target actions="//@actions.0">
+                  <outcoming intent="//@intents.4">
+                    <target actions="//@actions.10"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+            </target>
+          </outcoming>
+        </target>
+      </outcoming>
+      <outcoming intent="//@intents.8">
+        <target actions="//@actions.16">
+          <outcoming intent="//@intents.9">
+            <target actions="//@actions.5">
+              <outcoming intent="//@intents.4">
+                <target actions="//@actions.10"/>
+              </outcoming>
+              <outcoming intent="//@intents.5">
+                <target actions="//@actions.0">
+                  <outcoming intent="//@intents.4">
+                    <target actions="//@actions.10"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+            </target>
+          </outcoming>
+          <outcoming intent="//@intents.10">
+            <target actions="//@actions.9">
+              <outcoming intent="//@intents.4">
+                <target actions="//@actions.10"/>
+              </outcoming>
+              <outcoming intent="//@intents.5">
+                <target actions="//@actions.0">
+                  <outcoming intent="//@intents.4">
+                    <target actions="//@actions.10"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+            </target>
+          </outcoming>
+          <outcoming intent="//@intents.11">
+            <target actions="//@actions.2">
+              <outcoming intent="//@intents.12">
+                <target actions="//@actions.12">
+                  <outcoming intent="//@intents.4">
+                    <target actions="//@actions.10"/>
+                  </outcoming>
+                  <outcoming intent="//@intents.5">
+                    <target actions="//@actions.0">
+                      <outcoming intent="//@intents.4">
+                        <target actions="//@actions.10"/>
+                      </outcoming>
+                    </target>
+                  </outcoming>
+                </target>
+              </outcoming>
+              <outcoming intent="//@intents.13">
+                <target actions="//@actions.4">
+                  <outcoming intent="//@intents.4">
+                    <target actions="//@actions.10"/>
+                  </outcoming>
+                  <outcoming intent="//@intents.5">
+                    <target actions="//@actions.0">
+                      <outcoming intent="//@intents.4">
+                        <target actions="//@actions.10"/>
+                      </outcoming>
+                    </target>
+                  </outcoming>
+                </target>
+              </outcoming>
+            </target>
+          </outcoming>
+        </target>
+      </outcoming>
+      <outcoming intent="//@intents.14">
+        <target actions="//@actions.13">
+          <outcoming intent="//@intents.15">
+            <target actions="//@actions.1">
+              <outcoming intent="//@intents.4">
+                <target actions="//@actions.10"/>
+              </outcoming>
+              <outcoming intent="//@intents.5">
+                <target actions="//@actions.0">
+                  <outcoming intent="//@intents.4">
+                    <target actions="//@actions.10"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+            </target>
+          </outcoming>
+          <outcoming intent="//@intents.16">
+            <target actions="//@actions.11">
+              <outcoming intent="//@intents.4">
+                <target actions="//@actions.10"/>
+              </outcoming>
+              <outcoming intent="//@intents.5">
+                <target actions="//@actions.0">
+                  <outcoming intent="//@intents.4">
+                    <target actions="//@actions.10"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+            </target>
+          </outcoming>
+          <outcoming intent="//@intents.11">
+            <target actions="//@actions.7">
+              <outcoming intent="//@intents.15">
+                <target actions="//@actions.11">
+                  <outcoming intent="//@intents.4">
+                    <target actions="//@actions.10"/>
+                  </outcoming>
+                  <outcoming intent="//@intents.5">
+                    <target actions="//@actions.0">
+                      <outcoming intent="//@intents.4">
+                        <target actions="//@actions.10"/>
+                      </outcoming>
+                    </target>
+                  </outcoming>
+                </target>
+              </outcoming>
+            </target>
+          </outcoming>
+        </target>
+      </outcoming>
+    </target>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

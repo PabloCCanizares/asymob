@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="08_travel_agency_bot">
+  <intents name="greet">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="good morning"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="good evening"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="main_menu">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Let's see"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Main menu"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="menu"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="plan_my_trip">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Plan My Trip"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="plan my tip"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="PLAN MY TRIP"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="activities_offered">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Activities Offered"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="activities offered"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="activities"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Activities"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="more_info_zipline_tour">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="More Information"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="About Zipline Tour"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="zipline tour"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="more_info_natural_exploration">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="More Information"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="About Natural Exploration"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="about natural exploration"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="more_info_subwing">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="More Information"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="About subwing"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="subwing"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="tour_details_zipline">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tour details"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tour details zipline tour"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="tour_details_natural_exploration">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tour Details"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tour details natural exploration"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="tour_details_subwing">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tour Details"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tour details subwing"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="add_to_mytrip">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Add to My trip"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="add to my trip"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="contact_us">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Contact Us"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="contact us"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="testimonials">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Testimonials"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="testimonials"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="TESTIMONIALS"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="about_costa_rica">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="About Costa Rica"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="costa rica"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="about costa rica"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="tips_and_tricks">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tips And Tricks"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tips and tricks"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="tips_1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tips1"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tips1"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="tips_2">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tips1"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tips1"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="tips_3">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tips3"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tips3"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="other_activities">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Other Activities"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="other activities"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="OTHER ACTIVITIES"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <actions xsi:type="generator:Text" name="utter_tips2_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? Costa Rica is considered the 'greenest' country in the world and it ranked first in the Happy Planet Index&#xA;"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_tips3_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Costa Rica is very creative when its comes to driving. They usually pay no attention to traffic laws and drive like they are 'kings of the road'?&#xA;If you rent a car, you should know there are few or no street signs in most part of the country, so getting around will be a bit of a challenge"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_travel_date_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="When are you planning to travel?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_zipline_tour_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="? Costa Rica Zipline tour begins with a 10-minute ride up the hill aboard our specially designed 40 passenger tracker. Once at the top of the moutain we will start to descend"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_greet_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hello Guest!&#xA;&#xA;Welcome to Costa Rica Adventure, where your comfrot, personal safety and total satisfaction is the highest priority"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_testimonials_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We are so exited to share with these testimonials from our clients?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_testimonials_empty"/>
+  <actions xsi:type="generator:Text" name="utter_ask_travel_period_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="How long are you planning to travel?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_activities_offerd_empty"/>
+  <actions xsi:type="generator:Text" name="utter_tips_tricks_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? Even though Costa Rica is one of the most popular and visited countries in Central America, ?there are a few things many things travelers aren't aware"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_tip1_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="? Street food is the best food in Costa Rica, Costa Rican cuisine is delicious and some of the best eating spots are littile roadside local restaurents and 'sodas'"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_subwing_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? Enjoy a full day adventure on the gorgeous Tortuga Island, We cater to groups of up to 8 people maximum"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_child_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Are children traveling with you?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_about_costa_rica_empty"/>
+  <actions xsi:type="generator:Text" name="utter_zipline_tour_details_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="? Lenght of the tour: 2 hours&#xA;&#xA;? Location: 15 minute away from Jaco Beach&#xA;&#xA;Includes: transprotation round trip,safety equipment,experience guides and insured vechicles&#xA;&#xA;Recommendations: confortable clothing,sun glasses,camera and sun block&#xA;&#xA;&#xA;?:$ 70 per person"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_adults_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="How many adults are coming?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_trip_type_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What kind of trip are you looking for?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_add_trip_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Well done,trip is  added sucessfully"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_natural_tour_details_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="? Lenght of the tour: full day&#xA;&#xA;Minpeople: 4&#xA;&#xA;Includes: transprotation round trip,fruit snacks,experience guides,lunch,entrence ticket and water&#xA;&#xA;Recommendations: light cloth,bathing suit,sneakers&#xA;&#xA;&#xA;?:$ 120 per person"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_welcome_message_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ready to make your Costa Rica trip planning easy, make it worry-free and seamless?!&#xA; Click &lt;Plan My Trip> "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_phno_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What's your best phone number? to reach you at?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_plan_trip_one_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="? We look forward to assisting you with your travel planning needs"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_natural_exploration_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Many  speceis of flora and fauna are unique to the park and found nowhere else on the earth&#xA;&#xA; upon arrival at the park,your guide will slowly walk in search of wildlife "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_subwing_tour_details_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="? Lenght of the tour: full day&#xA;&#xA;min.people: 2&#xA;&#xA;Includes: transprotation round trip,safety equipment,experience guides and insured vechicles&#xA;&#xA;Recommendations: swing suits,towel,sun screen and loads of energy&#xA;&#xA;&#xA;?:$ 125 per person"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_budget_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What's an estimated budget per person(excluding airfare)?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_activities_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="? We offer a wide range of adventure and nature activities that will always take place in in private mode, using our own equipment and guides&#xA;&#xA; please choose an option to get started"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_contact_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="? our office is open monday-friday 8 am- 5 pm , local costa rica time"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_costa_rica_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="...Costa Rica is a country that is as appealing to families and honeymooners as it is to luxery travelers and adventure seekers&#xA;Even though Costa Rica is 8 degree above the equator, Costa Rica is much more 'tempreture' than most North American locations"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_email_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What's your best email address, so we can send you details?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_otherActivities_costa_rica_empty"/>
+  <actions xsi:type="generator:Text" name="utter_about_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="From vast stretches of Caribbean and pacific coastline, wild rainforest and wide open savannas, to imposing mountains,lush river valleys and beguiling cloud forests..."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_first_message_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I'm VIP concierge and i'wiil help you to make your Costa Rica vacation to be perfect ????? right after you click the button below"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.4 //@actions.31">
+      <outcoming intent="//@intents.1">
+        <target actions="//@actions.19">
+          <outcoming intent="//@intents.2">
+            <target actions="//@actions.21"/>
+          </outcoming>
+          <outcoming intent="//@intents.3">
+            <target actions="//@actions.25 //@actions.8">
+              <outcoming intent="//@intents.4">
+                <target actions="//@actions.3 //@actions.14">
+                  <outcoming intent="//@intents.18">
+                    <target actions="//@actions.29"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+              <outcoming intent="//@intents.5">
+                <target actions="//@actions.22">
+                  <outcoming intent="//@intents.18">
+                    <target actions="//@actions.29"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+              <outcoming intent="//@intents.6">
+                <target actions="//@actions.11 //@actions.23">
+                  <outcoming intent="//@intents.18">
+                    <target actions="//@actions.29"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+              <outcoming intent="//@intents.7">
+                <target actions="//@actions.14">
+                  <outcoming intent="//@intents.18">
+                    <target actions="//@actions.29"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+              <outcoming intent="//@intents.8">
+                <target actions="//@actions.18">
+                  <outcoming intent="//@intents.18">
+                    <target actions="//@actions.29"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+              <outcoming intent="//@intents.9">
+                <target actions="//@actions.23">
+                  <outcoming intent="//@intents.18">
+                    <target actions="//@actions.29"/>
+                  </outcoming>
+                </target>
+              </outcoming>
+              <outcoming intent="//@intents.10">
+                <target actions="//@actions.17"/>
+              </outcoming>
+            </target>
+          </outcoming>
+          <outcoming intent="//@intents.11">
+            <target actions="//@actions.26"/>
+          </outcoming>
+          <outcoming intent="//@intents.12">
+            <target actions="//@actions.5 //@actions.6"/>
+          </outcoming>
+          <outcoming intent="//@intents.13">
+            <target actions="//@actions.30 //@actions.13 //@actions.27"/>
+          </outcoming>
+          <outcoming intent="//@intents.14">
+            <target actions="//@actions.9">
+              <outcoming intent="//@intents.15">
+                <target actions="//@actions.10 //@actions.0"/>
+              </outcoming>
+              <outcoming intent="//@intents.17">
+                <target actions="//@actions.1"/>
+              </outcoming>
+            </target>
+          </outcoming>
+        </target>
+      </outcoming>
+    </target>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

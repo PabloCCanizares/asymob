@@ -19,6 +19,7 @@ import support.stanford.StandfordPipeline;
 
 public class BotOutputSentiment extends BotMetricBase{
 
+	private final boolean PRINT = false; 
 	public BotOutputSentiment() {
 		super(EMetricOperator.eBotOutputSentiment);
 	}
@@ -69,7 +70,8 @@ public class BotOutputSentiment extends BotMetricBase{
 						nPositive++;
 					else if (strValue.contains("Negative"))
 					{
-						System.out.println("Negative phrase:"+strPhrase);
+						if(PRINT)
+							System.out.println("Negative phrase:"+strPhrase);
 						nNegative++;
 					}
 					else if (strValue.contains("Neutral"))
@@ -102,7 +104,6 @@ public class BotOutputSentiment extends BotMetricBase{
 				strValue = String.format("Negative [%d, %d, %d]", nPositive, nNeutral, nNegative);
 			else  
 				strValue = String.format("Neutral [%d, %d, %d]", nPositive, nNeutral, nNegative);
-			
 		}
 		else
 		{

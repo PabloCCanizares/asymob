@@ -3,6 +3,7 @@ package metrics.operators.intents;
 import java.util.LinkedList;
 import java.util.List;
 
+import analyser.BotAnalyser;
 import analyser.IntentAnalyser;
 import edu.stanford.nlp.ling.TaggedWord;
 import metrics.base.FloatMetricValue;
@@ -10,16 +11,17 @@ import metrics.operators.EMetricOperator;
 import metrics.operators.base.IntentMetricBase;
 import support.stanford.StandfordTagger;
 
-public class IntentAvgVerbsPerPhrase extends IntentMetricBase{
+public class IntentAvgVerbsPerOutputPhrase extends IntentMetricBase{
 
-	public IntentAvgVerbsPerPhrase() {
-		super(EMetricOperator.eIntentAvgVerbsPerPhrase);
+	public IntentAvgVerbsPerOutputPhrase() {
+		super(EMetricOperator.eIntentAvgVerbsPerOutputPhrase);
 	}
 
 	@Override
 	public void calculateMetric() {
 
 		IntentAnalyser inAnalyser;
+		BotAnalyser botAnalyser;
 		int nPhrases, nNouns;
 		float fAverage;
 		LinkedList<String> phrasesList;
@@ -27,10 +29,11 @@ public class IntentAvgVerbsPerPhrase extends IntentMetricBase{
 		nNouns = 0;
 		fAverage = 0;
 		inAnalyser = new IntentAnalyser();
-		
+		botAnalyser = new BotAnalyser();
 		//Extract the phrases
 		
-		phrasesList = inAnalyser.extractStringTrainingPhrasesFromIntent(this.intentIn);
+		phrasesList = botAnalyser.extractStringOutputPhrasesFromIntent(this.botIn, this.intentIn);
+		
 		if(phrasesList != null)
 		{
 			for(String strPhrase: phrasesList)
@@ -72,7 +75,7 @@ public class IntentAvgVerbsPerPhrase extends IntentMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "IVPTP";
-		this.strMetricDescription = "Average number of verbs per training phrase";
+		this.strMetricName = "IVPOP";
+		this.strMetricDescription = "Average number of verbs per output phrase";
 	}
 }

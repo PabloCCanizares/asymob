@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="06_hotel_bot">
+  <intents name="greet">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="good morning"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="good evening"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="nearest_attraction">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="nearest attraction"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="nearest attractions"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Nearest Attraction"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Nearest Attractions"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="NEAREST ATTRACTION"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="NEAREST ATTRACTIONS"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="marine_drive">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Read More"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="marine Drive"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Marine Drive"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="mattancherry">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Read More"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="mattancherry"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Mattancherry"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="fort_kochi">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Read More"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Fort kochi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="fort kochi"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="book_rooms">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="book rooms"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Book Rooms"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="book room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Book Room"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="dulex_room_details">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Read More"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Dulex Room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="dulex room"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="junior_suite_details">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Read More"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Junior Suite"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="junior suite"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="club_suite_details">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Read More"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Club Suite"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="club suite"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="book_room_now">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Book Now"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="BOOK NOW"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="book now"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqbreakfast">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="breakfast menu"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I see your breakfast menu"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="please show me the breakfast menu"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me your breakfast menu"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Breakfast Menu"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqcancellationpolicy">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the cancellation policy?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="cancel policy"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what should I do for cancelling the reservation?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the cancellation process"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="cancellation policy?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqcheckin">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the check-in time of a hotel?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the standard check-in?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="At what time can I check-in?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the checkin time?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the check-in time?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Check-in time?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqcheckinage">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the minimum age required to check in?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="check in age"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="age for check in"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="at what age do you allow me to check in"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="minimum age required to check in?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqcheckout">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the check-out time?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the checkout time?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the check-out time of a hotel?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="checkout time?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqchildrenage">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the maximum age for the children to stay for free?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is it possible for my children to stay for free?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can children stay for free"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do children stay for free?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqearlycheckin">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is it possible for early check in"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="will you allow for the early check in?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="early check in"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqlatecheckin">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is it possible for late check in?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="late check-in"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="will you allow for the late check in?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqlatecheckout">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I request a late check out?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is it possible for late check out"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="will you allow for the late check out?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="late check out"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqroomcount">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is there a limit for the number of rooms a person can book"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="number of rooms a person can reserve"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no.of rooms a person can book"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqbabycot">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what about baby cots"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do you provide a baby cot?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="will you arrange a bay cot for my baby?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is there a baby cot in the room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="baby cots provided?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="baby cots"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Are baby cots available at all of your hotels?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Are baby cots available for the rooms?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqbreakfasttime">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you specify the time for the breakfast?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="at what time will you serve the breakfast?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the time for the breakfast?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqrefundable">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is it possible to get a refund for my room?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the refund policy"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is refund available"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is my room refundable?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqreceptiontime">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is reception open now?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is reception open all the time"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the timing of reception?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is Reception open 24 hours?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reception time"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Reception Time"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqparking">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How do I know if the hotel has parking facilities?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="car parking available?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do you provide car parking?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is there a parking space"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Does Hotel provide parking?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is car parking available?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I park my car in the hotel car parking"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is there a space for parking my car?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="car parking"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Are there car parking spaces or a car park?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqparkingcost">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is the car parking cost?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="parking cost"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Parking Cost"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How much does parking cost?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqpartialcancel">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I cancel only certain parts of my reservation (for example one of the two booked rooms)?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is it possible for partially cancelling the rooms"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I partially cancel my hotel booking?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faq">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="FAQ"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="faq"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Faq"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqpetpolicy">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I bring my pet?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is it possible to bring my pets with me"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I bring my pets with me?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is there a charge for bringing my pets"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Are pets allowed to stay at the hotel?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="pet policy contact number"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqreservaconfirm">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How can I confirm that my reservation has been made?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I know is my reservation confirmed?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I confirm that the reservation is complete?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how to know that the reservation is confirmed?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How do I know if my reservation is confirmed?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqnearestairport">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="airport?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where is the nearest airport?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is there an airport near by?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is there an airport very close to the hotel?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="which is the nearest airport"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqmodifyreservation">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="If I change the dates of my stay, will this influence the price?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I modify my reservation"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="If I modify my reservation will my rate change?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqmeetingroom">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="which are the meeting equipment available in the hotel?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to arrange a meeting"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what are the available facilities for arranging meeting there?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="meeting arrangements in the hotel"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqsecurity">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tell me about the security services"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tell me the security arrangements of the hotel"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what are the security systems available"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What security arrangements are available in your hotel?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqluggage">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you store my luggages?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="will you store my luggages?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="luggage storage facility available?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is there a place for storing my luggage?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is it possible to store my luggage when I go out"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="store luggages"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I leave my luggages?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="will you store my luggage?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="faqcontactnumber">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the customer support number?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is your phone number?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you give me the hotel contact number"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="contact number"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is there a contact number for the hotel?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the contact number of the reception?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <actions xsi:type="generator:Text" name="utter_cancellationpolicy_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="If your travel plans change, you can cancel or modify your reservation in accordance with the hotel's cancellation policy as stated during the reservation process."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_latecheckout_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes, our guests can request for late check out but it will be subject to availability.and a supplementary charge."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_greet_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hi , Welcome to Hotel Presidency!??"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_refundable_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Most hotel rooms are fully refundable if you cancel before the hotel's cancellation deadline, which varies across accommodations.Some hotel rooms are non-refundable.If you cancel a non-refundable accommodation booking, or cancel your booking after the accommodation's cancellation deadline, you are not eligible for a refund, regardless of the payment method used."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_book_rooms_details_empty"/>
+  <actions xsi:type="generator:Text" name="utter_earlycheckin_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Early check-in is possible subjected to the availability."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_mattancherry_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Historic Mattancherry is known for 16th-century Mattancherry Palace, built by the Portuguese in traditional Keralan style. Jew Town, the atmospheric area around the 1500s Jewish Synagogue, has charming cafes and shops selling antiques, crafts, and spices on Synagogue Lane and Jew Town Road."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_clubsuite_details_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="An exclusive 600 sqft room that redefines luxury with two bedrooms, walk-in wardrobes, entertainment area, a kitchenette, private balcony and unparalleled views of the City.AMENITIES 55&#x201d; Smart IPTV Bathrooms with walk-in shower and bathtubHairdryerCoffee Machine Refrigerator,Microwave Oven,Toaster Iron/ironing board In-roomlaptop-sized electronic safeBuilt-In Induction Hob with a Built-In HoodComplimentary Wi-Fi &amp; Two Way Airport TransfersAccess to boardroom, and Grand Club serving breakfast and evening refreshmentsComplimentary bottled mineral water."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_faq_prompt_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="OK.you can ask me anything you would like to know"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_room_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="How many rooms would you like to book?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_parkingcost_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="The car park costs is included in the room rate."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_receptiontime_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Reception service is available 24 hours."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_check_in_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="On which date would you like to check in? E.g. July 10"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_miminumage_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="The hotel has a minimum age requirement of 21 years old. Please call the hotel directly prior to your arrival to make any necessary arrangements. Hotel direct phone numbers can be found on your confirmation email or on the Hotel Information page"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_modifyreservation_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Possibly. Rates are set by factors such as time of year, day of the week, length of stay, room type, number of individuals in the room, etc. Modification of any of these items may result in changes to the room rate. Please be sure to re-enter any special rate types to ensure that your search checks availability for those special rates."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_roomcount_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="A person can book as many number of rooms needed ."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_security_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="The Hotel has the following Security Arrangements:&#xA;Fire Safety&#xA;Wet Riser System&#xA;Alarm Syste&#xA;CCTV Cameras&#xA;24-hours Control Room to monitor the security cameras&#xA;Door Metal Detector&#xA;Hand Metal Detector&#xA;Mirror Metal Detector&#xA;EVD Machine to scan the luggage &#xA;24-hours fire fighting &amp; first aid trained security guards&#xA;2 nursing homes at a &#xbd; km distance"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_child_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="How many children (below 12 years old) are staying?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_name_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Please provide us your name"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_babycot_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes.Baby cots are available in our hotel"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_partialcancel_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="A hotel booking cannot be partially cancelled. On cancellation all rooms booked will get cancelled."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_nearestairport_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Cochin (Airport Code: COK) has regular domestic and international flights to most major destinations  in the world. The airport is 23 kms ( 35 mins drive) from the Hotel."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_nearest_attractions_empty"/>
+  <actions xsi:type="generator:Empty" name="action_book_rooms_empty"/>
+  <actions xsi:type="generator:Text" name="utter_contactnumber_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="The hotel can be contacted directly on 0333 444 5555."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_adults_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="How many adults (above 12 years old) are staying?"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_marine_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Marine Drive is a buzzing waterfront district known for the Marine Walkway, popular for evening strolls, and leafy Subhash Bose Park. The modern Rainbow and Kettuvallam bridges offer backwater views, and cruises leave from jetties by the water."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_check_out_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="When would you like to checkout? E.g. July 12"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_reservationconfirm_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="As soon as you have completed the booking process, you will receive an ID number as confirmation. We will also send you a confirmation email and voucher with all your booking information."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_petpolicy_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Pets are not allowed in the hotel"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_checkintime_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="The check-in time is after 12 p.m. Let us know your arrival time in case you schedule an early check-in we'll do our best to make your room available."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_checkout_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Check-out time is 12.00 noon."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_meetingroom_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="11 Event Room 25,962 sq ft&#xA;Total Event Space 1,600"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_phno_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Please provide us your phone number"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_faqbreakfast_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Buffet breakfast, fee from 899.00 INR &#xA;Continental breakfast, fee from 475.00 INR &#xA;Full American breakfast, fee from 625.00 INR"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_luggage_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes, We can look after your luggage. If  your room is not ready for check-in  or in case of early check out we will store your luggage free of charge and also on the days between your check-in and check-out"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_fortkochi_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Fort Kochi is a destination of immense historical interest and a jewel in the crown of Kerala with its European heritage and true cosmopolitan temperament."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_breakfasttime_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Breakfast is served from 7am to 10am, every day."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_carparking_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Our hotel has a private car parking."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_dulexroom_details_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="These Deluxe Rooms let you relax as you admire a beautiful view of the pool. Stay connected as you enjoy our free WiFi and watch movies with our 32-inch LCD TV and DVD player. Refresh yourself as you take a step into our rain shower.AMENITIES55&#x201d; Smart IPTV  Bathrooms with walk-in shower and bathtubHairdryerCoffee MachineRefrigerator,Microwave Oven,Toaster Iron/ironing board In-roomlaptop-sized electronic safeBuilt-In InductionHob with a Built-In HoodComplimentary Wi-Fi &amp; Two Way Airport TransfersAccess to the boardroom, and Grand Club serving breakfast and evening refreshmentsComplimentary bottled mineral water."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_ask_email_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Please provide us your email"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_childrenage_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes, children up to the age of 2 stay for free (accompanied by an adult)."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_latecheckin_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We hold rooms until 7 am the next morning. If you are going to be late, call the hotel and they will hold your room."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_juniorsuite_details_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="An exclusive 400 sqft room that redefines luxury with two bedrooms, walk-in wardrobes, entertainment area, a kitchenette, private balcony and unparalleled views of the City. AMENITIES55&#x201d; Smart IPTVBathrooms with walk-in shower and bathtubHairdryerCoffee MachineRefrigerator,Microwave Oven,Toaster Iron/ironing boardIn-room laptop-sized electronic safeBuilt-In Induction Hob with a Built-In HoodComplimentary Wi-Fi &amp; Two Way Airport TransfersAccess to boardroom, and Grand Club serving breakfast and evening refreshmentsComplimentary bottled mineral water."/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.2">
+      <outcoming intent="//@intents.1">
+        <target actions="//@actions.22">
+          <outcoming intent="//@intents.2">
+            <target actions="//@actions.26"/>
+          </outcoming>
+          <outcoming intent="//@intents.3">
+            <target actions="//@actions.6"/>
+          </outcoming>
+          <outcoming intent="//@intents.4">
+            <target actions="//@actions.36"/>
+          </outcoming>
+        </target>
+      </outcoming>
+      <outcoming intent="//@intents.5">
+        <target actions="//@actions.4 //@actions.23">
+          <outcoming intent="//@intents.6">
+            <target actions="//@actions.39"/>
+          </outcoming>
+          <outcoming intent="//@intents.7">
+            <target actions="//@actions.43"/>
+          </outcoming>
+          <outcoming intent="//@intents.8">
+            <target actions="//@actions.7"/>
+          </outcoming>
+          <outcoming intent="//@intents.9">
+            <target actions="//@actions.4"/>
+          </outcoming>
+        </target>
+      </outcoming>
+      <outcoming intent="//@intents.27">
+        <target actions="//@actions.8">
+          <outcoming intent="//@intents.10">
+            <target actions="//@actions.34"/>
+          </outcoming>
+          <outcoming intent="//@intents.11">
+            <target actions="//@actions.0"/>
+          </outcoming>
+          <outcoming intent="//@intents.12">
+            <target actions="//@actions.30"/>
+          </outcoming>
+          <outcoming intent="//@intents.13">
+            <target actions="//@actions.13"/>
+          </outcoming>
+          <outcoming intent="//@intents.14">
+            <target actions="//@actions.31"/>
+          </outcoming>
+          <outcoming intent="//@intents.15">
+            <target actions="//@actions.41"/>
+          </outcoming>
+          <outcoming intent="//@intents.16">
+            <target actions="//@actions.5"/>
+          </outcoming>
+          <outcoming intent="//@intents.17">
+            <target actions="//@actions.42"/>
+          </outcoming>
+          <outcoming intent="//@intents.19">
+            <target actions="//@actions.15"/>
+          </outcoming>
+          <outcoming intent="//@intents.20">
+            <target actions="//@actions.19"/>
+          </outcoming>
+          <outcoming intent="//@intents.21">
+            <target actions="//@actions.37"/>
+          </outcoming>
+          <outcoming intent="//@intents.22">
+            <target actions="//@actions.3"/>
+          </outcoming>
+          <outcoming intent="//@intents.23">
+            <target actions="//@actions.11"/>
+          </outcoming>
+          <outcoming intent="//@intents.24">
+            <target actions="//@actions.38"/>
+          </outcoming>
+          <outcoming intent="//@intents.25">
+            <target actions="//@actions.10"/>
+          </outcoming>
+          <outcoming intent="//@intents.26">
+            <target actions="//@actions.20"/>
+          </outcoming>
+          <outcoming intent="//@intents.28">
+            <target actions="//@actions.29"/>
+          </outcoming>
+          <outcoming intent="//@intents.29">
+            <target actions="//@actions.28"/>
+          </outcoming>
+          <outcoming intent="//@intents.30">
+            <target actions="//@actions.21"/>
+          </outcoming>
+          <outcoming intent="//@intents.31">
+            <target actions="//@actions.14"/>
+          </outcoming>
+          <outcoming intent="//@intents.32">
+            <target actions="//@actions.32"/>
+          </outcoming>
+          <outcoming intent="//@intents.33">
+            <target actions="//@actions.16"/>
+          </outcoming>
+          <outcoming intent="//@intents.34">
+            <target actions="//@actions.35"/>
+          </outcoming>
+          <outcoming intent="//@intents.35">
+            <target actions="//@actions.24"/>
+          </outcoming>
+        </target>
+      </outcoming>
+    </target>
+  </flows>
+  <flows intent="//@intents.18">
+    <target actions="//@actions.1"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

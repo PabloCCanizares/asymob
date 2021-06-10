@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="09_news_api">
+  <intents name="greet">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="good morning"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="good evening"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="news_headline">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="News Headline"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="news headline"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="News Headlines"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="news headlines"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="news_us">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="News Headline US"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="news headline us"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="us news headlines"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="news_india">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="News Headline India"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="news headline india"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="india news headline"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="news_australia">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="News Headline Australia"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="news headline Australia"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Australia news headline"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="news_from_source">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="NEWS from Specefic Source"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="news from specefic source"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="bbc_news">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="BBC NEWS"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="bbc news"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="BBC news"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="abc_news">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ABC NEWS"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="abc news"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ABC news"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="cnn_news">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="CNN NEWS"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="cnn news"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="search_news">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Search News"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="search news"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <actions xsi:type="generator:Text" name="utter_newssource_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Please select an source from below"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_greet_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hi! To know about latest news please select an option"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_news_abc_empty"/>
+  <actions xsi:type="generator:Empty" name="action_news_headline_au_empty"/>
+  <actions xsi:type="generator:Text" name="utter_newsheadline_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Please select an option from below"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_news_bbc_empty"/>
+  <actions xsi:type="generator:Empty" name="action_news_cnn_empty"/>
+  <actions xsi:type="generator:Empty" name="action_news_search_empty"/>
+  <actions xsi:type="generator:Text" name="utter_ask_topic_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Please enter a topic to search"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_news_headline_us_empty"/>
+  <actions xsi:type="generator:Empty" name="action_news_headline_india_empty"/>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.1">
+      <outcoming intent="//@intents.1">
+        <target actions="//@actions.4">
+          <outcoming intent="//@intents.2">
+            <target actions="//@actions.9"/>
+          </outcoming>
+          <outcoming intent="//@intents.3">
+            <target actions="//@actions.10"/>
+          </outcoming>
+          <outcoming intent="//@intents.4">
+            <target actions="//@actions.3"/>
+          </outcoming>
+        </target>
+      </outcoming>
+      <outcoming intent="//@intents.5">
+        <target actions="//@actions.0">
+          <outcoming intent="//@intents.6">
+            <target actions="//@actions.5"/>
+          </outcoming>
+          <outcoming intent="//@intents.7">
+            <target actions="//@actions.2"/>
+          </outcoming>
+          <outcoming intent="//@intents.8">
+            <target actions="//@actions.6"/>
+          </outcoming>
+        </target>
+      </outcoming>
+      <outcoming intent="//@intents.9">
+        <target actions="//@actions.7"/>
+      </outcoming>
+    </target>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

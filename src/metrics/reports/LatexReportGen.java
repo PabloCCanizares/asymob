@@ -94,7 +94,7 @@ public class LatexReportGen extends MetricReportGenerator{
 			for(MetricValue met: botMetrics)
 			{
 				//System.out.printf("%s = %s [%s]\n", met.getMetricApplied(), met.getValue(), met.getUnit());
-				buffOut = buffOut.append(String.format("&%s", met.getMetricApplied()));
+				buffOut = buffOut.append(String.format("&{ \\bf %s}", met.getMetricApplied()));
 			}
 			buffOut = buffOut.append("\n");
 		}
@@ -118,7 +118,7 @@ public class LatexReportGen extends MetricReportGenerator{
 			if(botMetrics != null && botMetrics.size()>0)
 			{
 				
-				buffOut.append(chatbotEntry.getBotName()+"&DialogFlow&G");
+				buffOut.append(chatbotEntry.getBotName()+"&Rasa&G");
 				//Titles
 				/*for(MetricValue met: botMetrics)
 				{

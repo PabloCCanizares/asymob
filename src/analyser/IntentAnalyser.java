@@ -11,6 +11,7 @@ import generator.IntentInput;
 import generator.IntentLanguageInputs;
 import generator.Parameter;
 import generator.ParameterReferenceToken;
+import generator.RegexInput;
 import generator.Token;
 import generator.TrainingPhrase;
 
@@ -370,6 +371,28 @@ public class IntentAnalyser {
 			}
 		}
 		
+		return nRet;
+	}
+
+	public int getTotalRegularExp(Intent intentIn) { 
+		int nRet;
+		LinkedList<IntentInput> intentList;
+		
+		nRet = 0;
+		if(intentIn != null)
+		{
+			intentList = extractAllInputs(intentIn);
+			
+			if(intentList != null)
+			{
+				for(IntentInput inIn: intentList)
+				{
+					
+					if(inIn instanceof RegexInput)
+						nRet++;
+				}
+			}
+		}
 		return nRet;
 	}
 }

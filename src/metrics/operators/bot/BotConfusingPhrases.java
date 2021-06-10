@@ -15,6 +15,7 @@ import support.tensorflow.TensorflowHandler;
 
 public class BotConfusingPhrases extends BotMetricBase{
 
+	private final boolean CNF_PRINT = false;
 	private final float fThresold = (float) 0.60;
 	HashMap<Language, LinkedList<LinkedList<String>>> hashMapPhrases;
 	public BotConfusingPhrases() {
@@ -61,7 +62,8 @@ public class BotConfusingPhrases extends BotMetricBase{
 							confusingPhrases.addAll(confusingAux);
 							nConfusingPhrases+= confusingAux.size()-1;
 							
-							System.out.print("CNF:"+confusingAux+"\n");
+							if(CNF_PRINT)
+								System.out.print("CNF:"+confusingAux+"\n");
 						}
 					}
 				}

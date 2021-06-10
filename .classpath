@@ -36,5 +36,6 @@
 	<classpathentry kind="lib" path="lib/jackson-databind-2.9.9.jar"/>
 	<classpathentry kind="lib" path="lib/stanford-corenlp-4.2.0.jar" sourcepath="lib/stanford-corenlp-4.2.0-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="lib/stanford-corenlp-4.2.0-models.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

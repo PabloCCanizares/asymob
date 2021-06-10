@@ -431,4 +431,53 @@ public class BotAnalyser {
 		
 		return hashMapPrhases;
 	}
+	public LinkedList<String> extractStringOutputPhrasesFromIntent(Bot botIn, Intent intentIn) {
+		EList<Action> actionList;
+		EList<UserInteraction> flowList;
+		LinkedList<String> retList, auxList;
+		UserInteraction flow;
+		int nIndex;
+		boolean bFound;
+		
+		bFound = false;
+		retList = null;
+		if(botIn != null)
+		{
+			flowList = botIn.getFlows();
+			
+			nIndex=0;
+			if(flowList != null)
+			{
+				retList = new LinkedList<String>();
+				while(nIndex<flowList.size() && !bFound)
+				{
+					flow = flowList.get(nIndex);
+					if(areEquals(flow.getIntent(), intentIn)) //TODO: Faltaria buscar en el outcomming
+					{
+						bFound = true;
+						actionList = flow.getTarget().getActions();
+						
+						for(Action act: actionList)
+						{
+							auxList = flowAnalyser.extractAllOutputPhrases(act, false);
+							if(auxList != null && auxList.size()>0)
+								retList.addAll(auxList);
+						}
+					}
+				}
+			}
+		}
+		
+		return retList;
+	}
+	private boolean areEquals(Intent intent, Intent intentIn) {
+		boolean bRet = false;
+		
+		if(intent != null && intentIn != null)
+		{
+			bRet = intent.getName().equals(intentIn.getName());
+		}
+		
+		return bRet;
+	}
 }

@@ -15,6 +15,8 @@ public class StandfordTagger {
 	private static StandfordTagger stanTaggerInstance=null;
 	private MaxentTagger tagger;
 	
+	public final static String VERB_TAG = "VB";
+	public final static String NOUN_TAG = "NN";
 	public static StandfordTagger getInstance() {
 
 		if (stanTaggerInstance==null) {
@@ -182,7 +184,7 @@ public class StandfordTagger {
 		return nRet;
 	}
 
-	private int countElements(List<List<TaggedWord>> taggedPhraseList, String strElement) {
+	public int countElements(List<List<TaggedWord>> taggedPhraseList, String strElement) {
 		int nRet;
 		String strTag;
 		nRet = 0;

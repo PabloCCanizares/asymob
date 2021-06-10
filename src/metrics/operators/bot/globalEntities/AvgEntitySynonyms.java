@@ -17,6 +17,11 @@ public class AvgEntitySynonyms extends BotMetricBase{
 		float fLiteralsAvg;
 		
 		fLiteralsAvg = DBOperations.getAverage(db, EMetricCategory.eEntity, EMetricOperator.eEntityAvgSynonyms);
+		
+		if(fLiteralsAvg == -1)
+		{
+			fLiteralsAvg = 0;
+		}
 		metricRet = new FloatMetricValue(this, fLiteralsAvg);
 	}
 	@Override

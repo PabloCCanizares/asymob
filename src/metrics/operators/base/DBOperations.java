@@ -17,7 +17,7 @@ public class DBOperations {
 		LinkedList<MetricValue> metricResList;
 		
 		nElements=nParams=0;
-		fValue = 0;
+		fValue = -1;
 		fParams = 0;
 		
 		//access to the DB
@@ -25,25 +25,28 @@ public class DBOperations {
 		{
 			metricResList = db.getIntentMetric(metricIn);
 			
-			for(MetricValue metricVal: metricResList)
+			if(metricResList != null && metricResList.size()>0)
 			{
-				if(metricVal != null && metricVal instanceof IntegerMetricValue)
+				for(MetricValue metricVal: metricResList)
 				{
-					nParams += ((IntegerMetricValue)metricVal).getIntValue();
-					nElements++;
+					if(metricVal != null && metricVal instanceof IntegerMetricValue)
+					{
+						nParams += ((IntegerMetricValue)metricVal).getIntValue();
+						nElements++;
+					}
+					else if (metricVal != null && metricVal instanceof FloatMetricValue)
+					{
+						fParams += ((FloatMetricValue) metricVal).getFloatValue();
+						nElements++;
+					}
 				}
-				else if (metricVal != null && metricVal instanceof FloatMetricValue)
-				{
-					fParams += ((FloatMetricValue) metricVal).getFloatValue();
-					nElements++;
-				}
+				if(nParams >0 && nElements >0)
+					fValue = (float)((float)nParams/(float)nElements);
+				else if (fParams >0 && nElements >0)
+					fValue = (float)((float)fParams/(float)nElements);
+				else
+					fValue =0;
 			}
-			if(nParams >0 && nElements >0)
-				fValue = (float)((float)nParams/(float)nElements);
-			else if (fParams >0 && nElements >0)
-				fValue = (float)((float)fParams/(float)nElements);
-			else
-				fValue =0;
 		}
 		return fValue;
 	}
@@ -54,14 +57,14 @@ public class DBOperations {
 		LinkedList<MetricValue> metricResList;
 		
 		nElements=nParams=0;
-		fValue = fParams = 0;
-		
+		fParams = 0;
+		fValue = -1;
 		//access to the DB
 		if(db != null)
 		{
 			metricResList = extractMetricList(db, eCategory, metricIn);
 			
-			if (metricResList != null)
+			if (metricResList != null  && metricResList.size()>0)
 			{
 				for(MetricValue metricVal: metricResList)
 				{

@@ -1,0 +1,41 @@
+Chatbot concertbot language : en
+
+intents :
+
+greet :
+
+thankyou :
+
+goodbye :
+
+search_venues :
+
+search_concerts :
+
+compare_reviews :
+
+actions :
+	text response utter_default_text :
+		inputs in en {
+			"default message"
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"hey there!"
+	}
+	text response utter_goodbye_text :
+		inputs in en {
+			"goodbye :("
+	}
+	text response utter_youarewelcome_text :
+		inputs in en {
+			"you\'re very welcome"
+	}
+	empty response action_search_concerts_empty
+	empty response action_search_venues_empty
+	empty response action_show_concert_reviews_empty
+	empty response action_show_venue_reviews_empty
+
+flows :
+	- user greet => chatbot utter_greet_text , utter_youarewelcome_text , utter_goodbye_text , action_search_venues_empty , action_search_concerts_empty => user compare_reviews => chatbot action_show_venue_reviews_empty , action_show_concert_reviews_empty ;
+

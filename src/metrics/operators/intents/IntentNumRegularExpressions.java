@@ -8,9 +8,9 @@ import metrics.base.IntegerMetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.IntentMetricBase;
 
-public class IntentNumRequiredParameters extends IntentMetricBase{
+public class IntentNumRegularExpressions extends IntentMetricBase{
 
-	public IntentNumRequiredParameters() {
+	public IntentNumRegularExpressions() {
 		super(EMetricOperator.eIntentNumRegularExpressions);
 	}
 
@@ -26,17 +26,7 @@ public class IntentNumRequiredParameters extends IntentMetricBase{
 		
 		if(intentIn != null)
 		{
-			paramList = this.intentIn.getParameters();
-			if(paramList != null)
-			{
-				for(Parameter param: paramList)
-				{
-					if(param != null && param.isRequired())
-						nParameters++;
-				}
-				
-				nParameters = paramList.size();
-			}
+			nParameters = inAnalyser.getTotalRegularExp(intentIn);
 		}
 		
 		metricRet = new IntegerMetricValue(this, nParameters);

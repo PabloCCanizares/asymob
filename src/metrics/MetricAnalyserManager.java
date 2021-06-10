@@ -179,32 +179,36 @@ public class MetricAnalyserManager implements IMetricAnalyser {
 		MetricValue metricRes;
 		
 		System.out.println("analyseIntentMetrics - Analysing entity metrics");
-		while(metricOps.hasNextEntityMetric())
+		if(botIn.getEntities() != null && botIn.getEntities().size()>0)
 		{
-			try
+			while(metricOps.hasNextEntityMetric())
 			{
-				metricIn = metricOps.getNextEntityMetric();
-				
-				for(Entity enIn: botIn.getEntities())
+				try
 				{
-					//Configure the instance
-					if(metricIn instanceof EntityMetricBase)
-						((EntityMetricBase)metricIn).configure(enIn);
+					metricIn = metricOps.getNextEntityMetric();
 					
-					//Calculate the metric
-					metricIn.calculateMetric();
-					
-					//Get the results
-					metricRes =  metricIn.getResults();
-					
-					if(metricRes != null)
-						//Store the results
-						metricDB.addEntityMetric(enIn, metricRes);
-				}
+					for(Entity enIn: botIn.getEntities())
+					{
+						//Configure the instance
+						if(metricIn instanceof EntityMetricBase)
+							((EntityMetricBase)metricIn).configure(enIn);
+						
+						//Calculate the metric
+						metricIn.calculateMetric();
+						
+						//Get the results
+						metricRes =  metricIn.getResults();
+						
+						if(metricRes != null)
+							//Store the results
+							metricDB.addEntityMetric(enIn, metricRes);
+					}
 				
-			}catch(Exception e)
-			{
-				//Exception while processing a bot metric
+				}catch(Exception e)
+				{
+					//Exception while processing a bot metric
+					System.out.println("[analyseEntityMetrics] Exception processing metrics");
+				}
 			}
 		}
 	}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="concertbot">
+  <intents name="greet"/>
+  <intents name="thankyou"/>
+  <intents name="goodbye"/>
+  <intents name="search_venues"/>
+  <intents name="search_concerts"/>
+  <intents name="compare_reviews"/>
+  <actions xsi:type="generator:Text" name="utter_default_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="default message"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_greet_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="hey there!"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_goodbye_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="goodbye :("/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="utter_youarewelcome_text">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="you're very welcome"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Empty" name="action_search_concerts_empty"/>
+  <actions xsi:type="generator:Empty" name="action_search_venues_empty"/>
+  <actions xsi:type="generator:Empty" name="action_show_concert_reviews_empty"/>
+  <actions xsi:type="generator:Empty" name="action_show_venue_reviews_empty"/>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.1 //@actions.3 //@actions.2 //@actions.5 //@actions.4">
+      <outcoming intent="//@intents.5">
+        <target actions="//@actions.7 //@actions.6"/>
+      </outcoming>
+    </target>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

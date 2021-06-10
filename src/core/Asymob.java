@@ -358,10 +358,5 @@ public class Asymob {
 		
 		return ret;
 	}
-	
-	public void analyseConfusingMatrix()
-	{
-		
-	}
-	
+
 }

@@ -9,9 +9,9 @@ import metrics.base.MetricValue;
 import metrics.operators.EMetricOperator;
 import metrics.operators.base.BotMetricBase;
 
-public class AvgIntentWordPerPhrase extends BotMetricBase{
+public class AvgIntentWordPerTrainingPhrase extends BotMetricBase{
 
-	public AvgIntentWordPerPhrase() {
+	public AvgIntentWordPerTrainingPhrase() {
 		super(EMetricOperator.eGlobalAvgIntentWordPerPhrase);
 	}
 
@@ -55,7 +55,7 @@ public class AvgIntentWordPerPhrase extends BotMetricBase{
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "GWPTP";
+		this.strMetricName = "WPTP";
 		this.strMetricDescription = "Average word per training phrase"; 
 	}
 }

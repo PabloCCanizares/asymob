@@ -18,6 +18,7 @@ import generator.HTTPRequest;
 import generator.HTTPResponse;
 import generator.Image;
 import generator.Intent;
+import generator.Language;
 import generator.Literal;
 import generator.ParameterReferenceToken;
 import generator.ParameterToken;
@@ -57,7 +58,7 @@ public class FlowAnalyser {
 			//text
 			if (actionIn instanceof Text)
 			{								
-				retList = handleTextAction(actionIn, bRef, ALL_PHRASES);
+				retList = handleTextAction(actionIn, bRef, ALL_PHRASES, Language.ENGLISH);
 			}
 			//image
 			else if (actionIn instanceof Image)
@@ -84,7 +85,7 @@ public class FlowAnalyser {
 
 	}
 
-	private LinkedList<String> handleTextAction(Action actionIn, boolean bRef, int nComposingDeep) {
+	private LinkedList<String> handleTextAction(Action actionIn, boolean bRef, int nComposingDeep, Language textLan) {
 		Text actionText;
 		EList<TextLanguageInput> textLanInputList;
 		EList<TextInput> textInputList;
@@ -102,7 +103,7 @@ public class FlowAnalyser {
 				for(TextLanguageInput textLanIn: textLanInputList)
 				{
 					textInputList = textLanIn.getInputs();
-					if(textInputList != null)
+					if(textInputList != null && (textLan == null || textLanIn.getLanguage() == textLan))
 					{
 						for(TextInput textIn: textInputList)
 						{
@@ -431,7 +432,7 @@ public class FlowAnalyser {
 			//text
 			if (actionIn instanceof Text)
 			{								
-				retList = handleTextAction(actionIn, bRef, SINGLE_PHRASE);
+				retList = handleTextAction(actionIn, bRef, SINGLE_PHRASE, Language.ENGLISH);
 			}
 			//image
 			else if (actionIn instanceof Image)

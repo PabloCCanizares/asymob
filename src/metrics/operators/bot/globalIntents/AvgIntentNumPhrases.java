@@ -20,6 +20,11 @@ public class AvgIntentNumPhrases extends BotMetricBase{
 		float fLiteralsAvg;
 		
 		fLiteralsAvg = getNumLiterals();
+		
+		if(fLiteralsAvg == -1)
+		{
+			fLiteralsAvg = 0;
+		}
 		metricRet = new FloatMetricValue(this, fLiteralsAvg);
 	}
 
