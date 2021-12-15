@@ -5,14 +5,11 @@ import java.util.LinkedList;
 
 import core.Asymob;
 import metrics.MetricOperatorsSet;
-import metrics.operators.bot.BotConfusingMatrix;
 import metrics.operators.bot.BotConfusingPhrases;
 import metrics.operators.bot.BotOutputSentiment;
-import metrics.operators.bot.BotTrainingSentiment;
 import metrics.operators.bot.NumEntities;
 import metrics.operators.bot.NumFlows;
 import metrics.operators.bot.NumIntents;
-import metrics.operators.bot.NumLanguages;
 import metrics.operators.bot.globalEntities.AvgEntityLiterals;
 import metrics.operators.bot.globalEntities.AvgEntitySynonyms;
 import metrics.operators.bot.globalEntities.AvgEntityWordLen;
@@ -21,37 +18,28 @@ import metrics.operators.bot.globalIntents.AvgIntentNumPhrases;
 import metrics.operators.bot.globalIntents.AvgIntentParameters;
 import metrics.operators.bot.globalIntents.AvgIntentReadingTime;
 import metrics.operators.bot.globalIntents.AvgIntentRegularExpressions;
-import metrics.operators.bot.globalIntents.AvgIntentReqParameters;
 import metrics.operators.bot.globalIntents.AvgIntentVerbPerPhrase;
 import metrics.operators.bot.globalIntents.AvgIntentWordPerTrainingPhrase;
 import metrics.operators.bot.globalIntents.AvgVerbsPerOutputPhrase;
 import metrics.operators.bot.globalIntents.AvgWordsPerOutputPhrase;
-import metrics.operators.bot.globalflow.AvgPathsFlow;
 import metrics.operators.bot.globalflow.AvgActionsPerFlow;
 import metrics.operators.bot.globalflow.AvgFlowLen;
+import metrics.operators.bot.globalflow.AvgPathsFlow;
 import metrics.operators.bot.globalflow.NumPaths;
 import metrics.operators.entity.AverageSynonyms;
 import metrics.operators.entity.EntityWordLenght;
 import metrics.operators.entity.NumLiterals;
 import metrics.operators.flow.FlowActionsAverage;
-import metrics.operators.flow.FlowLength;
-import metrics.operators.flow.FlowNumPaths;
 import metrics.operators.intents.IntentAvgCharsPerTrainingPhrase;
-import metrics.operators.intents.IntentAvgCosineSimilarity;
-import metrics.operators.intents.IntentAvgNounsPerPhrase;
-import metrics.operators.intents.IntentAvgVerbsPerOutputPhrase;
 import metrics.operators.intents.IntentAvgVerbsPerTrainingPhrase;
 import metrics.operators.intents.IntentAvgWordsPerTrainingPhrase;
-import metrics.operators.intents.IntentMaxWordLen;
 import metrics.operators.intents.IntentNumParameters;
 import metrics.operators.intents.IntentNumPhrases;
 import metrics.operators.intents.IntentNumRegularExpressions;
-import metrics.operators.intents.IntentReadabilityMetrics;
 import metrics.operators.intents.IntentTrainingSentiment;
 import metrics.reports.LatexReportGen;
 import metrics.reports.MetricReportGenerator;
 import metrics.reports.StringReport;
-import metrics.reports.StringReportGen;
 
 /**
  * Main method for extracting different chatbot metrics
@@ -172,7 +160,7 @@ public class asymob_metrics_ASE {
 		MetricOperatorsSet metricOps;
 		StringReport metReport;
 		MetricReportGenerator metricReport;
-		LinkedList<String> listReport, botList;
+		LinkedList<String> listReport;
 		
 		listReport = new LinkedList<String>();
 		metReport = new StringReport();

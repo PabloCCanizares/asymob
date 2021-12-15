@@ -22,7 +22,7 @@ public enum EMetricOperator {
 	eIntentNumParameters, eIntentAvgNounsPerPhrase, eIntentAvgVerbsPerTPhrase,
 	eIntentMaxWordLen, eReadabilityMetrics, eIntentAvgCosineSimilarity, eIntentOutputSentiment, 
 	eIntentNumReqParameters, eIntentAvgCharsPerOutputPhrase, eIntentTrainingSentiment, eIntentAvgVerbsPerOutputPhrase,
-	eIntentNumRegularExpressions,
+	eIntentNumRegularExpressions, eFleschReadingEasyScore,
 	
 	//Extended
 	eExtended,                    

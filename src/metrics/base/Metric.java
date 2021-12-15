@@ -1,6 +1,5 @@
 package metrics.base;
 
-import metrics.db.MetricDataBase;
 import metrics.db.ReadOnlyMetricDB;
 import metrics.operators.EMetricOperator;
 
