@@ -5,6 +5,7 @@ import java.io.File;
 import core.Asymob;
 import metrics.MetricOperatorsSet;
 import metrics.operators.bot.BotConfusingPhrases;
+import metrics.operators.bot.BotOutputSentiment;
 import metrics.operators.bot.BotTrainingSentiment;
 import metrics.operators.bot.NumEntities;
 import metrics.operators.bot.NumFlows;
@@ -34,6 +35,7 @@ import metrics.operators.intents.IntentAvgCosineSimilarity;
 import metrics.operators.intents.IntentAvgNounsPerPhrase;
 import metrics.operators.intents.IntentAvgVerbsPerTrainingPhrase;
 import metrics.operators.intents.IntentAvgWordsPerTrainingPhrase;
+import metrics.operators.intents.IntentFleschReadingEasyScore;
 import metrics.operators.intents.IntentMaxWordLen;
 import metrics.operators.intents.IntentNumParameters;
 import metrics.operators.intents.IntentNumPhrases;
@@ -63,7 +65,7 @@ public class asymob_metrics {
 		metricOps = new MetricOperatorsSet();
 		
 		//Bot metrics
-		metricOps.insertMetric(new NumEntities());
+		/*metricOps.insertMetric(new NumEntities());
 		metricOps.insertMetric(new NumIntents());
 		metricOps.insertMetric(new NumLanguages());
 		metricOps.insertMetric(new NumFlows());
@@ -104,12 +106,19 @@ public class asymob_metrics {
 		metricOps.insertMetric(new IntentMaxWordLen());
 		metricOps.insertMetric(new IntentReadabilityMetrics());
 		metricOps.insertMetric(new IntentAvgCosineSimilarity());
+		metricOps.insertMetric(new IntentFleschReadingEasyScore());
+		*/
+		metricOps.insertMetric(new IntentFleschReadingEasyScore());
+		metricOps.insertMetric(new BotOutputSentiment());
 		
-		if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
+		//if(botTester.loadChatbot())
+	//	if(botTester.loadChatbot("model"+File.separator+"bikeShop.xmi"))
+			
 		//if(botTester.loadChatbot("chatbots"+File.separator+"conga"+File.separator+"bikeShop.xmi"))
 		//if(botTester.loadChatbot("chatbots\\conga\\mysteryAnimal.xmi"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Job-Interview.zip"))
 		//if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"HOTEL-BOOKING-AGENT2.zip"))
+		if(botTester.loadChatbot("chatbots"+File.separator+"dialogFlow"+File.separator+"prebuilt"+File.separator+"Formats.zip"))
 		{
 			if(botTester.measureMetrics(metricOps))
 			{

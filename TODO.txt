@@ -43,7 +43,7 @@ DONE.
 ==================================================================================================
 PENDING.
 
-*Exportación a Dialogflow.
+*Exportacion a Dialogflow.
 
 *Funcionamiento correcto de max y min
 

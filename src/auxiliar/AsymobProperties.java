@@ -4,6 +4,10 @@ import java.io.*;
 import java.util.Properties;
 
 public class AsymobProperties extends Properties {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4929483847890364843L;
 	private static String PYTHON = "python3";
 	private static AsymobProperties prop = new AsymobProperties();
 	
