@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="malikasinger1">
+  <intents name="Default Welcome Intent">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="get started"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="just going to say hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="heya"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="howdy"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="greetings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="long time no see"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="lovely day isn't it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I greet you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello again"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="a good day"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Book Hotel">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="characteristics are "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.2" textReference="abc"/>
+        <tokens xsi:type="generator:Literal" text=" and "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.2" textReference="def"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="her name is "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.1" textReference="Alice"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="my name is "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="john"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="gift a personalized song"/>
+      </inputs>
+    </inputs>
+    <parameters name="name" required="true"/>
+    <parameters name="recipientsname" required="true"/>
+    <parameters name="characteristics" entity="//@entities.0" required="true"/>
+    <parameters name="verbs" entity="//@entities.1" required="true"/>
+    <parameters name="backingTrack" entity="//@entities.2" required="true"/>
+  </intents>
+  <intents name="Default Fallback Intent" fallbackIntent="true"/>
+  <entities name="characteristics">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="null">
+        <values>null</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="abc">
+        <values>abc</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="def">
+        <values>def</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="verbs">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="null">
+        <values>null</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="backingTrack">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="null">
+        <values>null</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="https://us-central1-upworkbot-65288.cloudfunctions.net/webhook" method="POST">
+    <headers key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </headers>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="aseffsdfsdf "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Book HotelTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="something went wrong "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed what you said. What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, could you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, I didn't get that. Can you rephrase? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, what was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="One more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Say that one more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you repeat? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed that, say that again? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.0 //@actions.1 //@actions.2 //@actions.3"/>
+  </flows>
+  <flows intent="//@intents.1">
+    <target actions="//@actions.0 //@actions.1 //@actions.4"/>
+  </flows>
+  <flows intent="//@intents.2">
+    <target actions="//@actions.5"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

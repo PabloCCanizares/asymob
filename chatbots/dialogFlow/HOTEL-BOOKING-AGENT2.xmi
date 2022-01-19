@@ -1,0 +1,1413 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="HOTEL-BOOKING-AGENT2">
+  <intents name="countBookings">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show reservations"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="password"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show bookings I have"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Show all bookings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me my bookings"/>
+      </inputs>
+    </inputs>
+    <parameters name="password" entity="//@entities.1" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Please enter a password to see all bookings</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="feedback1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="feedback"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="suggestions"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="complain"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to add "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="modifications"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I've a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="complain"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I've a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="suggestion"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to do complain"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to add a suggestions"/>
+      </inputs>
+    </inputs>
+    <parameters name="feedBack" entity="//@entities.0" required="true">
+      <prompts language="ENGLISH">
+        <prompts>I'll be very happy with your feedback . Please tell me which type to feed back do you want to give a COMPLAIN or SUGGESTIONS ?</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="subject" required="true">
+      <prompts language="ENGLISH">
+        <prompts>let me know the subject</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="bodyText" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Type description here</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="Default Welcome Intent">
+    <inputs language="DANISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="eftermiddag"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hej med dig"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hejsan"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="en god dag"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hallo hej"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hej"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hilsner"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hejsa"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="jeg ville bare sige hej"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="jeg hilser p&#xe5; dig"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hej igen"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="det er l&#xe6;nge siden"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="dejlig dag synes du ikke"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="davs"/>
+      </inputs>
+    </inputs>
+    <inputs language="GERMAN">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ja hallo"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ich gr&#xfc;&#xdf;e dich"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hall&#xf6;chen"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hallo Schatzi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hallo Schatz"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hallo hallo"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hallo"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="gr&#xfc;&#xdf; dich"/>
+      </inputs>
+    </inputs>
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="greetings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hy!"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hye"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="lovely day isn't it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello again"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="just going to say hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="howdy"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="long time no see"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I greet you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="a good day"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="heya"/>
+      </inputs>
+    </inputs>
+    <inputs language="SPANISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hola"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="saludos"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey ho"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="chao"/>
+      </inputs>
+    </inputs>
+    <inputs language="FRENCH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="salutations"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rebonjour"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="bonjour &#xe0; toi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="re bonjour"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="allo"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="coucou"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="h&#xe9;"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="resalut"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="salut"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="re salut"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="salut &#xe0; tous"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="bonjour"/>
+      </inputs>
+    </inputs>
+    <inputs language="HINDI">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????? ????? ?? ??? ???? ???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???? ??? ??"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????, ???? ??? ??"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???? ???? ?? ??????"/>
+      </inputs>
+    </inputs>
+    <inputs language="ITALIAN">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ciao"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ciao ciao"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ciao bello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ciao bella"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ciao caro"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ciao cara"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="salve"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ehi"/>
+      </inputs>
+    </inputs>
+    <inputs language="KOREAN">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="?????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="? ???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??? ???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="? ???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="?? ??"/>
+      </inputs>
+    </inputs>
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="h&#xe1; quanto tempo"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="oi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="opa"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="fala a&#xed;"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="fala"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="oi tudo bem"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="e a&#xed;"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="eae"/>
+      </inputs>
+    </inputs>
+    <inputs language="PORTUGUESE">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="h&#xe1; muito que n&#xe3;o o vejo"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ol&#xe1;"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="que tal"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="como vai"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sauda&#xe7;&#xf5;es"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sa&#xfa;do-o"/>
+      </inputs>
+    </inputs>
+    <inputs language="RUSIAN">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="?????? ??????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??????????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???????????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???? ??????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??????????? ????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="? ????? ????????????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????????????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????? ?? ????????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="?????? ????? ?????????????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???????? ?? ???? ????????????????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???? ??????? ???? ??????"/>
+      </inputs>
+    </inputs>
+    <inputs language="TURKISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="selam"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ne g&#xfc;zel bir g&#xfc;n de?il mi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="selam naber"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="merhaba"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="selam dostum"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="t&#xfc;nayd?n"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="seni selaml?yorum"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="y&#xfc;z&#xfc;n&#xfc; g&#xf6;ren cennetlik"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="merhaba naber"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="iyi g&#xfc;nler"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="selamlar"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="selam sana"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tekrar merhaba"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="selam merhaba"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="naber"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="merhaba demek istedim"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="merhabalar"/>
+      </inputs>
+    </inputs>
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="? ??"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="? ???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="?????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="? ??"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="?????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="????"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="???"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="??"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Hotel_booking">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="book room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="book hotel"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="my email is "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.2" textReference="abcabc@abc.com"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="i want a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.3" textReference="vip"/>
+        <tokens xsi:type="generator:Literal" text=" room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want reserve a hotel room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to book a hotel room for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.1" textReference="3"/>
+        <tokens xsi:type="generator:Literal" text=" persons"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to book a room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="My name is "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="john"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want a room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need a room"/>
+      </inputs>
+    </inputs>
+    <parameters name="name">
+      <prompts language="ENGLISH">
+        <prompts>May I have your name please</prompts>
+        <prompts>Let me know your name</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="persons" defaultEntity="FLOAT">
+      <prompts language="ENGLISH">
+        <prompts>Book room for how many persons?</prompts>
+        <prompts>For how many people you want to book a hotel room ?</prompts>
+        <prompts>How many people you are ?</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="email">
+      <prompts language="ENGLISH">
+        <prompts>Kindly send me your email for furthur contact</prompts>
+        <prompts>let me know your email address</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="roomType" entity="//@entities.2">
+      <prompts language="ENGLISH">
+        <prompts>What type of room would you like to book (economic or standard or luxury)</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="showBookings">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="okay I will"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="why not"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes that's alright"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes I do"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="exactly"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="of course"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yep that's ok"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="okay"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ok"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="for sure"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sg"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes that't ok"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I agree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes you can do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't mind"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="that one works"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="that works"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sure why not"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="perfect"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yep that's right"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I think so"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes I agree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sure"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sounds correct"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sounds good"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="that's correct"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="go ahead"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="it's fine"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yeah"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="it's okay"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="alright why not"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="alright"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="right"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="it looks perfect"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes I can"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yup"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yep"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="confirm"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="absolutely"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Default Fallback Intent" fallbackIntent="true"/>
+  <entities name="feedback">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="complain">
+        <values>complain</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="modification">
+        <values>modification</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="suggestions">
+        <values>suggestions</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="password">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="admin">
+        <values>admin</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="RoomType">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Economic">
+        <values>Economic</values>
+        <values>casual</values>
+        <values>chepest</values>
+        <values>low cost</values>
+        <values>cheap</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="luxury">
+        <values>business class</values>
+        <values>luxury</values>
+        <values>vip</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="standard">
+        <values>moderate</values>
+        <values>simple</values>
+        <values>standard</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="https://us-central1-hotel-booking-agent2-exqblh.cloudfunctions.net/dialogflowFirebaseFulfillment" method="POST">
+    <basicAuth key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </basicAuth>
+    <headers key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </headers>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="DANISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="GERMAN">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="SPANISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="FRENCH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="HINDI">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="ITALIAN">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="KOREAN">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="PORTUGUESE">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="RUSIAN">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="TURKISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="countBookingsTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="something went wrong "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="feedback1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="feedback1TxtResp4">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Something went wrong "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp1">
+    <inputs language="TURKISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Merhaba! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Selam! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?yi g&#xfc;nler! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Selamlar! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp2">
+    <inputs language="DANISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hej! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Dav! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Goddag! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hejsa! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp3">
+    <inputs language="SPANISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="&#xa1;Hola! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="&#xa1;Hey! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="&#xa1;Buenos d&#xed;as! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp4">
+    <inputs language="FRENCH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Salut ! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Bonjour ! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Salutations ! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Bienvenue ! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp5">
+    <inputs language="ITALIAN">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ciao! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Buongiorno! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp9">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hy! I'm Hotel Booking agent , I can book your hotel and  can show you all bookings "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp10">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ol&#xe1;! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Oi! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp11">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="??? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? ????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="???????? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp12">
+    <inputs language="PORTUGUESE">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ol&#xe1;! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp13">
+    <inputs language="KOREAN">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="??! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?????! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp14">
+    <inputs language="RUSIAN">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="??????! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="??????????! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?????? ????! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp15">
+    <inputs language="HINDI">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="??????! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="???????! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="???? ??? ??? ??! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp16">
+    <inputs language="GERMAN">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hallo! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Guten Tag! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ich gr&#xfc;&#xdf;e dich! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Hotel_bookingTxtResp3">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="something went wrong. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp1">
+    <inputs language="TURKISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Anlayamad?m. Tekrar s&#xf6;yleyebilir misin? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ne dedi?ini duyamad?m. Tekrar s&#xf6;yler misin? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Pardon, tekrar eder misin? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Pardon, tekrar s&#xf6;yleyebilir misin? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Tekrar s&#xf6;yleyebilir misin? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Maalesef, anlayamad?m. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Pardon, ne demi?tin? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Bir daha s&#xf6;yler misin? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ne dedin? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Tekrar eder misin? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Anlayamad?m. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Duyamad?m. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp2">
+    <inputs language="DANISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Det forstod jeg ikke. Pr&#xf8;v at sige det igen. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Det fik jeg ikke fat i. Pr&#xf8;v at sige det igen. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Det forstod jeg ikke. Pr&#xf8;v at gentage det. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Det h&#xf8;rte jeg ikke. Pr&#xf8;v at sige det igen. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Pr&#xf8;v at sige det igen. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Det forstod jeg ikke. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Det h&#xf8;rte jeg ikke. Hvad sagde du? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Vil du gentage det? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hvad sagde du? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Pr&#xf8;v at sige det igen. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Det forstod jeg ikke. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Det fik jeg ikke fat i. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp3">
+    <inputs language="SPANISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ups, no he entendido a que te refieres. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="&#xbf;Podr&#xed;as repetirlo, por favor? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="&#xbf;Disculpa? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="&#xbf;Dec&#xed;as? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="&#xbf;C&#xf3;mo? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp4">
+    <inputs language="FRENCH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="J'ai du mal &#xe0; comprendre cette question. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="J'ai mal compris votre demande. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Je n'ai pas saisi ce que vous avez dit. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Je crois que je ne vous suis pas. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Je ne comprends pas de quoi vous me parlez. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp5">
+    <inputs language="ITALIAN">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Non penso di seguirti. Potresti ripetere? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Potresti dirlo ancora una volta? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Potresti essere pi&#xf9; specifico? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Non ho capito bene. Potresti ripetere? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Non ti ho sentito bene. Puoi ripetere? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp7">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Lamento, mas n&#xe3;o compreendi. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Desculpe, mas n&#xe3;o compreendi. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Infelizmente, n&#xe3;o captei o que deseja. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="N&#xe3;o consegui compreender, desculpe. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp8">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="????????????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="??????????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="????????????????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="????????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="????????? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp9">
+    <inputs language="PORTUGUESE">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Vai-me desculpar, mas n&#xe3;o percebi a pergunta. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Pe&#xe7;o desculpa, mas n&#xe3;o percebi muito bem a sua pergunta. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Infelizmente, essa foi uma pergunta que n&#xe3;o percebi bem. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Desculpe, mas n&#xe3;o entendi a sua quest&#xe3;o. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp10">
+    <inputs language="KOREAN">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="???? ??? ? ? ?? ?? ???. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? ?? ??? ? ? ??????. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="????. ?? ?? ????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? ??? ???? ??? ? ?????. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? ??? ???? ??? ???. ????. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? ??????. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp11">
+    <inputs language="RUSIAN">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? ?????? ???????, ? ??? ??. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="??? ??? ????????? ????? ??? ?? ????. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="? ??? ??? ?? ?????? ???????. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?????? ??????? ?? ?? ????? ??????? ???????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="??? ?????? ? ???? ?????? ?? ???????. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="????????, ??????????, ???????? ???? ????? ??-???????. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp12">
+    <inputs language="HINDI">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="???? ??? ???? ???. ???? ?? ???? ??? ????? ???? ???? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="???? ???? ???, ???? ??? ???? ???. ??? ?? ????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="??? ????, ???? ?? ???? ??? ????? ???? ???? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="??? ????, ???? ?? ???? ??? ??? ?? ?? ???? ???? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="???? ?? ???? ??? ????? ???? ???? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="???? ????, ???? ??? ???? ???| "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="??? ????, ???? ??? ????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? ??? ??? ?? ?? ???? ???? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="???? ??? ????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="?? ??? ??? ?? ????? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="???? ??? ???? ???| "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp13">
+    <inputs language="GERMAN">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ich verstehe deine Frage leider nicht. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Entschuldige bitte, ich habe deine Frage nicht verstanden. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ich bin nicht so sicher, ob ich dich richtig verstanden habe. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Leider kann ich nicht verstehen, was du von mir m&#xf6;chtest. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Kannst du das noch mal anders formulieren? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.0 //@actions.1 //@actions.2">
+      <outcoming intent="//@intents.4">
+        <target actions="//@actions.0 //@actions.1 //@actions.3"/>
+      </outcoming>
+    </target>
+  </flows>
+  <flows intent="//@intents.1">
+    <target actions="//@actions.0 //@actions.1 //@actions.3 //@actions.4"/>
+  </flows>
+  <flows intent="//@intents.2">
+    <target actions="//@actions.5 //@actions.6 //@actions.7 //@actions.8 //@actions.9 //@actions.3 //@actions.10 //@actions.11 //@actions.12 //@actions.13 //@actions.14 //@actions.15 //@actions.16 //@actions.17"/>
+  </flows>
+  <flows intent="//@intents.3">
+    <target actions="//@actions.0 //@actions.1 //@actions.3 //@actions.18"/>
+  </flows>
+  <flows intent="//@intents.5">
+    <target actions="//@actions.0 //@actions.1 //@actions.19 //@actions.20 //@actions.21 //@actions.22 //@actions.23 //@actions.4 //@actions.24 //@actions.25 //@actions.26 //@actions.27 //@actions.28 //@actions.29 //@actions.30"/>
+  </flows>
+  <languages>ENGLISH</languages>
+  <languages>DANISH</languages>
+  <languages>GERMAN</languages>
+  <languages>SPANISH</languages>
+  <languages>FRENCH</languages>
+  <languages>HINDI</languages>
+  <languages>ITALIAN</languages>
+  <languages>KOREAN</languages>
+  <languages>PORTUGUESE</languages>
+  <languages>RUSIAN</languages>
+  <languages>TURKISH</languages>
+</generator:Bot>

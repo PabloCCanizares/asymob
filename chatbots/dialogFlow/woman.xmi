@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="woman">
+  <intents name="vehicle status">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Monitor Vehicle Health"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me on board diagnostics of my vehicle"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="check my vehicle status"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Default Welcome Intent">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="just going to say hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="heya"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello again"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="howdy"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="long time no see"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="lovely day isn't it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I greet you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="greetings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="a good day"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="exit">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="bye!"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="goodbye"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="goodbye!"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="see ya"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="bye"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Notify Authorities">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Alert Authorities"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Alert the police"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Call the police"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Notify Family">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Call my emergency contacts"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Alert my family"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Notify Family"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Help">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Help!"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Safe route">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Find Safe Route"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Hotspots">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Nearby police stations"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Nearest Hotspots"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Default Fallback Intent" fallbackIntent="true"/>
+  <intents name="Notify neighbours">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Notify People Around You"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="https://&lt;example>" method="POST"/>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="vehicle statusTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="vehicle statusTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Your OBD status : "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Welcome to Intrepede! How may I assist you today? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="exitTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Bye "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Until next time "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Notify AuthoritiesTxtResp3">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Choose the Action you would like to do: "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Notify FamilyTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Your coordinates have been sent to your emergency contacts. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="HelpTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Your current coordinates have been sent to the nearby authorities. Help is on the way, "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Safe routeTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="The safest route to your destination is as follows: "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="HotspotsTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Here are the nearby hotspots "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed what you said. What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, could you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, I didn't get that. Can you rephrase? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, what was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="One more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Say that one more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you repeat? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed that, say that again? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Notify neighboursTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Nearby Neighbors have been notified! Help is on the way. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.2 //@actions.3"/>
+  </flows>
+  <flows intent="//@intents.1">
+    <target actions="//@actions.2 //@actions.4"/>
+  </flows>
+  <flows intent="//@intents.2">
+    <target actions="//@actions.5"/>
+  </flows>
+  <flows intent="//@intents.3">
+    <target actions="//@actions.2 //@actions.6"/>
+  </flows>
+  <flows intent="//@intents.4">
+    <target actions="//@actions.2 //@actions.7"/>
+  </flows>
+  <flows intent="//@intents.5">
+    <target actions="//@actions.2 //@actions.8"/>
+  </flows>
+  <flows intent="//@intents.6">
+    <target actions="//@actions.2 //@actions.9"/>
+  </flows>
+  <flows intent="//@intents.7">
+    <target actions="//@actions.2 //@actions.10"/>
+  </flows>
+  <flows intent="//@intents.8">
+    <target actions="//@actions.11"/>
+  </flows>
+  <flows intent="//@intents.9">
+    <target actions="//@actions.2 //@actions.12"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

@@ -1,0 +1,2420 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="googleChallenge">
+  <intents name="num_sub_msc_21">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many majors does the student enrolled in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Manufacturing"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering have to study?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text=" In "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Computer Science"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering how many subjects will I learn?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Electrical"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering comprise?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text=" while pursuing "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Artificial Intelligence"/>
+        <tokens xsi:type="generator:Literal" text=", how many courses will I get to study?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the number of courses offered in the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="CS"/>
+        <tokens xsi:type="generator:Literal" text=" graduate program?"/>
+      </inputs>
+    </inputs>
+    <parameters name="num_sub_msc_2" entity="//@entities.1"/>
+  </intents>
+  <intents name="num_sub1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the total number of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="subjects"/>
+        <tokens xsi:type="generator:Literal" text=" offered in a Graduate Program?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="courses"/>
+        <tokens xsi:type="generator:Literal" text=" will I get to study while pursuing my Masters?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Masters degree comprises of how many "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="courses"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What number of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="subjects"/>
+        <tokens xsi:type="generator:Literal" text=" do students study in a Graduate Program?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="majors"/>
+        <tokens xsi:type="generator:Literal" text=" does the student enrolled in Masters have to study?"/>
+      </inputs>
+    </inputs>
+    <parameters name="num_sub" entity="//@entities.2"/>
+  </intents>
+  <intents name="num_sub_meng1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many majors does the student enrolled in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="Master of Engineering"/>
+        <tokens xsi:type="generator:Literal" text=" have to study?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What number of subjects do students study in a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="MENG"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="Master of Engineering"/>
+        <tokens xsi:type="generator:Literal" text=" comprises of how many courses?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many courses will I get to study while pursuing "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="MENG"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the total number of subjects offered in a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="course-based"/>
+        <tokens xsi:type="generator:Literal" text=" program?"/>
+      </inputs>
+    </inputs>
+    <parameters name="num_sub_meng" entity="//@entities.3"/>
+  </intents>
+  <intents name="Industrial_Engineering">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am looking for a master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="Industrial"/>
+        <tokens xsi:type="generator:Literal" text=" Engg."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want details for master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="Industrial"/>
+        <tokens xsi:type="generator:Literal" text=" engineering."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="Industrial"/>
+        <tokens xsi:type="generator:Literal" text=" Engg?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is the University of Windsor offering thesis-based masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="Industrial"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What graduate programs are available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="Industrial"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Does the University of Windsor have a course-based master's program in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="Industrial"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a course-based masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="Industrial"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="Industrial"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the types of masters available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="Industrial"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="industrial_eng" entity="//@entities.18"/>
+  </intents>
+  <intents name="min_qual_mac1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Please help me with the application qualification for Graduate program in uow?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the minimum percentage required in bachelors for applying in Masters in computer?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How to know if I am eligible to apply for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="MAC"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to apply in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="Master of Applied Computing"/>
+        <tokens xsi:type="generator:Literal" text=". What is the eligibility criteria?"/>
+      </inputs>
+    </inputs>
+    <parameters name="min_qual_mac" entity="//@entities.6" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Could you please help me with the program type?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="deadline_spec1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Till when the applications are open for masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="industrial"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I apply for the masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="environmental"/>
+        <tokens xsi:type="generator:Literal" text=" for winter 2021?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is uow accepting applications for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Meng"/>
+        <tokens xsi:type="generator:Literal" text=" for the upcoming term?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Are the applications still open for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="mechanical"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the application deadline for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Masc"/>
+        <tokens xsi:type="generator:Literal" text=" in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="electrical"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="deadline_spec" entity="//@entities.7"/>
+  </intents>
+  <intents name="duration1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="duration"/>
+        <tokens xsi:type="generator:Literal" text=" of the Graduate courses offered in UOW?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="length"/>
+        <tokens xsi:type="generator:Literal" text=" of the Master's program?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="The "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="time"/>
+        <tokens xsi:type="generator:Literal" text=" required for international students to complete graduation?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="long"/>
+        <tokens xsi:type="generator:Literal" text=" does it take to complete a master's at the University of Windsor?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="duration"/>
+        <tokens xsi:type="generator:Literal" text=" of completing a Masters's?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you please help with the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="completion period"/>
+        <tokens xsi:type="generator:Literal" text=" of the Masters's?"/>
+      </inputs>
+    </inputs>
+    <parameters name="duration" entity="//@entities.10"/>
+  </intents>
+  <intents name="Default Welcome Intent">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="just going to say hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="heya"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="howdy"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="greetings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="long time no see"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="lovely day isn't it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I greet you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello again"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="a good day"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="duration_research1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many months program is "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.8/@parameters.0" textReference="research-based"/>
+        <tokens xsi:type="generator:Literal" text=" program?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you help me with program length of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.8/@parameters.0" textReference="Msc"/>
+        <tokens xsi:type="generator:Literal" text=" in Artificial Intelligence?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the completion period of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.8/@parameters.0" textReference="MASC"/>
+        <tokens xsi:type="generator:Literal" text=" in industrial?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the length of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.8/@parameters.0" textReference="thesis-based"/>
+        <tokens xsi:type="generator:Literal" text=" program?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How long it takes to complete "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.8/@parameters.0" textReference="MS"/>
+        <tokens xsi:type="generator:Literal" text=" in University of Windsor?"/>
+      </inputs>
+    </inputs>
+    <parameters name="duration_research" entity="//@entities.11"/>
+  </intents>
+  <intents name="min_qual_meng1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Necessary qualification to apply in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="course-based"/>
+        <tokens xsi:type="generator:Literal" text=" program?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the requirements needed for applying for Masters?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How to know if I qualify for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="MENG"/>
+        <tokens xsi:type="generator:Literal" text=" in University of Windsor?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the eligibility criteria for Masters in UOW?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the necessary requirements to qualify to apply in MEng?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the minimum percentage required to get an admit in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="MEng"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the minimum qualification required to get an admit in Electrical and Computer Engineering?"/>
+      </inputs>
+    </inputs>
+    <parameters name="min_qual_meng" entity="//@entities.13" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Could you please help me with the type of the masters you are interested in?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="Material_Engineering">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am looking for a master's in engineering in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Materials"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want details for masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Material"/>
+        <tokens xsi:type="generator:Literal" text=" engineering."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you please help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Material"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Material"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Does the University of Windsor have a course-based master's program in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Material"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is the University of Windsor offering thesis-based masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Material"/>
+        <tokens xsi:type="generator:Literal" text=" Engg?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What graduate programs are available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Material"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a course-based master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Material"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Material"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the types of masters available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Material"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="materials_eng" entity="//@entities.14"/>
+  </intents>
+  <intents name="deadline1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Deadlines for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="applications"/>
+        <tokens xsi:type="generator:Literal" text=" for the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="upcoming semster"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Are the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="application"/>
+        <tokens xsi:type="generator:Literal" text=" open for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="spring 2021"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is University accepting "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="applications"/>
+        <tokens xsi:type="generator:Literal" text=" for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Winter 2021"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Till how long the application "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="deadline"/>
+        <tokens xsi:type="generator:Literal" text=" is open for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Winter 2021"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Are the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="applications"/>
+        <tokens xsi:type="generator:Literal" text=" still open for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="graduate program"/>
+        <tokens xsi:type="generator:Literal" text=" in Uwindsor?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="deadline"/>
+        <tokens xsi:type="generator:Literal" text=" for applying in masters for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="winter term"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="deadline" entity="//@entities.17">
+      <prompts language="ENGLISH">
+        <prompts>Please mention the specialization.</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="Environemntal_Engineering">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am looking for a Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="engineering in Environment"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Environmental"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Does the University of Windsor have a course-based Master's program in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Environmental"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is the University of Windsor offering thesis-based Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Environmental"/>
+        <tokens xsi:type="generator:Literal" text=" Engg?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What graduate programs are available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Env"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have course based masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Environmental"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the types of masters available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Environmental"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="environ_eng" entity="//@entities.8"/>
+  </intents>
+  <intents name="duration_spec1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How much time does it take to finish graduation in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.13/@parameters.0" textReference="mechanical"/>
+        <tokens xsi:type="generator:Literal" text=" ?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the completion period for Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.13/@parameters.0" textReference="Computer Science"/>
+        <tokens xsi:type="generator:Literal" text=" ?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the length of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.13/@parameters.0" textReference="Civil"/>
+        <tokens xsi:type="generator:Literal" text=" Masters?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="In how many months will I complete "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.13/@parameters.0" textReference="Industrial"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the time duration for completing Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.13/@parameters.0" textReference="Artificial Intelligence"/>
+        <tokens xsi:type="generator:Literal" text=" ?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How long does it take to complete a Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.13/@parameters.0" textReference="ECE"/>
+      </inputs>
+    </inputs>
+    <parameters name="duration_spec" entity="//@entities.20"/>
+  </intents>
+  <intents name="min_qual_masc1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="In the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.14/@parameters.0" textReference="research"/>
+        <tokens xsi:type="generator:Literal" text=" programs, what are the minimum qualifications for me to apply?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="In "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.14/@parameters.0" textReference="applied science"/>
+        <tokens xsi:type="generator:Literal" text=" program, are there any eligibility qualifications required?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="For "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.14/@parameters.0" textReference="thesis based"/>
+        <tokens xsi:type="generator:Literal" text=" programs, are there any minimum needed qualifications?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Are there any eligibility criterias in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.14/@parameters.0" textReference="MASc"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the minimum qualifications needed to apply for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.14/@parameters.0" textReference="MASc"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="min_qual_masc" entity="//@entities.21"/>
+  </intents>
+  <intents name="num_sub_msc1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="The number of courses offered in the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="Master of Applied science"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many subjects can a student study in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="MASC"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many majors does the student enrolled in the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="Master of Science"/>
+        <tokens xsi:type="generator:Literal" text=" have to study?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What number of subjects do students study in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="research-based"/>
+        <tokens xsi:type="generator:Literal" text=" programs?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="MSc"/>
+        <tokens xsi:type="generator:Literal" text=" is comprised of how many courses?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many courses will I get to study while pursuing "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="MS"/>
+        <tokens xsi:type="generator:Literal" text=" at the University of Windsor?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the total number of subjects offered in the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="thesis-based"/>
+        <tokens xsi:type="generator:Literal" text=" program?"/>
+      </inputs>
+    </inputs>
+    <parameters name="num_sub_msc" entity="//@entities.22"/>
+  </intents>
+  <intents name="Masters_type">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the various "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.16/@parameters.0" textReference="master"/>
+        <tokens xsi:type="generator:Literal" text=" programs at university?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many types of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.16/@parameters.0" textReference="master's"/>
+        <tokens xsi:type="generator:Literal" text=" programs are available at the University of Windsor?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the different types of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.16/@parameters.0" textReference="master's"/>
+        <tokens xsi:type="generator:Literal" text=" programs offered in UOW?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can you provide me with the different categories of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.16/@parameters.0" textReference="master's"/>
+        <tokens xsi:type="generator:Literal" text=" programs?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.16/@parameters.0" textReference="Master's"/>
+        <tokens xsi:type="generator:Literal" text=" program does the University of Windsor offer?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What kind of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.16/@parameters.0" textReference="graduate"/>
+        <tokens xsi:type="generator:Literal" text=" programs are available in uow?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am looking for a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.16/@parameters.0" textReference="master's"/>
+        <tokens xsi:type="generator:Literal" text=" program at the University of Windsor. Could you please help me with it?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Please help me with the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.16/@parameters.0" textReference="Graduate"/>
+        <tokens xsi:type="generator:Literal" text=" Programs available in UOW."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.16/@parameters.0" textReference="Graduate"/>
+        <tokens xsi:type="generator:Literal" text=" Courses at the University of Windsor?"/>
+      </inputs>
+    </inputs>
+    <parameters name="Graduate_Programs" entity="//@entities.12"/>
+  </intents>
+  <intents name="Automotive_Engg">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What graduate programs are available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Automotive"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am looking for a master's in engineering in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Automotive"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want details for my masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Automotive"/>
+        <tokens xsi:type="generator:Literal" text=" engineering."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you please help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Automobile"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Automotive"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Does the University of Windsor have a course-based master's program in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Automotive"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is the University of Windsor offering thesis-based masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Automobile"/>
+        <tokens xsi:type="generator:Literal" text=" Engg?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Auto"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a course-based master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Automotive"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the types of masters available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Automobile"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="auto_eng" entity="//@entities.4"/>
+  </intents>
+  <intents name="help1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.18/@parameters.0" textReference="details"/>
+        <tokens xsi:type="generator:Literal" text=" can you provide?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.18/@parameters.0" textReference="information"/>
+        <tokens xsi:type="generator:Literal" text=" can I get from you?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What can you do?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.18/@parameters.0" textReference="support"/>
+        <tokens xsi:type="generator:Literal" text=" is offered?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How can you be "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.18/@parameters.0" textReference="helpful"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.18/@parameters.0" textReference="help"/>
+        <tokens xsi:type="generator:Literal" text=" do you provide?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How could you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.18/@parameters.0" textReference="help"/>
+        <tokens xsi:type="generator:Literal" text=" me?"/>
+      </inputs>
+    </inputs>
+    <parameters name="help" entity="//@entities.25"/>
+  </intents>
+  <intents name="Computer_Science">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the types of masters available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.19/@parameters.0" textReference="Computer Science"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.19/@parameters.0" textReference="computer engineering"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have course-based masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.19/@parameters.0" textReference="computers"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What graduate programs are available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.19/@parameters.0" textReference="CS"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is the University of Windsor offering a thesis-based master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.19/@parameters.0" textReference="computer science"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Does the University of Windsor have a course-based master's program in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.19/@parameters.0" textReference="Computer Science"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.19/@parameters.0" textReference="Computer Engineering"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you please help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.19/@parameters.0" textReference="computers"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want details for Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.19/@parameters.0" textReference="CS"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am looking for a Masters in the field of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.19/@parameters.0" textReference="Computer Science"/>
+      </inputs>
+    </inputs>
+    <parameters name="com_sci_eng" entity="//@entities.26"/>
+  </intents>
+  <intents name="Mechanical_Engineering">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am looking for a master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.20/@parameters.0" textReference="Mechanical"/>
+        <tokens xsi:type="generator:Literal" text=" engineering."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want details for Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.20/@parameters.0" textReference="Mech"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="&#xA; Could you please help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.20/@parameters.0" textReference="Mechanical"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.20/@parameters.0" textReference="Mechanical"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Does the University of Windsor have a course-based master's program in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.20/@parameters.0" textReference="Mechanical"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is the University of Windsor offering a thesis-based master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.20/@parameters.0" textReference="Mechanical"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What graduate programs are available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.20/@parameters.0" textReference="Mechanical"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a course-based master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.20/@parameters.0" textReference="Mechanical"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.20/@parameters.0" textReference="Mechanical"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the types of masters available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.20/@parameters.0" textReference="Mechanical"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="mechanical_eng" entity="//@entities.9"/>
+  </intents>
+  <intents name="duration_rea_spec1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could help me with program length of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Mechanical"/>
+        <tokens xsi:type="generator:Literal" text=" Masters?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Completion period for masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="AI"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How long will it take to complete masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="environmental"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the duration of graduate program in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Computer Science"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How much is required to complete to Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="ECE"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="duration_rea_spec" entity="//@entities.27"/>
+  </intents>
+  <intents name="ielts">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What maximum IELTS score is required for international students to get admitted into "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Environmental"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many IELTS marks are required to get admitted into UOW for a master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="industrial"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Minimum ielts score required for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Mechanical"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="IELTS score for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="materials"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the minimum score requirement in IELTS for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Automotive"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the minimum IELTS score required in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="MEng"/>
+        <tokens xsi:type="generator:Literal" text=" in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Civil"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How much does a student need to score in IELTS for admitting in masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="mechanical"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How much IELTS score is necessary for admission in master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="computer science"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the ielts requirement for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="ece"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="ielts" entity="//@entities.5" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Please specify the specialization</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="num_sub_mac_21">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What number of subjects are taught in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="Computer Science"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="The number of courses available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="computer engineering"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the total number of subjects offered in masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="CS"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many courses do we get to study in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="computers"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="num_sub_mac_2" entity="//@entities.28"/>
+  </intents>
+  <intents name="Computer_Science_AI">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the types of masters available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Artificial Intelligence"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you help me with types of master's in computer science with majors in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="AI"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What graduate programs are available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="AI"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is the University of Windsor offering thesis-based Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Artificial Intelligence"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a master's in Computer Engineering in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Artificial Intelligence"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you please help me with the types of Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="AI"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want details for Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Artificial Intelligence"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am looking for a master's in computer engineering with "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="AI"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+    </inputs>
+    <parameters name="cs_ai" entity="//@entities.33"/>
+  </intents>
+  <intents name="Electrical_and_Computer_Engineering">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the types of masters available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="Electrical"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="Electrical and Computer Engineering"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have course-based masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="ece"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What graduate programs are available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="ECE"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is the University of Windsor offering thesis-based Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="ECE"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Does the University of Windsor have a course-based master's program in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="Electrical and Computer Engineering"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="Electrical Engineering"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you please help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="electrical"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want details for Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="ECE"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am looking for a master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="electrical and Computer Engineering"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+    </inputs>
+    <parameters name="elec_comp_eng" entity="//@entities.0"/>
+  </intents>
+  <intents name="num_course_meng_21">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the total number of subjects offered in an "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.26/@parameters.0" textReference="Automotive"/>
+        <tokens xsi:type="generator:Literal" text=" graduate program?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many courses will I get to study while pursuing "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.26/@parameters.0" textReference="Civil"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.26/@parameters.0" textReference="Electrical and Computer Engineering"/>
+        <tokens xsi:type="generator:Literal" text=" comprises of how many courses?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What number of subjects do students study "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.26/@parameters.0" textReference="Environmental"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many majors does the student enrolled in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.26/@parameters.0" textReference="Industrial"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering have to study?"/>
+      </inputs>
+    </inputs>
+    <parameters name="num_course_meng_2" entity="//@entities.29"/>
+  </intents>
+  <intents name="num_sub_mac1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="In the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Applied Computing"/>
+        <tokens xsi:type="generator:Literal" text=" program, how many courses are available?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Course-based"/>
+        <tokens xsi:type="generator:Literal" text=" computer science masters consist of how many courses?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many subjects does "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="MAC"/>
+        <tokens xsi:type="generator:Literal" text=" offer?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="For the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Masters of Applied Computing"/>
+        <tokens xsi:type="generator:Literal" text=", can I know the total number of courses I will have to take?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the total number of subjects I can enroll myself in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Applied Computing"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="num_sub_mac" entity="//@entities.30"/>
+  </intents>
+  <intents name="duration_course1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Maximum time for the completion of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.28/@parameters.0" textReference="course based"/>
+        <tokens xsi:type="generator:Literal" text=" masters."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How long will it take for me to finish my "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.28/@parameters.0" textReference="Master of Engineering"/>
+        <tokens xsi:type="generator:Literal" text=" in Mechanical?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="When can I expect to complete the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.28/@parameters.0" textReference="MAC"/>
+        <tokens xsi:type="generator:Literal" text=" Program?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the duration of completing the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.28/@parameters.0" textReference="Master of Applied Computing"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How long does it take to complete the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.28/@parameters.0" textReference="Meng"/>
+        <tokens xsi:type="generator:Literal" text=" program in Mechanical?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the length of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.28/@parameters.0" textReference="course-based"/>
+        <tokens xsi:type="generator:Literal" text=" graduate program?"/>
+      </inputs>
+    </inputs>
+    <parameters name="duration_course" entity="//@entities.31"/>
+  </intents>
+  <intents name="min_qual_cs_ai1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How to know if I qualify for the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="Masters in Artificial Intelligence"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Does "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="computer science"/>
+        <tokens xsi:type="generator:Literal" text=" have any admission requirements?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is the eligibility criteria for application in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="Masters of Computer Science"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Any admission requirements for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="thesis based"/>
+        <tokens xsi:type="generator:Literal" text=" Masters?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the minimum qualifications for applying for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="MS in Computers with AI"/>
+        <tokens xsi:type="generator:Literal" text=" Specialization"/>
+      </inputs>
+    </inputs>
+    <parameters name="min_qual_cs_ai" entity="//@entities.32" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Can you please provide the area of specialization?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="Civil_Engineering">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am looking for a master's in engineering in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Civil"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want details for my master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="civil"/>
+        <tokens xsi:type="generator:Literal" text=" engineering."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you please help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Civil"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Civil"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Does the University of Windsor have a course-based master's program in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Civil"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is the University of Windsor offering thesis-based masters in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Civil"/>
+        <tokens xsi:type="generator:Literal" text=" Engg?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Do we have a course-based master's in the field related to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="construction"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What graduate programs are available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Civil"/>
+        <tokens xsi:type="generator:Literal" text=" Engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you help me with the types of master's in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="civil"/>
+        <tokens xsi:type="generator:Literal" text=" engineering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the types of masters available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Civil"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="civil_eng" entity="//@entities.23"/>
+  </intents>
+  <intents name="Default Fallback Intent" fallbackIntent="true"/>
+  <entities name="elec_comp_eng">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="ECE">
+        <values>ECE</values>
+        <values>Electrical</values>
+        <values>Electrical and Computer Engineering</values>
+        <values>Electronics</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="num_sub_msc_2">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Automobile">
+        <values>Automobile</values>
+        <values>Automotive</values>
+        <values>Auto</values>
+        <values>Autonomous</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Civil">
+        <values>Civil</values>
+        <values>Construction</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="ECE">
+        <values>ECE</values>
+        <values>Electrical</values>
+        <values>Electrical and Computer Engineering</values>
+        <values>Electronics</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Environmental">
+        <values>Environmental</values>
+        <values>Sustainable</values>
+        <values>Smart Energy</values>
+        <values>Env</values>
+        <values>Enivornment</values>
+        <values>Engineering in Environment</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Industrial">
+        <values>Industrial</values>
+        <values>Industries</values>
+        <values>Indus</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Materials">
+        <values>Materials</values>
+        <values>Material</values>
+        <values>Engineering Materials</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Mechanical">
+        <values>Mechanical</values>
+        <values>Mech</values>
+        <values>Manufacturing</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Computers">
+        <values>Computers</values>
+        <values>Computer Science</values>
+        <values>CS</values>
+        <values>Computer Engineering</values>
+        <values>CS AI</values>
+        <values>Artificial Intelligence</values>
+        <values>AI</values>
+        <values>Computer Science with AI Specialization</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="num_sub">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Subjects">
+        <values>Subjects</values>
+        <values>Courses</values>
+        <values>Course</values>
+        <values>Subject</values>
+        <values>Major</values>
+        <values>Majors</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="num_sub_meng">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="MENG">
+        <values>MENG</values>
+        <values>Master of Engineering</values>
+        <values>course-based</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="auto_eng">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Automotive">
+        <values>Automotive</values>
+        <values>Automobile</values>
+        <values>auto</values>
+        <values>Autonomous</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="IELTS">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Electrical and Computer Engineering">
+        <values>Electrical and Computer Engineering</values>
+        <values>ECE</values>
+        <values>Electrical</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Computer Science">
+        <values>Computer Science</values>
+        <values>CSE</values>
+        <values>CS</values>
+        <values>Computers</values>
+        <values>Computer Engineering</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Mechanical Engineering">
+        <values>Mechanical Engineering</values>
+        <values>Mech</values>
+        <values>Mechanical</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Civil Engineering">
+        <values>Civil Engineering</values>
+        <values>Civil</values>
+        <values>Construction</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Industrial Engineering">
+        <values>Industrial Engineering</values>
+        <values>Industrial</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Environmental Engineering">
+        <values>Environmental Engineering</values>
+        <values>Environmental</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Automotive Engineering">
+        <values>Automotive Engineering</values>
+        <values>Auto</values>
+        <values>Automobile</values>
+        <values>Automotive</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Engineering Materials">
+        <values>Engineering Materials</values>
+        <values>Materials</values>
+        <values>Material</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="MENG">
+        <values>MENG</values>
+        <values>Master of Engineering</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="MAC">
+        <values>MAC</values>
+        <values>Master of Applied Computing</values>
+        <values>Applied Computing</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="MASc">
+        <values>MASc</values>
+        <values>Master of Applied Science</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="MSc">
+        <values>MSc</values>
+        <values>MS</values>
+        <values>Master of Science</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="min_qual_mac">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="MAC">
+        <values>MAC</values>
+        <values>Master of Applied computing</values>
+        <values>course_based</values>
+        <values>applied computing</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="deadline_spec">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="ECE">
+        <values>ECE</values>
+        <values>Electrical and computer</values>
+        <values>Electronics</values>
+        <values>Electrical</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Civil">
+        <values>construction</values>
+        <values>Civil</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Mechanical">
+        <values>Mechanical</values>
+        <values>MECH</values>
+        <values>Manufacturing</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Materials">
+        <values>Materials</values>
+        <values>Material</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Industrial">
+        <values>Industrial</values>
+        <values>Industries</values>
+        <values>Indus</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Environmental">
+        <values>Environmental</values>
+        <values>Environment</values>
+        <values>Smart Energy</values>
+        <values>Sustainable</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Automotive">
+        <values>Automotive</values>
+        <values>Automobile</values>
+        <values>Auto</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="MASC">
+        <values>MASC</values>
+        <values>Applied science</values>
+        <values>Master of Applied science</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Meng">
+        <values>Meng</values>
+        <values>Master of engineering</values>
+        <values>Course-based</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="environ_eng">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Environmental">
+        <values>Sustainable</values>
+        <values>Smart Energy</values>
+        <values>Env</values>
+        <values>Enivornment</values>
+        <values>Environmental</values>
+        <values>Engineering in Environment</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="mechanical_eng">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Mechanical">
+        <values>Mechanical</values>
+        <values>Mech</values>
+        <values>Manufacturing</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="duration">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="duration">
+        <values>duration</values>
+        <values>length</values>
+        <values>time</values>
+        <values>long</values>
+        <values>completion period</values>
+        <values>period</values>
+        <values>months</values>
+        <values>month</values>
+        <values>year</values>
+        <values>years</values>
+        <values>completion</values>
+        <values>complete</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="duration_research">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="thesis">
+        <values>thesis</values>
+        <values>Master of Science</values>
+        <values>MS</values>
+        <values>MSC</values>
+        <values>thesis-based</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="research">
+        <values>research</values>
+        <values>research-based</values>
+        <values>Master of Applied Science</values>
+        <values>MASC</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="Graduate_Programs">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Masters">
+        <values>Master</values>
+        <values>Graduate</values>
+        <values>Graduate Program</values>
+        <values>Courses</values>
+        <values>Master's</values>
+        <values>Masters</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="min_qual_meng">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="MENG">
+        <values>MENG</values>
+        <values>Master of Engineering</values>
+        <values>course-based</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="ECE">
+        <values>ECE</values>
+        <values>Electrical and computer</values>
+        <values>Electrical</values>
+        <values>Electronics</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="civil">
+        <values>construction</values>
+        <values>civil</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Mechanical">
+        <values>Mechanical</values>
+        <values>mech</values>
+        <values>Manufacturing</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="industrial">
+        <values>industrial</values>
+        <values>industries</values>
+        <values>indus</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="automobile">
+        <values>automobile</values>
+        <values>Automotive</values>
+        <values>Auto</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Environment">
+        <values>Environment</values>
+        <values>Environmental</values>
+        <values>Smart Energy</values>
+        <values>Sustainable</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Materials">
+        <values>Materials</values>
+        <values>Material</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="materials_eng">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Materials">
+        <values>Materials</values>
+        <values>Material</values>
+        <values>Engineering Materials</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="prog_course">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="ECE">
+        <values>electrical</values>
+        <values>electrical and computer engineering</values>
+        <values>electronics</values>
+        <values>ece</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Civil">
+        <values>Civil</values>
+        <values>construction</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Mechanical">
+        <values>Mechanical</values>
+        <values>Mech</values>
+        <values>Manufacturing</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Materials">
+        <values>Materials</values>
+        <values>Material</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Industrial">
+        <values>Industrial</values>
+        <values>Indus</values>
+        <values>Industries</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="CS">
+        <values>CS</values>
+        <values>Computers</values>
+        <values>Computer Science</values>
+        <values>Computer Engineering</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Environmental">
+        <values>Environmental</values>
+        <values>Environment</values>
+        <values>sustainable</values>
+        <values>smart energy</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Automotive">
+        <values>Automotive</values>
+        <values>Automobile</values>
+        <values>Auto</values>
+        <values>Autonomous</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="Type_course">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="MENG">
+        <values>Master of engineering</values>
+        <values>Meng</values>
+        <values>course-based</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="MAC">
+        <values>MAC</values>
+        <values>Master of Applied Computing</values>
+        <values>Course</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="deadline">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="deadline">
+        <values>deadline</values>
+        <values>spring 2021</values>
+        <values>winter 2021</values>
+        <values>spring</values>
+        <values>graduate program</values>
+        <values>Winter</values>
+        <values>upcoming semseter</values>
+        <values>appilcation</values>
+        <values>January</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="industrial_eng">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Industrial">
+        <values>Industrial</values>
+        <values>Indus</values>
+        <values>Industries</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="duration_thesis">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="thesis based">
+        <values>MASC</values>
+        <values>Master of Applied Science</values>
+        <values>Applied Science</values>
+        <values>Research Based</values>
+        <values>MSc</values>
+        <values>Master of Science</values>
+        <values>Thesis based</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="duration">
+        <values>duration</values>
+        <values>length</values>
+        <values>time</values>
+        <values>long</values>
+        <values>completion period</values>
+        <values>period</values>
+        <values>months</values>
+        <values>year</values>
+        <values>years</values>
+        <values>month</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Civil">
+        <values>Civil</values>
+        <values>Construction</values>
+        <values>Computer Science</values>
+        <values>Computer Engineering</values>
+        <values>CS</values>
+        <values>Computers</values>
+        <values>ECE</values>
+        <values>Electrical</values>
+        <values>Electrical and Computer Engineering</values>
+        <values>Electronics</values>
+        <values>Engineering Materials</values>
+        <values>Materials</values>
+        <values>Material</values>
+        <values>Environmental</values>
+        <values>Sustainable</values>
+        <values>Smart Energy</values>
+        <values>Env</values>
+        <values>Enivornment</values>
+        <values>engineering in Environment</values>
+        <values>Industrial</values>
+        <values>Indus</values>
+        <values>Industries</values>
+        <values>Mechanical</values>
+        <values>Mech</values>
+        <values>Manufacturing</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="duration_spec">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="ECE">
+        <values>ECE</values>
+        <values>Electrical and computer engineering</values>
+        <values>electronics</values>
+        <values>electrical</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Mechanical">
+        <values>Mechanical</values>
+        <values>Mech</values>
+        <values>Manufacturing</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Materials">
+        <values>Materials</values>
+        <values>Material</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Industrial">
+        <values>Industrial</values>
+        <values>Industries</values>
+        <values>Indus</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Environmental">
+        <values>Environmental</values>
+        <values>Environment</values>
+        <values>Sustainable</values>
+        <values>Smart Energy</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Computer Science">
+        <values>Computer Science</values>
+        <values>Computer Sci</values>
+        <values>Computers</values>
+        <values>CS</values>
+        <values>Computer Engineering</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Automotive">
+        <values>Automotive</values>
+        <values>Automobile</values>
+        <values>Auto</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="CS AI">
+        <values>CS AI</values>
+        <values>Artificial Intelligence</values>
+        <values>Computer Science with Artificial Intelligence</values>
+        <values>AI</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Civil">
+        <values>Civil</values>
+        <values>Construction</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="min_qual_masc">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="MASc">
+        <values>MASc</values>
+        <values>Master of Applied Science</values>
+        <values>Applied Science</values>
+        <values>Thesis-Based</values>
+        <values>Research_Based</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="num_sub_msc">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="MSC">
+        <values>MSC</values>
+        <values>Master of science</values>
+        <values>MS</values>
+        <values>thesis-based</values>
+        <values>research-based</values>
+        <values>MASC</values>
+        <values>Master of Applied science</values>
+        <values>Applied of science</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="civil_eng">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Civil">
+        <values>Civil</values>
+        <values>Construction</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="specialization_type">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Master of Engineering">
+        <values>Master of Engineering</values>
+        <values>MEng</values>
+        <values>course-based</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Master of Science">
+        <values>Master of Science</values>
+        <values>MSC</values>
+        <values>thesis-based</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Master of Applied Science">
+        <values>Master os Applied Science</values>
+        <values>MASC</values>
+        <values>research</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Master of Applied Computing">
+        <values>Master of Applied Computing</values>
+        <values>MAC</values>
+        <values>project-based</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="help">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="details">
+        <values>details</values>
+        <values>information</values>
+        <values>support</values>
+        <values>helpful</values>
+        <values>help</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="com_sci_eng">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Computer Science">
+        <values>Computer Science</values>
+        <values>Computer Engineering</values>
+        <values>CS</values>
+        <values>Computers</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="duration_rea_spec">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="ECE">
+        <values>ECE</values>
+        <values>Electrical</values>
+        <values>Electrical and computer</values>
+        <values>Electronics</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Civil">
+        <values>Civil</values>
+        <values>Construction</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Mechanical">
+        <values>Mechanical</values>
+        <values>Mech</values>
+        <values>Manufacturing</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Automotive">
+        <values>Automotive</values>
+        <values>auto</values>
+        <values>Automobile</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Materials">
+        <values>Materials</values>
+        <values>material</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Industrial">
+        <values>Industrial</values>
+        <values>Indus</values>
+        <values>Industries</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Environmental">
+        <values>Environmental</values>
+        <values>Environment</values>
+        <values>Sustainable</values>
+        <values>smart energy</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Computers">
+        <values>Computers</values>
+        <values>CS</values>
+        <values>Computer Science</values>
+        <values>Computer engineering</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="CS AI">
+        <values>CS AI</values>
+        <values>AI</values>
+        <values>artificial intelligence</values>
+        <values>computer science with AI speicialization</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="num_sub_mac_2">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Computer Science">
+        <values>Computer Science</values>
+        <values>Computer engineering</values>
+        <values>CS</values>
+        <values>Computers</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="num_course_meng_2">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Automotive">
+        <values>Automotive</values>
+        <values>Auto</values>
+        <values>Autonomous</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Civil">
+        <values>Civil</values>
+        <values>Construction</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="ECE">
+        <values>ECE</values>
+        <values>Electrical</values>
+        <values>Electrical and Computer Engineering</values>
+        <values>Electronics</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Environmental">
+        <values>Environmental</values>
+        <values>Sustainable</values>
+        <values>Smart Energy</values>
+        <values>Env</values>
+        <values>Enivornment</values>
+        <values>Engineering in Environment</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Industrial">
+        <values>Industrial</values>
+        <values>Indus</values>
+        <values>Industries</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Materials">
+        <values>Materials</values>
+        <values>Material</values>
+        <values>Engineering Materials</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Mechanical">
+        <values>Mechanical</values>
+        <values>Mech</values>
+        <values>Manufacturing</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="num_sub_mac">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="MAC">
+        <values>MAC</values>
+        <values>Master of Applied Computing</values>
+        <values>Applied Computing</values>
+        <values>course-based</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="duration_course">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="course-based">
+        <values>Meng</values>
+        <values>Master of Engineering</values>
+        <values>Course-based</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="course">
+        <values>MAC</values>
+        <values>Master of Applied Computing</values>
+        <values>course</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="min_qual_cs_ai">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="MSC AI">
+        <values>MSC AI</values>
+        <values>Master of Science in Artificial Intelligence</values>
+        <values>MS AI</values>
+        <values>MS in Computer Science with AI Specialization</values>
+        <values>MS in Computer Science with Artificial Intelligence</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="MSC CS">
+        <values>MSC CS</values>
+        <values>Master of Science in Computers</values>
+        <values>Master of Computer Science</values>
+        <values>Master of Computer Science with Thesis</values>
+        <values>Master of CS with Research</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="AI">
+        <values>AI</values>
+        <values>Artificial Intelligence</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="CS">
+        <values>CS</values>
+        <values>Computers</values>
+        <values>Computer science</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="cs_ai">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Artificial Intelligence">
+        <values>Artificial Intelligence</values>
+        <values>AI</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="" method="POST">
+    <basicAuth key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </basicAuth>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="num_sub_msc_21TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Are you looking for a course-based or research-based program? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="num_sub1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Are you looking for thesis-based or course-based masters? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="num_sub_meng1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Students enrolled in MEng are required to complete a total of 8 courses for the completion of the degree.Students enrolled in MEng are allowed to choose 4 major courses out of 8. The remaining 4 are mandatory courses which need to be completed in order to enroll in majors. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Industrial_EngineeringTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We provide two types of master&#x2019;s program in Industrial Engineering. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes! We have course-based master&#x2019;s known as MEng and thesis-based master&#x2019;s known as Masc. in Industrial. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="min_qual_mac1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hold a 4-year bachelor degree in Computer Science or related discipline with a minimum major average of 70% or an average of 77% or better in the last 2 years of study, application that includes a description of a major technology project they have undertaken in the past 3 years. Non-Computer Science disciplines will be eligible for admission if they are accepted into and complete the University of Windsor&#x2019;s one-year Bachelor of Computer Science for University Graduates program with a 70% average or better.Also have minimum score in any one of them IELTS (6.5)/GRE/TOEFL (IBT-92)/Pearson (65). "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="deadline_spec1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="The applications are open for Winter 2021 till 1st September 2020. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="duration1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Are you looking for a course-based or research-based Masters? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hi! How are you doing? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hello! How can I help you? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Good day! What can I do for you today? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Greetings! How can I assist? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="duration_research1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="This is a 24 month program.The completion of the program also depends on students thesis completion time. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="min_qual_meng1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="The minimum qualification to apply for graduate program is to have an undergraduate degree (BASc / B.Sc. in Engineering / B.Eng. degree or equivalent*) with at least 73% average over the last two years. International applicants are advised to refer to the specified minimum admission requirements, listed by country, at the Faculty of Engineering&#x2019;s Professional and Graduate Studies (FEPGS) website and the Faculty of Graduate Studies website. Also have minimum score in any one of them IELTS (6.5)/GRE/TOEFL (IBT-92)/Pearson (65). "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Material_EngineeringTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We provide two types of master&#x2019;s program in Material Engineering. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes! We have course-based master&#x2019;s known as MEng and thesis-based master&#x2019;s known as Masc. in Material. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="deadline1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Please mention the specialization you are looking for? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Environemntal_EngineeringTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We provide two types of Masters program in Environmental Engineering.One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes! We have course based Masters known as MEng and thesis based Masters known as MASc in Environment. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="duration_spec1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Are you looking for course-based or thesis-based? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="min_qual_masc1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Undergraduate degree (BASc / B.Sc. in Engineering / B.Eng. degree or equivalent*) with at least 73% average over the last two years. International applicants are advised to refer to the specified minimum admission requirements, listed by country, at the Faculty of Engineering&#x2019;s Professional and Graduate Studies (FEPGS) website and the Faculty of Graduate Studies website. Any research publications would be a plus. Also have minimum score in any one of them IELTS(6.5)/GRE/TOEFL(IBT-83)/Pearson(65). "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="num_sub_msc1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="The requirements for the degree of Master of Science will be satisfied by pursuing a program of studies consisting of five approved courses and a thesis. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Masters_typeTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We offer various Graduate programs at University of Windsor. Please provide the specialization. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes, for sure! We provide various graduate programs. Please specify the specialization you are looking for. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes, we do offer Graduate courses at our University. Which Program are you interested in? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes! Could you please help me with your area of interest? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Automotive_EnggTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We provide two types of master&#x2019;s program in Automotive Engineering. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes! We have course-based master&#x2019;s known as MEng and thesis-based master&#x2019;s known as Masc. in Automotive. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="help1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I can guide you through course details for graduate programs, IELTS requirements, additional documents, application deadline, program duration, admission requirements, availability of co-op or internships. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Computer_ScienceTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We provide two types of master&#x2019;s program in Computer Science. One is Master of Applied Computing which is course-based and the other one is Master of Science which is Research-Based. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes! We have course-based master&#x2019;s known as MAC and thesis-based master&#x2019;s known as MSc in Computer Science. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Mechanical_EngineeringTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We provide two types of master&#x2019;s program in Mechanical Engineering. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes! We have course-based master&#x2019;s known as MEng and thesis-based master&#x2019;s known as Masc. in Mechanical Engineering. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="duration_rea_spec1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Are you looking for Course-based or reasearch-based? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="ieltsTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Students are required to score minimum 6.5 band with no band less than 6 in reading, writing, listening and speaking. Possession of the minimum requirements does not ensure admission. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Computer_Science_AITxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes! We have thesis-based master&#x2019;s known as MSc in Computer Science with Artificial Intelligence Stream. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="The program available in the field of Artificial Intelligence is Master of Science in Computer Science with specialization in Artificial Intelligence. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Electrical_and_Computer_EngineeringTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We provide two types of master&#x2019;s program in ECE. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes! We have course-based master&#x2019;s known as MEng and thesis-based master&#x2019;s known as Masc. in ECE. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="num_course_meng_21TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Are you looking for a Course-based or research-based program? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="num_sub_mac1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Students get to study a total of 8 courses plus Project/Internship in order to complete the degree. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="duration_course1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="This is a 16 months program. Students are expected to complete it within 16-18 months. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="min_qual_cs_ai1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="A student with an honours Bachelor's degree in a related subject and with at least a 70% average in the major subject may be admitted to a minimum two-year Master's program ,Students with deficiencies in some areas of Computer Science may be required to make up those deficiencies by registering in undergraduate courses prior to or as part of their graduate program. Any research paper publication is a plus. Also have minimum score in any one of them IELTS(6.5)/GRE/TOEFL-IBT(92)/Pearson(65). "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Civil_EngineeringTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="We provide two types of master&#x2019;s program in Civil Engineering. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes! We have course-based master&#x2019;s known as MEng and thesis-based master&#x2019;s known as Masc. in Civil. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed what you said. What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, could you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, I didn't get that. Can you rephrase? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, what was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="One more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Say that one more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you repeat? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed that, say that again? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.1">
+    <target actions="//@actions.3"/>
+  </flows>
+  <flows intent="//@intents.2">
+    <target actions="//@actions.4"/>
+  </flows>
+  <flows intent="//@intents.3">
+    <target actions="//@actions.5"/>
+  </flows>
+  <flows intent="//@intents.4">
+    <target actions="//@actions.6"/>
+  </flows>
+  <flows intent="//@intents.5">
+    <target actions="//@actions.7"/>
+  </flows>
+  <flows intent="//@intents.6">
+    <target actions="//@actions.8"/>
+  </flows>
+  <flows intent="//@intents.7">
+    <target actions="//@actions.9"/>
+  </flows>
+  <flows intent="//@intents.8">
+    <target actions="//@actions.10"/>
+  </flows>
+  <flows intent="//@intents.9">
+    <target actions="//@actions.11"/>
+  </flows>
+  <flows intent="//@intents.10">
+    <target actions="//@actions.12"/>
+  </flows>
+  <flows intent="//@intents.11">
+    <target actions="//@actions.13"/>
+  </flows>
+  <flows intent="//@intents.12">
+    <target actions="//@actions.14"/>
+  </flows>
+  <flows intent="//@intents.13">
+    <target actions="//@actions.15"/>
+  </flows>
+  <flows intent="//@intents.14">
+    <target actions="//@actions.16"/>
+  </flows>
+  <flows intent="//@intents.15">
+    <target actions="//@actions.17"/>
+  </flows>
+  <flows intent="//@intents.16">
+    <target actions="//@actions.18"/>
+  </flows>
+  <flows intent="//@intents.17">
+    <target actions="//@actions.19"/>
+  </flows>
+  <flows intent="//@intents.18">
+    <target actions="//@actions.20"/>
+  </flows>
+  <flows intent="//@intents.19">
+    <target actions="//@actions.21"/>
+  </flows>
+  <flows intent="//@intents.20">
+    <target actions="//@actions.22"/>
+  </flows>
+  <flows intent="//@intents.21">
+    <target actions="//@actions.23"/>
+  </flows>
+  <flows intent="//@intents.22">
+    <target actions="//@actions.24"/>
+  </flows>
+  <flows intent="//@intents.23">
+    <target actions="//@actions.3"/>
+  </flows>
+  <flows intent="//@intents.24">
+    <target actions="//@actions.25"/>
+  </flows>
+  <flows intent="//@intents.25">
+    <target actions="//@actions.26"/>
+  </flows>
+  <flows intent="//@intents.26">
+    <target actions="//@actions.27"/>
+  </flows>
+  <flows intent="//@intents.27">
+    <target actions="//@actions.28"/>
+  </flows>
+  <flows intent="//@intents.28">
+    <target actions="//@actions.29"/>
+  </flows>
+  <flows intent="//@intents.29">
+    <target actions="//@actions.30"/>
+  </flows>
+  <flows intent="//@intents.30">
+    <target actions="//@actions.31"/>
+  </flows>
+  <flows intent="//@intents.31">
+    <target actions="//@actions.32"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

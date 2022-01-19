@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="malaynayak">
+  <intents name="Default Welcome Intent">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="course-enquiry-contextual">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="who is the author?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="ShopAssistant">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the courses available?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What online courses do you offer?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="course-enquiry">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tell me more about "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="Drupal8"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What about "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="drupal?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="about "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="laravel"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can you tell about  "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="course"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+    </inputs>
+    <parameters name="course_name" entity="//@entities.0" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Please specify the course.</prompts>
+        <prompts>Which course your are interested in.</prompts>
+        <prompts>Select a course.</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="Default Fallback Intent" fallbackIntent="true"/>
+  <entities name="course_name">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Wordpress">
+        <values>wordpress</values>
+        <values>wp</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Laravel">
+        <values>Laravel</values>
+        <values>laravel</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Angular Js">
+        <values>Angular Js</values>
+        <values>Angular</values>
+        <values>angular</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Drupal8">
+        <values>Drupal 8</values>
+        <values>drupal</values>
+        <values>d8</values>
+        <values>drupal8</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="https://8fbb1dcd.ngrok.io/commerce-ai/api.ai/webhook" method="POST">
+    <headers key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </headers>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hi! How I can help ? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hello! May I help you? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Good day! May I help you? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Greetings! May I help you? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="course-enquiry-contextualTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed what you said. Say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, could you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, I didn't get that. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, what was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="One more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed that. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.2">
+    <target actions="//@actions.0 //@actions.1"/>
+  </flows>
+  <flows intent="//@intents.3">
+    <target actions="//@actions.0 //@actions.1 //@actions.3">
+      <outcoming intent="//@intents.1">
+        <target actions="//@actions.0 //@actions.1 //@actions.3"/>
+      </outcoming>
+    </target>
+  </flows>
+  <flows intent="//@intents.4">
+    <target actions="//@actions.4"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

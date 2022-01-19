@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="Conf-Chatbot-6">
+  <intents name="Default-Fallback-Intent" fallbackIntent="true"/>
+  <intents name="Item-Name">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="potion"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="key"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="Rock"/>
+      </inputs>
+    </inputs>
+    <parameters name="item" entity="//@entities.0"/>
+  </intents>
+  <intents name="Item-Exists-No">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Nah"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hell no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="No"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="New-Player">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="new player"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to set up a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="player"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="participant"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A new "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="playable character"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="player"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A new "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="player"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A new player"/>
+      </inputs>
+    </inputs>
+    <parameters name="player"/>
+  </intents>
+  <intents name="New-Room">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="New "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="room"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How many "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="rooms"/>
+        <tokens xsi:type="generator:Literal" text=" there will be"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="The number of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="rooms"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to choose the number of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="rooms"/>
+      </inputs>
+    </inputs>
+    <parameters name="rooms"/>
+  </intents>
+  <intents name="Player-name">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Ap6612"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Pope"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Alucard"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Joan"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Marcos"/>
+      </inputs>
+    </inputs>
+    <parameters name="playerName" entity="//@entities.1" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Sorry I did not get that, could you repeat the name?</prompts>
+        <prompts>I am afraid that $playerName is not a valid name, could you try again?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="Item-Exists-Yes">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Why not?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Sure"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Yeah"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Yes"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Character-Purpose">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="This character will give you the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.1" textReference="key"/>
+        <tokens xsi:type="generator:Literal" text=" for the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.2" textReference="first chest"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="This character will give you a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.1" textReference="potion"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="This character will tell you where that you have to go to the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.0" textReference="first room"/>
+        <tokens xsi:type="generator:Literal" text=" again"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="He will give you the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.1" textReference="key"/>
+        <tokens xsi:type="generator:Literal" text=" for the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.2" textReference="first chest"/>
+      </inputs>
+    </inputs>
+    <parameters name="place" entity="//@entities.5"/>
+    <parameters name="item" entity="//@entities.0"/>
+    <parameters name="itemRelation" entity="//@entities.2"/>
+  </intents>
+  <intents name="Default-Welcome-Intent">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="just going to say hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="heya"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="howdy"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="greetings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="long time no see"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="lovely day isn't it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I greet you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello again"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="a good day"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Character-Name">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="The magician"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="+A45 the great"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="John"/>
+      </inputs>
+    </inputs>
+    <parameters name="characterName" entity="//@entities.3"/>
+  </intents>
+  <intents name="New-Room-select-number">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="thirteen"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="20"/>
+      </inputs>
+    </inputs>
+    <parameters name="number" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>You must select a number</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="New-Character">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="An "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="NPC"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A new "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="character"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="new character"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="a new character"/>
+      </inputs>
+    </inputs>
+    <parameters name="character"/>
+  </intents>
+  <intents name="Item-Action">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Open"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Take"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Read"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Consume"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Consume"/>
+        <tokens xsi:type="generator:Literal" text=" and "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="take"/>
+      </inputs>
+    </inputs>
+    <parameters name="action" entity="//@entities.4"/>
+  </intents>
+  <intents name="Player-health">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.13/@parameters.0" textReference="twenty"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.13/@parameters.0" textReference="20"/>
+      </inputs>
+    </inputs>
+    <parameters name="health" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Please enter a number</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="End-Configuration">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="That's all"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Nothing else"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Nothing"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="New-Item">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A new "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="item"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Lets set up a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="gadget"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="device"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="thing"/>
+        <tokens xsi:type="generator:Literal" text=" to use"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="An "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="item"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="A new "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="object"/>
+      </inputs>
+    </inputs>
+    <parameters name="item" entity="//@entities.0"/>
+  </intents>
+  <intents name="Settings">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="/settings"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <entities name="item">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="([A-Za-z]+\d*)+">
+        <values>([A-Za-z]+\d*)+</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="playerName">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="([A-Za-z]+\d*)+">
+        <values>([A-Za-z]+\d*)+</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="itemRelation">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="([A-Za-z]+\d*)+">
+        <values>([A-Za-z]+\d*)+</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="characterName">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="(([a-zA-Z]+\d*)+[ ]?)+">
+        <values>(([a-zA-Z]+\d*)+[ ]?)+</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="action">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="([A-Za-z]+)">
+        <values>([A-Za-z]+)</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="place">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="([A-Za-z]+\d*)+">
+        <values>([A-Za-z]+\d*)+</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="https://d00ad1148974.ngrok.io/webhook" method="POST">
+    <basicAuth key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </basicAuth>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default-Fallback-IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.0 //@actions.1 //@actions.2"/>
+  </flows>
+  <flows intent="//@intents.8">
+    <target actions="//@actions.0 //@actions.1 //@actions.2"/>
+  </flows>
+  <flows intent="//@intents.16">
+    <target actions="//@actions.0 //@actions.1 //@actions.2"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

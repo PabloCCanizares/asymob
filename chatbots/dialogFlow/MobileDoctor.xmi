@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="MobileDoctor">
+  <intents name="integration_specific">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="start"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="/start"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="deney_reports">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I haven't reports"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="No"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not yet get reports"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not yet"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="i did not get"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="i have no reports"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Conversation_end">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Take Care"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm off!"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I gotta run"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="See you later!"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Good seeing you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="thank"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="it is dangourous"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Thank you doctor"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Thanks"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="prediction_form">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="prediction"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to get prediction"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="prediction part"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="prediction form"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="get Prediction"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to predict chronicle kidney disease"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to predict CKD"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="confirm_reports">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="12 year"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="40 years"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="40 years old"/>
+      </inputs>
+    </inputs>
+    <parameters name="age" required="true">
+      <prompts language="ENGLISH">
+        <prompts>How old are you?</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="bp" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>what is your normal blood pressure (mm/Hg)?                                                                                                              Normal person healthy person has 120 mm/Hg</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="al" entity="//@entities.1" required="true">
+      <prompts language="ENGLISH">
+        <prompts>What is your Albumin level ?                                                                                                                                       (0,1,2,3,4,5)</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="pcc" entity="//@entities.0" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Did you have Pus Cell clumps?                                                                                                                                       
+(present-1 else -0)</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="bgr" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>what is your Blood Glucose Random (mgs/dl)?                                                                                                             Normal healthy person BGR is 140-200mg/dl</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="bu" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>How about your Blood Urea concentration (mgs/dl)?                                                                                                   Normal person BU is  7  to 20 mg/dl</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="sod" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>How about your Sodium level (mEq/L)?                                                                                                                                     A normal blood sodium level is between 135 and 145(mEq/L).</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="pot" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>How about your Potassium level (mEq/L)?                                                                                                                            The normal potassium level in the  blood is 3.5-5.0 (mEq/L).</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="hemo" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>How about your Hemoglobin concentration in your blood (gms)?                                                                                    The normal range for hemoglobin is 13.5 to 17.5 grams per deciliter.</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="rbcc" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>What is your Red Blood Cell Count (millions/cmm) ?                                                                                                          
+The normal RBC range for men is 4.7 to 6.1 million/cmm</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="dm" entity="//@entities.2" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Did you have Diabetes Mellitus ?                                                                                                                                    (present-1 else-0)</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="appet" entity="//@entities.3" required="true">
+      <prompts language="ENGLISH">
+        <prompts>how about your appetite?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="Name">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="your name?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="name?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is your name?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="who_is_in_chat">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="who's in that?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Who's here?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Is there anyone?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Anyone there?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is anyone in here?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="telegrame">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can we message in telegram?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can we msg in telegram"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want your telegram"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Are you in telegram"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Are you use telegram"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can we have chat in telegram"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to add you to telegram"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Telegram link"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Default Welcome Intent">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey doctor"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi Doc"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Doctor"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi doctor"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="just going to say hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="heya"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello h"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="howdy"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="greetings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="long time no see"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="lovely day isn't it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I greet you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello again"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="a good day"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Appointment_ask">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Appointment, please?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I book an appointment?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="How can I book appointment?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Appointment?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I have an appointment?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="instruction">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I got it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="i get it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yep"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes i have reports"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes i have"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="FAQ_start">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="CKD problem"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I have a problem"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I ask a question?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="CKD questions"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I know something?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I have questions for you?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I have some questions?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Default Fallback Intent" fallbackIntent="true"/>
+  <intents name="Services_offer_ask">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can I know about services?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can you tell me services which you are offering?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can you tell me about services?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Services?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the services?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what are the services I can have?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what services do you offer?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <entities name="pcc">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="1">
+        <values>1</values>
+        <values>yes</values>
+        <values>I have</values>
+        <values>present</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="0">
+        <values>0</values>
+        <values>no</values>
+        <values>I haven't</values>
+        <values>not present</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="albumin_level">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="1">
+        <values>1</values>
+        <values>one</values>
+        <values>level one</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="2">
+        <values>2</values>
+        <values>two</values>
+        <values>level two</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="3">
+        <values>3</values>
+        <values>three</values>
+        <values>level three</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="4">
+        <values>4</values>
+        <values>four</values>
+        <values>level four</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="5">
+        <values>5</values>
+        <values>five</values>
+        <values>level five</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="0">
+        <values>0</values>
+        <values>zero</values>
+        <values>level zero</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="Diabetes_Mellitus">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="1">
+        <values>1</values>
+        <values>present</values>
+        <values>yes i have</values>
+        <values>I have</values>
+        <values>yes</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="0">
+        <values>0</values>
+        <values>not present</values>
+        <values>no</values>
+        <values>I have not</values>
+        <values>I haven't</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="appetite">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="1">
+        <values>good</values>
+        <values>very good</values>
+        <values>not bad</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="0">
+        <values>not good</values>
+        <values>very bad</values>
+        <values>bad</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="https://health-care-prediction.herokuapp.com/predict" method="POST">
+    <basicAuth key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </basicAuth>
+    <headers key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </headers>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="integration_specificTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Let's start ?? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="deney_reportsTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="If you want to get prediction you should get reports "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Conversation_endTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ok! bye "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Have a nice day!! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Have healthy day "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I am off!! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="prediction_formTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="First of all, you should get urea reports and blood report. Did you get that? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="confirm_reportsTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="NameTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I am Dr. Mobile?? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="who_is_in_chatTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I am here, Your CKD specialist "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Yes I am here, DR.Mobile "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Dr.Mobile here "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="telegrameTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I am using telegram.. This is URL :t.me/CKD_Doctor_bot "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hi,  what do you want? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Appointment_askTxtResp3">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I am sorry, I am just a bot so You can't book appointment "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I am bot You can't meet me "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="It is not permitted apportionment "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="instructionTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ok fine! When you answering questions, you should keep mind what are the units i am asking....                                                                                                                How old are you? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="FAQ_startTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="what is the question? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Tell me that question? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Please state your problem "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed what you said. What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, could you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, I didn't get that. Can you rephrase? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, what was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="One more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Say that one more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you repeat? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed that, say that again? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Services_offer_askTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Chronicle Kidney Disease prediction "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.2">
+    <target actions="//@actions.4"/>
+  </flows>
+  <flows intent="//@intents.5">
+    <target actions="//@actions.7"/>
+  </flows>
+  <flows intent="//@intents.6">
+    <target actions="//@actions.8"/>
+  </flows>
+  <flows intent="//@intents.7">
+    <target actions="//@actions.9"/>
+  </flows>
+  <flows intent="//@intents.8">
+    <target actions="//@actions.10">
+      <outcoming intent="//@intents.3">
+        <target actions="//@actions.5">
+          <outcoming intent="//@intents.1">
+            <target actions="//@actions.3"/>
+          </outcoming>
+          <outcoming intent="//@intents.10">
+            <target actions="//@actions.12">
+              <outcoming intent="//@intents.4">
+                <target actions="//@actions.0 //@actions.1 //@actions.6"/>
+              </outcoming>
+            </target>
+          </outcoming>
+        </target>
+      </outcoming>
+      <outcoming intent="//@intents.11">
+        <target actions="//@actions.13"/>
+      </outcoming>
+    </target>
+  </flows>
+  <flows intent="//@intents.9">
+    <target actions="//@actions.6 //@actions.11"/>
+  </flows>
+  <flows intent="//@intents.12">
+    <target actions="//@actions.14"/>
+  </flows>
+  <flows intent="//@intents.13">
+    <target actions="//@actions.15"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

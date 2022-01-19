@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="hrc">
+  <intents name="Default Welcome Intent">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="just going to say hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="heya"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="howdy"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="greetings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="long time no see"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="lovely day isn't it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I greet you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello again"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="a good day"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Topic1">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Where i can find out about "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="discipline"/>
+        <tokens xsi:type="generator:Literal" text=" ?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What is "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="discipline"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to know about "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="discipline"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to know about "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="discipline"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need to know about "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="discipline"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Can you lookup "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="discipline"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tell me about "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="annual salary"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="hours of work"/>
+        <tokens xsi:type="generator:Literal" text="?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tell me about "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="discipline"/>
+        <tokens xsi:type="generator:Literal" text="."/>
+      </inputs>
+    </inputs>
+    <parameters name="topic" entity="//@entities.0"/>
+  </intents>
+  <intents name="Default Fallback Intent" fallbackIntent="true"/>
+  <entities name="Topic">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="pets">
+        <values>pets</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="professionalism">
+        <values>professionalism</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="disability leave">
+        <values>disability leave</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="nepotism">
+        <values>nepotism</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="smoke free environment">
+        <values>smoke free environment</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="resignation">
+        <values>resignation</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="discipline">
+        <values>discipline</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="sick leave">
+        <values>sick leave</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="layoff">
+        <values>layoff</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="ignore this">
+        <values>ignore this</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="probation">
+        <values>probation</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="hours of work">
+        <values>hours of work</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="jury duty">
+        <values>jury duty</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="employee classifications">
+        <values>employee classifications</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="statutory holidays">
+        <values>statutory holidays</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="personnel file">
+        <values>personnel file</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="employer property">
+        <values>employer property</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="annual salary">
+        <values>annual salary</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="orientation">
+        <values>orientation</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="group rrsp">
+        <values>group rrsp</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="scents">
+        <values>scents</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="employment equity">
+        <values>employment equity</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="employee duties">
+        <values>employee duties</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="termination for cause">
+        <values>termination for cause</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="renovations">
+        <values>renovations</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="performance appraisals">
+        <values>performance appraisals</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="compassionate leave">
+        <values>compassionate leave</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="termination without cause">
+        <values>termination without cause</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="unpaid leave">
+        <values>unpaid leave</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="overtime">
+        <values>overtime</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="recruitment and selection">
+        <values>recruitment and selection</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="https://dialogflow-dot-qwiklabs-gcp-01-984148f23f4d.uc.r.appspot.com/webhook/" method="POST">
+    <basicAuth key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </basicAuth>
+    <headers key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </headers>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hi! How are you doing? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hello! How can I help you? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Good day! What can I do for you today? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Greetings! How can I assist? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Topic1TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed what you said. What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, could you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, I didn't get that. Can you rephrase? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, what was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="One more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Say that one more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you repeat? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed that, say that again? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.1">
+    <target actions="//@actions.0 //@actions.1 //@actions.3"/>
+  </flows>
+  <flows intent="//@intents.2">
+    <target actions="//@actions.4"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>
