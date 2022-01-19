@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="FAQ">
+  <intents name="bot.order - yes">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sure"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="exactly"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="confirm"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="of course"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sounds good"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="that's correct"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't mind"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I agree"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="bot.define">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is a assistant app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="who are bots"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do you know anything about conversation apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what are virtual assistants"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is a chatbot"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tell me about virtual assistants"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what are chatbots designed for"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how does a bot work"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="bot.order - no">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="definitely not"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not really"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="thanks but no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not interested"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't think so"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I disagree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want that"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="bot.order - yes - intermediate">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Intermediate, 1-2 bots"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Intermediate, built a couple of bots"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="2-3 bots"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm not very experienced"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I've built a couple of bots"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="intermediate"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="bot.order - yes - advanced">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="advanced, several bots"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I build bots every day"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I've built 100+ bots"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="that's how I earn money"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I do it for life"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm a professional bot builder"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="it's my job"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="advanced"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="bot.order - yes - beginner">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="first time"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't know"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't know anything"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not familiar"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="it's going to be my first bot"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="elementary"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="beginner"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm just starting to dive into bot's world"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="just starting"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm a beginner"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm doing it for the first time"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="fallback" fallbackIntent="true">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Nice shirt"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Could you please show me some dog pictures"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Navigate home"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Who are US presidents?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What are the main cities in UK?"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Need help with cooking recipes"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to build a snowman"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Tell me about the weather"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What can you do to make me laugh"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Show me your travel plans"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="welcome">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Good day"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Let's start"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="welcome"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="bot.features">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me your skills"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what can you help me with"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what are your main features"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is there something I should know about your features"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tell me some of your interesting capabilities"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="guide from your skills"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how do we start working"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what can I ask you about"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what are you capable of"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me what you do"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what can you do"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="bot.order">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm about to start working on a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="fun"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.1" textReference="Assistant"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm working on a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.1" textReference="Slack"/>
+        <tokens xsi:type="generator:Literal" text=" bot for a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="finance"/>
+        <tokens xsi:type="generator:Literal" text=" company"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="i'm building a bot for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="customer support"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need a bot for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.1" textReference="android"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.1" textReference="facebook"/>
+        <tokens xsi:type="generator:Literal" text=" bot"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="need help with an "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.1" textReference="Assistant"/>
+        <tokens xsi:type="generator:Literal" text=" conversation app for a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="travel"/>
+        <tokens xsi:type="generator:Literal" text=" company"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to create a chatbot"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how to create a chatbot for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="entertainment"/>
+        <tokens xsi:type="generator:Literal" text=" purposes"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how to build a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="support"/>
+        <tokens xsi:type="generator:Literal" text=" bot"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where do people buy chatbots"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need a bot for a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="connected bot app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how to create a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="hotel booking"/>
+        <tokens xsi:type="generator:Literal" text=" bot"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how do I start"/>
+      </inputs>
+    </inputs>
+    <parameters name="industry" entity="//@entities.1" required="true">
+      <prompts language="ENGLISH">
+        <prompts>What's the industry you're working at?</prompts>
+        <prompts>What field are you working in?</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="platform" entity="//@entities.3" required="true">
+      <prompts language="ENGLISH">
+        <prompts>What platform are you launching for?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <entities name="integration">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Assistant">
+        <values>Actions on Google</values>
+        <values>Assistant</values>
+        <values>actions</values>
+        <values>aog</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Facebook Messenger">
+        <values>facebook</values>
+        <values>facebook messenger</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Kik">
+        <values>kik</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Line">
+        <values>line</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Skype">
+        <values>skype</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Slack">
+        <values>Slack</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Telegram">
+        <values>telegram</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Twitter">
+        <values>twitter</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="industry">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="cars">
+        <values>auto</values>
+        <values>automotive</values>
+        <values>cars</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="connected home">
+        <values>connected bot app</values>
+        <values>connected home</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="entertainment">
+        <values>entertainment</values>
+        <values>fun</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="finance">
+        <values>bank</values>
+        <values>finance</values>
+        <values>insurance</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="flight booking">
+        <values>flight</values>
+        <values>flight booking</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="food">
+        <values>food</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="hotel booking">
+        <values>hotel</values>
+        <values>hotel booking</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="restaurant booking">
+        <values>restaurant</values>
+        <values>restaurant booking</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="sport">
+        <values>sport</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="support">
+        <values>crm</values>
+        <values>customer support</values>
+        <values>support</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="travel">
+        <values>travel</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="sdk">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Android SDK">
+        <values>Android</values>
+        <values>Android SDK</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="C#">
+        <values>C#</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="C++">
+        <values>C++</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="HTML">
+        <values>HTML</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="JavaScript">
+        <values>JavaScript</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="iOS SDK">
+        <values>iOS SDK</values>
+        <values>ios</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="java">
+        <values>java</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="node js">
+        <values>node js</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="php">
+        <values>php</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="python">
+        <values>python</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="ruby">
+        <values>ruby</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="unity">
+        <values>unity</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="platform">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="@integration:integration">
+        <values>@integration:integration</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="@sdk:sdk ">
+        <values>@sdk:sdk </values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="" method="POST">
+    <basicAuth key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </basicAuth>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="bot.order - yesTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="bot.order - yesTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="That's great. Dialogflow provides powerful tools to create conversational interfaces and connect them to your web service. Now, tell me please, how familiar are you with building bots? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="bot.order - noTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Then you're in the right place. API.AI provides powerful yet user-friendly tools to create conversational interfaces. You can implement very sophisticated dialogs without writing a line of code. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="bot.order - yes - intermediateTxtResp3">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Cool. Keep developing your bots with us! Have a look at our guidelines here: https://docs.api.ai/docs/profile-bot-example-agent. Maybe you'll find some useful examples in our Prebuilt Agents, have a look here: https://docs.api.ai/docs/prebuilt-agents "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="bot.order - yes - advancedTxtResp3">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Wow! Cool to see a real pro. I hope, you'll find our ML section interesting: https://dialogflow.com/docs/machine-learning "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="How can I possibly help such a professional? Let's have a look at our Training Feature to make your future bot even smarter: https://dialogflow.com/docs/training "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="bot.order - yes - beginnerTxtResp3">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Congratulations on joining our bot's party! Here is how you start: https://docs.api.ai/docs/get-started "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="fallbackTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed what you said. Say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, could you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, I didn't get that. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, what was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="One more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed that. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="welcomeTxtResp3">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hey! I'm a sample FAQ agent. I can talk about conversation apps. What would you like to know? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="bot.featuresTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I'm a sample FAQ bot. I can give information about chatbots and how to build them with API.AI. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="bot.orderTxtResp4">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Are you planning to use a web service? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.1">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.6">
+    <target actions="//@actions.8"/>
+  </flows>
+  <flows intent="//@intents.7">
+    <target actions="//@actions.2 //@actions.9"/>
+  </flows>
+  <flows intent="//@intents.8">
+    <target actions="//@actions.10"/>
+  </flows>
+  <flows intent="//@intents.9">
+    <target actions="//@actions.2 //@actions.11">
+      <outcoming intent="//@intents.0">
+        <target actions="//@actions.2 //@actions.3">
+          <outcoming intent="//@intents.3">
+            <target actions="//@actions.2 //@actions.5"/>
+          </outcoming>
+          <outcoming intent="//@intents.4">
+            <target actions="//@actions.2 //@actions.6"/>
+          </outcoming>
+          <outcoming intent="//@intents.5">
+            <target actions="//@actions.2 //@actions.7"/>
+          </outcoming>
+        </target>
+      </outcoming>
+      <outcoming intent="//@intents.2">
+        <target actions="//@actions.2 //@actions.4"/>
+      </outcoming>
+    </target>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

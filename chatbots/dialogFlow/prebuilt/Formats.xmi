@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="Formats">
+  <intents name="format.imperial.unset">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="turn off imperial units system"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want to use imperial units of measurement"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't use imperial units"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="stop using imperial system"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="format.length.unset">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="miles"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't show me distance in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="miles"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="stop using "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="kilometres"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="stop using "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="miles"/>
+        <tokens xsi:type="generator:Literal" text=" for length measurement"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="unset "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="kilometres"/>
+        <tokens xsi:type="generator:Literal" text=" as default length format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="change the length format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't provide me distance in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="kilometres"/>
+      </inputs>
+    </inputs>
+    <parameters name="unit"/>
+  </intents>
+  <intents name="format.time.set">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="24-hour"/>
+        <tokens xsi:type="generator:Literal" text=" format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="12 hour"/>
+        <tokens xsi:type="generator:Literal" text=" time format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me the time in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="12-hr"/>
+        <tokens xsi:type="generator:Literal" text=" format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="provide me the time in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="military"/>
+        <tokens xsi:type="generator:Literal" text=" format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to get the time in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="24 hour"/>
+        <tokens xsi:type="generator:Literal" text=" format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="set the time format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="set "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="military"/>
+        <tokens xsi:type="generator:Literal" text=" time format"/>
+      </inputs>
+    </inputs>
+    <parameters name="format" entity="//@entities.1"/>
+  </intents>
+  <intents name="format.metric.set">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="use metric units"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you use metric units of measurement"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="metric system"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="switch to metric units"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="provide me information in metric units"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to use metric system"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="format.weight.set">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="provide me weight measurements in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="grams"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="pounds"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="kilograms"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="set weight format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="kilograms"/>
+        <tokens xsi:type="generator:Literal" text=" as weight units"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="switch units format to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="grams"/>
+      </inputs>
+    </inputs>
+    <parameters name="unit"/>
+  </intents>
+  <intents name="format.weight.unset">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't measure weight in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="grams"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="unset weight format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="stop providing me weight measurements in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="grams"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="stop using "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="pounds"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want to use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="pounds"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="kilograms"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="kilograms"/>
+        <tokens xsi:type="generator:Literal" text=" as weight units"/>
+      </inputs>
+    </inputs>
+    <parameters name="unit"/>
+  </intents>
+  <intents name="format.imperial.set">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="switch to imperial units"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="use imperial units"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="provide me information in imperial units"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you use imperial units of measurement"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="imperial units system"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to use imperial system"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="format.temperature.set">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to get temperatures in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.0" textReference="Fahrenheit"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.0" textReference="Celsius"/>
+        <tokens xsi:type="generator:Literal" text=" instead of Fahrenheit"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me temperatures in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.0" textReference="Fahrenheit"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like you to use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.0" textReference="Celsius"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="provide me temperature in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.0" textReference="Celsius"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="set temperature format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="use degrees "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.0" textReference="Fahrenheit"/>
+        <tokens xsi:type="generator:Literal" text=" for temperature"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.0" textReference="Celsius"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="set "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.7/@parameters.0" textReference="Celsius"/>
+        <tokens xsi:type="generator:Literal" text=" as default temperature format"/>
+      </inputs>
+    </inputs>
+    <parameters name="unit" entity="//@entities.0"/>
+  </intents>
+  <intents name="format.metric.unset">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="stop using metric system"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="turn off metric units system"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want to use metric units of measurement"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't use metric units"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="format.length.set">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="miles"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like you to use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="kilometres"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="set "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="kilometres"/>
+        <tokens xsi:type="generator:Literal" text=" as default length format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="miles"/>
+        <tokens xsi:type="generator:Literal" text=" for length measurement"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="set length format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me distance in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="miles"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="provide me distance in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="kilometres"/>
+      </inputs>
+    </inputs>
+    <parameters name="unit"/>
+  </intents>
+  <intents name="format.temperature.unset">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="unset degrees "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Celsius"/>
+        <tokens xsi:type="generator:Literal" text=" as default temperature format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="stop showing me temperatures in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Fahrenheit"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Celsius"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't provide me temperature in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Celsius"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="change temperature format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="stop using "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="Fahrenheit"/>
+        <tokens xsi:type="generator:Literal" text=" for temperature"/>
+      </inputs>
+    </inputs>
+    <parameters name="unit" entity="//@entities.0"/>
+  </intents>
+  <intents name="format.time.unset">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="change the time format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="12 hour"/>
+        <tokens xsi:type="generator:Literal" text=" time format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't show me the time in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="12-hr"/>
+        <tokens xsi:type="generator:Literal" text=" format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="stop using "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="24-hour"/>
+        <tokens xsi:type="generator:Literal" text=" format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want to get the time in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="24 hour"/>
+        <tokens xsi:type="generator:Literal" text=" format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="unset "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="military"/>
+        <tokens xsi:type="generator:Literal" text=" time format"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="stop providing me the time in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="military"/>
+        <tokens xsi:type="generator:Literal" text=" format"/>
+      </inputs>
+    </inputs>
+    <parameters name="format" entity="//@entities.1"/>
+  </intents>
+  <entities name="unit-temperature">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="R">
+        <values>degR</values>
+        <values>deg R</values>
+        <values>degre Rankine</values>
+        <values>degree Rankine</values>
+        <values>degrees Rankine</values>
+        <values>Rankine</values>
+        <values>Rankine degree</values>
+        <values>Rankine degrees</values>
+        <values>R</values>
+        <values>Ra</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="F">
+        <values>degF</values>
+        <values>deg F</values>
+        <values>degre Fahrenheit</values>
+        <values>degree Fahrenheit</values>
+        <values>degrees Fahrenheit</values>
+        <values>Fahrenheit</values>
+        <values>Fahrenheit degree</values>
+        <values>Fahrenheit degrees</values>
+        <values>F</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="C">
+        <values>degC</values>
+        <values>deg C</values>
+        <values>degre Celsius</values>
+        <values>degree Celsius</values>
+        <values>degrees Celsius</values>
+        <values>Celsius</values>
+        <values>centigrade</values>
+        <values>degree centigrade</values>
+        <values>degrees centigrade</values>
+        <values>Celsius degree</values>
+        <values>Celsius degrees</values>
+        <values>C</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="K">
+        <values>degK</values>
+        <values>deg K</values>
+        <values>Kelvin</values>
+        <values>Kelvins</values>
+        <values>degre Kelvin</values>
+        <values>degree Kelvin</values>
+        <values>degree Kelvins</values>
+        <values>degrees Kelvin</values>
+        <values>degrees Kelvins</values>
+        <values>K</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="time-format">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="military">
+        <values>military</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="24 h">
+        <values>24 h</values>
+        <values>24-h</values>
+        <values>twenty four hours</values>
+        <values>24-hour</values>
+        <values>24 hour</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="12 h">
+        <values>12 h</values>
+        <values>12-h</values>
+        <values>12 hours</values>
+        <values>twelve hours</values>
+        <values>12-hour</values>
+        <values>12 hour</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="" method="POST">
+    <basicAuth key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </basicAuth>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="format.imperial.unsetTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.1">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.2">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.3">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.4">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.5">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.6">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.7">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.8">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.9">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.10">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.11">
+    <target actions="//@actions.2"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

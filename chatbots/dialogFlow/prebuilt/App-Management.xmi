@@ -1,0 +1,2579 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="App-Management">
+  <intents name="app.remove">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you uninstall app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="get rid of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="WhatsApp"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="remove "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.2" textReference="all"/>
+        <tokens xsi:type="generator:Literal" text=" apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="remove application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.2" textReference="every"/>
+        <tokens xsi:type="generator:Literal" text=" apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you uninstall my apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall some app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Viber"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to delete app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Skeevy"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="YouTube"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you uninstall an app for me"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you delete an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.2" textReference="all of"/>
+        <tokens xsi:type="generator:Literal" text=" my apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you uninstall an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="remove application "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="WhatsApp"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="please uninstall "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Facebook Messenger"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="remove my "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you delete apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you delete an app for me"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to remove an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you delete apps for me"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete my apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how do I delete apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.2" textReference="all"/>
+        <tokens xsi:type="generator:Literal" text=" apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="get rid of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Chrome"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="WhatsApp"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Angry Birds"/>
+        <tokens xsi:type="generator:Literal" text=" from my phone"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you uninstall an application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.2" textReference="all"/>
+        <tokens xsi:type="generator:Literal" text=" my apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you delete "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.2" textReference="all"/>
+        <tokens xsi:type="generator:Literal" text=" my apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="remove "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to uninstall an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.2" textReference="every"/>
+        <tokens xsi:type="generator:Literal" text=" application from my device"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall program"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to uninstall "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you remove "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="TuneIn Radio Pro"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you remove the app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Soccer"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how do I delete an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how to delete the app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Viber"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you uninstall apps for me"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I get rid of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Viber"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="remove "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Fruit Ninja"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="remove "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm going to delete the app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you delete applications"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+    <parameters name="store-name" entity="//@entities.1"/>
+    <parameters name="all" entity="//@entities.0"/>
+  </intents>
+  <intents name="app.current.download">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where can I download your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="are you available in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="Google Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I download your app in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to download your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="load your application from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download yourself from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download your app from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="from where can I download your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download your app"/>
+      </inputs>
+    </inputs>
+    <parameters name="store-name" entity="//@entities.1"/>
+  </intents>
+  <intents name="app.current.speech.open">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to adjust your speech"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me your speech settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where can I adjust your speech"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open speech settings of your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to open your speech settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="pull up speech settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="change your speech settings"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.current.remove">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="remove yourself"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete your app right now"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to uninstall your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I uninstall you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am going to uninstall you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete this program"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="remove your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall this application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to remove you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I uninstall this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="remove yourself from my phone"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete yourself"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="uninstall your application now"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.current.skills">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what features do you have"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what else do you do"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="list of your key features"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open skills"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tell me what can you do"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to see your skills"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open your abilities"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="your main features"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what can I use you for"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what can this app do"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what are your qualifications"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what are you capable of"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tell me what you can do"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what can you do"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is this app for"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me your skills"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.open">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I would like to open the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Task Manager"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="access "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Gallery"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open application "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Instagram"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="go to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="my photos"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="launch application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you launch "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Spotify"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Viber"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you open app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="turn on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Flashlight"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="take me to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Ringtonium"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="go to app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Netflix"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="take me to my "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="music"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="take me to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="YouTube"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you launch "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Viber"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="access "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="pull up "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="go to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="go to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="my pictures"/>
+        <tokens xsi:type="generator:Literal" text=" on my phone"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open application "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Gmail"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Angry Birds"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="go to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="camera"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="may you open apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Safari"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="go to my "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="music"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="turn on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="camera"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="browser"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Subway Surfer"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="launch "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="play "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Cut the rope"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you open my "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+    <parameters name="store-name" entity="//@entities.1"/>
+  </intents>
+  <intents name="app.update">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I update "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="Slack"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to update "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.1" textReference="all of"/>
+        <tokens xsi:type="generator:Literal" text=" my apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="Kik"/>
+        <tokens xsi:type="generator:Literal" text=" app updates"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where can I update apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="update "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="Instagram"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="Google Chrome"/>
+        <tokens xsi:type="generator:Literal" text=" update"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to update an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="update "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.1" textReference="every"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you update "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="update "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" to the latest version"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="update "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" for me"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you update apps"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+    <parameters name="all" entity="//@entities.0"/>
+  </intents>
+  <intents name="app.current.close">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close this program"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="shut down this application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I would like to shut you down"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to close you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close current app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close your application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close yourself"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="you can close now"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how do I close you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close your app"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.current.notifications.open">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="your notifications settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to see your notifications settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where can I find your notifications"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open notifications settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you show me your notifications"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open your notifications"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.speech.open">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="Cortana"/>
+        <tokens xsi:type="generator:Literal" text=" speech settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" speech settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="Google Assistant"/>
+        <tokens xsi:type="generator:Literal" text=" speech settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I open the speech settings of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="Speaktoit Assistant"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to adjust "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="Sherpa"/>
+        <tokens xsi:type="generator:Literal" text=" app speech"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="adjust "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="Allo"/>
+        <tokens xsi:type="generator:Literal" text=" speech"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="go to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="Google Assistant"/>
+        <tokens xsi:type="generator:Literal" text=" speech settings"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+  </intents>
+  <intents name="app.current.rate">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate your application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I would like to give you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="4"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where can I rate you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am going to rate this app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="one"/>
+        <tokens xsi:type="generator:Literal" text=" star"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="100"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="let me rate you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm rating you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="let me rate you on the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="give you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="3"/>
+        <tokens xsi:type="generator:Literal" text=" stars rating"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm going to rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I rate you on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="Google Play"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'll rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="1"/>
+        <tokens xsi:type="generator:Literal" text=" star"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I rate "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars for this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="you deserve "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to evaluate you on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="Google Play"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how to rate this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where can I rate this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" stars for this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you rate this app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" things"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need to rate your app in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate this app on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I rate you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate this app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" stars in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I rate you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to rate you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm going to rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to rate this app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" stars on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="Google Play"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to give you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" for this application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="1"/>
+        <tokens xsi:type="generator:Literal" text=" star"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to rate "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars for this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" stars on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I rate you on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="Google Play"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to give you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" star"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="five"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I rate you "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="4"/>
+      </inputs>
+    </inputs>
+    <parameters name="stars" defaultEntity="FLOAT"/>
+    <parameters name="store-name" entity="//@entities.1"/>
+  </intents>
+  <intents name="app.download">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download application "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Kik"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="load app from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="load app from the Internet"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you download apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="WhatsApp"/>
+        <tokens xsi:type="generator:Literal" text=" from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I download an app from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you get an app from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Soccer"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Facebook Messenger"/>
+        <tokens xsi:type="generator:Literal" text=" for me"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="Google Play"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how do I download an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="get me "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Viber"/>
+        <tokens xsi:type="generator:Literal" text=" from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Fruit Ninja"/>
+        <tokens xsi:type="generator:Literal" text=" from the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need you to download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Bitmoji"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Clash of Clans"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Viber"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I download an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Google Chrome"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to download an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Angry birds"/>
+        <tokens xsi:type="generator:Literal" text=" download"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Vine"/>
+        <tokens xsi:type="generator:Literal" text=" from the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Vine"/>
+        <tokens xsi:type="generator:Literal" text=" from the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="get "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you download "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Instagram"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I would like to download the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="Task Manager"/>
+        <tokens xsi:type="generator:Literal" text=" from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="Play Market"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you download an app for me"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+    <parameters name="store-name" entity="//@entities.1"/>
+  </intents>
+  <intents name="app.install">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.1" textReference="App Store"/>
+        <tokens xsi:type="generator:Literal" text=" and install "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Angry Birds"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="install app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you install "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Kik messenger"/>
+        <tokens xsi:type="generator:Literal" text=" from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="install "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Kik"/>
+        <tokens xsi:type="generator:Literal" text=" installation"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Accu Weather"/>
+        <tokens xsi:type="generator:Literal" text=" installation"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do you have the ability to install apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need to install "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="install "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="FB"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you install apps from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="install "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Viber"/>
+        <tokens xsi:type="generator:Literal" text=" from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.1" textReference="Play Market"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you install "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Slack"/>
+        <tokens xsi:type="generator:Literal" text=" for me"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to install an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="install "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Chrome"/>
+        <tokens xsi:type="generator:Literal" text=" from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="let's install "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Twitter"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="install "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Gmail"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="install application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="app installation"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="install "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.12/@parameters.0" textReference="Fruit Ninja"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+    <parameters name="store-name" entity="//@entities.1"/>
+  </intents>
+  <intents name="app.current.version.summary">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what's new in the current version"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="current version summary"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what's new in this version"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what's new in current version"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me the summary of the current version"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="give me a summary of your current version"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.current.voice.open">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open your voice settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="voice settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to change your voice"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where can I adjust your voice"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I access your voice settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="pull up voice settings of this app"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.skills">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what can "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="Google Assistant"/>
+        <tokens xsi:type="generator:Literal" text=" do"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" skills"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what can I do in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="Google Keep"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to see "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="Slack"/>
+        <tokens xsi:type="generator:Literal" text=" skills"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" skills"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="pull up "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.15/@parameters.0" textReference="Allo"/>
+        <tokens xsi:type="generator:Literal" text=" skills"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+  </intents>
+  <intents name="app.current.history.clear">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you clear our conversations history"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="clear history"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="forget our conversations"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="forget what I just said"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="erase all our conversations"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="clear the history of our conversations"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.current.search">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I find you in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Play Market"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I search for your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="search for your application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where I find your application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="search yourself in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="search your app on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tell me where can I find you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="are you on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="find your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="search for your app in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.17/@parameters.0" textReference="Play Store"/>
+      </inputs>
+    </inputs>
+    <parameters name="store-name" entity="//@entities.1"/>
+  </intents>
+  <intents name="app.current.settings.open">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to open your settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="go to your settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you open your settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me your settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open settings of this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where can I set up your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where are your settings"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.current.install">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need to install you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I install your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how do I install you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="install yourself"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="install your application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you install yourself"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how to install your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="install your app"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.current.version">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do I have the latest version of your application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what version am I using"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="version"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="is it the latest version"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what version do I use"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me the version of this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what's the current version of your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what's the current version of this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="current version"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.voice.open">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" voice settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" voice settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Sherpa"/>
+        <tokens xsi:type="generator:Literal" text=" voice settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" voice settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open up "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Slack"/>
+        <tokens xsi:type="generator:Literal" text=" voice settings menu"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I adjust "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Google Allo"/>
+        <tokens xsi:type="generator:Literal" text=" voice settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Cortana"/>
+        <tokens xsi:type="generator:Literal" text=" voice settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="go to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Google Assistant"/>
+        <tokens xsi:type="generator:Literal" text=" voice settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Sherpa"/>
+        <tokens xsi:type="generator:Literal" text=" app voice settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="adjust "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Allo"/>
+        <tokens xsi:type="generator:Literal" text=" voice"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I open the voice settings of the  "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.21/@parameters.0" textReference="Google Assistant"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+  </intents>
+  <intents name="app.settings.close">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Fruit Ninja"/>
+        <tokens xsi:type="generator:Literal" text=" settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Slack"/>
+        <tokens xsi:type="generator:Literal" text=" app settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Instagram"/>
+        <tokens xsi:type="generator:Literal" text=" settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Chrome"/>
+        <tokens xsi:type="generator:Literal" text=" settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I close the settings of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Angry Birds"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close up "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" settings menu"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.22/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" app settings"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+  </intents>
+  <intents name="app.reset">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me how to reset an application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to reset an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reset "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="Angry Birds"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you reset "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="Gmail"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reset "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.1" textReference="each"/>
+        <tokens xsi:type="generator:Literal" text=" apps on my device"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reset app called "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="Viber"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need to reset "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="WhatsApp"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I reset an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I reset the application "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="Facebook"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reset "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reset an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tell me how to reset "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="Kik messenger"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reset "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="Google Calendar"/>
+        <tokens xsi:type="generator:Literal" text=" for me"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reset "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.1" textReference="every"/>
+        <tokens xsi:type="generator:Literal" text=" apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how do I reset the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.23/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reset app"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+    <parameters name="all" entity="//@entities.0"/>
+  </intents>
+  <intents name="app.rate">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you rate the app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Clash of clans"/>
+        <tokens xsi:type="generator:Literal" text=" for me"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="evaluate an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how do I rate an app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="3"/>
+        <tokens xsi:type="generator:Literal" text=" stars on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.1" textReference="Google Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Angry Birds"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I would like to rate "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Snapchat"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate the app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Google Assistant"/>
+        <tokens xsi:type="generator:Literal" text=" with "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="3"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to rate an app in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="give "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="4"/>
+        <tokens xsi:type="generator:Literal" text=" stars rating"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="let's give "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Viber"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="3"/>
+        <tokens xsi:type="generator:Literal" text=" stars rating"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rating on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Chrome"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="let's give "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Google Keep"/>
+        <tokens xsi:type="generator:Literal" text=" in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="3"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you rate the app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate the application "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate the application with "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="3"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I rate apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="rate app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I rate "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.2" textReference="5"/>
+        <tokens xsi:type="generator:Literal" text=" stars in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.24/@parameters.1" textReference="Google Play Store"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+    <parameters name="store-name" entity="//@entities.1"/>
+    <parameters name="star" defaultEntity="FLOAT"/>
+  </intents>
+  <intents name="app.settings.open">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="access "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="Chrome"/>
+        <tokens xsi:type="generator:Literal" text=" settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" app settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I open the settings of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="Angry Birds"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="go to "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="Shazam"/>
+        <tokens xsi:type="generator:Literal" text=" settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open up "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.25/@parameters.0" textReference="Slack"/>
+        <tokens xsi:type="generator:Literal" text=" settings menu"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+  </intents>
+  <intents name="app.history.clear">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="clear history in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.26/@parameters.0" textReference="Slack"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="delete "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.26/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" history"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="clear history of the app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.26/@parameters.0" textReference="Viber"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="clear "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.26/@parameters.0" textReference="browser"/>
+        <tokens xsi:type="generator:Literal" text=" history"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="clear history in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.26/@parameters.0" textReference="Facebook"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+  </intents>
+  <intents name="app.version">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="which version of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Angry Birds"/>
+        <tokens xsi:type="generator:Literal" text=" do I use"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="which version of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" am I using now"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what's the number of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" version that I'm using"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what version of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Angry Birds"/>
+        <tokens xsi:type="generator:Literal" text=" is installed in my device"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me the current version of my "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="VK"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tell me the version of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Kik messenger"/>
+        <tokens xsi:type="generator:Literal" text=" that I use"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="WhatsApp"/>
+        <tokens xsi:type="generator:Literal" text=" version"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me the version number of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Slack"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="find out which version of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Gmail"/>
+        <tokens xsi:type="generator:Literal" text=" is installed on this device"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need to know the version number of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.27/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" version do I use"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+  </intents>
+  <intents name="app.current.update">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want the latest version of your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="get the latest version of your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to update this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="update your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="get updates for your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="update your software"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how to update you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="update yourself"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="search for updates for your program"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.notifications.open">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="any notifications from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="Angry birds"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show notifications from my "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="Facebook"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you read notifications from my "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="Twitter"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="access "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="Google Assistant"/>
+        <tokens xsi:type="generator:Literal" text=" notifications menu"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="Allo"/>
+        <tokens xsi:type="generator:Literal" text=" notifications settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="read notifications from "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="Skype"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.29/@parameters.0" textReference="Slack"/>
+        <tokens xsi:type="generator:Literal" text=" notifications"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+  </intents>
+  <intents name="app.search">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="find "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Instagram"/>
+        <tokens xsi:type="generator:Literal" text=" on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to find "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Kik"/>
+        <tokens xsi:type="generator:Literal" text=" app on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need to find "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Chrome"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need the app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" can you find it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Slack"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="search for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Angry Birds"/>
+        <tokens xsi:type="generator:Literal" text=" on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.1" textReference="Play Market"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="search for a new "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="music player"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="find an app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you search for apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.1" textReference="Play Market"/>
+        <tokens xsi:type="generator:Literal" text=" search for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Facebook messenger"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you search for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" on "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.30/@parameters.1" textReference="App Store"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+    <parameters name="store-name" entity="//@entities.1"/>
+  </intents>
+  <intents name="app.current.settings.close">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you close your settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to close your settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how do I close the settings of this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="exit settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="leave the settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="get out of your settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close your settings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="exit this app's settings"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.current.reset">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reset your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reset yourself"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I reset this application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to reset this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to reset this app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="reset you"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.close">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="TuneIn Radio Pro"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Angry Birds"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to close the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Task Manager"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.1" textReference="Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Accu Weather"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="quit "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Skype"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="exit "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.2" textReference="all"/>
+        <tokens xsi:type="generator:Literal" text=" applications"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.2" textReference="all of"/>
+        <tokens xsi:type="generator:Literal" text=" my applications"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.1" textReference="Google Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="could you switch off the app which is called "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Viber"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.2" textReference="every"/>
+        <tokens xsi:type="generator:Literal" text=" apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you close apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="switch off the app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Viber"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="shut down "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Line"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="take me out of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Poweramp"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close applications"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.2" textReference="all"/>
+        <tokens xsi:type="generator:Literal" text=" of the open apps"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="exit app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Instagram"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close application "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Facebook"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="shut down "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Plants vs Zombies"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Angry Birds"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="quit "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.1" textReference="Google Play Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need you to close the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Google Keep"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you close the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="YouTube"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Dropbox"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to close "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.1" textReference="App Store"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can you close my "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close app "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Beautiful Widgets Pro"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="close my "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Camera"/>
+        <tokens xsi:type="generator:Literal" text=" application please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="turn off "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.33/@parameters.0" textReference="Paper Camera"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+    <parameters name="store-name" entity="//@entities.1"/>
+    <parameters name="all" entity="//@entities.0"/>
+  </intents>
+  <intents name="app.current.open">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how do I open your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need to open your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how can I open you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how to open your application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="tell me how to open you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to open your app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="open yourself"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Default Fallback Intent" fallbackIntent="true">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Russian history"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="find me most rated cafe nearby"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="most rated restaurant"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't like my voice"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I like your voice"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="American history"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is my phone number"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what is your phone number"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="where am I"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="find me"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="app.version.summary">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me the summary of the new version of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.36/@parameters.0" textReference="Kik"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="read the version summary of the "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.36/@parameters.0" textReference="VK"/>
+        <tokens xsi:type="generator:Literal" text=" application"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what's new in "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.36/@parameters.0" textReference="WhatsApp"/>
+        <tokens xsi:type="generator:Literal" text=" latest version"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.36/@parameters.0" textReference="Slack"/>
+        <tokens xsi:type="generator:Literal" text=" version summary"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="what's new in the latest version of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.36/@parameters.0" textReference="Twitter"/>
+        <tokens xsi:type="generator:Literal" text=" app"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="show me what's new in the latest version of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.36/@parameters.0" textReference="Skype"/>
+      </inputs>
+    </inputs>
+    <parameters name="app-name" entity="//@entities.2"/>
+  </intents>
+  <entities name="all">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="true">
+        <values>all</values>
+        <values>all of</values>
+        <values>each</values>
+        <values>every</values>
+        <values>everything</values>
+        <values>everywhere</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="app-store-name">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="App Store">
+        <values>app store</values>
+        <values>apple app store</values>
+        <values>apple appstore</values>
+        <values>apple store</values>
+        <values>appstore</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Google App Store">
+        <values>google app store</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Google Play">
+        <values>android market</values>
+        <values>google play</values>
+        <values>google play store</values>
+        <values>play market</values>
+        <values>play store</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Windows Store">
+        <values>microsoft app store</values>
+        <values>windows app store</values>
+        <values>windows store</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="app-name">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Adobe AIR">
+        <values>Adobe AIR</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Adobe Flash Player">
+        <values>Adobe Flash Player</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Adobe Flash Player 11">
+        <values>Adobe Flash Player 11</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Adobe Reader">
+        <values>Adobe Reader</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Advanced Task Killer">
+        <values>Advanced Task Killer</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Angry Birds">
+        <values>Angry Birds</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Angry Birds Rio">
+        <values>Angry Birds Rio</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Angry Birds Seasons">
+        <values>Angry Birds Seasons</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Angry Birds Space">
+        <values>Angry Birds Space</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Ant Smasher">
+        <values>Ant Smasher</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Barcode Scanner">
+        <values>Barcode Scanner</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Catch Notes">
+        <values>Catch Notes</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Drag Racing">
+        <values>Drag Racing</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Facebook">
+        <values>Facebook</values>
+        <values>fb</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Facebook Messenger">
+        <values>Facebook Messenger</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Flashlight">
+        <values>Flashlight</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Free Antivirus Security">
+        <values>Free Antivirus Security</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Fruit Ninja">
+        <values>Fruit Ninja</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="GO Launcher EX">
+        <values>GO Launcher EX</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="GasBuddy">
+        <values>GasBuddy</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Gmail">
+        <values>Gmail</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Google Assistant">
+        <values>Google Assistant</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Instagram">
+        <values>Instagram</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="KakaoTalk">
+        <values>KakaoTalk</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Maps">
+        <values>Maps</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Netflix">
+        <values>Netflix</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Opera Mini">
+        <values>Opera Mini</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Pandora">
+        <values>Pandora</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="PicsArt">
+        <values>PicsArt</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Pool Master Pro">
+        <values>Pool Master Pro</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Shazam">
+        <values>Shazam</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Shoot Bubble Deluxe">
+        <values>Shoot Bubble Deluxe</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Skype">
+        <values>Skype</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Slack">
+        <values>Slack</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Spotify">
+        <values>Spotify</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Subway Surfers">
+        <values>Subway Surfers</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Talking Tom Cat">
+        <values>Talking Tom Cat</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Talking Tom Cat 2">
+        <values>Talking Tom Cat 2</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Tango">
+        <values>Tango</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Temple Run">
+        <values>Temple Run</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Temple Run 2">
+        <values>Temple Run 2</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Twitter">
+        <values>Twitter</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Viber">
+        <values>Viber</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Vine">
+        <values>Vine</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="WhatsApp">
+        <values>WhatsApp</values>
+        <values>WhatsApp Messenger</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="ZEDGE">
+        <values>ZEDGE</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="accu weather">
+        <values>accu weather</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="beautiful widgets pro">
+        <values>beautiful widgets pro</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="bitmoji">
+        <values>bitmoji</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="browser">
+        <values>browser</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="camera">
+        <values>camera</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="clash of clans">
+        <values>clash of clans</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="cortana">
+        <values>cortana</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="cut the rope">
+        <values>cut the rope</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="dropbox">
+        <values>dropbox</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="gallery">
+        <values>gallery</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="google allo">
+        <values>allo</values>
+        <values>google allo</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="google calendar">
+        <values>google calendar</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="google chrome">
+        <values>chrome</values>
+        <values>google chrome</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="google keep">
+        <values>google keep</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="kik">
+        <values>kik</values>
+        <values>kik messenger</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="line">
+        <values>line</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="music">
+        <values>music</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="music player">
+        <values>music player</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="my photos">
+        <values>my photos</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="my pictures">
+        <values>my pictures</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="paper camera">
+        <values>paper camera</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="plants vs zombies">
+        <values>plants vs zombies</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="poweramp">
+        <values>poweramp</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="ringtonium">
+        <values>ringtonium</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="safari">
+        <values>safari</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="sherpa">
+        <values>sherpa</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="skeevy">
+        <values>skeevy</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="snapchat">
+        <values>snapchat</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="soccer">
+        <values>soccer</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="speaktoit assistant">
+        <values>speaktoit assistant</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="task manager">
+        <values>task manager</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="tunein radio pro">
+        <values>tunein radio pro</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="vk">
+        <values>vk</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="youtube">
+        <values>youtube</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="" method="POST">
+    <basicAuth key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </basicAuth>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="app.removeTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.1">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.2">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.3">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.4">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.5">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.6">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.7">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.8">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.9">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.10">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.11">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.12">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.13">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.14">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.15">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.16">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.17">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.18">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.19">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.20">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.21">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.22">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.23">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.24">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.25">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.26">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.27">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.28">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.29">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.30">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.31">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.32">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.33">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.34">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.35">
+    <target actions="//@actions.2"/>
+  </flows>
+  <flows intent="//@intents.36">
+    <target actions="//@actions.2"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

@@ -1,0 +1,1313 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="Coffee-Shop">
+  <intents name="order.drink - no">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="definitely not"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="thanks but no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not interested"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want that"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't think so"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not really"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I disagree"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="order.last.different_card">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="333333333333"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't think so"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not really"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="thanks but no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not interested"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I disagree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="definitely not"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want that"/>
+      </inputs>
+    </inputs>
+    <parameters name="card-number" defaultEntity="FLOAT"/>
+  </intents>
+  <intents name="order.snack.different_card">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't think so"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I disagree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="different"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="thanks but no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not really"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="another one"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="definitely not"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not interested"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="different card"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no, use "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.2/@parameters.0" textReference="22222222222"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want that"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="another card"/>
+      </inputs>
+    </inputs>
+    <parameters name="card-number" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Tell me the new card number please.</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="order.snack - yes">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="of course"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sounds good"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="that's correct"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="confirm"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sure"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't mind"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I agree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="exactly"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="order.last">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to have what I always have"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I have usual"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="pick up"/>
+        <tokens xsi:type="generator:Literal" text=" my last order"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to order the same"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="deliver"/>
+        <tokens xsi:type="generator:Literal" text=" me my usual"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="as usual please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="repeat my last order"/>
+      </inputs>
+    </inputs>
+    <parameters name="delivery-pickup" entity="//@entities.3" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Will it be for delivery or pick-up?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="order.last.same_card">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="same"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="of course"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="the same"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="exactly"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sounds good"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="same card"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sure"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="confirm"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't mind"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I agree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="that's correct"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="order.gift_card">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="order gift card"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to order a gift card with "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="50$"/>
+        <tokens xsi:type="generator:Literal" text=" on it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm looking for a present"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to buy a gift card as a present"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want a gift card"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="100 $"/>
+        <tokens xsi:type="generator:Literal" text=" gift card please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need a present"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="let's buy a gift card"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.1" textReference="deliver"/>
+        <tokens xsi:type="generator:Literal" text=" the gift card to me"/>
+      </inputs>
+    </inputs>
+    <parameters name="card-balance" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Gift card is an excellent present! How much money should we put on the card?</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="delivery-pickup" entity="//@entities.3" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Do you want your gift card to be delivered or you want to pick it up yourself?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="order.gift_card.same_card">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="that's correct"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="exactly"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="confirm"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sounds good"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="usual card"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I agree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sure"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="same"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="of course"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="same card"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Default Welcome Intent">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="a good day"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello again"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I greet you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="lovely day isn't it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="long time no see"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="greetings"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey there"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="heya"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="just going to say hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="welcome"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="order.drink.different_card">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no this one "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="11111111111"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't think so"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="thanks but no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="definitely not"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="different"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I disagree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="another one"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want that"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not really"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not interested"/>
+      </inputs>
+    </inputs>
+    <parameters name="card-number" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>What is the new card number?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="order.drink">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do you have "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.3" textReference="iced"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="latte"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I get a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.2" textReference="small"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.3" textReference="iced"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="cappuccino"/>
+        <tokens xsi:type="generator:Literal" text=" with "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.5" textReference="low fat"/>
+        <tokens xsi:type="generator:Literal" text=" milk"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I get "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="tea"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="cappuccino"/>
+        <tokens xsi:type="generator:Literal" text=" to go"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="hot chocolate"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.4" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.2" textReference="medium"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="macchiato"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.3" textReference="iced"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="coffee"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="coffee"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="delivered"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need a cup of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="coffee"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.4" textReference="2"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="lattes"/>
+        <tokens xsi:type="generator:Literal" text=" please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="some "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="tea"/>
+        <tokens xsi:type="generator:Literal" text=" please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like to order a drink"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="people need "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="coffee"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="cappuccino"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.4" textReference="two"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.2" textReference="medium"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="cappuccinos"/>
+        <tokens xsi:type="generator:Literal" text=" please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd like a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="coffee"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.0" textReference="to go"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="order "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="coffee"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I get a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.2" textReference="small"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.3" textReference="iced"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="latte"/>
+        <tokens xsi:type="generator:Literal" text=" with "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.5" textReference="low fat"/>
+        <tokens xsi:type="generator:Literal" text=" milk"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I get a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.2" textReference="huge"/>
+        <tokens xsi:type="generator:Literal" text=" cup of "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.10/@parameters.1" textReference="macchiato"/>
+      </inputs>
+    </inputs>
+    <parameters name="delivery-pickup" entity="//@entities.3" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Would you like a delivery or pick-up?</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="drink" entity="//@entities.7" required="true">
+      <prompts language="ENGLISH">
+        <prompts>What would you like to drink?</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="size" entity="//@entities.1" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Small, medium or large?</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="iced" entity="//@entities.4"/>
+    <parameters name="amount" defaultEntity="FLOAT"/>
+    <parameters name="milk-type" entity="//@entities.5"/>
+  </intents>
+  <intents name="order.snack">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.4" textReference="3"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="bagels"/>
+        <tokens xsi:type="generator:Literal" text=" please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="salad"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="strudel"/>
+        <tokens xsi:type="generator:Literal" text=" with "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.3" textReference="cheese"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="get me a dessert"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.5" textReference="bring me"/>
+        <tokens xsi:type="generator:Literal" text=" a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="bagel"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="something to eat"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.3" textReference="strawberry"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="cupcake"/>
+        <tokens xsi:type="generator:Literal" text=" please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do you have "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="croissants"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'm hungry"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd love to get a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="danish"/>
+        <tokens xsi:type="generator:Literal" text=" with "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.3" textReference="almond paste"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="how about a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="small"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="bagel"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="muffin"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd love to get a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="bagel"/>
+        <tokens xsi:type="generator:Literal" text=" with "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.3" textReference="cream cheese"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I get "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.4" textReference="three"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="doughnuts"/>
+        <tokens xsi:type="generator:Literal" text=" please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="bagel"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.4" textReference="6"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="huge"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.2" textReference="chocolate"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="doughnuts"/>
+        <tokens xsi:type="generator:Literal" text=" please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want a "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.1" textReference="huge"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.2" textReference="chocolate"/>
+        <tokens xsi:type="generator:Literal" text=" "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.11/@parameters.0" textReference="doughnut"/>
+      </inputs>
+    </inputs>
+    <parameters name="snack" entity="//@entities.2" required="true">
+      <prompts language="ENGLISH">
+        <prompts>What would you like to eat?</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="size" entity="//@entities.1">
+      <prompts language="ENGLISH">
+        <prompts>What size? I can arrange small, medium or large.</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="topping" entity="//@entities.6">
+      <prompts language="ENGLISH">
+        <prompts>*Here we check what flavours are available for the mentioned snack with webbhook.* Any topping</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="flavor" entity="//@entities.0"/>
+    <parameters name="amount" defaultEntity="FLOAT"/>
+    <parameters name="delivery-pickup" entity="//@entities.3"/>
+  </intents>
+  <intents name="order.snack.same_card">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sounds good"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="the same"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="same"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="of course"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sure"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't mind"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="exactly"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="that's correct"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="the same card"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I agree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="confirm"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="order.gift_card.different_card">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="different"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="definitely not"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not interested"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="another one: "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.13/@parameters.0" textReference="1111222233334444"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want that"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="thanks but no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="different card"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="another one"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I disagree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no this one: "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.13/@parameters.0" textReference="11111111111111"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not really"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't think so"/>
+      </inputs>
+    </inputs>
+    <parameters name="card-number" defaultEntity="FLOAT" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Tell me the card number please.</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="Default Fallback Intent" fallbackIntent="true">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="can I get three bedroom apartments please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want to order the same"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to order a flight to New York"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to be able to make a good cappuccino"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't like cappuccino"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I'd love to get a bag of almonds please"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I want to order a credit card"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want to order a gift cards"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <entities name="flavor">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="almond">
+        <values>almond</values>
+        <values>almond paste</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="blueberry">
+        <values>blueberry</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="caramel">
+        <values>caramel</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="cheese">
+        <values>cheese</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="cream cheese">
+        <values>cream cheese</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="hazelnut">
+        <values>hazelnut</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="peppermint">
+        <values>peppermint</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="raspberry">
+        <values>raspberry</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="strawberry">
+        <values>strawberry</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="sugar-free vanilla">
+        <values>sugar free vanilla</values>
+        <values>sugar-free vanilla</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="vanilla">
+        <values>vanilla</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="size">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="large">
+        <values>big</values>
+        <values>huge</values>
+        <values>large</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="medium">
+        <values>medium</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="small">
+        <values>little</values>
+        <values>short</values>
+        <values>small</values>
+        <values>tall</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="snack">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Bagel">
+        <values>Bagel</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Caesar Salad">
+        <values>Caesar Salad</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Carrot Cake">
+        <values>Carrot Cake</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Croissant">
+        <values>Croissant</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Cupcake">
+        <values>Cupcake</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Danish">
+        <values>Danish</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Deep Dish Cake">
+        <values>Deep Dish Cake</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Doughnut">
+        <values>Doughnut</values>
+        <values>donut</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Greek Salad">
+        <values>Greek Salad</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Mediterranean Salad">
+        <values>Mediterranean Salad</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Muffin">
+        <values>Muffin</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Plum Cake">
+        <values>Plum Cake</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Salad">
+        <values>Salad</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Strudel">
+        <values>Strudel</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="delivery-pickup">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="delivery">
+        <values>bring me</values>
+        <values>deliver</values>
+        <values>delivery</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="pick-up">
+        <values>carry out</values>
+        <values>pick up</values>
+        <values>pick-up</values>
+        <values>pickup</values>
+        <values>to go</values>
+        <values>to-go</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="iced">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="true">
+        <values>chilled</values>
+        <values>cold</values>
+        <values>iced</values>
+        <values>on ice</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="milk-type">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="almond milk">
+        <values>almond</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="cream">
+        <values>cream</values>
+        <values>half and half</values>
+        <values>half-and-half</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="non fat milk">
+        <values>non fat</values>
+        <values>non-fat</values>
+        <values>skinny</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="regular milk">
+        <values>low fat</values>
+        <values>low-fat</values>
+        <values>lowfat</values>
+        <values>normal</values>
+        <values>regular</values>
+        <values>two percent</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="soy milk">
+        <values>soy</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="topping">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="caramel">
+        <values>caramel</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="chocolate">
+        <values>chocolate</values>
+        <values>chocolate drizzle</values>
+        <values>chocolate syrup</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="cinnamon">
+        <values>cinnamon</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="whipped cream">
+        <values>whip</values>
+        <values>whipped cream</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="drink">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Americano">
+        <values>Americano</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Barista Coffee">
+        <values>Barista Coffee</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Cappuccino">
+        <values>Cappuccino</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Cocoa">
+        <values>Cocoa</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Espresso">
+        <values>Espresso</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Espresso Macchiato">
+        <values>Espresso Macchiato</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Espresso con Panna">
+        <values>Espresso con Panna</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Hot Chocolate">
+        <values>Hot Chocolate</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Latte">
+        <values>Latte</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Macchiato">
+        <values>Macchiato</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Tea">
+        <values>Tea</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="coffee">
+        <values>coffee</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="" method="POST">
+    <basicAuth key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </basicAuth>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.drink - noTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry for misunderstanding. Please tell me once again, what would you like to drink? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.last.different_cardTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="All set! Enjoy! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.snack.different_cardTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="All set. Enjoy your meal! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.snack - yesTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.snack - yesTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Are you using the same card for payment? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.lastTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Are you using the same card? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.snack - noTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry for misunderstanding! Please tell me once again, what would you like to eat? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.last.same_cardTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Okay. All set! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.gift_cardTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Will you use the same card? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.gift_card.same_cardTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Okay. All set. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Good day! I have a lot coffee and snacks. What can I get you to drink? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.drink.different_cardTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="All set, enjoy! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.drinkTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Your order is: "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.2"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.1"/>
+        <tokens xsi:type="generator:Literal" text="with "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.5"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Is that right? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Your order is: "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.2"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.1"/>
+        <tokens xsi:type="generator:Literal" text="with "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.5"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Is that right? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="You've ordered "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.2"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.1"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Correct? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="You want "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.4"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.2"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.1"/>
+        <tokens xsi:type="generator:Literal" text="with "/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Is that right? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="You want "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.4"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.2"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.1"/>
+        <tokens xsi:type="generator:Literal" text="with "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.5"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Is that right? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="You want "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.4"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.2"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.1"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Is that right? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="You want "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.4"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.2"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.10/@parameters.1"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Is that right? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.snackTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Your order is: "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.1"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.0"/>
+        <tokens xsi:type="generator:Literal" text="with "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.2"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Is that right? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Your order is: "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.1"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.0"/>
+        <tokens xsi:type="generator:Literal" text="with "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.3"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Is that right? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="You've ordered "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.1"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.0"/>
+        <tokens xsi:type="generator:Literal" text="with "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.2"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Correct? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="You've ordered "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.1"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.0"/>
+        <tokens xsi:type="generator:Literal" text="with "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.3"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Correct? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="You've ordered "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.1"/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.0"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Correct? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="You've ordered "/>
+        <tokens xsi:type="generator:ParameterToken" parameter="//@intents.11/@parameters.0"/>
+        <tokens xsi:type="generator:Literal" text="and you want a "/>
+        <tokens xsi:type="generator:Literal" text="Correct? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="order.snack.same_cardTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Great. Enjoy! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed what you said. Say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, could you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, I didn't get that. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, what was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="One more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed that. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.4">
+    <target actions="//@actions.5 //@actions.7">
+      <outcoming intent="//@intents.1">
+        <target actions="//@actions.3"/>
+      </outcoming>
+      <outcoming intent="//@intents.5">
+        <target actions="//@actions.9"/>
+      </outcoming>
+    </target>
+  </flows>
+  <flows intent="//@intents.6">
+    <target actions="//@actions.5 //@actions.10">
+      <outcoming intent="//@intents.7">
+        <target actions="//@actions.11"/>
+      </outcoming>
+      <outcoming intent="//@intents.13">
+        <target actions="//@actions.11"/>
+      </outcoming>
+    </target>
+  </flows>
+  <flows intent="//@intents.8">
+    <target actions="//@actions.5 //@actions.12"/>
+  </flows>
+  <flows intent="//@intents.10">
+    <target actions="//@actions.5 //@actions.14">
+      <outcoming intent="//@intents.0">
+        <target actions="//@actions.2"/>
+      </outcoming>
+      <outcoming intent="//@intents.3">
+        <target actions="//@actions.5 //@actions.10">
+          <outcoming intent="//@intents.9">
+            <target actions="//@actions.13"/>
+          </outcoming>
+          <outcoming intent="//@intents.5">
+            <target actions="//@actions.13"/>
+          </outcoming>
+        </target>
+      </outcoming>
+    </target>
+  </flows>
+  <flows intent="//@intents.11">
+    <target actions="//@actions.5 //@actions.15">
+      <outcoming intent="//@intents.3">
+        <target actions="//@actions.5 //@actions.6">
+          <outcoming intent="//@intents.2">
+            <target actions="//@actions.4"/>
+          </outcoming>
+          <outcoming intent="//@intents.12">
+            <target actions="//@actions.16"/>
+          </outcoming>
+        </target>
+      </outcoming>
+      <outcoming intent="//@intents.0">
+        <target actions="//@actions.8"/>
+      </outcoming>
+    </target>
+  </flows>
+  <flows intent="//@intents.14">
+    <target actions="//@actions.5 //@actions.17"/>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>
