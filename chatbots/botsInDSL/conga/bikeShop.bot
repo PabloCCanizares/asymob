@@ -1,0 +1,86 @@
+Chatbot bikeShop language : en
+
+intents :
+
+	Hours :
+		inputs in en {
+			"When do you open?" ,
+			"What are your hours?" ,
+			"How late are you open?"
+	}
+
+	"Make Appointment" :
+		inputs in en {
+			"Can I setup an appointment to service my bike " ( tomorrow ) [ ^date ] " " ( "at 2pm" ) [ ^time ] "?" ,
+			"Can you fix my road bike?" ,
+			"Can I schedule service for " ( "4pm" ) [ ^time ] " " ( tomorrow ) [ ^date ] "?" ,
+			"My bike is broken" ,
+			"I have a mountain bike that needs servicing" ,
+			"I\'d like to get my bike fixed" ,
+			"I\'d like to schedule an appointment for " ( "next Thursday" ) [ ^date ]
+		}
+		parameters :
+			^date : entity date , required , prompts in en [ "What day do you want to come in?" ] ;
+			^time : entity time , required , prompts in en [ "What time works for you?" ] ;
+
+	"Fallback Intent" Fallback :
+
+	"Make Appointment - custom" :
+		inputs in en {
+			"Can you " ( service ) [ AppointmentType ] " my bike?" ,
+			"I need a " ( repair ) [ AppointmentType ] "."
+		}
+		parameters :
+			AppointmentType : entity AppointmentType , required , prompts in en [ "We can service or repair your bike.  Which one would you like?" ] ;
+
+	"Welcome Intent" :
+		inputs in en {
+			hello
+	}
+
+entities :
+	Simple entity AppointmentType :
+		inputs in en {
+			service synonyms service , overhaul , maintenance , "tune-up" , "tune up"
+			fix synonyms fix , repair , mend , broken , "flat tire" , fixed
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "https://dimo1.ii.uam.es" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response HoursTxtResp1 :
+		inputs in en {
+			"We are open every weekday from 9am to 5:30pm "
+	}
+	text response "Make AppointmentTxtResp1" :
+		inputs in en {
+			"Ok, let me see if we can fit you in. Tomorrow at 3pm is fine! Do you need a repair or just a tune-up? "
+	}
+	text response "Fallback IntentTxtResp1" :
+		inputs in en {
+			"I\'m sorry it\'s a little loud in my shop, can you say that again? "
+	}
+	text response "Make Appointment - customTxtResp1" :
+		inputs in en {
+			"Okay, we’ll schedule a " [ "Make Appointment - custom.AppointmentType" ] " for tomorrow " [ "Make Appointment.date" ] ", at " [ "Make Appointment.time" ] " . We’ll see you then. "
+	}
+	text response "Welcome IntentTxtResp1" :
+		inputs in en {
+			" "
+	}
+	text response "Welcome IntentTxtResp2" :
+		inputs in en {
+			"Hi, welcome to Hogarth\'s bike shop.  How can I help you? "
+	}
+
+flows :
+	- user Hours => chatbot HttpRequest , HttpResponse , HoursTxtResp1 ;
+	- user "Make Appointment" => chatbot HttpRequest , HttpResponse , "Make AppointmentTxtResp1" => user "Make Appointment - custom" => chatbot "Make Appointment - customTxtResp1" ;
+	- user "Fallback Intent" => chatbot "Fallback IntentTxtResp1" ;
+	- user "Welcome Intent" => chatbot "Welcome IntentTxtResp1" , "Welcome IntentTxtResp2" ;
+

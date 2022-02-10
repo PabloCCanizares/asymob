@@ -1,0 +1,241 @@
+Chatbot Device language : en
+
+intents :
+
+	"device.settings.check" :
+		inputs in en {
+			"is my " ( mobile ) [ module ] " data " ( enabled ) [ action ] ,
+			"tell me if the " ( "flight mode" ) [ module ] " is " ( on ) [ action ] ,
+			"is my " ( Bluetooth ) [ module ] " " ( activated ) [ action ] ,
+			"check " ( "Wi-Fi" ) [ module ] " connection" ,
+			"is " ( GPS ) [ module ] " " ( off ) [ action ] ,
+			"is my " ( GPS ) [ module ] " " ( working ) [ action ] ,
+			"is my " ( GPS ) [ module ] " " ( on ) [ action ] ,
+			"is my phone in " ( "silent mode" ) [ module ] ,
+			"check if " ( Bluetooth ) [ module ] " is " ( "switched on" ) [ action ]
+		}
+		parameters :
+			module : entity "device-module" ;
+			action : entity "device-action" ;
+
+	"device.settings.on" :
+		inputs in en {
+			"turn up the " ( volume ) [ module ] ,
+			"connect " ( "Wi-Fi" ) [ module ] ,
+			"turn " ( GPS ) [ module ] " on" ,
+			"activate " ( "airplane mode" ) [ module ] ,
+			"bring on the " ( Bluetooth ) [ module ] ,
+			( GPS ) [ module ] " on now" ,
+			"enable " ( "mobile data" ) [ module ] ,
+			( vibration ) [ module ] " on" ,
+			"from now on " ( GPS ) [ module ] " on" ,
+			"switch " ( "airplane mode" ) [ module ] " on" ,
+			"put my phone on " ( silent ) [ module ]
+		}
+		parameters :
+			module : entity "device-module" ;
+
+	"device.operational_system.check" :
+		inputs in en {
+			"what OS version do I have" ,
+			"check my OS" ,
+			"my Android version" ,
+			"what OS do I use" ,
+			"check operational system" ,
+			"check my iOS version" ,
+			"what OS am I running" ,
+			"what is my operational system" ,
+			"check OS version" ,
+			"what Andriod version do I have" ,
+			"software version"
+	}
+
+	"device.screen.lock" :
+		inputs in en {
+			"lock the home screen" ,
+			"set screen lock" ,
+			" lock the screen" ,
+			"activate lock screen" ,
+			"can you lock my phone" ,
+			"take me to my lock screen" ,
+			"screen lock" ,
+			"open the screen lock" ,
+			"turn on lock screen"
+	}
+
+	"device.battery.check" :
+		inputs in en {
+			"what is my battery percentage" ,
+			"check battery level" ,
+			"do I need to charge my battery" ,
+			"how much battery do I have" ,
+			"can you check my battery" ,
+			"how low is my battery" ,
+			"battery monitor" ,
+			"how is my battery" ,
+			"how much battery I got left" ,
+			"battery life" ,
+			"how full is my battery" ,
+			"what\'s my battery charge" ,
+			"is the battery charged" ,
+			"show my battery percentage" ,
+			"how much battery power do I have" ,
+			"what\'s my battery level" ,
+			"battery status" ,
+			"battery level" ,
+			"is my battery low" ,
+			"do I need to recharge" ,
+			"how much battery is remaining"
+	}
+
+	"device.settings.off" :
+		inputs in en {
+			( GPS ) [ module ] " off now" ,
+			"disconnect " ( "Wi-Fi" ) [ module ] ,
+			"off the " ( Bluetooth ) [ module ] ,
+			"I\'d like to turn off my " ( GPS ) [ module ] ,
+			"disable " ( mobile ) [ module ] " data" ,
+			"switch off " ( "airplane mode" ) [ module ] ,
+			"turn off " ( WiFi ) [ module ] ,
+			"deactivate " ( silent ) [ module ] " mode" ,
+			"close " ( GPS ) [ module ] ,
+			"power off " ( Bluetooth ) [ module ] ,
+			"shut down " ( GPS ) [ module ] ,
+			"can you turn off " ( silent ) [ module ] " mode" ,
+			"from now on " ( GPS ) [ module ] " off"
+		}
+		parameters :
+			module : entity "device-module" ;
+
+	"device.settings.on - context:settings-on-off" :
+		inputs in en {
+			"enable it" ,
+			activate ,
+			"I need it turned on" ,
+			on ,
+			"could you please turn it on back" ,
+			"switch it back on" ,
+			"back on" ,
+			"switch it on" ,
+			"turn it on now"
+	}
+
+	"device.screen.unlock" :
+		inputs in en {
+			"unlock the screen" ,
+			"screen unlock" ,
+			"unlock the phone" ,
+			"turn off screen lock" ,
+			"disable screen lock" ,
+			"unlock lock screen" ,
+			"disable lock screen" ,
+			"unlock the home screen" ,
+			"can you unlock the screen" ,
+			"unlock my screen"
+	}
+
+	"device.settings.onoff - context:device-settings-on-off" :
+		inputs in en {
+			( "power saving mode" ) [ module ] " too" ,
+			"now " ( "silent mode" ) [ module ] ,
+			( Bluetooth ) [ module ] " also" ,
+			"also " ( WiFi ) [ module ] ,
+			( "mobile data" ) [ module ] " as well" ,
+			( GPS ) [ module ] " as well" ,
+			( "flight mode" ) [ module ] " now"
+		}
+		parameters :
+			module : entity "device-module" ;
+
+	"device.settings.off - context:settings-on-off" :
+		inputs in en {
+			"switch it off" ,
+			"shut it down" ,
+			"I\'d like to turn it off" ,
+			"disable it" ,
+			"turn off" ,
+			"switch off" ,
+			"I need it turned off" ,
+			off ,
+			"deactivate it" ,
+			"close it"
+	}
+
+	"device.memory.check" :
+		inputs in en {
+			"how much space is left" ,
+			"do I have enough space" ,
+			"how much space do I have left" ,
+			"check device memory" ,
+			"memory left" ,
+			"how much space is left" ,
+			"device memory capacity" ,
+			"check storage space on my device" ,
+			"how is my storage place" ,
+			"space left on my device" ,
+			"how much free memory do I have" ,
+			"check available space on my device" ,
+			"device memory check"
+	}
+
+entities :
+	Simple entity "device-module" :
+		inputs in en {
+			"Night Mode" synonyms "Night Mode"
+			wifi synonyms wifi , "Wi-Fi" , "wi fi"
+			vibration synonyms vibration
+			volume synonyms volume
+			bluetooth synonyms bluetooth
+			flightmode synonyms flightmode , "airplane mode" , "flight mode"
+			WLAN synonyms WLAN
+			"reading mode" synonyms "reading mode"
+			"do not disturb" synonyms "do not disturb"
+			"silent mode" synonyms silent
+			VoiceOver synonyms VoiceOver , "Voice Over"
+			mobile synonyms mobile
+			LTE synonyms LTE
+			"power saving" synonyms "power saving" , "low power mode"
+			NFC synonyms NFC
+			"4g" synonyms "4g"
+			gps synonyms gps , "location services"
+			"Hands-free mode" synonyms "Hands-free mode"
+			"3G" synonyms "3G"
+	}
+	Simple entity "device-action" :
+		inputs in en {
+			on synonyms on , active , activated , enabled , working , "switched on"
+			off synonyms off , inactive , deactivated , disabled , "switched off"
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "device.settings.checkTxtResp1" :
+		inputs in en {
+			" "
+	}
+
+flows :
+	- user "device.settings.check" => chatbot "device.settings.checkTxtResp1" ;
+	- user "device.settings.on" => chatbot "device.settings.checkTxtResp1" {
+		=> user "device.settings.onoff - context:device-settings-on-off" => chatbot "device.settings.checkTxtResp1" ;
+		=> user "device.settings.on - context:settings-on-off" => chatbot "device.settings.checkTxtResp1" ;
+		=> user "device.settings.off - context:settings-on-off" => chatbot "device.settings.checkTxtResp1" ;
+	} ;
+	- user "device.operational_system.check" => chatbot "device.settings.checkTxtResp1" ;
+	- user "device.screen.lock" => chatbot "device.settings.checkTxtResp1" ;
+	- user "device.battery.check" => chatbot "device.settings.checkTxtResp1" ;
+	- user "device.settings.off" => chatbot "device.settings.checkTxtResp1" {
+		=> user "device.settings.onoff - context:device-settings-on-off" => chatbot "device.settings.checkTxtResp1" ;
+		=> user "device.settings.on - context:settings-on-off" => chatbot "device.settings.checkTxtResp1" ;
+		=> user "device.settings.off - context:settings-on-off" => chatbot "device.settings.checkTxtResp1" ;
+	} ;
+	- user "device.screen.unlock" => chatbot "device.settings.checkTxtResp1" ;
+	- user "device.memory.check" => chatbot "device.settings.checkTxtResp1" ;
+

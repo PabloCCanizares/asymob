@@ -1,0 +1,184 @@
+Chatbot "Building-a-Conversational-Chatbot-for-Slack-using-Rasa-and-Python-master" language : en
+
+intents :
+
+goodbye :
+	inputs in en {
+		cu ,
+		"good by" ,
+		"cee you later" ,
+		"good night" ,
+		"good afternoon" ,
+		bye ,
+		goodbye ,
+		"have a nice day" ,
+		"see you around" ,
+		"bye bye" ,
+		"see you later" ,
+		bye ,
+		y ,
+		bye
+}
+
+greet :
+	inputs in en {
+		hey ,
+		"hello there" ,
+		^hi ,
+		"hello there" ,
+		"good morning" ,
+		"good evening" ,
+		moin ,
+		"hey there" ,
+		"let\'s go" ,
+		"hey dude" ,
+		goodmorning ,
+		goodevening ,
+		"good afternoon" ,
+		Hi ,
+		Hello ,
+		yes ,
+		Hello ,
+		Hello ,
+		Hello
+}
+
+inform :
+	inputs in en {
+		"A " ( dog ) [ group ] ,
+		( dog ) [ group ] ,
+		( bird ) [ group ] ,
+		"a " ( cat ) [ group ] ,
+		( cat ) [ group ] ,
+		"a " ( bird ) [ group ] ,
+		"of a " ( dog ) [ group ] ,
+		"of a " ( cat ) [ group ] ,
+		"a " ( bird ) [ group ] ", please" ,
+		"a " ( dog ) [ group ] ", please" ,
+		( dog ) [ group ] ,
+		"a " ( dog ) [ group ] ,
+		( dog ) [ group ] ,
+		"a " ( cat ) [ group ]
+	}
+	parameters :
+		group : entity text ;
+
+mood_affirm :
+	inputs in en {
+		yes ,
+		indeed ,
+		"of course" ,
+		"that sounds good" ,
+		correct
+}
+
+mood_deny :
+	inputs in en {
+		^no ,
+		never ,
+		"I don\'t think so" ,
+		"don\'t like that" ,
+		"no way" ,
+		"not really"
+}
+
+mood_great :
+	inputs in en {
+		perfect ,
+		"very good" ,
+		great ,
+		amazing ,
+		"feeling like a king" ,
+		wonderful ,
+		"I am feeling very good" ,
+		"I am great" ,
+		"I am amazing" ,
+		"I am going to save the world" ,
+		super ,
+		"extremely good" ,
+		"so so perfect" ,
+		"so good" ,
+		"so perfect"
+}
+
+mood_unhappy :
+	inputs in en {
+		"my day was horrible" ,
+		"I am sad" ,
+		"I don\'t feel very well" ,
+		"I am disappointed" ,
+		"super sad" ,
+		"I\'m so sad" ,
+		sad ,
+		"very sad" ,
+		unhappy ,
+		bad ,
+		"very bad" ,
+		awful ,
+		terrible ,
+		"not so good" ,
+		"not very good" ,
+		"extremly sad" ,
+		"so saad" ,
+		"Quite bad - can I get a cute picture of a " ( bird ) [ group ] ", please?" ,
+		"Really bad and only " ( doggo ) [ group ] " pics and change that." ,
+		"Not good. The only thing that could make me fell better is a picture of a cute " ( kitten ) [ group ] "." ,
+		"so sad. Only the picture of a " ( puppy ) [ group ] " could make it better." ,
+		"I am very sad. I need a " ( cat ) [ group ] " picture." ,
+		"Extremely sad. Only the cute " ( doggo ) [ group ] " pics can make me feel better." ,
+		"Bad. Please show me a " ( bird ) [ group ] " pic!" ,
+		"Pretty bad to be honest. Can you show me a " ( puppy ) [ group ] " picture to make me fell better?" ,
+		"i\'m sad" ,
+		"Im sad" ,
+		"im sad" ,
+		"i am sad" ,
+		"im sad"
+	}
+	parameters :
+		group : entity text ;
+
+actions :
+	text response utter_happy_text :
+		inputs in en {
+			"Great carry on!"
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"Hey! How are you?"
+	}
+	text response utter_did_that_help_text :
+		inputs in en {
+			"Did that help you?"
+	}
+	text response utter_ask_picture_text :
+		inputs in en {
+			"To cheer you up, I can show you a cute picture of a dog, cat or a bird. Which one do you choose?"
+	}
+	empty response "__main__.ApiAction_empty"
+	empty response action_retrieve_image_empty
+	text response utter_goodbye_text :
+		inputs in en {
+			Bye
+	}
+	text response utter_unclear_text :
+		inputs in en {
+			"I am not sure what you are aiming for."
+	}
+	empty response DefaultEmptyAction
+
+flows :
+	- user greet => chatbot utter_greet_text , DefaultEmptyAction {
+		=> user mood_great => chatbot utter_happy_text => user mood_affirm => chatbot utter_happy_text => user mood_affirm => chatbot utter_goodbye_text ;
+		=> user mood_unhappy => chatbot utter_ask_picture_text , action_retrieve_image_empty , utter_did_that_help_text {
+			=> user inform => chatbot action_retrieve_image_empty , utter_did_that_help_text , DefaultEmptyAction {
+				=> user mood_affirm => chatbot utter_happy_text ;
+				=> user mood_deny => chatbot utter_goodbye_text ;
+				=> user greet => chatbot DefaultEmptyAction => user goodbye ;
+				=> user goodbye ;
+			} ;
+			=> user mood_affirm => chatbot utter_happy_text ;
+		} ;
+	} ;
+	- user mood_affirm => chatbot utter_happy_text => user mood_affirm => chatbot utter_unclear_text ;
+	- user goodbye => chatbot utter_goodbye_text ;
+

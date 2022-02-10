@@ -1,0 +1,253 @@
+Chatbot pizza language : en
+
+intents :
+
+	"Default Welcome Intent" :
+		inputs in en {
+			"Hello there. I can assist you with store hours or place an order. How may I help you " ( today ) [ "date-time" ] " ?" ,
+			"Welcome to our store. I can assist you with store hours or place an order. Which would you like ?"
+		}
+		parameters :
+			"date-time" : entity text ;
+
+	"order.pizza - no" :
+		inputs in en {
+			"thanks but no" ,
+			"no way" ,
+			^no ,
+			"no no don\'t" ,
+			na ,
+			"no it isn\'t" ,
+			"don\'t" ,
+			"nah I\'m good" ,
+			"no I cannot" ,
+			"I can\'t" ,
+			nothing ,
+			"no that\'s okay" ,
+			"no not really" ,
+			"nope not really" ,
+			nope ,
+			"thanks but not this time" ,
+			"I don\'t think so" ,
+			"I disagree" ,
+			"no maybe next time" ,
+			"not this time" ,
+			"no don\'t" ,
+			"no we are good" ,
+			"don\'t do it" ,
+			"no that\'s be all" ,
+			"not right now" ,
+			"nothing else thanks" ,
+			"no thanks" ,
+			"no that\'s ok" ,
+			"I don\'t want that" ,
+			"definitely not" ,
+			"nothing else" ,
+			not ,
+			"not at all" ,
+			"no never" ,
+			never ,
+			"no way no" ,
+			"not really" ,
+			nah ,
+			"I don\'t" ,
+			"I don\'t want" ,
+			"not today" ,
+			"not interested" ,
+			"no that\'s fine thank you" ,
+			"I\'m not"
+	}
+
+	"order.pizza" :
+		inputs in en {
+			( one ) [ ^number ] " " ( "chocolate smoothie" ) [ drink_composite ] " please" ,
+			"I want " ( one ) [ ^number ] " " ( "vanilla milkshake with 2% milk" ) [ drink_composite ] ,
+			"i want a " ( small ) [ size ] " " ( "strawberry smoothie" ) [ drink_composite ] ,
+			( two ) [ ^number ] " " ( large ) [ size ] " " ( "soy milk chocolate milkshakes" ) [ drink_composite ] ,
+			"i\'d like to order a " ( "rasberry smoothie" ) [ drink_composite ] " please" ,
+			"I would like a " ( "mocha smoothie" ) [ drink_composite ] ,
+			"I want to order a " ( large ) [ size ] " pizza" ,
+			"I want a " ( chicken ) [ pizza_topping ] " pizza" ,
+			"I\'d like to order a pizza for pickup in " ( "1 hour" ) [ ^time ] ,
+			"I want a pizza with " ( pepper ) [ pizza_topping ] " and " ( mushroom ) [ pizza_topping ] ,
+			"I\'d like a " ( small ) [ size ] " pizza with " ( mushrooms ) [ pizza_topping ] ,
+			"I want to order a " ( small ) [ size ] " pizza with " ( chicken ) [ pizza_topping ] " only" ,
+			"I want to order a " ( cheese ) [ pizza_topping ] " pizza for " ( "1 PM" ) [ ^time ] " " ( tomorrow ) [ ^date ] ,
+			"can I order a " ( cheese ) [ pizza_topping ] " pizza for pickup " ( today ) [ ^date ] " at " ( noon ) [ ^time ] " ?"
+		}
+		parameters :
+			^date : entity date , required , prompts in en [ "What day do you want to pick up your order?" ] ;
+			^time : entity time , required , prompts in en [ "What time do you want to pick up the order?" ] ;
+			size : entity size , required , prompts in en [ "What size pizza do you want?" ] ;
+			pizza_topping : entity pizza_topping , required , prompts in en [ "What toppings do you want on your pizza?" ] ;
+			^number : entity float ;
+			drink_composite : entity drink_composite , required , prompts in en [ "Would you like a drink with your order?" ] ;
+
+	"opening.hours" :
+		inputs in en {
+			"When do you close ?" ,
+			"Are you open " ( today ) [ "date-time" ] " ?" ,
+			"Are you open right now ?" ,
+			"What time do you open ?"
+		}
+		parameters :
+			"date-time" : entity text ;
+
+	"Default Fallback Intent" Fallback :
+
+	"order.pizza - yes" :
+		inputs in en {
+			"I sure would like a drink." ,
+			yes ,
+			"okay I will" ,
+			"why not" ,
+			"yes that\'s alright" ,
+			"yes I do" ,
+			exactly ,
+			"of course" ,
+			"yep that\'s ok" ,
+			okay ,
+			ok ,
+			"for sure" ,
+			sg ,
+			"yes that\'t ok" ,
+			"I agree" ,
+			"yes you can do it" ,
+			"I don\'t mind" ,
+			"that one works" ,
+			"that works" ,
+			"sure why not" ,
+			perfect ,
+			"yep that\'s right" ,
+			"I think so" ,
+			"yes I agree" ,
+			sure ,
+			"sounds correct" ,
+			"sounds good" ,
+			"that\'s correct" ,
+			"go ahead" ,
+			"do it" ,
+			"it\'s fine" ,
+			yeah ,
+			"yes please" ,
+			"it\'s okay" ,
+			"alright why not" ,
+			alright ,
+			right ,
+			"it looks perfect" ,
+			"yes I can" ,
+			yup ,
+			yep ,
+			confirm ,
+			absolutely
+	}
+
+entities :
+	Simple entity flavor :
+		inputs in en {
+			chocolate synonyms chocolate , mocha
+			vanilla synonyms vanilla
+			strawberry synonyms strawberry
+			caramel synonyms caramel
+			blueberry synonyms blueberry
+			raspberry synonyms raspberry
+			peppermint synonyms peppermint
+	}
+	Simple entity size :
+		inputs in en {
+			small synonyms small
+			large synonyms large
+			medium synonyms medium
+	}
+	Simple entity drink_composite :
+		inputs in en {
+			"@drink:drink" synonyms "@drink:drink"
+			"@flavor:flavor @drink:drink" synonyms "@flavor:flavor @drink:drink"
+			"@flavor:flavor @drink:milkshake with @milk_type:milk_type" synonyms "@flavor:flavor @drink:milkshake with @milk_type:milk_type"
+			"@flavor:flavor @milk_type:milk_type @drink:milkshake" synonyms "@flavor:flavor @milk_type:milk_type @drink:milkshake"
+			"@milk_type:milk_type @flavor:flavor @drink:milkshake" synonyms "@milk_type:milk_type @flavor:flavor @drink:milkshake"
+	}
+	Simple entity pizza_topping :
+		inputs in en {
+			pepper synonyms pepper
+			mushroom synonyms mushroom , mushrooms
+			bacon synonyms bacon , "bacon pieces" , "bacon bits" , "bacon slices"
+			vegetarian synonyms vegetarian , veggie
+			cheese synonyms cheese
+			jalapeno synonyms jalapeno , "hot peppers"
+			sausage synonyms sausage
+			onion synonyms onion
+			ham synonyms ham
+			pineapple synonyms pineapple
+			chicken synonyms chicken
+	}
+	Simple entity milk_type :
+		inputs in en {
+			"regular milk" synonyms "regular milk" , regular
+			"low fat milk" synonyms "low fat milk" , "low fat" , "low-fat" , skim , "2%"
+			"non fat milk" synonyms "non fat milk" , "non fat" , "non-fat" , skinny
+			"soy milk" synonyms "soy milk" , soy
+	}
+	Simple entity drink :
+		inputs in en {
+			smoothie synonyms smoothie
+			milkshake synonyms milkshake
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "https://us-central1-qwiklabs-gcp-03-b67acccf9de7.cloudfunctions.net/dialogflowFirebaseFulfillment" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "Default Welcome IntentTxtResp1" :
+		inputs in en {
+			"Hi! How are you doing? " ,
+			"Hello! How can I help you? " ,
+			"Good day! What can I do for you today? " ,
+			"Greetings! How can I assist? "
+	}
+	text response "order.pizza - noTxtResp1" :
+		inputs in en {
+			"Got it! We\'ve placed your pizza order without a drink. "
+	}
+	text response "order.pizzaTxtResp1" :
+		inputs in en {
+			"Great! We\'ve created your order for a " [ "order.pizza.size" ] "pizza with " [ "order.pizza.pizza_topping" ] "for pickup on " "at " "Would you like a drink with that? "
+	}
+	text response "opening.hoursTxtResp1" :
+		inputs in en {
+			"We are open from 10 am to 9 pm every day. Can I help you place an order ? "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. What was that? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. Can you rephrase? " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that one more time? " ,
+			"I didn\'t get that. Can you repeat? " ,
+			"I missed that, say that again? "
+	}
+	text response "order.pizza - yesTxtResp1" :
+		inputs in en {
+			"Great, what would you like ? "
+	}
+
+flows :
+	- user "Default Welcome Intent" => chatbot HttpRequest , HttpResponse , "Default Welcome IntentTxtResp1" ;
+	- user "order.pizza" => chatbot HttpRequest , HttpResponse , "order.pizzaTxtResp1" {
+		=> user "order.pizza - no" => chatbot "order.pizza - noTxtResp1" ;
+		=> user "order.pizza - yes" => chatbot "order.pizza - yesTxtResp1" ;
+	} ;
+	- user "opening.hours" => chatbot "opening.hoursTxtResp1" ;
+	- user "Default Fallback Intent" => chatbot HttpRequest , HttpResponse , "Default Fallback IntentTxtResp1" ;
+

@@ -1,0 +1,99 @@
+Chatbot malikasinger1 language : en
+
+intents :
+
+	"Default Welcome Intent" :
+		inputs in en {
+			"get started" ,
+			"just going to say hi" ,
+			heya ,
+			"hello hi" ,
+			howdy ,
+			"hey there" ,
+			"hi there" ,
+			greetings ,
+			hey ,
+			"long time no see" ,
+			hello ,
+			"lovely day isn\'t it" ,
+			"I greet you" ,
+			"hello again" ,
+			^hi ,
+			"hello there" ,
+			"a good day"
+	}
+
+	"Book Hotel" :
+		inputs in en {
+			"characteristics are " ( abc ) [ characteristics ] " and " ( def ) [ characteristics ] ,
+			"her name is " ( Alice ) [ recipientsname ] ,
+			"my name is " ( john ) [ name ] ,
+			"gift a personalized song"
+		}
+		parameters :
+			name : entity text , required ;
+			recipientsname : entity text , required ;
+			characteristics : entity characteristics , required ;
+			verbs : entity verbs , required ;
+			backingTrack : entity backingTrack , required ;
+
+	"Default Fallback Intent" Fallback :
+
+entities :
+	Simple entity characteristics :
+		inputs in en {
+			null synonyms null
+			abc synonyms abc
+			def synonyms def
+	}
+	Simple entity verbs :
+		inputs in en {
+			null synonyms null
+	}
+	Simple entity backingTrack :
+		inputs in en {
+			null synonyms null
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "https://us-central1-upworkbot-65288.cloudfunctions.net/webhook" ;
+		headers : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "Default Welcome IntentTxtResp1" :
+		inputs in en {
+			"aseffsdfsdf "
+	}
+	text response "Default Welcome IntentTxtResp2" :
+		inputs in en {
+			" "
+	}
+	text response "Book HotelTxtResp1" :
+		inputs in en {
+			"something went wrong "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. What was that? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. Can you rephrase? " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that one more time? " ,
+			"I didn\'t get that. Can you repeat? " ,
+			"I missed that, say that again? "
+	}
+
+flows :
+	- user "Default Welcome Intent" => chatbot HttpRequest , HttpResponse , "Default Welcome IntentTxtResp1" , "Default Welcome IntentTxtResp2" ;
+	- user "Book Hotel" => chatbot HttpRequest , HttpResponse , "Book HotelTxtResp1" ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" ;
+

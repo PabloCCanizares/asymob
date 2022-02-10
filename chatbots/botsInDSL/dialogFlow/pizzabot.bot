@@ -1,0 +1,169 @@
+Chatbot pizzabot language : en
+
+intents :
+
+	"Default Welcome Intent" :
+		inputs in en {
+			"just going to say hi" ,
+			heya ,
+			"hello hi" ,
+			howdy ,
+			"hey there" ,
+			"hi there" ,
+			greetings ,
+			hey ,
+			"long time no see" ,
+			hello ,
+			"lovely day isn\'t it" ,
+			"I greet you" ,
+			"hello again" ,
+			^hi ,
+			"hello there" ,
+			"a good day"
+	}
+
+	"order.drink" :
+		inputs in en {
+			"one " ( "chocolate smoothie" ) [ drink_composite ] " please" ,
+			"I want one " ( "vanilla milkshake" ) [ drink_composite ] " with " ( "2%" ) [ percentage ] " milk" ,
+			"i want a " ( small ) [ size ] " " ( "strawberry smoothie" ) [ drink_composite ] ,
+			( two ) [ ^number ] " " ( large ) [ size ] " " ( "soy milk chocolate milkshakes" ) [ drink_composite ] ,
+			"i\'d like to order a rasberry " ( smoothie ) [ drink ] " please" ,
+			"I would like a " ( "mocha smoothie" ) [ drink_composite ]
+		}
+		parameters :
+			drink_composite : entity drink_composite ;
+			drink : entity drink ;
+			^number : entity float ;
+			size : entity size ;
+			percentage : entity text ;
+
+	"order.pizza" :
+		inputs in en {
+			"I want to order a " ( large ) [ size ] " pizza" ,
+			"I want a " ( chicken ) [ pizza_topping ] " pizza" ,
+			"I\'d like to order a pizza for pickup in " ( "1 hour" ) [ ^time ] ,
+			"I want a pizza with " ( pepper ) [ pizza_topping ] " and mushroom" ,
+			"I\'d like a " ( small ) [ size ] " pizza with " ( mushrooms ) [ pizza_topping ] ,
+			"I want to order a " ( small ) [ size ] " pizza with " ( chicken ) [ pizza_topping ] " only" ,
+			"I want to order a " ( cheese ) [ pizza_topping ] " pizza for " ( "1 PM" ) [ ^time ] " " ( tomorrow ) [ ^date ] ,
+			"can I order a " ( cheese ) [ pizza_topping ] " pizza for pickup " ( today ) [ ^date ] " at " ( noon ) [ ^time ] " ?"
+		}
+		parameters :
+			^time : entity time , required , prompts in en [ "What time do you want to pick up the order?" ] ;
+			^date : entity date , required , prompts in en [ "What day do you want to pick up your order?" ] ;
+			pizza_topping : entity pizza_topping , required , prompts in en [ "What toppings do you want on your pizza?" ] ;
+			size : entity size , required , prompts in en [ "What size pizza do you want?" ] ;
+
+	"opening.hours" :
+		inputs in en {
+			"When do you close ?" ,
+			"Are you open " ( today ) [ "date-time" ] " ?" ,
+			"Are you open right now ?" ,
+			"What time do you open ?"
+		}
+		parameters :
+			"date-time" : entity text ;
+
+	"Default Fallback Intent" Fallback :
+
+entities :
+	Simple entity flavor :
+		inputs in en {
+			chocolate synonyms chocolate , mocha
+			vanilla synonyms vanilla
+			strawberry synonyms strawberry
+			caramel synonyms caramel
+			blueberry synonyms blueberry
+			raspberry synonyms raspberry
+			peppermint synonyms peppermint
+	}
+	Simple entity size :
+		inputs in en {
+			small synonyms small
+			medium synonyms medium
+			large synonyms large
+	}
+	Simple entity drink_composite :
+		inputs in en {
+			"@flavor:flavor @milk_type:milk_type @drink:milkshake" synonyms "@flavor:flavor @milk_type:milk_type @drink:milkshake"
+			"@drink:drink" synonyms "@drink:drink"
+			"@flavor:flavor @drink:drink" synonyms "@flavor:flavor @drink:drink"
+			"@milk_type:milk_type @flavor:flavor @drink:milkshake" synonyms "@milk_type:milk_type @flavor:flavor @drink:milkshake"
+	}
+	Simple entity pizza_topping :
+		inputs in en {
+			pepper synonyms pepper
+			mushroom synonyms mushroom , mushrooms
+			bacon synonyms "bacon, bacon pieces, bacon bits, bacon slices"
+			vegetarian synonyms vegetarian , veggie
+			cheese synonyms cheese
+			jalapeno synonyms jalapeno , "hot peppers"
+			sausage synonyms sausage
+			onion synonyms onion
+			ham synonyms ham
+			pineapple synonyms pineapple
+			chicken synonyms chicken
+	}
+	Simple entity milk_type :
+		inputs in en {
+			"regular milk" synonyms "regular milk" , regular
+			"low fat milk" synonyms "low fat milk" , "low fat milk , low fat, low-fat, skim, 2%"
+			"non fat milk" synonyms "non fat milk" , "non fat milk, non fat, non-fat, skinny"
+			"soy milk" synonyms "soy milk" , "soy milk, soy"
+	}
+	Simple entity drink :
+		inputs in en {
+			smoothie synonyms smoothie
+			milkshake synonyms milkshake
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "Default Welcome IntentTxtResp1" :
+		inputs in en {
+			"Welcome to our store. I can assist you with store hours or place an order. Which would you like ? " ,
+			"Hello there. I can assist you with store hours or place an order. How may I help you today ? "
+	}
+	text response "order.drinkTxtResp1" :
+		inputs in en {
+			"I\'ve added your drink order "
+	}
+	text response "order.pizzaTxtResp1" :
+		inputs in en {
+			"We have placed your order for a " [ "order.pizza.size" ] "pizza with " "for pickup on " "at " "See you then! "
+	}
+	text response "opening.hoursTxtResp1" :
+		inputs in en {
+			"We are open from 10 am to 9 pm every day. Can I help you place an order ? "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. What was that? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. Can you rephrase? " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that one more time? " ,
+			"I didn\'t get that. Can you repeat? " ,
+			"I missed that, say that again? "
+	}
+
+flows :
+	- user "Default Welcome Intent" => chatbot "Default Welcome IntentTxtResp1" ;
+	- user "order.drink" => chatbot "order.drinkTxtResp1" ;
+	- user "order.pizza" => chatbot "order.pizzaTxtResp1" ;
+	- user "opening.hours" => chatbot "opening.hoursTxtResp1" ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" ;
+

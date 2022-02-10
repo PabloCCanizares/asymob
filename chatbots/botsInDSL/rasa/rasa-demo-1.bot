@@ -1,0 +1,1381 @@
+Chatbot "rasa-demo-1.10.x" language : en
+
+intents :
+
+affirm :
+	inputs in en {
+		yay ,
+		"yes accept please" ,
+		yeah ,
+		"oh cool" ,
+		"yes please!" ,
+		"Oh, ok" ,
+		"of course" ,
+		yas ,
+		"sure!" ,
+		yop ,
+		^ja
+}
+
+ask_builder :
+	inputs in en {
+		"Who\'s your builder?" ,
+		"Who fabricated you?" ,
+		"who is your boss tell me" ,
+		"who had the idea to build you?" ,
+		"who do you work for?" ,
+		"which company invented you?" ,
+		"Who owns you?" ,
+		"who built you?" ,
+		"please tell me the company who created you" ,
+		"Who is your programmer?"
+}
+
+"faq/channels" :
+	inputs in en {
+		"which messaging channels are supported by rasa?" ,
+		"which messaging channels are compatible with rasa?" ,
+		"Do you know which messaging channels rasa supports?" ,
+		"rasa supports which messaging channels?" ,
+		"DOES RASA SUPPORT MESSENGER?"
+}
+
+"faq/community_size" :
+	inputs in en {
+		"how many people are using Rasa"
+}
+
+"faq/differencecorenlu" :
+	inputs in en {
+		"what is the main difference between " ( core ) [ product ] " and " ( nlu ) [ product ] "?" ,
+		"How does " ( core ) [ product ] " compare to " ( nlu ) [ product ] "?" ,
+		"What facts diverge " ( core ) [ product ] " from " ( nlu ) [ product ] "?" ,
+		"What makes " ( core ) [ product ] " different from " ( nlu ) [ product ] "?" ,
+		"How does " ( nlu ) [ product ] " contrast to " ( core ) [ product ] "?" ,
+		"What does " ( core ) [ product ] " offer that " ( nlu ) [ product ] " does not?" ,
+		"Do you know the difference between " ( core ) [ product ] " and " ( nlu ) [ product ] "?" ,
+		"diffrence between rasa " ( core ) [ product ] " and rasa " ( nlu ) [ product ] ,
+		"what are the primary areas of difference between " ( core ) [ product ] " and " ( nlu ) [ product ] "?" ,
+		"what is different about " ( core ) [ product ] " compared to " ( nlu ) [ product ] "?" ,
+		"What makes " ( core ) [ product ] " distinct to " ( nlu ) [ product ] "?"
+	}
+	parameters :
+		product : entity text ;
+
+"faq/differencerasarasax" :
+	inputs in en {
+		"tell me the difference between " ( rasa ) [ product ] " and " ( "rasa x" ) [ product ] ,
+		"Are " ( Rasa ) [ product ] " and " ( "Rasa X" ) [ product ] " the same thing?" ,
+		"What\'s new in " ( "Rasa X" ) [ product ] " compared to " ( Rasa ) [ product ] "?"
+	}
+	parameters :
+		product : entity text ;
+
+"faq/ee" :
+	inputs in en {
+		"Tell me about rasa x ee" ,
+		"Tell me about rasa x ee" ,
+		"what is rasa x ee?" ,
+		"what is the enterprise edition"
+}
+
+"faq/languages" :
+	inputs in en {
+		"what about languages supported in rasa?" ,
+		"need to use " ( portuguese ) [ ^language ] ,
+		"What language u support?" ,
+		"does Rasa support other languages like spanish?" ,
+		languages ,
+		"which languages supports rasa" ,
+		"How can I change the language"
+	}
+	parameters :
+		^language : entity text ;
+
+"faq/is_programming_required" :
+	inputs in en {
+		"Does rasa require programming knowledge" ,
+		"Do I need programming skills to develop a chatbot in rasa" ,
+		"do I need programming experience to use rasa" ,
+		"how to programe rasa" ,
+		"Rasa can be programmed in python" ,
+		"programming language use" ,
+		"what programming languge do i use" ,
+		"How do I do the programming?" ,
+		"i have never programed before" ,
+		"what language do I need to program?" ,
+		"do i need to be able to program to use rasa?"
+}
+
+"faq/opensource" :
+	inputs in en {
+		"is rasa a type of open source software?" ,
+		"is rasa open source?"
+}
+
+"faq/python_version" :
+	inputs in en {
+		"what version of python"
+}
+
+"faq/slots" :
+	inputs in en {
+		"where slots getting values" ,
+		"do you know what slots are?" ,
+		"what about slots" ,
+		slots ,
+		"What\'s the slots?" ,
+		"what are slots" ,
+		"what slots are there?" ,
+		"tell me about slots" ,
+		"could you inform me of the meaning of slots?"
+}
+
+"faq/tutorials" :
+	inputs in en {
+		"can you show me a tutorial" ,
+		"i want a tutorial on rasa" ,
+		"do you have tutorials"
+}
+
+"faq/voice" :
+	inputs in en {
+		"How can I use to rasa to build a voice bot?" ,
+		"Building a voice bot using rasa." ,
+		"Do you know how to build a voice bot with rasa?" ,
+		"I can build a voice bot with rasa, right?" ,
+		"Is it possible to build a voice bot with rasa?" ,
+		"what is the chance of building a rasa voice bot?" ,
+		"How could I construct a voice bot with rasa?" ,
+		"How can I build my voice bot using rasa?" ,
+		"I can build a voice bot with rasa?"
+}
+
+"faq/what_is_forum" :
+	inputs in en {
+		"whats in the forum"
+}
+
+ask_how_contribute :
+	inputs in en {
+		"how contribute to Rasa?" ,
+		"I want to make Rasa better" ,
+		"how can I support the community"
+}
+
+ask_howbuilt :
+	inputs in en {
+		"How did they build you?" ,
+		"How were you constructed?" ,
+		"How were you devised?" ,
+		"in what way were you made?" ,
+		"How did you come to be?" ,
+		"Can you explain how you were created?" ,
+		"By what means were you made?" ,
+		"Do you know how you were made?" ,
+		"What process was used to build you?" ,
+		"How did you come into being?" ,
+		"How were you made?"
+}
+
+ask_howdoing :
+	inputs in en {
+		"What\'s up man" ,
+		"how\'s your day going" ,
+		"How are you?" ,
+		"are you having a good day" ,
+		"How\'s life treating you friend?" ,
+		"how are u" ,
+		"Do you feel good?" ,
+		"how are you feeling" ,
+		"how have you been" ,
+		"are you alright" ,
+		"How\'ve you been?" ,
+		"Is everything ok?"
+}
+
+ask_howold :
+	inputs in en {
+		"What is your age?" ,
+		"What year were you born?" ,
+		"what year were you born?" ,
+		"What will be your age on your next birthday?" ,
+		"when is your birthday?" ,
+		"what age are you" ,
+		"Tell me your day, month and year of birth." ,
+		"how old?"
+}
+
+ask_isbot :
+	inputs in en {
+		"are you sure that you\'re a bot?" ,
+		"are you a robot" ,
+		"are you ai" ,
+		"are you real" ,
+		"cuz you are a bot" ,
+		"are you a bot ?" ,
+		"Are you the bot?" ,
+		"are you a Skynet ?"
+}
+
+ask_languagesbot :
+	inputs in en {
+		"Do you know any other languages?" ,
+		"What do you speak?" ,
+		"what languages do you know?" ,
+		"What are the languages you can speak?" ,
+		"What languages can you communicate in?"
+}
+
+ask_question_in_forum :
+	inputs in en {
+		"Can you help me to solve a problem?"
+}
+
+ask_restaurant :
+	inputs in en {
+		"Could you find me a restaurant to eat at?" ,
+		"Show me how to find a restaurant" ,
+		"What\'s the closest restaurant open near me"
+}
+
+ask_time :
+	inputs in en {
+		"What is the time?" ,
+		"Hi, I need the time." ,
+		"Can you tell me what time it is?" ,
+		"Give me the time." ,
+		"What\'s the time right now?" ,
+		"what time it is" ,
+		"Time?" ,
+		"What is the hour and minute right now?" ,
+		"Pardon me, but do you know the time?" ,
+		"What is the time?"
+}
+
+ask_weather :
+	inputs in en {
+		"how is the weather in berlin?" ,
+		"Will the skies be clear today?" ,
+		"Is it humid out there today?" ,
+		"what\'s the weather like where you are?" ,
+		"what\"s the weather" ,
+		"Nice day out today?" ,
+		"is it sunny" ,
+		"how\'s the weather?"
+}
+
+ask_whatismyname :
+	inputs in en {
+		"I\'d like to know what my name is" ,
+		"Please let me know what my name is" ,
+		"What is my name?" ,
+		"what\'s my name?" ,
+		"What exactly is my name?" ,
+		"What does everyone call me?" ,
+		"Do you know what my name is?"
+}
+
+ask_whatisrasa :
+	inputs in en {
+		"Give me more information about Rasa" ,
+		"I want to learn what rasa does" ,
+		"what can i build with rasa core?" ,
+		"what does rasa do?" ,
+		"tell me more about rasa" ,
+		"Can you tell me what Rasa does?" ,
+		"what is rasa?"
+}
+
+ask_whatspossible :
+	inputs in en {
+		"so now what" ,
+		"um what now" ,
+		"hm that doesnt quite help me is there anything else you can do?" ,
+		"Can you explain me in one sentence what you are doing?" ,
+		"help please" ,
+		"what are you good at?" ,
+		options ,
+		"cool! can I do something else here?"
+}
+
+ask_when_next_event :
+	inputs in en {
+		"what\'s the next rasa event" ,
+		"is there a Rasa event in " ( "San Francisco" ) [ location ]
+	}
+	parameters :
+		location : entity text ;
+
+ask_wherefrom :
+	inputs in en {
+		"Where do you consider home?" ,
+		"where are your parents from?" ,
+		"Where did you originate?" ,
+		"Where were you at before you were here?" ,
+		"Where are your origins?" ,
+		"Where from?" ,
+		"Where did you grow up?" ,
+		"What is your heritage?"
+}
+
+ask_which_events :
+	inputs in en {
+		"Which community events do you have" ,
+		"i want to meet Rasa"
+}
+
+ask_whoami :
+	inputs in en {
+		"WHo am I" ,
+		"who am i" ,
+		"can you tell me who I am?"
+}
+
+ask_whoisit :
+	inputs in en {
+		"whats ur name" ,
+		"I want to know who you are" ,
+		"what are you called?"
+}
+
+bye :
+	inputs in en {
+		goodbye ,
+		ciao ,
+		"gotta go" ,
+		"bye udo" ,
+		goodnight
+}
+
+canthelp :
+	inputs in en {
+		"nothing else?" ,
+		"ok, but that doesnt help me" ,
+		"hm i don\'t think you can do what i want" ,
+		stop
+}
+
+contact_sales :
+	inputs in en {
+		"i\'d like to talk to a sales person" ,
+		"i need a call from sales" ,
+		"give me someone who can explain your business model" ,
+		"I want to talk to your sales guys" ,
+		"sales contact" ,
+		"we started working with rasa but now we need support" ,
+		"just gimme a call" ,
+		"sales pl" ,
+		"next the sales contact" ,
+		"connect me to your sales department" ,
+		call ,
+		"I wanna talk to your sales people." ,
+		"i want to call" ,
+		"i want to be connected to your sales team" ,
+		"sales team connection" ,
+		"sales sales sales" ,
+		"can someone help me with infos about the rasa platform" ,
+		"let me talk to your sales people" ,
+		"I want to talk to your sales people" ,
+		"let\' contact sales now" ,
+		"I would like to talk to someone from your sales team" ,
+		"have a call with the sales team" ,
+		"contact call with sales" ,
+		"obviously talk to your awesome sales team" ,
+		"I want an offer for your enterprise product"
+}
+
+deny :
+	inputs in en {
+		"no I haven\'t decided yet if I want to sign up" ,
+		"i decline" ,
+		"nah thanks" ,
+		"no!!!!" ,
+		"i guess it means - no" ,
+		nevermind ,
+		nah ,
+		"i don\'t want to"
+}
+
+enter_data :
+	inputs in en {
+		"ulrikovitch eisenkleber" ,
+		"I work for oov" ,
+		( "No company" ) [ company ] "!!" ,
+		"juste@juste.com" ,
+		( akela ) [ name ] ,
+		"the assistant is in " ( french ) [ ^language ] ,
+		"I wrote it in " ( spanish ) [ ^language ] ,
+		( spanish ) [ ^language ] ,
+		"adele@gmx.com" ,
+		"The name of the company is " ( Daimler ) [ company ] ,
+		"Rasa bot" ,
+		"the people speak " ( mandarin ) [ ^language ] ,
+		"My email is linda@linda.linda" ,
+		"A wolf bot" ,
+		"300k number" ,
+		"i\'d like to build sentient glibber or glitter" ,
+		"it’s available in " ( spanish ) [ ^language ] ,
+		"so far it only speaks " ( mandarin ) [ ^language ] ,
+		"my name is " ( "Mikhail Sergeyevich Gorbachev" ) [ name ] ,
+		"my name is " ( linda ) [ name ] ,
+		( "Bolschewistische Kurkapelle Schwarz-Rot" ) [ company ] ,
+		"I work as a " ( "project manager" ) [ job_function ] ,
+		( "Ralph White" ) [ name ] ,
+		( sam ) [ name ] ,
+		"We plan to build a sales bot to increase our sales by 500%." ,
+		"10000k" ,
+		"I\'m " ( "project manager" ) [ job_function ] ,
+		( Freya ) [ name ] ,
+		"10000000" ,
+		"it speaks " ( french ) [ ^language ] ,
+		( "Al Capone" ) [ name ] ,
+		( "Product Manager" ) [ job_function ] ,
+		"2000k" ,
+		"all the training data was in " ( portuguese ) [ ^language ] ,
+		"it’s in " ( french ) [ ^language ] ,
+		"don\'t have one" ,
+		"my bot is in " ( chinese ) [ ^language ] ,
+		"my name is " ( "oli miller" ) [ name ] ,
+		( Linda ) [ name ] ,
+		"about 10 k" ,
+		"it’s only in " ( italian ) [ ^language ] " but I plan to train it in other languages" ,
+		"user can communicate with the bot in " ( spanish ) [ ^language ] ,
+		"schlabberjimmy@glibberglitter.edu" ,
+		( "Max Meier" ) [ name ] ,
+		"it speaks " ( portuguese ) [ ^language ] ,
+		"a bot which sends cute shiba pictures" ,
+		"I\'m a " ( "business woman" ) [ job_function ] ,
+		"the language is " ( mandarin ) [ ^language ] ,
+		"my bot is in " ( mandarin ) [ ^language ] ,
+		"have no idea" ,
+		( "Alex Karev" ) [ name ] ,
+		( "project manager" ) [ job_function ] ,
+		"500 million" ,
+		"I do not know yet" ,
+		"language: " ( spanish ) [ ^language ] ,
+		"it’s available in " ( chinese ) [ ^language ] ,
+		"a big ol transformer" ,
+		"the assistant speaks " ( dutch ) [ ^language ] ,
+		"100k" ,
+		"until now it’s only in " ( mandarin ) [ ^language ] ,
+		"My name is " ( "Max Meier" ) [ name ] ,
+		"language = " ( french ) [ ^language ] ,
+		( "growth manager" ) [ job_function ] ,
+		"we think 4 million INR/ year" ,
+		"sislawawa@india.com" ,
+		"i use " ( anaconda ) [ package_manager ] ,
+		"it’s trained only in " ( dutch ) [ ^language ] ,
+		"on that will get me promoted" ,
+		"a turtle" ,
+		"I work for the " ( "new york times" ) [ company ] ,
+		"I\'m " ( "Tom Miller" ) [ name ] ,
+		"it is in " ( dutch ) [ ^language ] ,
+		"I\'m in " ( "project mgmt" ) [ job_function ] ,
+		"20k" ,
+		"the bot speaks " ( english ) [ ^language ] ,
+		"it’s only in " ( german ) [ ^language ] " but I plan to train it in other languages" ,
+		"until now it’s only in " ( italian ) [ ^language ] ,
+		( "Mr. Mop" ) [ name ] ,
+		"the bot speaks " ( french ) [ ^language ] ,
+		Herbert ,
+		"the people speak " ( german ) [ ^language ] ,
+		"all the training data was in " ( dutch ) [ ^language ] ,
+		"its an " ( mandarin ) [ ^language ] " bot" ,
+		( designer ) [ job_function ] ,
+		"lead generation" ,
+		"until now it’s only in " ( french ) [ ^language ] ,
+		"hi@rasa.com" ,
+		"it’s an " ( english ) [ ^language ] " bot" ,
+		"maxmeier@firma.de" ,
+		"the assistant speaks " ( mandarin ) [ ^language ] ,
+		"it’s available in " ( mandarin ) [ ^language ] ,
+		"it\'s foo@bar.com" ,
+		( Jacqueline ) [ name ] ,
+		"problem solving" ,
+		"it’s an " ( mandarin ) [ ^language ] " bot" ,
+		"user can communicate with the bot in " ( french ) [ ^language ] ,
+		"half a million" ,
+		"it’s trained in " ( dutch ) [ ^language ] ,
+		"it’s trained in " ( spanish ) [ ^language ] ,
+		"shiba@shiba.com" ,
+		"it’s an " ( german ) [ ^language ] " bot" ,
+		( "Udo.AI" ) [ company ] ,
+		"it speaks " ( italian ) [ ^language ] ,
+		"the language of the ai assistant is " ( chinese ) [ ^language ] ,
+		"it’s in " ( dutch ) [ ^language ] ,
+		conversational ,
+		( CSI ) [ company ] ,
+		"test@test.com" ,
+		"im a " ( developer ) [ job_function ] ,
+		( IBM ) [ company ] ,
+		( marketing ) [ job_function ] ,
+		"my emayl is yolo at yolo.de" ,
+		( CTO ) [ job_function ] ,
+		( Alan ) [ name ] ,
+		( "Denise Perry" ) [ name ] ,
+		"my bot is in " ( english ) [ ^language ] ,
+		"an akela bot that I can talk to akela all the time" ,
+		"my email is kevin@yoloooz.de" ,
+		"i am a " ( "projject manager" ) [ job_function ] ,
+		( "Bob Geldorf" ) [ name ] ,
+		"user can talk to my bot in " ( mandarin ) [ ^language ] ,
+		( chinese ) [ ^language ] " is the only language but I want to add more" ,
+		( german ) [ ^language ] " is the only language but I want to add more" ,
+		"it’s only in " ( portuguese ) [ ^language ] " but I plan to train it in other languages" ,
+		"the language is " ( german ) [ ^language ] ,
+		"Im a " ( "full stack developer" ) [ job_function ] ,
+		"please " ( conda ) [ package_manager ] ,
+		"a bot" ,
+		"my bot is in " ( dutch ) [ ^language ] ,
+		"it’s trained in " ( english ) [ ^language ] ,
+		( Foudner ) [ job_function ] ,
+		"it’s only in " ( english ) [ ^language ] " but I plan to train it in other languages" ,
+		"i\'m a " ( "product manager" ) [ job_function ] ,
+		"moabit@yoga.com" ,
+		"the language is " ( french ) [ ^language ] ,
+		"the assistant is in " ( italian ) [ ^language ] ,
+		"health care" ,
+		"language: " ( dutch ) [ ^language ]
+	}
+	parameters :
+		company ,
+		name ,
+		^language ,
+		job_function ,
+		package_manager : entity text ;
+
+explain :
+	inputs in en {
+		"what is the difference" ,
+		"give me more information please" ,
+		"why is that"
+}
+
+greet :
+	inputs in en {
+		heyo ,
+		"hey bot" ,
+		hii ,
+		"hi?" ,
+		"hello everybody" ,
+		"hello there" ,
+		hellooo ,
+		Hi ,
+		heyho ,
+		"hello sweet boy" ,
+		"ayyyy whaddup" ,
+		"hey hey" ,
+		"good evening" ,
+		^hi
+}
+
+how_to_get_started :
+	inputs in en {
+		"where to start the development of rasa" ,
+		"Get started with " ( Rasa ) [ product ] ,
+		"Get started" ,
+		"How do I use " ( NLU ) [ product ] ,
+		"How do I get started with " ( "Rasa X" ) [ product ] ,
+		"WHAT IS RASA" ,
+		"How do I get started with Rasa " ( NLU ) [ product ] ,
+		( Both ) [ product ] " of them" ,
+		"how do i use " ( core ) [ product ] ,
+		"how to start with rasa" ,
+		"Help me use " ( "Rasa X" ) [ product ] ,
+		"how do i get started with " ( "Rasa X" ) [ product ] ,
+		"i want to understand " ( all ) [ product ] " the products" ,
+		"Help me get started"
+	}
+	parameters :
+		product : entity text ;
+
+human_handoff :
+	inputs in en {
+		"let me talk to a human" ,
+		"are there also humans working for your company?" ,
+		"gimme a proper human" ,
+		"service agent" ,
+		"i have an issue with permissions" ,
+		"wrong i want to speak to a human" ,
+		"i want to speak to customer service" ,
+		"i\'d rather speak with a real rasa employee" ,
+		"give me a human"
+}
+
+install_rasa :
+	inputs in en {
+		"install Rasa on Linux" ,
+		"How to install Rasa Stack" ,
+		"I have decided on Rasa Stack" ,
+		"How to install Rasa?" ,
+		"I have chosen Rasa Stack" ,
+		"I require Rasa Stack?" ,
+		"I\'m going to install Rasa Stack" ,
+		"I need assistance in getting Rasa Stack." ,
+		"I want to use Rasa Stack" ,
+		"Help me get Rasa Core."
+}
+
+next_step :
+	inputs in en {
+		"Next step please"
+}
+
+nlu_generation_tool_recommendation :
+	inputs in en {
+		"which tools can I use to create nlu data" ,
+		"are there simpler ways to create nlu data" ,
+		"how can I get nlu data"
+}
+
+nlu_info :
+	inputs in en {
+		( ^intents ) [ nlu_part ] ,
+		"I don’t understand how you handle " ( "entity recognition" ) [ nlu_part ] " at Rasa" ,
+		"do you use " ( duckling ) [ nlu_part ] ,
+		( "intent classification" ) [ nlu_part ] ,
+		"I want to learn about " ( "entity recognition" ) [ nlu_part ] ,
+		"what is " ( "entity recognition" ) [ nlu_part ] "?" ,
+		"I don’t understand " ( "entity recognition" ) [ nlu_part ]
+	}
+	parameters :
+		nlu_part : entity text ;
+
+"out_of_scope/non_english" :
+	inputs in en {
+		"de donde eres" ,
+		"de que lugar eres?" ,
+		"epdi iruka" ,
+		"eres humana" ,
+		"kalhmera sara ti kaneis" ,
+		"kannst du auch deutsch?" ,
+		"spreek je Nederlands?"
+}
+
+"out_of_scope/other" :
+	inputs in en {
+		"who is your favourite robot?" ,
+		"can you tell me how to build a bot?" ,
+		"isn\'t the newsletter just spam?" ,
+		"i want to buy a roomba for my grandson" ,
+		"Can I ask you questions first?" ,
+		lol ,
+		"Do I have to accept?" ,
+		"but I just told you that :(" ,
+		"please hurry, i have deadline in two weeks to deliver the bot it is for very big company" ,
+		"sorry, i cannot rephrase" ,
+		"you suck" ,
+		"hang on let me find it" ,
+		"did i break you" ,
+		"i told you already" ,
+		"Is Rasa really smart?" ,
+		"give me food" ,
+		"you are a stupid bot" ,
+		"how are akela\'s cats doing?" ,
+		"i am hungry" ,
+		"shit bot" ,
+		"the one that is better than you"
+}
+
+pipeline_recommendation :
+	inputs in en {
+		"what pipeline should I start with?" ,
+		"give me a recommendation" ,
+		"what pipeline should i use?"
+}
+
+signup_newsletter :
+	inputs in en {
+		"can you add alan@mail.com to the newsletter list?" ,
+		"I\'d like to subscribe" ,
+		"can you sign me up for the newsletter" ,
+		"i need to be on the newsletter list" ,
+		"add me to the subscription list" ,
+		"i would love to get the newsletter" ,
+		"newsletter - my email is lol@rasa.com" ,
+		"i want to subscribe to your newsletter" ,
+		"subscribe to newsletter" ,
+		"i also want to sign up for the newsletter" ,
+		"send me the newsletter" ,
+		"please subscribe me to the newsletter alex@example.cz" ,
+		"add me to the newsletter" ,
+		"Sign up." ,
+		"get newsletter" ,
+		"newsletter pls" ,
+		"Subscribe to Rasa newsletter" ,
+		"do the newsletter then" ,
+		"lets do the newsletter signup" ,
+		"i want to receive the newsletter from now on" ,
+		"I want the newsletter" ,
+		"Newsletter please." ,
+		"oh actually i want to get the newsletter"
+}
+
+switch :
+	inputs in en {
+		"I currently use " ( "dialog flow" ) [ current_api ] ,
+		"I use " ( DialogFlow ) [ current_api ] ,
+		"I want to move from " ( "LUIS.ai" ) [ current_api ] " to Rasa" ,
+		"I want to switch from " ( "dialog flow" ) [ current_api ] " to rasa" ,
+		( LUIS ) [ current_api ]
+	}
+	parameters :
+		current_api : entity text ;
+
+technical_question :
+	inputs in en {
+		"does rasa support voice input" ,
+		"technical side of things?" ,
+		"is rasa better than " ( dialogflow ) [ current_api ] ,
+		"having some problems with installation" ,
+		"i am having trouble setting this up" ,
+		"where to train intents in rasa?"
+	}
+	parameters :
+		current_api : entity text ;
+
+thank :
+	inputs in en {
+		"thanks this is great news" ,
+		"thanks a bunch for everything" ,
+		"ok thanks!" ,
+		"cool, thanks" ,
+		"Thanks bot" ,
+		"Cool. Thanks"
+}
+
+faq :
+
+chitchat :
+
+get_started_step1 :
+
+actions :
+	text response utter_confirm_salesrequest_text :
+		inputs in en {
+			"Thanks a bunch, we\'ll be in touch soon! ??"
+	}
+	empty response respond_out_of_scope_empty
+	text response utter_why_rasa_nlu_text :
+		inputs in en {
+			"Rasa\'s NLU supports multiple languages, single and multiple intents, and both pre-trained and custom entities."
+	}
+	text response utter_ask_use_case_text :
+		inputs in en {
+			"What kind of assistant do you want to build with Rasa?"
+	}
+	empty response action_set_onboarding_empty
+	empty response action_docs_search_empty
+	text response utter_ask_more_migrate_text :
+		inputs in en {
+			"Would you like to learn more about the advantages of switching to Rasa?"
+	}
+	text response utter_confirmationemail_text :
+		inputs in en {
+			"We sent a confirmation email to {email}."
+	}
+	text response utter_direct_to_step2_text :
+		inputs in en {
+			"You can click [here](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step2%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started.html%23build-an-assistant-with-rasa-open-source%22%3B) if you want to go to the next step to try out Rasa Open Source." ,
+			"You can click the button below if you want to go to the next step to try out Rasa Open Source."
+	}
+	text response utter_explain_business_email_text :
+		inputs in en {
+			"We need your business email to contact you afterwards. Otherwise, we cannot help you set up Rasa."
+	}
+	text response utter_great_text :
+		inputs in en {
+			"Great! ?" ,
+			"That\'s great! ?" ,
+			"Awesome! ?" ,
+			"Cool, let\'s do it ?"
+	}
+	text response utter_no_email_text :
+		inputs in en {
+			"Hmm, I\'m not sure that\'s a valid email, please make sure to include the full address ?"
+	}
+	text response utter_x_tutorial_text :
+		inputs in en {
+			"Rasa Masterclass covers how to [set up Rasa X](https://www.youtube.com/watch?v=IUYdwy8HPVc) and how to [improve your assistant](https://www.youtube.com/watch?v=LWzsS5Q-RoI) by sharing your assistant with others."
+	}
+	text response utter_why_rasa_os_text :
+		inputs in en {
+			"Because Rasa is open source, you can customize your bot and explore its inner workings as much as you\'d like. There\'s no vendor lock in, and no hidden algorithms."
+	}
+	empty response action_default_fallback_empty
+	text response utter_direct_to_step4_text :
+		inputs in en {
+			"The final step is to join the community, find more information about our\n community [here](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step4%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started%23join-the-community%22%3B)" ,
+			"The final step is to join the community. Click the button to find more information about our community."
+	}
+	text response utter_direct_to_step3_text :
+		inputs in en {
+			"If you have no questions, click\n [here](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step3%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started%23improve-your-assistant-with-rasa-x%22%3B)\n when you\'re ready to go to the next step. Or, at any point after you\'re done asking questions, say \'take me to the next step\'." ,
+			"If you have no questions, click the button below to go to the next step when you\'re ready. Or, at any point after you\'re done asking questions, say \'take me to the next step\'."
+	}
+	text response utter_getstarted_new_text :
+		inputs in en {
+			"I see you�re new, let me ask you a quick question to determine how best I can help you."
+	}
+	text response utter_built_bot_before_text :
+		inputs in en {
+			"And have you built a contextual assistant or a bot before?"
+	}
+	empty response respond_faq_empty
+	text response utter_cantsignup_text :
+		inputs in en {
+			"I can\'t sign you up if you don\'t provide your email ?"
+	}
+	empty response respond_chitchat_empty
+	text response utter_continue_step2_text :
+		inputs in en {
+			"Let\'s continue, please click\n [here](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step2%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started%23build-an-assistant-with-rasa-open-source%22%3B)." ,
+			"Let\'s continue, please click the button below."
+	}
+	text response utter_ask_migration_text :
+		inputs in en {
+			"Are you migrating from another tool?"
+	}
+	text response utter_reasons_to_contribute_text :
+		inputs in en {
+			"Here a few reasons why you should contribute:\n- Explore the source code in depth\n- Contribute to open source software\n- Earn [Rasa swag])(https://rasa.com/community/contribute/)!\n"
+	}
+	text response utter_ask_which_product_text :
+		inputs in en {
+			"Ok, which product would you like to know more about? Rasa Open Source or Rasa X?"
+	}
+	text response utter_source_code_text :
+		inputs in en {
+			"Like Rasa Open Source, my code is freely available on GitHub! You can find it [here](https://github.com/RasaHQ/rasa-demo) ?"
+	}
+	text response utter_continue_step4_text :
+		inputs in en {
+			"Let\'s continue, please click\n [here](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step4%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started%23join-the-community%22%3B)." ,
+			"Let\'s continue, please click the button below."
+	}
+	text response utter_continue_step3_text :
+		inputs in en {
+			"Let\'s continue, please click\n [here](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step3%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started%23improve-your-assistant-with-rasa-x%22%3B)." ,
+			"Let\'s continue, please click the button below."
+	}
+	text response utter_ask_job_function_text :
+		inputs in en {
+			"What\'s your job? ?"
+	}
+	text response utter_installation_command_followup_text :
+		inputs in en {
+			"Once you\'re done, you can install Rasa Open Source with pip using the following command. \n\n\"pip install rasa\""
+	}
+	text response utter_recommend_forum_text :
+		inputs in en {
+			"You should join the [Rasa Community forum](https://forum.rasa.com), where you can ask questions about Rasa Open Source and Rasa X, find resources, and stay up-to-date with what\'s happening at Rasa."
+	}
+	text response utter_possibilities_to_contribute_text :
+		inputs in en {
+			"Check out the [Contribute to Rasa](https://github.com/orgs/RasaHQ/projects/23) board for ideas on how to contribute code or content. You can also help by answering other members\' questions on the [forum](http://forum.rasa.com)."
+	}
+	text response utter_having_trouble_installing_text :
+		inputs in en {
+			"If you are having any trouble installing, you can look up detailed installation instructions [here](https://rasa.com/docs/rasa/user-guide/installation/#step-by-step-installation-guide)."
+	}
+	text response utter_why_rasa_compliant_text :
+		inputs in en {
+			"If data security and compliance is a priority for you, Rasa has your back! You can deploy Rasa either in the cloud or on premise and maintain complete control over your assistant & its data."
+	}
+	text response utter_ask_budget_text :
+		inputs in en {
+			"What\'s your annual budget for conversational AI? ?"
+	}
+	text response utter_duckling_info_text :
+		inputs in en {
+			"Duckling is a rule-based entity recognition library from Facebook. [Here](https://duckling.wit.ai/) is the link to its documentation."
+	}
+	text response utter_default_text :
+		inputs in en {
+			"Sorry, I didn\'t get that ?. Could you please rephrase?" ,
+			"I didn\'t understand, could you rephrase that?" ,
+			"I\'m sorry, but I didn\'t understand you. Could you please rephrase what you just said?" ,
+			"I\'m afraid I didn\'t get what you just said. Could you rephrase that?" ,
+			"I didn\'t quite get that, could you rephrase your message?" ,
+			"Could you rephrase your message? I didn\'t get it, I\'m sorry."
+	}
+	text response utter_explain_x_text :
+		inputs in en {
+			"Rasa X is a toolset used to improve contextual assistants built using Rasa Open Source by helping you turn real user conversations into training data. Rasa X includes a user interface and a REST API."
+	}
+	text response utter_explain_core_text :
+		inputs in en {
+			"Core decides what happens next in this conversation. Its machine learning-based dialogue management predicts the next best action based on the input from NLU, the conversation history and your training data.\n(Example: Core has a confidence of 87% that ask_primary_change is the next best action to confirm with the user if they want to change their primary contact information.)"
+	}
+	text response utter_bye_text :
+		inputs in en {
+			"Goodbye!" ,
+			"Bye!" ,
+			"Ciao!" ,
+			"Bye, was nice talking to you!" ,
+			"Bye bye!"
+	}
+	empty response action_tag_docs_search_empty
+	text response utter_canthelp_text :
+		inputs in en {
+			"I\'m sorry I couldn\'t help you. If you have general questions about Rasa, please head to our [forum](https://forum.rasa.com/), otherwise contact us at [hi@rasa.com](mailto:hi@rasa.com) for anything else."
+	}
+	text response utter_noworries_text :
+		inputs in en {
+			"No worries!" ,
+			"You\'re welcome!" ,
+			"I\'m happy to help."
+	}
+	empty response action_explain_sales_form_empty
+	text response utter_ask_explain_nlucorex_text :
+		inputs in en {
+			"Would you like to know more about Rasa Open Source or Rasa X?"
+	}
+	text response utter_ask_entities_text :
+		inputs in en {
+			"What kind of entities do you want to extract?"
+	}
+	text response utter_ask_which_tool_text :
+		inputs in en {
+			"Which tool are you migrating from?"
+	}
+	text response utter_awesome_text :
+		inputs in en {
+			"Awesome, thanks! ?" ,
+			"Sweet, thank you! ?" ,
+			"Thanks! ?" ,
+			"Cool, thank you!"
+	}
+	text response utter_inform_privacypolicy_text :
+		inputs in en {
+			"By chatting to me you agree to our [privacy policy](https://rasa.com/privacy-policy/)."
+	}
+	text response utter_ask_rephrase_text :
+		inputs in en {
+			"Can you rephrase the question?"
+	}
+	empty response action_store_entity_extractor_empty
+	text response utter_crf_text :
+		inputs in en {
+			"For custom entities like that, I would suggest using the [CRFEntityExtractor](https://rasa.com/docs/rasa/nlu/components/#crfentityextractor) component. Read more about how to annotate entities in your data [here](https://rasa.com/docs/nlu/dataformat/)."
+	}
+	text response utter_react_positive_text :
+		inputs in en {
+			"?" ,
+			"?" ,
+			"?" ,
+			"?"
+	}
+	text response utter_docu_text :
+		inputs in en {
+			"If you want some more awesome Rasa content, check out our [forum](https://forum.rasa.com/)."
+	}
+	text response utter_must_accept_text :
+		inputs in en {
+			"We can\'t speak until you accept."
+	}
+	text response utter_also_explain_core_text :
+		inputs in en {
+			"Would you also like me to explain Core?"
+	}
+	text response utter_ask_name_text :
+		inputs in en {
+			"What\'s your name?"
+	}
+	text response utter_also_explain_nlu_text :
+		inputs in en {
+			"Would you also like me to explain NLU?"
+	}
+	text response utter_why_rasa_dialogue_text :
+		inputs in en {
+			"Assistants built on Rasa can hold meaningful conversations with users - multi-step conversations that remember context and integrate business logic. No state machines here!"
+	}
+	text response utter_can_do_text :
+		inputs in en {
+			"Sure thing!" ,
+			"Can do!" ,
+			"You got it. ?"
+	}
+	text response utter_also_explain_nlucore_text :
+		inputs in en {
+			"Would you also like me to explain NLU and Core?"
+	}
+	text response utter_faq_voice_more_text :
+		inputs in en {
+			"Please read our [documentation](https://rasa.com/docs/rasa/user-guide/messaging-and-voice-channels/) for more information."
+	}
+	text response utter_anything_else_text :
+		inputs in en {
+			"Is there anything else I can help you with?"
+	}
+	text response utter_installation_instructions_text :
+		inputs in en {
+			"If you haven\'t already read the detailed instruction guide, you can look it up [here](https://rasa.com/docs/rasa/user-guide/installation/#step-by-step-installation-guide)."
+	}
+	text response utter_duckling_text :
+		inputs in en {
+			"For that entity I\'d suggest using the rule-based [DucklingHTTPExtractor](https://rasa.com/docs/rasa/nlu/components/#ducklinghttpextractor) component ?"
+	}
+	text response utter_pipeline_nonenglish_nospacy_text :
+		inputs in en {
+			"For {language}, a good starting point is the [recommended pipeline](https://rasa.com/docs/rasa/nlu/choosing-a-pipeline/#the-short-answer) for languages other than English."
+	}
+	text response utter_getstarted_text :
+		inputs in en {
+			"To determine how I can help you best, I\'m going to ask you a few questions."
+	}
+	text response utter_spacy_text :
+		inputs in en {
+			"SpaCy has excellent pre-trained named-entity recognizers for this -- check out this [interactive demo](https://demos.explosion.ai/displacy-ent/). I would suggest using the [SpacyEntityExtractor](https://rasa.com/docs/rasa/nlu/components/#spacyentityextractor) component in your pipeline."
+	}
+	text response utter_greet_name_text :
+		inputs in en {
+			"Hi, {name}!" ,
+			"Hello, {name}!" ,
+			"Hey, {name}!"
+	}
+	text response utter_link_to_forum_text :
+		inputs in en {
+			"Here\'s the link to the forum: [https://forum.rasa.com](https://forum.rasa.com)"
+	}
+	empty response action_tag_feedback_empty
+	empty response action_store_problem_description_empty
+	text response utter_explain_use_case_text :
+		inputs in en {
+			"In order to help you best, we need to know what you want to build with Rasa."
+	}
+	text response utter_first_bot_with_rasa_text :
+		inputs in en {
+			"Let\'s go. Are you new to Rasa?"
+	}
+	text response utter_pipeline_nonenglish_spacy_text :
+		inputs in en {
+			"Looks like for your {language} assistant, a good starting point is the [recommended pipeline](https://rasa.com/docs/rasa/nlu/choosing-a-pipeline/#the-short-answer) for languages other than English. If you want to use pretrained embeddings, the [pipeline using SpacyNLP](https://rasa.com/docs/rasa/nlu/choosing-a-pipeline/#a-longer-answer) also works for your language."
+	}
+	text response utter_ask_company_text :
+		inputs in en {
+			"What company do you work for?"
+	}
+	text response utter_ask_feedback_message_text :
+		inputs in en {
+			"I\'m sorry I couldn\'t help you. Please let me know if you have any suggestions for how I can improve."
+	}
+	text response utter_response_why_email_text :
+		inputs in en {
+			"I need your email address to sign you up to the newsletter." ,
+			"I need it so that I can sign you up to the newsletter."
+	}
+	text response utter_rasa_components_details_text :
+		inputs in en {
+			"Rasa Open Source is a machine learning framework for automated text and voice-based conversations. Rasa X is a tool that helps you build, improve, and deploy AI Assistants that are powered by the Rasa Open Source framework."
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"Hey there, my name is Sara." ,
+			"Hi, I\'m Sara!" ,
+			"Hi! My name\'s Sara."
+	}
+	empty response action_store_bot_language_empty
+	text response utter_ask_describe_problem_text :
+		inputs in en {
+			"Can you describe the problem you\'re having?"
+	}
+	text response utter_restart_with_button_text :
+		inputs in en {
+			"Click the button below if you want to start over."
+	}
+	text response utter_ask_more_text :
+		inputs in en {
+			"Would you like to learn more?"
+	}
+	text response utter_faq_ee_more_text :
+		inputs in en {
+			"Please read the Rasa X [documentation](https://rasa.com/docs/rasa-x/) for more information."
+	}
+	text response utter_get_started_step4_text :
+		inputs in en {
+			"As a Rasa developer you will be part of a huge community. You can ask me about the upcoming Rasa events, ways to contribute or about our forum."
+	}
+	text response utter_ask_continue_rasa_init_text :
+		inputs in en {
+			"Do you want to go ahead with the steps to create a contextual assistant?"
+	}
+	text response utter_nlu_tools_text :
+		inputs in en {
+			"We recommend using Rasa X to easily create and classify NLU data from within a UI."
+	}
+	text response utter_ask_for_nlu_specifics_text :
+		inputs in en {
+			"Anything in particular you\'d like to know about, e.g. intent classification or entity recognition?"
+	}
+	text response utter_contact_email_text :
+		inputs in en {
+			"You can�t speak to a human directly in this chat, but you can email us at hi@rasa.com."
+	}
+	text response utter_why_rasa_research_text :
+		inputs in en {
+			"Rasa invests in extensive research to create leading-edge conversational AI, enabling developers to create the best text- and voice-based assistants without a dedicated research team."
+	}
+	text response utter_get_started_step1_text :
+		inputs in en {
+			"If you\'re new to Rasa, I can help you get started! Shall we?"
+	}
+	text response utter_no_further_info_text :
+		inputs in en {
+			"Sorry, that\'s all the info I\'ve got on that subject ?"
+	}
+	text response utter_get_started_step2_text :
+		inputs in en {
+			"I can show you how to start building your first AI assistant with Rasa. Are you ready?"
+	}
+	text response utter_get_started_step3_text :
+		inputs in en {
+			"Now, let\'s take a look at Rasa X, to improve your assistant. Sound good?"
+	}
+	text response utter_no_speak_text :
+		inputs in en {
+			"I\'m afraid we can\'t chat then ?"
+	}
+	text response utter_pipeline_english_text :
+		inputs in en {
+			"If your training data is in English, a good starting point is this [recommended pipeline](https://rasa.com/docs/rasa/nlu/choosing-a-pipeline/#the-short-answer), which uses both pretrained and supervised embeddings."
+	}
+	text response utter_restart_text :
+		inputs in en {
+			"Loading... And I\'ve been restarted! ?" ,
+			"Congrats you\'ve restarted me! ?"
+	}
+	text response utter_faq_languages_more_text :
+		inputs in en {
+			"Please read our [documentation](https://rasa.com/docs/rasa/nlu/language-support/) for more information."
+	}
+	text response utter_possibilities_text :
+		inputs in en {
+			"You can ask me about:\n- how to get started with Rasa\n- the components of Rasa,\n- booking a sales call\n- subscribing to our newsletter\n"
+	}
+	text response utter_encourage_building_bot_text :
+		inputs in en {
+			"Cool, then good luck with building your first contextual assistant! ?"
+	}
+	empty response action_greet_user_empty
+	empty response action_store_unknown_product_empty
+	text response utter_change_mind_text :
+		inputs in en {
+			"You can still change your mind below though."
+	}
+	text response utter_direct_to_forum_for_help_text :
+		inputs in en {
+			"If you\'re still stuck, please ask for help on our [forum](https://forum.rasa.com/)."
+	}
+	text response utter_what_language_text :
+		inputs in en {
+			"Which (human) language is your assistant in?"
+	}
+	text response utter_explain_rasa_components_text :
+		inputs in en {
+			"Alright, I\'ll briefly explain the components that make up Rasa then."
+	}
+	text response utter_salesrequest_failed_text :
+		inputs in en {
+			"Unfortunately we weren\'t able to store your information. Sorry about that! You can still contact sales via our [website](https://rasa.com/contact-sales/) ?"
+	}
+	empty response action_pause_empty
+	text response utter_sales_contact_text :
+		inputs in en {
+			"Thanks, now I need to know how we can reach you."
+	}
+	text response utter_ask_ready_to_build_text :
+		inputs in en {
+			"If you got it successfully installed, are you ready to start building a contextual assistant?"
+	}
+	text response utter_moreinformation_text :
+		inputs in en {
+			"Sure, we can book a sales call! Let\'s get to know each other first ?"
+	}
+	empty response action_next_step_empty
+	text response utter_explain_nlu_text :
+		inputs in en {
+			"NLU understands the user�s message based on your previous training data:\n- Intent classification: Interpreting meaning based on predefined intents (Example: �Please send the confirmation to amy@example.com� is a send_confirmation intent with 93% confidence)\n- Entity extraction: Recognizing structured data (Example: amy@example.com is an email)."
+	}
+	text response utter_tutorialnlu_text :
+		inputs in en {
+			"Rasa Masterclass episodes 2-4 focus on NLU. Check out episode 2 [here](https://www.youtube.com/watch?v=k5UeywXA28k)."
+	}
+	text response utter_switch_dialogflow_text :
+		inputs in en {
+			"We have a guide for migrating from DialogFlow [here](https://www.rasa.com/docs/rasa/migrate-from/google-dialogflow-to-rasa/)."
+	}
+	text response utter_faq_channels_more_text :
+		inputs in en {
+			"Please read our [documentation](https://rasa.com/docs/rasa/user-guide/messaging-and-voice-channels/) for more information."
+	}
+	text response utter_thumbsup_text :
+		inputs in en {
+			"?" ,
+			"Okay." ,
+			"Got it."
+	}
+	text response utter_dont_know_nlu_part_text :
+		inputs in en {
+			"Hmm, seems like I haven\'t learned about that part of NLU yet!"
+	}
+	text response utter_nlu_entity_tutorial_text :
+		inputs in en {
+			"[Part 2](https://blog.rasa.com/rasa-nlu-in-depth-part-2-entity-recognition/) of the Rasa NLU In Depth series from our software engineer Tobias is a great tutorial about entity recognition."
+	}
+	text response utter_greet_noname_text :
+		inputs in en {
+			"Hey!" ,
+			"Hi!" ,
+			"Hey there!"
+	}
+	text response utter_react_negative_text :
+		inputs in en {
+			"?" ,
+			"?" ,
+			"?" ,
+			"?"
+	}
+	text response utter_what_help_text :
+		inputs in en {
+			"Ok, what can I help you with?"
+	}
+	text response utter_explain_person_name_text :
+		inputs in en {
+			"To be able to contact you later on, we would like to know your name."
+	}
+	text response utter_have_you_used_rasa_before_text :
+		inputs in en {
+			"Have you used Rasa before?"
+	}
+	text response utter_no_guide_for_switch_text :
+		inputs in en {
+			"Sorry, but we don\'t have a migration guide for that tool yet. You can still follow the [tutorial](https://rasa.com/docs/rasa/user-guide/rasa-tutorial/) to build a Rasa assistant based on your existing one, though!"
+	}
+	text response utter_faq_slots_more_text :
+		inputs in en {
+			"Please read our [documentation](https://rasa.com/docs/rasa/core/slots/) for more information."
+	}
+	text response utter_ask_continue_newsletter_text :
+		inputs in en {
+			"Do you still want to subscribe to the newsletter?"
+	}
+	text response utter_search_bar_text :
+		inputs in en {
+			"Try using the search bar above for now."
+	}
+	text response utter_switch_luis_text :
+		inputs in en {
+			"We have a guide for migrating from LUIS [here](https://www.rasa.com/docs/rasa/migrate-from/microsoft-luis-to-rasa/)."
+	}
+	text response utter_nlu_intent_tutorial_text :
+		inputs in en {
+			"Check out [part 1](https://blog.rasa.com/rasa-nlu-in-depth-part-1-intent-classification/) of the Rasa NLU In Depth series from our software engineer Tobias to learn more about intent classification."
+	}
+	text response utter_ask_goal_text :
+		inputs in en {
+			"If you\'re new to Rasa, I can help you get started! If you\'ve already started building an assistant, you can also ask me about the different parts of Rasa ?"
+	}
+	empty response action_get_community_events_empty
+	text response utter_already_subscribed_text :
+		inputs in en {
+			"Looks like {email} is already subscribed - good choice! If you haven\'t received a newsletter in a while, maybe check your spam folder ?"
+	}
+	text response utter_ask_continue_sales_text :
+		inputs in en {
+			"Do you still want to talk to sales?"
+	}
+	text response utter_ask_feedback_text :
+		inputs in en {
+			"How is this conversation going?"
+	}
+	empty response action_forum_search_empty
+	text response utter_suggestion_text :
+		inputs in en {
+			"I don\'t have a skill to help you with this stage yet, but please ask any questions you have so I can learn them in the future!"
+	}
+	text response utter_explain_job_function_text :
+		inputs in en {
+			"Your job function helps us in understanding how we can talk to you best."
+	}
+	text response utter_chatbot_tutorial_text :
+		inputs in en {
+			"No problem, here\'s a [course on Datacamp](https://www.datacamp.com/courses/building-chatbots-in-python) that teaches you about building your own chatbot ?"
+	}
+	empty response action_explain_faq_empty
+	text response utter_offer_recommendation_text :
+		inputs in en {
+			"Would you like me to try to recommend a pipeline?"
+	}
+	text response utter_ask_business_email_text :
+		inputs in en {
+			"What\'s your business email?"
+	}
+	empty response action_set_faq_slot_empty
+	empty response action_store_unknown_nlu_part_empty
+	text response utter_ask_if_problem_text :
+		inputs in en {
+			"Did you encounter any problems during installation?"
+	}
+	text response utter_explain_company_text :
+		inputs in en {
+			"Just for completeness."
+	}
+	text response utter_nohelp_text :
+		inputs in en {
+			"For now that\'s all I can do, so feel free to try it out. If you have any suggestions for what I should learn, let me know!"
+	}
+	text response utter_installation_command_text :
+		inputs in en {
+			"You will first need to install Rasa Open Source using this installation command. \n\n\"pip install rasa\""
+	}
+	empty response action_default_ask_affirmation_empty
+	text response utter_explain_budget_text :
+		inputs in en {
+			"If you tell us your budget, we can prepare a package that fits you best."
+	}
+	text response utter_ask_docs_help_text :
+		inputs in en {
+			"Did that help?"
+	}
+	text response utter_no_more_steps_text :
+		inputs in en {
+			"Looks like you\'ve already gone through all the steps!"
+	}
+	text response utter_not_sure_text :
+		inputs in en {
+			"Hmm, not sure what you mean..."
+	}
+	text response utter_thank_suggestion_text :
+		inputs in en {
+			"Thanks for your input!"
+	}
+	text response utter_ask_email_text :
+		inputs in en {
+			"What\'s your email address?"
+	}
+	text response utter_run_rasa_init_text :
+		inputs in en {
+			"You can now create a new Rasa assistant and also talk to it by simply running \"rasa init\".\nThis comes with some sample training data and the required configuration files to get you started. You can also talk to the assistant after it is done training. "
+	}
+	text response utter_why_rasa_text :
+		inputs in en {
+			"Rasa provides the infrastructure and tools needed to build high-performing, resilient assistants that work. What\'s more, Rasa is **open source** - no black-box magic!"
+	}
+
+flows :
+	- user faq => chatbot respond_faq_empty , action_set_faq_slot_empty , respond_chitchat_empty , action_greet_user_empty {
+		=> user explain => chatbot action_explain_faq_empty ;
+		=> user affirm => chatbot utter_getstarted_new_text , utter_getstarted_text , utter_first_bot_with_rasa_text ;
+	} ;
+	- user how_to_get_started => chatbot action_set_onboarding_empty , utter_getstarted_new_text , utter_built_bot_before_text , utter_getstarted_text , utter_first_bot_with_rasa_text => user deny => chatbot utter_explain_rasa_components_text , utter_rasa_components_details_text , utter_ask_explain_nlucorex_text , action_set_onboarding_empty , utter_ask_which_product_text { => user faq => chatbot utter_explain_nlu_text , utter_explain_core_text , utter_explain_x_text , utter_also_explain_nlucore_text ; => user how_to_get_started => chatbot utter_explain_core_text , utter_explain_nlu_text ; } ;
+	- user greet => chatbot action_greet_user_empty {
+		=> user chitchat => chatbot respond_chitchat_empty => user signup_newsletter => chatbot utter_can_do_text , utter_docu_text , utter_ask_feedback_message_text , utter_ask_feedback_text => user affirm => chatbot utter_thumbsup_text , utter_anything_else_text ;
+		=> user signup_newsletter => chatbot utter_can_do_text => user chitchat => chatbot respond_chitchat_empty , utter_ask_continue_newsletter_text => user affirm => chatbot utter_great_text , utter_docu_text , utter_ask_feedback_message_text , utter_ask_feedback_text => user affirm => chatbot utter_thumbsup_text , utter_anything_else_text ;
+	} ;
+	- user technical_question => chatbot action_docs_search_empty , utter_ask_docs_help_text , action_forum_search_empty {
+		=> user deny => chatbot action_tag_docs_search_empty , action_forum_search_empty ;
+		=> user affirm => chatbot action_tag_docs_search_empty , utter_great_text ;
+	} ;
+

@@ -1,0 +1,262 @@
+Chatbot FAQ language : en
+
+intents :
+
+	"bot.order - yes" :
+		inputs in en {
+			yes ,
+			"do it" ,
+			sure ,
+			exactly ,
+			confirm ,
+			"of course" ,
+			"sounds good" ,
+			"that\'s correct" ,
+			"I don\'t mind" ,
+			"I agree"
+	}
+
+	"bot.define" :
+		inputs in en {
+			"what is a assistant app" ,
+			"who are bots" ,
+			"do you know anything about conversation apps" ,
+			"what are virtual assistants" ,
+			"what is a chatbot" ,
+			"tell me about virtual assistants" ,
+			"what are chatbots designed for" ,
+			"how does a bot work"
+	}
+
+	"bot.order - no" :
+		inputs in en {
+			^no ,
+			"don\'t do it" ,
+			"definitely not" ,
+			"not really" ,
+			"thanks but no" ,
+			"not interested" ,
+			"I don\'t think so" ,
+			"I disagree" ,
+			"I don\'t want that"
+	}
+
+	"bot.order - yes - intermediate" :
+		inputs in en {
+			"Intermediate, 1-2 bots" ,
+			"Intermediate, built a couple of bots" ,
+			"2-3 bots" ,
+			"I\'m not very experienced" ,
+			"I\'ve built a couple of bots" ,
+			intermediate
+	}
+
+	"bot.order - yes - advanced" :
+		inputs in en {
+			"advanced, several bots" ,
+			"I build bots every day" ,
+			"I\'ve built 100+ bots" ,
+			"that\'s how I earn money" ,
+			"I do it for life" ,
+			"I\'m a professional bot builder" ,
+			"it\'s my job" ,
+			advanced
+	}
+
+	"bot.order - yes - beginner" :
+		inputs in en {
+			"first time" ,
+			"don\'t know" ,
+			"don\'t know anything" ,
+			"not familiar" ,
+			"it\'s going to be my first bot" ,
+			elementary ,
+			beginner ,
+			"I\'m just starting to dive into bot\'s world" ,
+			"just starting" ,
+			"I\'m a beginner" ,
+			"I\'m doing it for the first time"
+	}
+
+	fallback Fallback :
+		inputs in en {
+			"Nice shirt" ,
+			"Could you please show me some dog pictures" ,
+			"Navigate home" ,
+			"Who are US presidents?" ,
+			"What are the main cities in UK?" ,
+			"Need help with cooking recipes" ,
+			"I want to build a snowman" ,
+			"Tell me about the weather" ,
+			"What can you do to make me laugh" ,
+			"Show me your travel plans"
+	}
+
+	welcome :
+		inputs in en {
+			"Good day" ,
+			"Let\'s start" ,
+			Hey ,
+			Hi ,
+			Hello ,
+			welcome
+	}
+
+	"bot.features" :
+		inputs in en {
+			"show me your skills" ,
+			"what can you help me with" ,
+			"what are your main features" ,
+			"is there something I should know about your features" ,
+			"tell me some of your interesting capabilities" ,
+			"guide from your skills" ,
+			"how do we start working" ,
+			"what can I ask you about" ,
+			"what are you capable of" ,
+			"show me what you do" ,
+			"what can you do"
+	}
+
+	"bot.order" :
+		inputs in en {
+			"I\'m about to start working on a " ( fun ) [ industry ] " " ( Assistant ) [ platform ] " app" ,
+			"I\'m working on a " ( Slack ) [ platform ] " bot for a " ( finance ) [ industry ] " company" ,
+			"i\'m building a bot for " ( "customer support" ) [ industry ] ,
+			"I need a bot for " ( android ) [ platform ] ,
+			"I want a " ( facebook ) [ platform ] " bot" ,
+			"need help with an " ( Assistant ) [ platform ] " conversation app for a " ( travel ) [ industry ] " company" ,
+			"I want to create a chatbot" ,
+			"how to create a chatbot for " ( entertainment ) [ industry ] " purposes" ,
+			"how to build a " ( support ) [ industry ] " bot" ,
+			"where do people buy chatbots" ,
+			"I need a bot for a " ( "connected bot app" ) [ industry ] ,
+			"how to create a " ( "hotel booking" ) [ industry ] " bot" ,
+			"how do I start"
+		}
+		parameters :
+			industry : entity industry , required , prompts in en [ "What\'s the industry you\'re working at?" , "What field are you working in?" ] ;
+			platform : entity platform , required , prompts in en [ "What platform are you launching for?" ] ;
+
+entities :
+	Simple entity integration :
+		inputs in en {
+			Assistant synonyms "Actions on Google" , Assistant , ^actions , aog
+			"Facebook Messenger" synonyms facebook , "facebook messenger"
+			Kik synonyms kik
+			Line synonyms line
+			Skype synonyms skype
+			Slack synonyms Slack
+			Telegram synonyms telegram
+			Twitter synonyms twitter
+	}
+	Simple entity industry :
+		inputs in en {
+			cars synonyms auto , automotive , cars
+			"connected home" synonyms "connected bot app" , "connected home"
+			entertainment synonyms entertainment , fun
+			finance synonyms bank , finance , insurance
+			"flight booking" synonyms flight , "flight booking"
+			food synonyms food
+			"hotel booking" synonyms hotel , "hotel booking"
+			"restaurant booking" synonyms restaurant , "restaurant booking"
+			sport synonyms sport
+			support synonyms crm , "customer support" , support
+			travel synonyms travel
+	}
+	Simple entity sdk :
+		inputs in en {
+			"Android SDK" synonyms Android , "Android SDK"
+			"C#" synonyms "C#"
+			"C++" synonyms "C++"
+			HTML synonyms HTML
+			JavaScript synonyms JavaScript
+			"iOS SDK" synonyms "iOS SDK" , ios
+			java synonyms java
+			"node js" synonyms "node js"
+			php synonyms php
+			python synonyms python
+			ruby synonyms ruby
+			unity synonyms unity
+	}
+	Simple entity platform :
+		inputs in en {
+			"@integration:integration" synonyms "@integration:integration"
+			"@sdk:sdk " synonyms "@sdk:sdk "
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "bot.order - yesTxtResp1" :
+		inputs in en {
+			" "
+	}
+	text response "bot.order - yesTxtResp2" :
+		inputs in en {
+			"That\'s great. Dialogflow provides powerful tools to create conversational interfaces and connect them to your web service. Now, tell me please, how familiar are you with building bots? "
+	}
+	text response "bot.order - noTxtResp2" :
+		inputs in en {
+			"Then you\'re in the right place. API.AI provides powerful yet user-friendly tools to create conversational interfaces. You can implement very sophisticated dialogs without writing a line of code. "
+	}
+	text response "bot.order - yes - intermediateTxtResp3" :
+		inputs in en {
+			"Cool. Keep developing your bots with us! Have a look at our guidelines here: https://docs.api.ai/docs/profile-bot-example-agent. Maybe you\'ll find some useful examples in our Prebuilt Agents, have a look here: https://docs.api.ai/docs/prebuilt-agents "
+	}
+	text response "bot.order - yes - advancedTxtResp3" :
+		inputs in en {
+			"Wow! Cool to see a real pro. I hope, you\'ll find our ML section interesting: https://dialogflow.com/docs/machine-learning " ,
+			"How can I possibly help such a professional? Let\'s have a look at our Training Feature to make your future bot even smarter: https://dialogflow.com/docs/training "
+	}
+	text response "bot.order - yes - beginnerTxtResp3" :
+		inputs in en {
+			"Congratulations on joining our bot\'s party! Here is how you start: https://docs.api.ai/docs/get-started "
+	}
+	text response fallbackTxtResp1 :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. Say it again? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that again? " ,
+			"I didn\'t get that. " ,
+			"I missed that. "
+	}
+	text response welcomeTxtResp3 :
+		inputs in en {
+			"Hey! I\'m a sample FAQ agent. I can talk about conversation apps. What would you like to know? "
+	}
+	text response "bot.featuresTxtResp1" :
+		inputs in en {
+			"I\'m a sample FAQ bot. I can give information about chatbots and how to build them with API.AI. "
+	}
+	text response "bot.orderTxtResp4" :
+		inputs in en {
+			"Are you planning to use a web service? "
+	}
+
+flows :
+	- user "bot.define" => chatbot "bot.order - yesTxtResp1" ;
+	- user fallback => chatbot fallbackTxtResp1 ;
+	- user welcome => chatbot "bot.order - yesTxtResp1" , welcomeTxtResp3 ;
+	- user "bot.features" => chatbot "bot.featuresTxtResp1" ;
+	- user "bot.order" => chatbot "bot.order - yesTxtResp1" , "bot.orderTxtResp4" {
+		=> user "bot.order - yes" => chatbot "bot.order - yesTxtResp1" , "bot.order - yesTxtResp2" {
+			=> user "bot.order - yes - intermediate" => chatbot "bot.order - yesTxtResp1" , "bot.order - yes - intermediateTxtResp3" ;
+			=> user "bot.order - yes - advanced" => chatbot "bot.order - yesTxtResp1" , "bot.order - yes - advancedTxtResp3" ;
+			=> user "bot.order - yes - beginner" => chatbot "bot.order - yesTxtResp1" , "bot.order - yes - beginnerTxtResp3" ;
+		} ;
+		=> user "bot.order - no" => chatbot "bot.order - yesTxtResp1" , "bot.order - noTxtResp2" ;
+	} ;
+

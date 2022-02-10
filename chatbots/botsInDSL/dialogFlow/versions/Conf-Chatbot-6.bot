@@ -1,0 +1,211 @@
+Chatbot "Conf-Chatbot-6" language : en
+
+intents :
+
+	"Default-Fallback-Intent" Fallback :
+
+	"Item-Name" :
+		inputs in en {
+			"A " ( potion ) [ item ] ,
+			"A " ( key ) [ item ] ,
+			( Rock ) [ item ]
+		}
+		parameters :
+			item : entity item ;
+
+	"Item-Exists-No" :
+		inputs in en {
+			Nah ,
+			"Hell no" ,
+			No
+	}
+
+	"New-Player" :
+		inputs in en {
+			"new player" ,
+			"I\'d like to set up a " ( player ) [ player ] ,
+			"A " ( participant ) [ player ] ,
+			"A new " ( "playable character" ) [ player ] ,
+			"A " ( player ) [ player ] ,
+			"A new " ( player ) [ player ] ,
+			"A new player"
+		}
+		parameters :
+			player : entity text ;
+
+	"New-Room" :
+		inputs in en {
+			"New " ( room ) [ rooms ] ,
+			"How many " ( rooms ) [ rooms ] " there will be" ,
+			"The number of " ( rooms ) [ rooms ] ,
+			"I\'d like to choose the number of " ( rooms ) [ rooms ]
+		}
+		parameters :
+			rooms : entity text ;
+
+	"Player-name" :
+		inputs in en {
+			( Ap6612 ) [ playerName ] ,
+			( Pope ) [ playerName ] ,
+			( Alucard ) [ playerName ] ,
+			( Joan ) [ playerName ] ,
+			( Marcos ) [ playerName ]
+		}
+		parameters :
+			playerName : entity playerName , required , prompts in en [ "Sorry I did not get that, could you repeat the name?" , "I am afraid that $playerName is not a valid name, could you try again?" ] ;
+
+	"Item-Exists-Yes" :
+		inputs in en {
+			"Why not?" ,
+			Sure ,
+			Yeah ,
+			Yes
+	}
+
+	"Character-Purpose" :
+		inputs in en {
+			"This character will give you the " ( key ) [ item ] " for the " ( "first chest" ) [ itemRelation ] ,
+			"This character will give you a " ( potion ) [ item ] ,
+			"This character will tell you where that you have to go to the " ( "first room" ) [ place ] " again" ,
+			"He will give you the " ( key ) [ item ] " for the " ( "first chest" ) [ itemRelation ]
+		}
+		parameters :
+			place : entity place ;
+			item : entity item ;
+			itemRelation : entity itemRelation ;
+
+	"Default-Welcome-Intent" :
+		inputs in en {
+			"just going to say hi" ,
+			heya ,
+			"hello hi" ,
+			howdy ,
+			"hey there" ,
+			"hi there" ,
+			greetings ,
+			hey ,
+			"long time no see" ,
+			hello ,
+			"lovely day isn\'t it" ,
+			"I greet you" ,
+			"hello again" ,
+			^hi ,
+			"hello there" ,
+			"a good day"
+	}
+
+	"Character-Name" :
+		inputs in en {
+			( "The magician" ) [ characterName ] ,
+			( "+A45 the great" ) [ characterName ] ,
+			( John ) [ characterName ]
+		}
+		parameters :
+			characterName : entity characterName ;
+
+	"New-Room-select-number" :
+		inputs in en {
+			( thirteen ) [ ^number ] ,
+			( "20" ) [ ^number ]
+		}
+		parameters :
+			^number : entity float , required , prompts in en [ "You must select a number" ] ;
+
+	"New-Character" :
+		inputs in en {
+			"An " ( NPC ) [ character ] ,
+			"A new " ( character ) [ character ] ,
+			"new character" ,
+			"a new character"
+		}
+		parameters :
+			character : entity text ;
+
+	"Item-Action" :
+		inputs in en {
+			( Open ) [ action ] ,
+			( Take ) [ action ] ,
+			( Read ) [ action ] ,
+			( Consume ) [ action ] ,
+			( Consume ) [ action ] " and " ( take ) [ action ]
+		}
+		parameters :
+			action : entity action ;
+
+	"Player-health" :
+		inputs in en {
+			( twenty ) [ health ] ,
+			( "20" ) [ health ]
+		}
+		parameters :
+			health : entity float , required , prompts in en [ "Please enter a number" ] ;
+
+	"End-Configuration" :
+		inputs in en {
+			"That\'s all" ,
+			"Nothing else" ,
+			Nothing
+	}
+
+	"New-Item" :
+		inputs in en {
+			"A new " ( item ) [ item ] ,
+			"Lets set up a " ( gadget ) [ item ] ,
+			"A " ( device ) [ item ] ,
+			"A " ( thing ) [ item ] " to use" ,
+			"An " ( item ) [ item ] ,
+			"A new " ( object ) [ item ]
+		}
+		parameters :
+			item : entity item ;
+
+	Settings :
+		inputs in en {
+			"/settings"
+	}
+
+entities :
+	Simple entity item :
+		inputs in en {
+			"([A-Za-z]+\\d*)+" synonyms "([A-Za-z]+\\d*)+"
+	}
+	Simple entity playerName :
+		inputs in en {
+			"([A-Za-z]+\\d*)+" synonyms "([A-Za-z]+\\d*)+"
+	}
+	Simple entity itemRelation :
+		inputs in en {
+			"([A-Za-z]+\\d*)+" synonyms "([A-Za-z]+\\d*)+"
+	}
+	Simple entity characterName :
+		inputs in en {
+			"(([a-zA-Z]+\\d*)+[ ]?)+" synonyms "(([a-zA-Z]+\\d*)+[ ]?)+"
+	}
+	Simple entity action :
+		inputs in en {
+			"([A-Za-z]+)" synonyms "([A-Za-z]+)"
+	}
+	Simple entity place :
+		inputs in en {
+			"([A-Za-z]+\\d*)+" synonyms "([A-Za-z]+\\d*)+"
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "https://d00ad1148974.ngrok.io/webhook" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "Default-Fallback-IntentTxtResp1" :
+		inputs in en {
+			" "
+	}
+
+flows :
+	- user "Default-Fallback-Intent" => chatbot HttpRequest , HttpResponse , "Default-Fallback-IntentTxtResp1" ;
+	- user "Default-Welcome-Intent" => chatbot HttpRequest , HttpResponse , "Default-Fallback-IntentTxtResp1" ;
+	- user Settings => chatbot HttpRequest , HttpResponse , "Default-Fallback-IntentTxtResp1" ;
+

@@ -1,0 +1,122 @@
+Chatbot moodbot language : en
+
+intents :
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"hello there" ,
+		"good morning" ,
+		"good evening" ,
+		moin ,
+		"hey there" ,
+		"let\'s go" ,
+		"hey dude" ,
+		goodmorning ,
+		goodevening ,
+		"good afternoon"
+}
+
+goodbye :
+	inputs in en {
+		cu ,
+		"good by" ,
+		"cee you later" ,
+		"good night" ,
+		"good afternoon" ,
+		bye ,
+		goodbye ,
+		"have a nice day" ,
+		"see you around" ,
+		"bye bye" ,
+		"see you later"
+}
+
+mood_affirm :
+	inputs in en {
+		yes ,
+		indeed ,
+		"of course" ,
+		"that sounds good" ,
+		correct
+}
+
+mood_deny :
+	inputs in en {
+		^no ,
+		never ,
+		"I don\'t think so" ,
+		"don\'t like that" ,
+		"no way"
+}
+
+mood_great :
+	inputs in en {
+		perfect ,
+		"very good" ,
+		great ,
+		amazing ,
+		"feeling like a king" ,
+		wonderful ,
+		"I am feeling very good" ,
+		"I am great" ,
+		"I am amazing" ,
+		"I am going to save the world" ,
+		super ,
+		"extremely good" ,
+		"so so perfect" ,
+		"so good" ,
+		"so perfect"
+}
+
+mood_unhappy :
+	inputs in en {
+		"my day was horrible" ,
+		"I am sad" ,
+		"I don\'t feel very well" ,
+		"I am disappointed" ,
+		"super sad" ,
+		"I\'m so sad" ,
+		sad ,
+		"very sad" ,
+		unhappy ,
+		"not so good" ,
+		"not very good" ,
+		"extremly sad" ,
+		"so saad" ,
+		"so sad"
+}
+
+actions :
+	text response utter_greet_text :
+		inputs in en {
+			"Hey! How are you?"
+	}
+	image response utter_cheer_up_img :
+		URL : "https://i.imgur.com/nGF1K8f.jpg"
+		caption : "Here is something to cheer you up:"
+	text response utter_did_that_help_text :
+		inputs in en {
+			"Did that help you?"
+	}
+	text response utter_happy_text :
+		inputs in en {
+			"Great carry on!"
+	}
+	text response utter_goodbye_text :
+		inputs in en {
+			Bye
+	}
+
+flows :
+	- user greet => chatbot utter_greet_text {
+		=> user mood_great => chatbot utter_happy_text ;
+		=> user mood_unhappy => chatbot utter_cheer_up_img , utter_did_that_help_text {
+			=> user mood_affirm => chatbot utter_happy_text ;
+			=> user mood_deny => chatbot utter_goodbye_text ;
+		} ;
+	} ;
+	- user goodbye => chatbot utter_goodbye_text ;
+

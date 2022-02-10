@@ -1,0 +1,244 @@
+Chatbot "RasaCustomerService-master" language : en
+
+intents :
+
+network_issue :
+	inputs in en {
+		"Actually, I gave a call regarding the network issues." ,
+		"I called regarding network issue" ,
+		"I am facing the network issue"
+}
+
+my_name_is :
+	inputs in en {
+		"My name is " ( Ashish ) [ NAME ] ,
+		( ashish ) [ NAME ] " this side" ,
+		"It\'s " ( ashish ) [ NAME ] ,
+		( ashish ) [ NAME ] " is my name" ,
+		"you can call me " ( Innovate ) [ NAME ] ,
+		( Ashish ) [ NAME ] ,
+		( Rahul ) [ NAME ] ,
+		( Innovate ) [ NAME ] ,
+		( ashish ) [ NAME ] ,
+		( ashish ) [ NAME ]
+	}
+	parameters :
+		NAME : entity text ;
+
+facing_issue :
+	inputs in en {
+		"I am facing " ( "network issues" ) [ NETWORK ] ". Every time I give a call, there is a call drop after connection. Sometimes it also takes more than 2 minutes to connect a call." ,
+		"facing " ( "network issues" ) [ NETWORK ] " every time I make a call. Sometime it takes a time longer than usual."
+	}
+	parameters :
+		NETWORK : entity text ;
+
+headset :
+	inputs in en {
+		"I am using a " ( samsung ) [ BRAND ] " phone." ,
+		"I have " ( "One plus" ) [ BRAND ] " mobile" ,
+		"I am using [one +](BRAND:One plus)" ,
+		"I use " ( "I-phone" ) [ BRAND ] ,
+		"I prefer " ( "i phone" ) [ BRAND ] ,
+		"i am using [one plus](BRAND:One plus) mobile" ,
+		"i am using " ( "sam sung" ) [ BRAND ] ,
+		"i am using [oneplus](BRAND:One plus) mobile" ,
+		"i am using " ( nokia ) [ BRAND ] " mobile"
+	}
+	parameters :
+		BRAND : entity text ;
+
+guide_me :
+	inputs in en {
+		"Could you please guide me?" ,
+		"could you suggest me how to do that?" ,
+		"guide me how to do it" ,
+		"i don\'t know how to do it"
+}
+
+have_to_do :
+	inputs in en {
+		"What will I have to do to get a 4G SIM for the same number?" ,
+		"What is the procedure to get the 4G SIM for the same number" ,
+		"process to get the 4G SIM for the same number"
+}
+
+thanks :
+	inputs in en {
+		"Thank you so much!" ,
+		thanks ,
+		tnx ,
+		"thank you so much" ,
+		"thanks alot" ,
+		ty
+}
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"good morning" ,
+		"good evening" ,
+		"hey there"
+}
+
+goodbye :
+	inputs in en {
+		bye ,
+		goodbye ,
+		"see you around" ,
+		"see you later"
+}
+
+affirm :
+	inputs in en {
+		yes ,
+		indeed ,
+		"of course" ,
+		"that sounds good" ,
+		correct
+}
+
+deny :
+	inputs in en {
+		^no ,
+		never ,
+		"I don\'t think so" ,
+		"don\'t like that" ,
+		"no way" ,
+		"not really"
+}
+
+mood_great :
+	inputs in en {
+		perfect ,
+		"very good" ,
+		great ,
+		amazing ,
+		wonderful ,
+		"I am feeling very good" ,
+		"I am great" ,
+		"I\'m good"
+}
+
+mood_unhappy :
+	inputs in en {
+		sad ,
+		"very sad" ,
+		unhappy ,
+		bad ,
+		"very bad" ,
+		awful ,
+		terrible ,
+		"not very good" ,
+		"extremely sad" ,
+		"so sad"
+}
+
+bot_challenge :
+	inputs in en {
+		"are you a bot?" ,
+		"are you a human?" ,
+		"am I talking to a bot?" ,
+		"am I talking to a human?"
+}
+
+^number :
+	inputs in en {
+		( "7" ) [ num ] ,
+		( seven ) [ num ]
+	}
+	parameters :
+		num : entity number ;
+
+actions :
+	image response utter_cheer_up_img :
+		URL : "https://i.imgur.com/nGF1K8f.jpg"
+		caption : "Here is something to cheer you up:"
+	text response utter_solution_4G_text :
+		inputs in en {
+			"Please visit your nearest store. They will provide you the 4G sim for the same."
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"Hello! I am calling from Innovate Yourself. How may I assist you?"
+	}
+	text response utter_did_that_help_text :
+		inputs in en {
+			"Did that help you?"
+	}
+	text response utter_anything_else_text :
+		inputs in en {
+			"Is there anything else I can help you with?"
+	}
+	text response utter_num_verify_text :
+		inputs in en {
+			"Could you please confirm me your mobile number?"
+	}
+	text response utter_solution_text :
+		inputs in en {
+			"Sure sir, I will guide you for that. Go to your settings, select network, and select 3G if you’ve chosen 4G because your sim is not supporting 4G. That’s why you are facing problems while calling."
+	}
+	text response utter_tell_issue_text :
+		inputs in en {
+			"Thanks for confirming, tell me what issues you are facing?"
+	}
+	text response utter_wrong_value_text :
+		inputs in en {
+			"Enter the valid headset!"
+	}
+	text response utter_chitchat_text :
+		inputs in en {
+			"I\'m not designed for this."
+	}
+	text response utter_num_confirm_text :
+		inputs in en {
+			"Is this the same mobile number on which you are facing network issues?"
+	}
+	text response utter_ask_BRAND_text :
+		inputs in en {
+			"Sir, I would like to tell you that your issues will be resolved. Could I please know which handset you are using?"
+	}
+	text response utter_ask_NAME_text :
+		inputs in en {
+			"Ok. Please provide your first name?"
+	}
+	text response utter_thanks_text :
+		inputs in en {
+			"Thank you for calling Innovate Yourself."
+	}
+	text response utter_change_settings_text :
+		inputs in en {
+			"I would like to tell you, sir, that you need to change certain settings of your phone because there is no issue on your end."
+	}
+	text response utter_goodbye_text :
+		inputs in en {
+			Bye
+	}
+	text response utter_happy_text :
+		inputs in en {
+			"Great, carry on!"
+	}
+	text response utter_iamabot_text :
+		inputs in en {
+			"I am a bot, powered by Rasa."
+	}
+	text response utter_your_num_text :
+		inputs in en {
+			"Your number is {number}?"
+	}
+	empty response action_your_num_empty
+	text response utter_submit_text :
+		inputs in en {
+			"Your name is {name} and your headset is {headset}. Is this correct?"
+	}
+	empty response DefaultEmptyAction
+
+flows :
+	- user greet => chatbot utter_greet_text ;
+	- user thanks => chatbot utter_goodbye_text ;
+	- user goodbye => chatbot utter_goodbye_text ;
+	- user bot_challenge => chatbot utter_iamabot_text ;
+	- user network_issue => chatbot DefaultEmptyAction => user affirm => chatbot utter_tell_issue_text => user facing_issue => chatbot utter_change_settings_text => user guide_me => chatbot utter_solution_4G_text , utter_solution_text => user have_to_do => chatbot utter_solution_4G_text => user thanks => chatbot utter_anything_else_text => user deny => chatbot utter_thanks_text ;
+

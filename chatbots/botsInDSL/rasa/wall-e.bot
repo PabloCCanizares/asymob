@@ -1,0 +1,122 @@
+Chatbot "wall-e" language : en
+
+intents :
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"good morning" ,
+		"good evening" ,
+		"good afternoon" ,
+		"hey there" ,
+		"hi there" ,
+		hii ,
+		Hi
+}
+
+fine_ask :
+	inputs in en {
+		"I am good, how are you doing?" ,
+		"I\'m fine, how are you?" ,
+		"I\'m good, how are you?" ,
+		"I am good, how are you?" ,
+		"Doing good, how are you?" ,
+		"Awesome, how are you?" ,
+		"im fine, how are you?" ,
+		"im good, how are you?" ,
+		"I am doing good. How about you?"
+}
+
+fine_normal :
+	inputs in en {
+		"I am doing great" ,
+		"I\'m doing great" ,
+		"I\'m fine" ,
+		"I\'m good" ,
+		"Doing good" ,
+		Awesome ,
+		"im fine" ,
+		"im good"
+}
+
+news :
+	inputs in en {
+		"Share some latest news around the " ( world ) [ category ] "?" ,
+		"Share some latest news in " ( sports ) [ category ] "?" ,
+		"What is going on in " ( technology ) [ category ] "?" ,
+		"Tell me some news about " ( fashion ) [ category ] ,
+		"Tell me some news about " ( business ) [ category ] ,
+		"What is going on in " ( business ) [ category ] ,
+		"Tell me some news about " ( arts ) [ category ] ,
+		"What is going on in " ( arts ) [ category ] ,
+		"What is going on in " ( arts ) [ category ] ,
+		"What is cooking in " ( food ) [ category ] ,
+		( movies ) [ category ] ,
+		( magazine ) [ category ] ,
+		( opinion ) [ category ] ,
+		( science ) [ category ]
+	}
+	parameters :
+		category : entity text ;
+
+thanks :
+	inputs in en {
+		Thanks ,
+		"Thank you so much"
+}
+
+bye :
+	inputs in en {
+		"No, I am good as of now. Bye" ,
+		Bye ,
+		Bbye
+}
+
+actions :
+	text response utter_ofc_text :
+		inputs in en {
+			"I can definitely help you" ,
+			"Surely, I can help you"
+	}
+	text response utter_reply_text :
+		inputs in en {
+			"I\'m doing great. Please let me know what I can do for you." ,
+			"I\'m doing great. Tell me How can I help you today?"
+	}
+	empty response action_get_news_empty
+	text response utter_greet_text :
+		inputs in en {
+			"Hey, how are you?" ,
+			"Hello, How are you doing?"
+	}
+	text response utter_anything_else_text :
+		inputs in en {
+			"No worries. Is there anything else I can help you with?" ,
+			"No worries. Let me know if there is anything else I can help you with"
+	}
+	text response utter_help_text :
+		inputs in en {
+			"Great. How can I help you?" ,
+			"Great. Tell me How can I help you?"
+	}
+	text response utter_default_text :
+		inputs in en {
+			"I am not sure what you\'re aiming for"
+	}
+	empty response action_restart_empty
+	text response utter_bye_text :
+		inputs in en {
+			"Bye and have a nice day" ,
+			"Bbye and have a nice day"
+	}
+
+flows :
+	- user greet => chatbot utter_greet_text ;
+	- user fine_normal => chatbot utter_help_text ;
+	- user fine_ask => chatbot utter_reply_text ;
+	- user news => chatbot utter_ofc_text , action_get_news_empty ;
+	- user thanks => chatbot utter_anything_else_text ;
+	- user bye => chatbot utter_bye_text ;
+

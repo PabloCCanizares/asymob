@@ -1,0 +1,72 @@
+Chatbot SrinivasaGolla language : en
+
+intents :
+
+"Business news" :
+	inputs in en {
+		"Business news"
+}
+
+"Default Welcome Intent" :
+	inputs in en {
+		"Tell me News" ,
+		News_bot ,
+		Hi ,
+		News ,
+		Hello
+}
+
+"Latest news" :
+	inputs in en {
+		"Latest news" ,
+		"Breaking news"
+}
+
+"Entertainment news" :
+	inputs in en {
+		"Entertainment news"
+}
+
+"Political News" :
+	inputs in en {
+		"Political News"
+}
+
+"Default Fallback Intent" Fallback :
+
+actions :
+	Request post HttpRequest :
+		URL : "https://<example>" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "Business newsTxtResp1" :
+		inputs in en {
+			" "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. Say it again? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that again? " ,
+			"I didn\'t get that. " ,
+			"I missed that. "
+	}
+
+flows :
+	- user "Business news" => chatbot "Business newsTxtResp1" ;
+	- user "Default Welcome Intent" => chatbot "Business newsTxtResp1" ;
+	- user "Latest news" => chatbot "Business newsTxtResp1" ;
+	- user "Entertainment news" => chatbot "Business newsTxtResp1" ;
+	- user "Political News" => chatbot "Business newsTxtResp1" ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" ;
+

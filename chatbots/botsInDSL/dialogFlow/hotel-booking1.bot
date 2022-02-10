@@ -1,0 +1,217 @@
+Chatbot "hotel-booking1" language : en
+
+intents :
+
+	"Default Welcome Intent" :
+		inputs in en {
+			"hey there" ,
+			hey ,
+			^hi ,
+			hello
+	}
+
+	Help :
+		inputs in en {
+			"I need support" ,
+			"i need customer support" ,
+			"help me" ,
+			"Please help me" ,
+			"I need help"
+	}
+
+	Booking :
+		inputs in en {
+			yes ,
+			( "+923082466439" ) [ person ] ,
+			"book a room" ,
+			"i want room" ,
+			"I want an " ( economy ) [ type ] " class" ,
+			"book room for " ( "2" ) [ person ] " persons" ,
+			"My contact number is " ( "+92312345678" ) [ "phone-number" ] ,
+			"My email is " ( "abc@abc.com" ) [ email ] ,
+			"My name is " ( john ) [ name ] ,
+			"I want to book a room"
+		}
+		parameters :
+			name : entity text , required , prompts in en [ "Can you please tell me your name" , "kindly tell your name" , "Please tell me your good name" ] ;
+			email : entity text , required , prompts in en [ "would you like to share your email" , "please tell me your email" , "your email please" ] ;
+			"phone-number" : entity text , required , prompts in en [ "Kindly give me your contact number" , "Please tell me your contact number" , "tell me your phone number" ] ;
+			person : entity float , required , prompts in en [ "For how many persons you want to book room" , "kindly tell me number of persons" ] ;
+			type : entity Category , required , prompts in en [ "Please tell me which type of class you want" , "In which category do you want to book room" ] ;
+
+	Complaint :
+		inputs in en {
+			"subject is " ( security ) [ subject ] ,
+			"the subject is " ( staff ) [ subject ] ,
+			detail ,
+			"i want to report" ,
+			( feedback ) [ Complaintype ] ,
+			( suggestion ) [ Complaintype ] ,
+			( complain ) [ Complaintype ] ,
+			"I want to give " ( feedback ) [ Complaintype ] ,
+			"I want to report something" ,
+			"I want to give " ( suggestion ) [ Complaintype ] "." ,
+			"I have a " ( complaint ) [ Complaintype ] "."
+		}
+		parameters :
+			Complaintype : entity Complaintype , required , prompts in en [ "Do you want to give suggestions or complaint" , "Kindly specify that you want to give complaint or suggestion" ] ;
+			subject : entity subject , required , prompts in en [ "Please give the subject to your $Complaintype" , "Kindly tell the subject of your $Complaintype" ] ;
+
+	ShowBookingsYes :
+		inputs in en {
+			yes ,
+			"okay I will" ,
+			"why not" ,
+			"yes that\'s alright" ,
+			"yes I do" ,
+			exactly ,
+			"of course" ,
+			"yep that\'s ok" ,
+			okay ,
+			ok ,
+			"for sure" ,
+			sg ,
+			"yes that\'t ok" ,
+			"I agree" ,
+			"yes you can do it" ,
+			"I don\'t mind" ,
+			"that one works" ,
+			"that works" ,
+			"sure why not" ,
+			perfect ,
+			"yep that\'s right" ,
+			"I think so" ,
+			"yes I agree" ,
+			sure ,
+			"sounds correct" ,
+			"sounds good" ,
+			"that\'s correct" ,
+			"go ahead" ,
+			"do it" ,
+			"it\'s fine" ,
+			yeah ,
+			"yes please" ,
+			"it\'s okay" ,
+			"alright why not" ,
+			alright ,
+			right ,
+			"it looks perfect" ,
+			"yes I can" ,
+			yup ,
+			yep ,
+			confirm ,
+			absolutely
+	}
+
+	"Default Fallback Intent" Fallback :
+
+	ShowBookings :
+		inputs in en {
+			"all bookings" ,
+			"show me my bookings"
+	}
+
+entities :
+	Simple entity Category :
+		inputs in en {
+			Vip synonyms Vip , higher , "upper class"
+			economy synonyms basic , economy , lower
+			standard synonyms average , casual , standard
+	}
+	Simple entity RoomType :
+		inputs in en {
+			economy synonyms "Low cost" , Regular , economy
+			standard synonyms standard
+			vip synonyms luxuery , special , vip
+	}
+	Simple entity subject :
+		inputs in en {
+			Secuirty synonyms Secuirty , protection , security
+			food synonyms dine , food
+			laundry synonyms laundry , "room service"
+			management synonyms discipline , management , staff
+			"plumbing service" synonyms "plumbing service" , "water leakage"
+	}
+	Simple entity Complaintype :
+		inputs in en {
+			complain synonyms complain , complaint
+			suggestion synonyms advice , advise , feedback , suggestion
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "https://us-central1-hotel-booking-agent-tyderl.cloudfunctions.net/webhook" ;
+		basicAuth : "" : "" ;
+		headers : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "Default Welcome IntentTxtResp1" :
+		inputs in en {
+			"Have you designed it already?\n\nBelow is an introduction to our production process.\n\n \n\nP icture ? -1 P icture ? -2\n\n \n\nIf you have already designed it, you can also pass the picture directly\nand tell us the material you want and the number of pieces.\n\nPlease ask customer service directly to quote you ?^^\n\n \n\nLarge image files, original image files, to avoid compression, please pass to the lower mailbox\n\nKing.protee@gmail.com\n\nThank you "
+	}
+	text response "Default Welcome IntentTxtResp2" :
+		inputs in en {
+			"hi.Welcome to our hotel. You can enjoy our Hotel services here.Say book a room if you want to book room. " ,
+			"hello! Welcome ! Here we provide you the details about Hotel services.Say book hotel if  want to book room. " ,
+			"You are welcome to our hotel. Do you want to book room. " ,
+			"We warmly welcome you to our hotel.Do you want to book room. "
+	}
+	text response HelpTxtResp1 :
+		inputs in en {
+			"????????\n?????????^^\n\n1.?????\n2.??\n3.?????\n4.????(??????????????????????)\n5.????(???7-11)\n6.??\n7.????????????????????????????\n8.??\n\n\n????????????????????????????????????\n???????????????2~3??????\n\n?????????????????\n\n\n???????????????????????\nhttps://kingprotee.weebly.com/t24676.html\n???????????\n\n\n???????\n???????????????????????????\n\n-------segment-----\n\n??????????????????????OK???????????\n\n???????????????????????????????\n????????????????\"??\"\n\nP.S.\n??30? ?????100??????\n??15? ?????150??????\n\n????????????7-11?????\n??????60?????(??50?????2????????????????????)\n\n????????\n?????? ?????????\n\n????????????????????????????? "
+	}
+	image response HelpImgResp1 :
+		URL : "https://i.imgur.com/2UnaN8A.jpg"
+	image response HelpImgResp2 :
+		URL : "https://i.imgur.com/PJQpVjp.jpg"
+	text response HelpTxtResp2 :
+		inputs in en {
+			" "
+	}
+	text response HelpTxtResp3 :
+		inputs in en {
+			"Kindly mention what kind of help do you want? " ,
+			"Please specify which sort of help do you required? "
+	}
+	text response BookingTxtResp2 :
+		inputs in en {
+			"Your is request is Forwarded. Thanks for using our service. " ,
+			"Your request is proceeded to concern department. Thanks for choosing our Hotel. "
+	}
+	text response ComplaintTxtResp1 :
+		inputs in en {
+			"Thanks for using our service. we\'ll get back to you  soon. Thanks for using our service. " ,
+			"Your " [ "Complaint.Complaintype" ] "is proceeded to concern department. We will contact you soon. Good bye " ,
+			"We\'ve submit your " [ "Complaint.Complaintype" ] ".We\'ll forward your request to " [ "Complaint.subject" ] "department. Thanks for using our customer support ! "
+	}
+	text response ShowBookingsYesTxtResp1 :
+		inputs in en {
+			"Something went wrong "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. What was that? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. Can you rephrase? " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that one more time? " ,
+			"I didn\'t get that. Can you repeat? " ,
+			"I missed that, say that again? "
+	}
+
+flows :
+	- user "Default Welcome Intent" => chatbot "Default Welcome IntentTxtResp1" , "Default Welcome IntentTxtResp2" ;
+	- user Help => chatbot HelpTxtResp1 , HelpImgResp1 , HelpImgResp2 , HelpTxtResp2 , HelpTxtResp3 ;
+	- user Booking => chatbot HttpRequest , HttpResponse , HelpTxtResp2 , BookingTxtResp2 ;
+	- user Complaint => chatbot ComplaintTxtResp1 ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" ;
+	- user ShowBookings => chatbot HelpTxtResp2 => user ShowBookingsYes => chatbot HttpRequest , HttpResponse , ShowBookingsYesTxtResp1 ;
+

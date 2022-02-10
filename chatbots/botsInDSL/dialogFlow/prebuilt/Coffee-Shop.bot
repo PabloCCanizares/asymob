@@ -1,0 +1,472 @@
+Chatbot "Coffee-Shop" language : en
+
+intents :
+
+	"order.drink - no" :
+		inputs in en {
+			"definitely not" ,
+			"thanks but no" ,
+			"not interested" ,
+			"I don\'t want that" ,
+			"I don\'t think so" ,
+			"not really" ,
+			"don\'t do it" ,
+			^no ,
+			"I disagree"
+	}
+
+	"order.last.different_card" :
+		inputs in en {
+			"don\'t do it" ,
+			"no " ( "333333333333" ) [ "card-number" ] ,
+			^no ,
+			"I don\'t think so" ,
+			"not really" ,
+			"thanks but no" ,
+			"not interested" ,
+			"I disagree" ,
+			"definitely not" ,
+			"I don\'t want that"
+		}
+		parameters :
+			"card-number" : entity float ;
+
+	"order.snack.different_card" :
+		inputs in en {
+			"don\'t do it" ,
+			"I don\'t think so" ,
+			^no ,
+			"I disagree" ,
+			different ,
+			"thanks but no" ,
+			"not really" ,
+			"another one" ,
+			"definitely not" ,
+			"not interested" ,
+			"different card" ,
+			"no, use " ( "22222222222" ) [ "card-number" ] ,
+			"I don\'t want that" ,
+			"another card"
+		}
+		parameters :
+			"card-number" : entity float , required , prompts in en [ "Tell me the new card number please." ] ;
+
+	"order.snack - yes" :
+		inputs in en {
+			"of course" ,
+			"sounds good" ,
+			"that\'s correct" ,
+			confirm ,
+			sure ,
+			"do it" ,
+			"I don\'t mind" ,
+			"I agree" ,
+			yes ,
+			exactly
+	}
+
+	"order.last" :
+		inputs in en {
+			"I want to have what I always have" ,
+			"can I have usual" ,
+			"can I " ( "pick up" ) [ "delivery-pickup" ] " my last order" ,
+			"I want to order the same" ,
+			( deliver ) [ "delivery-pickup" ] " me my usual" ,
+			"as usual please" ,
+			"repeat my last order"
+		}
+		parameters :
+			"delivery-pickup" : entity "delivery-pickup" , required , prompts in en [ "Will it be for delivery or pick-up?" ] ;
+
+	"order.last.same_card" :
+		inputs in en {
+			same ,
+			"of course" ,
+			"the same" ,
+			yes ,
+			exactly ,
+			"sounds good" ,
+			"same card" ,
+			sure ,
+			"do it" ,
+			confirm ,
+			"I don\'t mind" ,
+			"I agree" ,
+			"that\'s correct"
+	}
+
+	"order.gift_card" :
+		inputs in en {
+			"order gift card" ,
+			"I want to order a gift card with " ( "50$" ) [ "card-balance" ] " on it" ,
+			"I\'m looking for a present" ,
+			"I want to buy a gift card as a present" ,
+			"I want a gift card" ,
+			( "100 $" ) [ "card-balance" ] " gift card please" ,
+			"I need a present" ,
+			"let\'s buy a gift card" ,
+			( deliver ) [ "delivery-pickup" ] " the gift card to me"
+		}
+		parameters :
+			"card-balance" : entity text , required , prompts in en [ "Gift card is an excellent present! How much money should we put on the card?" ] ;
+			"delivery-pickup" : entity "delivery-pickup" , required , prompts in en [ "Do you want your gift card to be delivered or you want to pick it up yourself?" ] ;
+
+	"order.gift_card.same_card" :
+		inputs in en {
+			"that\'s correct" ,
+			exactly ,
+			confirm ,
+			"sounds good" ,
+			"usual card" ,
+			"I agree" ,
+			yes ,
+			sure ,
+			same ,
+			"of course" ,
+			"same card"
+	}
+
+	"Default Welcome Intent" :
+		inputs in en {
+			"a good day" ,
+			"hi there" ,
+			"hello there" ,
+			"hello again" ,
+			"I greet you" ,
+			"lovely day isn\'t it" ,
+			"long time no see" ,
+			greetings ,
+			"hey there" ,
+			heya ,
+			"just going to say hi" ,
+			hello ,
+			hey ,
+			^hi ,
+			welcome
+	}
+
+	"order.drink.different_card" :
+		inputs in en {
+			"no this one " ( "11111111111" ) [ "card-number" ] ,
+			"I don\'t think so" ,
+			"don\'t do it" ,
+			"thanks but no" ,
+			"definitely not" ,
+			different ,
+			"I disagree" ,
+			"another one" ,
+			^no ,
+			"I don\'t want that" ,
+			"not really" ,
+			"not interested"
+		}
+		parameters :
+			"card-number" : entity float , required , prompts in en [ "What is the new card number?" ] ;
+
+	"order.drink" :
+		inputs in en {
+			"do you have " ( iced ) [ iced ] " " ( latte ) [ drink ] ,
+			"can I get a " ( small ) [ size ] " " ( iced ) [ iced ] " " ( cappuccino ) [ drink ] " with " ( "low fat" ) [ "milk-type" ] " milk" ,
+			"can I get " ( tea ) [ drink ] ,
+			"I want a " ( cappuccino ) [ drink ] " to go" ,
+			( "hot chocolate" ) [ drink ] ,
+			( "2" ) [ amount ] " " ( medium ) [ size ] " " ( macchiato ) [ drink ] ,
+			"I want " ( iced ) [ iced ] " " ( coffee ) [ drink ] ,
+			"I\'d like a " ( coffee ) [ drink ] " " ( delivered ) [ "delivery-pickup" ] ,
+			"I need a cup of " ( coffee ) [ drink ] ,
+			( "2" ) [ amount ] " " ( lattes ) [ drink ] " please" ,
+			"some " ( tea ) [ drink ] " please" ,
+			"I\'d like to order a drink" ,
+			"people need " ( coffee ) [ drink ] ,
+			( cappuccino ) [ drink ] ,
+			( two ) [ amount ] " " ( medium ) [ size ] " " ( cappuccinos ) [ drink ] " please" ,
+			"I\'d like a " ( coffee ) [ drink ] " " ( "to go" ) [ "delivery-pickup" ] ,
+			"order " ( coffee ) [ drink ] ,
+			"can I get a " ( small ) [ size ] " " ( iced ) [ iced ] " " ( latte ) [ drink ] " with " ( "low fat" ) [ "milk-type" ] " milk" ,
+			"can I get a " ( huge ) [ size ] " cup of " ( macchiato ) [ drink ]
+		}
+		parameters :
+			"delivery-pickup" : entity "delivery-pickup" , required , prompts in en [ "Would you like a delivery or pick-up?" ] ;
+			drink : entity drink , required , prompts in en [ "What would you like to drink?" ] ;
+			size : entity size , required , prompts in en [ "Small, medium or large?" ] ;
+			iced : entity iced ;
+			amount : entity float ;
+			"milk-type" : entity "milk-type" ;
+
+	"order.snack" :
+		inputs in en {
+			( "3" ) [ amount ] " " ( bagels ) [ snack ] " please" ,
+			( salad ) [ snack ] ,
+			( strudel ) [ snack ] " with " ( cheese ) [ flavor ] ,
+			"get me a dessert" ,
+			( "bring me" ) [ "delivery-pickup" ] " a " ( bagel ) [ snack ] ,
+			"something to eat" ,
+			( strawberry ) [ flavor ] " " ( cupcake ) [ snack ] " please" ,
+			"do you have " ( croissants ) [ snack ] ,
+			"I\'m hungry" ,
+			"I\'d love to get a " ( danish ) [ snack ] " with " ( "almond paste" ) [ flavor ] ,
+			"how about a " ( small ) [ size ] " " ( bagel ) [ snack ] ,
+			"I want a " ( muffin ) [ snack ] ,
+			"I\'d love to get a " ( bagel ) [ snack ] " with " ( "cream cheese" ) [ flavor ] ,
+			"can I get " ( three ) [ amount ] " " ( doughnuts ) [ snack ] " please" ,
+			( bagel ) [ snack ] ,
+			"I want a " ( "6" ) [ amount ] " " ( huge ) [ size ] " " ( chocolate ) [ topping ] " " ( doughnuts ) [ snack ] " please" ,
+			"I want a " ( huge ) [ size ] " " ( chocolate ) [ topping ] " " ( doughnut ) [ snack ]
+		}
+		parameters :
+			snack : entity snack , required , prompts in en [ "What would you like to eat?" ] ;
+			size : entity size , prompts in en [ "What size? I can arrange small, medium or large." ] ;
+			topping : entity topping , prompts in en [ "*Here we check what flavours are available for the mentioned snack with webbhook.* Any topping" ] ;
+			flavor : entity flavor ;
+			amount : entity float ;
+			"delivery-pickup" : entity "delivery-pickup" ;
+
+	"order.snack.same_card" :
+		inputs in en {
+			"sounds good" ,
+			"the same" ,
+			same ,
+			"of course" ,
+			sure ,
+			"I don\'t mind" ,
+			exactly ,
+			"that\'s correct" ,
+			"the same card" ,
+			"I agree" ,
+			"do it" ,
+			confirm ,
+			yes
+	}
+
+	"order.gift_card.different_card" :
+		inputs in en {
+			different ,
+			"definitely not" ,
+			"not interested" ,
+			"another one: " ( "1111222233334444" ) [ "card-number" ] ,
+			^no ,
+			"I don\'t want that" ,
+			"thanks but no" ,
+			"different card" ,
+			"another one" ,
+			"I disagree" ,
+			"don\'t do it" ,
+			"no this one: " ( "11111111111111" ) [ "card-number" ] ,
+			"not really" ,
+			"I don\'t think so"
+		}
+		parameters :
+			"card-number" : entity float , required , prompts in en [ "Tell me the card number please." ] ;
+
+	"Default Fallback Intent" Fallback :
+		inputs in en {
+			"can I get three bedroom apartments please" ,
+			"I don\'t want to order the same" ,
+			"I want to order a flight to New York" ,
+			"I want to be able to make a good cappuccino" ,
+			"I don\'t like cappuccino" ,
+			"I\'d love to get a bag of almonds please" ,
+			"I want to order a credit card" ,
+			"I don\'t want to order a gift cards"
+	}
+
+entities :
+	Simple entity flavor :
+		inputs in en {
+			almond synonyms almond , "almond paste"
+			blueberry synonyms blueberry
+			caramel synonyms caramel
+			cheese synonyms cheese
+			"cream cheese" synonyms "cream cheese"
+			hazelnut synonyms hazelnut
+			peppermint synonyms peppermint
+			raspberry synonyms raspberry
+			strawberry synonyms strawberry
+			"sugar-free vanilla" synonyms "sugar free vanilla" , "sugar-free vanilla"
+			vanilla synonyms vanilla
+	}
+	Simple entity size :
+		inputs in en {
+			large synonyms big , huge , large
+			medium synonyms medium
+			small synonyms little , short , small , tall
+	}
+	Simple entity snack :
+		inputs in en {
+			Bagel synonyms Bagel
+			"Caesar Salad" synonyms "Caesar Salad"
+			"Carrot Cake" synonyms "Carrot Cake"
+			Croissant synonyms Croissant
+			Cupcake synonyms Cupcake
+			Danish synonyms Danish
+			"Deep Dish Cake" synonyms "Deep Dish Cake"
+			Doughnut synonyms Doughnut , donut
+			"Greek Salad" synonyms "Greek Salad"
+			"Mediterranean Salad" synonyms "Mediterranean Salad"
+			Muffin synonyms Muffin
+			"Plum Cake" synonyms "Plum Cake"
+			Salad synonyms Salad
+			Strudel synonyms Strudel
+	}
+	Simple entity "delivery-pickup" :
+		inputs in en {
+			delivery synonyms "bring me" , deliver , delivery
+			"pick-up" synonyms "carry out" , "pick up" , "pick-up" , pickup , "to go" , "to-go"
+	}
+	Simple entity iced :
+		inputs in en {
+			^true synonyms chilled , cold , iced , "on ice"
+	}
+	Simple entity "milk-type" :
+		inputs in en {
+			"almond milk" synonyms almond
+			cream synonyms cream , "half and half" , "half-and-half"
+			"non fat milk" synonyms "non fat" , "non-fat" , skinny
+			"regular milk" synonyms "low fat" , "low-fat" , lowfat , normal , regular , "two percent"
+			"soy milk" synonyms soy
+	}
+	Simple entity topping :
+		inputs in en {
+			caramel synonyms caramel
+			chocolate synonyms chocolate , "chocolate drizzle" , "chocolate syrup"
+			cinnamon synonyms cinnamon
+			"whipped cream" synonyms whip , "whipped cream"
+	}
+	Simple entity drink :
+		inputs in en {
+			Americano synonyms Americano
+			"Barista Coffee" synonyms "Barista Coffee"
+			Cappuccino synonyms Cappuccino
+			Cocoa synonyms Cocoa
+			Espresso synonyms Espresso
+			"Espresso Macchiato" synonyms "Espresso Macchiato"
+			"Espresso con Panna" synonyms "Espresso con Panna"
+			"Hot Chocolate" synonyms "Hot Chocolate"
+			Latte synonyms Latte
+			Macchiato synonyms Macchiato
+			Tea synonyms Tea
+			coffee synonyms coffee
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "order.drink - noTxtResp1" :
+		inputs in en {
+			"Sorry for misunderstanding. Please tell me once again, what would you like to drink? "
+	}
+	text response "order.last.different_cardTxtResp1" :
+		inputs in en {
+			"All set! Enjoy! "
+	}
+	text response "order.snack.different_cardTxtResp1" :
+		inputs in en {
+			"All set. Enjoy your meal! "
+	}
+	text response "order.snack - yesTxtResp1" :
+		inputs in en {
+			" "
+	}
+	text response "order.snack - yesTxtResp2" :
+		inputs in en {
+			"Are you using the same card for payment? "
+	}
+	text response "order.lastTxtResp2" :
+		inputs in en {
+			"Are you using the same card? "
+	}
+	text response "order.snack - noTxtResp1" :
+		inputs in en {
+			"Sorry for misunderstanding! Please tell me once again, what would you like to eat? "
+	}
+	text response "order.last.same_cardTxtResp1" :
+		inputs in en {
+			"Okay. All set! "
+	}
+	text response "order.gift_cardTxtResp2" :
+		inputs in en {
+			"Will you use the same card? "
+	}
+	text response "order.gift_card.same_cardTxtResp1" :
+		inputs in en {
+			"Okay. All set. "
+	}
+	text response "Default Welcome IntentTxtResp2" :
+		inputs in en {
+			"Good day! I have a lot coffee and snacks. What can I get you to drink? "
+	}
+	text response "order.drink.different_cardTxtResp1" :
+		inputs in en {
+			"All set, enjoy! "
+	}
+	text response "order.drinkTxtResp2" :
+		inputs in en {
+			"Your order is: " [ "order.drink.size" ] [ "order.drink.drink" ] "with " [ "order.drink.milk-type" ] "and you want a " "Is that right? " ,
+			"Your order is: " [ "order.drink.size" ] [ "order.drink.drink" ] "with " [ "order.drink.milk-type" ] "and you want a " "Is that right? " ,
+			"You\'ve ordered " [ "order.drink.size" ] [ "order.drink.drink" ] "and you want a " "Correct? " ,
+			"You want " [ "order.drink.amount" ] [ "order.drink.size" ] [ "order.drink.drink" ] "with " "and you want a " "Is that right? " ,
+			"You want " [ "order.drink.amount" ] [ "order.drink.size" ] [ "order.drink.drink" ] "with " [ "order.drink.milk-type" ] "and you want a " "Is that right? " ,
+			"You want " [ "order.drink.amount" ] [ "order.drink.size" ] [ "order.drink.drink" ] "and you want a " "Is that right? " ,
+			"You want " [ "order.drink.amount" ] [ "order.drink.size" ] [ "order.drink.drink" ] "and you want a " "Is that right? "
+	}
+	text response "order.snackTxtResp2" :
+		inputs in en {
+			"Your order is: " [ "order.snack.size" ] [ "order.snack.snack" ] "with " [ "order.snack.topping" ] "and you want a " "Is that right? " ,
+			"Your order is: " [ "order.snack.size" ] [ "order.snack.snack" ] "with " [ "order.snack.flavor" ] "and you want a " "Is that right? " ,
+			"You\'ve ordered " [ "order.snack.size" ] [ "order.snack.snack" ] "with " [ "order.snack.topping" ] "and you want a " "Correct? " ,
+			"You\'ve ordered " [ "order.snack.size" ] [ "order.snack.snack" ] "with " [ "order.snack.flavor" ] "and you want a " "Correct? " ,
+			"You\'ve ordered " [ "order.snack.size" ] [ "order.snack.snack" ] "and you want a " "Correct? " ,
+			"You\'ve ordered " [ "order.snack.snack" ] "and you want a " "Correct? "
+	}
+	text response "order.snack.same_cardTxtResp1" :
+		inputs in en {
+			"Great. Enjoy! "
+	}
+	text response "Default Fallback IntentTxtResp2" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. Say it again? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that again? " ,
+			"I didn\'t get that. " ,
+			"I missed that. "
+	}
+
+flows :
+	- user "order.last" => chatbot "order.snack - yesTxtResp1" , "order.lastTxtResp2" {
+		=> user "order.last.different_card" => chatbot "order.last.different_cardTxtResp1" ;
+		=> user "order.last.same_card" => chatbot "order.last.same_cardTxtResp1" ;
+	} ;
+	- user "order.gift_card" => chatbot "order.snack - yesTxtResp1" , "order.gift_cardTxtResp2" {
+		=> user "order.gift_card.same_card" => chatbot "order.gift_card.same_cardTxtResp1" ;
+		=> user "order.gift_card.different_card" => chatbot "order.gift_card.same_cardTxtResp1" ;
+	} ;
+	- user "Default Welcome Intent" => chatbot "order.snack - yesTxtResp1" , "Default Welcome IntentTxtResp2" ;
+	- user "order.drink" => chatbot "order.snack - yesTxtResp1" , "order.drinkTxtResp2" {
+		=> user "order.drink - no" => chatbot "order.drink - noTxtResp1" ;
+		=> user "order.snack - yes" => chatbot "order.snack - yesTxtResp1" , "order.gift_cardTxtResp2" {
+			=> user "order.drink.different_card" => chatbot "order.drink.different_cardTxtResp1" ;
+			=> user "order.last.same_card" => chatbot "order.drink.different_cardTxtResp1" ;
+		} ;
+	} ;
+	- user "order.snack" => chatbot "order.snack - yesTxtResp1" , "order.snackTxtResp2" {
+		=> user "order.snack - yes" => chatbot "order.snack - yesTxtResp1" , "order.snack - yesTxtResp2" {
+			=> user "order.snack.different_card" => chatbot "order.snack.different_cardTxtResp1" ;
+			=> user "order.snack.same_card" => chatbot "order.snack.same_cardTxtResp1" ;
+		} ;
+		=> user "order.drink - no" => chatbot "order.snack - noTxtResp1" ;
+	} ;
+	- user "Default Fallback Intent" => chatbot "order.snack - yesTxtResp1" , "Default Fallback IntentTxtResp2" ;
+

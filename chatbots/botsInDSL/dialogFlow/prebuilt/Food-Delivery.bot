@@ -1,0 +1,3622 @@
+Chatbot "Food-Delivery" language : en
+
+intents :
+
+	"delivery.product.add" :
+		inputs in en {
+			"add " ( "3" ) [ amount ] " " ( pizzas ) [ product ] " and " ( "2" ) [ amount ] " " ( "diet Cokes" ) [ product ] ,
+			"can I have " ( "2" ) [ amount ] " " ( burgers ) [ product ] " with " ( fries ) [ product ] ,
+			"another " ( salad ) [ product ] ,
+			"can I get " ( "4" ) [ amount ] " " ( burgers ) [ product ] ,
+			"add extra " ( cheese ) [ product ] ,
+			"can I have a pepperoni " ( pizza ) [ product ] " and a " ( "hawaiian pizza" ) [ product ] ,
+			"add another " ( pizza ) [ product ] " to my order" ,
+			"please add a " ( "large pepperoni pizza" ) [ product ] " a " ( "regular diet Pepsi" ) [ product ] " " ( brownie ) [ product ] " and " ( "bread sticks" ) [ product ] ,
+			"can you add " ( one ) [ amount ] " more " ( milkshake ) [ product ] " to my order" ,
+			"add " ( one ) [ amount ] " more portion of " ( fries ) [ product ] ,
+			"another " ( burger ) [ product ] " please" ,
+			"I wish " ( one ) [ amount ] " " ( pizza ) [ product ] " more" ,
+			"I\'d like to have more " ( fries ) [ product ] ,
+			"add " ( burger ) [ product ] " to my basket"
+		}
+		parameters :
+			product : entity "delivery-product" ;
+			amount : entity float ;
+
+	"delivery.product.remove" :
+		inputs in en {
+			"I don\'t want to order " ( beer ) [ product ] ,
+			"I don\'t want to order " ( "2" ) [ amount ] " " ( beers ) [ product ] ,
+			"remove " ( burger ) [ product ] " from my order" ,
+			"remove " ( everything ) [ all ] " from my order" ,
+			"get rid of " ( sushi ) [ product ] " in my order" ,
+			"delete " ( pizza ) [ product ] " from my order" ,
+			"remove " ( pizza ) [ product ] ,
+			"remove " ( Italian ) [ cuisine ] " dish from my order" ,
+			"remove " ( "3" ) [ amount ] " " ( pizzas ) [ product ] " from my order" ,
+			"delete " ( all ) [ all ] " " ( Chinese ) [ cuisine ] " from my order" ,
+			"remove " ( all ) [ all ] " products from my order" ,
+			"and forget about the " ( "bread sticks" ) [ product ] ,
+			"remove " ( Coke ) [ product ] ,
+			"delete " ( everything ) [ all ] " from my basket" ,
+			"delete the " ( Coke ) [ product ] ,
+			"yeah delete the " ( Coke ) [ product ] ,
+			"I don\'t want " ( pasta ) [ product ] " in my order" ,
+			"delete the " ( burger ) [ product ] ,
+			"I don\'t want the " ( Coke ) [ product ] " and " ( burger ) [ product ]
+		}
+		parameters :
+			product : entity "delivery-product" ;
+			cuisine : entity cuisine ;
+			all : entity all ;
+			amount : entity float ;
+
+	"delivery.order.check" :
+		inputs in en {
+			"check what I have ordered" ,
+			"check my basket" ,
+			"what\'s in my basket" ,
+			"show me what I\'ve ordered" ,
+			"show my order" ,
+			"check my order" ,
+			"check my cart" ,
+			"what do I have in my basket"
+	}
+
+	"delivery.product.swap" :
+		inputs in en {
+			"can you change " ( Japanese ) [ "cuisine-from" ] " " ( sushi ) [ "product-from" ] " for a " ( Chinese ) [ "cuisine-to" ] " " ( dumplings ) [ "product-to" ] ,
+			"swap " ( Italian ) [ "cuisine-from" ] " food for something " ( Chinese ) [ "cuisine-to" ] ,
+			"change the products in my delivery" ,
+			"change the " ( Coke ) [ "product-from" ] " for " ( Sprite ) [ "product-to" ] ,
+			"change the " ( Coke ) [ "product-from" ] " to a " ( Sprite ) [ "product-to" ] ,
+			"swap products in my order" ,
+			"change " ( Italian ) [ "cuisine-from" ] " " ( pizza ) [ "product-from" ] " for a " ( burger ) [ "product-to" ] ,
+			"swap " ( pizza ) [ "product-from" ] " and " ( burger ) [ "product-from" ] " for " ( "french fries" ) [ "product-to" ] ,
+			"swap the " ( Coke ) [ "product-from" ] " for a " ( Fanta ) [ "product-to" ]
+		}
+		parameters :
+			"product-to" : entity "delivery-product" ;
+			"product-from" : entity "delivery-product" ;
+			"cuisine-to" : entity cuisine ;
+			"cuisine-from" : entity cuisine ;
+
+	"delivery.order.add - context: delivery-add - new product" :
+		inputs in en {
+			"some " ( sushi ) [ product ] " would be also nice" ,
+			"can you add " ( beans ) [ product ] ,
+			"I need " ( pizza ) [ product ] " too" ,
+			"add " ( tomatoes ) [ product ] ,
+			"I\'d like to add " ( meat ) [ product ] ,
+			"and " ( coffee ) [ product ] " and " ( tea ) [ product ] " as well" ,
+			"some " ( beans ) [ product ] " as well" ,
+			"add " ( coffee ) [ product ] " and " ( tea ) [ product ] ,
+			( tomatoes ) [ product ] " too" ,
+			"add " ( butter ) [ product ] ,
+			"and a " ( pie ) [ product ] ,
+			"some " ( tea ) [ product ] " too"
+		}
+		parameters :
+			product : entity "delivery-product" ;
+
+	"Default Fallback intent" Fallback :
+		inputs in en {
+			"what about Great Chinese wall" ,
+			"bring me something to read" ,
+			"don\'t bring me beer" ,
+			"can you change language from Japanese to a Chinese" ,
+			"how to remove strain from shirt" ,
+			"do not add another pizza to my order" ,
+			"I don\'t need potatoes to make lasagna" ,
+			"I\'d like to know when container with by boxes will be delivered" ,
+			"what do I have in my fridge"
+	}
+
+	"delivery.search" :
+		inputs in en {
+			"order " ( lunch ) [ meal ] " delivery " ( "every day" ) [ recurrence ] " at " ( "11 am" ) [ "date-time" ] ,
+			"bring me some " ( beer ) [ product ] ,
+			"can I get food delivered" ,
+			"I want " ( Mexican ) [ cuisine ] " food delivered" ,
+			"takeout with delivery" ,
+			"I want " ( beer ) [ product ] " delivered" ,
+			"I want " ( Greek ) [ cuisine ] " food delivered" ,
+			"deliver me a " ( burger ) [ product ] ,
+			"deliver " ( Chinese ) [ cuisine ] " " ( wok ) [ product ] ,
+			"I want " ( pizza ) [ product ] " delivered for " ( dinner ) [ meal ] ,
+			"can I get a " ( pizza ) [ product ] " delivered" ,
+			"I need " ( tacos ) [ product ] " delivered " ( tonight ) [ "date-time" ] ,
+			( Chinese ) [ cuisine ] " " ( wok ) [ product ] " delivery " ( nearby ) [ sort ] ,
+			( best ) [ sort ] " " ( pizza ) [ product ] " delivery" ,
+			"where can I order " ( pizza ) [ product ] ,
+			"bring me something to eat" ,
+			"food delivery in " ( "Palo Alto" ) [ address ] ,
+			"bring me a drink" ,
+			"I want big pizza delivered to " ( Delhi ) [ address ] ,
+			"I want some " ( tacos ) [ product ] " delivered" ,
+			"I would like a medium " ( "pepperoni pizza" ) [ product ] " delivered to " ( "Los Robles Avenue, Pasadena, California" ) [ address ] " " ( "in 30 minutes" ) [ "date-time" ] ,
+			"I want some " ( tacos ) [ product ] " delivered to me" ,
+			( pizza ) [ product ] " delivery " ( nearby ) [ sort ] ,
+			"find me a " ( pizza ) [ product ] " for delivery" ,
+			"I\'m hungry who delivers " ( breakfast ) [ meal ] ,
+			"I need " ( pizza ) [ product ] " delivery" ,
+			"bring me " ( coffee ) [ product ] ,
+			"I need " ( coffee ) [ product ] " to " ( "Baxter Building 42nd street, Manhattan" ) [ address ] ,
+			"deliver a product" ,
+			"order some food" ,
+			"order " ( pizza ) [ product ] " to " ( "420 Paper St. Wilmington, DE 19886" ) [ address ] ,
+			"can I get a " ( hamburger ) [ product ] " delivered to me" ,
+			"I\'m hungry bring me some " ( "McDonald\'s" ) [ "venue-chain" ] ,
+			delivery ,
+			( sushi ) [ product ] " delivery" ,
+			"I want to get a " ( "salami pizza" ) [ product ] " delivered" ,
+			"I want to order " ( "3" ) [ amount ] " " ( pizzas ) [ product ] " and " ( "6" ) [ amount ] " bottles of " ( "sparkling water" ) [ product ] ,
+			"I am hungry and I need a food delivery" ,
+			"can you get me a " ( pizza ) [ product ] " delivered" ,
+			"deliver me " ( pizza ) [ product ] " to " ( "420 Paper St. Wilmington, DE 19886" ) [ address ] ,
+			"order " ( pizza ) [ product ] ,
+			"food takeout with delivery service" ,
+			( beer ) [ product ] " delivery" ,
+			"I want something to order" ,
+			"deliver me " ( beer ) [ product ] " " ( "every day" ) [ recurrence ] ,
+			"can I get a " ( pizza ) [ product ] " delivered to my " ( home ) [ address ] ,
+			"bring me food" ,
+			"I\'d like to have " ( pizza ) [ product ] " delivered" ,
+			"I want a " ( bagel ) [ product ] " can you bring me one" ,
+			"delivery service" ,
+			( Mexican ) [ cuisine ] " delivery" ,
+			"I\'m hungry bring me some food please" ,
+			"I\'m looking to get " ( Starbucks ) [ "venue-chain" ] " delivered" ,
+			"can you bring me some food from " ( "McDonald\'s" ) [ "venue-chain" ] ,
+			"deliver " ( pizza ) [ product ] " to my " ( home ) [ address ] ,
+			"food delivery " ( "near me" ) [ sort ] ,
+			( best ) [ sort ] " " ( nearest ) [ sort ] " " ( pizza ) [ product ] " delivery" ,
+			"fast food delivery" ,
+			"what can I have delivered" ,
+			"I want to get " ( dinner ) [ meal ] " delivered " ( "at 8 pm" ) [ "date-time" ]
+		}
+		parameters :
+			amount : entity float ;
+			product : entity "delivery-product" ;
+			address ,
+			cuisine : entity cuisine ;
+			meal : entity meal ;
+			"venue-chain" : entity "venue-eating-out-chain" ;
+			sort : entity "map-sort" ;
+			"date-time" ,
+			recurrence : entity recurrence ;
+
+	"delivery.search - context:delivery" :
+		inputs in en {
+			"I need a " ( cheeseburger ) [ product ] " as well" ,
+			"I would like to take a " ( pizza ) [ product ] " too" ,
+			"what about " ( pizza ) [ product ] ,
+			"and " ( burger ) [ product ] " and " ( fries ) [ product ] ,
+			"take " ( pizza ) [ product ] " too" ,
+			"and " ( Italian ) [ cuisine ] " food" ,
+			"and " ( French ) [ cuisine ] " food" ,
+			"and " ( burger ) [ product ] " too" ,
+			"what about " ( Chinese ) [ cuisine ] " food" ,
+			"and " ( pizza ) [ product ]
+		}
+		parameters :
+			product : entity "delivery-product" ;
+			cuisine : entity cuisine ;
+
+	"delivery.order.check_status" :
+		inputs in en {
+			"status of my order" ,
+			"where is my order" ,
+			"check the status of my delivery" ,
+			"check my order status" ,
+			"where is my delivery" ,
+			"how soon will it be delivered" ,
+			"I\'d like to know when my order will be delivered" ,
+			"check the status of my delivery" ,
+			"when should I expect delivery" ,
+			"what is the status of my delivery" ,
+			"how long will it take to deliver my order" ,
+			"how long it takes to deliver" ,
+			"is my order coming soon" ,
+			"ok how soon can you deliver" ,
+			"show the status of my order" ,
+			"can you tell me when it is delivered" ,
+			"check the status of my order" ,
+			"check delivery status" ,
+			"when will it get delivered to me" ,
+			"when will I get my order"
+	}
+
+	"delivery.order.remove - context: delivery-remove - new product" :
+		inputs in en {
+			"and " ( tomatoes ) [ product ] ,
+			( Coke ) [ product ] " and " ( beer ) [ product ] ,
+			"now " ( milkshake ) [ product ] ,
+			"I don\'t need " ( tomatoes ) [ product ] ,
+			"I don\'t need " ( fish ) [ product ] ,
+			( butter ) [ product ] " is not needed" ,
+			"and " ( Coke ) [ product ] ,
+			( pizza ) [ product ] " too" ,
+			( Coke ) [ product ] " as well" ,
+			"these " ( apples ) [ product ] " too" ,
+			"and " ( beer ) [ product ] " too"
+		}
+		parameters :
+			product : entity "delivery-product" ;
+
+entities :
+	Simple entity all :
+		inputs in en {
+			^true synonyms all , "all of" , each , every , everything , everywhere
+	}
+	Simple entity "beverage-hard-drinks" :
+		inputs in en {
+			"1921 Tequila Cream" synonyms "1921 Tequila Cream"
+			"20th Century Cocktail" synonyms "20th Century Cocktail"
+			"A Black Jack" synonyms "A Black Jack"
+			Absinthe synonyms Absinthe
+			"Agent Orange" synonyms "Agent Orange"
+			"Agua de Sevilla" synonyms "Agua de Sevilla"
+			"Agua de Valencia" synonyms "Agua de Valencia"
+			"Aguaymanto Sour" synonyms "Aguaymanto Sour"
+			Akvavit synonyms Akvavit
+			"Alabama Slammer" synonyms "Alabama Slammer"
+			Alexander synonyms Alexander
+			"Amber Moon" synonyms "Amber Moon"
+			"Angel Face" synonyms "Angel Face   "
+			"Aperol Spritz" synonyms "Aperol Spritz"
+			"Apple Martini" synonyms "Apple Martini"
+			"Apple-Kneel" synonyms "Apple-Kneel"
+			Applejack synonyms Applejack
+			Appletini synonyms Appletini
+			Arak synonyms Arak
+			Armagnac synonyms Armagnac
+			Arrack synonyms Arrack
+			"Astro pop" synonyms "Astro pop"
+			Aviation synonyms "Aviation   "
+			Awamori synonyms Awamori
+			"B & B" synonyms "B & B"
+			"B-52" synonyms "B-52"
+			"BLT cocktail" synonyms "BLT cocktail"
+			"Baby Guinness" synonyms "Baby Guinness"
+			Bacardi synonyms "Bacardi   "
+			Baijiu synonyms Baijiu
+			Bananarita synonyms Bananarita
+			Barleywine synonyms Barleywine
+			Batida synonyms Batida
+			"Bay Breeze" synonyms "Bay Breeze"
+			"Bee\'s Knees" synonyms "Bee\'s Knees"
+			Beer synonyms Beer
+			"Bellini Cocktail" synonyms "Bellini Cocktail"
+			"Between the Sheets" synonyms "Between the Sheets   "
+			Bijou synonyms Bijou
+			Bishop synonyms Bishop
+			"Bitter ale" synonyms "Bitter ale"
+			"Black Russian" synonyms "Black Russian"
+			"Black Velvet" synonyms "Black Velvet"
+			"Black and Tan" synonyms "Black and Tan"
+			Bloodhound synonyms Bloodhound
+			"Bloody Aztec" synonyms "Bloody Aztec"
+			"Bloody Mary" synonyms "Bloody Mary   "
+			"Blue Blazer" synonyms "Blue Blazer"
+			"Blue Hawaii" synonyms "Blue Hawaii"
+			"Blue Lagoon" synonyms "Blue Lagoon"
+			"Blueberry Tea Cocktail" synonyms "Blueberry Tea Cocktail"
+			"Bobby Burns" synonyms "Bobby Burns"
+			Bock synonyms "Bock "
+			Boilermaker synonyms Boilermaker
+			"Borovi?ka" synonyms "Borovi?ka"
+			"Bourbon Lancer" synonyms "Bourbon Lancer"
+			"Bourbon whiskey" synonyms "Bourbon whiskey"
+			Bramble synonyms "Bramble   "
+			Brandy synonyms Brandy
+			"Brandy Alexander" synonyms "Brandy Alexander   "
+			"Brandy Manhattan" synonyms "Brandy Manhattan"
+			"Brandy Sour" synonyms "Brandy Sour"
+			"Brass Monkey" synonyms "Brass Monkey"
+			"Breakfast martini" synonyms "Breakfast martini"
+			"Bronx Cocktail" synonyms "Bronx Cocktail"
+			"Brooklyn Cocktail" synonyms "Brooklyn Cocktail"
+			"Brown ale" synonyms "Brown ale"
+			"Brut Cocktail" synonyms "Brut Cocktail"
+			"Buck\'s Fizz" synonyms "Buck\'s Fizz"
+			"Bull Shot" synonyms "Bull Shot"
+			Bumbo synonyms "Bumbo "
+			Bushwacker synonyms Bushwacker
+			"Buttery Nipple" synonyms "Buttery Nipple"
+			"Cachaça" synonyms "Cachaça"
+			"Caesar Cocktail" synonyms "Caesar Cocktail"
+			Caipirinha synonyms "Caipirinha "
+			Caipiroska synonyms Caipiroska
+			"Caju Amigo" synonyms "Caju Amigo"
+			"Canadian whisky" synonyms "Canadian whisky"
+			"Cape Cod" synonyms "Cape Cod"
+			"Caribou Lou" synonyms "Caribou Lou"
+			"Casino Cocktail" synonyms "Casino Cocktail"
+			"Cask ale" synonyms "Cask ale"
+			Cauim synonyms "Cauim "
+			Champagne synonyms Champagne
+			"Champagne Cocktail" synonyms "Champagne Cocktail"
+			"Chi-Chi" synonyms "Chi-Chi"
+			"Chicago Cocktail" synonyms "Chicago Cocktail"
+			Chicha synonyms "Chicha "
+			"Chimayó Cocktail" synonyms "Chimayó Cocktail"
+			"Chocolate martini" synonyms "Chocolate martini"
+			"Churchill Cocktail" synonyms "Churchill Cocktail"
+			Cider synonyms "Cider "
+			"Clover Club Cocktail" synonyms "Clover Club Cocktail   "
+			Cobbler synonyms Cobbler
+			Cognac synonyms Cognac
+			Cojito synonyms Cojito
+			"Collins Cocktail" synonyms "Collins Cocktail"
+			Colombia synonyms Colombia
+			"Corn N\' Oil" synonyms "Corn N\' Oil"
+			"Corpse Reviver" synonyms "Corpse Reviver"
+			Cosmopolitan synonyms "Cosmopolitan   "
+			Crusta synonyms Crusta
+			"Cuba Libre" synonyms "Cuba Libre   "
+			"Culto A La Vida" synonyms "Culto A La Vida"
+			"Curacao Punch" synonyms "Curacao Punch"
+			Daiquiri synonyms "Daiquiri   "
+			Daisy synonyms Daisy
+			Damassine synonyms Damassine
+			"Damn the Weather" synonyms "Damn the Weather"
+			"Damson gin" synonyms "Damson gin"
+			"Dark and Stormy" synonyms "Dark and Stormy   "
+			"Death in the Afternoon" synonyms "Death in the Afternoon"
+			Derby synonyms "Derby   "
+			"Desi daru" synonyms "Desi daru"
+			"Dirty Mother Cocktail" synonyms "Dirty Mother Cocktail"
+			Earthquake synonyms Earthquake
+			"El Presidente" synonyms "El Presidente"
+			"El Toro Loco Patron and Redbull" synonyms "El Toro Loco Patron and Redbull"
+			"Farnell Cocktail" synonyms "Farnell Cocktail"
+			"Fish House Punch" synonyms "Fish House Punch"
+			"Fix Cocktail" synonyms "Fix Cocktail"
+			Fizz synonyms Fizz
+			"Fizzy apple cocktail" synonyms "Fizzy apple cocktail"
+			"Flaming Dr Pepper" synonyms "Flaming Dr Pepper"
+			"Flaming Volcano" synonyms "Flaming Volcano"
+			Flip synonyms Flip
+			Flirtini synonyms Flirtini
+			"Fluffy Critter" synonyms "Fluffy Critter"
+			"Fortified wine" synonyms "Fortified wine"
+			"Four Horsemen" synonyms "Four Horsemen"
+			"Four Score" synonyms "Four Score"
+			"French 75" synonyms "French 75   "
+			"French Connection" synonyms "French Connection"
+			"Fruit beer" synonyms "Fruit beer"
+			"Fruit brandy" synonyms "Fruit brandy"
+			"Fruit wine" synonyms "Fruit wine"
+			"Fuzzy Navel" synonyms "Fuzzy Navel"
+			Gibson synonyms Gibson
+			Gimlet synonyms Gimlet
+			Gin synonyms Gin
+			"Gin Fizz" synonyms "Gin Fizz   "
+			"Gin Sour" synonyms "Gin Sour"
+			"Gin and tonic" synonyms "Gin and tonic"
+			"Gin buck" synonyms "Gin buck"
+			"Gin pahit" synonyms "Gin pahit"
+			"Ginza Mary" synonyms "Ginza Mary"
+			Glowtini synonyms Glowtini
+			"Glögg" synonyms "Glögg"
+			"Godfather Cocktail" synonyms "Godfather Cocktail"
+			Godmother synonyms "Godmother   "
+			"Godmother Cocktail" synonyms "Godmother Cocktail"
+			"Golden Doublet" synonyms "Golden Doublet"
+			"Golden Dream" synonyms "Golden Dream"
+			Gose synonyms Gose
+			Grasshopper synonyms "Grasshopper   "
+			"Green Russians" synonyms "Green Russians"
+			"Green Vesper" synonyms "Green Vesper"
+			Greyhound synonyms Greyhound
+			Grog synonyms Grog
+			Gunfire synonyms Gunfire
+			"Hangman\'s Blood" synonyms "Hangman\'s Blood"
+			"Hanky-Panky" synonyms "Hanky-Panky"
+			"Harrogate Nights" synonyms "Harrogate Nights"
+			"Harvey Wallbanger" synonyms "Harvey Wallbanger   "
+			"Havana Cooler" synonyms "Havana Cooler"
+			Hennchata synonyms Hennchata
+			"Hi-fi" synonyms "Hi-fi"
+			Himbeergeist synonyms Himbeergeist
+			Horilka synonyms Horilka
+			"Horse\'s Neck" synonyms "Horse\'s Neck   "
+			"Hot buttered rum" synonyms "Hot buttered rum"
+			Huangjiu synonyms Huangjiu
+			Hurricane synonyms Hurricane
+			"Icariine Liquor" synonyms "Icariine Liquor"
+			"Incredible Hulk Cocktail" synonyms "Incredible Hulk Cocktail"
+			"Irish Car Bomb" synonyms "Irish Car Bomb"
+			"Irish Coffee" synonyms "Irish Coffee   "
+			"Irish whiskey" synonyms "Irish whiskey"
+			"Jack Rose" synonyms "Jack Rose"
+			"Jack and Coke" synonyms "Jack and Coke"
+			Jagertee synonyms Jagertee
+			"Jamaican Coffee" synonyms "Jamaican Coffee"
+			"Japanese Slipper" synonyms "Japanese Slipper"
+			"Japanese whisky" synonyms "Japanese whisky"
+			"Jazmin Sour" synonyms "Jazmin Sour"
+			"John Collins" synonyms "John Collins   "
+			"Joker Cocktail" synonyms "Joker Cocktail"
+			"Juan Collins" synonyms "Juan Collins"
+			Julep synonyms Julep
+			"Jungle Juice" synonyms "Jungle Juice"
+			"Kalimotxo or Calimocho or Rioja Libre" synonyms "Kalimotxo or Calimocho or Rioja Libre"
+			Kamikaze synonyms Kamikaze
+			Kaoliang synonyms Kaoliang
+			Kasiri synonyms Kasiri
+			"Kensington Court Special" synonyms "Kensington Court Special"
+			Kilju synonyms Kilju
+			Kir synonyms "Kir   "
+			"Kir Royal" synonyms "Kir Royal"
+			Kirsch synonyms Kirsch
+			"Kremlin Colonel" synonyms "Kremlin Colonel"
+			Kumis synonyms "Kumis "
+			Lager synonyms Lager
+			"Leite de Onça" synonyms "Leite de Onça"
+			"Lemon Drop" synonyms "Lemon Drop"
+			"Lime Rickey" synonyms "Lime Rickey"
+			"Link Up" synonyms "Link Up"
+			"London Fog" synonyms "London Fog"
+			"Long Island Iced Tea" synonyms "Long Island Iced Tea   "
+			Lorraine synonyms Lorraine
+			"Lynchburg Lemonade" synonyms "Lynchburg Lemonade"
+			"Macuá" synonyms "Macuá"
+			Madeira synonyms Madeira
+			Maerzen synonyms Maerzen
+			"Mai-Tai" synonyms "Mai-Tai   "
+			"ManX Spirit" synonyms "ManX Spirit"
+			"Mango Sour" synonyms "Mango Sour"
+			"Manhattan Cocktail" synonyms "Manhattan Cocktail "
+			Maotai synonyms Maotai
+			Margarita synonyms "Margarita   "
+			Marsala synonyms Marsala
+			Martini synonyms "Martini   "
+			Matador synonyms Matador
+			Mead synonyms Mead
+			Metaxa synonyms Metaxa
+			Mezcal synonyms Mezcal
+			Michelada synonyms Michelada
+			"Mickey Slim" synonyms "Mickey Slim"
+			"Midori Sour" synonyms "Midori Sour"
+			"Mild ale" synonyms "Mild ale"
+			Mimosa synonyms "Mimosa   "
+			"Mint Julep" synonyms "Mint Julep   "
+			"Missouri Mule" synonyms "Missouri Mule"
+			Mojito synonyms "Mojito   "
+			"Moloko Plus" synonyms "Moloko Plus"
+			"Monkey Gland" synonyms "Monkey Gland   "
+			Moonwalk synonyms Moonwalk
+			"Moscow Mule" synonyms "Moscow Mule   "
+			Mudslide synonyms Mudslide
+			"My Fair Lady" synonyms "My Fair Lady"
+			Negroni synonyms "Negroni   "
+			"Negroni Sbagliato" synonyms "Negroni Sbagliato"
+			Negus synonyms Negus
+			"Neutral grain spirit" synonyms "Neutral grain spirit"
+			Nihamanchi synonyms "Nihamanchi "
+			Nikolaschka synonyms Nikolaschka
+			"Nixon Cocktail" synonyms "Nixon Cocktail"
+			"Nuclear Iced Tea" synonyms "Nuclear Iced Tea"
+			"Oatmeal Cookie" synonyms "Oatmeal Cookie"
+			Ogogoro synonyms Ogogoro
+			"Old Etonian" synonyms "Old Etonian"
+			"Old Fashioned" synonyms "Old Fashioned   "
+			"Old Spanish" synonyms "Old Spanish"
+			"Old ale" synonyms "Old ale"
+			"Orange Tundra" synonyms "Orange Tundra"
+			"Orgasm Cocktail" synonyms "Orgasm Cocktail"
+			Ouzini synonyms Ouzini
+			Ouzo synonyms Ouzo
+			Painkiller synonyms Painkiller
+			"Pale ale" synonyms "Pale ale"
+			"Pale lager" synonyms "Pale lager "
+			Palinka synonyms Palinka
+			"Pall Mall" synonyms "Pall Mall"
+			"Palm wine" synonyms "Palm wine"
+			"Paloma Cocktail" synonyms "Paloma Cocktail"
+			Paradise synonyms Paradise
+			Parakari synonyms "Parakari "
+			Paralyzer synonyms Paralyzer
+			Pegu synonyms Pegu
+			Perry synonyms "Perry "
+			Pilsener synonyms "Pilsener "
+			"Pimm\'s Cup" synonyms "Pimm\'s Cup"
+			"Pink Gin" synonyms "Pink Gin"
+			"Pink Lady" synonyms "Pink Lady"
+			Pisco synonyms Pisco
+			"Pisco Sour" synonyms "Pisco Sour   "
+			"Piña Colada" synonyms "Piña Colada   "
+			"Planter\'s Punch" synonyms "Planter\'s Punch   "
+			"Plum jerkum" synonyms "Plum jerkum "
+			"Poire Williams" synonyms "Poire Williams"
+			"Poitín" synonyms "Poitín"
+			"Polar Bear" synonyms "Polar Bear"
+			Porchcrawler synonyms Porchcrawler
+			Port synonyms Port
+			Porter synonyms Porter
+			"Porto flip" synonyms "Porto flip   "
+			"Prince of Wales" synonyms "Prince of Wales"
+			Pulque synonyms "Pulque "
+			Punch synonyms Punch
+			"Quentão" synonyms "Quentão"
+			"Rabo-de-galo" synonyms "Rabo-de-galo"
+			Rakia synonyms Rakia
+			"Rak?" synonyms "Rak?"
+			"Ramos Gin Fizz" synonyms "Ramos Gin Fizz   "
+			"Red Lotus" synonyms "Red Lotus"
+			"Red Russian" synonyms "Red Russian"
+			Rickey synonyms Rickey
+			"Rob Roy" synonyms "Rob Roy"
+			"Rose Kennedy Cocktail" synonyms "Rose Kennedy Cocktail"
+			"Rossini Cocktail" synonyms "Rossini Cocktail"
+			"Royal Arrival" synonyms "Royal Arrival"
+			"Royal Bermuda Cocktail" synonyms "Royal Bermuda Cocktail"
+			Royce synonyms Royce
+			"Ruby Dutchess" synonyms "Ruby Dutchess"
+			Rum synonyms Rum
+			"Rum Swizzle" synonyms "Rum Swizzle"
+			"Rusty Nail" synonyms "Rusty Nail   "
+			"Rye whiskey" synonyms "Rye whiskey"
+			Sahti synonyms "Sahti "
+			Sake synonyms "Sake "
+			"Sake Bomb" synonyms "Sake Bomb"
+			"Sakurá" synonyms "Sakurá "
+			"Salmiakki Koskenkorva" synonyms "Salmiakki Koskenkorva"
+			"Salty Dog" synonyms "Salty Dog"
+			Sangria synonyms Sangria
+			"Savoy Affair" synonyms "Savoy Affair"
+			"Savoy Corpse Reviver" synonyms "Savoy Corpse Reviver"
+			Sazerac synonyms "Sazerac   "
+			Schwarzbier synonyms Schwarzbier
+			"Scotch ale" synonyms "Scotch ale"
+			"Scotch whisky" synonyms "Scotch whisky"
+			"Screaming Orgasm" synonyms "Screaming Orgasm"
+			Screwdriver synonyms "Screwdriver   "
+			"Sea Breeze" synonyms "Sea Breeze   "
+			"Seven and Seven" synonyms "Seven and Seven"
+			"Sex on the Beach" synonyms "Sex on the Beach   "
+			Shandy synonyms Shandy
+			Sherry synonyms Sherry
+			"Shirley Temple Black" synonyms "Shirley Temple Black"
+			Shochu synonyms Shochu
+			Shrub synonyms Shrub
+			Sidecar synonyms "Sidecar   "
+			Singani synonyms Singani
+			"Singapore Sling" synonyms "Singapore Sling   "
+			"Skittle Bomb" synonyms "Skittle Bomb"
+			Sling synonyms Sling
+			"Slippery Nipple" synonyms "Slippery Nipple"
+			Slivovitz synonyms Slivovitz
+			"Sloe gin" synonyms "Sloe gin"
+			"Small beer" synonyms "Small beer"
+			Smash synonyms Smash
+			Snakebite synonyms Snakebite
+			Soju synonyms Soju
+			Sonti synonyms Sonti
+			Sour synonyms Sour
+			"Sparkling wine" synonyms "Sparkling wine"
+			Springbokkie synonyms Springbokkie
+			Spritzer synonyms Spritzer
+			"Staten Island Ferry" synonyms "Staten Island Ferry"
+			Stinger synonyms "Stinger   "
+			"Stock ale" synonyms "Stock ale"
+			Stout synonyms Stout
+			Sundowner synonyms Sundowner
+			"Table wine" synonyms "Table wine"
+			Tamagozake synonyms Tamagozake
+			"Tennessee whiskey" synonyms "Tennessee whiskey"
+			Tepache synonyms Tepache
+			Tequila synonyms Tequila
+			"Tequila Mockingbird" synonyms "Tequila Mockingbird"
+			"Tequila Sour" synonyms "Tequila Sour"
+			"Tequila Sunrise" synonyms "Tequila Sunrise   "
+			"Tequila and Tonic" synonyms "Tequila and Tonic"
+			"Terry Cocktail" synonyms "Terry Cocktail"
+			"The Blenheim" synonyms "The Blenheim"
+			"The Goldeneye" synonyms "The Goldeneye"
+			"The Last Word" synonyms "The Last Word"
+			"The T.J." synonyms "The T.J."
+			"Three Wise Men" synonyms "Three Wise Men"
+			"Ti\' Punch" synonyms "Ti\' Punch"
+			"Tinto de Verano" synonyms "Tinto de Verano"
+			Tiswin synonyms Tiswin
+			Toddy synonyms Toddy
+			"Tom Collins" synonyms "Tom Collins"
+			"Tom and Jerry Cocktail" synonyms "Tom and Jerry Cocktail"
+			Tonto synonyms Tonto
+			"Torito Tequila Cocktail" synonyms "Torito Tequila Cocktail"
+			Tschunk synonyms Tschunk
+			Tuxedo synonyms "Tuxedo   "
+			"Two kids in A Cup" synonyms "Two kids in A Cup"
+			"U-Boot" synonyms "U-Boot"
+			Vermouth synonyms Vermouth
+			Vesper synonyms "Vesper   "
+			"Vesper Martini" synonyms "Vesper Martini   "
+			Vinsanto synonyms Vinsanto
+			Vodka synonyms Vodka
+			"Vodka Gimlet" synonyms "Vodka Gimlet"
+			"Vodka Martini or Kangaroo" synonyms "Vodka Martini or Kangaroo"
+			"Vodka McGovern" synonyms "Vodka McGovern"
+			"Vodka Sundowner" synonyms "Vodka Sundowner"
+			"Vodka Sunrise" synonyms "Vodka Sunrise"
+			"Ward 8" synonyms "Ward 8"
+			"Wheat beer" synonyms "Wheat beer "
+			"Whiskey sour" synonyms "Whiskey sour"
+			Whisky synonyms Whisky
+			"Whisky Mac" synonyms "Whisky Mac"
+			"White Lady or Delilah" synonyms "White Lady or Delilah"
+			"White Russian" synonyms "White Russian"
+			Williamine synonyms Williamine
+			Wine synonyms Wine
+			Witbier synonyms "Witbier "
+			Wolfram synonyms Wolfram
+			"Woo Woo" synonyms "Woo Woo"
+			"Yellow Bird" synonyms "Yellow Bird"
+			Yorsh synonyms Yorsh
+			"Zombie Cocktail" synonyms "Zombie Cocktail"
+			Zurracapote synonyms Zurracapote
+			"?uic?" synonyms "?uic?"
+	}
+	Simple entity "delivery-product" :
+		inputs in en {
+			"@beverage-hard-drinks" synonyms "@beverage-hard-drinks"
+			"@beverage-soft-drinks" synonyms "@beverage-soft-drinks"
+			"@dish" synonyms "@dish"
+			"@food-product" synonyms "@food-product"
+	}
+	Simple entity meal :
+		inputs in en {
+			breakfast synonyms breakfast , "breakfast and brunch" , "breakfast n brunch"
+			brunch synonyms brunch
+			dinner synonyms dinner , supper
+			lunch synonyms lunch
+			snack synonyms "grab a bite" , "light meal" , snack
+	}
+	Simple entity recurrence :
+		inputs in en {
+			Fridays synonyms Fridays , "each Friday" , "every Friday"
+			Mondays synonyms Mondays , "each Monday" , "every Monday"
+			"Mondays, Tuesdays" synonyms "Mondays, Tuesdays" , "every Monday and Tuesday" , "every Monday and every Tuesday" , "on Mondays and Tuesdays"
+			"Mondays, Tuesdays, Wednesdays" synonyms "Mondays, Tuesdays, Wednesdays" , "every Monday, Tuesday and Wednesday" , "on Mondays, Tuesdays and Wednesdays"
+			"Mondays, Tuesdays, Wednesdays, Thursdays" synonyms "Mondays, Tuesdays, Wednesdays, Thursdays" , "every Monday, Tuesday, Wednesday and Thursday" , "on Mondays, Tuesdays, Wednesdays and Thursdays"
+			"Mondays, Tuesdays, Wednesdays, Thursdays, Fridays, Saturdays" synonyms "Mondays, Tuesdays, Wednesdays, Thursdays, Fridays, Saturdays" , "every day except Sundays"
+			Saturdays synonyms Saturdays , "each Saturday" , "every Saturday" , "for saturdays"
+			Sundays synonyms Sundays , "each Sunday" , "every Sunday"
+			Thursdays synonyms Thursdays , "each Thursday" , "every Thursday"
+			Tuesdays synonyms Tuesdays , "each Tuesday" , "every Tuesday"
+			Wednesdays synonyms Wednesdays , "each Wednesday" , "every Wednesday"
+			"every day" synonyms daily , "each weekend" , "each morning" , "every day" , "every morning" , everyday
+			"every month" synonyms "every month"
+			weekdays synonyms Weekdays , "every weekday" , "every workday" , "monday to friday" , "on weekdays" , "only on weeekdays" , "week days" , "work days" , workday , workdays , "working days"
+			weekends synonyms Weekends , "every weekend" , "only on weekends"
+			weekly synonyms weekly
+	}
+	Simple entity "map-sort" :
+		inputs in en {
+			best synonyms best , cool , fine , good , great , interesting , nice , top
+			"best matched" synonyms "best matched"
+			cheapest synonyms "best priced" , cheap , cheapest , "less expensive"
+			expensive synonyms expensive , "most expensive"
+			free synonyms free
+			nearest synonyms "along my route" , around , "around here" , "around me" , "around my area" , "at my destination" , "close by" , "close to me" , "close to my area" , closest , "closest to me" , here , immediate , "in my area" , "in my location" , "in my neighborhood" , "in the area" , "in this area" , "in this district" , local , near , "near by" , "near me" , "near my house" , "near this area" , nearby , nearbys , nearest , "not far from here" , "on my way" , "this area" , "very close"
+	}
+	Simple entity "beverage-soft-drinks" :
+		inputs in en {
+			"almond milk" synonyms "almond milk"
+			americano synonyms americano
+			"apple cider" synonyms "apple cider"
+			"apple juice" synonyms "apple juice"
+			"banana milk" synonyms "banana milk"
+			"black tea" synonyms "black tea"
+			"brandy coffee" synonyms "brandy coffee"
+			"caffè americano" synonyms "caffè americano"
+			"caffè latte" synonyms "caffè latte"
+			"café au lait" synonyms "café au lait"
+			"café mocha" synonyms "café mocha"
+			"camomile tea" synonyms "camomile tea"
+			cappuccino synonyms cappuccino
+			"carrot juice" synonyms "carrot juice" , "pure carrot juice"
+			"chai latte" synonyms "chai latte"
+			"chai masala" synonyms "chai masala"
+			"chocolate milk" synonyms "chocolate milk"
+			"citrus soda" synonyms "citrus soda"
+			"coca cola" synonyms "coca cola"
+			"coconut milk" synonyms "coconut milk"
+			coffee synonyms coffee , "to coffee"
+			"coffee & tea" synonyms "coffee & tea" , "coffee and tea" , "coffee n tea" , "coffee tea" , "tea and coffee" , "tea coffee" , "tea n coffee"
+			"coffee milk" synonyms "coffee milk"
+			"coffee with milk" synonyms "coffee with milk"
+			coke synonyms coke
+			cola synonyms cola
+			coolatta synonyms coolatta
+			"diet coke" synonyms "diet coke"
+			drink synonyms drink
+			"earl grey tea" synonyms "earl grey tea"
+			espresso synonyms espresso
+			fanta synonyms fanta
+			frappe synonyms frappe , "frappé"
+			frappuccino synonyms frappuccino
+			"fruit juice" synonyms " fruit juices" , "fruit juice"
+			"green iced tea" synonyms "green iced tea"
+			"green tea" synonyms "green tea"
+			"hot chocolate" synonyms "hot chocolate"
+			"iced cappuccino" synonyms "iced cappuccino"
+			"iced coffee" synonyms "iced coffee"
+			"iced matcha green tea latte" synonyms "iced matcha green tea latte"
+			"iced tea" synonyms "iced tea"
+			icetea synonyms icetea
+			"irish coffee" synonyms "irish coffee"
+			"jasmine tea" synonyms "jasmine tea"
+			juice synonyms juice
+			latte synonyms latte
+			"latte macchiato" synonyms "latte macchiato"
+			lemonade synonyms lemonade
+			"low alcohol beer" synonyms "low alcohol beer"
+			macchiato synonyms macchiato
+			"mango smoothie" synonyms "mango smoothie"
+			"masala chai latte" synonyms "masala chai latte"
+			matcha synonyms matcha
+			milk synonyms "buy milk" , "drinking milk" , milk
+			milkshake synonyms milkshake
+			moccaccino synonyms moccaccino
+			mocha synonyms mocha
+			"mocha latte" synonyms "mocha latte"
+			mocktail synonyms " mocktails" , mocktail
+			"non alcoholic beer" synonyms "non alcoholic beer"
+			"non alcoholic cocktail" synonyms " non alcoholic cocktails" , "non alcoholic cocktail"
+			"oolong tea" synonyms "oolong tea"
+			"orange juice" synonyms "orange juice"
+			"peppermint tea" synonyms "peppermint tea"
+			"pu erh tea" synonyms "pu erh" , "pu erh tea" , "pu-erh tea"
+			"regular diet pepsi" synonyms "regular diet pepsi"
+			"rice milk" synonyms "rice milk"
+			rooibos synonyms rooibos
+			"rooibos tea" synonyms "rooibos tea"
+			schweppes synonyms " schweppes soda" , schweppes
+			"shirley temple cocktail" synonyms "shirley temple cocktail"
+			smoothie synonyms smoothie
+			soda synonyms soda
+			"soda pop" synonyms "soda pop"
+			"soft drink" synonyms " soft drinks" , "soft drink"
+			"soy milk" synonyms "soy milk"
+			"sparkling water" synonyms "sparkling water"
+			sprite synonyms sprite
+			"strawberry milk" synonyms "strawberry milk"
+			tea synonyms tea
+			"tomato juice" synonyms "tomato juice"
+			"turkish coffee" synonyms "turkish coffee"
+			"vienna coffee" synonyms "vienna coffee"
+			"vietnamese coffee" synonyms "vietnamese coffee"
+			water synonyms "mineral water" , water
+			"white tea" synonyms "white tea"
+			"yellow tea" synonyms "yellow tea"
+	}
+	Simple entity dish :
+		inputs in en {
+			Barbecue synonyms Barbecue , barbeque
+			Burrito synonyms Burrito , Burritos
+			"Carne asada" synonyms "Carne asada"
+			Carnitas synonyms Carnitas
+			"Carnitas Burrito" synonyms "Carnitas Burrito"
+			Cemita synonyms Cemita , cemitas
+			Cheesecake synonyms Cheesecake
+			Chorizo synonyms Chorizo , chorizo
+			Enchilada synonyms Enchilada
+			Fajitas synonyms Fajitas
+			"Fish Chips" synonyms "Fish Chips" , "Fish and Chips" , "Fish n Chips"
+			Flauta synonyms Flauta
+			Guacamole synonyms Guacamole
+			"Mini Wheats" synonyms "Mini Wheats"
+			Nacho synonyms Nacho , Nachos
+			Pancake synonyms Pancake
+			"Rolled taco" synonyms "Rolled taco"
+			Salsa synonyms Salsa , "Salsa sauce"
+			Taco synonyms Taco , Tacos
+			Tamales synonyms Tamales
+			Taquito synonyms Taquito
+			Tortas synonyms Tortas
+			Tortilla synonyms Tortilla , Tortillas
+			apfelstrudel synonyms apfelstrudel
+			"apple pie" synonyms "apple pie"
+			baati synonyms baati
+			bagel synonyms bagel , bagels
+			baguette synonyms baguette
+			barfi synonyms barfi , borfee , burfee , burfi
+			"beef bourguignon" synonyms "beef Burgundy" , "beef bourguignon"
+			"beef stroganov" synonyms "beef stroganov"
+			bigmac synonyms bigmac
+			blini synonyms blini , bliny
+			"blueberry muffins" synonyms "blueberry muffins"
+			borshch synonyms "beet soup" , borscht , borshch
+			bratwurst synonyms bratwurst
+			"bread sticks" synonyms breadsticks , "bread sticks"
+			brezel synonyms brezel
+			brownie synonyms brownie
+			"bull testicle" synonyms "bull testicle" , "bull testicles"
+			burger synonyms burger , burgers , cheeseburger , hamburger
+			"business lunch" synonyms "business lunch"
+			cake synonyms cake , cakes
+			caparrones synonyms caparrones
+			"century eggs" synonyms "century eggs" , "millenium eggs"
+			"chana masala" synonyms "chana masala"
+			cheescake synonyms cheescake
+			"cheese souffle" synonyms "cheese souffle"
+			"cheese steaks" synonyms "cheese steaks" , cheesesteaks
+			"chicken curry" synonyms "chicken curry"
+			"chicken feet" synonyms "chicken feet"
+			"chicken tikka masala" synonyms "chicken tikka masala"
+			"chicken wings" synonyms "chicken wings"
+			"chicken steak" synonyms "chicken steak"
+			"chilli paneer" synonyms "chilli paneer"
+			chips synonyms chips
+			chocolate synonyms chocolate , chocolates
+			"chocolate mousse" synonyms "chocolate mousse"
+			"chow fun" synonyms "chow fun"
+			"chow mein" synonyms "chow mein"
+			churro synonyms churro
+			coca synonyms coca
+			"corn chowder" synonyms "corn chowder"
+			"cream soup" synonyms "cream soup"
+			"creme brulee" synonyms "creme brulee"
+			crepe synonyms crepe
+			croissant synonyms croissant
+			cupcake synonyms cupcake
+			curry synonyms curry
+			"curry bread" synonyms "curry bread"
+			dal synonyms dal
+			desserts synonyms desserts
+			"dim sum" synonyms "dim sum"
+			donburi synonyms donburi
+			donut synonyms donut , donuts
+			"dressed herring" synonyms "dressed herring"
+			dumplings synonyms dumplings
+			eintopf synonyms eintopf
+			empanada synonyms empanada
+			escargots synonyms escargots
+			escudella synonyms escudella
+			falafel synonyms falafel
+			flan synonyms "caramel custard" , "creme caramel" , flan
+			fondue synonyms fondue
+			"french fries" synonyms "french fries" , fries
+			"fried eggs" synonyms "fried eggs"
+			"fromage blanc" synonyms "fromage blanc"
+			"frozen yogurt" synonyms "frozen yogurt"
+			"funnel cakes" synonyms "funnel cakes"
+			gazpacho synonyms gaspacho , gazpacho
+			gelato synonyms gelato
+			goulash synonyms goulash
+			"gratin dauphinois" synonyms "gratin dauphinois"
+			"green curry" synonyms "green curry"
+			"grilled chicken" synonyms "grilled chicken"
+			hamburgers synonyms hamburgers
+			"hawaiian pizza" synonyms "hawaiian pizza"
+			"hot and sour soup" synonyms "hot and sour soup"
+			"hot dogs" synonyms "hot dogs"
+			"hot pot" synonyms "hot pot"
+			"hot pots" synonyms "hot pots"
+			hotdog synonyms hotdog
+			"ice cream" synonyms "ice cream"
+			"ice cream frozen yogurt" synonyms "ice cream and frozen yogurt" , "ice cream frozen yogurt" , "ice cream n frozen yogurt"
+			ikra synonyms ikra
+			jamon synonyms jamon
+			kasespatzle synonyms kasespatzle
+			kasha synonyms kasha
+			katsudon synonyms katsudon
+			kholodets synonyms kholodets
+			kissel synonyms kissel
+			klopse synonyms klopse
+			knodel synonyms knodel
+			kofta synonyms kofta
+			korokke synonyms korokke
+			kvass synonyms kvass
+			"large pepperoni pizza" synonyms "large pepperoni pizza"
+			lasagna synonyms lasagna
+			"lentil soup" synonyms "lentil soup"
+			"lentil soup" synonyms "lentil soup"
+			madeleines synonyms madeleines
+			melonpan synonyms "melon bread" , melonpan
+			"mille-feuille" synonyms "mille-feuille"
+			miso synonyms miso , "miso soup"
+			mooncake synonyms mooncake
+			"morning bun" synonyms "morning bun"
+			mortadella synonyms mortadella
+			mozzarella synonyms mozzarella
+			naan synonyms naan
+			"noodle soup" synonyms "noodle soup"
+			noodles synonyms noodles
+			oatmeal synonyms oatmeal
+			okonomiyaki synonyms okonomiyaki
+			okroshka synonyms okroshka
+			"olivier salad" synonyms "olivier salad" , "salad olivier"
+			omelette synonyms omelette
+			omurice synonyms omurice
+			"onion soup" synonyms "onion soup"
+			oyakodon synonyms oyakodon
+			paella synonyms paella
+			"paneer tikka masala" synonyms "paneer tikka masala"
+			"panna cotta" synonyms "panna cotta"
+			paratha synonyms paratha
+			pasta synonyms pasta
+			"patatas bravas" synonyms "patatas bravas"
+			"peanut cupcake" synonyms "peanut cupcake"
+			"peking duck" synonyms "peking duck"
+			pelmeni synonyms pelmeni
+			"pepperoni pizza" synonyms "pepperoni pizza"
+			pie synonyms pie , pies
+			pincho synonyms pincho
+			pirog synonyms pirog
+			pirozhki synonyms piroshki , pirozhki
+			pisto synonyms pisto
+			pizza synonyms pizza , pizzas
+			"poached eggs" synonyms "poached eggs"
+			potage synonyms potage
+			pretzel synonyms pretzel , pretzels
+			quiche synonyms quiche
+			"quiche lorraine" synonyms "quiche lorraine"
+			ramen synonyms ramen
+			rassolnik synonyms rassolnik
+			ratatouille synonyms ratatouille
+			"red curry" synonyms "red curry"
+			religieuse synonyms religieuse
+			"rice and beans" synonyms "rice and beans" , "rice beans" , "rice n beans"
+			"rice and chicken" synonyms "rice and chicken"
+			"rice and red beans" synonyms "rice and red beans" , "rice n red beans" , "rice red beans"
+			"rice cakes" synonyms "rice cakes"
+			risotto synonyms risotto
+			"russian salad" synonyms "russian salad"
+			sachertorte synonyms "sacher torte" , sachertorte
+			salad synonyms salad
+			"salami pizza" synonyms "salami pizza"
+			salchichon synonyms salchichon
+			samosa synonyms samosa
+			sandwich synonyms sandwich , sandwiches
+			sangria synonyms sangria
+			sashimi synonyms sashimi
+			sauerbraten synonyms sauerbraten
+			sauerkraut synonyms sauerkraut
+			sbiten synonyms sbiten
+			schnitzel synonyms schnitzel
+			"schwarzwalder kirschtorte" synonyms "black forest cake" , "black forest cherry cake" , "schwarzwalder kirschtorte"
+			"sea cucumbers" synonyms "sea cucumbers"
+			seafood synonyms seafood
+			shashlik synonyms shashlik , shashlyk
+			shchi synonyms shchi
+			soba synonyms soba
+			solyanka synonyms solyanka
+			soup synonyms soup
+			spaghetti synonyms spaghetti
+			"spaghetti squash" synonyms "spaghetti squash"
+			"spanish tortilla" synonyms "spanish tortilla"
+			"spicy tofu" synonyms "mapo dofu" , "mapo tofu" , "spicy tofu"
+			"spotted dick" synonyms "spotted dick"
+			"spring rolls" synonyms "spring rolls" , springrolls
+			spumoni synonyms spumoni
+			"steak tartare" synonyms "steak tartare"
+			stollen synonyms stollen
+			strudel synonyms strudel
+			sukiyaki synonyms sukiyaki
+			sushi synonyms sushi
+			"sweet and sour pork" synonyms "sweet and sour pork"
+			syrniki synonyms syrniki
+			takoyaki synonyms takoyaki
+			"tandoori chicken" synonyms "tandoori chicken"
+			tapas synonyms tapas
+			tart synonyms tart
+			"tarte tatin" synonyms "tarte tatin"
+			tartlet synonyms tartlet
+			tempura synonyms tempura
+			teriyaki synonyms teriyaki
+			terrine synonyms terrine
+			"the hot dog" synonyms "the hot dog"
+			tiramisu synonyms tiramisu
+			tonkatsu synonyms tonkatsu
+			"tortilla espaniola" synonyms "tortilla espaniola"
+			"turkey leg" synonyms "turkey leg"
+			tushonka synonyms tushonka
+			udon synonyms udon
+			ukha synonyms ukha
+			vatrushka synonyms vatrushka
+			"victoria sponge cake" synonyms "victoria sponge cake"
+			vinegret synonyms vinegret
+			weisswurst synonyms weisswurst , "white sausage"
+			whopper synonyms whopper
+			wok synonyms wok
+			"wonton noodle soup" synonyms "wonton noodle soup"
+			wurst synonyms wurst
+			yakisoba synonyms yakisoba
+			yakitori synonyms yakitori
+			"yellow curry" synonyms "yellow curry"
+			yogurt synonyms yogurt
+	}
+	Simple entity "food-product" :
+		inputs in en {
+			almond synonyms almond
+			apple synonyms apple
+			avocado synonyms avocado , avocados
+			banana synonyms banana
+			beans synonyms beans
+			butter synonyms butter
+			carrot synonyms carrot
+			"cheddar cheese" synonyms "cheddar cheese"
+			cheese synonyms cheese
+			chicken synonyms chicken
+			"chicken breast" synonyms "chicken breast"
+			chocolate synonyms chocolate
+			corn synonyms corn
+			"crab legs" synonyms "crab legs"
+			cucumber synonyms cucumber
+			egg synonyms egg
+			fish synonyms fish
+			grapes synonyms grapes
+			grass synonyms grass
+			guava synonyms guava
+			honey synonyms honey
+			macaroni synonyms macaroni
+			mango synonyms mango
+			meat synonyms meat
+			mushroom synonyms mushroom
+			mushrooms synonyms mushrooms
+			"olive oil" synonyms "olive oil"
+			orange synonyms orange
+			oranges synonyms oranges
+			papaya synonyms papaya
+			paper synonyms paper
+			peanut synonyms peanut
+			"peanut butter" synonyms "peanut butter"
+			pear synonyms pear
+			pecans synonyms pecans
+			potato synonyms potato
+			rice synonyms rice
+			salmon synonyms salmon
+			"spaghetti squash" synonyms "spaghetti squash"
+			tomato synonyms tomato
+			watermelon synonyms watermelon
+			wheat synonyms wheat
+			"white mushroom" synonyms "white mushroom"
+			yogurt synonyms yogurt
+	}
+	Simple entity cuisine :
+		inputs in en {
+			"Cajun Creole" synonyms "Cajun Creole"
+			Cethelsea synonyms Cethelsea
+			"Czech Slovakian" synonyms "Czech Slovakian"
+			Dairy synonyms Dairy
+			Diners synonyms Diners
+			"Himalayan Nepalese" synonyms "Himalayan Nepalese"
+			"Latin American" synonyms "Latin American"
+			"Persian Iranian" synonyms "Persian Iranian"
+			Rooftop synonyms Rooftop
+			"Soul food" synonyms "Soul food"
+			Tibetan synonyms Tibetan
+			afghan synonyms afghan
+			african synonyms african
+			american synonyms american
+			"american new" synonyms "american new"
+			"american traditional" synonyms "american traditional"
+			arabian synonyms arabian
+			arabic synonyms arabic
+			argentine synonyms argentine
+			armenian synonyms armenian
+			asian synonyms asian
+			"asian fusion" synonyms "asian fusion"
+			australian synonyms australian
+			austrian synonyms austrian
+			bangladeshi synonyms bangladeshi
+			basque synonyms basque
+			belgian synonyms belgian
+			brasseries synonyms brasseries
+			brazilian synonyms brazilian
+			british synonyms british
+			bulgar synonyms bulgar
+			burmese synonyms burmese
+			cajun synonyms cajun
+			cambodian synonyms cambodian
+			canadian synonyms canadian
+			cantonese synonyms cantonese
+			caribbean synonyms caribbean
+			catalan synonyms catalan
+			chinese synonyms chinese
+			colombian synonyms colombian
+			creole synonyms creole
+			cuban synonyms cuban
+			czech synonyms czech
+			delis synonyms dehlis , delis
+			dominican synonyms dominican
+			egyptian synonyms egyptian
+			ethiopian synonyms ethiopian
+			ethnic synonyms ethnic
+			european synonyms european
+			filipino synonyms filipino
+			french synonyms french
+			german synonyms german
+			"gluten free, gluten-free" synonyms "gluten free, gluten-free"
+			greek synonyms greek
+			haitian synonyms haitian
+			"halal, hallal" synonyms "halal, hallal"
+			hawaiian synonyms hawaiian
+			himalayan synonyms himalayan
+			hungarian synonyms hungarian
+			iberian synonyms iberian
+			indian synonyms indian
+			indonesian synonyms indonesian
+			indpak synonyms indpak
+			iranian synonyms iranian
+			irish synonyms irish
+			italian synonyms italian
+			jamaican synonyms jamaican
+			japanese synonyms japanese
+			korean synonyms korean
+			kosher synonyms kosher
+			"kosher, koshar" synonyms "kosher, koshar"
+			laotian synonyms laotian
+			latin synonyms latin
+			lebanese synonyms lebanese
+			malaysian synonyms malaysian
+			mediterranean synonyms mediterranean
+			mexican synonyms mexican
+			"middle eastern" synonyms "middle eastern"
+			"middle eastern, eastern" synonyms "middle eastern, eastern"
+			mideastern synonyms mideastern
+			"modern european" synonyms "modern european"
+			"modern european, european" synonyms "modern european, european"
+			mongolian synonyms mongolian
+			moroccan synonyms moroccan
+			nepalese synonyms nepalese
+			pakistani synonyms pakistani
+			persian synonyms persian
+			peruvian synonyms peruvian
+			polish synonyms polish
+			portuguese synonyms portuguese
+			"puerto rican" synonyms "puerto rican"
+			puertorican synonyms puertorican
+			russian synonyms russian
+			salvadoran synonyms salvadoran
+			scandinavian synonyms scandinavian
+			scottish synonyms scottish
+			senegalese synonyms senegalese
+			shanghainese synonyms shanghainese
+			singaporean synonyms singaporean
+			slovakian synonyms slovakian
+			"south african" synonyms "south african"
+			southern synonyms southern
+			spanish synonyms spanish
+			swedish synonyms swedish
+			szechuan synonyms szechuan
+			taiwanese synonyms taiwanese
+			"tex mex" synonyms "tex mex"
+			"tex mex, tex-mex, texmex" synonyms "tex mex, tex-mex, texmex"
+			thai synonyms thai
+			trinidadian synonyms trinidadian
+			turkish synonyms turkish
+			ukrainian synonyms ukrainian
+			vegan synonyms vegan
+			vegetarian synonyms veg , vegetarian
+			venezuelan synonyms venezuelan
+			vietnam synonyms vietnam , vietnamese
+	}
+	Simple entity "venue-eating-out-chain" :
+		inputs in en {
+			" Donuts" synonyms " Donuts"
+			"1833" synonyms "1833"
+			"241 Pizza" synonyms "241 Pizza"
+			"5th and Wine" synonyms "5th and Wine"
+			"85C Bakery Cafe" synonyms "85C Bakery Cafe"
+			"A Twosome Place" synonyms "A Twosome Place"
+			"AB Mauri" synonyms "AB Mauri"
+			"AMT Coffee" synonyms "AMT Coffee"
+			AVO synonyms AVO
+			AW synonyms AW
+			"AW Restaurants" synonyms "AW Restaurants"
+			AandW synonyms AandW
+			"AandW Restaurants" synonyms "AandW Restaurants"
+			"Abbott s Frozen Custard" synonyms "Abbott s Frozen Custard"
+			Abrakebabra synonyms Abrakebabra
+			"Abu Dhabi" synonyms "Abu Dhabi"
+			"Abu Nawas" synonyms "Abu Nawas"
+			Acacia synonyms Acacia
+			"Acapulco Mexican Restaurant and Cantina" synonyms "Acapulco Mexican Restaurant and Cantina"
+			"Acme Bread Company" synonyms "Acme Bread Company"
+			"Adelina s Bistro" synonyms "Adelina s Bistro"
+			"Adventureland Bazaar" synonyms "Adventureland Bazaar"
+			"Afternoon Tea The Phoenician" synonyms "Afternoon Tea The Phoenician"
+			"Agave Restaurant at Desert Diamond Casino" synonyms "Agave Restaurant at Desert Diamond Casino"
+			Ahmedabad synonyms Ahmedabad
+			Ahwaz synonyms Ahwaz
+			Aida synonyms Aida
+			"Aiello s" synonyms "Aiello s"
+			"Ajisen Ramen" synonyms "Ajisen Ramen"
+			"Al Baik" synonyms "Al Baik"
+			"Al Faisaliyah Center" synonyms "Al Faisaliyah Center"
+			"Al Tazaj" synonyms "Al Tazaj"
+			"Alain Chapel" synonyms "Alain Chapel"
+			"Alberto s Ristorante" synonyms "Alberto s Ristorante"
+			Alcazar synonyms Alcazar
+			"Alchemy Restaurant at Copperwynd Resort" synonyms "Alchemy Restaurant at Copperwynd Resort"
+			"Alessi Bakery" synonyms "Alessi Bakery"
+			Alex synonyms Alex
+			"Alexi s Grill" synonyms "Alexi s Grill"
+			"Alleycat s Pizza" synonyms "Alleycat s Pizza"
+			Allstar synonyms Allstar
+			"Alto Ristorante e Bar" synonyms "Alto Ristorante e Bar"
+			"Alyeska Resort Special Events" synonyms "Alyeska Resort Special Events"
+			"Amaro Pizzeria and Vino Lounge" synonyms "Amaro Pizzeria and Vino Lounge"
+			"Amato s" synonyms "Amato s"
+			"American Express Bakery" synonyms "American Express Bakery"
+			"Amighetti s Bakery" synonyms "Amighetti s Bakery"
+			"Amigos/Kings Classic" synonyms "Amigos/Kings Classic"
+			Amir synonyms Amir
+			"Amul Restaurants" synonyms "Amul Restaurants"
+			"Amy s Ice Creams" synonyms "Amy s Ice Creams"
+			"Andre s Bouchee" synonyms "Andre s Bouchee"
+			"Andre s Bouchee Bistro and Wine Bar" synonyms "Andre s Bouchee Bistro and Wine Bar"
+			"Andre s Bouchee Restaurant and Wine Bar" synonyms "Andre s Bouchee Restaurant and Wine Bar"
+			"Andy Nelson s Southern Pit Barbecue" synonyms "Andy Nelson s Southern Pit Barbecue"
+			"Andy s Frozen Custard" synonyms "Andy s Frozen Custard"
+			"Angel in us" synonyms "Angel in us"
+			"Angela s pizza place" synonyms "Angela s pizza place"
+			"Angelo Brocato s" synonyms "Angelo Brocato s"
+			"Angelo s Civita Farnese" synonyms "Angelo s Civita Farnese"
+			"Anjappar Chettinad Restaurant" synonyms "Anjappar Chettinad Restaurant"
+			"Anna s Taqueria" synonyms "Anna s Taqueria"
+			"Annapoorna Gowrishankar" synonyms "Annapoorna Gowrishankar"
+			Anstruther synonyms Anstruther
+			"Anthony s Coal Fired Pizza" synonyms "Anthony s Coal Fired Pizza"
+			"Anton and Michel Restaurant" synonyms "Anton and Michel Restaurant"
+			"Aoki s Pizza" synonyms "Aoki s Pizza"
+			"Apple Farm Restaurant" synonyms "Apple Farm Restaurant"
+			"Aquarius Dream Inn" synonyms "Aquarius Dream Inn"
+			"Arby s" synonyms "Arby s"
+			Arcaffe synonyms Arcaffe
+			"Arch Rock Fish" synonyms "Arch Rock Fish"
+			"Archway Cookies" synonyms "Archway Cookies"
+			"Arctic Circle Restaurants" synonyms "Arctic Circle Restaurants"
+			"Ariccia Italian Trattoria and Bar" synonyms "Ariccia Italian Trattoria and Bar"
+			"Arizmendi Bakery" synonyms "Arizmendi Bakery"
+			"Arizona Biltmore Wright s at the Biltmore" synonyms "Arizona Biltmore Wright s at the Biltmore"
+			"Arizona Grand Resort- The Lobby Grill" synonyms "Arizona Grand Resort- The Lobby Grill"
+			"Arizona Inn Dining Room" synonyms "Arizona Inn Dining Room"
+			"Armitage Bistro" synonyms "Armitage Bistro"
+			"Armitage Wine Lounge and Cafe" synonyms "Armitage Wine Lounge and Cafe"
+			"Arnold Bakery" synonyms "Arnold Bakery"
+			"Arnoldi s Cafe" synonyms "Arnoldi s Cafe"
+			"Aroma Café" synonyms "Aroma Café"
+			"Aroma Espresso Bar" synonyms "Aroma Espresso Bar"
+			"Arrivederci Ristorante" synonyms "Arrivederci Ristorante"
+			"Arrivederci Trattoria" synonyms "Arrivederci Trattoria"
+			"Arrowhead Grill" synonyms "Arrowhead Grill"
+			"Art s Famous Chili Dog Stand" synonyms "Art s Famous Chili Dog Stand"
+			"Arthur Bryant s" synonyms "Arthur Bryant s"
+			"Arthur Treacher s" synonyms "Arthur Treacher s"
+			"Arthur s Prime Steakhouse" synonyms "Arthur s Prime Steakhouse"
+			Artisan synonyms Artisan
+			"Arts and Letters Cafe" synonyms "Arts and Letters Cafe"
+			"Ashley s Restaurant Capital Hotel" synonyms "Ashley s Restaurant Capital Hotel"
+			"Asia Town" synonyms "Asia Town"
+			Ask synonyms Ask
+			"Aspire Tower" synonyms "Aspire Tower"
+			"Atakule Tower" synonyms "Atakule Tower"
+			"Athena Greek Cuisine" synonyms "Athena Greek Cuisine"
+			"Atlanta Bread Company" synonyms "Atlanta Bread Company"
+			"Au Bon Pain" synonyms "Au Bon Pain"
+			"Aubergine at L Auberge Carmel" synonyms "Aubergine at L Auberge Carmel"
+			"Auntie Anne s" synonyms "Auntie Anne s"
+			"Australian Homemade" synonyms "Australian Homemade"
+			Avanti synonyms Avanti
+			"Aviva by Kameel" synonyms "Aviva by Kameel"
+			Azu synonyms Azu
+			"Azul Restaurant and Lounge" synonyms "Azul Restaurant and Lounge"
+			"B T s Smokehouse" synonyms "B T s Smokehouse"
+			BIN189 synonyms BIN189
+			BLD synonyms BLD
+			"BLT Steak LA" synonyms "BLT Steak LA"
+			"BLT Steak at Camelback Inn A JW Marriott Resort" synonyms "BLT Steak at Camelback Inn A JW Marriott Resort"
+			"BOA Steakhouse Santa Monica" synonyms "BOA Steakhouse Santa Monica"
+			"BOA Steakhouse Sunset" synonyms "BOA Steakhouse Sunset"
+			"BT Tower" synonyms "BT Tower"
+			"Bacchi Wapen" synonyms "Bacchi Wapen"
+			"Bagatelle restaurant" synonyms "Bagatelle restaurant"
+			"Bagel Nash" synonyms "Bagel Nash"
+			"Baghdad Tower" synonyms "Baghdad Tower"
+			"Bahama Island Steakhouse" synonyms "Bahama Island Steakhouse"
+			"Baja Cantina Carmel" synonyms "Baja Cantina Carmel"
+			"Baja Fresh" synonyms "Baja Fresh"
+			Bakdash synonyms Bakdash
+			"Baked and Wired" synonyms "Baked and Wired"
+			"Baker s Dozen Donuts" synonyms "Baker s Dozen Donuts"
+			"Baker s Drive Thru" synonyms "Baker s Drive Thru"
+			"Bakers Delight" synonyms "Bakers Delight"
+			"Bakers Oven" synonyms "Bakers Oven"
+			"Bakers Square" synonyms "Bakers Square"
+			Balthazar synonyms Balthazar
+			"Bamboo Club Scottsdale" synonyms "Bamboo Club Scottsdale"
+			Bandung synonyms Bandung
+			Bangkok synonyms Bangkok
+			"Bar Jules" synonyms "Bar Jules"
+			"Barbeque Nation" synonyms "Barbeque Nation"
+			Barberitos synonyms Barberitos
+			Barbetta synonyms Barbetta
+			Barburrito synonyms Barburrito
+			"Barista Lavazza" synonyms "Barista Lavazza"
+			Baristas synonyms Baristas
+			"Barney Greengrass" synonyms "Barney Greengrass"
+			Barranquilla synonyms Barranquilla
+			Basement synonyms Basement
+			"Baskin Robbins" synonyms "Baskin Robbins"
+			"Baumé Restaurant" synonyms "Baumé Restaurant"
+			"Be our guest" synonyms "Be our guest"
+			"Beacon Drive In" synonyms "Beacon Drive In"
+			BeaverTails synonyms BeaverTails
+			"Beckett s Table" synonyms "Beckett s Table"
+			"Beigel Bake" synonyms "Beigel Bake"
+			"Bella Italia" synonyms "Bella Italia"
+			"Bella Vista at Four Seasons Resort The Biltmore Santa Barbara" synonyms "Bella Vista at Four Seasons Resort The Biltmore Santa Barbara"
+			"Bellini s Ristorante and Bar" synonyms "Bellini s Ristorante and Bar"
+			Bellmansro synonyms Bellmansro
+			Bembos synonyms Bembos
+			"Ben and Jerry s" synonyms "Ben and Jerry s"
+			"Ben s Chili Bowl" synonyms "Ben s Chili Bowl"
+			"Ben s Cookies" synonyms "Ben s Cookies"
+			"Benedetti s Pizza" synonyms "Benedetti s Pizza"
+			Benjys synonyms Benjys
+			"Bennigan s" synonyms "Bennigan s"
+			"Bens De Luxe Delicatessen and Restaurant" synonyms "Bens De Luxe Delicatessen and Restaurant"
+			"Beppi s Restaurant" synonyms "Beppi s Restaurant"
+			"Berliner Fernsehturm" synonyms "Berliner Fernsehturm"
+			"Berns Salonger" synonyms "Berns Salonger"
+			"Berowra Waters Inn" synonyms "Berowra Waters Inn"
+			Berthillon synonyms Berthillon
+			"Bertucci s" synonyms "Bertucci s"
+			"Bess Eaton" synonyms "Bess Eaton"
+			"Best Maid Cookie Company" synonyms "Best Maid Cookie Company"
+			"Betty s Nosh" synonyms "Betty s Nosh"
+			"Bewley s" synonyms "Bewley s"
+			"BiCE Ristorante" synonyms "BiCE Ristorante"
+			Bianyifang synonyms Bianyifang
+			"Big Apple Bagels" synonyms "Big Apple Bagels"
+			"Big Apple Donuts and Coffee" synonyms "Big Apple Donuts and Coffee"
+			"Big Apple Pizza" synonyms "Big Apple Pizza"
+			"Big Bite Submarines" synonyms "Big Bite Submarines"
+			"Big Boy Restaurants" synonyms "Big Boy Restaurants"
+			"Big City Burrito" synonyms "Big City Burrito"
+			"Big Daddy s Restaurants" synonyms "Big Daddy s Restaurants"
+			"Biggby Coffee" synonyms "Biggby Coffee"
+			Bikanervala synonyms Bikanervala
+			"Bill Miller Bar B Q Enterprises" synonyms "Bill Miller Bar B Q Enterprises"
+			"Billy Sims BBQ" synonyms "Billy Sims BBQ"
+			"Bimbo Bakeries USA" synonyms "Bimbo Bakeries USA"
+			"Binkley s Restaurant" synonyms "Binkley s Restaurant"
+			"Birch Street Bar and Grill" synonyms "Birch Street Bar and Grill"
+			"Biryani Blues" synonyms "Biryani Blues"
+			Biscuitville synonyms Biscuitville
+			Bistango synonyms Bistango
+			"Bistro 1111 at Hyatt Santa Barbara" synonyms "Bistro 1111 at Hyatt Santa Barbara"
+			"Bistro 24 at the Ritz-Carlton Phoenix" synonyms "Bistro 24 at the Ritz-Carlton Phoenix"
+			"Bistro 400" synonyms "Bistro 400"
+			"Bistro 990" synonyms "Bistro 990"
+			"Bistro Garden at Coldwater" synonyms "Bistro Garden at Coldwater"
+			"Bistro Laurent" synonyms "Bistro Laurent"
+			"Bistro Moncur" synonyms "Bistro Moncur"
+			"Bistro at Bacara Resort" synonyms "Bistro at Bacara Resort"
+			"Bistro of Santa Monica" synonyms "Bistro of Santa Monica"
+			"Bizou Grill Santa Monica" synonyms "Bizou Grill Santa Monica"
+			"Black Angus Steakhouse" synonyms "Black Angus Steakhouse"
+			"Black Angus Steakhouse Buena Park" synonyms "Black Angus Steakhouse Buena Park"
+			"Black Angus Steakhouse Burbank" synonyms "Black Angus Steakhouse Burbank"
+			"Black Angus Steakhouse Fountain Valley" synonyms "Black Angus Steakhouse Fountain Valley"
+			"Black Angus Steakhouse Lakewood" synonyms "Black Angus Steakhouse Lakewood"
+			"Black Angus Steakhouse Lancaster" synonyms "Black Angus Steakhouse Lancaster"
+			"Black Angus Steakhouse Monrovia" synonyms "Black Angus Steakhouse Monrovia"
+			"Black Angus Steakhouse Montclair" synonyms "Black Angus Steakhouse Montclair"
+			"Black Angus Steakhouse Northridge" synonyms "Black Angus Steakhouse Northridge"
+			"Black Angus Steakhouse Ontario" synonyms "Black Angus Steakhouse Ontario"
+			"Black Angus Steakhouse San Bernardino" synonyms "Black Angus Steakhouse San Bernardino"
+			"Black Angus Steakhouse Santa Ana" synonyms "Black Angus Steakhouse Santa Ana"
+			"Black Angus Steakhouse Torrance" synonyms "Black Angus Steakhouse Torrance"
+			"Black Angus Steakhouse Valencia" synonyms "Black Angus Steakhouse Valencia"
+			"Black Angus Steakhouse Ventura" synonyms "Black Angus Steakhouse Ventura"
+			"Black Angus Steakhouse Whittier" synonyms "Black Angus Steakhouse Whittier"
+			"Black Chile Mexican Grill" synonyms "Black Chile Mexican Grill"
+			"Black Diamond Grill" synonyms "Black Diamond Grill"
+			"Black Mountain Tower" synonyms "Black Mountain Tower"
+			"Blake s Lotaburger" synonyms "Blake s Lotaburger"
+			"Blanchs café" synonyms "Blanchs café"
+			"Bleecker Street Bar and Grill" synonyms "Bleecker Street Bar and Grill"
+			"Blenz Coffee" synonyms "Blenz Coffee"
+			Blimpie synonyms Blimpie
+			Blimpies synonyms Blimpies
+			"Bliss 525" synonyms "Bliss 525"
+			"Bloom s restaurant" synonyms "Bloom s restaurant"
+			"Blu Agave" synonyms "Blu Agave"
+			"Blue Adobe Grille" synonyms "Blue Adobe Grille"
+			"Blue Bottle Coffee Company" synonyms "Blue Bottle Coffee Company"
+			"Blue Chip Cookies" synonyms "Blue Chip Cookies"
+			"Blue Cow kitchen and bar" synonyms "Blue Cow kitchen and bar"
+			"Blue Ribbon Barbecue" synonyms "Blue Ribbon Barbecue"
+			"Blue Sage and JW Marriott Desert Ridge Resort and Spa" synonyms "Blue Sage and JW Marriott Desert Ridge Resort and Spa"
+			"Blue State Coffee" synonyms "Blue State Coffee"
+			"Blue Stove at Nordstrom Thousand Oaks" synonyms "Blue Stove at Nordstrom Thousand Oaks"
+			"Blue Stove at Nordstroms Santa Monica" synonyms "Blue Stove at Nordstroms Santa Monica"
+			"Bluefin Birmingham" synonyms "Bluefin Birmingham"
+			"Bluefin Restaurant" synonyms "Bluefin Restaurant"
+			"Bluefin Seafood Bistro" synonyms "Bluefin Seafood Bistro"
+			"Bluewater Grill Phoenix" synonyms "Bluewater Grill Phoenix"
+			Blush synonyms Blush
+			"Blvd 16 Hotel Palomar Westwood" synonyms "Blvd 16 Hotel Palomar Westwood"
+			BoHo synonyms BoHo
+			"Bob s" synonyms "Bob s"
+			"Bob s Steak and Chop House Omni Tucson National Resort" synonyms "Bob s Steak and Chop House Omni Tucson National Resort"
+			"Bobby s Restaurant and Jazz Lounge" synonyms "Bobby s Restaurant and Jazz Lounge"
+			"Boca Grande Taqueria" synonyms "Boca Grande Taqueria"
+			"Bogey s Steak and Seafood" synonyms "Bogey s Steak and Seafood"
+			Bojangles synonyms Bojangles
+			"Bojangles Famous Chicken n Biscuits" synonyms "Bojangles Famous Chicken n Biscuits"
+			"Bollywood Indian Restaurant 3" synonyms "Bollywood Indian Restaurant 3"
+			"Bombay Banquet and Conference Hall" synonyms "Bombay Banquet and Conference Hall"
+			"Bombay Cafe" synonyms "Bombay Cafe"
+			"Bombay Palace Beverly Hills" synonyms "Bombay Palace Beverly Hills"
+			"Bombay Restaurant Cuisine of India" synonyms "Bombay Restaurant Cuisine of India"
+			"Bombay Spice Phoenix" synonyms "Bombay Spice Phoenix"
+			"Bombay Tandoori Cuisine of India" synonyms "Bombay Tandoori Cuisine of India"
+			"Bonchon Chicken" synonyms "Bonchon Chicken"
+			"Boneyard Bistro" synonyms "Boneyard Bistro"
+			"Boost Juice" synonyms "Boost Juice"
+			"Booster Juice" synonyms "Booster Juice"
+			"Border Grill Downtown LA" synonyms "Border Grill Downtown LA"
+			"Border Grill Santa Monica" synonyms "Border Grill Santa Monica"
+			Bordinos synonyms Bordinos
+			"Borj e Sefid" synonyms "Borj e Sefid"
+			"Boston Market" synonyms "Boston Market"
+			"Boston Pizza" synonyms "Boston Pizza"
+			"Boston Tea Party" synonyms "Boston Tea Party"
+			Bottega synonyms Bottega
+			Bouchon synonyms Bouchon
+			"Bouchon Beverly Hills" synonyms "Bouchon Beverly Hills"
+			"Bouchon Santa Barbara" synonyms "Bouchon Santa Barbara"
+			"Boudin Bakery" synonyms "Boudin Bakery"
+			Bouley synonyms Bouley
+			"Bourbon Coffee" synonyms "Bourbon Coffee"
+			"Bourbon Steak at The Fairmont Scottsdale Princess" synonyms "Bourbon Steak at The Fairmont Scottsdale Princess"
+			Box8 synonyms Box8
+			"Boxwood Cafe at The London West Hollywood" synonyms "Boxwood Cafe at The London West Hollywood"
+			"Brace s Bakery" synonyms "Brace s Bakery"
+			Brasserie synonyms Brasserie
+			"Brasserie Julien" synonyms "Brasserie Julien"
+			"Brasserie Les Halles" synonyms "Brasserie Les Halles"
+			"Brasserie Pascal" synonyms "Brasserie Pascal"
+			"Braum s" synonyms "Braum s"
+			"Brave New Restaurant" synonyms "Brave New Restaurant"
+			Braza synonyms Braza
+			"Brazilian Bull" synonyms "Brazilian Bull"
+			Breadsmith synonyms Breadsmith
+			"Breeze Restaurant" synonyms "Breeze Restaurant"
+			"Brendan s Irish Pub and Restaurant" synonyms "Brendan s Irish Pub and Restaurant"
+			"Brendan s Irish Pub and Restaurant Agoura Hills" synonyms "Brendan s Irish Pub and Restaurant Agoura Hills"
+			"Brent s Deli" synonyms "Brent s Deli"
+			"Bresler s Ice Cream" synonyms "Bresler s Ice Cream"
+			"Bridgehead Coffee" synonyms "Bridgehead Coffee"
+			"Brigham s Ice Cream" synonyms "Brigham s Ice Cream"
+			"Brio Tuscan Grille" synonyms "Brio Tuscan Grille"
+			"Brioche Doree" synonyms "Brioche Doree"
+			"Brioche Dorée" synonyms "Brioche Dorée"
+			"British Bakeries" synonyms "British Bakeries"
+			"Brittlebush Bar and Grill at The Westin Kierland Resort" synonyms "Brittlebush Bar and Grill at The Westin Kierland Resort"
+			"Brix Restaurant and Wine Bar" synonyms "Brix Restaurant and Wine Bar"
+			"Brooklyn Ice Cream Factory" synonyms "Brooklyn Ice Cream Factory"
+			"Brostugan Kärsön" synonyms "Brostugan Kärsön"
+			"Brothers Restaurant at Mattei s Tavern" synonyms "Brothers Restaurant at Mattei s Tavern"
+			"Broussard s" synonyms "Broussard s"
+			"Brown s Chicken Pasta" synonyms "Brown s Chicken Pasta"
+			Brownberry synonyms Brownberry
+			"Bruegger s" synonyms "Bruegger s"
+			"Bruster s Ice Cream" synonyms "Bruster s Ice Cream"
+			"Bräutigams" synonyms "Bräutigams"
+			"Buca di Beppo" synonyms "Buca di Beppo"
+			"Buca di Beppo Arrowhead" synonyms "Buca di Beppo Arrowhead"
+			"Buca di Beppo Chandler" synonyms "Buca di Beppo Chandler"
+			"Buca di Beppo Mesa" synonyms "Buca di Beppo Mesa"
+			"Buca di Beppo Scottsdale" synonyms "Buca di Beppo Scottsdale"
+			"Buffalo Wild Wings" synonyms "Buffalo Wild Wings"
+			"Buona Tavola Paso Robles" synonyms "Buona Tavola Paso Robles"
+			"Buona Tavola San Luis Obispo" synonyms "Buona Tavola San Luis Obispo"
+			"Burger Baron" synonyms "Burger Baron"
+			"Burger Chef" synonyms "Burger Chef"
+			"Burger Fuel" synonyms "Burger Fuel"
+			"Burger King" synonyms "Burger King" , "Burger Kings" , BurgerKing , "burger kind"
+			"Burger Ranch" synonyms "Burger Ranch"
+			"Burger Street" synonyms "Burger Street"
+			Burgerville synonyms Burgerville
+			Burgs synonyms Burgs
+			"Burrito Bar" synonyms "Burrito Bar"
+			BurritoVille synonyms BurritoVille
+			"Burton s Biscuit Company" synonyms "Burton s Biscuit Company"
+			"Bushi Traditional Japanese and Asian Cuisine" synonyms "Bushi Traditional Japanese and Asian Cuisine"
+			"Butlers café" synonyms "Butlers café"
+			"Bæjarins Beztu Pylsur" synonyms "Bæjarins Beztu Pylsur"
+			"CKE Restaurants" synonyms "CKE Restaurants"
+			"CR Swart Building" synonyms "CR Swart Building"
+			"Cadena Cafes Limited" synonyms "Cadena Cafes Limited"
+			Cadiz synonyms Cadiz
+			"Cadwalader s Ice Cream" synonyms "Cadwalader s Ice Cream"
+			"Cafe A Brasileira" synonyms "Cafe A Brasileira"
+			"Cafe Barbera" synonyms "Cafe Barbera"
+			"Cafe Bink" synonyms "Cafe Bink"
+			"Cafe Chambord" synonyms "Cafe Chambord"
+			"Cafe Coffee Day" synonyms "Cafe Coffee Day"
+			"Cafe Hillel" synonyms "Cafe Hillel"
+			"Cafe Picnic" synonyms "Cafe Picnic"
+			"Cafe Rio" synonyms "Cafe Rio"
+			"Cafe Rouge" synonyms "Cafe Rouge"
+			"Cafe Te" synonyms "Cafe Te"
+			"Cafe de Coral" synonyms "Cafe de Coral"
+			"Cafe du Monde" synonyms "Cafe du Monde"
+			"Caffe Bene" synonyms "Caffe Bene"
+			"Caffe Boa on Mill" synonyms "Caffe Boa on Mill"
+			"Caffe Cova" synonyms "Caffe Cova"
+			"Caffe Luxxe" synonyms "Caffe Luxxe"
+			"Caffe Nero" synonyms "Caffe Nero"
+			"Caffe Pascucci" synonyms "Caffe Pascucci"
+			"Caffe Ritazza" synonyms "Caffe Ritazza"
+			"Caffe Trieste" synonyms "Caffe Trieste"
+			"Caffe Umbria" synonyms "Caffe Umbria"
+			"Caffe Vita Coffee Roasting Company" synonyms "Caffe Vita Coffee Roasting Company"
+			"Caffè Cova" synonyms "Caffè Cova"
+			"Caffè Nero" synonyms "Caffè Nero"
+			"Caffè Pascucci" synonyms "Caffè Pascucci"
+			"Caffè Ritazza" synonyms "Caffè Ritazza"
+			"Caffè Umbria" synonyms "Caffè Umbria"
+			"Caffé Opera" synonyms "Caffé Opera"
+			"Caffé Vita Coffee Roasting Company" synonyms "Caffé Vita Coffee Roasting Company"
+			"Caffé Vittoria" synonyms "Caffé Vittoria"
+			"Café A Brasileira" synonyms "Café A Brasileira"
+			"Café Boulud" synonyms "Café Boulud"
+			"Café Café" synonyms "Café Café"
+			"Café Cappuccino" synonyms "Café Cappuccino"
+			"Café Coffee Day" synonyms "Café Coffee Day"
+			"Café Hillel" synonyms "Café Hillel"
+			"Café Landtmann" synonyms "Café Landtmann"
+			"Café Picnic" synonyms "Café Picnic"
+			"Café Procope" synonyms "Café Procope"
+			"Café Rouge" synonyms "Café Rouge"
+			"Café Royal" synonyms "Café Royal"
+			"Café de Coral" synonyms "Café de Coral"
+			"Café de la Paix" synonyms "Café de la Paix"
+			"Café des Artistes" synonyms "Café des Artistes"
+			"Café du Monde" synonyms "Café du Monde"
+			"Cairo Tower" synonyms "Cairo Tower"
+			"Cake Girls" synonyms "Cake Girls"
+			"Cake in a Cup" synonyms "Cake in a Cup"
+			"Calgary Tower" synonyms "Calgary Tower"
+			"California Burrito Co" synonyms "California Burrito Co"
+			"California Fried Chicken" synonyms "California Fried Chicken"
+			"California Pizza Kitchen" synonyms "California Pizza Kitchen"
+			"California Tortilla" synonyms "California Tortilla"
+			"Calistro Bistro DC Ranch Crossing" synonyms "Calistro Bistro DC Ranch Crossing"
+			"Calistro Bistro Hilton Village" synonyms "Calistro Bistro Hilton Village"
+			"Campisi s Egyptian Restaurant" synonyms "Campisi s Egyptian Restaurant"
+			"Canter s" synonyms "Canter s"
+			"Cantina Mariachi" synonyms "Cantina Mariachi"
+			"Canton Garden Restaurant" synonyms "Canton Garden Restaurant"
+			"Canyon Cafe at Loews Ventana Canyon Resort" synonyms "Canyon Cafe at Loews Ventana Canyon Resort"
+			"Cape Town" synonyms "Cape Town"
+			"Capital Grille Phoenix" synonyms "Capital Grille Phoenix"
+			"Capital Grille Scottsdale" synonyms "Capital Grille Scottsdale"
+			"Caplansky s Delicatessen" synonyms "Caplansky s Delicatessen"
+			"Capriccio Grill Peabody Hotel Little Rock" synonyms "Capriccio Grill Peabody Hotel Little Rock"
+			Caprice synonyms Caprice
+			"Captain D s" synonyms "Captain D s"
+			"Captain D s Seafood Kitchen" synonyms "Captain D s Seafood Kitchen"
+			"Captain Submarine" synonyms "Captain Submarine"
+			Caravaggio synonyms Caravaggio
+			"Caribou Coffee" synonyms "Caribou Coffee"
+			"Carino s Italian Grill" synonyms "Carino s Italian Grill"
+			"Carl s Ice Cream" synonyms "Carl s Ice Cream"
+			"Carl s Jr" synonyms "Carl s Jr"
+			"Carlo s Bake Shop" synonyms "Carlo s Bake Shop"
+			"Carlos n Charlie s" synonyms "Carlos n Charlie s"
+			"Carlyle Restaurant" synonyms "Carlyle Restaurant"
+			"Carnegie Deli" synonyms "Carnegie Deli"
+			"Carrabba s Italian Grill" synonyms "Carrabba s Italian Grill"
+			Carrols synonyms Carrols
+			Carrows synonyms Carrows
+			Carvel synonyms Carvel
+			"Carvel Ice Cream" synonyms "Carvel Ice Cream"
+			"Casa Bonita" synonyms "Casa Bonita"
+			"Casa Mia" synonyms "Casa Mia"
+			"Cask 63" synonyms "Cask 63"
+			"Casper s" synonyms "Casper s"
+			"Catalina Barbeque Co and Sports Bar" synonyms "Catalina Barbeque Co and Sports Bar"
+			Cattelin synonyms Cattelin
+			"Cavanagh Company" synonyms "Cavanagh Company"
+			"Cayton s at The Ritz-Carlton Golf Club Dove Mountain" synonyms "Cayton s at The Ritz-Carlton Golf Club Dove Mountain"
+			"Celeste Imperio" synonyms "Celeste Imperio"
+			"Center Parcs" synonyms "Center Parcs"
+			Central synonyms Central
+			"Central Park Fusion" synonyms "Central Park Fusion"
+			"Century House Restaurant and Bar" synonyms "Century House Restaurant and Bar"
+			Cerealicious synonyms Cerealicious
+			"Chandgaon Thana" synonyms "Chandgaon Thana"
+			"Charcuterie Sibilia" synonyms "Charcuterie Sibilia"
+			"Charley Marcuse" synonyms "Charley Marcuse"
+			"Charley s Grilled Subs" synonyms "Charley s Grilled Subs"
+			"Chart House Restaurant Scottsdale" synonyms "Chart House Restaurant Scottsdale"
+			"Chateau Lacombe Hotel" synonyms "Chateau Lacombe Hotel"
+			Checkers synonyms Checkers
+			"Cheeburger Cheeburger" synonyms "Cheeburger Cheeburger"
+			"Cheesecake Factory" synonyms "Cheesecake Factory"
+			Chefette synonyms Chefette
+			"Chelsea Bun House" synonyms "Chelsea Bun House"
+			Chennai synonyms Chennai
+			"Chester s International" synonyms "Chester s International"
+			"Cheuvront Restaurant and Wine Bar" synonyms "Cheuvront Restaurant and Wine Bar"
+			"Chevys Fresh Mex" synonyms "Chevys Fresh Mex"
+			"Chez Ashton" synonyms "Chez Ashton"
+			"Chez Dominique" synonyms "Chez Dominique"
+			"Chez Paul" synonyms "Chez Paul"
+			"Chi Chi s" synonyms "Chi Chi s"
+			"Chiang Mai" synonyms "Chiang Mai"
+			Chiba synonyms Chiba
+			"Chick fil A" synonyms "Chick fil A"
+			"Chick s Deli" synonyms "Chick s Deli"
+			"Chick-fil-A" synonyms "Chick-fil-A"
+			"Chicken Cottage" synonyms "Chicken Cottage"
+			"Chicken Delight" synonyms "Chicken Delight"
+			"Chicken Express" synonyms "Chicken Express"
+			"Chicken Licken" synonyms "Chicken Licken"
+			"Chicken Treat" synonyms "Chicken Treat"
+			"Chico s Tacos" synonyms "Chico s Tacos"
+			"Chili s" synonyms "Chili s"
+			"China Central Television Tower" synonyms "China Central Television Tower"
+			"China Coast" synonyms "China Coast"
+			"Chinese Dragon Cafe" synonyms "Chinese Dragon Cafe"
+			"Chinese Gourmet Express" synonyms "Chinese Gourmet Express"
+			"Chinese Legend" synonyms "Chinese Legend"
+			"Chino s Rock and Tacos" synonyms "Chino s Rock and Tacos"
+			"Chipotle Mexican Grill" synonyms "Chipotle Mexican Grill"
+			Chiquito synonyms Chiquito
+			"Chooks Fresh and Tasty" synonyms "Chooks Fresh and Tasty"
+			Chowking synonyms Chowking
+			"Christopher s Restaurant/Crush Lounge" synonyms "Christopher s Restaurant/Crush Lounge"
+			"Chronic Tacos" synonyms "Chronic Tacos"
+			"Chuck A Rama" synonyms "Chuck A Rama"
+			"Chuck E Cheese" synonyms "Chuck E Cheese"
+			"Chuck E Cheese s" synonyms "Chuck E Cheese s"
+			"Church s" synonyms "Church s"
+			"Church s Chicken" synonyms "Church s Chicken"
+			Churromania synonyms Churromania
+			"Chuy s" synonyms "Chuy s"
+			"Ciao Bella Gelato Company" synonyms "Ciao Bella Gelato Company"
+			"Cibo Espresso" synonyms "Cibo Espresso"
+			"Cien Agaves Tacos and Tequila" synonyms "Cien Agaves Tacos and Tequila"
+			Cinnabon synonyms Cinnabon
+			Cinnzeo synonyms Cinnzeo
+			"Citizen Public House" synonyms "Citizen Public House"
+			"Claim Jumper" synonyms "Claim Jumper"
+			"Clas på Hörnet" synonyms "Clas på Hörnet"
+			"Clements Cafe" synonyms "Clements Cafe"
+			"Clinton Street Baking Company and Restaurant" synonyms "Clinton Street Baking Company and Restaurant"
+			"Cloverhill Bakery" synonyms "Cloverhill Bakery"
+			"Cluck-U Chicken" synonyms "Cluck-U Chicken"
+			"Coco s Bakery" synonyms "Coco s Bakery"
+			Cocohodo synonyms Cocohodo
+			"Coffee 1" synonyms "Coffee 1"
+			"Coffee Beanery" synonyms "Coffee Beanery"
+			"Coffee Island" synonyms "Coffee Island"
+			"Coffee Republic" synonyms "Coffee Republic"
+			"Coffee Time" synonyms "Coffee Time"
+			"Coffee World" synonyms "Coffee World"
+			"Coffee#1" synonyms "Coffee#1"
+			"Coffeeshop Company" synonyms "Coffeeshop Company"
+			"Coffine Gurunaru" synonyms "Coffine Gurunaru"
+			Cofix synonyms Cofix
+			"Cold Rock Ice Creamery" synonyms "Cold Rock Ice Creamery"
+			"Cold Stone Creamery" synonyms "Cold Stone Creamery"
+			"Colectivo Coffee Roasters" synonyms "Colectivo Coffee Roasters"
+			"Collin Street Bakery" synonyms "Collin Street Bakery"
+			"Colombo Baking Company" synonyms "Colombo Baking Company"
+			"Compass Restaurant Hyatt Regency Phoenix" synonyms "Compass Restaurant Hyatt Regency Phoenix"
+			"Coney I Lander" synonyms "Coney I Lander"
+			"Coney Island" synonyms "Coney Island"
+			"Coney Island Hot Dog Stand" synonyms "Coney Island Hot Dog Stand"
+			"Connoisseur s Bakery" synonyms "Connoisseur s Bakery"
+			"Cook Door" synonyms "Cook Door"
+			"Cook Out" synonyms "Cook Out"
+			"Cookies by Design" synonyms "Cookies by Design"
+			"Cooking Papa Restaurant" synonyms "Cooking Papa Restaurant"
+			Cookout synonyms Cookout
+			"Cooks the Bakery" synonyms "Cooks the Bakery"
+			Cooplands synonyms Cooplands
+			"Copeland s" synonyms "Copeland s"
+			"Copeland s-Little Rock" synonyms "Copeland s-Little Rock"
+			Coppelia synonyms Coppelia
+			"Core Kitchen and Wine Bar at The Ritz-Carlton Dove Mountain" synonyms "Core Kitchen and Wine Bar at The Ritz-Carlton Dove Mountain"
+			"Cork Restaurant Chandler" synonyms "Cork Restaurant Chandler"
+			"Corner Bakery Cafe" synonyms "Corner Bakery Cafe"
+			Corton synonyms Corton
+			"Costa Coffee" synonyms "Costa Coffee"
+			"Così" synonyms "Così"
+			"Cottage Place Restaurant" synonyms "Cottage Place Restaurant"
+			"Country Buffet" synonyms "Country Buffet"
+			"Country Club Bakery" synonyms "Country Club Bakery"
+			"Country Style" synonyms "Country Style"
+			"Coup des Tartes" synonyms "Coup des Tartes"
+			"Cousins Subs" synonyms "Cousins Subs"
+			"Cowboy Ciao" synonyms "Cowboy Ciao"
+			"Cows Creamery" synonyms "Cows Creamery"
+			"Cozy Dog Drive In" synonyms "Cozy Dog Drive In"
+			"Crazy Horse Stockholm" synonyms "Crazy Horse Stockholm"
+			"Crazy Mocha Coffee Company" synonyms "Crazy Mocha Coffee Company"
+			Creambell synonyms Creambell
+			Crepaway synonyms Crepaway
+			"Crescent Moon" synonyms "Crescent Moon"
+			"Crow s Nest Hotel Captain Cook" synonyms "Crow s Nest Hotel Captain Cook"
+			"Crown Burgers" synonyms "Crown Burgers"
+			"Crumbs Bake Shop" synonyms "Crumbs Bake Shop"
+			"Crystal Jade Culinary Concept Holdings" synonyms "Crystal Jade Culinary Concept Holdings"
+			"Culver s" synonyms "Culver s"
+			"Cuoco Pazzo" synonyms "Cuoco Pazzo"
+			"Cuppy s Coffee" synonyms "Cuppy s Coffee"
+			"Czech Stop and Little Czech Bakery" synonyms "Czech Stop and Little Czech Bakery"
+			"D Z Akin s Delicatessen" synonyms "D Z Akin s Delicatessen"
+			"DOWNTOWN Kitchen Cocktails" synonyms "DOWNTOWN Kitchen Cocktails"
+			"Da Leonardo Bistro" synonyms "Da Leonardo Bistro"
+			"Da Marino" synonyms "Da Marino"
+			"Dairy Queen" synonyms "Dairy Queen"
+			Dallmayr synonyms Dallmayr
+			Damascus synonyms Damascus
+			"Dancing Deer Baking Co " synonyms "Dancing Deer Baking Co "
+			Daniel synonyms Daniel
+			"Daniel George Restaurant and Bar" synonyms "Daniel George Restaurant and Bar"
+			"Daphne s Greek Cafe" synonyms "Daphne s Greek Cafe"
+			"Dar es Salaam" synonyms "Dar es Salaam"
+			Darshini synonyms Darshini
+			"Dave and Busters" synonyms "Dave and Busters"
+			"Dave s Killer Bread" synonyms "Dave s Killer Bread"
+			Debonairs synonyms Debonairs
+			"Defonte s" synonyms "Defonte s"
+			"Del Taco" synonyms "Del Taco"
+			"Deli de Luca" synonyms "Deli de Luca"
+			Delifrance synonyms Delifrance
+			"Delta Cafes" synonyms "Delta Cafes"
+			"Delta Cafés" synonyms "Delta Cafés"
+			"Den gröne Jägaren" synonyms "Den gröne Jägaren"
+			"Den gyldene freden" synonyms "Den gyldene freden"
+			"Denny s" synonyms "Denny s"
+			"Deseo at the Westin Kierland Resort and Spa" synonyms "Deseo at the Westin Kierland Resort and Spa"
+			"Dewey s Bakery" synonyms "Dewey s Bakery"
+			"Dic Ann s Hamburgers" synonyms "Dic Ann s Hamburgers"
+			"Dick s Drive-In" synonyms "Dick s Drive-In"
+			"Dickey s Barbecue Pit" synonyms "Dickey s Barbecue Pit"
+			Dicos synonyms Dicos
+			"Diedrich Coffee" synonyms "Diedrich Coffee"
+			"Different Pointe of View" synonyms "Different Pointe of View"
+			"Din Tai Fung" synonyms "Din Tai Fung"
+			Dinemore synonyms Dinemore
+			"Dinosaur Bar B Que" synonyms "Dinosaur Bar B Que"
+			"Dipper Dan" synonyms "Dipper Dan"
+			"District American Kitchen and Wine Bar" synonyms "District American Kitchen and Wine Bar"
+			"Distrito AZ" synonyms "Distrito AZ"
+			"Dixie Chili and Deli" synonyms "Dixie Chili and Deli"
+			"Dixie Lee Fried Chicken" synonyms "Dixie Lee Fried Chicken"
+			"Dixie s BBQ" synonyms "Dixie s BBQ"
+			"Dixy Chicken" synonyms "Dixy Chicken"
+			"Djurgårdsbrunns värdshus" synonyms "Djurgårdsbrunns värdshus"
+			DoNuts synonyms DoNuts
+			"Dog n Suds" synonyms "Dog n Suds"
+			Dome synonyms Dome
+			"Domino s" synonyms "Domino s"
+			"Domino s Pizza" synonyms "Domino s Pizza"
+			"Domino\'s Pizza" synonyms "Domino\'s Pizza"
+			"Don Pablo s" synonyms "Don Pablo s"
+			"Don Pedro Mexican Restaurant" synonyms "Don Pedro Mexican Restaurant"
+			"Don and Charlie s" synonyms "Don and Charlie s"
+			Donauturm synonyms Donauturm
+			"Dong Phuong Oriental Bakery" synonyms "Dong Phuong Oriental Bakery"
+			"Donovan s Phoenix" synonyms "Donovan s Phoenix"
+			"Donut Diner" synonyms "Donut Diner"
+			"Donut King" synonyms "Donut King"
+			"Dorsch s White Cross Bakery" synonyms "Dorsch s White Cross Bakery"
+			"Dos Reales" synonyms "Dos Reales"
+			"Double Coffee" synonyms "Double Coffee"
+			"Doutor Coffee" synonyms "Doutor Coffee"
+			"Douwe Egberts" synonyms "Douwe Egberts"
+			"Dozen Bake Shop" synonyms "Dozen Bake Shop"
+			"Drago restaurants" synonyms "Drago restaurants"
+			"Dreamland Bar B Que" synonyms "Dreamland Bar B Que"
+			"Druckers Vienna Patisserie" synonyms "Druckers Vienna Patisserie"
+			"Druther s" synonyms "Druther s"
+			Dubai synonyms Dubai
+			Duchess synonyms Duchess
+			"Dumser s Dairyland" synonyms "Dumser s Dairyland"
+			"Dunkin Brands" synonyms "Dunkin Brands"
+			"Dunkin Donuts" synonyms "Dunkin Donuts"
+			"Dunn Bros" synonyms "Dunn Bros"
+			"Dunn s" synonyms "Dunn s"
+			"Durant s" synonyms "Durant s"
+			"Dutch Bros Coffee" synonyms "Dutch Bros Coffee"
+			"Dyrons Low country" synonyms "Dyrons Low country"
+			"Délifrance" synonyms "Délifrance"
+			"Dôme" synonyms "Dôme"
+			ELeclerc synonyms ELeclerc
+			"Eagle Boys" synonyms "Eagle Boys"
+			"Earl of Sandwich" synonyms "Earl of Sandwich"
+			East synonyms East
+			"East Beach Cafe" synonyms "East Beach Cafe"
+			"East Dawning" synonyms "East Dawning"
+			"East Neuk of Fife" synonyms "East Neuk of Fife"
+			"East Side Mario s" synonyms "East Side Mario s"
+			"East West Sushi" synonyms "East West Sushi"
+			EasyInternetcafe synonyms EasyInternetcafe
+			"EasyInternetcafé" synonyms "EasyInternetcafé"
+			Eat synonyms Eat
+			"Eat n Park" synonyms "Eat n Park"
+			"EatZi s" synonyms "EatZi s"
+			"Eddie Rocket s" synonyms "Eddie Rocket s"
+			"Eddie V s Scottsdale Quarter" synonyms "Eddie V s Scottsdale Quarter"
+			"Eddie s House" synonyms "Eddie s House"
+			"Ediya Coffee" synonyms "Ediya Coffee"
+			"Edsbacka krog" synonyms "Edsbacka krog"
+			"Eegee s" synonyms "Eegee s"
+			"Einstein Bros Bagels" synonyms "Einstein Bros Bagels"
+			Ekorren synonyms Ekorren
+			"El Adobe de Capistrano" synonyms "El Adobe de Capistrano"
+			"El Bajío" synonyms "El Bajío"
+			"El Chico" synonyms "El Chico"
+			"El Chorro" synonyms "El Chorro"
+			"El Coyote Cafe" synonyms "El Coyote Cafe"
+			"El Fenix" synonyms "El Fenix"
+			"El Meson Sandwiches" synonyms "El Meson Sandwiches"
+			"El Pollo Loco" synonyms "El Pollo Loco"
+			"El Taco Tote" synonyms "El Taco Tote"
+			"El Taco Tote Mexican Grill" synonyms "El Taco Tote Mexican Grill"
+			"El Torito" synonyms "El Torito"
+			"Elephant Bar" synonyms "Elephant Bar"
+			"Elephants Delicatessen" synonyms "Elephants Delicatessen"
+			"Elevation Burger" synonyms "Elevation Burger"
+			"Eleven Madison Park" synonyms "Eleven Madison Park"
+			"Elsasser Bakery" synonyms "Elsasser Bakery"
+			"Emack and Bolio s" synonyms "Emack and Bolio s"
+			"Endem TV Tower" synonyms "Endem TV Tower"
+			"Enrico Biscotti Company" synonyms "Enrico Biscotti Company"
+			"Entenmann s" synonyms "Entenmann s"
+			"Epiphany Cafe" synonyms "Epiphany Cafe"
+			"Erbert Gerbert s" synonyms "Erbert Gerbert s"
+			"Erick Schat s Bakkerÿ" synonyms "Erick Schat s Bakkerÿ"
+			Ernakulam synonyms Ernakulam
+			"Es Teler 77" synonyms "Es Teler 77"
+			Esperanto synonyms Esperanto
+			"Espresso House" synonyms "Espresso House"
+			"Espresso Vivace" synonyms "Espresso Vivace"
+			Esquires synonyms Esquires
+			"Essie s Original Hot Dog shop" synonyms "Essie s Original Hot Dog shop"
+			"Eva s Paley" synonyms "Eva s Paley"
+			"Extreme Pita" synonyms "Extreme Pita"
+			"F A Kennedy Steam Bakery" synonyms "F A Kennedy Steam Bakery"
+			FEBO synonyms FEBO
+			"Faaso s" synonyms "Faaso s"
+			Fairwood synonyms Fairwood
+			"Famous Dave s" synonyms "Famous Dave s"
+			"Far Coast" synonyms "Far Coast"
+			"Farmer Boys" synonyms "Farmer Boys"
+			"Farrell s Ice Cream Parlour" synonyms "Farrell s Ice Cream Parlour"
+			"Fast Eddies" synonyms "Fast Eddies"
+			"Fast Eddys" synonyms "Fast Eddys"
+			Fatburger synonyms Fatburger
+			"Fazoli s" synonyms "Fazoli s"
+			"Feast Tucson" synonyms "Feast Tucson"
+			"Federal Pretzel Baking Company" synonyms "Federal Pretzel Baking Company"
+			"Fellini s Pizza" synonyms "Fellini s Pizza"
+			"Fem små hus" synonyms "Fem små hus"
+			Fenixpalatset synonyms Fenixpalatset
+			"Fentons Creamery" synonyms "Fentons Creamery"
+			Ferneau synonyms Ferneau
+			Fernmeldeturm synonyms Fernmeldeturm
+			"Ferrara Bakery and Cafe" synonyms "Ferrara Bakery and Cafe"
+			"Figaro Coffee Company" synonyms "Figaro Coffee Company"
+			"Filomena Ristorante" synonyms "Filomena Ristorante"
+			"Fine Burger Company" synonyms "Fine Burger Company"
+			"Fiorella s Jack Stack Barbecue" synonyms "Fiorella s Jack Stack Barbecue"
+			"Firehouse Subs" synonyms "Firehouse Subs"
+			"First Kitchen" synonyms "First Kitchen"
+			"Five Guys" synonyms "Five Guys"
+			"Five Guys Famous Burgers and Fries" synonyms "Five Guys Famous Burgers and Fries"
+			"Fjäderholmarnas krog" synonyms "Fjäderholmarnas krog"
+			"Fleming s Prime Steakhouse and Wine Bar Birmingham" synonyms "Fleming s Prime Steakhouse and Wine Bar Birmingham"
+			"Fleming s Prime Steakhouse and Wine Bar Chandler" synonyms "Fleming s Prime Steakhouse and Wine Bar Chandler"
+			"Fleming s Prime Steakhouse and Wine Bar DC Ranch" synonyms "Fleming s Prime Steakhouse and Wine Bar DC Ranch"
+			"Fleming s Prime Steakhouse and Wine Bar Peoria" synonyms "Fleming s Prime Steakhouse and Wine Bar Peoria"
+			"Fleming s Prime Steakhouse and Wine Bar Scottsdale" synonyms "Fleming s Prime Steakhouse and Wine Bar Scottsdale"
+			"Fleming s Prime Steakhouse and Wine Bar Tucson" synonyms "Fleming s Prime Steakhouse and Wine Bar Tucson"
+			"Fleur de Lys" synonyms "Fleur de Lys"
+			"Flickorna Lundgren" synonyms "Flickorna Lundgren"
+			"Flight Lounge Bistro" synonyms "Flight Lounge Bistro"
+			Flocafe synonyms Flocafe
+			"Flocafé" synonyms "Flocafé"
+			Florence synonyms Florence
+			Florianturm synonyms Florianturm
+			"Flower Drum" synonyms "Flower Drum"
+			"Flowers Foods" synonyms "Flowers Foods"
+			"Fluky s" synonyms "Fluky s"
+			Flunch synonyms Flunch
+			"Flying Wedge Pizza" synonyms "Flying Wedge Pizza"
+			"Focus Brands" synonyms "Focus Brands"
+			"Fogo de Chão" synonyms "Fogo de Chão"
+			Fond synonyms Fond
+			"Fontana Di Amore" synonyms "Fontana Di Amore"
+			"Formosa Cafe" synonyms "Formosa Cafe"
+			"Forsbacka Wärdshus" synonyms "Forsbacka Wärdshus"
+			"Fortnum and Mason" synonyms "Fortnum and Mason"
+			"Fossati s Delicatessen" synonyms "Fossati s Delicatessen"
+			"Fosters Freeze" synonyms "Fosters Freeze"
+			"Four Lanterns" synonyms "Four Lanterns"
+			"Four Seas Ice Cream" synonyms "Four Seas Ice Cream"
+			"Four Seasons" synonyms "Four Seasons"
+			"Four Star Pizza" synonyms "Four Star Pizza"
+			"Fox s Biscuits" synonyms "Fox s Biscuits"
+			"Foz do Iguaçu" synonyms "Foz do Iguaçu"
+			"Frank Fat s Restaurant" synonyms "Frank Fat s Restaurant"
+			"Frank Pepe Pizzeria Napoletana" synonyms "Frank Pepe Pizzeria Napoletana"
+			"Frank and Alberts The Arizona Biltmore" synonyms "Frank and Alberts The Arizona Biltmore"
+			"Frankie and Benny s" synonyms "Frankie and Benny s"
+			"Franklin Barbecue" synonyms "Franklin Barbecue"
+			"Franklin Cider Mill" synonyms "Franklin Cider Mill"
+			"Frantzén/Lindeberg" synonyms "Frantzén/Lindeberg"
+			"Fred s at Barneys New York Scottsdale" synonyms "Fred s at Barneys New York Scottsdale"
+			"Freddy s Frozen Custard" synonyms "Freddy s Frozen Custard"
+			"Freddy s Frozen Custard and Steakburgers" synonyms "Freddy s Frozen Custard and Steakburgers"
+			"Fredsgatan 12" synonyms "Fredsgatan 12"
+			"Freebirds World Burrito" synonyms "Freebirds World Burrito"
+			"French Laundry" synonyms "French Laundry"
+			"French Meadow Bakery" synonyms "French Meadow Bakery"
+			Freshii synonyms Freshii
+			"Freshness Burger" synonyms "Freshness Burger"
+			"Freshslice Pizza" synonyms "Freshslice Pizza"
+			"Friendly s" synonyms "Friendly s"
+			Friterie synonyms Friterie
+			"Fryer s" synonyms "Fryer s"
+			"Fuchs Bakery" synonyms "Fuchs Bakery"
+			"Fuchun Teahouse" synonyms "Fuchun Teahouse"
+			"Furama Hong Kong Hotel" synonyms "Furama Hong Kong Hotel"
+			"G H Bent Company" synonyms "G H Bent Company"
+			GOLD synonyms GOLD
+			"Gabriel Pizza" synonyms "Gabriel Pizza"
+			"Gaby s Deli" synonyms "Gaby s Deli"
+			Gad synonyms Gad
+			"Gaddi s" synonyms "Gaddi s"
+			"Galatoire s" synonyms "Galatoire s"
+			"Gallone s" synonyms "Gallone s"
+			"GandD s" synonyms "GandD s"
+			"Gargiulo s Italian Restaurant" synonyms "Gargiulo s Italian Restaurant"
+			"Gasper s" synonyms "Gasper s"
+			Gastro synonyms Gastro
+			"Gates Bar B Q" synonyms "Gates Bar B Q"
+			"Gene and Jude s" synonyms "Gene and Jude s"
+			"Genex Tower" synonyms "Genex Tower"
+			"George Town Penang" synonyms "George Town Penang"
+			"Georgetown Bagelry" synonyms "Georgetown Bagelry"
+			"Georgetown Cupcake" synonyms "Georgetown Cupcake"
+			"Georgie Pie" synonyms "Georgie Pie"
+			"Gianfranco Ristorante" synonyms "Gianfranco Ristorante"
+			"Gibeau Orange Julep" synonyms "Gibeau Orange Julep"
+			"Gimme Coffee" synonyms "Gimme Coffee"
+			Ginger synonyms Ginger
+			Ginsters synonyms Ginsters
+			Giolitti synonyms Giolitti
+			Giraffas synonyms Giraffas
+			"Glacier BrewHouse" synonyms "Glacier BrewHouse"
+			"Glenn Miller Café" synonyms "Glenn Miller Café"
+			"Gloria Jean s Coffees" synonyms "Gloria Jean s Coffees"
+			Glorias synonyms Glorias
+			"Go Nuts Donuts" synonyms "Go Nuts Donuts"
+			"Gold Star Chili" synonyms "Gold Star Chili"
+			"Golden Chick" synonyms "Golden Chick"
+			"Golden Corral" synonyms "Golden Corral"
+			"Golden Gate Fortune Cookie Company" synonyms "Golden Gate Fortune Cookie Company"
+			"Golden Hits" synonyms "Golden Hits"
+			"Golden Spoon" synonyms "Golden Spoon"
+			"Goldilocks Bakeshop" synonyms "Goldilocks Bakeshop"
+			"Goli Vada Pav" synonyms "Goli Vada Pav"
+			Gondolen synonyms Gondolen
+			"Good Times Burgers Frozen Custard" synonyms "Good Times Burgers Frozen Custard"
+			"Good Times Burgers and Frozen Custard" synonyms "Good Times Burgers and Frozen Custard"
+			"Goody s" synonyms "Goody s"
+			"Gorditas Doña Tota" synonyms "Gorditas Doña Tota"
+			Gorgan synonyms Gorgan
+			"Gourmet Foods" synonyms "Gourmet Foods"
+			"Graeter s" synonyms "Graeter s"
+			Granada synonyms Granada
+			"Grand Central Bakery" synonyms "Grand Central Bakery"
+			"Grand Garbo" synonyms "Grand Garbo"
+			"Grand Hotel Lund" synonyms "Grand Hotel Lund"
+			"Grand Hyatt Cairo" synonyms "Grand Hyatt Cairo"
+			"Grandy s" synonyms "Grandy s"
+			"Gray s Papaya" synonyms "Gray s Papaya"
+			"Great American Cookies" synonyms "Great American Cookies"
+			"Great Harvest Bread Company" synonyms "Great Harvest Bread Company"
+			"Great Steak" synonyms "Great Steak"
+			"Greco Pizza Restaurant" synonyms "Greco Pizza Restaurant"
+			"Greek Islands" synonyms "Greek Islands"
+			Greekfest synonyms Greekfest
+			"Green Burrito" synonyms "Green Burrito"
+			"Greenwich Pizza" synonyms "Greenwich Pizza"
+			"Gregg s" synonyms "Gregg s"
+			Greggs synonyms Greggs
+			Gretas synonyms Gretas
+			"Greyston Bakery" synonyms "Greyston Bakery"
+			"Grido Helado" synonyms "Grido Helado"
+			"Griff s Hamburgers" synonyms "Griff s Hamburgers"
+			"Grille 29" synonyms "Grille 29"
+			"Grodzinski Bakery" synonyms "Grodzinski Bakery"
+			"Grounds for Coffee" synonyms "Grounds for Coffee"
+			"Groupe Casino" synonyms "Groupe Casino"
+			"Grupo Sanborns" synonyms "Grupo Sanborns"
+			"Guadalajara Fiesta Grill" synonyms "Guadalajara Fiesta Grill"
+			"Guadalajara Original Grill" synonyms "Guadalajara Original Grill"
+			"Guldhedens vattentorn" synonyms "Guldhedens vattentorn"
+			"Guo Li Zhuang" synonyms "Guo Li Zhuang"
+			"Gus s" synonyms "Gus s"
+			"Gus s Pretzels" synonyms "Gus s Pretzels"
+			"Gutekällaren" synonyms "Gutekällaren"
+			"Guzman y Gomez" synonyms "Guzman y Gomez"
+			"Gyllene Cirkeln" synonyms "Gyllene Cirkeln"
+			"Gyllene Uttern" synonyms "Gyllene Uttern"
+			"Gyu Kaku" synonyms "Gyu Kaku"
+			"Göteborgs kaféer" synonyms "Göteborgs kaféer"
+			"H Salt Esquire" synonyms "H Salt Esquire"
+			"HR Bradfords" synonyms "HR Bradfords"
+			"HUB Restaurant and Ice Creamery" synonyms "HUB Restaurant and Ice Creamery"
+			"Habib s" synonyms "Habib s"
+			Hakkasan synonyms Hakkasan
+			"Haldiram s" synonyms "Haldiram s"
+			"Halo Burger" synonyms "Halo Burger"
+			"Halta Lottas krog" synonyms "Halta Lottas krog"
+			"Halv Grek Plus Turk" synonyms "Halv Grek Plus Turk"
+			"Hamburguesas El Corral" synonyms "Hamburguesas El Corral"
+			"Handel s Homemade Ice Cream and Yogurt" synonyms "Handel s Homemade Ice Cream and Yogurt"
+			"Hannah Banana Bread Company" synonyms "Hannah Banana Bread Company"
+			"Happi House" synonyms "Happi House"
+			"Happy Joe s" synonyms "Happy Joe s"
+			"Hard Rock Cafe" synonyms "Hard Rock Cafe"
+			"Hardee s" synonyms "Hardee s"
+			"Harold s Chicken Shack" synonyms "Harold s Chicken Shack"
+			"Harry Ramsden s" synonyms "Harry Ramsden s"
+			Harrys synonyms Harrys
+			"Harvest Restaurant" synonyms "Harvest Restaurant"
+			"Harvey s" synonyms "Harvey s"
+			"Hasselbacken Stockholm" synonyms "Hasselbacken Stockholm"
+			"Haute cuisine" synonyms "Haute cuisine"
+			Havanna synonyms Havanna
+			"Healthy Habits" synonyms "Healthy Habits"
+			"Heart Coffee Roasters" synonyms "Heart Coffee Roasters"
+			Heichinrou synonyms Heichinrou
+			"Heiner s Bakery" synonyms "Heiner s Bakery"
+			"Heinrich Hertz Turm" synonyms "Heinrich Hertz Turm"
+			"Hell Pizza" synonyms "Hell Pizza"
+			"Helms Bakery" synonyms "Helms Bakery"
+			"Henninger Turm" synonyms "Henninger Turm"
+			"Henny Penny" synonyms "Henny Penny"
+			Henriksberg synonyms Henriksberg
+			"Henry S Levy and Sons" synonyms "Henry S Levy and Sons"
+			Herfy synonyms Herfy
+			"Hero Certified Burgers" synonyms "Hero Certified Burgers"
+			"Herrell s Ice Cream" synonyms "Herrell s Ice Cream"
+			Hesburger synonyms Hesburger
+			"High s Dairy Store" synonyms "High s Dairy Store"
+			"Highlands Bar and Grill" synonyms "Highlands Bar and Grill"
+			"Highlands Coffee" synonyms "Highlands Coffee"
+			"Hillbilly Hot Dogs" synonyms "Hillbilly Hot Dogs"
+			"Hillbilly s" synonyms "Hillbilly s"
+			Hiroshima synonyms Hiroshima
+			"Ho Lee Chow" synonyms "Ho Lee Chow"
+			"Hogi Yogi" synonyms "Hogi Yogi"
+			"Hoher Kasten" synonyms "Hoher Kasten"
+			"Hoka Hoka Bento" synonyms "Hoka Hoka Bento"
+			"Hollys Coffee" synonyms "Hollys Coffee"
+			"Home Ice Cream" synonyms "Home Ice Cream"
+			"Hometown Buffet" synonyms "Hometown Buffet"
+			"Honey Dew Donuts" synonyms "Honey Dew Donuts"
+			"Hong Kong Noodle Company" synonyms "Hong Kong Noodle Company"
+			"Hostess Brands" synonyms "Hostess Brands"
+			"Hot Dog on a Stick" synonyms "Hot Dog on a Stick"
+			"Hot Doug s" synonyms "Hot Doug s"
+			"Hot dog cart" synonyms "Hot dog cart"
+			"Hot dog day" synonyms "Hot dog day"
+			"Hot dog variations" synonyms "Hot dog variations"
+			"Hot n Now" synonyms "Hot n Now"
+			"Hotel New Otani" synonyms "Hotel New Otani"
+			"Hotell Gillet Stockholm" synonyms "Hotell Gillet Stockholm"
+			"Hotell Östergötland" synonyms "Hotell Östergötland"
+			"Hotto Motto" synonyms "Hotto Motto"
+			"House of Tricks" synonyms "House of Tricks"
+			Hovis synonyms Hovis
+			"Huddle House" synonyms "Huddle House"
+			"Hudsons Coffee" synonyms "Hudsons Coffee"
+			"Hundred Rox" synonyms "Hundred Rox"
+			"Hungry Jack s" synonyms "Hungry Jack s"
+			"Huntley and Palmers" synonyms "Huntley and Palmers"
+			"Hypnotic Donuts" synonyms "Hypnotic Donuts"
+			"Häagen Dazs" synonyms "Häagen Dazs"
+			IHOP synonyms IHOP
+			Ichibanya synonyms Ichibanya
+			"Il Fornaio" synonyms "Il Fornaio"
+			"Il Terrazzo The Phoenician" synonyms "Il Terrazzo The Phoenician"
+			"Imperial Dynasty restaurant" synonyms "Imperial Dynasty restaurant"
+			"In N Out Burger" synonyms "In N Out Burger"
+			"In-N-Out Burger" synonyms "In-N-Out Burger"
+			"Indian Coffee House" synonyms "Indian Coffee House"
+			"Insomnia Coffee Company" synonyms "Insomnia Coffee Company"
+			"Insomnia Cookies" synonyms "Insomnia Cookies"
+			"Intelligentsia Coffee Tea" synonyms "Intelligentsia Coffee Tea"
+			"Intelligentsia Coffee and Tea" synonyms "Intelligentsia Coffee and Tea"
+			"Irani café" synonyms "Irani café"
+			"Irwin s Bakery" synonyms "Irwin s Bakery"
+			Isfahan synonyms Isfahan
+			Islamabad synonyms Islamabad
+			"It s a Grind Coffee House" synonyms "It s a Grind Coffee House"
+			Italian synonyms Italian
+			"Italian Tomato" synonyms "Italian Tomato"
+			"Ivar s" synonyms "Ivar s"
+			"J Alexander s" synonyms "J Alexander s"
+			"J BAR" synonyms "J BAR"
+			"J CO Donuts" synonyms "J CO Donuts"
+			"J G Steakhouse Scottsdale at The Phoenician" synonyms "J G Steakhouse Scottsdale at The Phoenician"
+			"Jack in the Box" synonyms "Jack in the Box"
+			"Jack s" synonyms "Jack s"
+			"Jahn s" synonyms "Jahn s"
+			Jaipur synonyms Jaipur
+			"James Coney Island" synonyms "James Coney Island"
+			"Jammu city" synonyms "Jammu city"
+			"JandR Kosher Meat and Delicatessen" synonyms "JandR Kosher Meat and Delicatessen"
+			Janos synonyms Janos
+			Japadog synonyms Japadog
+			"Jason s Deli" synonyms "Jason s Deli"
+			"Jean Georges" synonyms "Jean Georges"
+			Jef synonyms Jef
+			"Jeni s Splendid Ice Creams" synonyms "Jeni s Splendid Ice Creams"
+			"Jenny Lee Bakery" synonyms "Jenny Lee Bakery"
+			"Jeno s Pizza" synonyms "Jeno s Pizza"
+			"Jens  Restaurant" synonyms "Jens  Restaurant"
+			"Jerry s Famous Deli" synonyms "Jerry s Famous Deli"
+			"Jersey Mike s Subs" synonyms "Jersey Mike s Subs"
+			"Jesse s Restaurant" synonyms "Jesse s Restaurant"
+			"Jiffy Lube" synonyms "Jiffy Lube"
+			"Jim s Restaurants" synonyms "Jim s Restaurants"
+			"Jimboy s Tacos" synonyms "Jimboy s Tacos"
+			"Jimmy Chung s" synonyms "Jimmy Chung s"
+			"Jimmy John s" synonyms "Jimmy John s"
+			"Jimmy the Greek" synonyms "Jimmy the Greek"
+			"Jittery Joe s" synonyms "Jittery Joe s"
+			"Joan s on Third" synonyms "Joan s on Third"
+			"Joe Muggs" synonyms "Joe Muggs"
+			"Joe s Shanghai" synonyms "Joe s Shanghai"
+			"Joe’s Kansas City Bar B Que" synonyms "Joe’s Kansas City Bar B Que"
+			"Johnny Rockets" synonyms "Johnny Rockets"
+			Jollibee synonyms Jollibee
+			"Josephine s Modern American Bistro" synonyms "Josephine s Modern American Bistro"
+			"Joy Hing s Roasted Meat" synonyms "Joy Hing s Roasted Meat"
+			"Joël Robuchon" synonyms "Joël Robuchon"
+			"Juan Pollo" synonyms "Juan Pollo"
+			"Juan Valdez Cafe" synonyms "Juan Valdez Cafe"
+			"Juan Valdez Café" synonyms "Juan Valdez Café"
+			"Jumbo King" synonyms "Jumbo King"
+			"Jumbo Kingdom" synonyms "Jumbo Kingdom"
+			"Jumbo Seafood" synonyms "Jumbo Seafood"
+			"Junggrens Café" synonyms "Junggrens Café"
+			"Jus Rol" synonyms "Jus Rol"
+			"Jutaholms café" synonyms "Jutaholms café"
+			KFC synonyms KFC
+			KLG synonyms KLG
+			KaatiZone synonyms KaatiZone
+			Kabuki synonyms Kabuki
+			"Kabuki Japanese Restaurant Glendale" synonyms "Kabuki Japanese Restaurant Glendale"
+			"Kabuki Japanese Restaurant Tempe" synonyms "Kabuki Japanese Restaurant Tempe"
+			Kaffebrenneriet synonyms Kaffebrenneriet
+			"Kai Mayfair" synonyms "Kai Mayfair"
+			"Kai Sheraton Wild Horse Pass Resort" synonyms "Kai Sheraton Wild Horse Pass Resort"
+			"Kaknästornet" synonyms "Kaknästornet"
+			KaleidoScoops synonyms KaleidoScoops
+			Kampala synonyms Kampala
+			"Kamzík TV Tower" synonyms "Kamzík TV Tower"
+			Kandeel synonyms Kandeel
+			"Kanemitsu Bakery" synonyms "Kanemitsu Bakery"
+			Karachi synonyms Karachi
+			Karaj synonyms Karaj
+			"Kardomah Cafés" synonyms "Kardomah Cafés"
+			"Kashmir Crown Bakeries" synonyms "Kashmir Crown Bakeries"
+			"Kattilakoski Gastronomi" synonyms "Kattilakoski Gastronomi"
+			"Katz s Delicatessen" synonyms "Katz s Delicatessen"
+			"Kebab Turki Baba Rafi" synonyms "Kebab Turki Baba Rafi"
+			"Kellari Hospitality Group" synonyms "Kellari Hospitality Group"
+			"Kenny Rogers Roasters" synonyms "Kenny Rogers Roasters"
+			"Kenny and Zuke s Delicatessen" synonyms "Kenny and Zuke s Delicatessen"
+			"Kerbisher and Malt" synonyms "Kerbisher and Malt"
+			Kewpee synonyms Kewpee
+			"Khaan Buuz" synonyms "Khaan Buuz"
+			"Kim S?n" synonyms "Kim S?n"
+			"Kincaid Grill" synonyms "Kincaid Grill"
+			"Kincaid s Phoenix" synonyms "Kincaid s Phoenix"
+			"King Taco" synonyms "King Taco"
+			"King of Donair" synonyms "King of Donair"
+			"King s Hawaiian" synonyms "King s Hawaiian"
+			"King seafood" synonyms "King seafood"
+			"Kingfisher Bar and Grill" synonyms "Kingfisher Bar and Grill"
+			"Kingsley s Chicken" synonyms "Kingsley s Chicken"
+			"Kinley s Restaurant and Bar" synonyms "Kinley s Restaurant and Bar"
+			"Kish Island" synonyms "Kish Island"
+			"Kiss My Bundt Bakery" synonyms "Kiss My Bundt Bakery"
+			"Klenger Burger" synonyms "Klenger Burger"
+			"Klevs gästgiveri" synonyms "Klevs gästgiveri"
+			"Ko sin Sheraton Wild Horse Pass Resort" synonyms "Ko sin Sheraton Wild Horse Pass Resort"
+			"Kock och Vin" synonyms "Kock och Vin"
+			Komi synonyms Komi
+			"Kona Grill Chandler" synonyms "Kona Grill Chandler"
+			"Kona Grill Gilbert" synonyms "Kona Grill Gilbert"
+			"Kona Grill Phoenix" synonyms "Kona Grill Phoenix"
+			"Kona Grill Scottsdale" synonyms "Kona Grill Scottsdale"
+			"Koni Store" synonyms "Koni Store"
+			"Konstnärsbaren" synonyms "Konstnärsbaren"
+			"Kopp s Frozen Custard" synonyms "Kopp s Frozen Custard"
+			"Koryo Hotel" synonyms "Koryo Hotel"
+			"Kossar s Bialys" synonyms "Kossar s Bialys"
+			"Kota Kinabalu" synonyms "Kota Kinabalu"
+			Kotipizza synonyms Kotipizza
+			"Krispy Kreme" synonyms "Krispy Kreme"
+			"Krispy Kreme UK" synonyms "Krispy Kreme UK"
+			"Kro s Nest" synonyms "Kro s Nest"
+			"Kronprinsen Stockholm" synonyms "Kronprinsen Stockholm"
+			Kudu synonyms Kudu
+			"Kullagården Höganäs kommun" synonyms "Kullagården Höganäs kommun"
+			"Kuo Yuan" synonyms "Kuo Yuan"
+			"Kuwait Towers" synonyms "Kuwait Towers"
+			Kvarnen synonyms Kvarnen
+			Kyochon synonyms Kyochon
+			Kyoto synonyms Kyoto
+			"Kåken" synonyms "Kåken"
+			"L Amore" synonyms "L Amore"
+			"L Arpège" synonyms "L Arpège"
+			"L Atelier de Joël Robuchon" synonyms "L Atelier de Joël Robuchon"
+			"L Auberge Restaurant on Oak Creek" synonyms "L Auberge Restaurant on Oak Creek"
+			"L Opéra restaurant" synonyms "L Opéra restaurant"
+			"La Belle Province" synonyms "La Belle Province"
+			"La Bou" synonyms "La Bou"
+			"La Brea Bakery" synonyms "La Brea Bakery"
+			"La Caille" synonyms "La Caille"
+			"La Côte Basque" synonyms "La Côte Basque"
+			"La Dolce Vita Birmingham" synonyms "La Dolce Vita Birmingham"
+			"La Ferme de Mon Père" synonyms "La Ferme de Mon Père"
+			"La Grenouille" synonyms "La Grenouille"
+			"La Hacienda at The Fairmont" synonyms "La Hacienda at The Fairmont"
+			"La Porchetta" synonyms "La Porchetta"
+			"La Porchetta Pronto" synonyms "La Porchetta Pronto"
+			"La Segunda Bakery" synonyms "La Segunda Bakery"
+			"La Société" synonyms "La Société"
+			"La Stazione" synonyms "La Stazione"
+			"La Tante Claire" synonyms "La Tante Claire"
+			"La Torretta Ristorante" synonyms "La Torretta Ristorante"
+			"LaMar s Donuts" synonyms "LaMar s Donuts"
+			"Lady Hutton" synonyms "Lady Hutton"
+			"Lafleur Restaurants" synonyms "Lafleur Restaurants"
+			"Lammet and Grisen" synonyms "Lammet and Grisen"
+			"LandL Hawaiian Barbecue" synonyms "LandL Hawaiian Barbecue"
+			"Lappert s" synonyms "Lappert s"
+			"Lares Ice Cream Parlor" synonyms "Lares Ice Cream Parlor"
+			"Lariat Restaurant" synonyms "Lariat Restaurant"
+			"Larry s Giant Subs" synonyms "Larry s Giant Subs"
+			"Laura Secord Chocolates" synonyms "Laura Secord Chocolates"
+			Lavazza synonyms Lavazza
+			"Le Bec Fin" synonyms "Le Bec Fin"
+			"Le Bernardin" synonyms "Le Bernardin"
+			"Le Cirque" synonyms "Le Cirque"
+			"Le Gavroche" synonyms "Le Gavroche"
+			"Le Grand Café de la Rade" synonyms "Le Grand Café de la Rade"
+			"Le Kuklos" synonyms "Le Kuklos"
+			"Le Macaron" synonyms "Le Macaron"
+			"Le Manoir aux Quat Saisons" synonyms "Le Manoir aux Quat Saisons"
+			"Le Pain Français" synonyms "Le Pain Français"
+			"Le Pain Quotidien" synonyms "Le Pain Quotidien"
+			"Le Pavillon" synonyms "Le Pavillon"
+			"Le Rendez-vous Restaurant Francais" synonyms "Le Rendez-vous Restaurant Francais"
+			"Le Rendezvous" synonyms "Le Rendezvous"
+			"Le Sans Souci" synonyms "Le Sans Souci"
+			"LeJeune s Bakery" synonyms "LeJeune s Bakery"
+			"Lee Roy Selmon s" synonyms "Lee Roy Selmon s"
+			"Lee s Famous Recipe Chicken" synonyms "Lee s Famous Recipe Chicken"
+			"Leeann Chin" synonyms "Leeann Chin"
+			"Leidenheimer Baking Company" synonyms "Leidenheimer Baking Company"
+			Leijontornet synonyms Leijontornet
+			"Lender s Bagels" synonyms "Lender s Bagels"
+			"Lenny s Sub Shop" synonyms "Lenny s Sub Shop"
+			"Leonard s Bakery" synonyms "Leonard s Bakery"
+			"Les Créations de Narisawa" synonyms "Les Créations de Narisawa"
+			"Les Deux Magots" synonyms "Les Deux Magots"
+			Lettieri synonyms Lettieri
+			"Levain Bakery" synonyms "Levain Bakery"
+			"Liberation Tower" synonyms "Liberation Tower"
+			"Lick s Homeburgers" synonyms "Lick s Homeburgers"
+			"Lidingöbro värdshus" synonyms "Lidingöbro värdshus"
+			"Liguria Bakery" synonyms "Liguria Bakery"
+			"Lindy s" synonyms "Lindy s"
+			"Lion s Choice" synonyms "Lion s Choice"
+			"Lisboa Patisserie" synonyms "Lisboa Patisserie"
+			"Litchfield s" synonyms "Litchfield s"
+			"Little Caesars" synonyms "Little Caesars"
+			"Little Chef" synonyms "Little Chef"
+			"Little Greek" synonyms "Little Greek"
+			"Little Savannah" synonyms "Little Savannah"
+			"Little Sheep Group" synonyms "Little Sheep Group"
+			"Local Bistro Bar" synonyms "Local Bistro Bar"
+			"Locanda Locatelli" synonyms "Locanda Locatelli"
+			"Locke Ober" synonyms "Locke Ober"
+			"Lodge on the Desert" synonyms "Lodge on the Desert"
+			"Loeb s NY Deli" synonyms "Loeb s NY Deli"
+			"Logan\'s Roadhouse" synonyms "Logan\'s Roadhouse" , "Logans Roadhouse"
+			"Lollicup Coffee Tea" synonyms "Lollicup Coffee Tea"
+			"Lollicup Coffee and Tea" synonyms "Lollicup Coffee and Tea"
+			"Lombardi s Pizza" synonyms "Lombardi s Pizza"
+			"Lon s at The Hermosa" synonyms "Lon s at The Hermosa"
+			"Long John Silver s" synonyms "Long John Silver s"
+			"Long John Silvers" synonyms "Long John Silvers"
+			Lotteria synonyms Lotteria
+			"Louie Mueller Barbecue" synonyms "Louie Mueller Barbecue"
+			"Luby s" synonyms "Luby s"
+			"Lucille s Smokehouse BBQ" synonyms "Lucille s Smokehouse BBQ"
+			"Lucky Dogs" synonyms "Lucky Dogs"
+			"Lucy s Cafe" synonyms "Lucy s Cafe"
+			"Lucy s University of Alaska Anchorage" synonyms "Lucy s University of Alaska Anchorage"
+			Lulav synonyms Lulav
+			"Lumière" synonyms "Lumière"
+			"Lundberg Bakery" synonyms "Lundberg Bakery"
+			"Lusardi s" synonyms "Lusardi s"
+			"Lutèce" synonyms "Lutèce"
+			Lux synonyms Lux
+			"Lyndell s Bakery" synonyms "Lyndell s Bakery"
+			"Lyon s" synonyms "Lyon s"
+			"M/S Patricia" synonyms "M/S Patricia"
+			MADO synonyms MADO
+			"MICHAEL MINA" synonyms "MICHAEL MINA"
+			"MIZU Sushi Bar and Grill" synonyms "MIZU Sushi Bar and Grill"
+			"MOS Burger" synonyms "MOS Burger"
+			MUA synonyms MUA
+			"Ma Yu Ching s Bucket Chicken House" synonyms "Ma Yu Ching s Bucket Chicken House"
+			"Mabel s" synonyms "Mabel s"
+			"Mad Mex Fresh Mexican Grill" synonyms "Mad Mex Fresh Mexican Grill"
+			"Maggiano s Little Italy" synonyms "Maggiano s Little Italy"
+			"Maggiano s Scottsdale" synonyms "Maggiano s Scottsdale"
+			"Maggie Rita s" synonyms "Maggie Rita s"
+			"MaggieMoo s Ice Cream and Treatery" synonyms "MaggieMoo s Ice Cream and Treatery"
+			"Magnolia Bakery" synonyms "Magnolia Bakery"
+			"Magpie Café" synonyms "Magpie Café"
+			"Maid-Rite" synonyms "Maid-Rite"
+			"Main Deli Steak House" synonyms "Main Deli Steak House"
+			"Maison Novelli" synonyms "Maison Novelli"
+			"Mama Louisa s Italian Restaurant" synonyms "Mama Louisa s Italian Restaurant"
+			Manaus synonyms Manaus
+			"Manchu Wok" synonyms "Manchu Wok"
+			"Mandarin Restaurant" synonyms "Mandarin Restaurant"
+			"Mang Inasal" synonyms "Mang Inasal"
+			"Manganaro s" synonyms "Manganaro s"
+			"Maoz Vegetarian" synonyms "Maoz Vegetarian"
+			"Marathon Enterprises Inc " synonyms "Marathon Enterprises Inc "
+			"Marble Slab Creamery" synonyms "Marble Slab Creamery"
+			"Marcellino Ristorante" synonyms "Marcellino Ristorante"
+			Marea synonyms Marea
+			Margaritas synonyms Margaritas
+			"Margie s Candies" synonyms "Margie s Candies"
+			"Marina Mall" synonyms "Marina Mall"
+			"Mario s Pizzeria" synonyms "Mario s Pizzeria"
+			Marrybrown synonyms Marrybrown
+			"Martin s BBQ" synonyms "Martin s BBQ"
+			"Martin s Famous Pastry Shoppe Inc " synonyms "Martin s Famous Pastry Shoppe Inc "
+			Martinez synonyms Martinez
+			"Mary Brown s" synonyms "Mary Brown s"
+			Mas synonyms Mas
+			"Masa s Wine Bar and Kitchen" synonyms "Masa s Wine Bar and Kitchen"
+			Mashhad synonyms Mashhad
+			"Masraff´s" synonyms "Masraff´s"
+			"Massimo Zanetti" synonyms "Massimo Zanetti"
+			"Mastro s City Hall Steakhouse" synonyms "Mastro s City Hall Steakhouse"
+			"Mastro s Ocean Club Scottsdale" synonyms "Mastro s Ocean Club Scottsdale"
+			"Mastro s Steakhouse Scottsdale" synonyms "Mastro s Steakhouse Scottsdale"
+			"Mathias Dahlgren" synonyms "Mathias Dahlgren"
+			"Mauds Ice Creams" synonyms "Mauds Ice Creams"
+			"Maui Tacos" synonyms "Maui Tacos"
+			"Max Hamburgerrestauranger" synonyms "Max Hamburgerrestauranger"
+			"Max Hamburgers" synonyms "Max Hamburgers"
+			"Max and Mina s" synonyms "Max and Mina s"
+			"Max s Famous Hotdogs" synonyms "Max s Famous Hotdogs"
+			"Max s Opera Cafe" synonyms "Max s Opera Cafe"
+			"Max s of Manila" synonyms "Max s of Manila"
+			"Max s of Redwood City" synonyms "Max s of Redwood City"
+			"Max s of San Ramon" synonyms "Max s of San Ramon"
+			"Maxim s Catering" synonyms "Maxim s Catering"
+			"Maxim s Paris" synonyms "Maxim s Paris"
+			"Maya Restaurant" synonyms "Maya Restaurant"
+			"Mayes Oyster Bar" synonyms "Mayes Oyster Bar"
+			"Mayfield Bakery and Cafe" synonyms "Mayfield Bakery and Cafe"
+			Maykadeh synonyms Maykadeh
+			"Maynards Market Kitchen" synonyms "Maynards Market Kitchen"
+			"Mayo Reserve Room Mayo Family Winery" synonyms "Mayo Reserve Room Mayo Family Winery"
+			McCafe synonyms McCafe
+			"McCafé" synonyms "McCafé"
+			"McCormick and Kuleto s Seafood Restaurant" synonyms "McCormick and Kuleto s Seafood Restaurant"
+			"McCormick and Schmick s Seafood Birmingham" synonyms "McCormick and Schmick s Seafood Birmingham"
+			"McCormick and Schmick s Seafood Phoenix" synonyms "McCormick and Schmick s Seafood Phoenix"
+			"McCormick and Schmick s Seafood San Jose" synonyms "McCormick and Schmick s Seafood San Jose"
+			"McDonald s" synonyms "McDonald s"
+			"McDonald s Canada" synonyms "McDonald s Canada"
+			"McDonald s Israel" synonyms "McDonald s Israel"
+			"McDonald s New Zealand" synonyms "McDonald s New Zealand"
+			"McDonald\'s" synonyms "MacDonald\'s" , MacDonalds , "McDonald\'s" , McDonalds , mcdonald
+			"McMahon s Prime Steakhouse" synonyms "McMahon s Prime Steakhouse"
+			"McNamara s Steak and Chop House" synonyms "McNamara s Steak and Chop House"
+			"Meadows Frozen Custard" synonyms "Meadows Frozen Custard"
+			"Mecca Espresso" synonyms "Mecca Espresso"
+			"Medallion Steakhouse" synonyms "Medallion Steakhouse"
+			"Mediterranean cuisine" synonyms "Mediterranean cuisine"
+			Medjool synonyms Medjool
+			"Mehfil Indian Cuisine Folsom" synonyms "Mehfil Indian Cuisine Folsom"
+			"Mehfil Indian Cuisine and Bar Fillmore" synonyms "Mehfil Indian Cuisine and Bar Fillmore"
+			"Mel s Drive In" synonyms "Mel s Drive In"
+			"Memo s Mexican Cuisine" synonyms "Memo s Mexican Cuisine"
+			"Menara Alor Setar" synonyms "Menara Alor Setar"
+			"Menara Kuala Lumpur" synonyms "Menara Kuala Lumpur"
+			"Menara Moroccan Restaurant" synonyms "Menara Moroccan Restaurant"
+			"Menlo Grill Bistro and Bar" synonyms "Menlo Grill Bistro and Bar"
+			"Meritage Martini Oyster Bar and Grille" synonyms "Meritage Martini Oyster Bar and Grille"
+			"Meritage Steakhouse and JW Marriott Desert Ridge" synonyms "Meritage Steakhouse and JW Marriott Desert Ridge"
+			"Meritage at the Claremont" synonyms "Meritage at the Claremont"
+			"Meritus Mandarin Singapore" synonyms "Meritus Mandarin Singapore"
+			"Metro Lafayette" synonyms "Metro Lafayette"
+			"MetroPrime Steakhouse" synonyms "MetroPrime Steakhouse"
+			"Metropolitan Grill" synonyms "Metropolitan Grill"
+			"Mexican Restaurants Inc " synonyms "Mexican Restaurants Inc "
+			"Mezes Greek Kitcken" synonyms "Mezes Greek Kitcken"
+			"Mezzaluna Half Moon Bay" synonyms "Mezzaluna Half Moon Bay"
+			Mezze synonyms Mezze
+			"Mi Casa Restaurant Walnut Creek" synonyms "Mi Casa Restaurant Walnut Creek"
+			"Mia Francesca-Scottsdale" synonyms "Mia Francesca-Scottsdale"
+			"Michael s Table" synonyms "Michael s Table"
+			"Michel s Bakery Café" synonyms "Michel s Bakery Café"
+			"Michel s Patisserie" synonyms "Michel s Patisserie"
+			"Michelangelo Ristorante and Caffe" synonyms "Michelangelo Ristorante and Caffe"
+			"Mighty Taco" synonyms "Mighty Taco"
+			"MightyO Donuts" synonyms "MightyO Donuts"
+			"Mijana Restaurant" synonyms "Mijana Restaurant"
+			"Mikel Coffee Company" synonyms "Mikel Coffee Company"
+			Mikes synonyms Mikes
+			"Milad Tower" synonyms "Milad Tower"
+			Milagros synonyms Milagros
+			"Milano Italian Restaurant" synonyms "Milano Italian Restaurant"
+			"Milano Joe s" synonyms "Milano Joe s"
+			"Mile End Delicatessen" synonyms "Mile End Delicatessen"
+			"Milio s Sandwiches" synonyms "Milio s Sandwiches"
+			Millennium synonyms Millennium
+			"Millie s Cookies" synonyms "Millie s Cookies"
+			"Milo s Hamburgers" synonyms "Milo s Hamburgers"
+			"Milwaukie Pastry Kitchen" synonyms "Milwaukie Pastry Kitchen"
+			"Mimi s Cafe" synonyms "Mimi s Cafe"
+			"Ming Palace" synonyms "Ming Palace"
+			"Mini Kalzone" synonyms "Mini Kalzone"
+			"Miramar Beach Restaurant" synonyms "Miramar Beach Restaurant"
+			"Misigisaq Restaurant" synonyms "Misigisaq Restaurant"
+			"Miss Millie s Fried Chicken" synonyms "Miss Millie s Fried Chicken"
+			"Miss Pearl s Restaurant and Lounge" synonyms "Miss Pearl s Restaurant and Lounge"
+			"Mission Beach Cafe" synonyms "Mission Beach Cafe"
+			"Mission Grille Marriott Downtown San Francisco" synonyms "Mission Grille Marriott Downtown San Francisco"
+			"Mister Donut" synonyms "Mister Donut"
+			Mistral synonyms Mistral
+			Mitsunobu synonyms Mitsunobu
+			Mittelallalin synonyms Mittelallalin
+			"Mivan Mediterranean Cuisine" synonyms "Mivan Mediterranean Cuisine"
+			Mmmuffins synonyms Mmmuffins
+			"Mo men" synonyms "Mo men"
+			"MoMo s" synonyms "MoMo s"
+			"Moby Dick" synonyms "Moby Dick"
+			Mochica synonyms Mochica
+			"Modern Apizza" synonyms "Modern Apizza"
+			"Modern Steak" synonyms "Modern Steak"
+			"Modus Operandi Cellars" synonyms "Modus Operandi Cellars"
+			"Moe s Southwest Grill" synonyms "Moe s Southwest Grill"
+			"Mokutanya Yakitori Charcoal" synonyms "Mokutanya Yakitori Charcoal"
+			"Molina s Cantina" synonyms "Molina s Cantina"
+			"Molinari s" synonyms "Molinari s"
+			"Mommas krog" synonyms "Mommas krog"
+			"Monaghan s on the Hill" synonyms "Monaghan s on the Hill"
+			"Mong Kok" synonyms "Mong Kok"
+			Monginis synonyms Monginis
+			"Montclair Bistro" synonyms "Montclair Bistro"
+			"Montgomery Inn" synonyms "Montgomery Inn"
+			"Monti s La Casa Vieja" synonyms "Monti s La Casa Vieja"
+			"Monti s Rotisserie and Bar" synonyms "Monti s Rotisserie and Bar"
+			"Montreal Arts Interculturels" synonyms "Montreal Arts Interculturels"
+			"Montreal Pool Room" synonyms "Montreal Pool Room"
+			MoonStar synonyms MoonStar
+			Moonraker synonyms Moonraker
+			"Morac Restaurant and Lounge" synonyms "Morac Restaurant and Lounge"
+			"Morimoto Napa" synonyms "Morimoto Napa"
+			"Morton s The Steakhouse Phoenix" synonyms "Morton s The Steakhouse Phoenix"
+			"Morton s The Steakhouse San Francisco" synonyms "Morton s The Steakhouse San Francisco"
+			"Morton s The Steakhouse San Jose" synonyms "Morton s The Steakhouse San Jose"
+			"Morton s The Steakhouse Scottsdale" synonyms "Morton s The Steakhouse Scottsdale"
+			Mosconi synonyms Mosconi
+			"Mosebacke Etablissement" synonyms "Mosebacke Etablissement"
+			"Moshe s" synonyms "Moshe s"
+			"Moss Beach Distillery" synonyms "Moss Beach Distillery"
+			"Mother s Cookies" synonyms "Mother s Cookies"
+			"Mount Everest Restaurant" synonyms "Mount Everest Restaurant"
+			"Mountain House Woodside" synonyms "Mountain House Woodside"
+			Mozzeria synonyms Mozzeria
+			"Mr Bigg s" synonyms "Mr Bigg s"
+			"Mr Chow" synonyms "Mr Chow"
+			"Mr Hero" synonyms "Mr Hero"
+			"Mr Kipling" synonyms "Mr Kipling"
+			"Mr Lee" synonyms "Mr Lee"
+			"Mr Pizza" synonyms "Mr Pizza"
+			"Mr Sub" synonyms "Mr Sub"
+			"Mr Whippy" synonyms "Mr Whippy"
+			"Mrs Fields" synonyms "Mrs Fields"
+			"Mrs Winner s Chicken Biscuits" synonyms "Mrs Winner s Chicken Biscuits"
+			"Mrs Winner s Chicken and Biscuits" synonyms "Mrs Winner s Chicken and Biscuits"
+			"Mud Coffee" synonyms "Mud Coffee"
+			"Mugg Bean" synonyms "Mugg Bean"
+			"Mugg and Bean" synonyms "Mugg and Bean"
+			Mulhouse synonyms Mulhouse
+			Mumbai synonyms Mumbai
+			"Murray Circle" synonyms "Murray Circle"
+			"Murray s Sturgeon Shop" synonyms "Murray s Sturgeon Shop"
+			"Muscio s Italian Restaurant" synonyms "Muscio s Italian Restaurant"
+			Muse synonyms Muse
+			Mussoorie synonyms Mussoorie
+			"Mustards Grill" synonyms "Mustards Grill"
+			"Muzz Buzz" synonyms "Muzz Buzz"
+			"Myohyang san" synonyms "Myohyang san"
+			"Mythos Bar Restaurant San Carlos" synonyms "Mythos Bar Restaurant San Carlos"
+			"Mäster Anders" synonyms "Mäster Anders"
+			"Måns Ols Utvärdshus" synonyms "Måns Ols Utvärdshus"
+			"N Seoul Tower" synonyms "N Seoul Tower"
+			"NEPTUNE s Waterfront Grill and Bar" synonyms "NEPTUNE s Waterfront Grill and Bar"
+			"Nacho King" synonyms "Nacho King"
+			Naha synonyms Naha
+			"Nairobi Java House" synonyms "Nairobi Java House"
+			"Naked Fish" synonyms "Naked Fish"
+			"Nam Kee" synonyms "Nam Kee"
+			"Nando s" synonyms "Nando s"
+			"Naschmarkt Restaurant" synonyms "Naschmarkt Restaurant"
+			"Nate n Al of Beverly Hills" synonyms "Nate n Al of Beverly Hills"
+			"Nathan s Famous" synonyms "Nathan s Famous"
+			"National Coney Island" synonyms "National Coney Island"
+			Naugles synonyms Naugles
+			"Navio at The Ritz-Carlton Half Moon Bay" synonyms "Navio at The Ritz-Carlton Half Moon Bay"
+			"Nectar Restaurant and Lounge" synonyms "Nectar Restaurant and Lounge"
+			"Nectar Wine Lounge" synonyms "Nectar Wine Lounge"
+			"Nedick s" synonyms "Nedick s"
+			"Neela s" synonyms "Neela s"
+			"Nellie Cashman s Monday Club Cafe at The Westin Kierland Resort and Spa" synonyms "Nellie Cashman s Monday Club Cafe at The Westin Kierland Resort and Spa"
+			"Nettie s Crab Shack" synonyms "Nettie s Crab Shack"
+			Neumanali synonyms Neumanali
+			"New Delhi" synonyms "New Delhi"
+			"New Delhi Restaurant" synonyms "New Delhi Restaurant"
+			"New Kapadokia" synonyms "New Kapadokia"
+			"New York Bagel" synonyms "New York Bagel"
+			"New York City" synonyms "New York City"
+			"New York Fries" synonyms "New York Fries"
+			"New Zealand Natural" synonyms "New Zealand Natural"
+			"Newk s Eatery" synonyms "Newk s Eatery"
+			"Newport Creamery" synonyms "Newport Creamery"
+			"Nick s Cove" synonyms "Nick s Cove"
+			"Nihon Whisky Lounge" synonyms "Nihon Whisky Lounge"
+			"Niko Niko s" synonyms "Niko Niko s"
+			"Ninfa s" synonyms "Ninfa s"
+			"Nirala Sweets" synonyms "Nirala Sweets"
+			"Nirula s" synonyms "Nirula s"
+			"Nizza La Bella" synonyms "Nizza La Bella"
+			"No Martinez" synonyms "No Martinez"
+			"NoRTH Scottsdale" synonyms "NoRTH Scottsdale"
+			"NoRTH Tucson" synonyms "NoRTH Tucson"
+			"Noah s Bagels" synonyms "Noah s Bagels"
+			Nobis synonyms Nobis
+			"Noble Roman s" synonyms "Noble Roman s"
+			"Nobuo at Teeter House" synonyms "Nobuo at Teeter House"
+			"Noh Hyatt Regency Scottsdale" synonyms "Noh Hyatt Regency Scottsdale"
+			"Nola Palo Alto" synonyms "Nola Palo Alto"
+			Nombe synonyms Nombe
+			"Nonni s Bistro" synonyms "Nonni s Bistro"
+			"Nonni s Ristorante Italiano" synonyms "Nonni s Ristorante Italiano"
+			"Noodle Box" synonyms "Noodle Box"
+			Noor synonyms Noor
+			Nordsee synonyms Nordsee
+			"Nordstrom Cafe Bistro Palo Alto" synonyms "Nordstrom Cafe Bistro Palo Alto"
+			North synonyms North
+			"North Beach Restaurant" synonyms "North Beach Restaurant"
+			"Nova Bar and Restaurant" synonyms "Nova Bar and Restaurant"
+			"Novato Cafe" synonyms "Novato Cafe"
+			"Nu Way Cafe" synonyms "Nu Way Cafe"
+			"Nu Way Weiners" synonyms "Nu Way Weiners"
+			"Nu-Way Weiners" synonyms "Nu-Way Weiners"
+			"Nulite Kitchen" synonyms "Nulite Kitchen"
+			"Numero 28" synonyms "Numero 28"
+			"Näsinneula tower" synonyms "Näsinneula tower"
+			"O Briens Irish Sandwich Bars" synonyms "O Briens Irish Sandwich Bars"
+			"O Coffee Club" synonyms "O Coffee Club"
+			"O3 Bistro and Lounge" synonyms "O3 Bistro and Lounge"
+			ORSO synonyms ORSO
+			OTD synonyms OTD
+			"OTE Tower" synonyms "OTE Tower"
+			"Oak City Bar and Grill" synonyms "Oak City Bar and Grill"
+			"Oasis Grille" synonyms "Oasis Grille"
+			"Oaxen krog" synonyms "Oaxen krog"
+			"Oberweis Dairy" synonyms "Oberweis Dairy"
+			Ocean synonyms Ocean
+			"Ocean Prime Phoenix" synonyms "Ocean Prime Phoenix"
+			Odeum synonyms Odeum
+			"Oklahoma Joe s" synonyms "Oklahoma Joe s"
+			"Old Chang Kee" synonyms "Old Chang Kee"
+			"Old London Foods" synonyms "Old London Foods"
+			"Old Pueblo Grille" synonyms "Old Pueblo Grille"
+			"Old Town White Coffee" synonyms "Old Town White Coffee"
+			"OldTown White Coffee" synonyms "OldTown White Coffee"
+			"Olga s Kitchen" synonyms "Olga s Kitchen"
+			"Olive Garden" synonyms "Olive Garden"
+			"Olive and Ivy Restaurant and Marketplace" synonyms "Olive and Ivy Restaurant and Marketplace"
+			"Olive and Vine Glen Ellen" synonyms "Olive and Vine Glen Ellen"
+			"Oliveto Cafe Restaurant" synonyms "Oliveto Cafe Restaurant"
+			"Olivia s Brunch and Fine Dining" synonyms "Olivia s Brunch and Fine Dining"
+			Olympiaturm synonyms Olympiaturm
+			"Omaha Steakhouse -Phoenix" synonyms "Omaha Steakhouse -Phoenix"
+			"On the Border Mexican Grill and Cantina" synonyms "On the Border Mexican Grill and Cantina"
+			"One If By Land Two If By Sea Restaurant" synonyms "One If By Land Two If By Sea Restaurant"
+			"One Market Restaurant" synonyms "One Market Restaurant"
+			"One World Cafe" synonyms "One World Cafe"
+			Oola synonyms Oola
+			"Opaque Dining In The Dark" synonyms "Opaque Dining In The Dark"
+			"Operakällaren" synonyms "Operakällaren"
+			Oporto synonyms Oporto
+			"Orange Julius" synonyms "Orange Julius"
+			"Orenchi Ramen" synonyms "Orenchi Ramen"
+			"Origen A Farm to Fork Restaurant" synonyms "Origen A Farm to Fork Restaurant"
+			"Original Tommy s" synonyms "Original Tommy s"
+			Origus synonyms Origus
+			"Orwasher s bakery" synonyms "Orwasher s bakery"
+			"Ostankino Tower" synonyms "Ostankino Tower"
+			"Osteria Coppa" synonyms "Osteria Coppa"
+			"Osteria Stellina" synonyms "Osteria Stellina"
+			"Osteria del Mondo" synonyms "Osteria del Mondo"
+			Otaku synonyms Otaku
+			"Otoro Sushi" synonyms "Otoro Sushi"
+			Ottavio synonyms Ottavio
+			"Ottimista Enoteca-Cafe" synonyms "Ottimista Enoteca-Cafe"
+			"Our Family Bistro" synonyms "Our Family Bistro"
+			"Outback Steakhouse" synonyms "Outback Steakhouse"
+			"Oz Lounge" synonyms "Oz Lounge"
+			"Ozone Thai" synonyms "Ozone Thai"
+			"Ozumo Oakland" synonyms "Ozumo Oakland"
+			"Ozumo San Francisco" synonyms "Ozumo San Francisco"
+			"P F Chang s China Bistro" synonyms "P F Chang s China Bistro"
+			"PJ s Coffee" synonyms "PJ s Coffee"
+			"PRIMA Ristorante" synonyms "PRIMA Ristorante"
+			"PY Steakhouse" synonyms "PY Steakhouse"
+			"Pacific Catch Campbell" synonyms "Pacific Catch Campbell"
+			"Pacific Catch Corte Madera" synonyms "Pacific Catch Corte Madera"
+			"Pacific Catch Sunset District" synonyms "Pacific Catch Sunset District"
+			"Pacific Coffee Company" synonyms "Pacific Coffee Company"
+			"Paco Roncero" synonyms "Paco Roncero"
+			"Pagoda Fairmont Hotel San Jose" synonyms "Pagoda Fairmont Hotel San Jose"
+			"Pal s" synonyms "Pal s"
+			Palacio synonyms Palacio
+			"Paletería La Michoacana" synonyms "Paletería La Michoacana"
+			"Palio d Asti" synonyms "Palio d Asti"
+			"Palm Court at The Scottsdale Resort" synonyms "Palm Court at The Scottsdale Resort"
+			"Palo Verde at The Boulders Resort" synonyms "Palo Verde at The Boulders Resort"
+			"Palomino San Francisco" synonyms "Palomino San Francisco"
+			"Pampas Palo Alto" synonyms "Pampas Palo Alto"
+			"Pamposh Restaurant" synonyms "Pamposh Restaurant"
+			Panago synonyms Panago
+			"Panama Hotel and Restaurant" synonyms "Panama Hotel and Restaurant"
+			Panarottis synonyms Panarottis
+			"Pancake Parlour" synonyms "Pancake Parlour"
+			"Pancheros Mexican Grill" synonyms "Pancheros Mexican Grill"
+			Panchkula synonyms Panchkula
+			"Pancho s Mexican Buffet" synonyms "Pancho s Mexican Buffet"
+			"Panda Express" synonyms "Panda Express"
+			"Panda Inn" synonyms "Panda Inn"
+			"Panera Bread" synonyms "Panera Bread"
+			"Panta Rei" synonyms "Panta Rei"
+			Pantry synonyms Pantry
+			"Paolo s San Jose" synonyms "Paolo s San Jose"
+			"Papa John s Pizza" synonyms "Papa John s Pizza"
+			"Papa John\'s Pizza" synonyms "Papa John s" , "Papa John\'s Pizza" , "Papa Johns" , "Papa Johns Pizza"
+			"Papaya King" synonyms "Papaya King"
+			"Pappas Restaurants" synonyms "Pappas Restaurants"
+			Pappo synonyms Pappo
+			"Paradise Bakery and Café" synonyms "Paradise Bakery and Café"
+			Paradiso synonyms Paradiso
+			"Paragon Restaurant and Bar San Francisco" synonyms "Paragon Restaurant and Bar San Francisco"
+			"Paragon at The Claremont Hotel Club and Spa" synonyms "Paragon at The Claremont Hotel Club and Spa"
+			"Parallel 37" synonyms "Parallel 37"
+			"Parcel 104" synonyms "Parcel 104"
+			"Pari Urqu" synonyms "Pari Urqu"
+			"Park Chalet" synonyms "Park Chalet"
+			"Park Place" synonyms "Park Place"
+			"Park Tavern San Francisco" synonyms "Park Tavern San Francisco"
+			"Parkside Grille" synonyms "Parkside Grille"
+			"Parrilla Restaurant" synonyms "Parrilla Restaurant"
+			"Pasion SF" synonyms "Pasion SF"
+			"Pasqua Coffee" synonyms "Pasqua Coffee"
+			"Pasquale Hnos" synonyms "Pasquale Hnos"
+			"Passage to India Mountain View" synonyms "Passage to India Mountain View"
+			"Pasta Brioni" synonyms "Pasta Brioni"
+			"Pasta Moon" synonyms "Pasta Moon"
+			"Pasta Pomodoro" synonyms "Pasta Pomodoro"
+			"Pasta Primavera San Ramon" synonyms "Pasta Primavera San Ramon"
+			"Pasta s Trattoria Pleasanton" synonyms "Pasta s Trattoria Pleasanton"
+			Pastamania synonyms Pastamania
+			"Pastiche Modern Eatery" synonyms "Pastiche Modern Eatery"
+			"Pat s Cafe" synonyms "Pat s Cafe"
+			Patna synonyms Patna
+			"Patrick David s" synonyms "Patrick David s"
+			"Patsy s" synonyms "Patsy s"
+			"Patsy s Pizzeria" synonyms "Patsy s Pizzeria"
+			Pattaya synonyms Pattaya
+			Paul synonyms Paul
+			"Paul K" synonyms "Paul K"
+			"Pauli s Bar and Grill" synonyms "Pauli s Bar and Grill"
+			"Peaberry Coffee" synonyms "Peaberry Coffee"
+			"Peek Freans" synonyms "Peek Freans"
+			"Peet s Coffee Tea" synonyms "Peet s Coffee Tea"
+			"Peet s Coffee and Tea" synonyms "Peet s Coffee and Tea"
+			"Pena Pachamama" synonyms "Pena Pachamama"
+			"Penn State University Creamery" synonyms "Penn State University Creamery"
+			"Penn Station East Coast Subs" synonyms "Penn Station East Coast Subs"
+			"Penthouse Club and Steakhouse" synonyms "Penthouse Club and Steakhouse"
+			"Pepper Lunch" synonyms "Pepper Lunch"
+			"Pepperidge Farm" synonyms "Pepperidge Farm"
+			"Peppes Pizza" synonyms "Peppes Pizza"
+			"Per Diem" synonyms "Per Diem"
+			"Per Se" synonyms "Per Se"
+			"Pera San Francisco" synonyms "Pera San Francisco"
+			Perbacco synonyms Perbacco
+			"Perkins Restaurant and Bakery" synonyms "Perkins Restaurant and Bakery"
+			Perlan synonyms Perlan
+			"Perry s Design Center" synonyms "Perry s Design Center"
+			"Perry s Embarcadero" synonyms "Perry s Embarcadero"
+			"Perry s on Union Street" synonyms "Perry s on Union Street"
+			"Persian Room" synonyms "Persian Room"
+			"Petar s Restaurant" synonyms "Petar s Restaurant"
+			"Peter Lowell s" synonyms "Peter Lowell s"
+			Peters synonyms Peters
+			"Petite Maison" synonyms "Petite Maison"
+			"Petite Syrah" synonyms "Petite Syrah"
+			"Petri Pumpa" synonyms "Petri Pumpa"
+			"Phare de la Méditerranée" synonyms "Phare de la Méditerranée"
+			"Philippe s" synonyms "Philippe s"
+			"Philz Coffee" synonyms "Philz Coffee"
+			"Phoenix City Grille" synonyms "Phoenix City Grille"
+			"Phuket Thai Restaurant" synonyms "Phuket Thai Restaurant"
+			Piacere synonyms Piacere
+			"Piada Italian Street Food" synonyms "Piada Italian Street Food"
+			"Piatti Danville" synonyms "Piatti Danville"
+			"Piatti Mill Valley" synonyms "Piatti Mill Valley"
+			"Piatti Santa Clara" synonyms "Piatti Santa Clara"
+			"Piazza D Angelo" synonyms "Piazza D Angelo"
+			"Piazza Pellegrini" synonyms "Piazza Pellegrini"
+			"Pican Oakland" synonyms "Pican Oakland"
+			"Picco Restaurant" synonyms "Picco Restaurant"
+			"Piccomolo Ice Cream" synonyms "Piccomolo Ice Cream"
+			"Pick Up Stix" synonyms "Pick Up Stix"
+			"Pie Face" synonyms "Pie Face"
+			"Pied à Terre" synonyms "Pied à Terre"
+			"Pier 23 Cafe" synonyms "Pier 23 Cafe"
+			"Pier Market Seafood Restaurant Pier 39 SF" synonyms "Pier Market Seafood Restaurant Pier 39 SF"
+			Pierre synonyms Pierre
+			"Pigmans Bar B Que" synonyms "Pigmans Bar B Que"
+			"Pilita Grill" synonyms "Pilita Grill"
+			"Pink Pony Steakhouse" synonyms "Pink Pony Steakhouse"
+			"Pink Taco" synonyms "Pink Taco"
+			"Pink s Hot Dogs" synonyms "Pink s Hot Dogs"
+			"Pinon Grill" synonyms "Pinon Grill"
+			"Pioneer Chicken" synonyms "Pioneer Chicken"
+			Piperade synonyms Piperade
+			Piqueos synonyms Piqueos
+			"Pita Pit" synonyms "Pita Pit"
+			"Piz Gloria" synonyms "Piz Gloria"
+			"Pizza 73" synonyms "Pizza 73"
+			"Pizza A Metro" synonyms "Pizza A Metro"
+			"Pizza California" synonyms "Pizza California"
+			"Pizza Capers" synonyms "Pizza Capers"
+			"Pizza Corner" synonyms "Pizza Corner"
+			"Pizza Delight" synonyms "Pizza Delight"
+			"Pizza Etang" synonyms "Pizza Etang"
+			"Pizza Haven" synonyms "Pizza Haven"
+			"Pizza Hut" synonyms "Pizza Hut"
+			"Pizza Inn" synonyms "Pizza Inn"
+			"Pizza La" synonyms "Pizza La"
+			"Pizza Nova" synonyms "Pizza Nova"
+			"Pizza Pizza" synonyms "Pizza Pizza"
+			"Pizza Segyero" synonyms "Pizza Segyero"
+			PizzaExpress synonyms PizzaExpress
+			"Pizzeria Venti" synonyms "Pizzeria Venti"
+			"Plate Shop" synonyms "Plate Shop"
+			"Plates Bar and Grill" synonyms "Plates Bar and Grill"
+			"Players Arcade and Sports Grill" synonyms "Players Arcade and Sports Grill"
+			Plouf synonyms Plouf
+			"Plum Cafe" synonyms "Plum Cafe"
+			"Plum Restaurant" synonyms "Plum Restaurant"
+			"Poesia Cafe" synonyms "Poesia Cafe"
+			"Poesia Restaurant" synonyms "Poesia Restaurant"
+			"Poggio Restaurant" synonyms "Poggio Restaurant"
+			"Poggio Trattoria" synonyms "Poggio Trattoria"
+			"Pollo Campero" synonyms "Pollo Campero"
+			"Pollo Tropical" synonyms "Pollo Tropical"
+			"Pollos Frisby" synonyms "Pollos Frisby"
+			"Popeyes Chicken Biscuits" synonyms "Popeyes Chicken Biscuits"
+			"Popeyes Chicken and Biscuits" synonyms "Popeyes Chicken and Biscuits"
+			"Poplar Creek Grill" synonyms "Poplar Creek Grill"
+			Poquito synonyms Poquito
+			"Pork Farms" synonyms "Pork Farms"
+			"Port City Java" synonyms "Port City Java"
+			"Port Tower Complex" synonyms "Port Tower Complex"
+			"Port of Spain" synonyms "Port of Spain"
+			"Port of Subs" synonyms "Port of Subs"
+			"Porter s Restaurant Poppy Ridge Golf Course" synonyms "Porter s Restaurant Poppy Ridge Golf Course"
+			Porterhouse synonyms Porterhouse
+			"Portillo s Restaurants" synonyms "Portillo s Restaurants"
+			"Posh Scottsdale" synonyms "Posh Scottsdale"
+			Postino synonyms Postino
+			"Postrio Cafe and Bar" synonyms "Postrio Cafe and Bar"
+			"Potbelly Sandwich Works" synonyms "Potbelly Sandwich Works"
+			Potzollcalli synonyms Potzollcalli
+			"Prado Montelucia Resort" synonyms "Prado Montelucia Resort"
+			"Premier Foods" synonyms "Premier Foods"
+			"Presidio Cafe Presidio Golf Course" synonyms "Presidio Cafe Presidio Golf Course"
+			"Presidio Social Club" synonyms "Presidio Social Club"
+			Press synonyms Press
+			"Pret a Manger" synonyms "Pret a Manger"
+			Prezzo synonyms Prezzo
+			"Primebar-Scottsdale" synonyms "Primebar-Scottsdale"
+			"Primo at the JW Marriott Starr Pass Resort and Spa" synonyms "Primo at the JW Marriott Starr Pass Resort and Spa"
+			"Private Rack" synonyms "Private Rack"
+			"Probka Restaurant Group" synonyms "Probka Restaurant Group"
+			Prospect synonyms Prospect
+			Province synonyms Province
+			"Psycho Donuts" synonyms "Psycho Donuts"
+			Publix synonyms Publix
+			"Puccini and Pinetti" synonyms "Puccini and Pinetti"
+			"Puccino s" synonyms "Puccino s"
+			"Puffin Fresh Donuts" synonyms "Puffin Fresh Donuts"
+			"Puijo tower" synonyms "Puijo tower"
+			Pujol synonyms Pujol
+			"Pup N Taco" synonyms "Pup N Taco"
+			"Pure Sushi" synonyms "Pure Sushi"
+			"Puro Peru" synonyms "Puro Peru"
+			"Pyramid Alehouse" synonyms "Pyramid Alehouse"
+			"Pâtisserie" synonyms "Pâtisserie"
+			"Pølsevogn" synonyms "Pølsevogn"
+			"Qdoba Mexican Grill" synonyms "Qdoba Mexican Grill"
+			Qom synonyms Qom
+			"Quattro Restaurant and Bar Four Seasons Hotel" synonyms "Quattro Restaurant and Bar Four Seasons Hotel"
+			"Quezon City" synonyms "Quezon City"
+			"Quiessence Restaurant and Wine Bar" synonyms "Quiessence Restaurant and Wine Bar"
+			"Quince San Francisco" synonyms "Quince San Francisco"
+			"Quinn s Lighthouse Restaurant and Pub" synonyms "Quinn s Lighthouse Restaurant and Pub"
+			"Quizno s" synonyms "Quizno s"
+			"Quizno s Classic Subs" synonyms "Quizno s Classic Subs"
+			Quiznos synonyms Quiznos
+			RIA synonyms RIA
+			RN74 synonyms RN74
+			"ROKA AKOR Scottsdale" synonyms "ROKA AKOR Scottsdale"
+			"Racine Danish Kringles" synonyms "Racine Danish Kringles"
+			Radish synonyms Radish
+			"Radius San Francisco" synonyms "Radius San Francisco"
+			"Raising Cane s Chicken Fingers" synonyms "Raising Cane s Chicken Fingers"
+			Ramada synonyms Ramada
+			"Ramsar Mazandaran" synonyms "Ramsar Mazandaran"
+			Ranch1 synonyms Ranch1
+			"Rancho Pinot" synonyms "Rancho Pinot"
+			"Randy s Donuts" synonyms "Randy s Donuts"
+			Range synonyms Range
+			"Rank Hovis McDougall" synonyms "Rank Hovis McDougall"
+			"Rao s" synonyms "Rao s"
+			"Rare Earth Wine Bar" synonyms "Rare Earth Wine Bar"
+			Rasta synonyms Rasta
+			"Rathbones Bakeries" synonyms "Rathbones Bakeries"
+			"Ratna Cafe" synonyms "Ratna Cafe"
+			"Rawhide Steakhouse at Wild Horse Pass" synonyms "Rawhide Steakhouse at Wild Horse Pass"
+			Rax synonyms Rax
+			"Ray s Pizza" synonyms "Ray s Pizza"
+			"Real Mex Restaurants" synonyms "Real Mex Restaurants"
+			"Red Allen s" synonyms "Red Allen s"
+			"Red Hot and Blue" synonyms "Red Hot and Blue"
+			"Red Ribbon" synonyms "Red Ribbon"
+			"Red Robin" synonyms "Red Robin"
+			"Red Robin Gourmet Burgers" synonyms "Red Robin Gourmet Burgers"
+			"Red Rooster" synonyms "Red Rooster"
+			"Red Tavern" synonyms "Red Tavern"
+			"Red fig" synonyms "Red fig"
+			Redd synonyms Redd
+			"Redd Wood" synonyms "Redd Wood"
+			"Reds at Sedona Rouge Hotel and Spa" synonyms "Reds at Sedona Rouge Hotel and Spa"
+			"Regalito Rosticeria" synonyms "Regalito Rosticeria"
+			"Rei do Mate" synonyms "Rei do Mate"
+			Relate synonyms Relate
+			"Relish Burger Bistro The Phoenician" synonyms "Relish Burger Bistro The Phoenician"
+			"Rendez Vous Cafe Bistro" synonyms "Rendez Vous Cafe Bistro"
+			Rendezvous synonyms Rendezvous
+			"Rendezvous Tapas" synonyms "Rendezvous Tapas"
+			"Renee s Place Berkeley" synonyms "Renee s Place Berkeley"
+			"Renz Block" synonyms "Renz Block"
+			"Reposado Restaurant" synonyms "Reposado Restaurant"
+			"Restaurang 28+" synonyms "Restaurang 28+"
+			"Restaurang Fontainebleau" synonyms "Restaurang Fontainebleau"
+			"Restaurang Lorensberg" synonyms "Restaurang Lorensberg"
+			"Restaurang Pelikan" synonyms "Restaurang Pelikan"
+			"Restaurang Trädgårn" synonyms "Restaurang Trädgårn"
+			"Restaurang Tyrol" synonyms "Restaurang Tyrol"
+			Restaurangakademien synonyms Restaurangakademien
+			"Restaurant Cuvee Napa" synonyms "Restaurant Cuvee Napa"
+			"Restaurant James Randall" synonyms "Restaurant James Randall"
+			"Restaurant Soleil Westin Palo Alto" synonyms "Restaurant Soleil Westin Palo Alto"
+			"Restaurante Arroyo" synonyms "Restaurante Arroyo"
+			"Reuben s Restaurant" synonyms "Reuben s Restaurant"
+			"Revival Bar+Kitchen" synonyms "Revival Bar+Kitchen"
+			Rheinturm synonyms Rheinturm
+			"Rhino Foods" synonyms "Rhino Foods"
+			"Rib Crib" synonyms "Rib Crib"
+			Riche synonyms Riche
+			"Rickey s" synonyms "Rickey s"
+			"Rio Bravo Cantina" synonyms "Rio Bravo Cantina"
+			Risibisi synonyms Risibisi
+			"Rising Loafer Cafe and Bakery" synonyms "Rising Loafer Cafe and Bakery"
+			Ristobar synonyms Ristobar
+			"Ristorante Allegria" synonyms "Ristorante Allegria"
+			"Ristorante Bella Vita Los Altos" synonyms "Ristorante Bella Vita Los Altos"
+			"Ristorante Da Mario" synonyms "Ristorante Da Mario"
+			"Ristorante Don Giovanni Mountain View" synonyms "Ristorante Don Giovanni Mountain View"
+			"Ristorante Due Rose" synonyms "Ristorante Due Rose"
+			"Ristorante Mataro" synonyms "Ristorante Mataro"
+			"Ristorante Milano" synonyms "Ristorante Milano"
+			"Ristorante Tuscany and JW Marriott Desert Ridge" synonyms "Ristorante Tuscany and JW Marriott Desert Ridge"
+			"Rita s Italian Ice" synonyms "Rita s Italian Ice"
+			"Rita s Kitchen at Camelback Inn A JW Marriott Resort" synonyms "Rita s Kitchen at Camelback Inn A JW Marriott Resort"
+			"Riva Cucina" synonyms "Riva Cucina"
+			"River s End" synonyms "River s End"
+			"Riverfront Steakhouse" synonyms "Riverfront Steakhouse"
+			"Rivoli Restaurant" synonyms "Rivoli Restaurant"
+			"Roaring Fork" synonyms "Roaring Fork"
+			Robeks synonyms Robeks
+			"Robert Harris Coffee Roasters" synonyms "Robert Harris Coffee Roasters"
+			"Robin s Donuts" synonyms "Robin s Donuts"
+			"Rocca Ristorante" synonyms "Rocca Ristorante"
+			"Rocco s Cafe" synonyms "Rocco s Cafe"
+			"Rock Bottom Brewery San Jose" synonyms "Rock Bottom Brewery San Jose"
+			Rockbaren synonyms Rockbaren
+			Rocketfish synonyms Rocketfish
+			"Rok Bistro" synonyms "Rok Bistro"
+			Rokerij synonyms Rokerij
+			"Rolfs kök" synonyms "Rolfs kök"
+			Rolls synonyms Rolls
+			"Roma Revolving Restaurant" synonyms "Roma Revolving Restaurant"
+			"Romano s Macaroni Grill" synonyms "Romano s Macaroni Grill"
+			Roots synonyms Roots
+			"Rosa s Cafe" synonyms "Rosa s Cafe"
+			"Rose Pistola" synonyms "Rose Pistola"
+			"Rose s Cafe" synonyms "Rose s Cafe"
+			"Roselyn Bakery" synonyms "Roselyn Bakery"
+			"Rosendals trädgård" synonyms "Rosendals trädgård"
+			"Rosie McCann s Santana Row" synonyms "Rosie McCann s Santana Row"
+			"Roti Indian Bistro Burlingame" synonyms "Roti Indian Bistro Burlingame"
+			"Roti Indian Bistro San Francisco" synonyms "Roti Indian Bistro San Francisco"
+			"Roti8 Blackhawk/Danville" synonyms "Roti8 Blackhawk/Danville"
+			Rotiboy synonyms Rotiboy
+			"Rotisserie and Wine" synonyms "Rotisserie and Wine"
+			Roux synonyms Roux
+			"Roux Louisiana Kitchen" synonyms "Roux Louisiana Kitchen"
+			"Roxanne Cafe" synonyms "Roxanne Cafe"
+			"Roy Rogers Restaurants" synonyms "Roy Rogers Restaurants"
+			"Roy s Chandler" synonyms "Roy s Chandler"
+			"Roy s Desert Ridge" synonyms "Roy s Desert Ridge"
+			"Roy s San Francisco" synonyms "Roy s San Francisco"
+			"Roya s Garlic Garden" synonyms "Roya s Garlic Garden"
+			"Royal Castle" synonyms "Royal Castle"
+			"Royal Exchange" synonyms "Royal Exchange"
+			"Rubio s Fresh Mexican Grill" synonyms "Rubio s Fresh Mexican Grill"
+			"Ruby Tuesday" synonyms "Ruby Tuesday"
+			Ruchi synonyms Ruchi
+			"Rumbo Al Sur" synonyms "Rumbo Al Sur"
+			Rumi synonyms Rumi
+			Runza synonyms Runza
+			"Rustic Francis s Favorites" synonyms "Rustic Francis s Favorites"
+			"Ruth s Chris Steak House Birmingham" synonyms "Ruth s Chris Steak House Birmingham"
+			"Ruth s Chris Steak House Huntsville" synonyms "Ruth s Chris Steak House Huntsville"
+			"Ruth s Chris Steak House Mobile" synonyms "Ruth s Chris Steak House Mobile"
+			"Ruth s Chris Steak House Phoenix" synonyms "Ruth s Chris Steak House Phoenix"
+			"Ruth s Chris Steak House Rogers" synonyms "Ruth s Chris Steak House Rogers"
+			"Ruth s Chris Steak House San Francisco" synonyms "Ruth s Chris Steak House San Francisco"
+			"Ruth s Chris Steak House Scottsdale" synonyms "Ruth s Chris Steak House Scottsdale"
+			"Ruth s Chris Steak House Walnut Creek" synonyms "Ruth s Chris Steak House Walnut Creek"
+			"Rutt s Hut" synonyms "Rutt s Hut"
+			"Ryanggang Hotel" synonyms "Ryanggang Hotel"
+			"Ryugyong Hotel" synonyms "Ryugyong Hotel"
+			SASSI synonyms SASSI
+			SCR synonyms SCR
+			SKYE synonyms SKYE
+			"SO Restaurant" synonyms "SO Restaurant"
+			"SOL Cocina" synonyms "SOL Cocina"
+			"SOMA Restaurant and Bar" synonyms "SOMA Restaurant and Bar"
+			"SPR Coffee" synonyms "SPR Coffee"
+			"SPoT Coffee" synonyms "SPoT Coffee"
+			"SWB Hyatt Regency Scottsdale" synonyms "SWB Hyatt Regency Scottsdale"
+			"Sabor of Spain" synonyms "Sabor of Spain"
+			"Sacks Cafe and Restaurant" synonyms "Sacks Cafe and Restaurant"
+			"Saddle Creek Woodfired Grill" synonyms "Saddle Creek Woodfired Grill"
+			"Saddle Ranch Chop House Glendale" synonyms "Saddle Ranch Chop House Glendale"
+			"Saddle Ranch Chop House Scottsdale" synonyms "Saddle Ranch Chop House Scottsdale"
+			"Saddles Steakhouse MacArthur Place" synonyms "Saddles Steakhouse MacArthur Place"
+			"Saffron Indian Bistro" synonyms "Saffron Indian Bistro"
+			Saggio synonyms Saggio
+			Saha synonyms Saha
+			Saison synonyms Saison
+			Saizeriya synonyms Saizeriya
+			"Sakae Sushi" synonyms "Sakae Sushi"
+			Sakoon synonyms Sakoon
+			"Sal s Pizza" synonyms "Sal s Pizza"
+			Saladworks synonyms Saladworks
+			"Salang Pass Restaurant" synonyms "Salang Pass Restaurant"
+			"Salito s Crab House" synonyms "Salito s Crab House"
+			"Salito s Crab House and Prime Rib" synonyms "Salito s Crab House and Prime Rib"
+			"Salito s Restaurant" synonyms "Salito s Restaurant"
+			"Sally s Apizza" synonyms "Sally s Apizza"
+			"Salsa s Fresh Mex Grill" synonyms "Salsa s Fresh Mex Grill"
+			"Salt House" synonyms "Salt House"
+			"Salumeria Rosi Parmacotto" synonyms "Salumeria Rosi Parmacotto"
+			Salumi synonyms Salumi
+			"Salute E Vita Ristorante" synonyms "Salute E Vita Ristorante"
+			"Sam Woo Restaurant" synonyms "Sam Woo Restaurant"
+			"Sam s Anchor Cafe" synonyms "Sam s Anchor Cafe"
+			"Sam s Chowder House" synonyms "Sam s Chowder House"
+			"San Carlos de Bariloche" synonyms "San Carlos de Bariloche"
+			"San Francisco Creamery" synonyms "San Francisco Creamery"
+			"San Lorenzo" synonyms "San Lorenzo"
+			"SanTan Brewing Co" synonyms "SanTan Brewing Co"
+			"Sanders Confectionery" synonyms "Sanders Confectionery"
+			"Sant at the Fairmont Sonoma Mission Inn" synonyms "Sant at the Fairmont Sonoma Mission Inn"
+			"Santarpio s Pizza" synonyms "Santarpio s Pizza"
+			Santiago synonyms Santiago
+			Santorini synonyms Santorini
+			"Sapore Italiano" synonyms "Sapore Italiano"
+			Sapporo synonyms Sapporo
+			Sarajevo synonyms Sarajevo
+			"Saravana Bhavan" synonyms "Saravana Bhavan"
+			"Sarris Candies" synonyms "Sarris Candies"
+			Sasa synonyms Sasa
+			"Satterfield Restaurant" synonyms "Satterfield Restaurant"
+			"Satterfield s Restaurant" synonyms "Satterfield s Restaurant"
+			Sauce synonyms Sauce
+			Sayers synonyms Sayers
+			Sbarro synonyms Sbarro
+			"Scala s Bistro" synonyms "Scala s Bistro"
+			"Scandinavian Kitchen" synonyms "Scandinavian Kitchen"
+			"Scene Restaurant and Lounge" synonyms "Scene Restaurant and Lounge"
+			"Schlotzsky s" synonyms "Schlotzsky s"
+			"Schmidt Baking Company" synonyms "Schmidt Baking Company"
+			"Schwartz s" synonyms "Schwartz s"
+			"Scoma s Sausalito" synonyms "Scoma s Sausalito"
+			"Sconyers Bar B Que" synonyms "Sconyers Bar B Que"
+			Scores synonyms Scores
+			Scotland synonyms Scotland
+			"Scott s Restaurant Walnut Creek" synonyms "Scott s Restaurant Walnut Creek"
+			"Scott s Seafood Oakland" synonyms "Scott s Seafood Oakland"
+			"Scott s Seafood Palo Alto" synonyms "Scott s Seafood Palo Alto"
+			"Scott s Seafood San Jose" synonyms "Scott s Seafood San Jose"
+			Scratch synonyms Scratch
+			"Sea Salt" synonyms "Sea Salt"
+			"Seafood Peddler" synonyms "Seafood Peddler"
+			"Sears Fine Food" synonyms "Sears Fine Food"
+			"Seasons 52 Phoenix" synonyms "Seasons 52 Phoenix"
+			"Seasons at the Four Seasons Hotel" synonyms "Seasons at the Four Seasons Hotel"
+			"Seattle s Best Coffee" synonyms "Seattle s Best Coffee"
+			"Second Avenue Deli" synonyms "Second Avenue Deli"
+			"Second Cup" synonyms "Second Cup"
+			"Secret Recipe" synonyms "Secret Recipe"
+			Segafredo synonyms Segafredo
+			Seikoen synonyms Seikoen
+			Seinpost synonyms Seinpost
+			"Seison Restaurant and Lounge" synonyms "Seison Restaurant and Lounge"
+			Seiya synonyms Seiya
+			"Sekisui Vestavia Hills" synonyms "Sekisui Vestavia Hills"
+			"Semifreddi s Bakery" synonyms "Semifreddi s Bakery"
+			"Sens Restaurant" synonyms "Sens Restaurant"
+			"Sent Sovi" synonyms "Sent Sovi"
+			Senza synonyms Senza
+			Serpentine synonyms Serpentine
+			Serrano synonyms Serrano
+			"Servino Ristorante" synonyms "Servino Ristorante"
+			"Seven Glaciers" synonyms "Seven Glaciers"
+			"Seven Hills" synonyms "Seven Hills"
+			"Shabu Pub" synonyms "Shabu Pub"
+			"Shake Shack" synonyms "Shake Shack"
+			"Shake s Frozen Custard" synonyms "Shake s Frozen Custard"
+			Shakeaway synonyms Shakeaway
+			"Shakey s Pizza" synonyms "Shakey s Pizza"
+			"Shane s Rib Shack" synonyms "Shane s Rib Shack"
+			Sheetz synonyms Sheetz
+			"Shiki Bistro San Carlos" synonyms "Shiki Bistro San Carlos"
+			Shimonoseki synonyms Shimonoseki
+			ShinBay synonyms ShinBay
+			"Shiok Singapore Kitchen" synonyms "Shiok Singapore Kitchen"
+			Shipley synonyms Shipley
+			"Shipley Do Nuts" synonyms "Shipley Do Nuts"
+			Shiraz synonyms Shiraz
+			"Shiso Sushi and Grill" synonyms "Shiso Sushi and Grill"
+			"Shiva s" synonyms "Shiva s"
+			Shokolaat synonyms Shokolaat
+			"Shopsy s" synonyms "Shopsy s"
+			"Shorewood Wisconsin" synonyms "Shorewood Wisconsin"
+			"Shorty s Lunch" synonyms "Shorty s Lunch"
+			Showmars synonyms Showmars
+			"Shugrue s" synonyms "Shugrue s"
+			"Shugrues Hillside Grill" synonyms "Shugrues Hillside Grill"
+			"Shula s Steak House Birmingham" synonyms "Shula s Steak House Birmingham"
+			"Shula s Steak House Wild Horse Pass Hotel and Casino" synonyms "Shula s Steak House Wild Horse Pass Hotel and Casino"
+			"Shun Lee Palace" synonyms "Shun Lee Palace"
+			"Siam Orchid Organic Fine Dining" synonyms "Siam Orchid Organic Fine Dining"
+			Sibylla synonyms Sibylla
+			"Sichuan Food" synonyms "Sichuan Food"
+			"Siena Bistro" synonyms "Siena Bistro"
+			"Siena Cafe" synonyms "Siena Cafe"
+			"Sierra Bonita Grill" synonyms "Sierra Bonita Grill"
+			"Signature Grill at the JW Marriott Starr Pass Resort and Spa" synonyms "Signature Grill at the JW Marriott Starr Pass Resort and Spa"
+			Silk synonyms Silk
+			Silks synonyms Silks
+			"Silverado Brewing Company" synonyms "Silverado Brewing Company"
+			"Simon and Seafort s" synonyms "Simon and Seafort s"
+			"Simply Fondue Livermore" synonyms "Simply Fondue Livermore"
+			"Sinbad s Pier II Restaurant" synonyms "Sinbad s Pier II Restaurant"
+			Singapore synonyms Singapore
+			"Sino Restaurant and Lounge" synonyms "Sino Restaurant and Lounge"
+			"Sirsa District" synonyms "Sirsa District"
+			"Sitar Indian Restaurant" synonyms "Sitar Indian Restaurant"
+			"Siwan District" synonyms "Siwan District"
+			"Sizzling Tandoor" synonyms "Sizzling Tandoor"
+			"Sizzling Tandoor Healdsburg" synonyms "Sizzling Tandoor Healdsburg"
+			"Sjömagasinet" synonyms "Sjömagasinet"
+			"Skates on the Bay" synonyms "Skates on the Bay"
+			Sketch synonyms Sketch
+			"Skippers Seafood Chowder House" synonyms "Skippers Seafood Chowder House"
+			"Skomakare Källaren" synonyms "Skomakare Källaren"
+			Skool synonyms Skool
+			"Sky Tower" synonyms "Sky Tower"
+			"Skyline Chili" synonyms "Skyline Chili"
+			"Slanted Door" synonyms "Slanted Door"
+			"Slow Club" synonyms "Slow Club"
+			"Slow s Bar BQ" synonyms "Slow s Bar BQ"
+			"Smithfield s Chicken N Bar B Q" synonyms "Smithfield s Chicken N Bar B Q"
+			"Smokey Bones" synonyms "Smokey Bones"
+			"Smokin Joe s" synonyms "Smokin Joe s"
+			"Smokin Joes" synonyms "Smokin Joes"
+			"Smoothie King" synonyms "Smoothie King"
+			"Sneaky Pete s" synonyms "Sneaky Pete s"
+			"Snow City Cafe" synonyms "Snow City Cafe"
+			"Snow s BBQ" synonyms "Snow s BBQ"
+			Sociale synonyms Sociale
+			"Sodini s Bertolucci s" synonyms "Sodini s Bertolucci s"
+			"Soi Four" synonyms "Soi Four"
+			"Solbar Solage Calistoga" synonyms "Solbar Solage Calistoga"
+			Sonepat synonyms Sonepat
+			"Sonic Drive-In" synonyms "Sonic Drive-In"
+			"Sonny Bryan s Smokehouse" synonyms "Sonny Bryan s Smokehouse"
+			"Sonny s Real Pit Bar B Q" synonyms "Sonny s Real Pit Bar B Q"
+			"Sourdough Bakery" synonyms "Sourdough Bakery"
+			"Southern Fried Chicken" synonyms "Southern Fried Chicken"
+			"Southern Maid Donuts" synonyms "Southern Maid Donuts"
+			"Southside Bistro" synonyms "Southside Bistro"
+			"Spaghetti Warehouse" synonyms "Spaghetti Warehouse"
+			Spangles synonyms Spangles
+			"Speed Rabbit Pizza" synonyms "Speed Rabbit Pizza"
+			Spizzico synonyms Spizzico
+			Spoleto synonyms Spoleto
+			"Spotted Donkey Cantina The Village on Hayden" synonyms "Spotted Donkey Cantina The Village on Hayden"
+			"Spotted Donkey Cantina el Pedregal" synonyms "Spotted Donkey Cantina el Pedregal"
+			SpringHouse synonyms SpringHouse
+			"Sprinkles Cupcakes" synonyms "Sprinkles Cupcakes"
+			"Spud U Like" synonyms "Spud U Like"
+			"Spudnut Shops" synonyms "Spudnut Shops"
+			Spudulike synonyms Spudulike
+			"Spur Steak Ranches" synonyms "Spur Steak Ranches"
+			"Square Pie" synonyms "Square Pie"
+			"St Francis" synonyms "St Francis"
+			"St John s Beacon" synonyms "St John s Beacon"
+			"Stage Deli" synonyms "Stage Deli"
+			"Stallmästaregården" synonyms "Stallmästaregården"
+			Stanserhorn synonyms Stanserhorn
+			"Star Seafood Floating Restaurant" synonyms "Star Seafood Floating Restaurant"
+			"Star Tower Restaurant" synonyms "Star Tower Restaurant"
+			Starbucks synonyms Starbucks , "Starbucks Coffee" , starbacks
+			"Starving Artist Cafe" synonyms "Starving Artist Cafe"
+			"Steak Escape" synonyms "Steak Escape"
+			"Steak House at Desert Diamond Casino" synonyms "Steak House at Desert Diamond Casino"
+			"Steak and Shake" synonyms "Steak and Shake"
+			"Steak n Shake" synonyms "Steak n Shake"
+			Steers synonyms Steers
+			"Steve s Ice Cream" synonyms "Steve s Ice Cream"
+			"Stewart s Restaurants" synonyms "Stewart s Restaurants"
+			"Sticky Fingers" synonyms "Sticky Fingers"
+			"Stir Crazy" synonyms "Stir Crazy"
+			"Stora hotellet Örebro" synonyms "Stora hotellet Örebro"
+			Strada synonyms Strada
+			"Stray Dog Café" synonyms "Stray Dog Café"
+			"Strickland s Frozen Custard" synonyms "Strickland s Frozen Custard"
+			Stroehmann synonyms Stroehmann
+			"Strömparterren Örebro" synonyms "Strömparterren Örebro"
+			"Strömsholmen Norrköping" synonyms "Strömsholmen Norrköping"
+			"Stumptown Coffee Roasters" synonyms "Stumptown Coffee Roasters"
+			Sturehof synonyms Sturehof
+			"Sturgis Pretzel House" synonyms "Sturgis Pretzel House"
+			"Stäket Lund" synonyms "Stäket Lund"
+			"Sub Station II" synonyms "Sub Station II"
+			Submarina synonyms Submarina
+			Subway synonyms Subway
+			Sukiya synonyms Sukiya
+			Sulaimani synonyms Sulaimani
+			"Sullivan s Steakhouse Anchorage" synonyms "Sullivan s Steakhouse Anchorage"
+			"Sullivan s Steakhouse Tucson" synonyms "Sullivan s Steakhouse Tucson"
+			"Sumo Salad" synonyms "Sumo Salad"
+			Superdawg synonyms Superdawg
+			"Supermac s" synonyms "Supermac s"
+			"Surf Taco" synonyms "Surf Taco"
+			"Sushi Roku Scottsdale" synonyms "Sushi Roku Scottsdale"
+			"Sveriges Allmänna Restaurangbolag" synonyms "Sveriges Allmänna Restaurangbolag"
+			"Sweet Potato Stall" synonyms "Sweet Potato Stall"
+			"Swensen s" synonyms "Swensen s"
+			Swensons synonyms Swensons
+			"Swiss Chalet" synonyms "Swiss Chalet"
+			"Swoboda Bakery" synonyms "Swoboda Bakery"
+			"Syster O Bror" synonyms "Syster O Bror"
+			"T Cook s and The Royal Palms Resort" synonyms "T Cook s and The Royal Palms Resort"
+			"T G I Friday s" synonyms "T G I Friday s"
+			TCBY synonyms TCBY
+			"TGI Friday s" synonyms "TGI Friday s"
+			"TK s Urban Tavern" synonyms "TK s Urban Tavern"
+			"TKK Fried Chicken" synonyms "TKK Fried Chicken"
+			Tabriz synonyms Tabriz
+			"Taco Bar" synonyms "Taco Bar"
+			"Taco Bell" synonyms "Taco Bell"
+			"Taco Bueno" synonyms "Taco Bueno"
+			"Taco Bus" synonyms "Taco Bus"
+			"Taco Cabana" synonyms "Taco Cabana"
+			"Taco John s" synonyms "Taco John s"
+			"Taco Mayo" synonyms "Taco Mayo"
+			"Taco Palenque" synonyms "Taco Palenque"
+			"Taco Tico" synonyms "Taco Tico"
+			"Taco Time" synonyms "Taco Time"
+			"Taco Time Northwest" synonyms "Taco Time Northwest"
+			"Taco del Mar" synonyms "Taco del Mar"
+			"Taggia at FireSky" synonyms "Taggia at FireSky"
+			Taichung synonyms Taichung
+			"Tail o the Pup" synonyms "Tail o the Pup"
+			"Takeda Thai by Moulay" synonyms "Takeda Thai by Moulay"
+			Talavera synonyms Talavera
+			"Tallinn TV Tower" synonyms "Tallinn TV Tower"
+			Tantalizers synonyms Tantalizers
+			Tanzy synonyms Tanzy
+			"Tapas Papa Frita" synonyms "Tapas Papa Frita"
+			"Taqueria Arandas" synonyms "Taqueria Arandas"
+			"Tarbell s" synonyms "Tarbell s"
+			Tartine synonyms Tartine
+			"Tashkent Tower" synonyms "Tashkent Tower"
+			"Taste- An American Bistro at The Hilton Phoenix Chandler" synonyms "Taste- An American Bistro at The Hilton Phoenix Chandler"
+			"Tastee Freez" synonyms "Tastee Freez"
+			"Tastee Fried Chicken" synonyms "Tastee Fried Chicken"
+			"Tastee-Freez" synonyms "Tastee-Freez"
+			Tastte synonyms Tastte
+			Tastykake synonyms Tastykake
+			"Tavolino Ristorante" synonyms "Tavolino Ristorante"
+			"Taziki s Mediterranean Café" synonyms "Taziki s Mediterranean Café"
+			Tchibo synonyms Tchibo
+			Teatergrillen synonyms Teatergrillen
+			"Ted Drewes" synonyms "Ted Drewes"
+			"Ted s Hot Dogs" synonyms "Ted s Hot Dogs"
+			Tehran synonyms Tehran
+			Telepizza synonyms Telepizza
+			"Ten Ren Tea" synonyms "Ten Ren Tea"
+			Tennstopet synonyms Tennstopet
+			"Tequila Factory" synonyms "Tequila Factory"
+			Teremok synonyms Teremok
+			"Teriyaki Experience" synonyms "Teriyaki Experience"
+			"Terra Nova" synonyms "Terra Nova"
+			Tesco synonyms Tesco
+			Texadelphia synonyms Texadelphia
+			"Texas Roadhouse" synonyms "Texas Roadhouse"
+			"Texas de Brazil" synonyms "Texas de Brazil"
+			"Thai Chili Cuisine" synonyms "Thai Chili Cuisine"
+			"The Arrogant Butcher" synonyms "The Arrogant Butcher"
+			"The Ashvale" synonyms "The Ashvale"
+			"The Breadfruit" synonyms "The Breadfruit"
+			"The Casablanca Lounge" synonyms "The Casablanca Lounge"
+			"The Cheese Shop Louth" synonyms "The Cheese Shop Louth"
+			"The Chicken Rice Shop" synonyms "The Chicken Rice Shop"
+			"The Chinese Restaurant" synonyms "The Chinese Restaurant"
+			"The Coffee Bean Tea Leaf" synonyms "The Coffee Bean Tea Leaf"
+			"The Coffee Bean and Tea Leaf" synonyms "The Coffee Bean and Tea Leaf"
+			"The Coffee Club" synonyms "The Coffee Club"
+			"The Cup Cafe" synonyms "The Cup Cafe"
+			"The Desert Oasis / The Artichoke Grill" synonyms "The Desert Oasis / The Artichoke Grill"
+			"The Dhaba" synonyms "The Dhaba"
+			"The Donut Hole" synonyms "The Donut Hole"
+			"The Donut Whole" synonyms "The Donut Whole"
+			"The Federal Kuala Lumpur" synonyms "The Federal Kuala Lumpur"
+			"The Flying V at Loews Ventana Canyon Resort" synonyms "The Flying V at Loews Ventana Canyon Resort"
+			"The Food Shoppe" synonyms "The Food Shoppe"
+			"The Fryer s Delight" synonyms "The Fryer s Delight"
+			"The Greene House Kierland Commons" synonyms "The Greene House Kierland Commons"
+			"The Grill at Hacienda del Sol" synonyms "The Grill at Hacienda del Sol"
+			"The Grill at The Boulders" synonyms "The Grill at The Boulders"
+			"The Grill at The Fairmont" synonyms "The Grill at The Fairmont"
+			"The Habit Burger Grill" synonyms "The Habit Burger Grill"
+			"The Halal Guys" synonyms "The Halal Guys"
+			"The Hat" synonyms "The Hat"
+			"The Heartline Cafe" synonyms "The Heartline Cafe"
+			"The House at Secret Garden" synonyms "The House at Secret Garden"
+			"The Human Bean" synonyms "The Human Bean"
+			"The Keg" synonyms "The Keg"
+			"The King s Bakery" synonyms "The King s Bakery"
+			"The Melting Pot Tucson" synonyms "The Melting Pot Tucson"
+			"The Mint Restaurant Ultra Lounge" synonyms "The Mint Restaurant Ultra Lounge"
+			"The Mission" synonyms "The Mission"
+			"The Old Spaghetti Factory" synonyms "The Old Spaghetti Factory"
+			"The Original Hamburger Stand" synonyms "The Original Hamburger Stand"
+			"The Original Italian Pie" synonyms "The Original Italian Pie"
+			"The Pearl of the Orient" synonyms "The Pearl of the Orient"
+			"The Pizza Company" synonyms "The Pizza Company"
+			"The Pump House" synonyms "The Pump House"
+			"The River Café" synonyms "The River Café"
+			"The Salt Lick" synonyms "The Salt Lick"
+			"The Steak Out" synonyms "The Steak Out"
+			"The Stockyards Restaurant and 1889 Saloon" synonyms "The Stockyards Restaurant and 1889 Saloon"
+			"The Swiss Bakery" synonyms "The Swiss Bakery"
+			"The Varsity" synonyms "The Varsity"
+			"The Veranda on Highland" synonyms "The Veranda on Highland"
+			"The West Cornwall Pasty Company" synonyms "The West Cornwall Pasty Company"
+			"The Whole Donut" synonyms "The Whole Donut"
+			"The Wieners Circle" synonyms "The Wieners Circle"
+			"The Windmill" synonyms "The Windmill"
+			"Theobald s Road" synonyms "Theobald s Road"
+			"Thirsty Lion Pub and Grill" synonyms "Thirsty Lion Pub and Grill"
+			"ThunderCloud Subs" synonyms "ThunderCloud Subs"
+			"Thörnströms Kök" synonyms "Thörnströms Kök"
+			"Tijuana Flats" synonyms "Tijuana Flats"
+			"Tim Hortons" synonyms "Tim Hortons"
+			"Timothy s World Coffee" synonyms "Timothy s World Coffee"
+			Tirana synonyms Tirana
+			"Togo s" synonyms "Togo s"
+			"Tokyo Tokyo" synonyms "Tokyo Tokyo"
+			"Tom Aikens" synonyms "Tom Aikens"
+			"Tom N Toms" synonyms "Tom N Toms"
+			"Tom s BaoBao" synonyms "Tom s BaoBao"
+			"Tom s Tavern and 1929 Grill" synonyms "Tom s Tavern and 1929 Grill"
+			"Tomaso s Phoenix" synonyms "Tomaso s Phoenix"
+			"Tommy Bahama s Restaurant and Bar Scottsdale" synonyms "Tommy Bahama s Restaurant and Bar Scottsdale"
+			"Tommy V s Urban Kitchen and Bar Scottsdale" synonyms "Tommy V s Urban Kitchen and Bar Scottsdale"
+			"Tony Macaroni" synonyms "Tony Macaroni"
+			"Tony Roma s" synonyms "Tony Roma s"
+			"Top Pot Doughnuts" synonyms "Top Pot Doughnuts"
+			"Top of the Rock Restaurant at the Marriott Buttes Resort" synonyms "Top of the Rock Restaurant at the Marriott Buttes Resort"
+			"Topper s Pizza" synonyms "Topper s Pizza"
+			"Torrefazione Italia" synonyms "Torrefazione Italia"
+			"Toscanini s" synonyms "Toscanini s"
+			Tranebergsstugan synonyms Tranebergsstugan
+			"Tre remmare" synonyms "Tre remmare"
+			Tripoli synonyms Tripoli
+			"Trophy s Steakhouse" synonyms "Trophy s Steakhouse"
+			"Tropical Sno" synonyms "Tropical Sno"
+			Tru synonyms Tru
+			"True Coffee" synonyms "True Coffee"
+			"True Corporation True Coffee" synonyms "True Corporation True Coffee"
+			"Trung Nguyên" synonyms "Trung Nguyên"
+			"Trädgården" synonyms "Trädgården"
+			"Tu Mero Mole" synonyms "Tu Mero Mole"
+			"Tudor Arms" synonyms "Tudor Arms"
+			"Tudor s Biscuit World" synonyms "Tudor s Biscuit World"
+			"Tully s Coffee" synonyms "Tully s Coffee"
+			"Tumbleweed Tex Mex Grill and Margarita Bar" synonyms "Tumbleweed Tex Mex Grill and Margarita Bar"
+			"Tunnock s" synonyms "Tunnock s"
+			"Tutti Santi Gilbert" synonyms "Tutti Santi Gilbert"
+			"Tutti Santi Phoenix" synonyms "Tutti Santi Phoenix"
+			"Tutti Santi Scottsdale" synonyms "Tutti Santi Scottsdale"
+			"Tutti Santi Via Linda" synonyms "Tutti Santi Via Linda"
+			"Tutti Santi by Nina Glendale" synonyms "Tutti Santi by Nina Glendale"
+			"Twin Peaks" synonyms "Twin Peaks"
+			"Twistee Treat" synonyms "Twistee Treat"
+			"Two Pesos" synonyms "Two Pesos"
+			"Tyholttårnet" synonyms "Tyholttårnet"
+			"Types of restaurant" synonyms "Types of restaurant"
+			"UCC Ueshima Coffee Co " synonyms "UCC Ueshima Coffee Co "
+			"Udi’s Healthy Foods" synonyms "Udi’s Healthy Foods"
+			"Ulla Winbladh" synonyms "Ulla Winbladh"
+			"Ulriksdals Wärdshus" synonyms "Ulriksdals Wärdshus"
+			"Umami Burger" synonyms "Umami Burger"
+			"Umberto s Clam House" synonyms "Umberto s Clam House"
+			"Uncle Tony s Kebabs" synonyms "Uncle Tony s Kebabs"
+			"Undici Restaurant and Bar" synonyms "Undici Restaurant and Bar"
+			"United Biscuits" synonyms "United Biscuits"
+			"United Kingdom" synonyms "United Kingdom"
+			"United States" synonyms "United States"
+			"United States Bakery" synonyms "United States Bakery"
+			"Uno Chicago Grill" synonyms "Uno Chicago Grill"
+			"Upper Crust" synonyms "Upper Crust"
+			Vadilal synonyms Vadilal
+			Valentine synonyms Valentine
+			"Valparaíso" synonyms "Valparaíso"
+			"Van Houtte" synonyms "Van Houtte"
+			"Van de Kamp s Holland Dutch Bakeries" synonyms "Van de Kamp s Holland Dutch Bakeries"
+			Vapiano synonyms Vapiano
+			Varna synonyms Varna
+			"Vasco da Gama Tower" synonyms "Vasco da Gama Tower"
+			"Vegan Treats Bakery" synonyms "Vegan Treats Bakery"
+			"Veniero s" synonyms "Veniero s"
+			"Venue s Cafe" synonyms "Venue s Cafe"
+			"Veranópolis" synonyms "Veranópolis"
+			"Verona Chophouse" synonyms "Verona Chophouse"
+			Versailles synonyms Versailles
+			"Vesuvio Bistro" synonyms "Vesuvio Bistro"
+			"Vic s Ice Cream" synonyms "Vic s Ice Cream"
+			"Victrola Coffee Roasters" synonyms "Victrola Coffee Roasters"
+			"Vida e Caffè" synonyms "Vida e Caffè"
+			"Vienna Beef" synonyms "Vienna Beef"
+			"Villa Godthem" synonyms "Villa Godthem"
+			"Villa Söderås" synonyms "Villa Söderås"
+			"Village Tavern Birmingham" synonyms "Village Tavern Birmingham"
+			"Village Tavern Scottsdale" synonyms "Village Tavern Scottsdale"
+			"Vilnius TV Tower" synonyms "Vilnius TV Tower"
+			"Vito s Pizza" synonyms "Vito s Pizza"
+			"Vito s Pizza and Italian Ristorante" synonyms "Vito s Pizza and Italian Ristorante"
+			"Vivace Restaurant" synonyms "Vivace Restaurant"
+			"Vogue Bistro" synonyms "Vogue Bistro"
+			"Vons Chicken" synonyms "Vons Chicken"
+			"Voodoo Doughnut" synonyms "Voodoo Doughnut"
+			"Výtopna" synonyms "Výtopna"
+			"Walkers Shortbread" synonyms "Walkers Shortbread"
+			"Walter s Hot Dog Stand" synonyms "Walter s Hot Dog Stand"
+			Warburtons synonyms Warburtons
+			"Warrens Bakery" synonyms "Warrens Bakery"
+			Wasahof synonyms Wasahof
+			"Water Tower Belvedere" synonyms "Water Tower Belvedere"
+			Watercress synonyms Watercress
+			"Watercress Bridge Street" synonyms "Watercress Bridge Street"
+			"Wayne s Coffee" synonyms "Wayne s Coffee"
+			"Wedholms fisk" synonyms "Wedholms fisk"
+			"Weenie Beenie" synonyms "Weenie Beenie"
+			"Wemple and Edicks" synonyms "Wemple and Edicks"
+			"Wendy s" synonyms "Wendy s"
+			"Wendy s Supa Sundaes" synonyms "Wendy s Supa Sundaes"
+			"West Lake Restaurant" synonyms "West Lake Restaurant"
+			"Wetzel s Pretzels" synonyms "Wetzel s Pretzels"
+			Whataburger synonyms Whataburger
+			"Wheeler s Frozen Dessert Co " synonyms "Wheeler s Frozen Dessert Co "
+			"White Castle" synonyms "White Castle"
+			"White Chocolate Grill Scottsdale" synonyms "White Chocolate Grill Scottsdale"
+			"White Spot" synonyms "White Spot"
+			"Whitey s Ice Cream" synonyms "Whitey s Ice Cream"
+			"Whoa Nellie Deli" synonyms "Whoa Nellie Deli"
+			Wienerschnitzel synonyms Wienerschnitzel
+			Wienerwald synonyms Wienerwald
+			"Wild n Fresh" synonyms "Wild n Fresh"
+			"Wildfish Seafood Grille Scottsdale" synonyms "Wildfish Seafood Grille Scottsdale"
+			"Wildflower Tucson" synonyms "Wildflower Tucson"
+			"Wilensky s" synonyms "Wilensky s"
+			"William Jackson Food Group" synonyms "William Jackson Food Group"
+			"Williams Fresh Cafe" synonyms "Williams Fresh Cafe"
+			Wimpy synonyms Wimpy
+			"Winchell s Donuts" synonyms "Winchell s Donuts"
+			"Wine Me Dine Me Hyatt Regency Scottsdale" synonyms "Wine Me Dine Me Hyatt Regency Scottsdale"
+			"Wing Zone" synonyms "Wing Zone"
+			WingStreet synonyms WingStreet
+			Wingstop synonyms Wingstop
+			"Winstead s" synonyms "Winstead s"
+			"Wolfie Cohen s Rascal House" synonyms "Wolfie Cohen s Rascal House"
+			"Wong Kei" synonyms "Wong Kei"
+			"Woods Coffee" synonyms "Woods Coffee"
+			"Woody s Chicago Style" synonyms "Woody s Chicago Style"
+			"World Trade Center" synonyms "World Trade Center"
+			"World Trade Center Mexico City" synonyms "World Trade Center Mexico City"
+			"World s Best Donuts" synonyms "World s Best Donuts"
+			"World s longest hot dog" synonyms "World s longest hot dog"
+			"Wow Momo" synonyms "Wow Momo"
+			"Wright s at the Biltmore Restaurant" synonyms "Wright s at the Biltmore Restaurant"
+			"Wrights Pies" synonyms "Wrights Pies"
+			"Wrigley Mansion Geordie s" synonyms "Wrigley Mansion Geordie s"
+			"Wärdshuset Bellmansro" synonyms "Wärdshuset Bellmansro"
+			"Würstelstand" synonyms "Würstelstand"
+			"Xi an Famous Foods" synonyms "Xi an Famous Foods"
+			"Xian Heng Inn" synonyms "Xian Heng Inn"
+			"YO Sushi" synonyms "YO Sushi"
+			"Ya Kun Kaya Toast" synonyms "Ya Kun Kaya Toast"
+			"Ya Ya s Eurobistro" synonyms "Ya Ya s Eurobistro"
+			"Yanggakdo Hotel" synonyms "Yanggakdo Hotel"
+			Yauatcha synonyms Yauatcha
+			"Yellow Cab Pizza Co " synonyms "Yellow Cab Pizza Co "
+			Yesterdog synonyms Yesterdog
+			"Yocco s Hot Dogs" synonyms "Yocco s Hot Dogs"
+			"Yogen Fruz" synonyms "Yogen Fruz"
+			"Yonah Shimmel s Knish Bakery" synonyms "Yonah Shimmel s Knish Bakery"
+			Yoshinoya synonyms Yoshinoya
+			"Your Black Muslim Bakery" synonyms "Your Black Muslim Bakery"
+			"Yum Brands" synonyms "Yum Brands"
+			"Yum Yum Donuts" synonyms "Yum Yum Donuts"
+			"YumYum Donuts" synonyms "YumYum Donuts"
+			"Yung Kee" synonyms "Yung Kee"
+			"Y?rakuch?" synonyms "Y?rakuch?"
+			"Z Tejas Chandler" synonyms "Z Tejas Chandler"
+			"Z Tejas Gateway" synonyms "Z Tejas Gateway"
+			"Z Tejas Scottsdale" synonyms "Z Tejas Scottsdale"
+			"Z Tejas Tempe" synonyms "Z Tejas Tempe"
+			"Zabar s" synonyms "Zabar s"
+			"Zack s Hotdogs" synonyms "Zack s Hotdogs"
+			Zagreb synonyms Zagreb
+			Zantigo synonyms Zantigo
+			"Zarra s" synonyms "Zarra s"
+			"Zarraffas Coffee" synonyms "Zarraffas Coffee"
+			"Zaxby s" synonyms "Zaxby s"
+			"Zero s Subs" synonyms "Zero s Subs"
+			Ziferblat synonyms Ziferblat
+			"Zinc Bistro" synonyms "Zinc Bistro"
+			"Zingerman s" synonyms "Zingerman s"
+			"Zippy s" synonyms "Zippy s"
+			Zizzi synonyms Zizzi
+			"Zoka Coffee Roaster Tea Company" synonyms "Zoka Coffee Roaster Tea Company"
+			"Zoka Coffee Roaster and Tea Company" synonyms "Zoka Coffee Roaster and Tea Company"
+			"ZuZu Hotel Valley Ho" synonyms "ZuZu Hotel Valley Ho"
+			"Zum Franziskaner" synonyms "Zum Franziskaner"
+			"Zuni Cafe" synonyms "Zuni Cafe"
+			Zwolle synonyms Zwolle
+			coffeeheaven synonyms coffeeheaven
+			"de la Cruz Bistro" synonyms "de la Cruz Bistro"
+			easyPizza synonyms easyPizza
+			"elements at Sanctuary Camelback Mountain" synonyms "elements at Sanctuary Camelback Mountain"
+			"elle wine bistro" synonyms "elle wine bistro"
+			"fast casual" synonyms "fast casual"
+			"fast food" synonyms "fast food"
+			"fast food restaurants" synonyms "fast food restaurants"
+			franchise synonyms franchise
+			"full service restaurants" synonyms "full service restaurants"
+			jules synonyms jules
+			"la Madeleine" synonyms "la Madeleine"
+			noca synonyms noca
+			nopa synonyms nopa
+			"nstruther Fish Bar" synonyms "nstruther Fish Bar"
+			pizzerias synonyms pizzerias
+			"quick service restaurant" synonyms "quick service restaurant"
+			"restaurant chain" synonyms "restaurant chain"
+			seafood synonyms seafood
+			"Ängavallen" synonyms "Ängavallen"
+			"Åke Hans" synonyms "Åke Hans"
+			"Ölhallen Weise" synonyms "Ölhallen Weise"
+			"Östergök" synonyms "Östergök"
+			"?ili" synonyms "?ili"
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "delivery.product.addTxtResp1" :
+		inputs in en {
+			" "
+	}
+
+flows :
+	- user "delivery.product.remove" => chatbot "delivery.product.addTxtResp1" => user "delivery.order.remove - context: delivery-remove - new product" => chatbot "delivery.product.addTxtResp1" ;
+	- user "delivery.order.check" => chatbot "delivery.product.addTxtResp1" ;
+	- user "delivery.product.swap" => chatbot "delivery.product.addTxtResp1" ;
+	- user "Default Fallback intent" => chatbot "delivery.product.addTxtResp1" ;
+	- user "delivery.search" => chatbot "delivery.product.addTxtResp1" {
+		=> user "delivery.product.add" => chatbot "delivery.product.addTxtResp1" => user "delivery.order.add - context: delivery-add - new product" => chatbot "delivery.product.addTxtResp1" ;
+		=> user "delivery.search - context:delivery" => chatbot "delivery.product.addTxtResp1" ;
+	} ;
+	- user "delivery.order.check_status" => chatbot "delivery.product.addTxtResp1" ;
+

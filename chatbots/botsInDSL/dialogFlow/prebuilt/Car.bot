@@ -1,0 +1,1721 @@
+Chatbot Car language : en
+
+intents :
+
+	"car.oil.check" :
+		inputs in en {
+			"can you check the oil for me please" ,
+			"what is the oil level right now" ,
+			"my car oil level" ,
+			"can you check oil is it okay" ,
+			"do I have enough oil" ,
+			"oil level in my car" ,
+			"show the oil level"
+	}
+
+	"car.information.how_to" :
+		inputs in en {
+			"how do I " ( "set my cruise control" ) [ topic ] ,
+			"how to " ( "change car oil" ) [ topic ] ,
+			"do you know how to " ( "change the wheel" ) [ topic ] ,
+			"how do I  " ( "set my cruise control" ) [ topic ] ,
+			"do you know how to " ( "change the steering wheel position" ) [ topic ] ,
+			"how can I " ( "program my favorite radio stations" ) [ topic ] ,
+			"how do I " ( "adjust seat" ) [ topic ] ,
+			"I don\'t know how to " ( "fix the engine block" ) [ topic ] ,
+			"how to " ( "adjust ignition switch" ) [ topic ] ,
+			"tell me how to " ( "turn on the navigation system" ) [ topic ] ,
+			"how to " ( "fasten the seat belt" ) [ topic ] ,
+			"how to " ( "repair car speakers" ) [ topic ] ,
+			"how to " ( "set the clock" ) [ topic ] " in my car" ,
+			"how to " ( "adjust seats manually" ) [ topic ] ,
+			"how " ( "often do I need to change oil" ) [ topic ] ,
+			"can I " ( "adjust the wheel" ) [ topic ] ,
+			"how do I " ( "drive this car" ) [ topic ]
+		}
+		parameters :
+			topic : entity "car-topic" ;
+
+	"car.lights.brightness.down.implicit" :
+		inputs in en {
+			"it\'s too bright for the " ( passengers ) [ "car-part" ] ,
+			"not dark enough in my car" ,
+			"isn\'t it too bright for the " ( passengers ) [ "car-part" ] ,
+			"too bright for " ( Mary ) [ passenger ] ,
+			"the lights are too bright in a car" ,
+			( "back up light" ) [ "car-part" ] " is too bright in my car" ,
+			"it is too bright in the car"
+		}
+		parameters :
+			passenger ,
+			"car-part" : entity "car-light" ;
+
+	"car.locks.check.unlock" :
+		inputs in en {
+			"did I unlock " ( "the door" ) [ "car-part" ] " when I left my car" ,
+			"did I unlock " ( all ) [ all ] " the " ( windows ) [ "car-part" ] " in the car" ,
+			"make sure that " ( all ) [ all ] " " ( windows ) [ "car-part" ] " are unlocked in the car" ,
+			"are you sure that I\'ve unlocked the " ( "driver\'s door" ) [ "car-part" ] ,
+			"is the " ( roof ) [ "car-part" ] " unlocked"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			all : entity all ;
+
+	"car.mirror.set" :
+		inputs in en {
+			"set the " ( "blind spot safety mirror" ) [ "car-part" ] ,
+			"adjust mirrors in my car" ,
+			"turn the " ( "left mirror" ) [ "car-part" ] " a little to the " ( right ) [ rotation ] ,
+			"rotate car mirror to the " ( right ) [ rotation ] ,
+			"adjust the " ( "side mirrors" ) [ "car-part" ] ,
+			( "side view mirror" ) [ "car-part" ] " " ( up ) [ rotation ] ,
+			( "left mirror" ) [ "car-part" ] " " ( down ) [ rotation ] ,
+			"set car mirrors" ,
+			( "side view mirror" ) [ "car-part" ] " " ( upright ) [ rotation ] ,
+			"turn car mirror to the " ( left ) [ rotation ] ,
+			"adjust mirrors" ,
+			"shift the " ( "right mirror" ) [ "car-part" ] " " ( "towards me" ) [ rotation ]
+		}
+		parameters :
+			"car-part" : entity "car-mirror" ;
+			rotation : entity rotation ;
+
+	"car.seat.set" :
+		inputs in en {
+			"adjust seats" ,
+			"adjust seat for " ( Kate ) [ passenger ] ,
+			( "my seat" ) [ "car-part" ] " should be in " ( safe ) [ position ] " position" ,
+			"adjust " ( "baby seat" ) [ "car-part" ] " " ( backward ) [ position ] ,
+			"can you adjust " ( "my seat" ) [ "car-part" ] ,
+			"move the " ( "passenger seat" ) [ "car-part" ] " " ( back ) [ position ] " a little" ,
+			"make " ( "my seat" ) [ "car-part" ] " " ( higher ) [ position ] ,
+			"lean the " ( "driver\'s seat" ) [ "car-part" ] " " ( "10" ) [ "change-value" ] " degrees " ( forward ) [ position ] ,
+			"bring seats to the " ( safe ) [ position ] " position" ,
+			"I\'m not ok with the current seat position" ,
+			"adjust seat " ( forward ) [ position ] ,
+			( "Nolan\'s" ) [ passenger ] " seat should be in safe position" ,
+			"adjust " ( every ) [ all ] " seat" ,
+			"lean " ( "Carol\'s" ) [ passenger ] " seat " ( "15" ) [ "change-value" ] " degrees " ( backward ) [ position ] ,
+			"bring " ( "all of" ) [ all ] " car seats to the " ( upright ) [ position ] " position" ,
+			"bring " ( "Kate\'s" ) [ passenger ] " seat in " ( upright ) [ position ] " position"
+		}
+		parameters :
+			"car-part" : entity "car-seat" ;
+			position : entity position ;
+			all : entity all ;
+			passenger ,
+			"change-value" : entity float ;
+
+	"car.ac.up - context:car-ac - comment:not warm enough" :
+		inputs in en {
+			"still not warm enough" ,
+			"make it hotter" ,
+			"still I\'m cold" ,
+			"still not warm" ,
+			hotter ,
+			"still cold" ,
+			"too cold" ,
+			warmer ,
+			"still not hot" ,
+			"still not hot enough" ,
+			"make it warmer"
+	}
+
+	"car.locks.lock" :
+		inputs in en {
+			"lock " ( all ) [ all ] " " ( windows ) [ "car-part" ] " in my car" ,
+			"can you lock the " ( "driver\'s door" ) [ "car-part" ] ,
+			( all ) [ all ] " " ( windows ) [ "car-part" ] " in my car should be locked" ,
+			"lock the " ( doors ) [ "car-part" ] " in my car" ,
+			"lock car\'s " ( "luggage compartment" ) [ "car-part" ] ,
+			"block " ( all ) [ all ] " " ( windows ) [ "car-part" ] " in my car" ,
+			"lock my car" ,
+			"lock " ( all ) [ all ] " the " ( doors ) [ "car-part" ] " in the car" ,
+			"lock " ( everything ) [ all ] " in the car" ,
+			"please lock the car " ( "front doors" ) [ "car-part" ] " for me" ,
+			"lock " ( all ) [ all ] " " ( windows ) [ "car-part" ] " in the car" ,
+			"lock the " ( "rear left door" ) [ "car-part" ] ,
+			"lock the " ( "driver\'s door" ) [ "car-part" ]
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			all : entity all ;
+
+	"car.ac.up.implicit" :
+		inputs in en {
+			"it is too cold for " ( Mary ) [ passenger ] " in the car" ,
+			( Mary ) [ passenger ] " is cold in the car" ,
+			"too cold in the car" ,
+			"it\'s too cold in the car" ,
+			"I am cold in my car"
+		}
+		parameters :
+			passenger : entity text ;
+
+	"car.locks.open - context:car-close-open" :
+		inputs in en {
+			"open it please" ,
+			"I need it to be opened" ,
+			"now I need to open it" ,
+			"I want to open it now" ,
+			open ,
+			"now open" ,
+			"and open it" ,
+			"could you open this" ,
+			"can you open it as well" ,
+			"open it" ,
+			"please open now" ,
+			"open them"
+	}
+
+	"car.seat_heater.down" :
+		inputs in en {
+			"turn down the temperature of the " ( "driver\'s seat" ) [ "car-part" ] ,
+			"decrease the heater for " ( "baby seat" ) [ "car-part" ] ,
+			"make " ( "my seat" ) [ "car-part" ] " cooler" ,
+			"turn the heater for both " ( "front seats" ) [ "car-part" ] " down" ,
+			"make the " ( "driver\'s seat" ) [ "car-part" ] " " ( "5" ) [ temperature ] " degrees colder" ,
+			"make it colder for " ( Maggie ) [ passenger ] ,
+			"turn down the air conditioning for " ( "my seat" ) [ "car-part" ] ,
+			"turn down the heater for " ( each ) [ all ] " seat in the car" ,
+			"the " ( "driver\'s seat" ) [ "car-part" ] " is too hot" ,
+			"it\'s too hot in the " ( "rear seats" ) [ "car-part" ] ,
+			"turn the heater for " ( "rear left seat" ) [ "car-part" ] " down" ,
+			"turn down the temperature for " ( "driver\'s seat" ) [ "car-part" ] ,
+			"turn down the seat heater for " ( Mia ) [ passenger ] ,
+			"make " ( "Nolan\'s" ) [ passenger ] " seat cooler" ,
+			"can you lower the temperature for " ( "my seat" ) [ "car-part" ] ,
+			"turn down the seat\'s temp for " ( Maggie ) [ passenger ] ,
+			"make " ( "my seat" ) [ "car-part" ] " colder"
+		}
+		parameters :
+			"car-part" : entity "car-seat" ;
+			passenger ,
+			temperature : entity float ;
+			all : entity all ;
+
+	"car.seat_heater.down.implicit" :
+		inputs in en {
+			( "driver\'s seat" ) [ "car-part" ] " is too hot" ,
+			( "my seat" ) [ "car-part" ] " is too hot" ,
+			( "my seat" ) [ "car-part" ] " is boiling" ,
+			( "Mary\'s" ) [ passenger ] " seat is too hot"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			passenger : entity text ;
+
+	"car.ac.off - context:car-ac - comment:turn off" :
+		inputs in en {
+			"switch off" ,
+			"turn off" ,
+			"now switch it off" ,
+			"turn off now" ,
+			"please switch it off" ,
+			"now turn off" ,
+			"turn it off now"
+	}
+
+	"car.locks.check.lock" :
+		inputs in en {
+			"did I lock " ( "all of" ) [ all ] " the " ( windows ) [ "car-part" ] " in the car" ,
+			"did I lock the " ( "rear left door" ) [ "car-part" ] ,
+			"is the " ( roof ) [ "car-part" ] " locked" ,
+			"make sure that " ( every ) [ all ] " " ( window ) [ "car-part" ] " is locked in the car" ,
+			"did I lock the " ( door ) [ "car-part" ] " when I left my car" ,
+			"are you sure that I\'ve locked the " ( "driver\'s door" ) [ "car-part" ] ,
+			"is the " ( window ) [ "car-part" ] " locked"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			all : entity all ;
+
+	"car.diagnostics" :
+		inputs in en {
+			"what\'s up in my car" ,
+			"is everything ok with the " ( "airbag control" ) [ "car-part" ] ,
+			"check " ( "antenna cable" ) [ "car-part" ] ,
+			"is " ( "internal combustion engine" ) [ "car-part" ] " working" ,
+			"your car broke" ,
+			"what is wrong with my car" ,
+			"can you make sure that my car " ( radiator ) [ "car-part" ] " is ok" ,
+			"broken car" ,
+			"my car broke" ,
+			"car broke" ,
+			"what\'s wrong with this vehicle" ,
+			"is my " ( "gas tank" ) [ "car-part" ] " doing allright" ,
+			"is " ( "internal combustion engine" ) [ "car-part" ] " working properly" ,
+			"there is some noise in the " ( engine ) [ "car-part" ] ,
+			"why the " ( "emergence brake" ) [ "car-part" ] " stopped working" ,
+			"is anything wrong with my car" ,
+			"is my car " ( engine ) [ "car-part" ] " ready for a long drive" ,
+			"check my " ( "alarm system" ) [ "car-part" ] " condition" ,
+			"why did the " ( brake ) [ "car-part" ] " stop working" ,
+			"what is wrong with the " ( radiator ) [ "car-part" ] ,
+			"is there something wrong with my car" ,
+			"why the " ( brake ) [ "car-part" ] " stopped working" ,
+			"check that " ( "steering wheel" ) [ "car-part" ] " is in proper condition" ,
+			"is my " ( "steering wheel" ) [ "car-part" ] " in proper condition" ,
+			"can I check the " ( handbreak ) [ "car-part" ] ,
+			"is my car\'s " ( "emergency brake" ) [ "car-part" ] " ok" ,
+			"are my " ( "tail lights" ) [ "car-part" ] " ok" ,
+			"something is wrong with my car " ( engine ) [ "car-part" ] " isn\'t it" ,
+			"car check" ,
+			"can you check that my car " ( engine ) [ "car-part" ] " is working" ,
+			"is there anything wrong with this car" ,
+			"are the " ( brakes ) [ "car-part" ] " ok" ,
+			"is anything wrong with the " ( engine ) [ "car-part" ] ,
+			"please check that " ( "internal combustion engine" ) [ "car-part" ] " is working" ,
+			"how\'s my " ( tire ) [ "car-part" ] " pressure looking" ,
+			"are " ( grilles ) [ "car-part" ] " ok" ,
+			"can you examine the " ( "gas tank" ) [ "car-part" ] ,
+			"condition of my car " ( engine ) [ "car-part" ] ,
+			"is my car broken"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+
+	"car.lights.switch.check" :
+		inputs in en {
+			( each ) [ all ] " car lights status" ,
+			"is the " ( "fog light" ) [ "car-part" ] " set for " ( "50" ) [ value ] " points" ,
+			"tell the " ( "fog light" ) [ "car-part" ] " status please" ,
+			"what is the " ( "fog light" ) [ "car-part" ] " status" ,
+			( "fog light" ) [ "car-part" ] " status" ,
+			"check lights in the car" ,
+			"check the car lights"
+		}
+		parameters :
+			"car-part" : entity "car-light" ;
+			value : entity float ;
+			all : entity all ;
+
+	"car.ac - context:car-ac - comment:change final grad" :
+		inputs in en {
+			"change it to " ( "10" ) [ "final-value" ] " grads" ,
+			"set to " ( "34" ) [ "final-value" ] ,
+			"change it to " ( "15" ) [ "final-value" ] ,
+			"set to " ( "23" ) [ "final-value" ] " grads" ,
+			"turn it up till " ( "30" ) [ "final-value" ] " grad" ,
+			"change to " ( "83" ) [ "final-value" ] " grads" ,
+			"set it to " ( "20" ) [ "final-value" ] ,
+			"can you do " ( "72" ) [ "final-value" ] " degrees" ,
+			"set it to " ( "18" ) [ "final-value" ] " grads" ,
+			"change to " ( "28" ) [ "final-value" ]
+		}
+		parameters :
+			"final-value" : entity float ;
+
+	"car.locks.schedule.unlock" :
+		inputs in en {
+			"unlock the " ( roof ) [ "car-part" ] " of my car when I " ( "get in" ) [ condition ] ,
+			"please unlock the " ( roof ) [ "car-part" ] " as soon as I " ( "get into" ) [ condition ] " my car" ,
+			"unlock " ( all ) [ all ] " the " ( windows ) [ "car-part" ] " when I " ( "get into" ) [ condition ] " the car" ,
+			"unlock the " ( doors ) [ "car-part" ] " when I am " ( leaving ) [ condition ] " the car"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			condition : entity condition ;
+			all : entity all ;
+
+	"car.ac.up" :
+		inputs in en {
+			"turn up the " ( heating ) [ device ] " in the car" ,
+			"turn up the temperature of the air in car\'s " ( "air conditioner" ) [ device ] ,
+			"it\'s freezing in this car do something" ,
+			"turn up the temperature in the car for " ( Mary ) [ passenger ] ,
+			"increase temperature in car by " ( "10" ) [ "change-value" ] " degrees" ,
+			"increase the temperature in car to " ( "26" ) [ "final-value" ] " degrees" ,
+			"turn up the air temperature for the driver" ,
+			"increase the temperature for car " ( "air conditioner" ) [ device ] ,
+			"turn up the temperature of car " ( "air conditioner" ) [ device ] ,
+			"turn up the temperature in the car" ,
+			"turn the temperature up in the car" ,
+			"make it " ( "5" ) [ "change-value" ] " points warmer in the car" ,
+			"make it warmer for " ( Maggie ) [ passenger ] ,
+			"turn up the temp in " ( "air conditioner" ) [ device ] " and direct the air " ( straight ) [ "air-distribution" ] ,
+			"turn the temp in the car up to " ( "25" ) [ "final-value" ] ,
+			"make " ( "air conditioner" ) [ device ] " blow warmer in car" ,
+			"turn up " ( heating ) [ device ] " for " ( driver ) [ "car-part" ] ,
+			"turn the temperature in car up to " ( "25" ) [ "final-value" ] " degrees" ,
+			"turn up the " ( "air conditioning" ) [ device ] " for " ( John ) [ passenger ] ,
+			"turn up car\'s temperature by " ( "1" ) [ "change-value" ] " point" ,
+			"make " ( "air conditioner" ) [ device ] " blow " ( straight ) [ "air-distribution" ] " and warmer" ,
+			"increase the car temperature by " ( "5" ) [ "change-value" ] " points" ,
+			"the air in car is too cold" ,
+			"the air in car is blowing too cold"
+		}
+		parameters :
+			device : entity "car-device" ;
+			"final-value" : entity float ;
+			"change-value" : entity float ;
+			passenger ,
+			"air-distribution" : entity "air-direction" ;
+			"car-part" : entity "car-seat" ;
+
+	"car.ac.down.implicit" :
+		inputs in en {
+			"it is too hot for " ( Mary ) [ passenger ] ,
+			"too hot for " ( Mary ) [ passenger ] " right now" ,
+			"it\'s boiling in the car" ,
+			"it\'s too hot in the car" ,
+			"too hot in the car for " ( Mary ) [ passenger ] ,
+			"it is too hot in the car for the " ( driver ) [ "car-part" ]
+		}
+		parameters :
+			passenger ,
+			"car-part" : entity "car-seat" ;
+
+	"car.ac - context:car-ac - comment:increase or decrease grad" :
+		inputs in en {
+			"to " ( "8" ) [ "final-value" ] " then" ,
+			"by " ( "5" ) [ "change-value" ] ,
+			"to " ( "6" ) [ "final-value" ] " now" ,
+			"to " ( "5" ) [ "final-value" ] " points please" ,
+			"and to " ( "6" ) [ "final-value" ] ,
+			"to " ( "5" ) [ "final-value" ] " right now" ,
+			"to " ( "7" ) [ "final-value" ] ,
+			"to " ( "5" ) [ "final-value" ] " now please" ,
+			"to " ( "6" ) [ "final-value" ] " points" ,
+			"by " ( "10" ) [ "change-value" ] " points"
+		}
+		parameters :
+			"final-value" : entity float ;
+			"change-value" : entity float ;
+
+	"car.information.max_speed" :
+		inputs in en {
+			"what\'s the maximum speed of my car" ,
+			"speed of my car" ,
+			"what\'s the maximum speed of my vehicle" ,
+			"maximum speed of my car" ,
+			"how fast can I go" ,
+			"how fast can my car go" ,
+			"my maximum acceleration"
+	}
+
+	"car - context:schedule - comment:schedule previous action" :
+		inputs in en {
+			"repeat " ( "every day" ) [ recurrence ] ,
+			"do it " ( daily ) [ recurrence ] " " ( "at 8 am" ) [ "date-time" ] ,
+			"and repeat it " ( "at 9 pm" ) [ "date-time" ]
+		}
+		parameters :
+			recurrence : entity recurrence ;
+			"date-time" : entity text ;
+
+	"car.information.where_is" :
+		inputs in en {
+			"where\'s the " ( "turn signal" ) [ "car-part" ] ,
+			"locate the " ( "rear window defroster" ) [ "car-part" ] ,
+			"where can I find the " ( "gas pedal" ) [ "car-part" ] ,
+			"where is " ( gearbox ) [ "car-part" ] " located in the car" ,
+			"where is " ( "airbag control" ) [ "car-part" ] " unit in my car" ,
+			"check the " ( speedometer ) [ "car-part" ] " location in my car" ,
+			"where is " ( "ash tray" ) [ "car-part" ] ,
+			"is there a " ( "steering wheel" ) [ "car-part" ] ,
+			"is there " ( "air bag" ) [ "car-part" ] " in my car" ,
+			"where\'s the " ( ashtray ) [ "car-part" ] ,
+			"where is " ( "airbag control" ) [ "car-part" ] " unit in my car" ,
+			"location of " ( speedometer ) [ "car-part" ] ,
+			"where is the " ( airbag ) [ "car-part" ] " in this car"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+
+	"car.locks.open" :
+		inputs in en {
+			"open the " ( rooftop ) [ "car-part" ] ,
+			"can you open the " ( "passenger door" ) [ "car-part" ] " for me please" ,
+			"lower the " ( "passenger side window" ) [ "car-part" ] ,
+			"remove the " ( roof ) [ "car-part" ] ,
+			"I need to open the " ( "left passenger door" ) [ "car-part" ] ,
+			"open " ( "side mirror" ) [ "car-part" ] ,
+			"open " ( every ) [ all ] " " ( door ) [ "car-part" ] " in the car" ,
+			"open " ( "left front window" ) [ "car-part" ] " of my car" ,
+			"open " ( "my window" ) [ "car-part" ] ,
+			"open the " ( sunroof ) [ "car-part" ] ,
+			"roll " ( "my window" ) [ "car-part" ] " down" ,
+			"can you open " ( every ) [ all ] " " ( window ) [ "car-part" ] " in my car" ,
+			"open both " ( "front windows" ) [ "car-part" ] " in the car" ,
+			"can you open " ( "my door" ) [ "car-part" ] " please" ,
+			"open " ( "luggage compartment" ) [ "car-part" ] ,
+			( "all of" ) [ all ] " the " ( doors ) [ "car-part" ] " in the car should be opened" ,
+			"I need to open the " ( "rear right passenger door" ) [ "car-part" ]
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			all : entity all ;
+
+	"car.seat_heater.schedule.up" :
+		inputs in en {
+			"turn up " ( "Mary\'s" ) [ passenger ] " seat heating when she " ( "gets in" ) [ condition ] " the car" ,
+			"make " ( "my seat" ) [ "car-seat" ] " warmer when I am " ( "getting in" ) [ condition ] " the car" ,
+			"turn up the temperature for " ( "driver\'s seat" ) [ "car-seat" ] " when I\'m " ( "getting in" ) [ condition ] " the car"
+		}
+		parameters :
+			condition : entity condition ;
+			"car-seat" : entity "car-seat" ;
+			passenger : entity text ;
+
+	"car.ac.schedule.up" :
+		inputs in en {
+			"turn up the temperature for " ( "front seat" ) [ "car-part" ] " by " ( "10" ) [ "final-value" ] " degrees on " ( sunset ) [ condition ] ,
+			"turn up the temperature for " ( "rear seat" ) [ "car-part" ] " by " ( "10" ) [ "final-value" ] " degrees when I " ( "get in" ) [ condition ] ,
+			"turn up the temperature of " ( "air conditioner" ) [ device ] " to " ( "25" ) [ "change-value" ] " points in the car when I " ( "get in" ) [ condition ] ,
+			"temperature up to " ( "5" ) [ "change-value" ] " points when I " ( leave ) [ condition ] " the car" ,
+			"temperature up to " ( "5" ) [ "final-value" ] " degrees when I " ( leave ) [ condition ] " the car" ,
+			"turn up the temperature of " ( "air conditioner" ) [ device ] " to " ( "25" ) [ "final-value" ] " degrees in the car when I " ( "get in" ) [ condition ] ,
+			"turn up the temperature for " ( driver ) [ "car-part" ] " when she " ( "gets in" ) [ condition ] ,
+			"turn up the temperature of " ( "air conditioner" ) [ device ] " for " ( "5" ) [ "change-value" ] " points in the car when I " ( "get in" ) [ condition ] ,
+			"turn up the temperature of " ( "air conditioner" ) [ device ] " in the car when I " ( "get in" ) [ condition ]
+		}
+		parameters :
+			condition : entity condition ;
+			device ,
+			"change-value" : entity float ;
+			"final-value" : entity float ;
+			"car-part" : entity "car-seat" ;
+
+	"car.lights.switch.check.on" :
+		inputs in en {
+			"check if the " ( "drivers lights" ) [ "car-part" ] " are on" ,
+			"did I forget to turn on the " ( "back seat lights" ) [ "car-part" ] ,
+			"did I turn on the " ( "dashboard lights" ) [ "car-part" ] ,
+			"are the lights on in the car" ,
+			"is the car " ( "fog light" ) [ "car-part" ] " on" ,
+			"are " ( "all of" ) [ all ] " the lights on in the car"
+		}
+		parameters :
+			"car-part" : entity "car-light" ;
+			all : entity all ;
+
+	"car.seat_heater.on - context:seat-heater - comment:turn on" :
+		inputs in en {
+			"turn on" ,
+			"and turn it on" ,
+			"switch it on" ,
+			"turn on now" ,
+			"turn it on please" ,
+			"activate it now" ,
+			"now turn it on"
+	}
+
+	"car.lights.brightness.up" :
+		inputs in en {
+			"turn up the lights in the car" ,
+			"turn up the head light for " ( "8" ) [ "change-value" ] " points" ,
+			"turn up the " ( "head light" ) [ "car-part" ] " for " ( Kate ) [ name ] ,
+			"increase the light for " ( "Mary\'s" ) [ name ] " seat" ,
+			"turn the car lights up" ,
+			"increase the power of " ( "reverse lights" ) [ "car-part" ] ,
+			"turn up " ( all ) [ all ] " the lights in the car" ,
+			"increase the light in the car" ,
+			"turn the " ( "warning light" ) [ "car-part" ] " up" ,
+			"turn the " ( "dashboard lights" ) [ "car-part" ] " up for " ( John ) [ name ] ,
+			"turn up the " ( "head light" ) [ "car-part" ] " for my seat" ,
+			"turn up the " ( "head light" ) [ "car-part" ]
+		}
+		parameters :
+			"car-part" : entity "car-light" ;
+			name ,
+			"change-value" : entity float ;
+			all : entity all ;
+
+	"car.seat_heater.off" :
+		inputs in en {
+			"turn off air conditioning for " ( "front seat" ) [ "car-part" ] ,
+			"turn off the heater for " ( Kate ) [ passenger ] ,
+			"turn air conditioning off for " ( "driver\'s seat" ) [ "car-part" ] ,
+			"turn the heater for " ( "baby seat" ) [ "car-part" ] " off" ,
+			"turn off seat heater" ,
+			"switch off the seat heater" ,
+			"switch off the heater for " ( all ) [ all ] " seats" ,
+			"turn " ( "my seat" ) [ "car-part" ] " heater off" ,
+			"turn off the heating under " ( "my seat" ) [ "car-part" ] " please" ,
+			"seat heater off" ,
+			"turn off the heater for " ( Carol ) [ passenger ] ,
+			"turn off the heater for " ( "my seat" ) [ "car-part" ]
+		}
+		parameters :
+			"car-part" : entity "car-seat" ;
+			passenger ,
+			all : entity all ;
+
+	"car.seat_heater.on" :
+		inputs in en {
+			"turn on the heater for " ( Jack ) [ passenger ] " to " ( "23" ) [ temperature ] " degrees" ,
+			"make " ( "all of" ) [ all ] " seats are warm" ,
+			"turn on seat heater" ,
+			"switch the heater for " ( every ) [ all ] " seats" ,
+			"turn on the heating for " ( "child seat" ) [ "car-part" ] ,
+			"turn on the heater for " ( Kate ) [ passenger ] ,
+			"turn on the heater for " ( "my seat" ) [ "car-part" ] " till " ( "25" ) [ temperature ] ,
+			"turn on the heater for " ( "my seat" ) [ "car-part" ] ,
+			"make " ( "my seat" ) [ "car-part" ] " warm and nice" ,
+			"make it warm and nice for " ( "my seat" ) [ "car-part" ] ,
+			"switch the seat heater" ,
+			( "I\'m sitting" ) [ "car-part" ] " on something very cold" ,
+			"seat heater on" ,
+			"turn the heater for " ( "baby seat" ) [ "car-part" ] " on" ,
+			"turn air conditioning for " ( "driver\'s seat" ) [ "car-part" ] ,
+			"turn the heater for " ( Carol ) [ passenger ] " on"
+		}
+		parameters :
+			"car-part" : entity "car-seat" ;
+			passenger ,
+			all : entity all ;
+			temperature : entity float ;
+
+	"car.lights.brightness.up - context:car-brightness - comment:not bright enough" :
+		inputs in en {
+			"brighten it" ,
+			"it\'s too dark in here" ,
+			"make them brighter" ,
+			"it is too dark here" ,
+			"not bright enough" ,
+			"too dark" ,
+			brighter ,
+			"it\'s too dark" ,
+			"still too dark" ,
+			"still dark" ,
+			"it\'s dark here" ,
+			more ,
+			"it is dark" ,
+			"make brighter" ,
+			"brighten them"
+	}
+
+	"car.locks.check.close" :
+		inputs in en {
+			"did I close " ( "the door" ) [ "car-part" ] " when I left my car" ,
+			"did I closed " ( all ) [ all ] " the " ( windows ) [ "car-part" ] " in the car" ,
+			"is the " ( roof ) [ "car-part" ] " closed" ,
+			"make sure that " ( all ) [ all ] " " ( windows ) [ "car-part" ] " are closed in the car" ,
+			"are you sure that I\'ve closed the " ( "driver\'s door" ) [ "car-part" ]
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			all : entity all ;
+
+	"Default fallback intent" Fallback :
+		inputs in en {
+			"make sure that all windows in your room are closed" ,
+			"can you check the oil price for me please" ,
+			"I want to make my car way more cooler" ,
+			"don\'t make my seat cooler when I get in the car" ,
+			"don\'t make every seat lower" ,
+			"do it daily after lunch"
+	}
+
+	"car.lights.switch.schedule.off" :
+		inputs in en {
+			"turn off " ( "all of" ) [ all ] " the lights when I " ( leave ) [ condition ] " my car" ,
+			"turn off the " ( "back up lights" ) [ "car-part" ] " in the car when I " ( leave ) [ condition ] " it" ,
+			"turn off lights in my car for " ( Mary ) [ passenger ] " when she " ( "gets in" ) [ condition ]
+		}
+		parameters :
+			condition : entity condition ;
+			"car-part" : entity "car-part" ;
+			passenger ,
+			all : entity all ;
+
+	"car.locks.check" :
+		inputs in en {
+			"please verify " ( every ) [ all ] " " ( lock ) [ "car-part" ] " in my car" ,
+			"check car " ( locks ) [ "car-part" ] ,
+			"check " ( windows ) [ "car-part" ] " locks in my car"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			all : entity all ;
+
+	"car.alarm.check" :
+		inputs in en {
+			"check the alarm system of my car" ,
+			"check the alarm system of my car is it on" ,
+			"is the alarm system of my car on or off" ,
+			"is the alarm system of my car off" ,
+			"is the alarm system on in my car"
+	}
+
+	"car.locks.close" :
+		inputs in en {
+			"close " ( all ) [ all ] " the " ( windows ) [ "car-part" ] ,
+			"please close both " ( "rear windows" ) [ "car-part" ] ,
+			"close the " ( trunk ) [ "car-part" ] ,
+			"close the car" ,
+			"close " ( everything ) [ all ] " in the car" ,
+			"close the " ( roof ) [ "car-part" ] ,
+			"shut the " ( doors ) [ "car-part" ] " in the car" ,
+			"shut the " ( "driver\'s door" ) [ "car-part" ] " for me" ,
+			"can you close " ( "left rear window" ) [ "car-part" ] " please" ,
+			"close the " ( trunk ) [ "car-part" ] " please" ,
+			"close " ( all ) [ all ] " " ( doors ) [ "car-part" ] " in the car"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			all : entity all ;
+
+	"car.seat_heater.schedule.down" :
+		inputs in en {
+			"make " ( "my seat" ) [ "car-part" ] " cooler when I " ( "get in" ) [ condition ] " the car" ,
+			"make " ( "Mary\'s" ) [ passenger ] " seat cooler when I " ( "get in" ) [ condition ] " the car" ,
+			"turn down the temperature for " ( "driver\'s seat" ) [ "car-part" ] " when I " ( "get in" ) [ condition ] " the car"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			condition : entity condition ;
+			passenger : entity text ;
+
+	"car.alarm.on" :
+		inputs in en {
+			"turn on alarm system of my car" ,
+			"turn on the alarm for my car" ,
+			"set car state to armed" ,
+			"turn on the alarm system" ,
+			"turn on the car alarm system" ,
+			"activate car alarm" ,
+			"switch the alarm system of my car" ,
+			"I need to set the clock in my car"
+	}
+
+	"car.locks.unlock" :
+		inputs in en {
+			"unlock " ( every ) [ all ] " " ( door ) [ "car-part" ] " in the car" ,
+			"unlock the " ( door ) [ "car-part" ] ,
+			"can you please unlock " ( "all of" ) [ all ] " the " ( windows ) [ "car-part" ] " in my car" ,
+			"will you unlock the " ( "rear left window" ) [ "car-part" ] " for me" ,
+			"unlock the " ( "luggage compartment" ) [ "car-part" ] ,
+			"unlock the " ( "driver\'s door" ) [ "car-part" ] " for me" ,
+			"unlock " ( windows ) [ "car-part" ] " in the car"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			all : entity all ;
+
+	"car.ac.on" :
+		inputs in en {
+			( heating ) [ device ] " on in the car" ,
+			"direct air flow to the " ( floor ) [ "air-distribution" ] ,
+			"turn " ( "air conditioning" ) [ device ] " on" ,
+			"make " ( "air conditioner" ) [ device ] " to " ( "8" ) [ "final-value" ] " degrees in the car" ,
+			"switch on " ( "air conditioning" ) [ device ] ,
+			"set the car temperature to " ( "25" ) [ "final-value" ] " C" ,
+			"turn car\'s " ( "air conditioning" ) [ device ] " on" ,
+			"turn on " ( "auto mode" ) [ automode ] " for " ( "air conditioning" ) [ device ] " for " ( Kate ) [ passenger ] ,
+			"turn on " ( "air conditioner" ) [ device ] " in my car" ,
+			"turn on " ( "auto mode" ) [ automode ] " for " ( "air conditioning" ) [ device ] ,
+			"make the air blow " ( straight ) [ "air-distribution" ] " to " ( Mary ) [ passenger ] ,
+			"direct airflow to " ( "my face" ) [ "air-distribution" ] ,
+			"change " ( "air conditioning" ) [ device ] " direction to " ( straight ) [ "air-distribution" ] " position" ,
+			"direct airflow to " ( "my face" ) [ "air-distribution" ] " and " ( "my feet" ) [ "air-distribution" ] ,
+			"turn on " ( "air conditioner" ) [ device ] " for " ( driver ) [ "car-part" ] ,
+			"switch on " ( "air conditioning" ) [ device ] " for " ( Carol ) [ passenger ] ,
+			"turn on " ( "air conditioning" ) [ device ] " for my car" ,
+			"give me some cool air in the car" ,
+			"turn on the " ( heating ) [ device ] " in the car" ,
+			"set the car temperature to " ( "25" ) [ "final-value" ] ,
+			"it\'s cold here in the car turn it on" ,
+			"I want to feel the air on " ( "my feet" ) [ "air-distribution" ] " and my " ( head ) [ "air-distribution" ] ,
+			"I want to feel the air on " ( "my feet" ) [ "air-distribution" ]
+		}
+		parameters :
+			device : entity "car-device" ;
+			"air-distribution" : entity "air-direction" ;
+			passenger ,
+			"final-value" : entity float ;
+			automode : entity automode ;
+			"car-part" : entity "car-seat" ;
+
+	"car.ac.schedule.down" :
+		inputs in en {
+			"turn down the car " ( heating ) [ device ] " when I " ( "go out" ) [ condition ] ,
+			"turn down " ( heating ) [ device ] " for " ( "20" ) [ "change-value" ] " when I " ( leave ) [ condition ] " my car" ,
+			"temperature down to " ( "5" ) [ "final-value" ] " degrees when I " ( leave ) [ condition ] " the car" ,
+			"turn down the car " ( heating ) [ device ] " when I " ( leave ) [ condition ] " my car" ,
+			"turn down the " ( heating ) [ device ] " in the car for " ( Mary ) [ passenger ] " when she " ( "gets in" ) [ condition ] ,
+			"temperature down by " ( "5" ) [ "change-value" ] " degrees when I " ( come ) [ condition ] " to my car"
+		}
+		parameters :
+			condition : entity condition ;
+			device : entity "car-device" ;
+			passenger ,
+			"change-value" : entity float ;
+			"final-value" : entity float ;
+
+	"car.information.what_is" :
+		inputs in en {
+			"what is " ( "exhaust pipe" ) [ "car-part" ] " for" ,
+			"what was the " ( "internal combustion engine" ) [ "car-part" ] " used for" ,
+			"how does a car " ( engine ) [ "car-part" ] " work" ,
+			"what is " ( "cruise control" ) [ "car-part" ] ,
+			"why do we need " ( "instrument panel" ) [ "car-part" ] " in the car" ,
+			"tell me more about " ( "instrument panel" ) [ "car-part" ] ,
+			"information about " ( "internal combustion engine" ) [ "car-part" ] ,
+			"what is " ( "turn signal" ) [ "car-part" ] ,
+			"what is " ( gearbox ) [ "car-part" ] " used for" ,
+			"tell me why do I need " ( "automatic transmission" ) [ "car-part" ]
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+
+	"car.ac.down" :
+		inputs in en {
+			"blow cooler in my car" ,
+			"can you lower the temperature of car " ( "air conditioning" ) [ device ] " a little bit" ,
+			"lower the temperature in the car" ,
+			"decrease the temperature in my car" ,
+			"turn down the temperature in the car by " ( "3" ) [ "change-value" ] " points" ,
+			"turn down the temperature of car " ( "air conditioner" ) [ device ] ,
+			"decrease the temperature in car\'s " ( "air conditioner" ) [ device ] " to " ( "18" ) [ "final-value" ] " degrees" ,
+			"lower the temperature of car " ( "air conditioner" ) [ device ] ,
+			"the temperature in the car should be " ( "20" ) [ "final-value" ] ,
+			"the air is too hot in this car" ,
+			"turn down the temperature in car\'s " ( "air conditioner" ) [ device ] " by " ( "10" ) [ "change-value" ] " points" ,
+			"heating down" ,
+			"make the " ( "air conditioning" ) [ device ] " cooler in a car" ,
+			"turn down the " ( heating ) [ device ] " temperature in the car by " ( "7" ) [ "change-value" ] " degrees" ,
+			"turn down the temperature of " ( "air conditioner" ) [ device ] " in the car" ,
+			"cool the air in " ( "air conditioner" ) [ device ] " in my car" ,
+			"turn down the temperature for " ( Mary ) [ passenger ] ,
+			"turn down the heating in my car" ,
+			"turn down the temperature in my car" ,
+			"lower the temperature by " ( "2" ) [ "change-value" ] " degrees in the car" ,
+			"lower the temperature in the car to " ( "20" ) [ "final-value" ] " degrees" ,
+			"turn down the temperature in " ( "air conditioner" ) [ device ] " and direct the airflow " ( straight ) [ "air-distribution" ] ,
+			"lower the in-car temperature by " ( "5" ) [ "change-value" ] " degrees" ,
+			"decrease the temperature in car\'s " ( "air conditioner" ) [ device ]
+		}
+		parameters :
+			device : entity "car-device" ;
+			"change-value" : entity float ;
+			"air-distribution" : entity "air-direction" ;
+			passenger ,
+			"final-value" : entity float ;
+
+	"car.ac.check" :
+		inputs in en {
+			"temperature in the car" ,
+			"tell me the temperature in my car" ,
+			"is the car temperature " ( "25" ) [ value ] " degrees" ,
+			"how hot is it in the car" ,
+			"what\'s the temperature of the car " ( heating ) [ device ]
+		}
+		parameters :
+			device : entity "car-device" ;
+			value : entity float ;
+
+	"car.lights.switch.check.off" :
+		inputs in en {
+			"did I turn off the " ( "dashboard lights" ) [ "car-part" ] ,
+			"check if the " ( "drivers lights" ) [ "car-part" ] " are off" ,
+			"is " ( "fog light" ) [ "car-part" ] " off" ,
+			"are the lights off in the car" ,
+			"is " ( "fog light" ) [ "car-part" ] " beam off" ,
+			"did I forget to turn off the " ( "back seat lights" ) [ "car-part" ] ,
+			"did I forget to turn off " ( all ) [ all ] " the lights in my car" ,
+			"are " ( all ) [ all ] " the lights off in the car"
+		}
+		parameters :
+			"car-part" : entity "car-light" ;
+			all : entity all ;
+
+	"car.locks.schedule.lock" :
+		inputs in en {
+			"you should lock " ( windows ) [ "car-part" ] " of my car when I " ( "get into" ) [ condition ] " it" ,
+			"could you lock the " ( roof ) [ "car-part" ] " when I " ( "get in" ) [ condition ] " the car" ,
+			"lock " ( all ) [ all ] " " ( windows ) [ "car-part" ] " when I " ( leave ) [ condition ] " my car" ,
+			"please lock the " ( roof ) [ "car-part" ] " when I " ( leave ) [ condition ] " the car"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			condition : entity condition ;
+			all : entity all ;
+
+	"car.lights.switch.off - context:car-switch - comment:turn off" :
+		inputs in en {
+			"turn it off" ,
+			"turn off" ,
+			"and now turn off" ,
+			"turn it off now" ,
+			"now turn off please"
+	}
+
+	"car.lights.switch.on - context:car-switch - comment:turn on" :
+		inputs in en {
+			"please turn it on now" ,
+			"now turn it on" ,
+			"turn on now" ,
+			"turn on" ,
+			"turn them on" ,
+			"turn it on now" ,
+			"and now turn on"
+	}
+
+	"car.lights.brightness.schedule.up" :
+		inputs in en {
+			"turn up " ( every ) [ all ] " light when I " ( "get in" ) [ condition ] " the car" ,
+			"turn up the lights when I " ( "get into" ) [ condition ] " my car" ,
+			"turn up " ( "backup lights" ) [ "car-part" ] " when I " ( "get in" ) [ condition ] " my car" ,
+			"turn up lights for " ( "9" ) [ "change-value" ] " points for " ( Mary ) [ passenger ] " when she " ( "gets in" ) [ condition ] " the car"
+		}
+		parameters :
+			condition : entity condition ;
+			"car-part" : entity "car-part" ;
+			"change-value" : entity float ;
+			passenger ,
+			all : entity all ;
+
+	"car.locks.schedule.close" :
+		inputs in en {
+			"close " ( "all of" ) [ all ] " the " ( windows ) [ "car-part" ] " as soon as I " ( "get in" ) [ condition ] " my car" ,
+			"close the " ( roof ) [ "car-part" ] " when I " ( "get in" ) [ condition ] " the car" ,
+			"can you close the " ( doors ) [ "car-part" ] " when I " ( leave ) [ condition ] " the car" ,
+			"could you close " ( "all of" ) [ all ] " the " ( doors ) [ "car-part" ] " every time I " ( leave ) [ condition ] " my car"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			condition : entity condition ;
+			all : entity all ;
+
+	"car.lights.switch.on" :
+		inputs in en {
+			( "driver lights" ) [ "car-part" ] " on for " ( "20" ) [ "final-value" ] " points" ,
+			"turn on " ( all ) [ all ] " the car lights" ,
+			"turn the lights in the car on" ,
+			"turn on " ( headlights ) [ "car-part" ] ,
+			"switch car lights for " ( Mary ) [ passenger ] ,
+			"turn on the car " ( headlights ) [ "car-part" ] ,
+			"I can\'t see anything can you turn on " ( "my light" ) [ "car-part" ] ,
+			"switch car lights" ,
+			"turn the " ( "dashboard light" ) [ "car-part" ] " on" ,
+			"turn on lights in the car" ,
+			"can you turn on the " ( headlight ) [ "car-part" ] ,
+			"switch " ( all ) [ all ] " lights in the car" ,
+			"switch to " ( "high beams" ) [ "car-part" ] ,
+			"turn the " ( "fog light" ) [ "car-part" ] " on" ,
+			"turn on the light for " ( John ) [ passenger ]
+		}
+		parameters :
+			"car-part" : entity "car-light" ;
+			all : entity all ;
+			passenger ,
+			"final-value" : entity float ;
+
+	"car.seat_heater.off - context:seat-heater - comment:turn off" :
+		inputs in en {
+			"now switch it off" ,
+			"switch them off" ,
+			"switch off" ,
+			"could you please switch them off now" ,
+			"switch it off" ,
+			"now off" ,
+			"turn off" ,
+			"turn them off" ,
+			"could you please switch them off" ,
+			"turn it off now"
+	}
+
+	"car.ac.down - context:car-ac - comment:not cold enough" :
+		inputs in en {
+			"still hot" ,
+			"make it colder" ,
+			"too warm" ,
+			"still warm" ,
+			"still not cold enough" ,
+			"too warm for me" ,
+			"colder now" ,
+			"not cold enough" ,
+			"still too warm" ,
+			"still too warm for me" ,
+			colder ,
+			"colder please"
+	}
+
+	"car.locks.close - context:car-close-open" :
+		inputs in en {
+			"can you close them for me" ,
+			"I need to close them" ,
+			"close it" ,
+			"close them now please" ,
+			"close them" ,
+			"please close it" ,
+			close ,
+			"could you close it" ,
+			"it should be closed" ,
+			"they should be closed" ,
+			"now close"
+	}
+
+	"car.dashboard.check" :
+		inputs in en {
+			"show me the dashboard in my car" ,
+			"what\'s happening on the dashboard" ,
+			"tell me what is going on on the dashboard of the car" ,
+			"check car control panel" ,
+			"what\'s happening on the dashboard of my car"
+	}
+
+	"car.lights.switch.off" :
+		inputs in en {
+			"switch off the " ( "back seat lights" ) [ "car-part" ] ,
+			"switch off car lights" ,
+			"can you turn off the " ( headlight ) [ "car-part" ] ,
+			"turn the " ( headlight ) [ "car-part" ] " off for my seat" ,
+			"turn off the light for " ( Mary ) [ passenger ] ,
+			"absolute darkness in the car now" ,
+			"turn the lights in the car off" ,
+			"turn off " ( "all of" ) [ all ] " the car lights" ,
+			"turn off the lights in the car" ,
+			"turn off " ( "my light" ) [ "car-part" ] ,
+			"turn the " ( "fog light" ) [ "car-part" ] " off" ,
+			"switch " ( all ) [ all ] " lights in the car off" ,
+			"turn off " ( all ) [ all ] " the lights in the car"
+		}
+		parameters :
+			"car-part" : entity "car-light" ;
+			all : entity all ;
+			passenger : entity text ;
+
+	"car.seat_heater.schedule.on" :
+		inputs in en {
+			"please activate " ( "Mary\'s" ) [ passenger ] " seat heater when she " ( leaves ) [ condition ] " the car" ,
+			"turn on the " ( "driver\'s seat" ) [ "car-part" ] " heating when I " ( "get in" ) [ condition ] " the car" ,
+			"turn on " ( all ) [ all ] " seats heating when I " ( "get in" ) [ condition ] " the car" ,
+			"turn on seat heater when I " ( "get in" ) [ condition ] " my car"
+		}
+		parameters :
+			condition : entity condition ;
+			"car-part" : entity "car-part" ;
+			passenger ,
+			all : entity all ;
+
+	"car.ac.schedule.on" :
+		inputs in en {
+			"turn off " ( heating ) [ device ] " on " ( floor ) [ "air-distribution" ] " to when I " ( leave ) [ condition ] " in the car" ,
+			"turn on " ( heating ) [ device ] " on " ( floor ) [ "air-distribution" ] " to when I " ( "get in the" ) [ condition ] " car" ,
+			"set " ( heating ) [ device ] " on " ( floor ) [ "air-distribution" ] " to the " ( "20" ) [ "final-value" ] " points" ,
+			"set " ( heating ) [ device ] " on " ( "right side" ) [ "air-distribution" ] " when I " ( "get in the" ) [ condition ] " car" ,
+			"set " ( heating ) [ device ] " on " ( "left side" ) [ "air-distribution" ] ,
+			"set " ( "air condition" ) [ device ] " off when I " ( leave ) [ condition ] " my car" ,
+			"set " ( "air condition" ) [ device ] " off " ( "auto regime" ) [ automode ] " when I " ( leave ) [ condition ] " my car" ,
+			"turn on " ( heating ) [ device ] " for me when I " ( "get in" ) [ condition ] " the car" ,
+			"set " ( heating ) [ device ] " on " ( autoregime ) [ automode ] ,
+			"set the " ( "air condition" ) [ device ] " on " ( "30" ) [ "final-value" ] " points to the top" ,
+			"set " ( heating ) [ device ] " on " ( "auto mode" ) [ automode ] " when I " ( leave ) [ condition ] " my car" ,
+			"set " ( "air conditioner" ) [ device ] " to " ( "20" ) [ "final-value" ] " points when I " ( "get in" ) [ condition ] " my car" ,
+			"turn the " ( "air condition" ) [ device ] " on the " ( floor ) [ "air-distribution" ] " when I " ( "get in" ) [ condition ] " the car" ,
+			"turn on the temperature for " ( Mary ) [ passenger ] " when she " ( "gets in" ) [ condition ] " the car" ,
+			"turn on the temperature of " ( "air conditioner" ) [ device ] " in the car when I " ( "get in the" ) [ condition ] " car"
+		}
+		parameters :
+			condition : entity condition ;
+			device : entity "car-device" ;
+			passenger ,
+			"air-distribution" : entity "air-direction" ;
+			"final-value" : entity float ;
+			automode : entity automode ;
+
+	"car.lights.brightness.up.implicit" :
+		inputs in en {
+			"the car lights are too dark" ,
+			"too dark in my car" ,
+			( "backup light" ) [ "car-part" ] " is way too dark" ,
+			"too dark for " ( Mary ) [ passenger ] " in the car" ,
+			"it is too dark in the car"
+		}
+		parameters :
+			passenger ,
+			"car-part" : entity "car-light" ;
+
+	"car.ac.schedule.off" :
+		inputs in en {
+			"turn car heating off when I " ( "get out" ) [ condition ] ,
+			"turn off air conditioner for " ( Jack ) [ passenger ] " when he " ( leaves ) [ condition ] " the car" ,
+			"turn off " ( "air conditioner" ) [ device ] " for " ( driver ) [ "car-part" ] " when he " ( leaves ) [ condition ] " the car" ,
+			"turn off the " ( heating ) [ device ] " in my car every time I " ( leave ) [ condition ] " my car" ,
+			"turn off " ( "air conditioner" ) [ device ] " when I " ( leave ) [ condition ] " the car"
+		}
+		parameters :
+			condition : entity condition ;
+			device : entity "car-device" ;
+			passenger ,
+			"car-part" : entity "car-seat" ;
+
+	"car.lights.switch.schedule.on" :
+		inputs in en {
+			"turn on car " ( "backup lights" ) [ "car-part" ] " when I " ( "get in" ) [ condition ] " the car" ,
+			"turn on " ( "all of" ) [ all ] " the car lights when I " ( leave ) [ condition ] " my car" ,
+			"turn on lights when I " ( "get in" ) [ condition ] " the car" ,
+			"turn on car lights for " ( Jacky ) [ "given-name" ] " when she " ( "gets in" ) [ condition ] " the car"
+		}
+		parameters :
+			condition : entity condition ;
+			all : entity all ;
+			"given-name" ,
+			"car-part" : entity "car-part" ;
+
+	"car.seat_heater.up" :
+		inputs in en {
+			( "Mary\'s" ) [ passenger ] " seat is too cold" ,
+			( "my seat" ) [ "car-part" ] " is too cold" ,
+			( "driver\'s seat" ) [ "car-part" ] " is too cold" ,
+			"make the " ( "driver\'s seat" ) [ "car-part" ] " " ( "5" ) [ temperature ] " degrees warmer" ,
+			"turn up the heater for " ( "rear left seat" ) [ "car-part" ] ,
+			"please make " ( "Jack\'s" ) [ passenger ] " seat warmer" ,
+			"turn the heater for both " ( "left seats" ) [ "car-part" ] " up" ,
+			( "passenger seat" ) [ "car-part" ] " is too cold" ,
+			"turn up the temperature of " ( "my seat" ) [ "car-part" ] ,
+			"the " ( "driver\'s seat" ) [ "car-part" ] " is too cold" ,
+			"turn up the temperature for " ( "driver\'s seat" ) [ "car-part" ] ,
+			"warm up " ( "driver\'s seat" ) [ "car-part" ] ,
+			"make " ( "my seat" ) [ "car-part" ] " warmer" ,
+			"turn up the air temperature for " ( "driver\'s seat" ) [ "car-part" ] ,
+			"it\'s too cold in the " ( backseat ) [ "car-part" ] ,
+			"can you warm up " ( "Nolan\'s" ) [ passenger ] " seat" ,
+			"the " ( "passenger seat" ) [ "car-part" ] " is freezing" ,
+			"the " ( "passenger seat" ) [ "car-part" ] " is freezing" ,
+			"warm " ( "baby seat" ) [ "car-part" ] " up"
+		}
+		parameters :
+			"car-part" : entity "car-seat" ;
+			passenger ,
+			temperature : entity float ;
+
+	"car.locks.unlock- context:car-lock-unlock" :
+		inputs in en {
+			"unlock them" ,
+			"unlock it now ok" ,
+			"unlock it now" ,
+			"now you should unlock them" ,
+			"unlock them right now please" ,
+			"ok now unlock" ,
+			"now unlock" ,
+			"now I need to unlock them" ,
+			unlock ,
+			"now I need this to be unlocked" ,
+			"unlock it" ,
+			"can you unlock it"
+		}
+		parameters :
+			"car-part" ,
+			all : entity text ;
+
+	"car.locks.schedule.open" :
+		inputs in en {
+			"remove the " ( roof ) [ "car-part" ] " when I " ( leave ) [ condition ] " my car" ,
+			"open " ( "luggage compartment" ) [ "car-part" ] " every time I " ( leave ) [ condition ] " my car" ,
+			"open " ( "all of" ) [ all ] " the " ( windows ) [ "car-part" ] " when I " ( "get in" ) [ condition ] " my car"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			condition : entity condition ;
+			all : entity all ;
+
+	"car.lights.brightness.down" :
+		inputs in en {
+			"lower the brightness of lights for " ( John ) [ passenger ] ,
+			"dim " ( all ) [ all ] " the lights in the car" ,
+			"car lights down for " ( "2" ) [ "change-value" ] " points" ,
+			"dim the light in the car" ,
+			"turn the car lights down" ,
+			"turn down the " ( "head light" ) [ "car-part" ] ,
+			"dim the " ( "head light" ) [ "car-part" ] ,
+			"dim " ( every ) [ all ] " light in car" ,
+			"dim car lights" ,
+			"lower the brightness of " ( all ) [ all ] " lights in the car" ,
+			"lower the brightness of car lights" ,
+			"turn down the lights in the car" ,
+			"turn the " ( "warning light" ) [ "car-part" ] " down" ,
+			"decrease the power of " ( "reverse lights" ) [ "car-part" ] ,
+			"turn down the " ( "head light" ) [ "car-part" ] " for my seat" ,
+			"decrease the light in the car"
+		}
+		parameters :
+			"car-part" : entity "car-light" ;
+			all : entity all ;
+			passenger ,
+			"change-value" : entity float ;
+
+	"car.locks.lock- context:car-lock-unlock" :
+		inputs in en {
+			"could you lock them please" ,
+			"now lock" ,
+			"they should be locked" ,
+			"lock them" ,
+			"lock it now" ,
+			"I want to lock them now" ,
+			"lock them now" ,
+			lock ,
+			"I need it to be locked" ,
+			"I need to lock them" ,
+			"can you lock them now" ,
+			"lock it"
+	}
+
+	"car.locks.check.open" :
+		inputs in en {
+			"is the " ( roof ) [ "car-part" ] " opened" ,
+			"did I open " ( "the door" ) [ "car-part" ] " when I left my car" ,
+			"make sure that " ( all ) [ all ] " " ( windows ) [ "car-part" ] " are opened in the car" ,
+			"are you sure that I\'ve opened the " ( "driver\'s door" ) [ "car-part" ] ,
+			"did I open " ( all ) [ all ] " the " ( windows ) [ "car-part" ] " in the car"
+		}
+		parameters :
+			"car-part" : entity "car-part" ;
+			all : entity all ;
+
+	"car.lights.brightness.down - context:car-brightness - comment:not dim enough" :
+		inputs in en {
+			"too bright for me" ,
+			"it is bright here" ,
+			"too bright" ,
+			"a little less" ,
+			less ,
+			"it\'s too bright" ,
+			"still bright" ,
+			"it is bright" ,
+			"too bright there" ,
+			"still too bright" ,
+			"it\'s really bright in here" ,
+			"not dim enough"
+	}
+
+	"car.ac.off" :
+		inputs in en {
+			"car " ( heating ) [ device ] " should be off" ,
+			"turn off " ( "air conditioning" ) [ device ] " in car" ,
+			"turn off " ( "air conditioning" ) [ device ] " for " ( "Mike\'s" ) [ passenger ] " seat" ,
+			"my car\'s " ( heating ) [ device ] " should be off" ,
+			"turn " ( "air conditioning" ) [ device ] " off for " ( Mary ) [ passenger ] ,
+			( heating ) [ device ] " off for " ( driver ) [ "car-part" ] ,
+			"car " ( heating ) [ device ] " off for " ( driver ) [ "car-part" ] ,
+			"turn off the " ( "air conditioner" ) [ device ] " in the car" ,
+			"turn my car " ( "air conditioning" ) [ device ] " off" ,
+			"turn off the " ( heating ) [ device ] " in my car" ,
+			"switch my car " ( "air conditioner" ) [ device ] ,
+			"turn off my car " ( "air conditioning" ) [ device ] ,
+			"switch off my car " ( "air conditioning" ) [ device ]
+		}
+		parameters :
+			device : entity "car-device" ;
+			passenger ,
+			"car-part" : entity "car-seat" ;
+
+	"car.alarm.off" :
+		inputs in en {
+			"switch off the alarm in my car" ,
+			"switch off the alarm system in my car" ,
+			"turn the alarm system off for the car" ,
+			"remove the alarm in my car" ,
+			"turn off the car alarm" ,
+			"turn off alarm system of my car" ,
+			"turn off the alarm in my car"
+	}
+
+	"car.gas.check" :
+		inputs in en {
+			"am I running out of gas" ,
+			"is the petrol level enough" ,
+			"check how much gas do I have left" ,
+			"do I have enough gas" ,
+			"how much petrol have I got" ,
+			"check petrol level" ,
+			"gas level" ,
+			"is the gas level enough" ,
+			"check how much gas do I have" ,
+			"do I still have enough gas" ,
+			"is there enough petrol in my car" ,
+			"how much gas do I have left" ,
+			"is there enough gas" ,
+			"check the gas level" ,
+			"is there enough fuel" ,
+			"petrol level"
+	}
+
+	"car.seat.schedule.set" :
+		inputs in en {
+			"make " ( every ) [ all ] " seat " ( lower ) [ position ] " to " ( "20" ) [ "change-value" ] " points when everyone " ( "get out" ) [ condition ] " of the car" ,
+			"make " ( "my seat" ) [ "car-seat" ] " " ( "20" ) [ "change-value" ] " points " ( lower ) [ position ] " when I " ( "get out" ) [ condition ] " of the car" ,
+			"make " ( "Karl\'s" ) [ passenger ] " seat " ( "10" ) [ "change-value" ] " points " ( higher ) [ position ] " when he " ( "gets in the" ) [ condition ] " car" ,
+			"make " ( "my seat" ) [ "car-seat" ] " " ( "10" ) [ "change-value" ] " points " ( lower ) [ position ] " when I " ( "get in the" ) [ condition ] " car" ,
+			"bring " ( "front seats" ) [ "car-seat" ] " to " ( safe ) [ position ] " position when I " ( leave ) [ condition ] " the car" ,
+			"return " ( "all of" ) [ all ] " the seats to " ( safe ) [ position ] " position once everyone " ( abandon ) [ condition ] " the car" ,
+			"make " ( "my seat" ) [ "car-seat" ] " " ( "20" ) [ "change-value" ] " points " ( lower ) [ position ] " on " ( sunrise ) [ condition ] ,
+			"make " ( each ) [ all ] " seat " ( "20" ) [ "change-value" ] " points " ( higher ) [ position ] " on " ( sunset ) [ condition ] ,
+			"bring " ( "John\'s" ) [ passenger ] "  seat to the " ( safe ) [ position ] " position when he " ( "gets out" ) [ condition ] " of the car" ,
+			"make " ( every ) [ all ] " seat " ( lower ) [ position ] " to " ( "20" ) [ "change-value" ] " points when I " ( leave ) [ condition ] " the car" ,
+			"make " ( "my seat" ) [ "car-seat" ] " to " ( safe ) [ position ] " position when I " ( leave ) [ condition ] " the car" ,
+			"make " ( "Mary\'s" ) [ passenger ] " seat " ( lower ) [ position ] " to " ( "15" ) [ "change-value" ] " points when she " ( "gets in the" ) [ condition ] " car" ,
+			"bring " ( "all of" ) [ all ] " the seats to " ( safe ) [ position ] " position when I " ( leave ) [ condition ] " the car" ,
+			"make " ( "Karl\'s" ) [ passenger ] " seat " ( higher ) [ position ] " to " ( "10" ) [ "change-value" ] " points when he " ( "gets in" ) [ condition ] " the car" ,
+			"make " ( "my seat" ) [ "car-seat" ] " " ( higher ) [ position ] " when I " ( "get in" ) [ condition ] " the car"
+		}
+		parameters :
+			position : entity position ;
+			"car-seat" : entity "car-seat" ;
+			condition : entity condition ;
+			all : entity all ;
+			"change-value" : entity float ;
+			passenger : entity text ;
+
+	"car.seat_heater.schedule.off" :
+		inputs in en {
+			"turn off " ( "driver\'s seat" ) [ "car-part" ] " heater when I " ( leave ) [ condition ] " my car" ,
+			"turn off seat heating for " ( Mary ) [ passenger ] " when she " ( leaves ) [ condition ] " the car" ,
+			"please turn off " ( every ) [ all ] " seat heaters in the car when I " ( leave ) [ condition ] " it"
+		}
+		parameters :
+			condition : entity condition ;
+			passenger ,
+			"car-part" : entity "car-part" ;
+			all : entity all ;
+
+	"car.lights.brightness.schedule.down" :
+		inputs in en {
+			"dim " ( everything ) [ all ] " when I get into the car" ,
+			"dim the lights when I " ( leave ) [ condition ] " the car" ,
+			"dim " ( all ) [ all ] " the lights when I " ( "get into" ) [ condition ] " the car" ,
+			"dim the car " ( "backup light" ) [ "car-part" ] " for " ( Anna ) [ passenger ] " for " ( "29" ) [ "change-value" ] " points when I " ( "get in" ) [ condition ]
+		}
+		parameters :
+			condition : entity condition ;
+			all : entity all ;
+			"change-value" : entity float ;
+			passenger ,
+			"car-part" : entity "car-part" ;
+
+entities :
+	Simple entity all :
+		inputs in en {
+			^true synonyms all , "all of" , each , every , everything , everywhere
+	}
+	Simple entity "car-light" :
+		inputs in en {
+			"back seat light" synonyms "back seat lights" , "lights for back seat"
+			"back-up light" synonyms "back up light" , "back-up light" , "backup light"
+			"brake light" synonyms "brake light"
+			"current user\'s light" synonyms "my light"
+			"dashboard light" synonyms "dash board light" , "dash board lights" , "dashboard light" , "dashboard lights"
+			"driver\'s light" synonyms "driver lights" , "driver\'s lights"
+			"emergency light" synonyms "emergency light"
+			"fog light" synonyms "fog light" , "fog lights"
+			"head light" synonyms "head lamp" , "head light" , headlamp , headlight
+			"high-beam head light" synonyms "high beam" , "high beam lights" , "high beams" , "high-beam headlight" , "high-beam light"
+			"interior light" synonyms "interior light"
+			"low-beam head light" synonyms "low beam" , "low beam lights" , "low beams" , "low-beam" , "low-beam headlight" , "low-beam light"
+			"parking light" synonyms "parking light"
+			"passenger\'s light" synonyms "passenger\'s light" , "passengers light"
+			passengers synonyms passengers
+			"rear seat light" synonyms "light for rear seat" , "lights for rear seats" , "rear seat light" , "reat seat lights"
+			"reverse light" synonyms "reverse light" , "reverse lights"
+			"warning light" synonyms "warning light"
+	}
+	Simple entity "car-topic" :
+		inputs in en {
+			"adjust ignition switch" synonyms "adjust ignition switch"
+			"adjust seat" synonyms "adjust seat"
+			"adjust seats manually" synonyms "adjust seats manually"
+			"adjust the wheel" synonyms "adjust the wheel"
+			"change car oil" synonyms "change car oil"
+			"change the steering wheel position" synonyms "change the steering wheel position"
+			"change the wheel" synonyms "change the wheel"
+			"drive this car" synonyms "drive this car"
+			"fasten the seat belt" synonyms "fasten the seat belt"
+			"fix the engine block" synonyms "fix the engine block"
+			"program my favorite radio stations" synonyms "program my favorite radio stations"
+			"repair car speakers" synonyms "repair car speakers"
+			"set my cruise control" synonyms "set my cruise control"
+			"set the clock" synonyms "set the clock"
+			"suggested oil change freequency" synonyms "often do I need to change oil" , "suggested oil change freequency"
+			"turn on the navigation system" synonyms "turn on the navigation system"
+	}
+	Simple entity rotation :
+		inputs in en {
+			down synonyms down
+			left synonyms left
+			right synonyms right
+			"towards user" synonyms "towards me" , "towards user"
+			up synonyms up
+			upright synonyms upright
+	}
+	Simple entity "car-mirror" :
+		inputs in en {
+			"blind spot safety mirror" synonyms "blind safety mirror" , "blind spot safety mirror"
+			"central mirror" synonyms "central mirror"
+			"front view mirror" synonyms "front mirror" , "front view mirror"
+			"interior driver’s mirror" synonyms "interior driver mirror" , "interior driver’s mirror"
+			"left side mirror" synonyms "left mirror" , "left side mirror"
+			"rear-view mirror" synonyms "rear view mirror" , "rear-view mirror"
+			"right side mirror" synonyms "right mirror" , "right sife mirror"
+			"side mirror" synonyms "side mirror" , "side mirrors"
+			"side view mirror" synonyms "side view mirror"
+	}
+	Simple entity "car-part" :
+		inputs in en {
+			accelerator synonyms accelerator
+			"air bag" synonyms "air bag" , airbag
+			"airbag control" synonyms "airbag control"
+			alarm synonyms alarm , "alarm system"
+			"antenna cable" synonyms "antenna cable"
+			ashtray synonyms "ash tray" , ashtray
+			"automatic transmission" synonyms "automatic transmission"
+			axle synonyms axle
+			"baby\'s seat" synonyms "baby seat" , "baby\'s seat" , "child seat" , "child\'s seat" , "children seat" , "children\'s seat" , "infant seat" , "infant\'s seat"
+			"back seat light" synonyms "back seat lights" , "lights for back seat"
+			"back-up light" synonyms "back up light" , "back up lights" , "back-up light" , "backup light" , "backup lights"
+			"blind spot safety mirror" synonyms "blind safety mirror" , "blind spot safety mirror"
+			brake synonyms brake
+			"brake light" synonyms "brake light"
+			"brake pedal" synonyms "brake pedal"
+			camshaft synonyms camshaft
+			"central mirror" synonyms "central mirror"
+			chassis synonyms chassis
+			clutch synonyms clutch
+			"cruise control" synonyms "cruise control"
+			"current user\'s door" synonyms "my door"
+			"current user\'s light" synonyms "my light"
+			"current user\'s seat" synonyms "i\'m sitting" , "my butt" , "my seat"
+			"current user\'s window" synonyms "my window"
+			"dashboard light" synonyms "dash board light" , "dash board lights" , "dashboard light" , "dashboard lights"
+			door synonyms door , doors , "the door" , "the doors"
+			"driver\'s door" synonyms "driver\'s door"
+			"driver\'s light" synonyms "driver lights" , "driver\'s lights"
+			"driver\'s seat" synonyms "driver seat" , "driver\'s seat"
+			"emergence brake" synonyms "emergence brake"
+			"emergency brake" synonyms "emergency brake"
+			"emergency light" synonyms "emergency light"
+			engine synonyms engine
+			"exhaust pipe" synonyms "exhaust pipe"
+			"fog light" synonyms "fog light" , "fog lights"
+			"front door" synonyms "front door" , "front doors"
+			"front left seat" synonyms "front left seat" , "left front seat"
+			"front right seat" synonyms "front right seat" , "right front seat"
+			"front seat" synonyms "front seat" , "front seats"
+			"front view mirror" synonyms "front mirror" , "front view mirror"
+			"front window" synonyms "front window"
+			"gas pedal" synonyms "gas pedal"
+			"gas tank" synonyms "gas tank"
+			"gear shift" synonyms "gear shift"
+			"gear stick" synonyms "gear stick"
+			gearbox synonyms gearbox
+			"glove compartment" synonyms "glove compartment"
+			grilles synonyms grilles
+			"hand brake" synonyms "hand brake" , handbreak
+			"head light" synonyms "head lamp" , "head light" , headlamp , headlight
+			"high-beam head light" synonyms "high beam" , "high beam lights" , "high beams" , "high-beam headlight" , "high-beam light"
+			"instrument panel" synonyms "instrument panel"
+			"interior driver’s mirror" synonyms "interior driver mirror" , "interior driver’s mirror"
+			"interior light" synonyms "interior light"
+			"internal combustion engine" synonyms "internal combustion engine"
+			"left door" synonyms "left door" , "left doors" , "left passenger door"
+			"left front door" synonyms "front left door" , "front left passenger door" , "left front door"
+			"left front window" synonyms "front left window" , "left front window"
+			"left rear door" synonyms "left rear door" , "rear left door" , "rear left passenger door"
+			"left rear window" synonyms "left rear window" , "rear left window"
+			"left seat" synonyms "left seat" , "left seats"
+			"left side mirror" synonyms "left mirror" , "left side mirror"
+			"left window" synonyms "left windows"
+			locks synonyms locks
+			"low-beam head light" synonyms "low beam" , "low beam lights" , "low beams" , "low-beam" , "low-beam headlight" , "low-beam light"
+			"luggage compartment" synonyms "luggage compartment"
+			"parking light" synonyms "parking light"
+			"passenger\'s door" synonyms "passenger door" , "passenger\'s door"
+			"passenger\'s light" synonyms "passenger\'s light" , "passengers light" , "passengers\' light"
+			"passenger\'s seat" synonyms "passenger seat" , "passenger\'s seat"
+			"passenger\'s window" synonyms "passenger side window" , "passenger window" , "passenger\'s side window" , "passenger\'s window"
+			radiator synonyms radiator
+			"rear door" synonyms "rear door" , "rear doors"
+			"rear left seat" synonyms "back left seat" , "left back seat" , "left rear seat" , "rear left seat"
+			"rear right seat" synonyms "back right seat" , "rear right seat" , "right back seat" , "right rear seat"
+			"rear seat" synonyms "back seats" , backseat , "rear seat" , "rear seats"
+			"rear window" synonyms "back window" , "rear window"
+			"rear-view mirror" synonyms "rear view mirror" , "rear-view mirror"
+			"rear window defroster" synonyms "rear window defroster"
+			"reverse light" synonyms "reverse light"
+			"right door" synonyms "right door" , "right doors" , "right passenger door"
+			"right front door" synonyms "front right door" , "front right passenger door" , "right front door"
+			"right front window" synonyms "front right window" , "right front window"
+			"right rear door" synonyms "rear right door" , "rear right passenger door" , "right rear door"
+			"right rear window" synonyms "rear right window" , "right rear window"
+			"right seat" synonyms "right seat" , "right seats"
+			"right side mirror" synonyms "right mirror" , "right sife mirror"
+			"right window" synonyms "right windows"
+			roof synonyms roof
+			rooftop synonyms rooftop
+			"safety bag" synonyms "safety bag"
+			"seat belt" synonyms "seat belt"
+			"side airbags" synonyms "side airbags"
+			"side mirror" synonyms "side mirror" , "side mirrors"
+			"spare tire" synonyms "spare tire"
+			speedometer synonyms speedometer
+			"steering wheel" synonyms "steering wheel"
+			"sun roof" synonyms "sun roof" , sunroof
+			"tail lights" synonyms "tail lights"
+			tire synonyms tire
+			trunk synonyms trunk
+			"turn signal" synonyms "turn signal"
+			undercarriage synonyms undercarriage
+			"warning light" synonyms "warning light"
+			wheel synonyms wheel
+			window synonyms window , windows
+			windshield synonyms windshield
+	}
+	Simple entity recurrence :
+		inputs in en {
+			Fridays synonyms Fridays , "each Friday" , "every Friday"
+			Mondays synonyms Mondays , "each Monday" , "every Monday"
+			"Mondays, Tuesdays" synonyms "Mondays, Tuesdays" , "every Monday and Tuesday" , "every Monday and every Tuesday" , "on Mondays and Tuesdays"
+			"Mondays, Tuesdays, Wednesdays" synonyms "Mondays, Tuesdays, Wednesdays" , "every Monday, Tuesday and Wednesday" , "on Mondays, Tuesdays and Wednesdays"
+			"Mondays, Tuesdays, Wednesdays, Thursdays" synonyms "Mondays, Tuesdays, Wednesdays, Thursdays" , "every Monday, Tuesday, Wednesday and Thursday" , "on Mondays, Tuesdays, Wednesdays and Thursdays"
+			"Mondays, Tuesdays, Wednesdays, Thursdays, Fridays, Saturdays" synonyms "Mondays, Tuesdays, Wednesdays, Thursdays, Fridays, Saturdays" , "every day except Sundays"
+			Saturdays synonyms Saturdays , "each Saturday" , "every Saturday" , "for saturdays"
+			Sundays synonyms Sundays , "each Sunday" , "every Sunday"
+			Thursdays synonyms Thursdays , "each Thursday" , "every Thursday"
+			Tuesdays synonyms Tuesdays , "each Tuesday" , "every Tuesday"
+			Wednesdays synonyms Wednesdays , "each Wednesday" , "every Wednesday"
+			Weekdays synonyms Weekdays , "every weekday" , "every workday" , "monday to friday" , "on weekdays" , "only on weeekdays" , "week days" , "work days" , workday , workdays , "working days"
+			Weekends synonyms Weekends , "every weekend" , "only on weekends"
+			"every day" synonyms daily , "each weekend" , "each morning" , "every day" , "every morning" , everyday
+			"every month" synonyms "every month"
+			weekly synonyms weekly
+	}
+	Simple entity "car-device" :
+		inputs in en {
+			"air conditioner" synonyms "air condition" , "air conditioner" , "air conditioning"
+			heating synonyms heating
+	}
+	Simple entity condition :
+		inputs in en {
+			come synonyms appear , appered , arrive , arrived , arriving , came , come , coming , enter , entered , "get in" , "get in the" , "get into" , "gets in"
+			"everyone absent" synonyms "everyone absent" , "no one is at home" , "no one is home"
+			"get out" synonyms "get out"
+			leave synonyms abandon , abandoned , abondon , abondoned , "go out" , leave , leaves , leaving , left , quit , "went out"
+			sunrise synonyms dawn , "sun rising" , sunrise , "when the sun goes up" , "when the sun rises"
+			sunset synonyms dusk , "sun setting" , sunset , "when the sun goes down" , "when the sun sets"
+	}
+	Simple entity "car-seat" :
+		inputs in en {
+			"baby\'s seat" synonyms "baby seat" , "baby\'s seat" , "child seat" , "child\'s seat" , "infant seat" , "infant\'s seat"
+			"current user\'s seat" synonyms "I\'m sitting" , "my seat"
+			"driver\'s seat" synonyms driver , "driver seat" , "driver\'s seat"
+			"front left seat" synonyms "front left seat" , "left front seat"
+			"front right seat" synonyms "front right seat" , "right front seat"
+			"front seat" synonyms "front seat" , "front seats"
+			"left seat" synonyms "left seat" , "left seats"
+			"passenger\'s seat" synonyms "passenger seat" , "passenger\'s seat"
+			"rear left seat" synonyms "back left seat" , "left back seat" , "left rear seat" , "rear left seat"
+			"rear right seat" synonyms "back right seat" , "rear right seat" , "right back seat" , "right rear seat"
+			"rear seat" synonyms "back seats" , backseat , "rear seat" , "rear seats"
+			"right seat" synonyms "right seat" , "right seats"
+	}
+	Simple entity position :
+		inputs in en {
+			down synonyms down , lower
+			forward synonyms forward
+			layback synonyms back , backward , layback
+			safe synonyms safe
+			up synonyms higher , up
+			upright synonyms straight , unreclined , upright
+	}
+	Simple entity heating1 :
+		inputs in en {
+			heating synonyms "air condition" , "air conditioner" , "air conditioning" , airconditioner , airconditioning , "cooling point" , heat , heating , "heating point" , "heating temperature" , "home heating" , "room heating" , thermostat , theromostat
+	}
+	Simple entity "air-direction" :
+		inputs in en {
+			face synonyms face , "my face"
+			floor synonyms feet , floor
+			head synonyms head
+			"left side" synonyms "left side"
+			"my feet" synonyms "my feet"
+			"right side" synonyms "right side"
+			sides synonyms sides
+			straight synonyms straight
+	}
+	Simple entity automode :
+		inputs in en {
+			^true synonyms "auto mode" , "auto regime" , automode , autoregime
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "car.oil.checkTxtResp1" :
+		inputs in en {
+			" "
+	}
+
+flows :
+	- user "car.oil.check" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.information.how_to" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.brightness.down.implicit" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.lights.brightness.up - context:car-brightness - comment:not bright enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.lights.brightness.down - context:car-brightness - comment:not dim enough" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.locks.check.unlock" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.locks.unlock- context:car-lock-unlock" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.locks.lock- context:car-lock-unlock" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.mirror.set" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.seat.set" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.locks.lock" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.locks.unlock- context:car-lock-unlock" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.locks.lock- context:car-lock-unlock" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.ac.up.implicit" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.ac.up - context:car-ac - comment:not warm enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.off - context:car-ac - comment:turn off" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac - context:car-ac - comment:change final grad" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac - context:car-ac - comment:increase or decrease grad" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.on - context:seat-heater - comment:turn on" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.down - context:car-ac - comment:not cold enough" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.seat_heater.down" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.ac.up - context:car-ac - comment:not warm enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.on - context:seat-heater - comment:turn on" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.off - context:seat-heater - comment:turn off" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.down - context:car-ac - comment:not cold enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car - context:schedule - comment:schedule previous action" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.seat_heater.down.implicit" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.ac.up - context:car-ac - comment:not warm enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.on - context:seat-heater - comment:turn on" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.off - context:seat-heater - comment:turn off" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.down - context:car-ac - comment:not cold enough" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.locks.check.lock" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.locks.unlock- context:car-lock-unlock" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.locks.lock- context:car-lock-unlock" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.diagnostics" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.switch.check" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.locks.schedule.unlock" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.ac.up" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.ac.up - context:car-ac - comment:not warm enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.off - context:car-ac - comment:turn off" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac - context:car-ac - comment:change final grad" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac - context:car-ac - comment:increase or decrease grad" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.on - context:seat-heater - comment:turn on" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.down - context:car-ac - comment:not cold enough" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.ac.down.implicit" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.ac.up - context:car-ac - comment:not warm enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.off - context:car-ac - comment:turn off" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac - context:car-ac - comment:change final grad" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac - context:car-ac - comment:increase or decrease grad" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.on - context:seat-heater - comment:turn on" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.down - context:car-ac - comment:not cold enough" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.information.max_speed" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.information.where_is" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.locks.open" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.locks.open - context:car-close-open" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.locks.close - context:car-close-open" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.seat_heater.schedule.up" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.ac.schedule.up" => chatbot "car.oil.checkTxtResp1" => user "car - context:schedule - comment:schedule previous action" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.switch.check.on" => chatbot "car.oil.checkTxtResp1" => user "car - context:schedule - comment:schedule previous action" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.brightness.up" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.lights.brightness.up - context:car-brightness - comment:not bright enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.lights.brightness.down - context:car-brightness - comment:not dim enough" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.seat_heater.off" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.seat_heater.on" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.ac.up - context:car-ac - comment:not warm enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.on - context:seat-heater - comment:turn on" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.off - context:seat-heater - comment:turn off" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.down - context:car-ac - comment:not cold enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car - context:schedule - comment:schedule previous action" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.locks.check.close" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.locks.open - context:car-close-open" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.locks.close - context:car-close-open" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "Default fallback intent" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.switch.schedule.off" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.locks.check" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.alarm.check" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.locks.close" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.locks.open - context:car-close-open" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.locks.close - context:car-close-open" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.seat_heater.schedule.down" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.alarm.on" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.locks.unlock" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.locks.unlock- context:car-lock-unlock" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.locks.lock- context:car-lock-unlock" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.ac.on" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.ac.up - context:car-ac - comment:not warm enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.off - context:car-ac - comment:turn off" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac - context:car-ac - comment:change final grad" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac - context:car-ac - comment:increase or decrease grad" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.on - context:seat-heater - comment:turn on" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.down - context:car-ac - comment:not cold enough" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.ac.schedule.down" => chatbot "car.oil.checkTxtResp1" => user "car - context:schedule - comment:schedule previous action" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.information.what_is" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.ac.down" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.ac.up - context:car-ac - comment:not warm enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.off - context:car-ac - comment:turn off" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac - context:car-ac - comment:change final grad" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac - context:car-ac - comment:increase or decrease grad" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.on - context:seat-heater - comment:turn on" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.down - context:car-ac - comment:not cold enough" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.ac.check" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.switch.check.off" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.locks.schedule.lock" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.brightness.schedule.up" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.locks.schedule.close" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.switch.on" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.lights.switch.off - context:car-switch - comment:turn off" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.lights.switch.on - context:car-switch - comment:turn on" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car - context:schedule - comment:schedule previous action" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.dashboard.check" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.switch.off" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.lights.switch.off - context:car-switch - comment:turn off" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.lights.switch.on - context:car-switch - comment:turn on" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car - context:schedule - comment:schedule previous action" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.seat_heater.schedule.on" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.ac.schedule.on" => chatbot "car.oil.checkTxtResp1" => user "car - context:schedule - comment:schedule previous action" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.brightness.up.implicit" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.lights.brightness.up - context:car-brightness - comment:not bright enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.lights.brightness.down - context:car-brightness - comment:not dim enough" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.ac.schedule.off" => chatbot "car.oil.checkTxtResp1" => user "car - context:schedule - comment:schedule previous action" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.switch.schedule.on" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.seat_heater.up" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.ac.up - context:car-ac - comment:not warm enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.on - context:seat-heater - comment:turn on" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.seat_heater.off - context:seat-heater - comment:turn off" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.ac.down - context:car-ac - comment:not cold enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car - context:schedule - comment:schedule previous action" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.locks.schedule.open" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.brightness.down" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.lights.brightness.up - context:car-brightness - comment:not bright enough" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.lights.brightness.down - context:car-brightness - comment:not dim enough" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.locks.check.open" => chatbot "car.oil.checkTxtResp1" {
+		=> user "car.locks.open - context:car-close-open" => chatbot "car.oil.checkTxtResp1" ;
+		=> user "car.locks.close - context:car-close-open" => chatbot "car.oil.checkTxtResp1" ;
+	} ;
+	- user "car.ac.off" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.alarm.off" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.gas.check" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.seat.schedule.set" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.seat_heater.schedule.off" => chatbot "car.oil.checkTxtResp1" ;
+	- user "car.lights.brightness.schedule.down" => chatbot "car.oil.checkTxtResp1" ;
+

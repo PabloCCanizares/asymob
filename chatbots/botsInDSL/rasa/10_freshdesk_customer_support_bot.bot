@@ -1,0 +1,84 @@
+Chatbot "10_freshdesk_customer_support_bot" language : en
+
+intents :
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"good morning" ,
+		"good evening" ,
+		"hey there"
+}
+
+" show_all_tickets" :
+	inputs in en {
+		"Show All Tickets" ,
+		"show all tickets" ,
+		"SHOW ALL TICKETS"
+}
+
+" create_ticket" :
+	inputs in en {
+		"Create Tickets" ,
+		"create tickets"
+}
+
+" update_ticket" :
+	inputs in en {
+		"Update Ticket" ,
+		"update ticket"
+}
+
+show_all_tickets :
+
+create_ticket :
+
+update_ticket :
+
+actions :
+	empty response action_create_tickets_empty
+	text response utter_greet_text :
+		inputs in en {
+			"Hey! I am avirtual assistant. I can help you with Ticket Creation, Update Ticket, Show All Tickets in Freshdesk(Help Desk)"
+	}
+	text response utter_ask_ticket_id_text :
+		inputs in en {
+			"Please enter ticket id "
+	}
+	empty response action_updatedtickets_empty
+	empty response action_all_tickets_empty
+	text response utter_ask_description_text :
+		inputs in en {
+			"Please provide description to your ticket"
+	}
+	text response utter_ask_subject_text :
+		inputs in en {
+			"subject of ticket"
+	}
+	text response "utter_ask_status-up_text" :
+		inputs in en {
+			"Please select a status to update"
+	}
+	empty response action_update_tickets_empty
+	text response utter_ask_email_text :
+		inputs in en {
+			"Email address of the requester. If no contact exists with this email address in Freshdesk, it will be added as a new contact."
+	}
+	text response utter_ask_priority_text :
+		inputs in en {
+			"Priority of the ticket"
+	}
+	text response utter_ask_status_text :
+		inputs in en {
+			"Status of the ticket"
+	}
+	text response "utter_ask_priority-up_text" :
+		inputs in en {
+			"Please select a priority to update"
+	}
+
+flows :
+	- user greet => chatbot utter_greet_text => user show_all_tickets => chatbot action_all_tickets_empty , action_create_tickets_empty , action_update_tickets_empty , action_updatedtickets_empty ;
+

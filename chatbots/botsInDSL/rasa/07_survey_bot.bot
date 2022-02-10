@@ -1,0 +1,71 @@
+Chatbot "07_survey_bot" language : en
+
+intents :
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"good morning" ,
+		"good evening" ,
+		"hey there"
+}
+
+goodbye :
+	inputs in en {
+		bye ,
+		goodbye ,
+		"bye bye"
+}
+
+actions :
+	text response utter_ask_like_most_text :
+		inputs in en {
+			"Write brefly about the things that you like most about the new service"
+	}
+	text response utter_ask_improve_service_text :
+		inputs in en {
+			"Write brefly about the things that you would like to improve in new service"
+	}
+	text response utter_ask_replace_service_text :
+		inputs in en {
+			"How often will you replace your current service with the service"
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"Hey! I am Survey Bot,Please answer the following questions to proceed the survey"
+	}
+	text response utter_ask_first_reply_text :
+		inputs in en {
+			"Tell us about your first reaction to the service"
+	}
+	text response utter_ask_price_service_text :
+		inputs in en {
+			"Are you satisfied with price of the service?"
+	}
+	text response utter_ask_rate_service_text :
+		inputs in en {
+			"How likely is that you would recommend our service"
+	}
+	text response utter_ask_buy_service_text :
+		inputs in en {
+			"If the service were available today, will you buy the service?"
+	}
+	text response utter_ask_innovative_text :
+		inputs in en {
+			"How innovative is the service?"
+	}
+	text response utter_ask_rate_quality_text :
+		inputs in en {
+			"Please rate the quality of the service"
+	}
+	text response utter_goodbye_text :
+		inputs in en {
+			Bye
+	}
+
+flows :
+	- user greet => chatbot utter_greet_text ;
+	- user goodbye => chatbot utter_goodbye_text ;
+

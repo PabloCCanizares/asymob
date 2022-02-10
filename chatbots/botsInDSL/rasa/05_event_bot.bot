@@ -1,0 +1,218 @@
+Chatbot "05_event_bot" language : en
+
+intents :
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"good morning" ,
+		"good evening" ,
+		"hey there"
+}
+
+goodbye :
+	inputs in en {
+		bye ,
+		goodbye ,
+		"see you around" ,
+		"see you later"
+}
+
+venues_confrence :
+	inputs in en {
+		venues ,
+		Venues ,
+		VENUES
+}
+
+batman_room_confrence :
+	inputs in en {
+		"View Session" ,
+		"batman room" ,
+		"Batman Room"
+}
+
+view_information :
+	inputs in en {
+		"view info" ,
+		"View Information" ,
+		"View Info" ,
+		"view information"
+}
+
+subsctibition_to_update :
+	inputs in en {
+		"Subscribe to update" ,
+		"subsribe to update" ,
+		"SUBCRIBE TO UPDATE"
+}
+
+superman_room_confrence :
+	inputs in en {
+		"View Session" ,
+		"Superman Room" ,
+		"superman room"
+}
+
+hero_room_confrence :
+	inputs in en {
+		"View Session" ,
+		"Hero Room" ,
+		"hero room"
+}
+
+speakers_confrence :
+	inputs in en {
+		Speakers ,
+		speakers ,
+		SPEAKERS ,
+		Speakeres ,
+		Speakers
+}
+
+view_session_speaker1 :
+	inputs in en {
+		"View Session" ,
+		"view session" ,
+		"View session" ,
+		"VIEW SESSION" ,
+		"Andrew King"
+}
+
+view_session_speaker2 :
+	inputs in en {
+		"View Session" ,
+		"view session" ,
+		"View session" ,
+		"VIEW SESSION" ,
+		"Daniel Evanas"
+}
+
+session_speaker3 :
+	inputs in en {
+		"Show More" ,
+		"show more" ,
+		"Rose Stone" ,
+		"rose stone"
+}
+
+session_rosestone :
+	inputs in en {
+		"View Session" ,
+		"Session Of Rose Stone" ,
+		"rose stone session"
+}
+
+session_freyabruke :
+	inputs in en {
+		"View Session" ,
+		"Session Of Freya Bruke" ,
+		"freya bruke session"
+}
+
+session_confrence :
+	inputs in en {
+		Session ,
+		session ,
+		SESSION ,
+		"Show Session"
+}
+
+session_one_speaker_details :
+	inputs in en {
+		"View Speakers" ,
+		"view speakers" ,
+		"session speakers" ,
+		"session chatbot with dialogflow"
+}
+
+session_two_speaker :
+	inputs in en {
+		"View Speakers" ,
+		"view speaker" ,
+		"session chatbot in 2018"
+}
+
+actions :
+	text response utter_subscribe_message_text :
+		inputs in en {
+			"Thanks! You\'ll be notified by message when there are updates about Chatbot Summit Confrence."
+	}
+	empty response action_session_speaker_confrence_details_empty
+	empty response action_speaker_confrence_more_details_empty
+	text response utter_greet_text :
+		inputs in en {
+			"Hi Guest, welcome to the Chatbot Summit Confrence??"
+	}
+	empty response action_speaker_freya_details_empty
+	empty response action_speakerone_details_empty
+	text response utter_welcome_message_text :
+		inputs in en {
+			"What do you want to know about Chatbot Summit Confrence??"
+	}
+	empty response action_session_more_confrence_details_empty
+	empty response action_superman_rooom_details_empty
+	empty response action_speakertwo_details_empty
+	text response utter_view_information_text :
+		inputs in en {
+			"Chatbot Summit is the world\'s leading international event series connecting the eminent professionals and organisations who believe that Conversational A.I. will be the next curve in customer experiences."
+	}
+	empty response action_session_two_speaker_confrence_details_empty
+	empty response action_speaker_rosestone_details_empty
+	empty response action_session_confrence_details_empty
+	empty response action_hero_rooom_details_empty
+	empty response action_venu_confrence_details_empty
+	empty response action_speaker_confrence_details_empty
+	empty response action_batman_rooom_details_empty
+
+flows :
+	- user greet => chatbot utter_greet_text , utter_welcome_message_text {
+		=> user venues_confrence => chatbot action_venu_confrence_details_empty {
+			=> user batman_room_confrence => chatbot action_batman_rooom_details_empty {
+				=> user view_information => chatbot utter_view_information_text ;
+				=> user subsctibition_to_update => chatbot utter_subscribe_message_text => user view_information => chatbot utter_view_information_text ;
+			} ;
+			=> user superman_room_confrence => chatbot action_superman_rooom_details_empty {
+				=> user view_information => chatbot utter_view_information_text ;
+				=> user subsctibition_to_update => chatbot utter_subscribe_message_text => user view_information => chatbot utter_view_information_text ;
+			} ;
+			=> user hero_room_confrence => chatbot action_hero_rooom_details_empty {
+				=> user view_information => chatbot utter_view_information_text ;
+				=> user subsctibition_to_update => chatbot utter_subscribe_message_text => user view_information => chatbot utter_view_information_text ;
+			} ;
+		} ;
+		=> user speakers_confrence => chatbot action_speaker_confrence_details_empty {
+			=> user view_session_speaker1 => chatbot action_speakerone_details_empty {
+				=> user view_information => chatbot utter_view_information_text ;
+				=> user subsctibition_to_update => chatbot utter_subscribe_message_text => user view_information => chatbot utter_view_information_text ;
+			} ;
+			=> user view_session_speaker2 => chatbot action_speakertwo_details_empty {
+				=> user view_information => chatbot utter_view_information_text ;
+				=> user subsctibition_to_update => chatbot utter_subscribe_message_text => user view_information => chatbot utter_view_information_text ;
+			} ;
+			=> user session_speaker3 => chatbot action_speaker_confrence_more_details_empty {
+				=> user session_rosestone => chatbot action_speaker_rosestone_details_empty {
+					=> user view_information => chatbot utter_view_information_text ;
+					=> user subsctibition_to_update => chatbot utter_subscribe_message_text => user view_information => chatbot utter_view_information_text ;
+				} ;
+				=> user session_freyabruke => chatbot action_speaker_freya_details_empty {
+					=> user view_information => chatbot utter_view_information_text ;
+					=> user subsctibition_to_update => chatbot utter_subscribe_message_text => user view_information => chatbot utter_view_information_text ;
+				} ;
+			} ;
+		} ;
+		=> user session_confrence => chatbot action_session_confrence_details_empty {
+			=> user session_one_speaker_details => chatbot action_session_speaker_confrence_details_empty {
+				=> user view_information => chatbot utter_view_information_text ;
+				=> user subsctibition_to_update => chatbot utter_subscribe_message_text => user view_information => chatbot utter_view_information_text ;
+			} ;
+			=> user session_two_speaker => chatbot action_session_two_speaker_confrence_details_empty {
+				=> user view_information => chatbot utter_view_information_text ;
+				=> user subsctibition_to_update => chatbot utter_subscribe_message_text => user view_information => chatbot utter_view_information_text ;
+			} ;
+			=> user session_speaker3 => chatbot action_session_more_confrence_details_empty => user session_one_speaker_details => chatbot action_session_two_speaker_confrence_details_empty { => user view_information => chatbot utter_view_information_text ; => user subsctibition_to_update => chatbot utter_subscribe_message_text => user view_information => chatbot utter_view_information_text ; } ;
+		} ;
+	} ;
+

@@ -1,0 +1,187 @@
+Chatbot Formats language : en
+
+intents :
+
+	"format.imperial.unset" :
+		inputs in en {
+			"turn off imperial units system" ,
+			"I don\'t want to use imperial units of measurement" ,
+			"don\'t use imperial units" ,
+			"stop using imperial system"
+	}
+
+	"format.length.unset" :
+		inputs in en {
+			"don\'t use " ( miles ) [ unit ] ,
+			"don\'t show me distance in " ( miles ) [ unit ] ,
+			"stop using " ( kilometres ) [ unit ] ,
+			"stop using " ( miles ) [ unit ] " for length measurement" ,
+			"unset " ( kilometres ) [ unit ] " as default length format" ,
+			"change the length format" ,
+			"don\'t provide me distance in " ( kilometres ) [ unit ]
+		}
+		parameters :
+			unit : entity text ;
+
+	"format.time.set" :
+		inputs in en {
+			"use " ( "24-hour" ) [ format ] " format" ,
+			"use " ( "12 hour" ) [ format ] " time format" ,
+			"show me the time in " ( "12-hr" ) [ format ] " format" ,
+			"provide me the time in " ( military ) [ format ] " format" ,
+			"I\'d like to get the time in " ( "24 hour" ) [ format ] " format" ,
+			"set the time format" ,
+			"set " ( military ) [ format ] " time format"
+		}
+		parameters :
+			format : entity "time-format" ;
+
+	"format.metric.set" :
+		inputs in en {
+			"use metric units" ,
+			"could you use metric units of measurement" ,
+			"metric system" ,
+			"switch to metric units" ,
+			"provide me information in metric units" ,
+			"I\'d like to use metric system"
+	}
+
+	"format.weight.set" :
+		inputs in en {
+			"provide me weight measurements in " ( grams ) [ unit ] ,
+			"I\'d like to use " ( pounds ) [ unit ] ,
+			"use " ( kilograms ) [ unit ] ,
+			"set weight format" ,
+			"use " ( kilograms ) [ unit ] " as weight units" ,
+			"switch units format to " ( grams ) [ unit ]
+		}
+		parameters :
+			unit : entity text ;
+
+	"format.weight.unset" :
+		inputs in en {
+			"don\'t measure weight in " ( grams ) [ unit ] ,
+			"unset weight format" ,
+			"stop providing me weight measurements in " ( grams ) [ unit ] ,
+			"stop using " ( pounds ) [ unit ] ,
+			"I don\'t want to use " ( pounds ) [ unit ] ,
+			"don\'t use " ( kilograms ) [ unit ] ,
+			"don\'t use " ( kilograms ) [ unit ] " as weight units"
+		}
+		parameters :
+			unit : entity text ;
+
+	"format.imperial.set" :
+		inputs in en {
+			"switch to imperial units" ,
+			"use imperial units" ,
+			"provide me information in imperial units" ,
+			"could you use imperial units of measurement" ,
+			"imperial units system" ,
+			"I\'d like to use imperial system"
+	}
+
+	"format.temperature.set" :
+		inputs in en {
+			"I\'d like to get temperatures in " ( Fahrenheit ) [ unit ] ,
+			"use " ( Celsius ) [ unit ] " instead of Fahrenheit" ,
+			"show me temperatures in " ( Fahrenheit ) [ unit ] ,
+			"I\'d like you to use " ( Celsius ) [ unit ] ,
+			"provide me temperature in " ( Celsius ) [ unit ] ,
+			"set temperature format" ,
+			"use degrees " ( Fahrenheit ) [ unit ] " for temperature" ,
+			"use " ( Celsius ) [ unit ] ,
+			"set " ( Celsius ) [ unit ] " as default temperature format"
+		}
+		parameters :
+			unit : entity "unit-temperature" ;
+
+	"format.metric.unset" :
+		inputs in en {
+			"stop using metric system" ,
+			"turn off metric units system" ,
+			"I don\'t want to use metric units of measurement" ,
+			"don\'t use metric units"
+	}
+
+	"format.length.set" :
+		inputs in en {
+			"use " ( miles ) [ unit ] ,
+			"I\'d like you to use " ( kilometres ) [ unit ] ,
+			"set " ( kilometres ) [ unit ] " as default length format" ,
+			"use " ( miles ) [ unit ] " for length measurement" ,
+			"set length format" ,
+			"show me distance in " ( miles ) [ unit ] ,
+			"provide me distance in " ( kilometres ) [ unit ]
+		}
+		parameters :
+			unit : entity text ;
+
+	"format.temperature.unset" :
+		inputs in en {
+			"unset degrees " ( Celsius ) [ unit ] " as default temperature format" ,
+			"stop showing me temperatures in " ( Fahrenheit ) [ unit ] ,
+			"don\'t use " ( Celsius ) [ unit ] ,
+			"don\'t provide me temperature in " ( Celsius ) [ unit ] ,
+			"change temperature format" ,
+			"stop using " ( Fahrenheit ) [ unit ] " for temperature"
+		}
+		parameters :
+			unit : entity "unit-temperature" ;
+
+	"format.time.unset" :
+		inputs in en {
+			"change the time format" ,
+			"don\'t use " ( "12 hour" ) [ format ] " time format" ,
+			"don\'t show me the time in " ( "12-hr" ) [ format ] " format" ,
+			"stop using " ( "24-hour" ) [ format ] " format" ,
+			"I don\'t want to get the time in " ( "24 hour" ) [ format ] " format" ,
+			"unset " ( military ) [ format ] " time format" ,
+			"stop providing me the time in " ( military ) [ format ] " format"
+		}
+		parameters :
+			format : entity "time-format" ;
+
+entities :
+	Simple entity "unit-temperature" :
+		inputs in en {
+			R synonyms degR , "deg R" , "degre Rankine" , "degree Rankine" , "degrees Rankine" , Rankine , "Rankine degree" , "Rankine degrees" , R , Ra
+			F synonyms degF , "deg F" , "degre Fahrenheit" , "degree Fahrenheit" , "degrees Fahrenheit" , Fahrenheit , "Fahrenheit degree" , "Fahrenheit degrees" , F
+			C synonyms degC , "deg C" , "degre Celsius" , "degree Celsius" , "degrees Celsius" , Celsius , centigrade , "degree centigrade" , "degrees centigrade" , "Celsius degree" , "Celsius degrees" , C
+			K synonyms degK , "deg K" , Kelvin , Kelvins , "degre Kelvin" , "degree Kelvin" , "degree Kelvins" , "degrees Kelvin" , "degrees Kelvins" , K
+	}
+	Simple entity "time-format" :
+		inputs in en {
+			military synonyms military
+			"24 h" synonyms "24 h" , "24-h" , "twenty four hours" , "24-hour" , "24 hour"
+			"12 h" synonyms "12 h" , "12-h" , "12 hours" , "twelve hours" , "12-hour" , "12 hour"
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "format.imperial.unsetTxtResp1" :
+		inputs in en {
+			" "
+	}
+
+flows :
+	- user "format.imperial.unset" => chatbot "format.imperial.unsetTxtResp1" ;
+	- user "format.length.unset" => chatbot "format.imperial.unsetTxtResp1" ;
+	- user "format.time.set" => chatbot "format.imperial.unsetTxtResp1" ;
+	- user "format.metric.set" => chatbot "format.imperial.unsetTxtResp1" ;
+	- user "format.weight.set" => chatbot "format.imperial.unsetTxtResp1" ;
+	- user "format.weight.unset" => chatbot "format.imperial.unsetTxtResp1" ;
+	- user "format.imperial.set" => chatbot "format.imperial.unsetTxtResp1" ;
+	- user "format.temperature.set" => chatbot "format.imperial.unsetTxtResp1" ;
+	- user "format.metric.unset" => chatbot "format.imperial.unsetTxtResp1" ;
+	- user "format.length.set" => chatbot "format.imperial.unsetTxtResp1" ;
+	- user "format.temperature.unset" => chatbot "format.imperial.unsetTxtResp1" ;
+	- user "format.time.unset" => chatbot "format.imperial.unsetTxtResp1" ;
+

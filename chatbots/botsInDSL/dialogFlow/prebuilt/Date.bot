@@ -1,0 +1,415 @@
+Chatbot Date language : en
+
+intents :
+
+	"date.month.get" :
+		inputs in en {
+			"tell me what is the month right now" ,
+			"what\'s the current month" ,
+			"what month is it now" ,
+			"current month please" ,
+			"I\'d like to know what month is it now" ,
+			"could you tell me what month is it now" ,
+			"what month is it" ,
+			"do you know the current month" ,
+			"what month is it today" ,
+			"tell me the current month"
+	}
+
+	"date.until" :
+		inputs in en {
+			"calculate number of " ( days ) [ unit ] " before " ( "July 22" ) [ ^date ] ,
+			"how long until " ( "November 13" ) [ ^date ] ,
+			"tell me how many " ( weeks ) [ unit ] " do we have before " ( "April 11th" ) [ ^date ] ,
+			"how many " ( hours ) [ unit ] " until " ( tomorrow ) [ ^date ] ,
+			"how many " ( days ) [ unit ] " until " ( Friday ) [ ^date ] ,
+			"check how many " ( weeks ) [ unit ] " till " ( "September 5th" ) [ ^date ] ,
+			( days ) [ unit ] " until " ( "January 1st" ) [ ^date ]
+		}
+		parameters :
+			^date : entity date ;
+			unit : entity "unit-time" ;
+
+	"date.holiday" :
+		inputs in en {
+			"when is " ( Thanksgiving ) [ holiday ] " " ( "this year" ) [ ^date ] ,
+			"when was " ( Christmas ) [ holiday ] ,
+			"what is the date of " ( "Labour Day" ) [ holiday ] " in " ( "2018" ) [ ^date ] ,
+			( "Columbus Day" ) [ holiday ] " " ( "2018" ) [ ^date ] ,
+			( Halloween ) [ holiday ] " date" ,
+			"what is the date of " ( "Columbus day" ) [ holiday ] " in " ( "2015" ) [ ^date ] ,
+			( "Independence Day" ) [ holiday ] " " ( "2013" ) [ ^date ] " date" ,
+			"I wonder when is " ( "Saint Patrick\'s day" ) [ holiday ] ,
+			"when is " ( "Valentine\'s Day" ) [ holiday ]
+		}
+		parameters :
+			holiday : entity holiday ;
+			^date : entity text ;
+
+	"date.set" :
+		inputs in en {
+			"I want to set the date" ,
+			"today is " ( "October 20" ) [ ^date ] " " ( Wednesday ) [ dayofweek ] ,
+			"I\'d like to edit the date" ,
+			"it\'s " ( Friday ) [ dayofweek ] ,
+			"change today\'s date to " ( "31 December" ) [ ^date ] ,
+			"set date" ,
+			"could you set today\'s date to " ( "January 7th" ) [ ^date ] ,
+			"today is " ( "May 4th" ) [ ^date ] ,
+			"set the date " ( "June 5th" ) [ ^date ] ,
+			"can I set another date" ,
+			"can I change the date"
+		}
+		parameters :
+			^date : entity date ;
+			dayofweek : entity dayofweek ;
+
+	"date.get - context:date-get" :
+		inputs in en {
+			"what about " ( Monday ) [ dayofweek ] ,
+			( "next Friday" ) [ ^date ] ,
+			"could you check it for " ( tomorrow ) [ ^date ] ,
+			"and " ( Tuesday ) [ dayofweek ] ,
+			"now " ( Wednesday ) [ dayofweek ] ,
+			"how about " ( Thursday ) [ dayofweek ]
+		}
+		parameters :
+			^date : entity date ;
+			dayofweek : entity dayofweek ;
+
+	"date.holiday.between" :
+		inputs in en {
+			"count the " ( days ) [ unit ] " between " ( "Columbus Day" ) [ "holiday-1" ] " and " ( Christmas ) [ "holiday-2" ] ,
+			"how many " ( weeks ) [ unit ] " between " ( "Independence Day" ) [ "holiday-1" ] " and " ( Easter ) [ "holiday-2" ] ,
+			"how many " ( days ) [ unit ] " are there between " ( Christmas ) [ "holiday-1" ] " and " ( "New Year" ) [ "holiday-2" ] ,
+			"number of " ( hours ) [ unit ] " between " ( "Columbus Day" ) [ "holiday-1" ] " and " ( "Veterans Day" ) [ "holiday-2" ] ,
+			"check how many " ( weeks ) [ unit ] " are there between " ( Halloween ) [ "holiday-1" ] " and " ( "New Year" ) [ "holiday-2" ] ,
+			"tell me how many " ( months ) [ unit ] " are between " ( "Independence Day" ) [ "holiday-1" ] " and " ( "Valentine\'s Day" ) [ "holiday-2" ] ,
+			"calculate the number of " ( seconds ) [ unit ] " between " ( Thanksgiving ) [ "holiday-1" ] " and " ( Halloween ) [ "holiday-2" ]
+		}
+		parameters :
+			"holiday-1" : entity holiday ;
+			"holiday-2" : entity holiday ;
+			unit : entity "unit-time" ;
+
+	"date.holiday.check" :
+		inputs in en {
+			"is it " ( Christmas ) [ holiday ] " " ( today ) [ ^date ] ,
+			"could you tell me if " ( Christmas ) [ holiday ] " is on " ( "December 25" ) [ ^date ] ,
+			"tell me if " ( "December 24" ) [ ^date ] " is " ( Christmas ) [ holiday ] ,
+			"check if " ( Halloween ) [ holiday ] " is on " ( "November 30" ) [ ^date ] " this year" ,
+			"is " ( "New Year" ) [ holiday ] " celebrated on the " ( "1st of January" ) [ ^date ] ,
+			"is " ( "Columbus Day" ) [ holiday ] " " ( tomorrow ) [ ^date ] ,
+			"is " ( Thanksgiving ) [ holiday ] " on " ( "November 24" ) [ ^date ] ,
+			( "Mother\'s day" ) [ holiday ] " is on " ( "March 10" ) [ ^date ] " right"
+		}
+		parameters :
+			^date : entity date ;
+			holiday : entity holiday ;
+
+	"date.check - context:date-check" :
+		inputs in en {
+			"can you check " ( Glasgow ) [ location ] " too" ,
+			"in " ( Moscow ) [ location ] " too" ,
+			( Tokyo ) [ location ] ,
+			"can you check it for " ( Toronto ) [ location ] ,
+			"could you check " ( Paris ) [ location ] " now" ,
+			"now " ( "New York" ) [ location ] ,
+			"what about " ( Munich ) [ location ] ,
+			"in " ( Vienna ) [ location ] " now" ,
+			"and in " ( London ) [ location ] ,
+			"how about " ( "Hong Kong" ) [ location ] ,
+			"check " ( Prague ) [ location ] ,
+			"check " ( Madrid ) [ location ] " as well"
+		}
+		parameters :
+			location : entity text ;
+
+	"date.year.check" :
+		inputs in en {
+			"it\'s " ( "2019" ) [ "date-period" ] " isn\'t it" ,
+			"is it year " ( "2017" ) [ "date-period" ] ,
+			"now it\'s " ( "1989" ) [ "date-period" ] " year right" ,
+			"tell me if it\'s year " ( "2018" ) [ "date-period" ] ,
+			"is nowadays " ( "1990" ) [ "date-period" ] " year" ,
+			"check if it\'s year " ( "2016" ) [ "date-period" ] ,
+			"is it " ( "2015" ) [ "date-period" ]
+		}
+		parameters :
+			"date-period" : entity text ;
+
+	"date.year.get" :
+		inputs in en {
+			"I want to know the current year" ,
+			"current year" ,
+			"tell me the current year" ,
+			"what year is it" ,
+			"what is the current year" ,
+			"I wonder which year are we in" ,
+			"year now" ,
+			"what year is it today"
+	}
+
+	"date.holiday.until" :
+		inputs in en {
+			"how many " ( hours ) [ unit ] " do we have until " ( "New Year" ) [ holiday ] ,
+			"tell me how many " ( seconds ) [ unit ] " until " ( Halloween ) [ holiday ] ,
+			"count " ( days ) [ unit ] " until " ( Thanksgiving ) [ holiday ] ,
+			"how long until " ( Thanksgiving ) [ holiday ] ,
+			"count the number of " ( weeks ) [ unit ] " until " ( "Valentine\'s Day" ) [ holiday ] ,
+			"check how many " ( days ) [ unit ] " left until " ( "Columbus Day" ) [ holiday ] ,
+			"check how many " ( months ) [ unit ] " is it until next " ( "Independence Day" ) [ holiday ] ,
+			"how many " ( months ) [ unit ] " until " ( Easter ) [ holiday ] ,
+			"how many " ( days ) [ unit ] " until " ( Christmas ) [ holiday ] ,
+			( days ) [ unit ] " until " ( "Labour Day" ) [ holiday ] ,
+			"number of " ( days ) [ unit ] " until " ( Christmas ) [ holiday ]
+		}
+		parameters :
+			holiday : entity holiday ;
+			unit : entity "unit-time" ;
+
+	"date.day_of_week.check" :
+		inputs in en {
+			"is " ( today ) [ ^date ] " a " ( Thursday ) [ dayofweek ] ,
+			"tell me if " ( today ) [ ^date ] " is " ( Monday ) [ dayofweek ] " in " ( Paris ) [ location ] ,
+			"is it " ( Monday ) [ dayofweek ] ,
+			"is it " ( Friday ) [ dayofweek ] " " ( tomorrow ) [ ^date ] " in " ( Moscow ) [ location ] ,
+			"is it " ( Friday ) [ dayofweek ] " " ( tomorrow ) [ ^date ] ,
+			"is " ( "March 24" ) [ ^date ] " " ( Friday ) [ dayofweek ] ,
+			"check if " ( "13th of November" ) [ ^date ] " is Wednesday" ,
+			( tomorrow ) [ ^date ] " is " ( Friday ) [ dayofweek ] " isn\'t it" ,
+			"is " ( "24 of July" ) [ ^date ] " " ( Wednesday ) [ dayofweek ]
+		}
+		parameters :
+			dayofweek : entity dayofweek ;
+			^date : entity date ;
+			location : entity text ;
+
+	"date.check" :
+		inputs in en {
+			"is it the " ( "21st of February" ) [ ^date ] ,
+			"check if it\'s " ( Monday ) [ ^date ] " in " ( Luxembourg ) [ location ] ,
+			"is it " ( "June 19th" ) [ ^date ] ,
+			"is today " ( "28th" ) [ ^date ] ,
+			"tell me is it " ( "September 8" ) [ ^date ] " in " ( Munich ) [ location ]
+		}
+		parameters :
+			^date : entity date ;
+			location : entity text ;
+
+	"date.between" :
+		inputs in en {
+			"how many " ( days ) [ unit ] " are between " ( "November 13" ) [ "date-1" ] " and " ( "July 22" ) [ "date-2" ] ,
+			"calculate the number of " ( minutes ) [ unit ] " between " ( today ) [ "date-1" ] " and " ( Wednesday ) [ "date-2" ] ,
+			"compute the number of " ( seconds ) [ unit ] " between " ( today ) [ "date-1" ] " and " ( "March 7 2017" ) [ "date-2" ] ,
+			"tell me the number of " ( weeks ) [ unit ] " between " ( today ) [ "date-1" ] " and " ( "January 1st" ) [ "date-2" ] ,
+			"I need to know the number of " ( days ) [ unit ] " between " ( today ) [ "date-1" ] " and the " ( "next Friday" ) [ "date-2" ] ,
+			"count the number of " ( hours ) [ unit ] " between " ( "June 5" ) [ "date-1" ] " and " ( "June 14" ) [ "date-2" ] ,
+			"number of " ( seconds ) [ unit ] " between " ( today ) [ "date-1" ] " and " ( "April 1st" ) [ "date-2" ] ,
+			"evaluate how many " ( days ) [ unit ] " are between " ( today ) [ "date-1" ] " and " ( "February 14 2018" ) [ "date-2" ]
+		}
+		parameters :
+			"date-1" : entity date ;
+			"date-2" : entity date ;
+			unit : entity "unit-time" ;
+
+	"date.month.check" :
+		inputs in en {
+			"check if it\'s " ( April ) [ "date-period" ] ,
+			"do you know if it\'s " ( March ) [ "date-period" ] " now" ,
+			"is it " ( May ) [ "date-period" ] ,
+			( February ) [ "date-period" ] " is coming isn\'t it" ,
+			"could you tell if it\'s " ( May ) [ "date-period" ] " now" ,
+			"is it " ( August ) [ "date-period" ] " already" ,
+			"tell me if it\'s " ( July ) [ "date-period" ] ,
+			"is it still " ( June ) [ "date-period" ] ,
+			"today is " ( February ) [ "date-period" ] ,
+			"it\'s " ( December ) [ "date-period" ] " right"
+		}
+		parameters :
+			"date-period" : entity text ;
+
+	"date.day_of_week" :
+		inputs in en {
+			"day of the week in " ( "New York" ) [ location ] ,
+			"what day of the week is it " ( today ) [ ^date ] " in " ( London ) [ location ] ,
+			"what day of the week is " ( today ) [ ^date ] ,
+			"what day of week is it in " ( Paris ) [ location ] ,
+			"day of the week " ( today ) [ ^date ] ,
+			( "today\'s" ) [ ^date ] " day of the week"
+		}
+		parameters :
+			^date : entity date ;
+			location : entity text ;
+
+	"date.holiday.since" :
+		inputs in en {
+			"how many " ( days ) [ unit ] " passed after " ( "New Year" ) [ holiday ] ,
+			"what\'s the number of " ( days ) [ unit ] " since " ( Thanksgiving ) [ holiday ] ,
+			"number of " ( days ) [ unit ] " since " ( Christmas ) [ holiday ] ,
+			"tell me how many " ( months ) [ unit ] " after " ( "St Patrick\'s Day" ) [ holiday ] ,
+			"do you know how many " ( months ) [ unit ] " passed after " ( Easter ) [ holiday ]
+		}
+		parameters :
+			unit : entity "unit-time" ;
+			holiday : entity holiday ;
+
+	"date.since" :
+		inputs in en {
+			"check how many " ( seconds ) [ unit ] " it\'s been since " ( yesterday ) [ ^date ] ,
+			"how many " ( days ) [ unit ] " since " ( "September 7" ) [ ^date ] ,
+			"tell me how many " ( hours ) [ unit ] " have passed since " ( "June 11th" ) [ ^date ] ,
+			"calculate how many " ( weeks ) [ unit ] " it\'s been since " ( "last Friday" ) [ ^date ] ,
+			"how many " ( months ) [ unit ] " have passed since " ( "April 1st 2014" ) [ ^date ]
+		}
+		parameters :
+			^date : entity date ;
+			unit : entity "unit-time" ;
+
+	"Default Fallback Intent" Fallback :
+		inputs in en {
+			"calculate number of days before graduation" ,
+			"could you set alarm at today\'s date" ,
+			"number of days since last incident" ,
+			"I am not wonder it is Saint Patrick\'s day" ,
+			"check flights into Luxembourg" ,
+			"don\'t check if it\'s Monday in Luxembourg" ,
+			"don\'t tell me the number of weeks between today and January 1st" ,
+			"tell me the number of airports in New York" ,
+			"tell me the number of weeks in a year"
+	}
+
+	"date.get" :
+		inputs in en {
+			"can you tell me the date" ,
+			"current date" ,
+			"what is the date" ,
+			"what day is it" ,
+			"what day was " ( yesterday ) [ ^date ] ,
+			"the date" ,
+			( tomorrow ) [ ^date ] "\'s date" ,
+			"what is the " ( "day after tomorrow" ) [ ^date ] ,
+			"what is the current date" ,
+			"date now" ,
+			"what date is " ( today ) [ ^date ] ,
+			"do you know what day is it" ,
+			"what date is it on " ( Thursday ) [ ^date ] ,
+			"what date is the " ( "next Friday" ) [ ^date ] ,
+			"what date is " ( tomorrow ) [ ^date ] ,
+			"what will be the date " ( "30 days from now" ) [ ^date ] ,
+			"tell me the date " ( "19 weeks from today" ) [ ^date ] ,
+			"do you know what day it is" ,
+			"date " ( today ) [ ^date ] ,
+			"show me the date" ,
+			( "today\'s" ) [ ^date ] " date"
+		}
+		parameters :
+			^date : entity date ;
+
+entities :
+	Simple entity dayofweek :
+		inputs in en {
+			Friday synonyms Fri , Friday
+			Monday synonyms Mon , Monday
+			Saturday synonyms Sat , Saturday
+			Sunday synonyms Sun , Sunday
+			Thursday synonyms Thu , Thursday
+			Tuesday synonyms Tue , Tuesday
+			Wednesday synonyms Wed , Wednesday
+	}
+	Simple entity holiday :
+		inputs in en {
+			"Arbor Day" synonyms "Arbor Day"
+			"Autumnal Equinox" synonyms "autumn equinox" , "autumnal equinox"
+			"Black Friday" synonyms "Black Friday"
+			"Children\'s Day" synonyms "Children s Day" , "Children\'s Day"
+			Christmas synonyms Christmas , Christmases , "Merry Christmas" , "Merry X mas" , "Merry Xmas" , "Merry x-mas" , "X mas" , Xmas , "x-mas"
+			"Christmas Eve" synonyms "christmas eve"
+			"Cinco de Mayo" synonyms "Cinco de Mayo"
+			"Citizenship Day" synonyms "Citizenship Day" , "Constitution Day"
+			"Columbus Day" synonyms Columbus , "Columbus day"
+			"Earth Day" synonyms "Earth Day"
+			Easter synonyms Easter , "Easter Sunday"
+			"Election Day" synonyms "Election Day"
+			"Equality Day" synonyms "Equality Day" , "Women s Equality Day" , "Women\'s Equality Day"
+			"Father\'s Day" synonyms "Father s Day" , "Father\'s Day"
+			"Flag Day" synonyms "Flag Day"
+			"Fools\' Day" synonyms "April Fool s Day" , "April Fool\'s Day" , "April Fools Day" , "April Fools\' Day" , "Fool s Day" , "Fool\'s Day" , "Fools Day" , "Fools\' Day"
+			"German-American Day" synonyms "German American Day" , "German-American Day"
+			Halloween synonyms Halloween
+			"Helen Keller Day" synonyms "Helen Keller Day"
+			"Independence Day" synonyms "Independence Day"
+			"Labor Day" synonyms "Labor Day"
+			"Labour Day" synonyms "Labour Day"
+			"Leif Erikson Day" synonyms "Leif Erikson Day"
+			"Martin Luther King" synonyms "Martin Luther King" , "Martin Luther King Birthday" , "Martin Luther King s Birthday"
+			"May Day" synonyms "May Day"
+			"Memorial Day" synonyms "Memorial Day"
+			"Mother\'s Day" synonyms "Mother s Day" , "Mother\'s Day"
+			"New Year" synonyms "New Year" , "New Year s" , "New Year\'s" , "New Years"
+			"New Year\'s Eve" synonyms "New Year Eve" , "New Year s Eve" , "New Year\'s Eve" , "New Years Eve"
+			"Patriot Day" synonyms "Patriot Day"
+			"Pearl Harbor Day" synonyms "Pearl Harbor Day" , "Pearl Harbor Remembrance Day"
+			"Saint Patrick\'s Day" synonyms "Patrick s Day" , "Saint Patrick Day" , "Saint Patrick s Day" , "Saint s Patrick Day" , "Saint s Patrick s Day" , "St Patrick Day" , "St Patrick s Day" , "St. Patrick Day" , "St. Patrick s Day"
+			"Summer Solstice" synonyms "summer solstice"
+			"Thanksgiving day" synonyms Thanksgiving , "Thanksgiving day"
+			"Valentine\'s Day" synonyms "Saint Valentine" , "Saint Valentine day" , "Saint Valentine s day" , "Saint Valentine\'s day" , "Saint Valentines day" , "St Valentine s day" , "St Valentine\'s day" , "St Valentines day" , Valentine , "Valentine day" , "Valentine s day" , "Valentine\'s day" , "Valentines day"
+			"Vernal Equinox" synonyms "spring equinox" , "vernal equinox"
+			"Veterans Day" synonyms "Day of Veteran s" , "Day of Veteran\'s" , "Day of Veterans" , "Veteran Day" , "Veteran s Day" , "Veteran\'s Day" , "Veterans Day"
+			"Washington\'s Birthday" synonyms "President s Day" , "Presidents Day" , "Washington s Birthday" , "Washington s Birthday day" , "Washington\'s Birthday"
+			"Winter Solstice" synonyms "winter solstice"
+			"Women day" synonyms "Women s day" , "Woomen day" , "day of Woomen"
+	}
+	Simple entity "unit-time" :
+		inputs in en {
+			century synonyms centuries , century
+			day synonyms day , days
+			decade synonyms decade , decades
+			fortnight synonyms fortnight , fortnights
+			hour synonyms hour , hours
+			"leap year" synonyms "leap year" , "leap years"
+			millenium synonyms millenium , milleniums
+			millisecond synonyms millisec , millisecond , milliseconds , ms
+			minute synonyms minute , minutes
+			month synonyms mo , month , months
+			second synonyms sec , second , seconds
+			"sidereal day" synonyms "sidereal day" , "sidereal days"
+			"sidereal year" synonyms "sidereal year" , "sidereal years"
+			week synonyms week , weeks , wk , wks
+			year synonyms year , years
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "date.month.getTxtResp1" :
+		inputs in en {
+			" "
+	}
+
+flows :
+	- user "date.month.get" => chatbot "date.month.getTxtResp1" ;
+	- user "date.until" => chatbot "date.month.getTxtResp1" ;
+	- user "date.holiday" => chatbot "date.month.getTxtResp1" ;
+	- user "date.set" => chatbot "date.month.getTxtResp1" ;
+	- user "date.holiday.between" => chatbot "date.month.getTxtResp1" ;
+	- user "date.holiday.check" => chatbot "date.month.getTxtResp1" ;
+	- user "date.year.check" => chatbot "date.month.getTxtResp1" ;
+	- user "date.year.get" => chatbot "date.month.getTxtResp1" ;
+	- user "date.holiday.until" => chatbot "date.month.getTxtResp1" ;
+	- user "date.day_of_week.check" => chatbot "date.month.getTxtResp1" => user "date.check - context:date-check" => chatbot "date.month.getTxtResp1" ;
+	- user "date.check" => chatbot "date.month.getTxtResp1" => user "date.check - context:date-check" => chatbot "date.month.getTxtResp1" ;
+	- user "date.between" => chatbot "date.month.getTxtResp1" ;
+	- user "date.month.check" => chatbot "date.month.getTxtResp1" ;
+	- user "date.day_of_week" => chatbot "date.month.getTxtResp1" => user "date.check - context:date-check" => chatbot "date.month.getTxtResp1" ;
+	- user "date.holiday.since" => chatbot "date.month.getTxtResp1" ;
+	- user "date.since" => chatbot "date.month.getTxtResp1" ;
+	- user "Default Fallback Intent" => chatbot "date.month.getTxtResp1" ;
+	- user "date.get" => chatbot "date.month.getTxtResp1" => user "date.get - context:date-get" => chatbot "date.month.getTxtResp1" ;
+

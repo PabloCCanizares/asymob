@@ -1,0 +1,108 @@
+Chatbot "03_real_estate_bot" language : en
+
+intents :
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"good morning" ,
+		"good evening" ,
+		"hey there" ,
+		"Get Started"
+}
+
+buy_a_home :
+	inputs in en {
+		"Buy A Home" ,
+		"buy a home" ,
+		"buy home" ,
+		"Buy Home"
+}
+
+sell_your_home :
+	inputs in en {
+		"Sell Your Home" ,
+		"sell your home" ,
+		"SELL YOUR HOME" ,
+		"sell home" ,
+		"Sell Home"
+}
+
+goodbye :
+	inputs in en {
+		bye ,
+		goodbye ,
+		"see you around" ,
+		"see you later"
+}
+
+actions :
+	text response utter_ask_country_text :
+		inputs in en {
+			"Oh Great! Which part of the country are you looking for?"
+	}
+	text response utter_submit_buy_text :
+		inputs in en {
+			"Good. One of our agents will be in touch with you shortly."
+	}
+	text response utter_ask_city_text :
+		inputs in en {
+			"Ok. What city that in?"
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"Hello,\nGreetings ! Thanks for launching the Real-Estate Bot. How can I help you today?"
+	}
+	text response utter_ask_address_text :
+		inputs in en {
+			"Thanks for letting me know. Can I get the address for the property? For example 123 Main street."
+	}
+	text response utter_ask_bedrooms_text :
+		inputs in en {
+			"Ok. How many bedrooms are you looking for?"
+	}
+	text response utter_ask_months_text :
+		inputs in en {
+			"When are you looking to buy?"
+	}
+	empty response utter_goodbye_empty
+	text response utter_ask_zipcode_text :
+		inputs in en {
+			"Almost finished! What is the zip code for the property?"
+	}
+	text response utter_ask_property_type_text :
+		inputs in en {
+			"What property type are you interested in?"
+	}
+	text response utter_ask_time_to_sell_text :
+		inputs in en {
+			"In order to provide you with valuation can you please let me know when you looking to sell your home?"
+	}
+	text response utter_ask_bathrooms_text :
+		inputs in en {
+			"Cool. How many bathrooms are you looking for?"
+	}
+	text response utter_ask_phone_number_text :
+		inputs in en {
+			"Please provide your best contact number, so one of our experts can contact you."
+	}
+	text response utter_ask_email_text :
+		inputs in en {
+			"What email address can we use to contact you back?"
+	}
+	text response utter_ask_cost_text :
+		inputs in en {
+			"Great! How much are you comfortable spending on your new home?"
+	}
+	empty response DefaultEmptyAction
+
+flows :
+	- user greet => chatbot utter_greet_text {
+		=> user buy_a_home => chatbot DefaultEmptyAction ;
+		=> user sell_your_home => chatbot DefaultEmptyAction ;
+	} ;
+	- user buy_a_home => chatbot DefaultEmptyAction ;
+	- user sell_your_home => chatbot DefaultEmptyAction ;
+

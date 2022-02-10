@@ -1,0 +1,57 @@
+Chatbot iot language : en
+
+intents :
+
+"Default Welcome Intent" :
+
+ledControl :
+	inputs in en {
+		"turn the LED " ( on ) [ ledState ] ,
+		"turn the light " ( on ) [ ledState ]
+	}
+	parameters :
+		ledState : entity text , prompts in en [ "Try again?" ] ;
+
+"Default Fallback Intent" Fallback :
+
+actions :
+	Request post HttpRequest :
+		URL : "https://<YOUR-APP-URL-HERE>" ;
+		headers : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "Default Welcome IntentTxtResp1" :
+		inputs in en {
+			"Hi! " ,
+			"Hello! " ,
+			"Good day! " ,
+			"Greetings! "
+	}
+	text response ledControlTxtResp1 :
+		inputs in en {
+			"Turning the light "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. Say it again? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that again? " ,
+			"I didn\'t get that. " ,
+			"I missed that. "
+	}
+
+flows :
+	- user "Default Welcome Intent" => chatbot "Default Welcome IntentTxtResp1" ;
+	- user ledControl => chatbot HttpRequest , HttpResponse , ledControlTxtResp1 ;
+	- user "Default Fallback Intent" => chatbot HttpRequest , HttpResponse , "Default Fallback IntentTxtResp1" ;
+

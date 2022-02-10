@@ -1,0 +1,289 @@
+Chatbot MobileDoctor language : en
+
+intents :
+
+	integration_specific :
+		inputs in en {
+			start ,
+			"/start"
+	}
+
+	deney_reports :
+		inputs in en {
+			"I haven\'t reports" ,
+			No ,
+			"not yet get reports" ,
+			"not yet" ,
+			"i did not get" ,
+			"i have no reports"
+	}
+
+	Conversation_end :
+		inputs in en {
+			"Take Care" ,
+			"I\'m off!" ,
+			"I gotta run" ,
+			"See you later!" ,
+			"Good seeing you" ,
+			thank ,
+			"it is dangourous" ,
+			"Thank you doctor" ,
+			Thanks
+	}
+
+	prediction_form :
+		inputs in en {
+			prediction ,
+			"I want to get prediction" ,
+			"prediction part" ,
+			"prediction form" ,
+			"get Prediction" ,
+			"I want to predict chronicle kidney disease" ,
+			"I want to predict CKD"
+	}
+
+	confirm_reports :
+		inputs in en {
+			( "12 year" ) [ age ] ,
+			( "40 years" ) [ age ] ,
+			"I am " ( "40 years old" ) [ age ]
+		}
+		parameters :
+			age : entity text , required , prompts in en [ "How old are you?" ] ;
+			bp : entity float , required , prompts in en [ "what is your normal blood pressure (mm/Hg)?                                                                                                              Normal person healthy person has 120 mm/Hg" ] ;
+			al : entity albumin_level , required , prompts in en [ "What is your Albumin level ?                                                                                                                                       (0,1,2,3,4,5)" ] ;
+			pcc : entity pcc , required , prompts in en [ "Did you have Pus Cell clumps?                                                                                                                                       \n(present-1 else -0)" ] ;
+			bgr : entity float , required , prompts in en [ "what is your Blood Glucose Random (mgs/dl)?                                                                                                             Normal healthy person BGR is 140-200mg/dl" ] ;
+			^bu : entity float , required , prompts in en [ "How about your Blood Urea concentration (mgs/dl)?                                                                                                   Normal person BU is  7  to 20 mg/dl" ] ;
+			sod : entity float , required , prompts in en [ "How about your Sodium level (mEq/L)?                                                                                                                                     A normal blood sodium level is between 135 and 145(mEq/L)." ] ;
+			pot : entity float , required , prompts in en [ "How about your Potassium level (mEq/L)?                                                                                                                            The normal potassium level in the  blood is 3.5-5.0 (mEq/L)." ] ;
+			hemo : entity float , required , prompts in en [ "How about your Hemoglobin concentration in your blood (gms)?                                                                                    The normal range for hemoglobin is 13.5 to 17.5 grams per deciliter." ] ;
+			rbcc : entity float , required , prompts in en [ "What is your Red Blood Cell Count (millions/cmm) ?                                                                                                          \nThe normal RBC range for men is 4.7 to 6.1 million/cmm" ] ;
+			dm : entity Diabetes_Mellitus , required , prompts in en [ "Did you have Diabetes Mellitus ?                                                                                                                                    (present-1 else-0)" ] ;
+			appet : entity appetite , required , prompts in en [ "how about your appetite?" ] ;
+
+	Name :
+		inputs in en {
+			"your name?" ,
+			"name?" ,
+			"what is your name?"
+	}
+
+	who_is_in_chat :
+		inputs in en {
+			"who\'s in that?" ,
+			"Who\'s here?" ,
+			"Is there anyone?" ,
+			"Anyone there?" ,
+			"is anyone in here?"
+	}
+
+	telegrame :
+		inputs in en {
+			"can we message in telegram?" ,
+			"Can we msg in telegram" ,
+			"I want your telegram" ,
+			"Are you in telegram" ,
+			"Are you use telegram" ,
+			"Can we have chat in telegram" ,
+			"I want to add you to telegram" ,
+			"Telegram link"
+	}
+
+	"Default Welcome Intent" :
+		inputs in en {
+			"hey doctor" ,
+			hey ,
+			"hi Doc" ,
+			Doctor ,
+			"hi doctor" ,
+			"just going to say hi" ,
+			heya ,
+			"hello h" ,
+			howdy ,
+			"hey there" ,
+			"hi there" ,
+			greetings ,
+			"long time no see" ,
+			hello ,
+			"lovely day isn\'t it" ,
+			"I greet you" ,
+			"hello again" ,
+			^hi ,
+			"hello there" ,
+			"a good day"
+	}
+
+	Appointment_ask :
+		inputs in en {
+			"Appointment, please?" ,
+			"Can I book an appointment?" ,
+			"How can I book appointment?" ,
+			"Appointment?" ,
+			"Can I have an appointment?"
+	}
+
+	instruction :
+		inputs in en {
+			yes ,
+			"I got it" ,
+			"i get it" ,
+			yep ,
+			"yes i have reports" ,
+			"yes i have"
+	}
+
+	FAQ_start :
+		inputs in en {
+			"CKD problem" ,
+			"I have a problem" ,
+			"Can I ask a question?" ,
+			"CKD questions" ,
+			"Can I know something?" ,
+			"I have questions for you?" ,
+			"I have some questions?"
+	}
+
+	"Default Fallback Intent" Fallback :
+
+	Services_offer_ask :
+		inputs in en {
+			"Can I know about services?" ,
+			"Can you tell me services which you are offering?" ,
+			"Can you tell me about services?" ,
+			"Services?" ,
+			"What are the services?" ,
+			"what are the services I can have?" ,
+			"what services do you offer?"
+	}
+
+entities :
+	Simple entity pcc :
+		inputs in en {
+			"1" synonyms "1" , yes , "I have" , present
+			"0" synonyms "0" , ^no , "I haven\'t" , "not present"
+	}
+	Simple entity albumin_level :
+		inputs in en {
+			"1" synonyms "1" , one , "level one"
+			"2" synonyms "2" , two , "level two"
+			"3" synonyms "3" , three , "level three"
+			"4" synonyms "4" , four , "level four"
+			"5" synonyms "5" , five , "level five"
+			"0" synonyms "0" , zero , "level zero"
+	}
+	Simple entity Diabetes_Mellitus :
+		inputs in en {
+			"1" synonyms "1" , present , "yes i have" , "I have" , yes
+			"0" synonyms "0" , "not present" , ^no , "I have not" , "I haven\'t"
+	}
+	Simple entity appetite :
+		inputs in en {
+			"1" synonyms good , "very good" , "not bad"
+			"0" synonyms "not good" , "very bad" , bad
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "https://health-care-prediction.herokuapp.com/predict" ;
+		basicAuth : "" : "" ;
+		headers : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response integration_specificTxtResp1 :
+		inputs in en {
+			"Let\'s start ?? "
+	}
+	text response deney_reportsTxtResp1 :
+		inputs in en {
+			"If you want to get prediction you should get reports "
+	}
+	text response Conversation_endTxtResp1 :
+		inputs in en {
+			"Ok! bye " ,
+			"Have a nice day!! " ,
+			"Have healthy day " ,
+			"I am off!! "
+	}
+	text response prediction_formTxtResp1 :
+		inputs in en {
+			"First of all, you should get urea reports and blood report. Did you get that? "
+	}
+	text response confirm_reportsTxtResp1 :
+		inputs in en {
+			" "
+	}
+	text response NameTxtResp1 :
+		inputs in en {
+			"I am Dr. Mobile?? "
+	}
+	text response who_is_in_chatTxtResp1 :
+		inputs in en {
+			"I am here, Your CKD specialist " ,
+			"Yes I am here, DR.Mobile " ,
+			"Dr.Mobile here "
+	}
+	text response telegrameTxtResp1 :
+		inputs in en {
+			"I am using telegram.. This is URL :t.me/CKD_Doctor_bot "
+	}
+	text response "Default Welcome IntentTxtResp1" :
+		inputs in en {
+			"Hi,  what do you want? "
+	}
+	text response Appointment_askTxtResp3 :
+		inputs in en {
+			"I am sorry, I am just a bot so You can\'t book appointment " ,
+			"I am bot You can\'t meet me " ,
+			"It is not permitted apportionment "
+	}
+	text response instructionTxtResp1 :
+		inputs in en {
+			"Ok fine! When you answering questions, you should keep mind what are the units i am asking....                                                                                                                How old are you? "
+	}
+	text response FAQ_startTxtResp1 :
+		inputs in en {
+			"what is the question? " ,
+			"Tell me that question? " ,
+			"Please state your problem "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. What was that? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. Can you rephrase? " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that one more time? " ,
+			"I didn\'t get that. Can you repeat? " ,
+			"I missed that, say that again? "
+	}
+	text response Services_offer_askTxtResp1 :
+		inputs in en {
+			"Chronicle Kidney Disease prediction "
+	}
+
+flows :
+	- user integration_specific => chatbot integration_specificTxtResp1 ;
+	- user Conversation_end => chatbot Conversation_endTxtResp1 ;
+	- user Name => chatbot NameTxtResp1 ;
+	- user who_is_in_chat => chatbot who_is_in_chatTxtResp1 ;
+	- user telegrame => chatbot telegrameTxtResp1 ;
+	- user "Default Welcome Intent" => chatbot "Default Welcome IntentTxtResp1" {
+		=> user prediction_form => chatbot prediction_formTxtResp1 {
+			=> user deney_reports => chatbot deney_reportsTxtResp1 ;
+			=> user instruction => chatbot instructionTxtResp1 => user confirm_reports => chatbot HttpRequest , HttpResponse , confirm_reportsTxtResp1 ;
+		} ;
+		=> user FAQ_start => chatbot FAQ_startTxtResp1 ;
+	} ;
+	- user Appointment_ask => chatbot confirm_reportsTxtResp1 , Appointment_askTxtResp3 ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" ;
+	- user Services_offer_ask => chatbot Services_offer_askTxtResp1 ;
+

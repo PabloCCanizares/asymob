@@ -1,0 +1,520 @@
+Chatbot "06_hotel_bot" language : en
+
+intents :
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"good morning" ,
+		"good evening" ,
+		"hey there"
+}
+
+nearest_attraction :
+	inputs in en {
+		"nearest attraction" ,
+		"nearest attractions" ,
+		"Nearest Attraction" ,
+		"Nearest Attractions" ,
+		"NEAREST ATTRACTION" ,
+		"NEAREST ATTRACTIONS"
+}
+
+marine_drive :
+	inputs in en {
+		"Read More" ,
+		"marine Drive" ,
+		"Marine Drive"
+}
+
+mattancherry :
+	inputs in en {
+		"Read More" ,
+		mattancherry ,
+		Mattancherry
+}
+
+fort_kochi :
+	inputs in en {
+		"Read More" ,
+		"Fort kochi" ,
+		"fort kochi"
+}
+
+book_rooms :
+	inputs in en {
+		"book rooms" ,
+		"Book Rooms" ,
+		"book room" ,
+		"Book Room"
+}
+
+dulex_room_details :
+	inputs in en {
+		"Read More" ,
+		"Dulex Room" ,
+		"dulex room"
+}
+
+junior_suite_details :
+	inputs in en {
+		"Read More" ,
+		"Junior Suite" ,
+		"junior suite"
+}
+
+club_suite_details :
+	inputs in en {
+		"Read More" ,
+		"Club Suite" ,
+		"club suite"
+}
+
+book_room_now :
+	inputs in en {
+		"Book Now" ,
+		"BOOK NOW" ,
+		"book now"
+}
+
+faqbreakfast :
+	inputs in en {
+		"breakfast menu" ,
+		"can I see your breakfast menu" ,
+		"please show me the breakfast menu" ,
+		"show me your breakfast menu" ,
+		"Breakfast Menu"
+}
+
+faqcancellationpolicy :
+	inputs in en {
+		"what is the cancellation policy?" ,
+		"cancel policy" ,
+		"what should I do for cancelling the reservation?" ,
+		"what is the cancellation process" ,
+		"cancellation policy?"
+}
+
+faqcheckin :
+	inputs in en {
+		"What is the check-in time of a hotel?" ,
+		"What are the standard check-in?" ,
+		"At what time can I check-in?" ,
+		"what is the checkin time?" ,
+		"what is the check-in time?" ,
+		"Check-in time?"
+}
+
+faqcheckinage :
+	inputs in en {
+		"what is the minimum age required to check in?" ,
+		"check in age" ,
+		"age for check in" ,
+		"at what age do you allow me to check in" ,
+		"minimum age required to check in?"
+}
+
+faqcheckout :
+	inputs in en {
+		"what is the check-out time?" ,
+		"what is the checkout time?" ,
+		"What is the check-out time of a hotel?" ,
+		"checkout time?"
+}
+
+faqchildrenage :
+	inputs in en {
+		"what is the maximum age for the children to stay for free?" ,
+		"is it possible for my children to stay for free?" ,
+		"can children stay for free" ,
+		"Do children stay for free?"
+}
+
+faqearlycheckin :
+	inputs in en {
+		"is it possible for early check in" ,
+		"will you allow for the early check in?" ,
+		"early check in"
+}
+
+faqlatecheckin :
+	inputs in en {
+		"is it possible for late check in?" ,
+		"late check-in" ,
+		"will you allow for the late check in?"
+}
+
+faqlatecheckout :
+	inputs in en {
+		"Can I request a late check out?" ,
+		"is it possible for late check out" ,
+		"will you allow for the late check out?" ,
+		"late check out"
+}
+
+faqroomcount :
+	inputs in en {
+		"is there a limit for the number of rooms a person can book" ,
+		"number of rooms a person can reserve" ,
+		"no.of rooms a person can book"
+}
+
+faqbabycot :
+	inputs in en {
+		"what about baby cots" ,
+		"Do you provide a baby cot?" ,
+		"will you arrange a bay cot for my baby?" ,
+		"is there a baby cot in the room" ,
+		"baby cots provided?" ,
+		"baby cots" ,
+		"Are baby cots available at all of your hotels?" ,
+		"Are baby cots available for the rooms?"
+}
+
+faqbreakfasttime :
+	inputs in en {
+		"can you specify the time for the breakfast?" ,
+		"at what time will you serve the breakfast?" ,
+		"what is the time for the breakfast?"
+}
+
+faqrefundable :
+	inputs in en {
+		"is it possible to get a refund for my room?" ,
+		"what is the refund policy" ,
+		"is refund available" ,
+		"Is my room refundable?"
+}
+
+faqreceptiontime :
+	inputs in en {
+		"is reception open now?" ,
+		"is reception open all the time" ,
+		"what is the timing of reception?" ,
+		"Is Reception open 24 hours?" ,
+		"reception time" ,
+		"Reception Time"
+}
+
+faqparking :
+	inputs in en {
+		"How do I know if the hotel has parking facilities?" ,
+		"car parking available?" ,
+		"do you provide car parking?" ,
+		"is there a parking space" ,
+		"Does Hotel provide parking?" ,
+		"is car parking available?" ,
+		"can I park my car in the hotel car parking" ,
+		"is there a space for parking my car?" ,
+		"car parking" ,
+		"Are there car parking spaces or a car park?"
+}
+
+faqparkingcost :
+	inputs in en {
+		"what is the car parking cost?" ,
+		"parking cost" ,
+		"Parking Cost" ,
+		"How much does parking cost?"
+}
+
+faqpartialcancel :
+	inputs in en {
+		"Can I cancel only certain parts of my reservation (for example one of the two booked rooms)?" ,
+		"is it possible for partially cancelling the rooms" ,
+		"Can I partially cancel my hotel booking?"
+}
+
+faq :
+	inputs in en {
+		FAQ ,
+		faq ,
+		Faq
+}
+
+faqpetpolicy :
+	inputs in en {
+		"Can I bring my pet?" ,
+		"is it possible to bring my pets with me" ,
+		"can I bring my pets with me?" ,
+		"is there a charge for bringing my pets" ,
+		"Are pets allowed to stay at the hotel?" ,
+		"pet policy contact number"
+}
+
+faqreservaconfirm :
+	inputs in en {
+		"How can I confirm that my reservation has been made?" ,
+		"can I know is my reservation confirmed?" ,
+		"how can I confirm that the reservation is complete?" ,
+		"how to know that the reservation is confirmed?" ,
+		"How do I know if my reservation is confirmed?"
+}
+
+faqnearestairport :
+	inputs in en {
+		"airport?" ,
+		"where is the nearest airport?" ,
+		"is there an airport near by?" ,
+		"is there an airport very close to the hotel?" ,
+		"which is the nearest airport"
+}
+
+faqmodifyreservation :
+	inputs in en {
+		"If I change the dates of my stay, will this influence the price?" ,
+		"can I modify my reservation" ,
+		"If I modify my reservation will my rate change?"
+}
+
+faqmeetingroom :
+	inputs in en {
+		"which are the meeting equipment available in the hotel?" ,
+		"I want to arrange a meeting" ,
+		"what are the available facilities for arranging meeting there?" ,
+		"meeting arrangements in the hotel"
+}
+
+faqsecurity :
+	inputs in en {
+		"tell me about the security services" ,
+		"tell me the security arrangements of the hotel" ,
+		"what are the security systems available" ,
+		"What security arrangements are available in your hotel?"
+}
+
+faqluggage :
+	inputs in en {
+		"can you store my luggages?" ,
+		"will you store my luggages?" ,
+		"luggage storage facility available?" ,
+		"is there a place for storing my luggage?" ,
+		"is it possible to store my luggage when I go out" ,
+		"store luggages" ,
+		"can I leave my luggages?" ,
+		"will you store my luggage?"
+}
+
+faqcontactnumber :
+	inputs in en {
+		"What is the customer support number?" ,
+		"What is your phone number?" ,
+		"can you give me the hotel contact number" ,
+		"contact number" ,
+		"is there a contact number for the hotel?" ,
+		"What is the contact number of the reception?"
+}
+
+actions :
+	text response utter_cancellationpolicy_text :
+		inputs in en {
+			"If your travel plans change, you can cancel or modify your reservation in accordance with the hotel\'s cancellation policy as stated during the reservation process."
+	}
+	text response utter_latecheckout_text :
+		inputs in en {
+			"Yes, our guests can request for late check out but it will be subject to availability.and a supplementary charge."
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"Hi , Welcome to Hotel Presidency!??"
+	}
+	text response utter_refundable_text :
+		inputs in en {
+			"Most hotel rooms are fully refundable if you cancel before the hotel\'s cancellation deadline, which varies across accommodations.Some hotel rooms are non-refundable.If you cancel a non-refundable accommodation booking, or cancel your booking after the accommodation\'s cancellation deadline, you are not eligible for a refund, regardless of the payment method used."
+	}
+	empty response action_book_rooms_details_empty
+	text response utter_earlycheckin_text :
+		inputs in en {
+			"Early check-in is possible subjected to the availability."
+	}
+	text response utter_mattancherry_text :
+		inputs in en {
+			"Historic Mattancherry is known for 16th-century Mattancherry Palace, built by the Portuguese in traditional Keralan style. Jew Town, the atmospheric area around the 1500s Jewish Synagogue, has charming cafes and shops selling antiques, crafts, and spices on Synagogue Lane and Jew Town Road."
+	}
+	text response utter_clubsuite_details_text :
+		inputs in en {
+			"An exclusive 600 sqft room that redefines luxury with two bedrooms, walk-in wardrobes, entertainment area, a kitchenette, private balcony and unparalleled views of the City.AMENITIES 55” Smart IPTV Bathrooms with walk-in shower and bathtubHairdryerCoffee Machine Refrigerator,Microwave Oven,Toaster Iron/ironing board In-roomlaptop-sized electronic safeBuilt-In Induction Hob with a Built-In HoodComplimentary Wi-Fi & Two Way Airport TransfersAccess to boardroom, and Grand Club serving breakfast and evening refreshmentsComplimentary bottled mineral water."
+	}
+	text response utter_faq_prompt_text :
+		inputs in en {
+			"OK.you can ask me anything you would like to know"
+	}
+	text response utter_ask_room_text :
+		inputs in en {
+			"How many rooms would you like to book?"
+	}
+	text response utter_parkingcost_text :
+		inputs in en {
+			"The car park costs is included in the room rate."
+	}
+	text response utter_receptiontime_text :
+		inputs in en {
+			"Reception service is available 24 hours."
+	}
+	text response utter_ask_check_in_text :
+		inputs in en {
+			"On which date would you like to check in? E.g. July 10"
+	}
+	text response utter_miminumage_text :
+		inputs in en {
+			"The hotel has a minimum age requirement of 21 years old. Please call the hotel directly prior to your arrival to make any necessary arrangements. Hotel direct phone numbers can be found on your confirmation email or on the Hotel Information page"
+	}
+	text response utter_modifyreservation_text :
+		inputs in en {
+			"Possibly. Rates are set by factors such as time of year, day of the week, length of stay, room type, number of individuals in the room, etc. Modification of any of these items may result in changes to the room rate. Please be sure to re-enter any special rate types to ensure that your search checks availability for those special rates."
+	}
+	text response utter_roomcount_text :
+		inputs in en {
+			"A person can book as many number of rooms needed ."
+	}
+	text response utter_security_text :
+		inputs in en {
+			"The Hotel has the following Security Arrangements:\nFire Safety\nWet Riser System\nAlarm Syste\nCCTV Cameras\n24-hours Control Room to monitor the security cameras\nDoor Metal Detector\nHand Metal Detector\nMirror Metal Detector\nEVD Machine to scan the luggage \n24-hours fire fighting & first aid trained security guards\n2 nursing homes at a ½ km distance"
+	}
+	text response utter_ask_child_text :
+		inputs in en {
+			"How many children (below 12 years old) are staying?"
+	}
+	text response utter_ask_name_text :
+		inputs in en {
+			"Please provide us your name"
+	}
+	text response utter_babycot_text :
+		inputs in en {
+			"Yes.Baby cots are available in our hotel"
+	}
+	text response utter_partialcancel_text :
+		inputs in en {
+			"A hotel booking cannot be partially cancelled. On cancellation all rooms booked will get cancelled."
+	}
+	text response utter_nearestairport_text :
+		inputs in en {
+			"Cochin (Airport Code: COK) has regular domestic and international flights to most major destinations  in the world. The airport is 23 kms ( 35 mins drive) from the Hotel."
+	}
+	empty response action_nearest_attractions_empty
+	empty response action_book_rooms_empty
+	text response utter_contactnumber_text :
+		inputs in en {
+			"The hotel can be contacted directly on 0333 444 5555."
+	}
+	text response utter_ask_adults_text :
+		inputs in en {
+			"How many adults (above 12 years old) are staying?"
+	}
+	text response utter_marine_text :
+		inputs in en {
+			"Marine Drive is a buzzing waterfront district known for the Marine Walkway, popular for evening strolls, and leafy Subhash Bose Park. The modern Rainbow and Kettuvallam bridges offer backwater views, and cruises leave from jetties by the water."
+	}
+	text response utter_ask_check_out_text :
+		inputs in en {
+			"When would you like to checkout? E.g. July 12"
+	}
+	text response utter_reservationconfirm_text :
+		inputs in en {
+			"As soon as you have completed the booking process, you will receive an ID number as confirmation. We will also send you a confirmation email and voucher with all your booking information."
+	}
+	text response utter_petpolicy_text :
+		inputs in en {
+			"Pets are not allowed in the hotel"
+	}
+	text response utter_checkintime_text :
+		inputs in en {
+			"The check-in time is after 12 p.m. Let us know your arrival time in case you schedule an early check-in we\'ll do our best to make your room available."
+	}
+	text response utter_checkout_text :
+		inputs in en {
+			"Check-out time is 12.00 noon."
+	}
+	text response utter_meetingroom_text :
+		inputs in en {
+			"11 Event Room 25,962 sq ft\nTotal Event Space 1,600"
+	}
+	text response utter_ask_phno_text :
+		inputs in en {
+			"Please provide us your phone number"
+	}
+	text response utter_faqbreakfast_text :
+		inputs in en {
+			"Buffet breakfast, fee from 899.00 INR \nContinental breakfast, fee from 475.00 INR \nFull American breakfast, fee from 625.00 INR"
+	}
+	text response utter_luggage_text :
+		inputs in en {
+			"Yes, We can look after your luggage. If  your room is not ready for check-in  or in case of early check out we will store your luggage free of charge and also on the days between your check-in and check-out"
+	}
+	text response utter_fortkochi_text :
+		inputs in en {
+			"Fort Kochi is a destination of immense historical interest and a jewel in the crown of Kerala with its European heritage and true cosmopolitan temperament."
+	}
+	text response utter_breakfasttime_text :
+		inputs in en {
+			"Breakfast is served from 7am to 10am, every day."
+	}
+	text response utter_carparking_text :
+		inputs in en {
+			"Our hotel has a private car parking."
+	}
+	text response utter_dulexroom_details_text :
+		inputs in en {
+			"These Deluxe Rooms let you relax as you admire a beautiful view of the pool. Stay connected as you enjoy our free WiFi and watch movies with our 32-inch LCD TV and DVD player. Refresh yourself as you take a step into our rain shower.AMENITIES55” Smart IPTV  Bathrooms with walk-in shower and bathtubHairdryerCoffee MachineRefrigerator,Microwave Oven,Toaster Iron/ironing board In-roomlaptop-sized electronic safeBuilt-In InductionHob with a Built-In HoodComplimentary Wi-Fi & Two Way Airport TransfersAccess to the boardroom, and Grand Club serving breakfast and evening refreshmentsComplimentary bottled mineral water."
+	}
+	text response utter_ask_email_text :
+		inputs in en {
+			"Please provide us your email"
+	}
+	text response utter_childrenage_text :
+		inputs in en {
+			"Yes, children up to the age of 2 stay for free (accompanied by an adult)."
+	}
+	text response utter_latecheckin_text :
+		inputs in en {
+			"We hold rooms until 7 am the next morning. If you are going to be late, call the hotel and they will hold your room."
+	}
+	text response utter_juniorsuite_details_text :
+		inputs in en {
+			"An exclusive 400 sqft room that redefines luxury with two bedrooms, walk-in wardrobes, entertainment area, a kitchenette, private balcony and unparalleled views of the City. AMENITIES55” Smart IPTVBathrooms with walk-in shower and bathtubHairdryerCoffee MachineRefrigerator,Microwave Oven,Toaster Iron/ironing boardIn-room laptop-sized electronic safeBuilt-In Induction Hob with a Built-In HoodComplimentary Wi-Fi & Two Way Airport TransfersAccess to boardroom, and Grand Club serving breakfast and evening refreshmentsComplimentary bottled mineral water."
+	}
+
+flows :
+	- user greet => chatbot utter_greet_text {
+		=> user nearest_attraction => chatbot action_nearest_attractions_empty {
+			=> user marine_drive => chatbot utter_marine_text ;
+			=> user mattancherry => chatbot utter_mattancherry_text ;
+			=> user fort_kochi => chatbot utter_fortkochi_text ;
+		} ;
+		=> user book_rooms => chatbot action_book_rooms_details_empty , action_book_rooms_empty {
+			=> user dulex_room_details => chatbot utter_dulexroom_details_text ;
+			=> user junior_suite_details => chatbot utter_juniorsuite_details_text ;
+			=> user club_suite_details => chatbot utter_clubsuite_details_text ;
+			=> user book_room_now => chatbot action_book_rooms_details_empty ;
+		} ;
+		=> user faq => chatbot utter_faq_prompt_text {
+			=> user faqbreakfast => chatbot utter_faqbreakfast_text ;
+			=> user faqcancellationpolicy => chatbot utter_cancellationpolicy_text ;
+			=> user faqcheckin => chatbot utter_checkintime_text ;
+			=> user faqcheckinage => chatbot utter_miminumage_text ;
+			=> user faqcheckout => chatbot utter_checkout_text ;
+			=> user faqchildrenage => chatbot utter_childrenage_text ;
+			=> user faqearlycheckin => chatbot utter_earlycheckin_text ;
+			=> user faqlatecheckin => chatbot utter_latecheckin_text ;
+			=> user faqroomcount => chatbot utter_roomcount_text ;
+			=> user faqbabycot => chatbot utter_babycot_text ;
+			=> user faqbreakfasttime => chatbot utter_breakfasttime_text ;
+			=> user faqrefundable => chatbot utter_refundable_text ;
+			=> user faqreceptiontime => chatbot utter_receptiontime_text ;
+			=> user faqparking => chatbot utter_carparking_text ;
+			=> user faqparkingcost => chatbot utter_parkingcost_text ;
+			=> user faqpartialcancel => chatbot utter_partialcancel_text ;
+			=> user faqpetpolicy => chatbot utter_petpolicy_text ;
+			=> user faqreservaconfirm => chatbot utter_reservationconfirm_text ;
+			=> user faqnearestairport => chatbot utter_nearestairport_text ;
+			=> user faqmodifyreservation => chatbot utter_modifyreservation_text ;
+			=> user faqmeetingroom => chatbot utter_meetingroom_text ;
+			=> user faqsecurity => chatbot utter_security_text ;
+			=> user faqluggage => chatbot utter_luggage_text ;
+			=> user faqcontactnumber => chatbot utter_contactnumber_text ;
+		} ;
+	} ;
+	- user faqlatecheckout => chatbot utter_latecheckout_text ;
+

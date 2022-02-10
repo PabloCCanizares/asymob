@@ -1,0 +1,115 @@
+Chatbot "09_news_api" language : en
+
+intents :
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"good morning" ,
+		"good evening" ,
+		"hey there"
+}
+
+news_headline :
+	inputs in en {
+		"News Headline" ,
+		"news headline" ,
+		"News Headlines" ,
+		"news headlines"
+}
+
+news_us :
+	inputs in en {
+		"News Headline US" ,
+		"news headline us" ,
+		"us news headlines"
+}
+
+news_india :
+	inputs in en {
+		"News Headline India" ,
+		"news headline india" ,
+		"india news headline"
+}
+
+news_australia :
+	inputs in en {
+		"News Headline Australia" ,
+		"news headline Australia" ,
+		"Australia news headline"
+}
+
+news_from_source :
+	inputs in en {
+		"NEWS from Specefic Source" ,
+		"news from specefic source"
+}
+
+bbc_news :
+	inputs in en {
+		"BBC NEWS" ,
+		"bbc news" ,
+		"BBC news"
+}
+
+abc_news :
+	inputs in en {
+		"ABC NEWS" ,
+		"abc news" ,
+		"ABC news"
+}
+
+cnn_news :
+	inputs in en {
+		"CNN NEWS" ,
+		"cnn news"
+}
+
+search_news :
+	inputs in en {
+		"Search News" ,
+		"search news"
+}
+
+actions :
+	text response utter_newssource_text :
+		inputs in en {
+			"Please select an source from below"
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"Hi! To know about latest news please select an option"
+	}
+	empty response action_news_abc_empty
+	empty response action_news_headline_au_empty
+	text response utter_newsheadline_text :
+		inputs in en {
+			"Please select an option from below"
+	}
+	empty response action_news_bbc_empty
+	empty response action_news_cnn_empty
+	empty response action_news_search_empty
+	text response utter_ask_topic_text :
+		inputs in en {
+			"Please enter a topic to search"
+	}
+	empty response action_news_headline_us_empty
+	empty response action_news_headline_india_empty
+
+flows :
+	- user greet => chatbot utter_greet_text {
+		=> user news_headline => chatbot utter_newsheadline_text {
+			=> user news_us => chatbot action_news_headline_us_empty ;
+			=> user news_india => chatbot action_news_headline_india_empty ;
+			=> user news_australia => chatbot action_news_headline_au_empty ;
+		} ;
+		=> user news_from_source => chatbot utter_newssource_text {
+			=> user bbc_news => chatbot action_news_bbc_empty ;
+			=> user abc_news => chatbot action_news_abc_empty ;
+			=> user cnn_news => chatbot action_news_cnn_empty ;
+		} ;
+		=> user search_news => chatbot action_news_search_empty ;
+	} ;
+

@@ -1,0 +1,265 @@
+Chatbot "Agent-Name" language : en
+
+intents :
+
+	"name.agent.confirm" :
+		inputs in en {
+			"is your " ( "last name" ) [ type ] " " ( Smith ) [ "last-name" ] " or not" ,
+			"is your name still " ( Alex ) [ "given-name" ] ,
+			"your " ( "middle name" ) [ type ] " is " ( Jane ) [ "given-name" ] " right" ,
+			"are you " ( Sam ) [ "given-name" ] ,
+			"is your  " ( nickname ) [ type ] " " ( "Woo Woo" ) [ "nick-name" ] ,
+			"are you Mr " ( Evans ) [ "last-name" ] ,
+			"your " ( nickname ) [ type ] " is " ( Squirrel ) [ "nick-name" ] " right" ,
+			"is your name " ( Nick ) [ "given-name" ] ,
+			"your name is " ( John ) [ "given-name" ] " right" ,
+			"is your " ( "middle name" ) [ type ] " " ( Jane ) [ "given-name" ] ,
+			"is " ( Green ) [ "last-name" ] " your " ( "last name" ) [ type ] ,
+			"is your " ( nickname ) [ type ] " " ( Ice ) [ "nick-name" ] " or not"
+		}
+		parameters :
+			"given-name" ,
+			"last-name" ,
+			"nick-name" : entity "nick-name" ;
+			type : entity "name-type" ;
+
+	"name.agent.change" :
+		inputs in en {
+			"how can I rename you" ,
+			"I\'ll change your " ( "first name" ) [ type ] " to " ( John ) [ "given-name" ] ,
+			"do you mind if I rename you" ,
+			"I\'d like to give you another name" ,
+			"change your name" ,
+			"would you like to change your name" ,
+			"do you mind if I change your name to " ( Peter ) [ "given-name" ] ,
+			"I\'d like to change your " ( "first name" ) [ type ] ,
+			"I\'ll give you a different name" ,
+			"let\'s rename you" ,
+			"let\'s give you a different name" ,
+			"can I rename you" ,
+			"I\'d like to change your name" ,
+			"I think you should change your " ( nickname ) [ type ] " to " ( Wild ) [ "nick-name" ] ,
+			"I want like to call you " ( Mike ) [ "given-name" ] " from now on" ,
+			"how can I change your name to " ( Anna ) [ "given-name" ] ,
+			"change your name to " ( Sam ) [ "given-name" ] ,
+			"do you mind if I change your " ( surname ) [ type ] " to " ( Johnson ) [ "last-name" ] ,
+			"can I change your " ( surname ) [ type ] " to " ( Smith ) [ "last-name" ] ,
+			"I\'d like to change your " ( nickname ) [ type ] " to " ( Bob ) [ "nick-name" ] ,
+			"I think you should change your " ( surname ) [ type ] ,
+			"I\'ll change your name" ,
+			"how can I change your " ( nickname ) [ type ] ,
+			"how can I change your name" ,
+			"do you mind if I change your " ( "last name" ) [ type ] ,
+			"change your " ( "last name" ) [ type ] ,
+			"can I change your " ( "middle name" ) [ type ] " to " ( Maria ) [ "given-name" ] ,
+			"let\'s change your " ( "last name" ) [ type ] " to " ( Green ) [ "last-name" ] ,
+			"where can I change your " ( "middle name" ) [ type ] " to " ( Bee ) [ "nick-name" ] ,
+			"I\'ll rename you" ,
+			"can I change your name" ,
+			"let\'s change your " ( nickname ) [ type ] ,
+			"I think you should change your " ( nickname ) [ type ] " to " ( "Woo Woo" ) [ "nick-name" ] ,
+			"where can I change your name" ,
+			"I\'ll change your " ( "middle name" ) [ type ] ,
+			"I\'d like to rename you" ,
+			"let\'s change your name" ,
+			"do you mind if I give you a different name"
+		}
+		parameters :
+			"given-name" ,
+			"last-name" ,
+			"nick-name" : entity "nick-name" ;
+			type : entity "name-type" ;
+
+	"name.agent.save" :
+		inputs in en {
+			"I\'d like to give you a " ( surname ) [ type ] ,
+			"your new name is " ( Sam ) [ "given-name" ] ,
+			"your new " ( nickname ) [ type ] " is " ( Ice ) [ "nick-name" ] ,
+			"you are " ( Nick ) [ "given-name" ] ,
+			"your " ( "last name" ) [ type ] " is " ( Evans ) [ "last-name" ] ,
+			"what if I call you " ( Liza ) [ "given-name" ] ,
+			"your " ( "last name" ) [ type ] " will be " ( Green ) [ "last-name" ] ,
+			"your " ( nickname ) [ type ] " will be " ( "Woo Woo" ) [ "nick-name" ] ,
+			"how can I save your name" ,
+			"how can I save your " ( "last name" ) [ type ] ,
+			"I want to call you " ( Eva ) [ "given-name" ] " from now on" ,
+			"save your new " ( middle ) [ type ] " name" ,
+			"may I pick a " ( nickname ) [ type ] " for you" ,
+			"do you mind if I give you a name" ,
+			"I think the name " ( Jason ) [ "given-name" ] " will suit you better" ,
+			"I\'ll call you " ( Mike ) [ "given-name" ] ,
+			( Anna ) [ "given-name" ] " will be your new " ( "middle name" ) [ type ] ,
+			"may I call you " ( Betty ) [ "given-name" ] ,
+			( Green ) [ "last-name" ] " is your new " ( surname ) [ type ] ,
+			"may I pick a name for you" ,
+			"can I name you" ,
+			( Maria ) [ "given-name" ] " will be your new " ( "middle name" ) [ type ] ,
+			"I\'d like to call you " ( Jennifer ) [ "given-name" ] ,
+			"your name is " ( Sam ) [ "given-name" ] ,
+			"I think the " ( nickname ) [ type ] " " ( Squirrel ) [ "nick-name" ] " will suit you better" ,
+			"do you mind if I give you a " ( surname ) [ type ] ,
+			"I\'d like to give you a name"
+		}
+		parameters :
+			"given-name" ,
+			"last-name" ,
+			"nick-name" : entity "nick-name" ;
+			type : entity "name-type" ;
+
+	"name.agent.feedback.good" :
+		inputs in en {
+			"your " ( "middle name" ) [ type ] " is beautiful" ,
+			"I find your name adorable" ,
+			"you have a great " ( surname ) [ type ] ,
+			"your name is cool" ,
+			"your name is beautiful" ,
+			"I like your name" ,
+			"you have a great name" ,
+			"I like your " ( "last name" ) [ type ]
+		}
+		parameters :
+			type : entity "name-type" ;
+
+	"name.agent.get" :
+		inputs in en {
+			"what should I call you" ,
+			"do you have a name" ,
+			"you didn\'t tell me your name" ,
+			"do you have a " ( nickname ) [ type ] ,
+			"I forgot your name" ,
+			"do you have a " ( "middle name" ) [ type ] ,
+			"what is your name" ,
+			"I\'d like to know your " ( "middle name" ) [ type ] ,
+			"do you remember your name" ,
+			"what\'s your name again" ,
+			"how can I address you" ,
+			"your name" ,
+			"what is your " ( surname ) [ type ] ,
+			"do you remember your " ( surname ) [ type ] ,
+			"how can I call you" ,
+			"what\'s your " ( nickname ) [ type ] " again" ,
+			"I\'d like to know your name" ,
+			"your " ( "middle name" ) [ type ] ,
+			"tell me your name" ,
+			"I forgot your " ( "last name" ) [ type ] ,
+			"tell me your " ( "last name" ) [ type ] ,
+			"you didn\'t tell me your " ( "last name" ) [ type ]
+		}
+		parameters :
+			type : entity "name-type" ;
+
+	"name.agent.feedback.bad" :
+		inputs in en {
+			"I don\'t like your name" ,
+			"I don\'t like your " ( "last name" ) [ type ] ,
+			"you have a bad name" ,
+			"you have a bad " ( surname ) [ type ] ,
+			"your " ( "middle name" ) [ type ] " is awful" ,
+			"your name is awful"
+		}
+		parameters :
+			type : entity "name-type" ;
+
+	"name.agent.delete" :
+		inputs in en {
+			"forget that your " ( "middle name" ) [ type ] " is " ( Nick ) [ "given-name" ] ,
+			"you are not " ( Sam ) [ "given-name" ] " anymore" ,
+			"can you forget your " ( "last name" ) [ type ] ,
+			"forget that your " ( "last name" ) [ type ] " is " ( Green ) [ "last-name" ] ,
+			"can you forget your name" ,
+			"your " ( surname ) [ type ] " is not " ( Smith ) [ "last-name" ] ,
+			"forget that you were " ( Anna ) [ "given-name" ] ,
+			"remove your " ( nickname ) [ type ] ,
+			"your " ( nickname ) [ type ] " is not " ( "Woo Woo" ) [ "nick-name" ] ,
+			"get rid of your " ( "last name" ) [ type ] ,
+			"delete your name" ,
+			"forget that your name is " ( John ) [ "given-name" ] ,
+			"forget your " ( "last name" ) [ type ] ,
+			"your " ( "first name" ) [ type ] " is not " ( Sarah ) [ "given-name" ]
+		}
+		parameters :
+			"given-name" ,
+			"last-name" ,
+			"nick-name" : entity "nick-name" ;
+			type : entity "name-type" ;
+
+	"Default Fallback Intent" Fallback :
+		inputs in en {
+			"forget about it" ,
+			"what\'s your favorite name" ,
+			"what are the top names in the US" ,
+			"I\'m looking for the best name for my cat can you help" ,
+			"my dog has a beautiful name" ,
+			"I want to watch call me by your name do you recommend"
+	}
+
+	"name.agent.spelling" :
+		inputs in en {
+			"how is your name spelled" ,
+			"spell me your " ( "last name" ) [ "name-type" ] ,
+			"how is your " ( nickname ) [ "name-type" ] " spelled" ,
+			"spell your name" ,
+			"your name spelling" ,
+			"your " ( "middle name" ) [ "name-type" ] " spelling"
+		}
+		parameters :
+			"name-type" : entity "name-type" ;
+
+entities :
+	Simple entity "nick-name" :
+		inputs in en {
+			Cosmo synonyms Cosmo
+			Doz synonyms Doz
+			Ice synonyms Ice
+			"Woo Woo" synonyms "Woo Woo"
+	}
+	Simple entity "name-type" :
+		inputs in en {
+			"first name" synonyms first , "first name" , forename , given
+			"full name" synonyms "full name"
+			"last name" synonyms "family name" , last , "last name" , surname
+			"middle name" synonyms middle , "middle name"
+			nickname synonyms nickname
+			"second name" synonyms second , "second name"
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "name.agent.confirmTxtResp1" :
+		inputs in en {
+			" "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. Say it again? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that again? " ,
+			"I didn\'t get that. " ,
+			"I missed that. "
+	}
+
+flows :
+	- user "name.agent.confirm" => chatbot "name.agent.confirmTxtResp1" ;
+	- user "name.agent.change" => chatbot "name.agent.confirmTxtResp1" ;
+	- user "name.agent.save" => chatbot "name.agent.confirmTxtResp1" ;
+	- user "name.agent.feedback.good" => chatbot "name.agent.confirmTxtResp1" ;
+	- user "name.agent.get" => chatbot "name.agent.confirmTxtResp1" ;
+	- user "name.agent.feedback.bad" => chatbot "name.agent.confirmTxtResp1" ;
+	- user "name.agent.delete" => chatbot "name.agent.confirmTxtResp1" ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" ;
+	- user "name.agent.spelling" => chatbot "name.agent.confirmTxtResp1" ;
+

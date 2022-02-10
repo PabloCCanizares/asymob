@@ -1,0 +1,84 @@
+Chatbot malaynayak language : en
+
+intents :
+
+	"Default Welcome Intent" :
+		inputs in en {
+			hello ,
+			^hi
+	}
+
+	"course-enquiry-contextual" :
+		inputs in en {
+			"who is the author?"
+	}
+
+	ShopAssistant :
+		inputs in en {
+			"What are the courses available?" ,
+			"What online courses do you offer?"
+	}
+
+	"course-enquiry" :
+		inputs in en {
+			"Tell me more about " ( Drupal8 ) [ course_name ] ,
+			"What about " ( "drupal?" ) [ course_name ] ,
+			"about " ( laravel ) [ course_name ] ,
+			"Can you tell about  " ( course ) [ course_name ] "?"
+		}
+		parameters :
+			course_name : entity course_name , required , prompts in en [ "Please specify the course." , "Which course your are interested in." , "Select a course." ] ;
+
+	"Default Fallback Intent" Fallback :
+
+entities :
+	Simple entity course_name :
+		inputs in en {
+			Wordpress synonyms wordpress , wp
+			Laravel synonyms Laravel , laravel
+			"Angular Js" synonyms "Angular Js" , Angular , angular
+			Drupal8 synonyms "Drupal 8" , drupal , d8 , drupal8
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "https://8fbb1dcd.ngrok.io/commerce-ai/api.ai/webhook" ;
+		headers : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "Default Welcome IntentTxtResp1" :
+		inputs in en {
+			"Hi! How I can help ? " ,
+			"Hello! May I help you? " ,
+			"Good day! May I help you? " ,
+			"Greetings! May I help you? "
+	}
+	text response "course-enquiry-contextualTxtResp1" :
+		inputs in en {
+			" "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. Say it again? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that again? " ,
+			"I didn\'t get that. " ,
+			"I missed that. "
+	}
+
+flows :
+	- user "Default Welcome Intent" => chatbot "Default Welcome IntentTxtResp1" ;
+	- user ShopAssistant => chatbot HttpRequest , HttpResponse ;
+	- user "course-enquiry" => chatbot HttpRequest , HttpResponse , "course-enquiry-contextualTxtResp1" => user "course-enquiry-contextual" => chatbot HttpRequest , HttpResponse , "course-enquiry-contextualTxtResp1" ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" ;
+

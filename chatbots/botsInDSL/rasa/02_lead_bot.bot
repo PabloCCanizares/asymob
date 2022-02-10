@@ -1,0 +1,120 @@
+Chatbot "02_lead_bot" language : en
+
+intents :
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"good morning" ,
+		"good evening" ,
+		"hey there"
+}
+
+accept :
+	inputs in en {
+		yes ,
+		right ,
+		ok ,
+		okay ,
+		sure ,
+		fine ,
+		"it\'s ok" ,
+		"it is okay" ,
+		"of cause" ,
+		ofcause
+}
+
+reject :
+	inputs in en {
+		^no ,
+		"don\'t" ,
+		dont ,
+		"do not" ,
+		"please no" ,
+		"no please" ,
+		never ,
+		"don\'t do"
+}
+
+begin_lead :
+	inputs in en {
+		"begin lead" ,
+		"Web Application Development" ,
+		"Mobile App Development" ,
+		"Chatbot Development" ,
+		"Frontend Development" ,
+		"Progessive Web App Development" ,
+		"AI & Machine Learning"
+}
+
+actions :
+	text response utter_lead_q1_text :
+		inputs in en {
+			"Great. We have developed more than 100+ web applications till date!"
+	}
+	text response utter_lead_q2_text :
+		inputs in en {
+			"Thanks for answering all our questions and being this patient. We appreciate it!"
+	}
+	text response utter_ask_requirement_text :
+		inputs in en {
+			"Can you share some brief description of your requirements?"
+	}
+	text response utter_ask_mockup_text :
+		inputs in en {
+			"Alright! \n\nDo you have any of the following ready?"
+	}
+	text response utter_ask_url_text :
+		inputs in en {
+			"Could you please share the URL with us?"
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"Hi! I am John from Cedex Technologies LLP. We provide high quality and cost-effective Web, Mobile, Chatbot and Voicebot solutions."
+	}
+	text response utter_ask_timeline_text :
+		inputs in en {
+			"When do you plan to enter development with this project?"
+	}
+	text response utter_lead_q3_text :
+		inputs in en {
+			"Here is your data: \n - requirement: " requirement "\n - mockup: " mockup "\n - url: " url "\n - timeline: " timeline "\n - budget: " budget "\n - name: " name "\n - email: " email "\n - phone: " phone
+	}
+	text response utter_lead_q4_text :
+		inputs in en {
+			"I will have our Business Experts get in touch with you soon, to make your project a reality!"
+	}
+	text response utter_lead_q5_text :
+		inputs in en {
+			"In the meanwhile for anything, you can contact us at sales@cedextech.com or +91 888 999 9999"
+	}
+	text response utter_ask_budget_text :
+		inputs in en {
+			"Great!\n\nWhat is your earmarked budget for this project?"
+	}
+	text response utter_ask_phone_text :
+		inputs in en {
+			"Can I have your phone number"
+	}
+	text response utter_menu_text :
+		inputs in en {
+			"What are you looking for today?"
+	}
+	text response utter_ask_email_text :
+		inputs in en {
+			"Can you please share your email ID? Trust us, we will never spam!"
+	}
+	text response utter_ask_name_text :
+		inputs in en {
+			"Great. May I know your name please?"
+	}
+	text response utter_urlAvailable_text :
+		inputs in en {
+			"Is there any URL that you would like to share for our reference?"
+	}
+
+flows :
+	- user greet => chatbot utter_greet_text , utter_menu_text => user begin_lead => chatbot utter_lead_q1_text { => user accept => chatbot utter_lead_q3_text , utter_lead_q4_text , utter_lead_q5_text ; => user reject => chatbot utter_lead_q3_text , utter_lead_q4_text , utter_lead_q5_text ; } ;
+

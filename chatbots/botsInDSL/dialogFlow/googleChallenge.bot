@@ -1,0 +1,817 @@
+Chatbot googleChallenge language : en
+
+intents :
+
+	num_sub_msc_21 :
+		inputs in en {
+			"How many majors does the student enrolled in " ( Manufacturing ) [ num_sub_msc_2 ] " Engineering have to study?" ,
+			" In " ( "Computer Science" ) [ num_sub_msc_2 ] " Engineering how many subjects will I learn?" ,
+			"Masters in " ( Electrical ) [ num_sub_msc_2 ] " Engineering comprise?" ,
+			" while pursuing " ( "Artificial Intelligence" ) [ num_sub_msc_2 ] ", how many courses will I get to study?" ,
+			"What is the number of courses offered in the " ( CS ) [ num_sub_msc_2 ] " graduate program?"
+		}
+		parameters :
+			num_sub_msc_2 : entity num_sub_msc_2 ;
+
+	num_sub1 :
+		inputs in en {
+			"What is the total number of " ( subjects ) [ num_sub ] " offered in a Graduate Program?" ,
+			"How many " ( courses ) [ num_sub ] " will I get to study while pursuing my Masters?" ,
+			"Masters degree comprises of how many " ( courses ) [ num_sub ] "?" ,
+			"What number of " ( subjects ) [ num_sub ] " do students study in a Graduate Program?" ,
+			"How many " ( majors ) [ num_sub ] " does the student enrolled in Masters have to study?"
+		}
+		parameters :
+			num_sub : entity num_sub ;
+
+	num_sub_meng1 :
+		inputs in en {
+			"How many majors does the student enrolled in " ( "Master of Engineering" ) [ num_sub_meng ] " have to study?" ,
+			"What number of subjects do students study in a " ( MENG ) [ num_sub_meng ] "?" ,
+			( "Master of Engineering" ) [ num_sub_meng ] " comprises of how many courses?" ,
+			"How many courses will I get to study while pursuing " ( MENG ) [ num_sub_meng ] "?" ,
+			"What is the total number of subjects offered in a " ( "course-based" ) [ num_sub_meng ] " program?"
+		}
+		parameters :
+			num_sub_meng : entity num_sub_meng ;
+
+	Industrial_Engineering :
+		inputs in en {
+			"I am looking for a master\'s in " ( Industrial ) [ industrial_eng ] " Engg." ,
+			"I want details for master\'s in " ( Industrial ) [ industrial_eng ] " engineering." ,
+			"Do we have a master\'s in " ( Industrial ) [ industrial_eng ] " Engg?" ,
+			"Is the University of Windsor offering thesis-based masters in " ( Industrial ) [ industrial_eng ] " engineering?" ,
+			"What graduate programs are available in " ( Industrial ) [ industrial_eng ] "?" ,
+			"Does the University of Windsor have a course-based master\'s program in " ( Industrial ) [ industrial_eng ] "?" ,
+			"Do we have a course-based masters in " ( Industrial ) [ industrial_eng ] " engineering?" ,
+			"Could you help me with the types of master\'s in " ( Industrial ) [ industrial_eng ] " engineering?" ,
+			"What are the types of masters available in " ( Industrial ) [ industrial_eng ] "?"
+		}
+		parameters :
+			industrial_eng : entity industrial_eng ;
+
+	min_qual_mac1 :
+		inputs in en {
+			"Please help me with the application qualification for Graduate program in uow?" ,
+			"What is the minimum percentage required in bachelors for applying in Masters in computer?" ,
+			"How to know if I am eligible to apply for " ( MAC ) [ min_qual_mac ] "?" ,
+			"I want to apply in " ( "Master of Applied Computing" ) [ min_qual_mac ] ". What is the eligibility criteria?"
+		}
+		parameters :
+			min_qual_mac : entity min_qual_mac , required , prompts in en [ "Could you please help me with the program type?" ] ;
+
+	deadline_spec1 :
+		inputs in en {
+			"Till when the applications are open for masters in " ( industrial ) [ deadline_spec ] "?" ,
+			"Can I apply for the masters in " ( environmental ) [ deadline_spec ] " for winter 2021?" ,
+			"Is uow accepting applications for " ( Meng ) [ deadline_spec ] " for the upcoming term?" ,
+			"Are the applications still open for " ( mechanical ) [ deadline_spec ] "?" ,
+			"What is the application deadline for " ( Masc ) [ deadline_spec ] " in " ( electrical ) [ deadline_spec ] "?"
+		}
+		parameters :
+			deadline_spec : entity deadline_spec ;
+
+	duration1 :
+		inputs in en {
+			"What is the " ( duration ) [ duration ] " of the Graduate courses offered in UOW?" ,
+			"What is the " ( length ) [ duration ] " of the Master\'s program?" ,
+			"The " ( ^time ) [ duration ] " required for international students to complete graduation?" ,
+			"How " ( long ) [ duration ] " does it take to complete a master\'s at the University of Windsor?" ,
+			"What is the " ( duration ) [ duration ] " of completing a Masters\'s?" ,
+			"Could you please help with the " ( "completion period" ) [ duration ] " of the Masters\'s?"
+		}
+		parameters :
+			duration : entity duration ;
+
+	"Default Welcome Intent" :
+		inputs in en {
+			"just going to say hi" ,
+			heya ,
+			"hello hi" ,
+			howdy ,
+			"hey there" ,
+			"hi there" ,
+			greetings ,
+			hey ,
+			"long time no see" ,
+			hello ,
+			"lovely day isn\'t it" ,
+			"I greet you" ,
+			"hello again" ,
+			^hi ,
+			"hello there" ,
+			"hi there" ,
+			"a good day"
+	}
+
+	duration_research1 :
+		inputs in en {
+			"How many months program is " ( "research-based" ) [ duration_research ] " program?" ,
+			"Could you help me with program length of " ( Msc ) [ duration_research ] " in Artificial Intelligence?" ,
+			"What is the completion period of " ( MASC ) [ duration_research ] " in industrial?" ,
+			"What is the length of " ( "thesis-based" ) [ duration_research ] " program?" ,
+			"How long it takes to complete " ( MS ) [ duration_research ] " in University of Windsor?"
+		}
+		parameters :
+			duration_research : entity duration_research ;
+
+	min_qual_meng1 :
+		inputs in en {
+			"Necessary qualification to apply in " ( "course-based" ) [ min_qual_meng ] " program?" ,
+			"What are the requirements needed for applying for Masters?" ,
+			"How to know if I qualify for " ( MENG ) [ min_qual_meng ] " in University of Windsor?" ,
+			"What is the eligibility criteria for Masters in UOW?" ,
+			"What are the necessary requirements to qualify to apply in MEng?" ,
+			"What is the minimum percentage required to get an admit in " ( MEng ) [ min_qual_meng ] "?" ,
+			"What is the minimum qualification required to get an admit in Electrical and Computer Engineering?"
+		}
+		parameters :
+			min_qual_meng : entity min_qual_meng , required , prompts in en [ "Could you please help me with the type of the masters you are interested in?" ] ;
+
+	Material_Engineering :
+		inputs in en {
+			"I am looking for a master\'s in engineering in " ( Materials ) [ materials_eng ] "." ,
+			"I want details for masters in " ( Material ) [ materials_eng ] " engineering." ,
+			"Could you please help me with the types of master\'s in " ( Material ) [ materials_eng ] " engineering?" ,
+			"Do we have a master\'s in " ( Material ) [ materials_eng ] " Engineering?" ,
+			"Does the University of Windsor have a course-based master\'s program in " ( Material ) [ materials_eng ] " Engineering?" ,
+			"Is the University of Windsor offering thesis-based masters in " ( Material ) [ materials_eng ] " Engg?" ,
+			"What graduate programs are available in " ( Material ) [ materials_eng ] " Engineering?" ,
+			"Do we have a course-based master\'s in " ( Material ) [ materials_eng ] " Engineering?" ,
+			"Could you help me with the types of master\'s in " ( Material ) [ materials_eng ] " engineering?" ,
+			"What are the types of masters available in " ( Material ) [ materials_eng ] "?"
+		}
+		parameters :
+			materials_eng : entity materials_eng ;
+
+	deadline1 :
+		inputs in en {
+			"Deadlines for " ( applications ) [ deadline ] " for the " ( "upcoming semster" ) [ deadline ] "?" ,
+			"Are the " ( application ) [ deadline ] " open for " ( "spring 2021" ) [ deadline ] "?" ,
+			"Is University accepting " ( applications ) [ deadline ] " for " ( "Winter 2021" ) [ deadline ] "?" ,
+			"Till how long the application " ( deadline ) [ deadline ] " is open for " ( "Winter 2021" ) [ deadline ] "?" ,
+			"Are the " ( applications ) [ deadline ] " still open for " ( "graduate program" ) [ deadline ] " in Uwindsor?" ,
+			"What is the " ( deadline ) [ deadline ] " for applying in masters for " ( "winter term" ) [ deadline ] "?"
+		}
+		parameters :
+			deadline : entity deadline , prompts in en [ "Please mention the specialization." ] ;
+
+	Environemntal_Engineering :
+		inputs in en {
+			"I am looking for a Masters in " ( "engineering in Environment" ) [ environ_eng ] "." ,
+			"Do we have a Masters in " ( Environmental ) [ environ_eng ] " Engineering?" ,
+			"Does the University of Windsor have a course-based Master\'s program in " ( Environmental ) [ environ_eng ] " Engineering?" ,
+			"Is the University of Windsor offering thesis-based Masters in " ( Environmental ) [ environ_eng ] " Engg?" ,
+			"What graduate programs are available in " ( Env ) [ environ_eng ] " Engineering?" ,
+			"Do we have course based masters in " ( Environmental ) [ environ_eng ] " Engineering?" ,
+			"What are the types of masters available in " ( Environmental ) [ environ_eng ] "?"
+		}
+		parameters :
+			environ_eng : entity environ_eng ;
+
+	duration_spec1 :
+		inputs in en {
+			"How much time does it take to finish graduation in " ( mechanical ) [ duration_spec ] " ?" ,
+			"What is the completion period for Masters in " ( "Computer Science" ) [ duration_spec ] " ?" ,
+			"What is the length of the " ( Civil ) [ duration_spec ] " Masters?" ,
+			"In how many months will I complete " ( Industrial ) [ duration_spec ] "?" ,
+			"What is the time duration for completing Masters in " ( "Artificial Intelligence" ) [ duration_spec ] " ?" ,
+			"How long does it take to complete a Masters in " ( ECE ) [ duration_spec ]
+		}
+		parameters :
+			duration_spec : entity duration_spec ;
+
+	min_qual_masc1 :
+		inputs in en {
+			"In the " ( research ) [ min_qual_masc ] " programs, what are the minimum qualifications for me to apply?" ,
+			"In " ( "applied science" ) [ min_qual_masc ] " program, are there any eligibility qualifications required?" ,
+			"For " ( "thesis based" ) [ min_qual_masc ] " programs, are there any minimum needed qualifications?" ,
+			"Are there any eligibility criterias in " ( MASc ) [ min_qual_masc ] "?" ,
+			"What are the minimum qualifications needed to apply for " ( MASc ) [ min_qual_masc ] "?"
+		}
+		parameters :
+			min_qual_masc : entity min_qual_masc ;
+
+	num_sub_msc1 :
+		inputs in en {
+			"The number of courses offered in the " ( "Master of Applied science" ) [ num_sub_msc ] "." ,
+			"How many subjects can a student study in " ( MASC ) [ num_sub_msc ] "?" ,
+			"How many majors does the student enrolled in the " ( "Master of Science" ) [ num_sub_msc ] " have to study?" ,
+			"What number of subjects do students study in " ( "research-based" ) [ num_sub_msc ] " programs?" ,
+			( MSc ) [ num_sub_msc ] " is comprised of how many courses?" ,
+			"How many courses will I get to study while pursuing " ( MS ) [ num_sub_msc ] " at the University of Windsor?" ,
+			"What is the total number of subjects offered in the " ( "thesis-based" ) [ num_sub_msc ] " program?"
+		}
+		parameters :
+			num_sub_msc : entity num_sub_msc ;
+
+	Masters_type :
+		inputs in en {
+			"What are the various " ( master ) [ Graduate_Programs ] " programs at university?" ,
+			"How many types of " ( "master\'s" ) [ Graduate_Programs ] " programs are available at the University of Windsor?" ,
+			"What are the different types of " ( "master\'s" ) [ Graduate_Programs ] " programs offered in UOW?" ,
+			"Can you provide me with the different categories of " ( "master\'s" ) [ Graduate_Programs ] " programs?" ,
+			"What " ( "Master\'s" ) [ Graduate_Programs ] " program does the University of Windsor offer?" ,
+			"What kind of " ( graduate ) [ Graduate_Programs ] " programs are available in uow?" ,
+			"I am looking for a " ( "master\'s" ) [ Graduate_Programs ] " program at the University of Windsor. Could you please help me with it?" ,
+			"Please help me with the " ( Graduate ) [ Graduate_Programs ] " Programs available in UOW." ,
+			"Do we have " ( Graduate ) [ Graduate_Programs ] " Courses at the University of Windsor?"
+		}
+		parameters :
+			Graduate_Programs : entity Graduate_Programs ;
+
+	Automotive_Engg :
+		inputs in en {
+			"What graduate programs are available in " ( Automotive ) [ auto_eng ] " Engineering?" ,
+			"I am looking for a master\'s in engineering in " ( Automotive ) [ auto_eng ] "." ,
+			"I want details for my masters in " ( Automotive ) [ auto_eng ] " engineering." ,
+			"Could you please help me with the types of master\'s in " ( Automobile ) [ auto_eng ] " engineering?" ,
+			"Do we have a master\'s in " ( Automotive ) [ auto_eng ] " Engineering?" ,
+			"Does the University of Windsor have a course-based master\'s program in " ( Automotive ) [ auto_eng ] " Engineering?" ,
+			"Is the University of Windsor offering thesis-based masters in " ( Automobile ) [ auto_eng ] " Engg?" ,
+			"Could you help me with the types of master\'s in " ( Auto ) [ auto_eng ] " engineering?" ,
+			"Do we have a course-based master\'s in " ( Automotive ) [ auto_eng ] " engineering?" ,
+			"What are the types of masters available in " ( Automobile ) [ auto_eng ] "?"
+		}
+		parameters :
+			auto_eng : entity auto_eng ;
+
+	help1 :
+		inputs in en {
+			"What " ( details ) [ help ] " can you provide?" ,
+			"What " ( information ) [ help ] " can I get from you?" ,
+			"What can you do?" ,
+			"What " ( support ) [ help ] " is offered?" ,
+			"How can you be " ( helpful ) [ help ] "?" ,
+			"What " ( help ) [ help ] " do you provide?" ,
+			"How could you " ( help ) [ help ] " me?"
+		}
+		parameters :
+			help : entity help ;
+
+	Computer_Science :
+		inputs in en {
+			"What are the types of masters available in " ( "Computer Science" ) [ com_sci_eng ] "?" ,
+			"Could you help me with the types of master\'s in " ( "computer engineering" ) [ com_sci_eng ] "?" ,
+			"Do we have course-based masters in " ( computers ) [ com_sci_eng ] "?" ,
+			"What graduate programs are available in " ( CS ) [ com_sci_eng ] "?" ,
+			"Is the University of Windsor offering a thesis-based master\'s in " ( "computer science" ) [ com_sci_eng ] "?" ,
+			"Does the University of Windsor have a course-based master\'s program in " ( "Computer Science" ) [ com_sci_eng ] "?" ,
+			"Do we have a master\'s in " ( "Computer Engineering" ) [ com_sci_eng ] "?" ,
+			"Could you please help me with the types of master\'s in " ( computers ) [ com_sci_eng ] "?" ,
+			"I want details for Masters in " ( CS ) [ com_sci_eng ] "." ,
+			"I am looking for a Masters in the field of " ( "Computer Science" ) [ com_sci_eng ]
+		}
+		parameters :
+			com_sci_eng : entity com_sci_eng ;
+
+	Mechanical_Engineering :
+		inputs in en {
+			"I am looking for a master\'s in " ( Mechanical ) [ mechanical_eng ] " engineering." ,
+			"I want details for Masters in " ( Mech ) [ mechanical_eng ] " Engineering." ,
+			"\n Could you please help me with the types of master\'s in " ( Mechanical ) [ mechanical_eng ] "?" ,
+			"Do we have a master\'s in " ( Mechanical ) [ mechanical_eng ] " Engineering?" ,
+			"Does the University of Windsor have a course-based master\'s program in " ( Mechanical ) [ mechanical_eng ] " Engineering?" ,
+			"Is the University of Windsor offering a thesis-based master\'s in " ( Mechanical ) [ mechanical_eng ] "?" ,
+			"What graduate programs are available in " ( Mechanical ) [ mechanical_eng ] " Engineering?" ,
+			"Do we have a course-based master\'s in " ( Mechanical ) [ mechanical_eng ] "?" ,
+			"Could you help me with the types of master\'s in " ( Mechanical ) [ mechanical_eng ] " engineering?" ,
+			"What are the types of masters available in " ( Mechanical ) [ mechanical_eng ] "?"
+		}
+		parameters :
+			mechanical_eng : entity mechanical_eng ;
+
+	duration_rea_spec1 :
+		inputs in en {
+			"Could help me with program length of " ( Mechanical ) [ duration_rea_spec ] " Masters?" ,
+			"Completion period for masters in " ( AI ) [ duration_rea_spec ] "?" ,
+			"How long will it take to complete masters in " ( environmental ) [ duration_rea_spec ] "?" ,
+			"What is the duration of graduate program in " ( "Computer Science" ) [ duration_rea_spec ] "?" ,
+			"How much is required to complete to Masters in " ( ECE ) [ duration_rea_spec ] "?"
+		}
+		parameters :
+			duration_rea_spec : entity duration_rea_spec ;
+
+	ielts :
+		inputs in en {
+			"What maximum IELTS score is required for international students to get admitted into " ( Environmental ) [ ielts ] " Engineering?" ,
+			"How many IELTS marks are required to get admitted into UOW for a master\'s in " ( industrial ) [ ielts ] "?" ,
+			"Minimum ielts score required for " ( Mechanical ) [ ielts ] "." ,
+			"IELTS score for " ( materials ) [ ielts ] " Engineering." ,
+			"What is the minimum score requirement in IELTS for " ( Automotive ) [ ielts ] " Engineering?" ,
+			"What is the minimum IELTS score required in " ( MEng ) [ ielts ] " in " ( Civil ) [ ielts ] "?" ,
+			"How much does a student need to score in IELTS for admitting in masters in " ( mechanical ) [ ielts ] " engineering?" ,
+			"How much IELTS score is necessary for admission in master\'s in " ( "computer science" ) [ ielts ] "?" ,
+			"What is the ielts requirement for " ( ece ) [ ielts ] "?"
+		}
+		parameters :
+			ielts : entity IELTS , required , prompts in en [ "Please specify the specialization" ] ;
+
+	num_sub_mac_21 :
+		inputs in en {
+			"What number of subjects are taught in " ( "Computer Science" ) [ num_sub_mac_2 ] "?" ,
+			"The number of courses available in " ( "computer engineering" ) [ num_sub_mac_2 ] "?" ,
+			"What is the total number of subjects offered in masters in " ( CS ) [ num_sub_mac_2 ] "?" ,
+			"How many courses do we get to study in " ( computers ) [ num_sub_mac_2 ] "?"
+		}
+		parameters :
+			num_sub_mac_2 : entity num_sub_mac_2 ;
+
+	Computer_Science_AI :
+		inputs in en {
+			"What are the types of masters available in " ( "Artificial Intelligence" ) [ cs_ai ] "?" ,
+			"Could you help me with types of master\'s in computer science with majors in " ( AI ) [ cs_ai ] "?" ,
+			"What graduate programs are available in " ( AI ) [ cs_ai ] "?" ,
+			"Is the University of Windsor offering thesis-based Masters in " ( "Artificial Intelligence" ) [ cs_ai ] "?" ,
+			"Do we have a master\'s in Computer Engineering in " ( "Artificial Intelligence" ) [ cs_ai ] "?" ,
+			"Could you please help me with the types of Masters in " ( AI ) [ cs_ai ] "?" ,
+			"I want details for Masters in " ( "Artificial Intelligence" ) [ cs_ai ] "." ,
+			"I am looking for a master\'s in computer engineering with " ( AI ) [ cs_ai ] "."
+		}
+		parameters :
+			cs_ai : entity cs_ai ;
+
+	Electrical_and_Computer_Engineering :
+		inputs in en {
+			"What are the types of masters available in " ( Electrical ) [ elec_comp_eng ] "?" ,
+			"Could you help me with the types of master\'s in " ( "Electrical and Computer Engineering" ) [ elec_comp_eng ] "?" ,
+			"Do we have course-based masters in " ( ece ) [ elec_comp_eng ] "?" ,
+			"What graduate programs are available in " ( ECE ) [ elec_comp_eng ] "?" ,
+			"Is the University of Windsor offering thesis-based Masters in " ( ECE ) [ elec_comp_eng ] "?" ,
+			"Does the University of Windsor have a course-based master\'s program in " ( "Electrical and Computer Engineering" ) [ elec_comp_eng ] "?" ,
+			"Do we have a master\'s in " ( "Electrical Engineering" ) [ elec_comp_eng ] "?" ,
+			"Could you please help me with the types of master\'s in " ( electrical ) [ elec_comp_eng ] "?" ,
+			"I want details for Masters in " ( ECE ) [ elec_comp_eng ] "." ,
+			"I am looking for a master\'s in " ( "electrical and Computer Engineering" ) [ elec_comp_eng ] "."
+		}
+		parameters :
+			elec_comp_eng : entity elec_comp_eng ;
+
+	num_course_meng_21 :
+		inputs in en {
+			"What is the total number of subjects offered in an " ( Automotive ) [ num_course_meng_2 ] " graduate program?" ,
+			"How many courses will I get to study while pursuing " ( Civil ) [ num_course_meng_2 ] "?" ,
+			"Masters in " ( "Electrical and Computer Engineering" ) [ num_course_meng_2 ] " comprises of how many courses?" ,
+			"What number of subjects do students study " ( Environmental ) [ num_course_meng_2 ] " Engineering?" ,
+			"How many majors does the student enrolled in " ( Industrial ) [ num_course_meng_2 ] " Engineering have to study?"
+		}
+		parameters :
+			num_course_meng_2 : entity num_course_meng_2 ;
+
+	num_sub_mac1 :
+		inputs in en {
+			"In the " ( "Applied Computing" ) [ num_sub_mac ] " program, how many courses are available?" ,
+			( "Course-based" ) [ num_sub_mac ] " computer science masters consist of how many courses?" ,
+			"How many subjects does " ( MAC ) [ num_sub_mac ] " offer?" ,
+			"For the " ( "Masters of Applied Computing" ) [ num_sub_mac ] ", can I know the total number of courses I will have to take?" ,
+			"What is the total number of subjects I can enroll myself in " ( "Applied Computing" ) [ num_sub_mac ] "?"
+		}
+		parameters :
+			num_sub_mac : entity num_sub_mac ;
+
+	duration_course1 :
+		inputs in en {
+			"Maximum time for the completion of " ( "course based" ) [ duration_course ] " masters." ,
+			"How long will it take for me to finish my " ( "Master of Engineering" ) [ duration_course ] " in Mechanical?" ,
+			"When can I expect to complete the " ( MAC ) [ duration_course ] " Program?" ,
+			"What is the duration of completing the " ( "Master of Applied Computing" ) [ duration_course ] "?" ,
+			"How long does it take to complete the " ( Meng ) [ duration_course ] " program in Mechanical?" ,
+			"What is the length of the " ( "course-based" ) [ duration_course ] " graduate program?"
+		}
+		parameters :
+			duration_course : entity duration_course ;
+
+	min_qual_cs_ai1 :
+		inputs in en {
+			"How to know if I qualify for the " ( "Masters in Artificial Intelligence" ) [ min_qual_cs_ai ] "?" ,
+			"Does " ( "computer science" ) [ min_qual_cs_ai ] " have any admission requirements?" ,
+			"What is the eligibility criteria for application in " ( "Masters of Computer Science" ) [ min_qual_cs_ai ] "?" ,
+			"Any admission requirements for " ( "thesis based" ) [ min_qual_cs_ai ] " Masters?" ,
+			"What are the minimum qualifications for applying for " ( "MS in Computers with AI" ) [ min_qual_cs_ai ] " Specialization"
+		}
+		parameters :
+			min_qual_cs_ai : entity min_qual_cs_ai , required , prompts in en [ "Can you please provide the area of specialization?" ] ;
+
+	Civil_Engineering :
+		inputs in en {
+			"I am looking for a master\'s in engineering in " ( Civil ) [ civil_eng ] "." ,
+			"I want details for my master\'s in " ( civil ) [ civil_eng ] " engineering." ,
+			"Could you please help me with the types of master\'s in " ( Civil ) [ civil_eng ] " engineering?" ,
+			"Do we have a master\'s in " ( Civil ) [ civil_eng ] " Engineering?" ,
+			"Does the University of Windsor have a course-based master\'s program in " ( Civil ) [ civil_eng ] " Engineering?" ,
+			"Is the University of Windsor offering thesis-based masters in " ( Civil ) [ civil_eng ] " Engg?" ,
+			"Do we have a course-based master\'s in the field related to " ( construction ) [ civil_eng ] "?" ,
+			"What graduate programs are available in " ( Civil ) [ civil_eng ] " Engineering?" ,
+			"Could you help me with the types of master\'s in " ( civil ) [ civil_eng ] " engineering?" ,
+			"What are the types of masters available in " ( Civil ) [ civil_eng ] "?"
+		}
+		parameters :
+			civil_eng : entity civil_eng ;
+
+	"Default Fallback Intent" Fallback :
+
+entities :
+	Simple entity elec_comp_eng :
+		inputs in en {
+			ECE synonyms ECE , Electrical , "Electrical and Computer Engineering" , Electronics
+	}
+	Simple entity num_sub_msc_2 :
+		inputs in en {
+			Automobile synonyms Automobile , Automotive , Auto , Autonomous
+			Civil synonyms Civil , Construction
+			ECE synonyms ECE , Electrical , "Electrical and Computer Engineering" , Electronics
+			Environmental synonyms Environmental , Sustainable , "Smart Energy" , Env , Enivornment , "Engineering in Environment"
+			Industrial synonyms Industrial , Industries , Indus
+			Materials synonyms Materials , Material , "Engineering Materials"
+			Mechanical synonyms Mechanical , Mech , Manufacturing
+			Computers synonyms Computers , "Computer Science" , CS , "Computer Engineering" , "CS AI" , "Artificial Intelligence" , AI , "Computer Science with AI Specialization"
+	}
+	Simple entity num_sub :
+		inputs in en {
+			Subjects synonyms Subjects , Courses , Course , Subject , Major , Majors
+	}
+	Simple entity num_sub_meng :
+		inputs in en {
+			MENG synonyms MENG , "Master of Engineering" , "course-based"
+	}
+	Simple entity auto_eng :
+		inputs in en {
+			Automotive synonyms Automotive , Automobile , auto , Autonomous
+	}
+	Simple entity IELTS :
+		inputs in en {
+			"Electrical and Computer Engineering" synonyms "Electrical and Computer Engineering" , ECE , Electrical
+			"Computer Science" synonyms "Computer Science" , CSE , CS , Computers , "Computer Engineering"
+			"Mechanical Engineering" synonyms "Mechanical Engineering" , Mech , Mechanical
+			"Civil Engineering" synonyms "Civil Engineering" , Civil , Construction
+			"Industrial Engineering" synonyms "Industrial Engineering" , Industrial
+			"Environmental Engineering" synonyms "Environmental Engineering" , Environmental
+			"Automotive Engineering" synonyms "Automotive Engineering" , Auto , Automobile , Automotive
+			"Engineering Materials" synonyms "Engineering Materials" , Materials , Material
+			MENG synonyms MENG , "Master of Engineering"
+			MAC synonyms MAC , "Master of Applied Computing" , "Applied Computing"
+			MASc synonyms MASc , "Master of Applied Science"
+			MSc synonyms MSc , MS , "Master of Science"
+	}
+	Simple entity min_qual_mac :
+		inputs in en {
+			MAC synonyms MAC , "Master of Applied computing" , course_based , "applied computing"
+	}
+	Simple entity deadline_spec :
+		inputs in en {
+			ECE synonyms ECE , "Electrical and computer" , Electronics , Electrical
+			Civil synonyms construction , Civil
+			Mechanical synonyms Mechanical , MECH , Manufacturing
+			Materials synonyms Materials , Material
+			Industrial synonyms Industrial , Industries , Indus
+			Environmental synonyms Environmental , Environment , "Smart Energy" , Sustainable
+			Automotive synonyms Automotive , Automobile , Auto
+			MASC synonyms MASC , "Applied science" , "Master of Applied science"
+			Meng synonyms Meng , "Master of engineering" , "Course-based"
+	}
+	Simple entity environ_eng :
+		inputs in en {
+			Environmental synonyms Sustainable , "Smart Energy" , Env , Enivornment , Environmental , "Engineering in Environment"
+	}
+	Simple entity mechanical_eng :
+		inputs in en {
+			Mechanical synonyms Mechanical , Mech , Manufacturing
+	}
+	Simple entity duration :
+		inputs in en {
+			duration synonyms duration , length , ^time , long , "completion period" , period , months , month , year , years , completion , complete
+	}
+	Simple entity duration_research :
+		inputs in en {
+			thesis synonyms thesis , "Master of Science" , MS , MSC , "thesis-based"
+			research synonyms research , "research-based" , "Master of Applied Science" , MASC
+	}
+	Simple entity Graduate_Programs :
+		inputs in en {
+			Masters synonyms Master , Graduate , "Graduate Program" , Courses , "Master\'s" , Masters
+	}
+	Simple entity min_qual_meng :
+		inputs in en {
+			MENG synonyms MENG , "Master of Engineering" , "course-based"
+			ECE synonyms ECE , "Electrical and computer" , Electrical , Electronics
+			civil synonyms construction , civil
+			Mechanical synonyms Mechanical , mech , Manufacturing
+			industrial synonyms industrial , industries , indus
+			automobile synonyms automobile , Automotive , Auto
+			Environment synonyms Environment , Environmental , "Smart Energy" , Sustainable
+			Materials synonyms Materials , Material
+	}
+	Simple entity materials_eng :
+		inputs in en {
+			Materials synonyms Materials , Material , "Engineering Materials"
+	}
+	Simple entity prog_course :
+		inputs in en {
+			ECE synonyms electrical , "electrical and computer engineering" , electronics , ece
+			Civil synonyms Civil , construction
+			Mechanical synonyms Mechanical , Mech , Manufacturing
+			Materials synonyms Materials , Material
+			Industrial synonyms Industrial , Indus , Industries
+			CS synonyms CS , Computers , "Computer Science" , "Computer Engineering"
+			Environmental synonyms Environmental , Environment , sustainable , "smart energy"
+			Automotive synonyms Automotive , Automobile , Auto , Autonomous
+	}
+	Simple entity Type_course :
+		inputs in en {
+			MENG synonyms "Master of engineering" , Meng , "course-based"
+			MAC synonyms MAC , "Master of Applied Computing" , Course
+	}
+	Simple entity deadline :
+		inputs in en {
+			deadline synonyms deadline , "spring 2021" , "winter 2021" , spring , "graduate program" , Winter , "upcoming semseter" , appilcation , January
+	}
+	Simple entity industrial_eng :
+		inputs in en {
+			Industrial synonyms Industrial , Indus , Industries
+	}
+	Simple entity duration_thesis :
+		inputs in en {
+			"thesis based" synonyms MASC , "Master of Applied Science" , "Applied Science" , "Research Based" , MSc , "Master of Science" , "Thesis based"
+			duration synonyms duration , length , ^time , long , "completion period" , period , months , year , years , month
+			Civil synonyms Civil , Construction , "Computer Science" , "Computer Engineering" , CS , Computers , ECE , Electrical , "Electrical and Computer Engineering" , Electronics , "Engineering Materials" , Materials , Material , Environmental , Sustainable , "Smart Energy" , Env , Enivornment , "engineering in Environment" , Industrial , Indus , Industries , Mechanical , Mech , Manufacturing
+	}
+	Simple entity duration_spec :
+		inputs in en {
+			ECE synonyms ECE , "Electrical and computer engineering" , electronics , electrical
+			Mechanical synonyms Mechanical , Mech , Manufacturing
+			Materials synonyms Materials , Material
+			Industrial synonyms Industrial , Industries , Indus
+			Environmental synonyms Environmental , Environment , Sustainable , "Smart Energy"
+			"Computer Science" synonyms "Computer Science" , "Computer Sci" , Computers , CS , "Computer Engineering"
+			Automotive synonyms Automotive , Automobile , Auto
+			"CS AI" synonyms "CS AI" , "Artificial Intelligence" , "Computer Science with Artificial Intelligence" , AI
+			Civil synonyms Civil , Construction
+	}
+	Simple entity min_qual_masc :
+		inputs in en {
+			MASc synonyms MASc , "Master of Applied Science" , "Applied Science" , "Thesis-Based" , Research_Based
+	}
+	Simple entity num_sub_msc :
+		inputs in en {
+			MSC synonyms MSC , "Master of science" , MS , "thesis-based" , "research-based" , MASC , "Master of Applied science" , "Applied of science"
+	}
+	Simple entity civil_eng :
+		inputs in en {
+			Civil synonyms Civil , Construction
+	}
+	Simple entity specialization_type :
+		inputs in en {
+			"Master of Engineering" synonyms "Master of Engineering" , MEng , "course-based"
+			"Master of Science" synonyms "Master of Science" , MSC , "thesis-based"
+			"Master of Applied Science" synonyms "Master os Applied Science" , MASC , research
+			"Master of Applied Computing" synonyms "Master of Applied Computing" , MAC , "project-based"
+	}
+	Simple entity help :
+		inputs in en {
+			details synonyms details , information , support , helpful , help
+	}
+	Simple entity com_sci_eng :
+		inputs in en {
+			"Computer Science" synonyms "Computer Science" , "Computer Engineering" , CS , Computers
+	}
+	Simple entity duration_rea_spec :
+		inputs in en {
+			ECE synonyms ECE , Electrical , "Electrical and computer" , Electronics
+			Civil synonyms Civil , Construction
+			Mechanical synonyms Mechanical , Mech , Manufacturing
+			Automotive synonyms Automotive , auto , Automobile
+			Materials synonyms Materials , material
+			Industrial synonyms Industrial , Indus , Industries
+			Environmental synonyms Environmental , Environment , Sustainable , "smart energy"
+			Computers synonyms Computers , CS , "Computer Science" , "Computer engineering"
+			"CS AI" synonyms "CS AI" , AI , "artificial intelligence" , "computer science with AI speicialization"
+	}
+	Simple entity num_sub_mac_2 :
+		inputs in en {
+			"Computer Science" synonyms "Computer Science" , "Computer engineering" , CS , Computers
+	}
+	Simple entity num_course_meng_2 :
+		inputs in en {
+			Automotive synonyms Automotive , Auto , Autonomous
+			Civil synonyms Civil , Construction
+			ECE synonyms ECE , Electrical , "Electrical and Computer Engineering" , Electronics
+			Environmental synonyms Environmental , Sustainable , "Smart Energy" , Env , Enivornment , "Engineering in Environment"
+			Industrial synonyms Industrial , Indus , Industries
+			Materials synonyms Materials , Material , "Engineering Materials"
+			Mechanical synonyms Mechanical , Mech , Manufacturing
+	}
+	Simple entity num_sub_mac :
+		inputs in en {
+			MAC synonyms MAC , "Master of Applied Computing" , "Applied Computing" , "course-based"
+	}
+	Simple entity duration_course :
+		inputs in en {
+			"course-based" synonyms Meng , "Master of Engineering" , "Course-based"
+			course synonyms MAC , "Master of Applied Computing" , course
+	}
+	Simple entity min_qual_cs_ai :
+		inputs in en {
+			"MSC AI" synonyms "MSC AI" , "Master of Science in Artificial Intelligence" , "MS AI" , "MS in Computer Science with AI Specialization" , "MS in Computer Science with Artificial Intelligence"
+			"MSC CS" synonyms "MSC CS" , "Master of Science in Computers" , "Master of Computer Science" , "Master of Computer Science with Thesis" , "Master of CS with Research"
+			AI synonyms AI , "Artificial Intelligence"
+			CS synonyms CS , Computers , "Computer science"
+	}
+	Simple entity cs_ai :
+		inputs in en {
+			"Artificial Intelligence" synonyms "Artificial Intelligence" , AI
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response num_sub_msc_21TxtResp1 :
+		inputs in en {
+			"Are you looking for a course-based or research-based program? "
+	}
+	text response num_sub1TxtResp1 :
+		inputs in en {
+			"Are you looking for thesis-based or course-based masters? "
+	}
+	text response num_sub_meng1TxtResp1 :
+		inputs in en {
+			"Students enrolled in MEng are required to complete a total of 8 courses for the completion of the degree.Students enrolled in MEng are allowed to choose 4 major courses out of 8. The remaining 4 are mandatory courses which need to be completed in order to enroll in majors. "
+	}
+	text response Industrial_EngineeringTxtResp1 :
+		inputs in en {
+			"We provide two types of master’s program in Industrial Engineering. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. " ,
+			"Yes! We have course-based master’s known as MEng and thesis-based master’s known as Masc. in Industrial. "
+	}
+	text response min_qual_mac1TxtResp1 :
+		inputs in en {
+			"Hold a 4-year bachelor degree in Computer Science or related discipline with a minimum major average of 70% or an average of 77% or better in the last 2 years of study, application that includes a description of a major technology project they have undertaken in the past 3 years. Non-Computer Science disciplines will be eligible for admission if they are accepted into and complete the University of Windsor’s one-year Bachelor of Computer Science for University Graduates program with a 70% average or better.Also have minimum score in any one of them IELTS (6.5)/GRE/TOEFL (IBT-92)/Pearson (65). "
+	}
+	text response deadline_spec1TxtResp1 :
+		inputs in en {
+			"The applications are open for Winter 2021 till 1st September 2020. "
+	}
+	text response duration1TxtResp1 :
+		inputs in en {
+			"Are you looking for a course-based or research-based Masters? "
+	}
+	text response "Default Welcome IntentTxtResp1" :
+		inputs in en {
+			"Hi! How are you doing? " ,
+			"Hello! How can I help you? " ,
+			"Good day! What can I do for you today? " ,
+			"Greetings! How can I assist? "
+	}
+	text response duration_research1TxtResp1 :
+		inputs in en {
+			"This is a 24 month program.The completion of the program also depends on students thesis completion time. "
+	}
+	text response min_qual_meng1TxtResp1 :
+		inputs in en {
+			"The minimum qualification to apply for graduate program is to have an undergraduate degree (BASc / B.Sc. in Engineering / B.Eng. degree or equivalent*) with at least 73% average over the last two years. International applicants are advised to refer to the specified minimum admission requirements, listed by country, at the Faculty of Engineering’s Professional and Graduate Studies (FEPGS) website and the Faculty of Graduate Studies website. Also have minimum score in any one of them IELTS (6.5)/GRE/TOEFL (IBT-92)/Pearson (65). "
+	}
+	text response Material_EngineeringTxtResp1 :
+		inputs in en {
+			"We provide two types of master’s program in Material Engineering. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. " ,
+			"Yes! We have course-based master’s known as MEng and thesis-based master’s known as Masc. in Material. "
+	}
+	text response deadline1TxtResp1 :
+		inputs in en {
+			"Please mention the specialization you are looking for? "
+	}
+	text response Environemntal_EngineeringTxtResp1 :
+		inputs in en {
+			"We provide two types of Masters program in Environmental Engineering.One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. " ,
+			"Yes! We have course based Masters known as MEng and thesis based Masters known as MASc in Environment. "
+	}
+	text response duration_spec1TxtResp1 :
+		inputs in en {
+			"Are you looking for course-based or thesis-based? "
+	}
+	text response min_qual_masc1TxtResp1 :
+		inputs in en {
+			"Undergraduate degree (BASc / B.Sc. in Engineering / B.Eng. degree or equivalent*) with at least 73% average over the last two years. International applicants are advised to refer to the specified minimum admission requirements, listed by country, at the Faculty of Engineering’s Professional and Graduate Studies (FEPGS) website and the Faculty of Graduate Studies website. Any research publications would be a plus. Also have minimum score in any one of them IELTS(6.5)/GRE/TOEFL(IBT-83)/Pearson(65). "
+	}
+	text response num_sub_msc1TxtResp1 :
+		inputs in en {
+			"The requirements for the degree of Master of Science will be satisfied by pursuing a program of studies consisting of five approved courses and a thesis. "
+	}
+	text response Masters_typeTxtResp1 :
+		inputs in en {
+			"We offer various Graduate programs at University of Windsor. Please provide the specialization. " ,
+			"Yes, for sure! We provide various graduate programs. Please specify the specialization you are looking for. " ,
+			"Yes, we do offer Graduate courses at our University. Which Program are you interested in? " ,
+			"Yes! Could you please help me with your area of interest? "
+	}
+	text response Automotive_EnggTxtResp1 :
+		inputs in en {
+			"We provide two types of master’s program in Automotive Engineering. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. " ,
+			"Yes! We have course-based master’s known as MEng and thesis-based master’s known as Masc. in Automotive. "
+	}
+	text response help1TxtResp1 :
+		inputs in en {
+			"I can guide you through course details for graduate programs, IELTS requirements, additional documents, application deadline, program duration, admission requirements, availability of co-op or internships. "
+	}
+	text response Computer_ScienceTxtResp1 :
+		inputs in en {
+			"We provide two types of master’s program in Computer Science. One is Master of Applied Computing which is course-based and the other one is Master of Science which is Research-Based. " ,
+			"Yes! We have course-based master’s known as MAC and thesis-based master’s known as MSc in Computer Science. "
+	}
+	text response Mechanical_EngineeringTxtResp1 :
+		inputs in en {
+			"We provide two types of master’s program in Mechanical Engineering. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. " ,
+			"Yes! We have course-based master’s known as MEng and thesis-based master’s known as Masc. in Mechanical Engineering. "
+	}
+	text response duration_rea_spec1TxtResp1 :
+		inputs in en {
+			"Are you looking for Course-based or reasearch-based? "
+	}
+	text response ieltsTxtResp1 :
+		inputs in en {
+			"Students are required to score minimum 6.5 band with no band less than 6 in reading, writing, listening and speaking. Possession of the minimum requirements does not ensure admission. "
+	}
+	text response Computer_Science_AITxtResp1 :
+		inputs in en {
+			"Yes! We have thesis-based master’s known as MSc in Computer Science with Artificial Intelligence Stream. " ,
+			"The program available in the field of Artificial Intelligence is Master of Science in Computer Science with specialization in Artificial Intelligence. "
+	}
+	text response Electrical_and_Computer_EngineeringTxtResp1 :
+		inputs in en {
+			"We provide two types of master’s program in ECE. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. " ,
+			"Yes! We have course-based master’s known as MEng and thesis-based master’s known as Masc. in ECE. "
+	}
+	text response num_course_meng_21TxtResp1 :
+		inputs in en {
+			"Are you looking for a Course-based or research-based program? "
+	}
+	text response num_sub_mac1TxtResp1 :
+		inputs in en {
+			"Students get to study a total of 8 courses plus Project/Internship in order to complete the degree. "
+	}
+	text response duration_course1TxtResp1 :
+		inputs in en {
+			"This is a 16 months program. Students are expected to complete it within 16-18 months. "
+	}
+	text response min_qual_cs_ai1TxtResp1 :
+		inputs in en {
+			"A student with an honours Bachelor\'s degree in a related subject and with at least a 70% average in the major subject may be admitted to a minimum two-year Master\'s program ,Students with deficiencies in some areas of Computer Science may be required to make up those deficiencies by registering in undergraduate courses prior to or as part of their graduate program. Any research paper publication is a plus. Also have minimum score in any one of them IELTS(6.5)/GRE/TOEFL-IBT(92)/Pearson(65). "
+	}
+	text response Civil_EngineeringTxtResp1 :
+		inputs in en {
+			"We provide two types of master’s program in Civil Engineering. One is Master of Engineering which is course-based and the other one is Master of Applied science which is Research-Based. " ,
+			"Yes! We have course-based master’s known as MEng and thesis-based master’s known as Masc. in Civil. "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. What was that? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. Can you rephrase? " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that one more time? " ,
+			"I didn\'t get that. Can you repeat? " ,
+			"I missed that, say that again? "
+	}
+
+flows :
+	- user num_sub_msc_21 => chatbot num_sub_msc_21TxtResp1 ;
+	- user num_sub1 => chatbot num_sub1TxtResp1 ;
+	- user num_sub_meng1 => chatbot num_sub_meng1TxtResp1 ;
+	- user Industrial_Engineering => chatbot Industrial_EngineeringTxtResp1 ;
+	- user min_qual_mac1 => chatbot min_qual_mac1TxtResp1 ;
+	- user deadline_spec1 => chatbot deadline_spec1TxtResp1 ;
+	- user duration1 => chatbot duration1TxtResp1 ;
+	- user "Default Welcome Intent" => chatbot "Default Welcome IntentTxtResp1" ;
+	- user duration_research1 => chatbot duration_research1TxtResp1 ;
+	- user min_qual_meng1 => chatbot min_qual_meng1TxtResp1 ;
+	- user Material_Engineering => chatbot Material_EngineeringTxtResp1 ;
+	- user deadline1 => chatbot deadline1TxtResp1 ;
+	- user Environemntal_Engineering => chatbot Environemntal_EngineeringTxtResp1 ;
+	- user duration_spec1 => chatbot duration_spec1TxtResp1 ;
+	- user min_qual_masc1 => chatbot min_qual_masc1TxtResp1 ;
+	- user num_sub_msc1 => chatbot num_sub_msc1TxtResp1 ;
+	- user Masters_type => chatbot Masters_typeTxtResp1 ;
+	- user Automotive_Engg => chatbot Automotive_EnggTxtResp1 ;
+	- user help1 => chatbot help1TxtResp1 ;
+	- user Computer_Science => chatbot Computer_ScienceTxtResp1 ;
+	- user Mechanical_Engineering => chatbot Mechanical_EngineeringTxtResp1 ;
+	- user duration_rea_spec1 => chatbot duration_rea_spec1TxtResp1 ;
+	- user ielts => chatbot ieltsTxtResp1 ;
+	- user num_sub_mac_21 => chatbot num_sub1TxtResp1 ;
+	- user Computer_Science_AI => chatbot Computer_Science_AITxtResp1 ;
+	- user Electrical_and_Computer_Engineering => chatbot Electrical_and_Computer_EngineeringTxtResp1 ;
+	- user num_course_meng_21 => chatbot num_course_meng_21TxtResp1 ;
+	- user num_sub_mac1 => chatbot num_sub_mac1TxtResp1 ;
+	- user duration_course1 => chatbot duration_course1TxtResp1 ;
+	- user min_qual_cs_ai1 => chatbot min_qual_cs_ai1TxtResp1 ;
+	- user Civil_Engineering => chatbot Civil_EngineeringTxtResp1 ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" ;
+

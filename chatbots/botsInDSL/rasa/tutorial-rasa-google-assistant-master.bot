@@ -1,0 +1,157 @@
+Chatbot "tutorial-rasa-google-assistant-master" language : en
+
+intents :
+
+greet :
+	inputs in en {
+		Hi ,
+		hey ,
+		heya ,
+		Hello ,
+		"What\'s up" ,
+		Heya ,
+		Greetings ,
+		"Good morning" ,
+		"Good afternoon" ,
+		"Good evening" ,
+		"Hey sir" ,
+		"Hi person" ,
+		"Hey robot" ,
+		"Hello bot"
+}
+
+thanks :
+	inputs in en {
+		thanks ,
+		"thank you" ,
+		"Thanks a lot" ,
+		"Thanks a bunch" ,
+		"Thank you very much" ,
+		"Thank you so much"
+}
+
+goodbye :
+	inputs in en {
+		"Talk to you later!" ,
+		"Bye for now" ,
+		"Awesome, bye bye" ,
+		"Goodbye." ,
+		"Talk to you later" ,
+		Goodbye ,
+		"Talk to you later" ,
+		"Bye for now" ,
+		Goodbye
+}
+
+place_search :
+	inputs in en {
+		"I am looking for a " ( restaurant ) [ query ] "." ,
+		"Where is the closest " ( cinema ) [ query ] "?" ,
+		"Looking for a " ( supermarket ) [ query ] " within 50 meters from me." ,
+		"Can you tell me where is the " ( restaurant ) [ query ] " in 100 meters from where I am?" ,
+		"Is there a " ( market ) [ query ] " within 500 meters?" ,
+		"Where is the closest " ( shop ) [ query ] "?" ,
+		"Where can I find the " ( mall ) [ query ] "?" ,
+		"I am looking for a " ( "hair salon" ) [ query ] " within 20 meters from here." ,
+		"Please tell me is there a " ( museum ) [ query ] " around?" ,
+		"I am wondering if I can find a " ( "train station" ) [ query ] " within 250 meters from here?" ,
+		"I am looking for a " ( club ) [ query ] " nearby." ,
+		"Is there a " ( bank ) [ query ] " anywhere close?" ,
+		"I am looking for a " ( bank ) [ query ] " withing 25 meters from here." ,
+		"Looking for a " ( cinema ) [ query ] "."
+	}
+	parameters :
+		query : entity text ;
+
+opening_hours :
+	inputs in en {
+		"Is it still open?" ,
+		"Is it open at the moment?" ,
+		"Is it working?" ,
+		"Is it open today?" ,
+		"If I go there now, is it still open?" ,
+		"Can you tell me if it\'s open at the moment?" ,
+		"Tell me if it\'s open." ,
+		"Is the place open today?" ,
+		"Is the place still open today?"
+}
+
+address :
+	inputs in en {
+		"Where is it?" ,
+		"What\'s the address?" ,
+		"Can you tell me the address?" ,
+		"Where is the place?" ,
+		"What is the location of it?" ,
+		"Where about is it?" ,
+		"Can you please tell me the actual address?" ,
+		"Does it take long to get there?" ,
+		"Does it take a long time to get to the place?" ,
+		"I am wondering how long does it take to get to the location?" ,
+		"What is the address of this place?" ,
+		"Where is this place?" ,
+		"What is an actual address?"
+}
+
+rating :
+	inputs in en {
+		"What is the rating of this place?" ,
+		"Does it have a good rating?" ,
+		"Tell me the rating" ,
+		"Do you know the rating of this place?" ,
+		"What rating does it have?" ,
+		"I want to know the rating"
+}
+
+inform :
+	inputs in en {
+		"10 meters" ,
+		"100 meters" ,
+		"1500" ,
+		"around 100" ,
+		"let\'s say 50 meters" ,
+		"within 15 meters" ,
+		"within 25 meters from here"
+}
+
+actions :
+	text response utter_no_results_text :
+		inputs in en {
+			"Sorry, I couldn\'t find anything."
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"Hello! I am a places search assistant. I can help you find places wherever you are, provide information about the location like opening hours, rating, address. So what are you looking for?"
+	}
+	text response utter_what_radius_text :
+		inputs in en {
+			"Within what radius?"
+	}
+	text response utter_opening_hours_text :
+		inputs in en {
+			"The place is " opening_hours
+	}
+	text response utter_address_text :
+		inputs in en {
+			"The address is " address "."
+	}
+	empty response action_place_search_empty
+	text response utter_thanks_text :
+		inputs in en {
+			"You are very welcome."
+	}
+	text response utter_rating_text :
+		inputs in en {
+			"The rating is " rating
+	}
+	text response utter_goodbye_text :
+		inputs in en {
+			"Talk to you later!"
+	}
+	empty response DefaultEmptyAction
+
+flows :
+	- user greet => chatbot DefaultEmptyAction , utter_greet_text => user place_search => chatbot DefaultEmptyAction , utter_no_results_text , utter_what_radius_text { => user address => chatbot utter_address_text { => user rating => chatbot utter_rating_text => user opening_hours => chatbot utter_opening_hours_text => user thanks => chatbot utter_thanks_text => user goodbye => chatbot DefaultEmptyAction ; => user thanks => chatbot utter_thanks_text => user goodbye => chatbot DefaultEmptyAction ; } ; => user goodbye => chatbot DefaultEmptyAction ; => user rating => chatbot DefaultEmptyAction => user address => chatbot utter_address_text => user opening_hours => chatbot utter_opening_hours_text => user thanks => chatbot utter_thanks_text => user goodbye => chatbot DefaultEmptyAction ; => user opening_hours => chatbot DefaultEmptyAction => user address => chatbot utter_address_text => user rating => chatbot DefaultEmptyAction => user thanks => chatbot utter_thanks_text => user goodbye => chatbot DefaultEmptyAction ; => user inform => chatbot DefaultEmptyAction , utter_no_results_text { => user address => chatbot utter_address_text { => user rating => chatbot utter_rating_text => user opening_hours => chatbot utter_opening_hours_text => user thanks => chatbot utter_thanks_text => user goodbye => chatbot DefaultEmptyAction ; => user thanks => chatbot utter_thanks_text => user goodbye => chatbot DefaultEmptyAction ; } ; => user goodbye => chatbot DefaultEmptyAction ; => user opening_hours => chatbot utter_opening_hours_text => user address => chatbot utter_address_text => user thanks => chatbot utter_thanks_text => user goodbye => chatbot DefaultEmptyAction ; } ; } ;
+	- user thanks => chatbot DefaultEmptyAction ;
+	- user goodbye => chatbot DefaultEmptyAction ;
+

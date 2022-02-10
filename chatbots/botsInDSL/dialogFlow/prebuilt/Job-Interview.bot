@@ -1,0 +1,260 @@
+Chatbot "Job-Interview" language : en
+
+intents :
+
+resume :
+	inputs in en {
+		"I\'d like to take a look at your resume" ,
+		"show me your resume" ,
+		"do you have a resume" ,
+		"may I take a look at your resume" ,
+		"could you show me your resume"
+}
+
+"Default Welcome Intent" :
+	inputs in en {
+		hey ,
+		^hi ,
+		"good morning" ,
+		hello ,
+		"good day" ,
+		"how are you doing" ,
+		"what\'s up"
+}
+
+weakness :
+	inputs in en {
+		"do you have weak points" ,
+		"what is your biggest weakness" ,
+		"could you tell me about your biggest weakness" ,
+		"tell me about your weaknesses" ,
+		"what are your weaknesses"
+}
+
+"portfolio.confirm" :
+	inputs in en {
+		"I don\'t mind" ,
+		exactly ,
+		"do it" ,
+		"I agree" ,
+		ok ,
+		yes ,
+		okay ,
+		"all right" ,
+		confirm ,
+		"of course" ,
+		"sounds good" ,
+		"yes please" ,
+		sure ,
+		"that\'s correct"
+}
+
+strength :
+	inputs in en {
+		"tell me about your strengths" ,
+		"what are your strengths" ,
+		"what are some of your strengths" ,
+		"do you have strong points" ,
+		"could you tell me about your biggest strength" ,
+		"what would you say are your strengths" ,
+		"what is your biggest strength"
+}
+
+portfolio :
+	inputs in en {
+		"show me your portfolio" ,
+		"do you have a portfolio" ,
+		"I\'d like to take a look at your portfolio" ,
+		"may I see your portfolio" ,
+		"could you show me your latest works"
+}
+
+about :
+	inputs in en {
+		"can you tell me a little about yourself" ,
+		"let\'s talk about you" ,
+		"could you tell me about yourself" ,
+		"tell me about yourself" ,
+		"talk about yourself please"
+}
+
+"portfolio.decline" :
+	inputs in en {
+		"no thank you" ,
+		"thanks but no" ,
+		"don\'t do it" ,
+		"not interested" ,
+		"I disagree" ,
+		^no ,
+		later ,
+		"I don\'t want that" ,
+		"no thanks" ,
+		"not really" ,
+		"I don\'t think so" ,
+		"definitely not" ,
+		"maybe later"
+}
+
+"Default Fallback Intent" Fallback :
+	inputs in en {
+		"do you have any education" ,
+		"do you have kids" ,
+		"let\'s talk about politics" ,
+		"let\'s talk about weather" ,
+		"could you show me your house" ,
+		"what is your biggest fear" ,
+		"what is your biggest dream" ,
+		"can you show your passport" ,
+		"may I see your photo" ,
+		"do you have free time"
+}
+
+hobby :
+	inputs in en {
+		"do you have a hobby" ,
+		"how about your free time?" ,
+		"what are your hobbies" ,
+		"talk about your hobbies please" ,
+		"tell me about your hobbies" ,
+		"what do you do in your free time"
+}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response resumeTxtResp1 :
+		inputs in en {
+			"Here you are. " ,
+			"Here you go. " ,
+			"Sure. "
+	}
+	image response resumeImgResp1 :
+		URL : "https://api.ai/docs/images/samples/for-agents/agent-store/ProfileBot_CV.jpg"
+	text response resumeTxtResp2 :
+		inputs in en {
+			" "
+	}
+	image response resumeImgResp4 :
+		URL : "https://dialogflow.com/docs/images/samples/for-agents/agent-store/ProfileBot_CV.jpg"
+	text response "Default Welcome IntentTxtResp5" :
+		inputs in en {
+			"Hi! My name is Bob. I like flowers! " ,
+			"Hello! I\'m Bob. I like flowers! " ,
+			"Good day! My name is Bob. I like flowers! " ,
+			"Greetings! I\'m Bob. I like flowers! "
+	}
+	text response weaknessTxtResp1 :
+		inputs in en {
+			"I\'m lazy. " ,
+			"I am a little bit lazy. " ,
+			"I\'m a lazy guy. "
+	}
+	text response weaknessTxtResp2 :
+		inputs in en {
+			"? "
+	}
+	text response weaknessTxtResp3 :
+		inputs in en {
+			"But it\'s a secret. " ,
+			"Let\'s keep it a secret. " ,
+			"Don\'t tell anyone. "
+	}
+	text response weaknessTxtResp4 :
+		inputs in en {
+			"? "
+	}
+	text response "portfolio.confirmTxtResp1" :
+		inputs in en {
+			"Here! Take a look at my latest works. " ,
+			"Here are my latest works, take a look! " ,
+			"Here are my latest pieces, hope you\'ll like them! "
+	}
+	text response strengthTxtResp1 :
+		inputs in en {
+			"My biggest strength is my passion for the job. I love creating beautiful things that make people happy. " ,
+			"My passion for the job is definitely my biggest strength. It\'s great when you can share beautiful things with the others. " ,
+			"I love sharing my joy with people. It\'s wonderful when you are able to cheer up a person with something beautiful. "
+	}
+	text response strengthTxtResp2 :
+		inputs in en {
+			"?? "
+	}
+	text response portfolioTxtResp1 :
+		inputs in en {
+			"Here! Take a look at my latest works. " ,
+			"Here are my latest works, take a look! " ,
+			"Here are my latest pieces, hope you\'ll like them! " ,
+			"Sure! Here are the most beautiful bouquets I\'ve picked for you. "
+	}
+	text response aboutTxtResp1 :
+		inputs in en {
+			"My name is Bob. I am 25. I’m a professional florist. I like flowers and I like creating beautiful things. " ,
+			"I am Bob. I am 25 years old and I\'m a professional florist. I like creating beautiful things and sharing them with the others. "
+	}
+	text response aboutTxtResp2 :
+		inputs in en {
+			"Here I am. " ,
+			"Here\'s how I look like. " ,
+			"That\'s me. " ,
+			"Here I am. How do you like me? "
+	}
+	image response aboutImgResp1 :
+		URL : "https://api.ai/docs/images/samples/for-agents/agent-store/ProfileBot_Bob.gif"
+	text response "portfolio.declineTxtResp3" :
+		inputs in en {
+			"As you wish. " ,
+			"Whenever you\'re ready. " ,
+			"It\'s beautiful. We can have a look at it whenever you\'re ready. " ,
+			"Okay, just tell me when you\'re ready. "
+	}
+	text response "portfolio.declineTxtResp4" :
+		inputs in en {
+			"? "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I\'m sorry. I\'m having trouble understanding the question. " ,
+			"I think I may have misunderstood your last statement. " ,
+			"I\'m sorry. I didn\'t quite grasp what you just said. " ,
+			"I don\'t think I\'m qualified to answer that yet. " ,
+			"I\'m a bit confused by that last part. " ,
+			"I\'m not totally sure about that. " ,
+			"I\'m not sure I follow. " ,
+			"I\'m afraid I don\'t understand. " ,
+			"I\'m a bit confused. "
+	}
+	text response hobbyTxtResp1 :
+		inputs in en {
+			"I love music. " ,
+			"It\'s music for sure. " ,
+			"Music. It inspires me every day. " ,
+			"My hobby is music. "
+	}
+	text response hobbyTxtResp2 :
+		inputs in en {
+			"? "
+	}
+	text response hobbyTxtResp3 :
+		inputs in en {
+			"My favorite composer is Claude Debussy. This is one of my favorite pieces. "
+	}
+
+flows :
+	- user resume => chatbot resumeTxtResp1 , resumeImgResp1 , resumeTxtResp2 , resumeImgResp4 {
+		=> user "portfolio.confirm" => chatbot "portfolio.confirmTxtResp1" , resumeTxtResp2 ;
+		=> user "portfolio.decline" => chatbot resumeTxtResp2 , "portfolio.declineTxtResp3" , "portfolio.declineTxtResp4" ;
+	} ;
+	- user "Default Welcome Intent" => chatbot resumeTxtResp2 , "Default Welcome IntentTxtResp5" ;
+	- user weakness => chatbot weaknessTxtResp1 , weaknessTxtResp2 , weaknessTxtResp3 , weaknessTxtResp4 ;
+	- user strength => chatbot strengthTxtResp1 , strengthTxtResp2 ;
+	- user portfolio => chatbot portfolioTxtResp1 , resumeTxtResp2 ;
+	- user about => chatbot aboutTxtResp1 , aboutTxtResp2 , aboutImgResp1 ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" ;
+	- user hobby => chatbot hobbyTxtResp1 , hobbyTxtResp2 , hobbyTxtResp3 , resumeTxtResp2 ;
+

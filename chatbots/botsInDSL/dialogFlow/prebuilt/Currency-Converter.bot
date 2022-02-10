@@ -1,0 +1,93 @@
+Chatbot "Currency-Converter" language : en
+
+intents :
+
+"currency.convert - context:convert-currency" :
+	inputs in en {
+		( "100" ) [ amount ] " " ( Dinars ) [ "currency-from" ] ,
+		"into " ( INR ) [ "currency-to" ] ,
+		"and " ( "30" ) [ amount ] " " ( Yuan ) [ "currency-from" ] ,
+		"now into " ( Euros ) [ "currency-to" ] ,
+		"now " ( "240" ) [ amount ] " " ( GBP ) [ "currency-from" ] ,
+		"and in " ( "Mexican Pesos" ) [ "currency-to" ] ,
+		"convert it into " ( "US Dollars" ) [ "currency-to" ]
+	}
+	parameters :
+		"currency-from" ,
+		"currency-to" ,
+		amount : entity float ;
+
+"currency.convert" :
+	inputs in en {
+		"what\'s the exchange rate for " ( "Canadian dollars" ) [ "currency-from" ] " to " ( "US dollars" ) [ "currency-to" ] ,
+		"currency conversion" ,
+		"how many " ( "US Dollars" ) [ "currency-to" ] " will " ( "300" ) [ amount ] " " ( Euro ) [ "currency-from" ] " get me" ,
+		"the price for " ( "Mexican Peso" ) [ "currency-from" ] ,
+		"what\'s the currency exchange right now" ,
+		"how much will I get for " ( "1000" ) [ amount ] " " ( Euro ) [ "currency-from" ] ,
+		"how much is " ( "30" ) [ amount ] " " ( "English Pounds" ) [ "currency-from" ] " in Ethiopian " ( Birrs ) [ "currency-to" ] ,
+		"convert " ( "Jamaican Dollars" ) [ "currency-from" ] " into " ( Euros ) [ "currency-to" ] ,
+		"convert " ( "$" ) [ "currency-from" ] ( "200" ) [ amount ] ,
+		"currency conversion from " ( Yens ) [ "currency-from" ] " to " ( "New Taiwan Dollars" ) [ "currency-to" ] ,
+		( "25" ) [ amount ] " " ( Tenge ) [ "currency-from" ] " converted into " ( Dinar ) [ "currency-to" ] ,
+		"what\'s the " ( Euro ) [ "currency-from" ] " exchange rate" ,
+		( "100" ) [ amount ] " " ( Euro ) [ "currency-from" ] " into " ( "US Dollars" ) [ "currency-to" ] ,
+		"convert " ( "100" ) [ amount ] " " ( Pounds ) [ "currency-from" ] " to " ( Dollars ) [ "currency-to" ] ,
+		"exchange rate" ,
+		( USD ) [ "currency-from" ] " into " ( JPY ) [ "currency-to" ] ,
+		"can you convert currencies" ,
+		"what\'s " ( "100" ) [ amount ] " " ( Levas ) [ "currency-from" ] " in " ( Kunas ) [ "currency-to" ] ,
+		"how do currencies perform" ,
+		"convert " ( "3" ) [ amount ] " " ( dinars ) [ "currency-from" ] " in " ( dollars ) [ "currency-to" ] ,
+		( "British Pound" ) [ "currency-from" ] " currency rate" ,
+		"convert " ( "1 000" ) [ amount ] " " ( "Indian Rupee" ) [ "currency-from" ] " into " ( Yens ) [ "currency-to" ] ,
+		"convert " ( "3" ) [ amount ] " " ( Rubles ) [ "currency-from" ] " in " ( Dollars ) [ "currency-to" ] ,
+		( "$" ) [ "currency-from" ] ( "12.34" ) [ amount ] " into " ( Yen ) [ "currency-to" ] ,
+		"what\'s the exchange rate for " ( "Canadian Dollars" ) [ "currency-from" ] " to " ( "US Dollars" ) [ "currency-to" ]
+	}
+	parameters :
+		"currency-from" ,
+		"currency-to" ,
+		amount : entity float ;
+
+"Default Fallback intent" Fallback :
+	inputs in en {
+		"price of hotel in Paris in us dollars" ,
+		"convert it into inches" ,
+		"now into Paris" ,
+		"the price for Mexican hotel" ,
+		"convert 100 Fahrenheit to Celsius" ,
+		"don\'t convert 100 Pounds to Dollars" ,
+		"how many inches in a meter"
+}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "currency.convert - context:convert-currencyTxtResp1" :
+		inputs in en {
+			" "
+	}
+	text response "Default Fallback intentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. Say it again? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? "
+	}
+
+flows :
+	- user "currency.convert" => chatbot "currency.convert - context:convert-currencyTxtResp1" => user "currency.convert - context:convert-currency" => chatbot "currency.convert - context:convert-currencyTxtResp1" ;
+	- user "Default Fallback intent" => chatbot "Default Fallback intentTxtResp1" ;
+

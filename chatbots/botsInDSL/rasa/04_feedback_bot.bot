@@ -1,0 +1,80 @@
+Chatbot "04_feedback_bot" language : en
+
+intents :
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"good morning" ,
+		"good evening" ,
+		"hey there"
+}
+
+long_feedback :
+	inputs in en {
+		"long feedback" ,
+		"start feedback" ,
+		"give feedback" ,
+		"begin feedback"
+}
+
+short_feedback :
+
+actions :
+	text response utter_awesome_text :
+		inputs in en {
+			"Awesome!"
+	}
+	text response utter_pre_finish_text :
+		inputs in en {
+			"Thank you for your time with us."
+	}
+	text response utter_ask_rating_quick_text :
+		inputs in en {
+			"I understand. Can we do this real quick? Just choose the rating you would like to give, and we say goodbye."
+	}
+	text response utter_sorry_text :
+		inputs in en {
+			"Sorry to hear this"
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"Hi, my name is feedby. I’m here to collect feedback on your latest experience with our service."
+	}
+	text response utter_ask_rating_text :
+		inputs in en {
+			"How was your experience with us?"
+	}
+	text response utter_ask_influence_text :
+		inputs in en {
+			"Sorry to hear this. \n\nCan you help me understand what influenced your rating?"
+	}
+	text response utter_influence_done_text :
+		inputs in en {
+			"Thanks for bringing this issue to our attention."
+	}
+	text response utter_finish_text :
+		inputs in en {
+			"I’m sharing the information on your behalf with our team. Have a nice day!"
+	}
+	text response utter_menu_text :
+		inputs in en {
+			"Would like to spend a moment with me?"
+	}
+	text response utter_ask_support_feedback_text :
+		inputs in en {
+			"Do you have any other feedback to share about our 24/7 support desk?"
+	}
+	text response utter_thanks_text :
+		inputs in en {
+			Thanks
+	}
+
+flows :
+	- user greet => chatbot utter_greet_text , utter_menu_text {
+		=> user long_feedback => chatbot utter_thanks_text , utter_pre_finish_text , utter_finish_text ;
+		=> user short_feedback => chatbot utter_pre_finish_text , utter_finish_text ;
+	} ;
+

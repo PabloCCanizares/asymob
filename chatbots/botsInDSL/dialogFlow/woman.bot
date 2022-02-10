@@ -1,0 +1,154 @@
+Chatbot woman language : en
+
+intents :
+
+"vehicle status" :
+	inputs in en {
+		"Monitor Vehicle Health" ,
+		"show me on board diagnostics of my vehicle" ,
+		"check my vehicle status"
+}
+
+"Default Welcome Intent" :
+	inputs in en {
+		hello ,
+		hey ,
+		"just going to say hi" ,
+		heya ,
+		"hey there" ,
+		^hi ,
+		"hello again" ,
+		howdy ,
+		"long time no see" ,
+		"lovely day isn\'t it" ,
+		"hi there" ,
+		"hello hi" ,
+		"hello there" ,
+		"I greet you" ,
+		greetings ,
+		"a good day"
+}
+
+exit :
+	inputs in en {
+		"bye!" ,
+		goodbye ,
+		"goodbye!" ,
+		"see ya" ,
+		bye
+}
+
+"Notify Authorities" :
+	inputs in en {
+		"Alert Authorities" ,
+		"Alert the police" ,
+		"Call the police"
+}
+
+"Notify Family" :
+	inputs in en {
+		"Call my emergency contacts" ,
+		"Alert my family" ,
+		"Notify Family"
+}
+
+Help :
+	inputs in en {
+		"Help!"
+}
+
+"Safe route" :
+	inputs in en {
+		"Find Safe Route"
+}
+
+Hotspots :
+	inputs in en {
+		"Nearby police stations" ,
+		"Nearest Hotspots"
+}
+
+"Default Fallback Intent" Fallback :
+
+"Notify neighbours" :
+	inputs in en {
+		"Notify People Around You"
+}
+
+actions :
+	Request post HttpRequest :
+		URL : "https://<example>" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "vehicle statusTxtResp1" :
+		inputs in en {
+			" "
+	}
+	text response "vehicle statusTxtResp2" :
+		inputs in en {
+			"Your OBD status : "
+	}
+	text response "Default Welcome IntentTxtResp2" :
+		inputs in en {
+			"Welcome to Intrepede! How may I assist you today? "
+	}
+	text response exitTxtResp1 :
+		inputs in en {
+			"Bye " ,
+			"Until next time "
+	}
+	text response "Notify AuthoritiesTxtResp3" :
+		inputs in en {
+			"Choose the Action you would like to do: "
+	}
+	text response "Notify FamilyTxtResp2" :
+		inputs in en {
+			"Your coordinates have been sent to your emergency contacts. "
+	}
+	text response HelpTxtResp2 :
+		inputs in en {
+			"Your current coordinates have been sent to the nearby authorities. Help is on the way, "
+	}
+	text response "Safe routeTxtResp2" :
+		inputs in en {
+			"The safest route to your destination is as follows: "
+	}
+	text response HotspotsTxtResp2 :
+		inputs in en {
+			"Here are the nearby hotspots "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. What was that? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. Can you rephrase? " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that one more time? " ,
+			"I didn\'t get that. Can you repeat? " ,
+			"I missed that, say that again? "
+	}
+	text response "Notify neighboursTxtResp2" :
+		inputs in en {
+			"Nearby Neighbors have been notified! Help is on the way. "
+	}
+
+flows :
+	- user "vehicle status" => chatbot "vehicle statusTxtResp1" , "vehicle statusTxtResp2" ;
+	- user "Default Welcome Intent" => chatbot "vehicle statusTxtResp1" , "Default Welcome IntentTxtResp2" ;
+	- user exit => chatbot exitTxtResp1 ;
+	- user "Notify Authorities" => chatbot "vehicle statusTxtResp1" , "Notify AuthoritiesTxtResp3" ;
+	- user "Notify Family" => chatbot "vehicle statusTxtResp1" , "Notify FamilyTxtResp2" ;
+	- user Help => chatbot "vehicle statusTxtResp1" , HelpTxtResp2 ;
+	- user "Safe route" => chatbot "vehicle statusTxtResp1" , "Safe routeTxtResp2" ;
+	- user Hotspots => chatbot "vehicle statusTxtResp1" , HotspotsTxtResp2 ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" ;
+	- user "Notify neighbours" => chatbot "vehicle statusTxtResp1" , "Notify neighboursTxtResp2" ;
+

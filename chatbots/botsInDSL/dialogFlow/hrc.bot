@@ -1,0 +1,119 @@
+Chatbot hrc language : en
+
+intents :
+
+	"Default Welcome Intent" :
+		inputs in en {
+			"just going to say hi" ,
+			heya ,
+			"hello hi" ,
+			howdy ,
+			"hey there" ,
+			"hi there" ,
+			greetings ,
+			hey ,
+			"long time no see" ,
+			hello ,
+			"lovely day isn\'t it" ,
+			"I greet you" ,
+			"hello again" ,
+			^hi ,
+			"hello there" ,
+			"a good day"
+	}
+
+	Topic1 :
+		inputs in en {
+			"Where i can find out about " ( discipline ) [ topic ] " ?" ,
+			"What is " ( discipline ) [ topic ] "?" ,
+			"I want to know about " ( discipline ) [ topic ] "." ,
+			"I\'d like to know about " ( discipline ) [ topic ] "." ,
+			"I need to know about " ( discipline ) [ topic ] "." ,
+			"Can you lookup " ( discipline ) [ topic ] "?" ,
+			"Tell me about " ( "annual salary" ) [ topic ] "." ,
+			"What are " ( "hours of work" ) [ topic ] "?" ,
+			"Tell me about " ( discipline ) [ topic ] "."
+		}
+		parameters :
+			topic : entity Topic ;
+
+	"Default Fallback Intent" Fallback :
+
+entities :
+	Simple entity Topic :
+		inputs in en {
+			pets synonyms pets
+			professionalism synonyms professionalism
+			"disability leave" synonyms "disability leave"
+			nepotism synonyms nepotism
+			"smoke free environment" synonyms "smoke free environment"
+			resignation synonyms resignation
+			discipline synonyms discipline
+			"sick leave" synonyms "sick leave"
+			layoff synonyms layoff
+			"ignore this" synonyms "ignore this"
+			probation synonyms probation
+			"hours of work" synonyms "hours of work"
+			"jury duty" synonyms "jury duty"
+			"employee classifications" synonyms "employee classifications"
+			"statutory holidays" synonyms "statutory holidays"
+			"personnel file" synonyms "personnel file"
+			"employer property" synonyms "employer property"
+			"annual salary" synonyms "annual salary"
+			orientation synonyms orientation
+			"group rrsp" synonyms "group rrsp"
+			scents synonyms scents
+			"employment equity" synonyms "employment equity"
+			"employee duties" synonyms "employee duties"
+			"termination for cause" synonyms "termination for cause"
+			renovations synonyms renovations
+			"performance appraisals" synonyms "performance appraisals"
+			"compassionate leave" synonyms "compassionate leave"
+			"termination without cause" synonyms "termination without cause"
+			"unpaid leave" synonyms "unpaid leave"
+			overtime synonyms overtime
+			"recruitment and selection" synonyms "recruitment and selection"
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "https://dialogflow-dot-qwiklabs-gcp-01-984148f23f4d.uc.r.appspot.com/webhook/" ;
+		basicAuth : "" : "" ;
+		headers : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "Default Welcome IntentTxtResp1" :
+		inputs in en {
+			"Hi! How are you doing? " ,
+			"Hello! How can I help you? " ,
+			"Good day! What can I do for you today? " ,
+			"Greetings! How can I assist? "
+	}
+	text response Topic1TxtResp1 :
+		inputs in en {
+			" "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. What was that? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. Can you rephrase? " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that one more time? " ,
+			"I didn\'t get that. Can you repeat? " ,
+			"I missed that, say that again? "
+	}
+
+flows :
+	- user "Default Welcome Intent" => chatbot "Default Welcome IntentTxtResp1" ;
+	- user Topic1 => chatbot HttpRequest , HttpResponse , Topic1TxtResp1 ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" ;
+

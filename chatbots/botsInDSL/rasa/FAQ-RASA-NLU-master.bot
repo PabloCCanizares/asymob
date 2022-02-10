@@ -1,0 +1,110 @@
+Chatbot "FAQ-RASA-NLU-master" language : en
+
+intents :
+
+greet :
+	inputs in en {
+		hey ,
+		hello ,
+		^hi ,
+		"good morning" ,
+		"good evening" ,
+		"hey there"
+}
+
+goodbye :
+	inputs in en {
+		bye ,
+		goodbye ,
+		"see you around" ,
+		"see you later"
+}
+
+bot_challenge :
+	inputs in en {
+		"are you a bot?" ,
+		"are you a human?" ,
+		"am I talking to a bot?" ,
+		"am I talking to a human?"
+}
+
+corona_intro :
+	inputs in en {
+		"What is corona virus" ,
+		"what is covid" ,
+		"what is a novel corona virus" ,
+		"what is covid-19" ,
+		"tell me about corona" ,
+		"can you tell me about covid"
+}
+
+corona_spread :
+	inputs in en {
+		"how does corona virus spread" ,
+		"how does the virus spread"
+}
+
+corona_food_spread :
+	inputs in en {
+		"Does corona spread from food" ,
+		"how will corona spread from food"
+}
+
+warm_weather :
+	inputs in en {
+		"will warm weather stop the spread" ,
+		"will it stop with warm weather"
+}
+
+high_risk :
+	inputs in en {
+		"who is at a higher risk of infection"
+}
+
+actions :
+	text response utter_corona_spread_text :
+		inputs in en {
+			"This virus was first detected in Wuhan City, Hubei Province, China. The first infections were linked to a live animal market, but the virus is now spreading from person-to-person. It’s important to note that person-to-person spread can happen on a continuum. Some viruses are highly contagious (like measles), while other viruses are less so. The virus that causes COVID-19 is spreading from person-to-person. Someone who is actively sick with COVID-19 can spread the illness to others. That is why we recommend that these patients be isolated either in the hospital or at home (depending on how sick they are) until they are better and no longer pose a risk of infecting others.\nHow long someone is actively sick can vary so the decision on when to release someone from isolation is made on a case-by-case basis in consultation with doctors, infection prevention and control experts, and public health officials and involves considering specifics of each situation including disease severity, illness signs and symptoms, and results of laboratory testing for that patient.\nThe virus that causes COVID-19 seems to be spreading easily and sustainably in the community (“community spread”) in some affected geographic areas. Community spread means people have been infected with the virus in an area, including some who are not sure how or where they became infected."
+	}
+	text response utter_corona_intro_text :
+		inputs in en {
+			"Coronaviruses are a group of related viruses that cause diseases in mammals and birds. In humans, coronaviruses cause respiratory tract infections that can be mild, such as some cases of the common cold (among other possible causes, predominantly rhinoviruses), and others that can be lethal, such as SARS, MERS, and COVID-19"
+	}
+	text response utter_corona_food_spread_text :
+		inputs in en {
+			"Coronaviruses are generally thought to be spread from person-to-person through respiratory droplets. Currently there is no evidence to support transmission of COVID-19 associated with food. Before preparing or eating food it is important to always wash your hands with soap and water for 20 seconds for general food safety. Throughout the day wash your hands after blowing your nose, coughing or sneezing, or going to the bathroom."
+	}
+	text response utter_greet_text :
+		inputs in en {
+			"Hey! How are you?"
+	}
+	text response utter_did_that_help_text :
+		inputs in en {
+			"Did that help you?"
+	}
+	text response utter_warm_weather_text :
+		inputs in en {
+			"It is not yet known whether weather and temperature impact the spread of COVID-19. Some other viruses, like the common cold and flu, spread more during cold weather months but that does not mean it is impossible to become sick with these viruses during other months.  At this time, it is not known whether the spread of COVID-19 will decrease when weather becomes warmer.  There is much more to learn about the transmissibility, severity, and other features associated with COVID-19 and investigations are ongoing."
+	}
+	text response utter_iamabot_text :
+		inputs in en {
+			"I am a bot, powered by Rasa."
+	}
+	text response utter_high_risk_text :
+		inputs in en {
+			"Older adults and people of any age who have serious underlying medical conditions may be at higher risk for more serious complications from COVID-19. These people who may be at higher risk of getting very sick from this illness, includes; Older adults, People who have serious underlying medical conditions like... Heart disease, Diabetes, Lung disease,"
+	}
+	text response utter_goodbye_text :
+		inputs in en {
+			Bye
+	}
+
+flows :
+	- user goodbye => chatbot utter_goodbye_text ;
+	- user bot_challenge => chatbot utter_iamabot_text ;
+	- user corona_intro => chatbot utter_corona_intro_text ;
+	- user corona_spread => chatbot utter_corona_spread_text ;
+	- user corona_food_spread => chatbot utter_corona_food_spread_text ;
+	- user warm_weather => chatbot utter_warm_weather_text ;
+	- user high_risk => chatbot utter_high_risk_text ;
+

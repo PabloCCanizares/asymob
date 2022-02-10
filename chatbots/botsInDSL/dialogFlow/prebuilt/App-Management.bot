@@ -1,0 +1,854 @@
+Chatbot "App-Management" language : en
+
+intents :
+
+	"app.remove" :
+		inputs in en {
+			"uninstall app" ,
+			"can you uninstall app" ,
+			"get rid of " ( WhatsApp ) [ "app-name" ] ,
+			"remove " ( all ) [ all ] " apps" ,
+			"remove application" ,
+			"delete app" ,
+			"delete " ( every ) [ all ] " apps" ,
+			"can you uninstall my apps" ,
+			"uninstall some app" ,
+			"uninstall " ( Viber ) [ "app-name" ] ,
+			"I want to delete app " ( Skeevy ) [ "app-name" ] ,
+			"delete " ( YouTube ) [ "app-name" ] ,
+			"can you uninstall an app for me" ,
+			"can you delete an app" ,
+			"uninstall " ( "all of" ) [ all ] " my apps" ,
+			"can you uninstall an app" ,
+			"remove application " ( WhatsApp ) [ "app-name" ] ,
+			"please uninstall " ( "Facebook Messenger" ) [ "app-name" ] ,
+			"uninstall " ( "App Store" ) [ "store-name" ] ,
+			"remove my " ( Twitter ) [ "app-name" ] " application" ,
+			"can you delete apps" ,
+			"uninstall application" ,
+			"can you delete an app for me" ,
+			"I\'d like to remove an app" ,
+			"can you delete apps for me" ,
+			"delete my apps" ,
+			"how do I delete apps" ,
+			"uninstall " ( all ) [ all ] " apps" ,
+			"get rid of " ( Chrome ) [ "app-name" ] " app" ,
+			"uninstall " ( WhatsApp ) [ "app-name" ] ,
+			"delete " ( "Angry Birds" ) [ "app-name" ] " from my phone" ,
+			"can you uninstall an application" ,
+			"delete " ( all ) [ all ] " my apps" ,
+			"can you delete " ( all ) [ all ] " my apps" ,
+			"remove " ( "Play Store" ) [ "store-name" ] ,
+			"I want to uninstall an app" ,
+			"delete " ( every ) [ all ] " application from my device" ,
+			"uninstall program" ,
+			"I want to uninstall " ( "App Store" ) [ "store-name" ] ,
+			"can you remove " ( "TuneIn Radio Pro" ) [ "app-name" ] ,
+			"could you remove the app " ( Soccer ) [ "app-name" ] ,
+			"how do I delete an app" ,
+			"how to delete the app " ( Viber ) [ "app-name" ] ,
+			"can you uninstall apps for me" ,
+			"how can I get rid of " ( Viber ) [ "app-name" ] " application" ,
+			"remove " ( "Fruit Ninja" ) [ "app-name" ] ,
+			"remove " ( Twitter ) [ "app-name" ] " app" ,
+			"delete apps" ,
+			"I\'m going to delete the app" ,
+			"can you delete applications"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+			"store-name" : entity "app-store-name" ;
+			all : entity all ;
+
+	"app.current.download" :
+		inputs in en {
+			"where can I download your app" ,
+			"download you" ,
+			"are you available in " ( "Google Play Store" ) [ "store-name" ] ,
+			"can I download your app in " ( "App Store" ) [ "store-name" ] ,
+			"I want to download your app" ,
+			"load your application from " ( "App Store" ) [ "store-name" ] ,
+			"download yourself from " ( "Play Store" ) [ "store-name" ] ,
+			"download your app from " ( "Play Store" ) [ "store-name" ] ,
+			"from where can I download your app" ,
+			"download your app"
+		}
+		parameters :
+			"store-name" : entity "app-store-name" ;
+
+	"app.current.speech.open" :
+		inputs in en {
+			"I want to adjust your speech" ,
+			"show me your speech settings" ,
+			"where can I adjust your speech" ,
+			"open speech settings of your app" ,
+			"I\'d like to open your speech settings" ,
+			"pull up speech settings" ,
+			"change your speech settings"
+	}
+
+	"app.current.remove" :
+		inputs in en {
+			"remove yourself" ,
+			"delete your app right now" ,
+			"I\'d like to uninstall your app" ,
+			"I uninstall you" ,
+			"I am going to uninstall you" ,
+			"delete your app" ,
+			"uninstall you" ,
+			"delete this program" ,
+			"remove your app" ,
+			"uninstall this application" ,
+			"I want to remove you" ,
+			"how can I uninstall this app" ,
+			"remove yourself from my phone" ,
+			"delete yourself" ,
+			"uninstall your application now"
+	}
+
+	"app.current.skills" :
+		inputs in en {
+			"what features do you have" ,
+			"what else do you do" ,
+			"list of your key features" ,
+			"open skills" ,
+			"tell me what can you do" ,
+			"I want to see your skills" ,
+			"open your abilities" ,
+			"your main features" ,
+			"what can I use you for" ,
+			"what can this app do" ,
+			"what are your qualifications" ,
+			"what are you capable of" ,
+			"tell me what you can do" ,
+			"what can you do" ,
+			"what is this app for" ,
+			"show me your skills"
+	}
+
+	"app.open" :
+		inputs in en {
+			"I would like to open the " ( "Task Manager" ) [ "app-name" ] ,
+			"open " ( "Play Store" ) [ "store-name" ] ,
+			"access " ( Gallery ) [ "app-name" ] ,
+			"open application " ( Instagram ) [ "app-name" ] ,
+			"go to " ( "my photos" ) [ "app-name" ] ,
+			"launch application" ,
+			"can you launch " ( Spotify ) [ "app-name" ] ,
+			"app " ( Viber ) [ "app-name" ] ,
+			"can you open app" ,
+			"turn on " ( Flashlight ) [ "app-name" ] ,
+			"take me to " ( Ringtonium ) [ "app-name" ] " app" ,
+			"go to app " ( Netflix ) [ "app-name" ] ,
+			"take me to my " ( music ) [ "app-name" ] " app" ,
+			"take me to " ( YouTube ) [ "app-name" ] " app" ,
+			"could you launch " ( Twitter ) [ "app-name" ] " please" ,
+			( Viber ) [ "app-name" ] " app" ,
+			"access " ( Twitter ) [ "app-name" ] " app" ,
+			"pull up " ( "App Store" ) [ "store-name" ] ,
+			"go to " ( "App Store" ) [ "store-name" ] ,
+			"go to " ( "my pictures" ) [ "app-name" ] " on my phone" ,
+			"open application " ( Gmail ) [ "app-name" ] ,
+			"open " ( "Angry Birds" ) [ "app-name" ] " application" ,
+			"go to " ( camera ) [ "app-name" ] ,
+			"may you open apps" ,
+			application ,
+			"open " ( Safari ) [ "app-name" ] ,
+			"go to my " ( music ) [ "app-name" ] " app" ,
+			"turn on " ( camera ) [ "app-name" ] ,
+			"open " ( browser ) [ "app-name" ] ,
+			"can you open " ( "Subway Surfer" ) [ "app-name" ] ,
+			"launch " ( Facebook ) [ "app-name" ] " application" ,
+			"play " ( "Cut the rope" ) [ "app-name" ] ,
+			"can you open my " ( Facebook ) [ "app-name" ] " app"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+			"store-name" : entity "app-store-name" ;
+
+	"app.update" :
+		inputs in en {
+			"how can I update " ( Slack ) [ "app-name" ] ,
+			"I\'d like to update " ( "all of" ) [ all ] " my apps" ,
+			( Kik ) [ "app-name" ] " app updates" ,
+			"where can I update apps" ,
+			"update " ( Instagram ) [ "app-name" ] ,
+			( "Google Chrome" ) [ "app-name" ] " update" ,
+			"I\'d like to update an app" ,
+			"update " ( every ) [ all ] " app" ,
+			"could you update " ( Twitter ) [ "app-name" ] " app" ,
+			"update " ( Facebook ) [ "app-name" ] " to the latest version" ,
+			"update " ( Skype ) [ "app-name" ] " for me" ,
+			"can you update apps"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+			all : entity all ;
+
+	"app.current.close" :
+		inputs in en {
+			"close this program" ,
+			"shut down this application" ,
+			close ,
+			"I would like to shut you down" ,
+			"close your app" ,
+			"I\'d like to close you" ,
+			"close this app" ,
+			"close current app" ,
+			"close your application" ,
+			"close you" ,
+			"close yourself" ,
+			"you can close now" ,
+			"how do I close you" ,
+			"close your app"
+	}
+
+	"app.current.notifications.open" :
+		inputs in en {
+			"your notifications settings" ,
+			"I\'d like to see your notifications settings" ,
+			"where can I find your notifications" ,
+			"open notifications settings" ,
+			"could you show me your notifications" ,
+			"open your notifications"
+	}
+
+	"app.speech.open" :
+		inputs in en {
+			"could you open " ( Cortana ) [ "app-name" ] " speech settings" ,
+			"open " ( Skype ) [ "app-name" ] " speech settings" ,
+			( "Google Assistant" ) [ "app-name" ] " speech settings" ,
+			"how can I open the speech settings of the " ( "Speaktoit Assistant" ) [ "app-name" ] " app" ,
+			"I\'d like to adjust " ( Sherpa ) [ "app-name" ] " app speech" ,
+			"adjust " ( Allo ) [ "app-name" ] " speech" ,
+			"go to " ( "Google Assistant" ) [ "app-name" ] " speech settings"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+
+	"app.current.rate" :
+		inputs in en {
+			"rate your application" ,
+			"I would like to give you " ( "5" ) [ stars ] " stars" ,
+			"I want to rate you " ( "4" ) [ stars ] " stars" ,
+			"where can I rate you" ,
+			"I am going to rate this app " ( one ) [ stars ] " star" ,
+			"I\'d like to rate you " ( "100" ) [ stars ] " stars" ,
+			"let me rate you" ,
+			"I\'m rating you " ( "2" ) [ stars ] " stars" ,
+			"let me rate you on the " ( "App Store" ) [ "store-name" ] ,
+			"give you " ( "3" ) [ stars ] " stars rating" ,
+			"I\'m going to rate you " ( "5" ) [ stars ] " stars" ,
+			"rate your app" ,
+			"how can I rate you on " ( "Google Play" ) [ "store-name" ] ,
+			"I\'ll rate you " ( "1" ) [ stars ] " star" ,
+			"can I rate " ( "5" ) [ stars ] " stars for this app" ,
+			"you deserve " ( "2" ) [ stars ] " stars" ,
+			"I want to rate you " ( "2" ) [ stars ] " stars" ,
+			"can I rate you " ( "5" ) [ stars ] " stars" ,
+			"I\'d like to evaluate you on " ( "Google Play" ) [ "store-name" ] ,
+			"how to rate this app" ,
+			"where can I rate this app" ,
+			"rate " ( "2" ) [ stars ] " stars for this app" ,
+			"could you rate this app " ( "5" ) [ stars ] " things" ,
+			"I need to rate your app in " ( "Play Store" ) [ "store-name" ] ,
+			"rate this app on " ( "Play Store" ) [ "store-name" ] ,
+			"how can I rate you" ,
+			"rate this app " ( "2" ) [ stars ] " stars in " ( "Play Store" ) [ "store-name" ] ,
+			"can I rate you" ,
+			"I want to rate you" ,
+			"I\'m going to rate you " ( "2" ) [ stars ] " stars" ,
+			"I want to rate this app " ( "2" ) [ stars ] " stars on " ( "Google Play" ) [ "store-name" ] ,
+			"I want to give you " ( "5" ) [ stars ] " stars" ,
+			"rate " ( "2" ) [ stars ] " for this application" ,
+			"rate you " ( "1" ) [ stars ] " star" ,
+			"I want to rate " ( "5" ) [ stars ] " stars for this app" ,
+			"rate you " ( "2" ) [ stars ] " stars" ,
+			"rate you " ( "2" ) [ stars ] " stars on " ( "Play Store" ) [ "store-name" ] ,
+			"can I rate you on " ( "Google Play" ) [ "store-name" ] ,
+			"I want to give you " ( "5" ) [ stars ] " star" ,
+			"rate you" ,
+			"I rate you " ( five ) [ stars ] " stars" ,
+			"I rate you " ( "4" ) [ stars ]
+		}
+		parameters :
+			stars : entity float ;
+			"store-name" : entity "app-store-name" ;
+
+	"app.download" :
+		inputs in en {
+			"download application " ( Kik ) [ "app-name" ] ,
+			"load app from " ( "Play Store" ) [ "store-name" ] ,
+			"load app from the Internet" ,
+			"can you download apps" ,
+			"could you download " ( WhatsApp ) [ "app-name" ] " from " ( "Play Store" ) [ "store-name" ] ,
+			"how can I download an app from " ( "App Store" ) [ "store-name" ] ,
+			"can you get an app from " ( "App Store" ) [ "store-name" ] ,
+			"download " ( "Play Store" ) [ "store-name" ] ,
+			"download app " ( Soccer ) [ "app-name" ] ,
+			"can you download " ( "Facebook Messenger" ) [ "app-name" ] " for me" ,
+			"download from " ( "Google Play" ) [ "store-name" ] ,
+			"how do I download an app" ,
+			"download application" ,
+			"get me " ( Viber ) [ "app-name" ] " from " ( "App Store" ) [ "store-name" ] ,
+			"I want to download " ( "Fruit Ninja" ) [ "app-name" ] " from the " ( "App Store" ) [ "store-name" ] ,
+			"I need you to download " ( Bitmoji ) [ "app-name" ] " app" ,
+			"I want to download " ( "Clash of Clans" ) [ "app-name" ] ,
+			"download " ( Viber ) [ "app-name" ] " application" ,
+			"can I download an app" ,
+			"download " ( "Google Chrome" ) [ "app-name" ] ,
+			"could you download " ( Skype ) [ "app-name" ] " from " ( "Play Store" ) [ "store-name" ] ,
+			"I\'d like to download an app" ,
+			( "Angry birds" ) [ "app-name" ] " download" ,
+			"download " ( Vine ) [ "app-name" ] " from the " ( "Play Store" ) [ "store-name" ] ,
+			"I want to download " ( Vine ) [ "app-name" ] " from the " ( "Play Store" ) [ "store-name" ] ,
+			"get " ( Facebook ) [ "app-name" ] " app" ,
+			"could you download " ( Instagram ) [ "app-name" ] " application" ,
+			"I would like to download the " ( "Task Manager" ) [ "app-name" ] " from " ( "Play Market" ) [ "store-name" ] ,
+			"can you download an app for me"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+			"store-name" : entity "app-store-name" ;
+
+	"app.install" :
+		inputs in en {
+			"open " ( "App Store" ) [ "store-name" ] " and install " ( "Angry Birds" ) [ "app-name" ] ,
+			"install app" ,
+			"could you install " ( "Kik messenger" ) [ "app-name" ] " from " ( "App Store" ) [ "store-name" ] ,
+			"install " ( Facebook ) [ "app-name" ] " app" ,
+			( Kik ) [ "app-name" ] " installation" ,
+			( "Accu Weather" ) [ "app-name" ] " installation" ,
+			"do you have the ability to install apps" ,
+			"I need to install " ( Skype ) [ "app-name" ] " app" ,
+			"install " ( FB ) [ "app-name" ] " app" ,
+			"can you install apps from " ( "Play Store" ) [ "store-name" ] ,
+			"install " ( Viber ) [ "app-name" ] " from " ( "Play Market" ) [ "store-name" ] ,
+			"could you install " ( Slack ) [ "app-name" ] " for me" ,
+			"I want to install an app" ,
+			"install " ( Chrome ) [ "app-name" ] " from " ( "App Store" ) [ "store-name" ] ,
+			"let\'s install " ( Twitter ) [ "app-name" ] ,
+			"install " ( Gmail ) [ "app-name" ] " application" ,
+			"install application" ,
+			"app installation" ,
+			"install " ( "Fruit Ninja" ) [ "app-name" ]
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+			"store-name" : entity "app-store-name" ;
+
+	"app.current.version.summary" :
+		inputs in en {
+			"what\'s new in the current version" ,
+			"current version summary" ,
+			"what\'s new in this version" ,
+			"what\'s new in current version" ,
+			"show me the summary of the current version" ,
+			"give me a summary of your current version"
+	}
+
+	"app.current.voice.open" :
+		inputs in en {
+			"open your voice settings" ,
+			"voice settings" ,
+			"I\'d like to change your voice" ,
+			"where can I adjust your voice" ,
+			"how can I access your voice settings" ,
+			"pull up voice settings of this app"
+	}
+
+	"app.skills" :
+		inputs in en {
+			"what can " ( "Google Assistant" ) [ "app-name" ] " do" ,
+			"could you open " ( Facebook ) [ "app-name" ] " skills" ,
+			"what can I do in " ( "Google Keep" ) [ "app-name" ] ,
+			"I\'d like to see " ( Slack ) [ "app-name" ] " skills" ,
+			"show me " ( Skype ) [ "app-name" ] " skills" ,
+			"pull up " ( Allo ) [ "app-name" ] " skills"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+
+	"app.current.history.clear" :
+		inputs in en {
+			"could you clear our conversations history" ,
+			"clear history" ,
+			"forget our conversations" ,
+			"forget what I just said" ,
+			"erase all our conversations" ,
+			"clear the history of our conversations"
+	}
+
+	"app.current.search" :
+		inputs in en {
+			"can I find you in " ( "Play Market" ) [ "store-name" ] ,
+			"can I search for your app" ,
+			"search for your application" ,
+			"where I find your application" ,
+			"search yourself in " ( "App Store" ) [ "store-name" ] ,
+			"search your app on " ( "Play Store" ) [ "store-name" ] ,
+			"tell me where can I find you" ,
+			"are you on " ( "App Store" ) [ "store-name" ] ,
+			"find your app" ,
+			"search for your app in " ( "Play Store" ) [ "store-name" ]
+		}
+		parameters :
+			"store-name" : entity "app-store-name" ;
+
+	"app.current.settings.open" :
+		inputs in en {
+			"I\'d like to open your settings" ,
+			"go to your settings" ,
+			"open settings" ,
+			"could you open your settings" ,
+			settings ,
+			"show me your settings" ,
+			"open settings of this app" ,
+			"where can I set up your app" ,
+			"where are your settings"
+	}
+
+	"app.current.install" :
+		inputs in en {
+			"I need to install you" ,
+			"how can I install your app" ,
+			"how do I install you" ,
+			"install yourself" ,
+			"install your application" ,
+			"can you install yourself" ,
+			"how to install your app" ,
+			"install your app"
+	}
+
+	"app.current.version" :
+		inputs in en {
+			"do I have the latest version of your application" ,
+			"what version am I using" ,
+			version ,
+			"is it the latest version" ,
+			"what version do I use" ,
+			"show me the version of this app" ,
+			"what\'s the current version of your app" ,
+			"what\'s the current version of this app" ,
+			"current version"
+	}
+
+	"app.voice.open" :
+		inputs in en {
+			( Skype ) [ "app-name" ] " voice settings" ,
+			"open " ( Skype ) [ "app-name" ] " voice settings" ,
+			"open " ( Sherpa ) [ "app-name" ] " voice settings" ,
+			"can you open " ( Facebook ) [ "app-name" ] " voice settings" ,
+			"open up " ( Slack ) [ "app-name" ] " voice settings menu" ,
+			"how can I adjust " ( "Google Allo" ) [ "app-name" ] " voice settings" ,
+			"could you open " ( Cortana ) [ "app-name" ] " voice settings" ,
+			"go to " ( "Google Assistant" ) [ "app-name" ] " voice settings" ,
+			"I\'d like to open " ( Sherpa ) [ "app-name" ] " app voice settings" ,
+			"adjust " ( Allo ) [ "app-name" ] " voice" ,
+			"how can I open the voice settings of the  " ( "Google Assistant" ) [ "app-name" ] " app"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+
+	"app.settings.close" :
+		inputs in en {
+			"close " ( "Fruit Ninja" ) [ "app-name" ] " settings" ,
+			"could you close " ( Facebook ) [ "app-name" ] " settings" ,
+			"close " ( Twitter ) [ "app-name" ] " settings" ,
+			"I\'d like to close " ( Slack ) [ "app-name" ] " app settings" ,
+			"could you close " ( Instagram ) [ "app-name" ] " settings" ,
+			"can you close " ( Chrome ) [ "app-name" ] " settings" ,
+			"how can I close the settings of the " ( "Angry Birds" ) [ "app-name" ] " app" ,
+			"close up " ( Skype ) [ "app-name" ] " settings menu" ,
+			"I\'d like to close " ( Twitter ) [ "app-name" ] " app settings"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+
+	"app.reset" :
+		inputs in en {
+			"show me how to reset an application" ,
+			"I want to reset an app" ,
+			"reset " ( "Angry Birds" ) [ "app-name" ] ,
+			"could you reset " ( Gmail ) [ "app-name" ] " app" ,
+			"reset " ( each ) [ all ] " apps on my device" ,
+			"reset app called " ( Viber ) [ "app-name" ] ,
+			"I need to reset " ( WhatsApp ) [ "app-name" ] " app" ,
+			"how can I reset an app" ,
+			"how can I reset the application " ( Facebook ) [ "app-name" ] ,
+			"reset " ( Twitter ) [ "app-name" ] " application" ,
+			"reset an app" ,
+			"tell me how to reset " ( "Kik messenger" ) [ "app-name" ] ,
+			"reset " ( "Google Calendar" ) [ "app-name" ] " for me" ,
+			"reset " ( every ) [ all ] " apps" ,
+			"how do I reset the " ( Skype ) [ "app-name" ] " app" ,
+			"reset app"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+			all : entity all ;
+
+	"app.rate" :
+		inputs in en {
+			"can you rate the app " ( "Clash of clans" ) [ "app-name" ] " for me" ,
+			"evaluate an app" ,
+			"how do I rate an app " ( "3" ) [ star ] " stars on " ( "Google Play Store" ) [ "store-name" ] ,
+			"rate " ( "Angry Birds" ) [ "app-name" ] ,
+			"rate " ( Facebook ) [ "app-name" ] " " ( "5" ) [ star ] " stars on " ( "App Store" ) [ "store-name" ] ,
+			"I would like to rate " ( Snapchat ) [ "app-name" ] ,
+			"rate the app " ( "Google Assistant" ) [ "app-name" ] " with " ( "3" ) [ star ] " stars" ,
+			"I\'d like to rate an app in " ( "App Store" ) [ "store-name" ] ,
+			"give " ( Skype ) [ "app-name" ] " " ( "4" ) [ star ] " stars rating" ,
+			"let\'s give " ( Viber ) [ "app-name" ] " " ( "3" ) [ star ] " stars rating" ,
+			"rate application" ,
+			"rating on " ( "Play Store" ) [ "store-name" ] ,
+			"rate " ( Chrome ) [ "app-name" ] " application" ,
+			"rate an app" ,
+			"let\'s give " ( "5" ) [ star ] " stars to " ( "Google Keep" ) [ "app-name" ] " in " ( "Play Store" ) [ "store-name" ] ,
+			"rate " ( "3" ) [ star ] " stars" ,
+			"could you rate the app " ( "5" ) [ star ] " stars" ,
+			"rate the application " ( "5" ) [ star ] " stars" ,
+			"rate the application with " ( "3" ) [ star ] " stars" ,
+			"how can I rate apps" ,
+			"rate app " ( "5" ) [ star ] " stars" ,
+			"can I rate " ( Facebook ) [ "app-name" ] " app " ( "5" ) [ star ] " stars in " ( "Google Play Store" ) [ "store-name" ]
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+			"store-name" : entity "app-store-name" ;
+			star : entity float ;
+
+	"app.settings.open" :
+		inputs in en {
+			"access " ( Chrome ) [ "app-name" ] " settings" ,
+			"open " ( Skype ) [ "app-name" ] " settings" ,
+			"I\'d like to open " ( Twitter ) [ "app-name" ] " app settings" ,
+			"how can I open the settings of the " ( "Angry Birds" ) [ "app-name" ] " app" ,
+			"go to " ( Shazam ) [ "app-name" ] " settings" ,
+			"could you open " ( Facebook ) [ "app-name" ] " settings" ,
+			"open up " ( Slack ) [ "app-name" ] " settings menu"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+
+	"app.history.clear" :
+		inputs in en {
+			"clear history in " ( Slack ) [ "app-name" ] ,
+			"delete " ( Skype ) [ "app-name" ] " history" ,
+			"clear history of the app " ( Viber ) [ "app-name" ] ,
+			"clear " ( browser ) [ "app-name" ] " history" ,
+			"clear history in " ( Facebook ) [ "app-name" ] " app"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+
+	"app.version" :
+		inputs in en {
+			"which version of " ( "Angry Birds" ) [ "app-name" ] " do I use" ,
+			"which version of the " ( Skype ) [ "app-name" ] " am I using now" ,
+			"what\'s the number of the " ( Skype ) [ "app-name" ] " version that I\'m using" ,
+			"what version of " ( "Angry Birds" ) [ "app-name" ] " is installed in my device" ,
+			"show me the current version of my " ( VK ) [ "app-name" ] " app" ,
+			"tell me the version of " ( "Kik messenger" ) [ "app-name" ] " that I use" ,
+			( WhatsApp ) [ "app-name" ] " version" ,
+			"show me the version number of the " ( Slack ) [ "app-name" ] " app" ,
+			"find out which version of " ( Gmail ) [ "app-name" ] " is installed on this device" ,
+			"I need to know the version number of the " ( Twitter ) [ "app-name" ] " app" ,
+			"what " ( Skype ) [ "app-name" ] " version do I use"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+
+	"app.current.update" :
+		inputs in en {
+			"I want the latest version of your app" ,
+			"get the latest version of your app" ,
+			"I\'d like to update this app" ,
+			"update your app" ,
+			"get updates for your app" ,
+			"update your software" ,
+			"how to update you" ,
+			"update yourself" ,
+			"search for updates for your program"
+	}
+
+	"app.notifications.open" :
+		inputs in en {
+			"any notifications from " ( "Angry birds" ) [ "app-name" ] ,
+			"show notifications from my " ( Facebook ) [ "app-name" ] ,
+			"could you read notifications from my " ( Twitter ) [ "app-name" ] ,
+			"access " ( "Google Assistant" ) [ "app-name" ] " notifications menu" ,
+			"open " ( Allo ) [ "app-name" ] " notifications settings" ,
+			"read notifications from " ( Skype ) [ "app-name" ] ,
+			"open " ( Slack ) [ "app-name" ] " notifications"
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+
+	"app.search" :
+		inputs in en {
+			"find " ( Instagram ) [ "app-name" ] " on " ( "App Store" ) [ "store-name" ] ,
+			"I\'d like to find " ( Kik ) [ "app-name" ] " app on " ( "Play Store" ) [ "store-name" ] ,
+			"I need to find " ( Chrome ) [ "app-name" ] " app" ,
+			"I need the app " ( Twitter ) [ "app-name" ] " can you find it" ,
+			"I need " ( Slack ) [ "app-name" ] " app" ,
+			"search for " ( "Angry Birds" ) [ "app-name" ] " on " ( "Play Market" ) [ "store-name" ] ,
+			"search for a new " ( "music player" ) [ "app-name" ] " app" ,
+			"find an app" ,
+			"can you search for apps" ,
+			( "Play Market" ) [ "store-name" ] " search for " ( "Facebook messenger" ) [ "app-name" ] ,
+			"could you search for " ( Skype ) [ "app-name" ] " on " ( "App Store" ) [ "store-name" ]
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+			"store-name" : entity "app-store-name" ;
+
+	"app.current.settings.close" :
+		inputs in en {
+			"close settings" ,
+			"could you close your settings" ,
+			"I\'d like to close your settings" ,
+			"how do I close the settings of this app" ,
+			"exit settings" ,
+			"leave the settings" ,
+			"get out of your settings" ,
+			"close your settings" ,
+			"exit this app\'s settings"
+	}
+
+	"app.current.reset" :
+		inputs in en {
+			"reset your app" ,
+			"reset yourself" ,
+			"how can I reset this application" ,
+			"I want to reset this app" ,
+			"I\'d like to reset this app" ,
+			"reset you"
+	}
+
+	"app.close" :
+		inputs in en {
+			"can you close " ( "TuneIn Radio Pro" ) [ "app-name" ] ,
+			"close " ( "Angry Birds" ) [ "app-name" ] ,
+			"I\'d like to close the " ( "Task Manager" ) [ "app-name" ] ,
+			"close " ( "Play Store" ) [ "store-name" ] ,
+			"close " ( "Accu Weather" ) [ "app-name" ] " app" ,
+			"quit " ( Skype ) [ "app-name" ] " app" ,
+			"exit " ( all ) [ all ] " applications" ,
+			"close " ( "all of" ) [ all ] " my applications" ,
+			"close the " ( "Google Play Store" ) [ "store-name" ] ,
+			"could you switch off the app which is called " ( Viber ) [ "app-name" ] ,
+			"close " ( every ) [ all ] " apps" ,
+			"can you close apps" ,
+			"switch off the app " ( Viber ) [ "app-name" ] ,
+			"shut down " ( Line ) [ "app-name" ] " application" ,
+			"take me out of the " ( Poweramp ) [ "app-name" ] ,
+			"close applications" ,
+			"can you close " ( all ) [ all ] " of the open apps" ,
+			"exit app " ( Instagram ) [ "app-name" ] ,
+			"close application " ( Facebook ) [ "app-name" ] ,
+			"shut down " ( "Plants vs Zombies" ) [ "app-name" ] ,
+			"close " ( "Angry Birds" ) [ "app-name" ] " application" ,
+			"close app" ,
+			"quit " ( "Google Play Store" ) [ "store-name" ] ,
+			"I need you to close the " ( "Google Keep" ) [ "app-name" ] " app" ,
+			"can you close the " ( YouTube ) [ "app-name" ] ,
+			"close " ( Dropbox ) [ "app-name" ] ,
+			"I\'d like to close " ( "App Store" ) [ "store-name" ] ,
+			"can you close my " ( Twitter ) [ "app-name" ] " app" ,
+			"close app " ( "Beautiful Widgets Pro" ) [ "app-name" ] ,
+			"close my " ( Camera ) [ "app-name" ] " application please" ,
+			"turn off " ( "Paper Camera" ) [ "app-name" ]
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+			"store-name" : entity "app-store-name" ;
+			all : entity all ;
+
+	"app.current.open" :
+		inputs in en {
+			"how do I open your app" ,
+			"I need to open your app" ,
+			"how can I open you" ,
+			"open your app" ,
+			"how to open your application" ,
+			"tell me how to open you" ,
+			"I want to open your app" ,
+			"open yourself"
+	}
+
+	"Default Fallback Intent" Fallback :
+		inputs in en {
+			"Russian history" ,
+			"find me most rated cafe nearby" ,
+			"most rated restaurant" ,
+			"I don\'t like my voice" ,
+			"I like your voice" ,
+			"American history" ,
+			"what is my phone number" ,
+			"what is your phone number" ,
+			"where am I" ,
+			"find me"
+	}
+
+	"app.version.summary" :
+		inputs in en {
+			"show me the summary of the new version of the " ( Kik ) [ "app-name" ] " app" ,
+			"read the version summary of the " ( VK ) [ "app-name" ] " application" ,
+			"what\'s new in " ( WhatsApp ) [ "app-name" ] " latest version" ,
+			( Slack ) [ "app-name" ] " version summary" ,
+			"what\'s new in the latest version of " ( Twitter ) [ "app-name" ] " app" ,
+			"show me what\'s new in the latest version of " ( Skype ) [ "app-name" ]
+		}
+		parameters :
+			"app-name" : entity "app-name" ;
+
+entities :
+	Simple entity all :
+		inputs in en {
+			^true synonyms all , "all of" , each , every , everything , everywhere
+	}
+	Simple entity "app-store-name" :
+		inputs in en {
+			"App Store" synonyms "app store" , "apple app store" , "apple appstore" , "apple store" , appstore
+			"Google App Store" synonyms "google app store"
+			"Google Play" synonyms "android market" , "google play" , "google play store" , "play market" , "play store"
+			"Windows Store" synonyms "microsoft app store" , "windows app store" , "windows store"
+	}
+	Simple entity "app-name" :
+		inputs in en {
+			"Adobe AIR" synonyms "Adobe AIR"
+			"Adobe Flash Player" synonyms "Adobe Flash Player"
+			"Adobe Flash Player 11" synonyms "Adobe Flash Player 11"
+			"Adobe Reader" synonyms "Adobe Reader"
+			"Advanced Task Killer" synonyms "Advanced Task Killer"
+			"Angry Birds" synonyms "Angry Birds"
+			"Angry Birds Rio" synonyms "Angry Birds Rio"
+			"Angry Birds Seasons" synonyms "Angry Birds Seasons"
+			"Angry Birds Space" synonyms "Angry Birds Space"
+			"Ant Smasher" synonyms "Ant Smasher"
+			"Barcode Scanner" synonyms "Barcode Scanner"
+			"Catch Notes" synonyms "Catch Notes"
+			"Drag Racing" synonyms "Drag Racing"
+			Facebook synonyms Facebook , fb
+			"Facebook Messenger" synonyms "Facebook Messenger"
+			Flashlight synonyms Flashlight
+			"Free Antivirus Security" synonyms "Free Antivirus Security"
+			"Fruit Ninja" synonyms "Fruit Ninja"
+			"GO Launcher EX" synonyms "GO Launcher EX"
+			GasBuddy synonyms GasBuddy
+			Gmail synonyms Gmail
+			"Google Assistant" synonyms "Google Assistant"
+			Instagram synonyms Instagram
+			KakaoTalk synonyms KakaoTalk
+			Maps synonyms Maps
+			Netflix synonyms Netflix
+			"Opera Mini" synonyms "Opera Mini"
+			Pandora synonyms Pandora
+			PicsArt synonyms PicsArt
+			"Pool Master Pro" synonyms "Pool Master Pro"
+			Shazam synonyms Shazam
+			"Shoot Bubble Deluxe" synonyms "Shoot Bubble Deluxe"
+			Skype synonyms Skype
+			Slack synonyms Slack
+			Spotify synonyms Spotify
+			"Subway Surfers" synonyms "Subway Surfers"
+			"Talking Tom Cat" synonyms "Talking Tom Cat"
+			"Talking Tom Cat 2" synonyms "Talking Tom Cat 2"
+			Tango synonyms Tango
+			"Temple Run" synonyms "Temple Run"
+			"Temple Run 2" synonyms "Temple Run 2"
+			Twitter synonyms Twitter
+			Viber synonyms Viber
+			Vine synonyms Vine
+			WhatsApp synonyms WhatsApp , "WhatsApp Messenger"
+			ZEDGE synonyms ZEDGE
+			"accu weather" synonyms "accu weather"
+			"beautiful widgets pro" synonyms "beautiful widgets pro"
+			bitmoji synonyms bitmoji
+			browser synonyms browser
+			camera synonyms camera
+			"clash of clans" synonyms "clash of clans"
+			cortana synonyms cortana
+			"cut the rope" synonyms "cut the rope"
+			dropbox synonyms dropbox
+			gallery synonyms gallery
+			"google allo" synonyms allo , "google allo"
+			"google calendar" synonyms "google calendar"
+			"google chrome" synonyms chrome , "google chrome"
+			"google keep" synonyms "google keep"
+			kik synonyms kik , "kik messenger"
+			line synonyms line
+			music synonyms music
+			"music player" synonyms "music player"
+			"my photos" synonyms "my photos"
+			"my pictures" synonyms "my pictures"
+			"paper camera" synonyms "paper camera"
+			"plants vs zombies" synonyms "plants vs zombies"
+			poweramp synonyms poweramp
+			ringtonium synonyms ringtonium
+			safari synonyms safari
+			sherpa synonyms sherpa
+			skeevy synonyms skeevy
+			snapchat synonyms snapchat
+			soccer synonyms soccer
+			"speaktoit assistant" synonyms "speaktoit assistant"
+			"task manager" synonyms "task manager"
+			"tunein radio pro" synonyms "tunein radio pro"
+			vk synonyms vk
+			youtube synonyms youtube
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "" ;
+		basicAuth : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "app.removeTxtResp1" :
+		inputs in en {
+			" "
+	}
+
+flows :
+	- user "app.remove" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.download" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.speech.open" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.remove" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.skills" => chatbot "app.removeTxtResp1" ;
+	- user "app.open" => chatbot "app.removeTxtResp1" ;
+	- user "app.update" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.close" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.notifications.open" => chatbot "app.removeTxtResp1" ;
+	- user "app.speech.open" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.rate" => chatbot "app.removeTxtResp1" ;
+	- user "app.download" => chatbot "app.removeTxtResp1" ;
+	- user "app.install" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.version.summary" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.voice.open" => chatbot "app.removeTxtResp1" ;
+	- user "app.skills" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.history.clear" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.search" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.settings.open" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.install" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.version" => chatbot "app.removeTxtResp1" ;
+	- user "app.voice.open" => chatbot "app.removeTxtResp1" ;
+	- user "app.settings.close" => chatbot "app.removeTxtResp1" ;
+	- user "app.reset" => chatbot "app.removeTxtResp1" ;
+	- user "app.rate" => chatbot "app.removeTxtResp1" ;
+	- user "app.settings.open" => chatbot "app.removeTxtResp1" ;
+	- user "app.history.clear" => chatbot "app.removeTxtResp1" ;
+	- user "app.version" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.update" => chatbot "app.removeTxtResp1" ;
+	- user "app.notifications.open" => chatbot "app.removeTxtResp1" ;
+	- user "app.search" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.settings.close" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.reset" => chatbot "app.removeTxtResp1" ;
+	- user "app.close" => chatbot "app.removeTxtResp1" ;
+	- user "app.current.open" => chatbot "app.removeTxtResp1" ;
+	- user "Default Fallback Intent" => chatbot "app.removeTxtResp1" ;
+	- user "app.version.summary" => chatbot "app.removeTxtResp1" ;
+
