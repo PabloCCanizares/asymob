@@ -1,0 +1,268 @@
+Chatbot "savelee-demo" language : en , nl
+
+intents :
+
+	"[CONTACT]-I need help" :
+		inputs in en {
+			"I would like to get in contact with you" ,
+			"I would like to get in touch with Google" ,
+			"I am interested in Google Cloud" ,
+			"I need help" ,
+			"I would like to get in touch with Google Cloud" ,
+			"I work for " ( ING ) [ company ] ", i need help"
+		}
+		parameters :
+			company : entity company , required , prompts in en [ "Hi, we\'re happy to help. For which company are you working for?" ] ;
+
+	"[TRANSLATE Fulfillment - Multilang] EN - I need help" :
+		inputs in en {
+			"I need help with " ( "starting a program" ) [ task ] ,
+			"I need help with " ( "opening a program" ) [ task ]
+		}
+		parameters :
+			task : entity task ;
+
+	"[TRANSLATED-RESPONSE]" :
+		inputs in en {
+			"start een programma" ,
+			"starting a program" ,
+			"start a program"
+	}
+
+	"[TABLE FULFILLMENT ] What\'s the code? - Color? - Category?" :
+		inputs in en {
+			"Category " ( "1" ) [ category ] ,
+			( category ) [ category ] ,
+			"The category is " ( category ) [ category ]
+		}
+		parameters :
+			category : entity category , required , prompts in en [ "What\'s the Category number?" ] ;
+			color : entity color , required ;
+
+	"[CONTACT]-I need help - contact" :
+		inputs in en {
+			( "0651536814" ) [ "phone-number" ] ,
+			"+" ( "31651536814" ) [ "phone-number" ]
+		}
+		parameters :
+			"phone-number" : entity text , required ;
+
+	"[TRANSLATE Fulfillment - Multilang] NL - Ik heb hulp nodig" :
+		inputs in en {
+			"ik heb hulp nodig met het " ( "starten van een programma" ) [ task ] ,
+			"Ik heb hulp nodig met " ( "starten van een programma" ) [ task ]
+		}
+		parameters :
+			task : entity task ;
+
+	"[TABLE FULFILLMENT ] What\'s the code? - Color?" :
+		inputs in en {
+			"The color is " ( Red ) [ color ] ,
+			( Red ) [ color ]
+		}
+		parameters :
+			color : entity color , required , prompts in en [ "What\'s the color?" ] ;
+
+	"[CONTACT]-I need help - contact - yes" :
+		inputs in en {
+			ok ,
+			exactly ,
+			"I don\'t mind" ,
+			okay ,
+			"of course" ,
+			sure ,
+			"sounds good" ,
+			yes ,
+			"that\'s correct" ,
+			"do it" ,
+			confirm ,
+			"I agree"
+		}
+		inputs in nl {
+			"doe maar" ,
+			"mee eens" ,
+			"dat klopt" ,
+			"klinkt goed" ,
+			natuurlijk ,
+			"dat wil ik wel" ,
+			^ja ,
+			"ja graag" ,
+			akkoord ,
+			prima
+	}
+
+	"[TABLE FULFILLMENT ] What\'s the code?" :
+		inputs in en {
+			"What\'s the code?"
+	}
+
+	"Default Welcome Intent" :
+		inputs in en {
+			Hoi ,
+			"Hi " ( Petra ) [ "given-name" ] ,
+			Hey ,
+			Hallo ,
+			Hello ,
+			Hi ,
+			"Hi " ( Lee ) [ "given-name" ] ,
+			"Hi there"
+		}
+		parameters :
+			"given-name" : entity text ;
+
+	"[CONTACT]-I need help - contact - no" :
+		inputs in en {
+			"I don\'t think so" ,
+			^no ,
+			"thanks but no" ,
+			"not interested" ,
+			"I disagree" ,
+			"definitely not" ,
+			"not really" ,
+			"don\'t do it" ,
+			"I don\'t want that"
+		}
+		inputs in nl {
+			"absoluut niet" ,
+			"niet echt" ,
+			"doe dat niet" ,
+			"geen interesse" ,
+			"ik dacht het niet" ,
+			"dat wil ik niet" ,
+			"dat vind ik niet" ,
+			"nee bedankt" ,
+			nee
+	}
+
+	"[SKYPE] Welcome." :
+
+	"Default Fallback Intent" Fallback :
+
+entities :
+	Simple entity task :
+		inputs in en {
+			"starten van een programma" synonyms "starten van programma" , "opstarten van een programma" , "starten van een programma" , "openen van een programma"
+			"start a program" synonyms "start a program"
+			"opening a program" synonyms "opening a program"
+	}
+	Simple entity color :
+		inputs in en {
+			Blue synonyms Blue
+			Green synonyms Green
+			Red synonyms Red
+	}
+	Simple entity company :
+		inputs in en {
+			Tridios synonyms Tridios , "Tridios Bank"
+			ING synonyms ING
+			ABN synonyms ABN , "ABN Amro" , "Abn Amro"
+			NN synonyms NN , "Nationale Nederlanden"
+			Achmea synonyms Achmea
+			CZ synonyms CZ
+			Rabo synonyms Rabo , Rabobank
+	}
+	Simple entity category :
+		inputs in en {
+			category synonyms category
+			"3" synonyms "3"
+			"1" synonyms "1"
+			"4" synonyms "4"
+			"2" synonyms "2"
+	}
+
+actions :
+	Request post HttpRequest :
+		URL : "https://us-central1-leeboonstra-blogdemos.cloudfunctions.net/ingdemorouter" ;
+		basicAuth : "" : "" ;
+		headers : "" : "" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+		}
+		inputs in nl {
+			request. text
+	}
+	text response "[CONTACT]-I need helpTxtResp1" :
+		inputs in en {
+			"What\'s your phone number we can reach you on? "
+	}
+	text response "[TRANSLATED-RESPONSE]TxtResp1" :
+		inputs in en {
+			"Let me help you! - Laat mij jou helpen! "
+	}
+	text response "[TABLE FULFILLMENT ] What\'s the code? - Color? - Category?TxtResp1" :
+		inputs in en {
+			" "
+	}
+	text response "[CONTACT]-I need help - contactTxtResp2" :
+		inputs in en {
+			"Thank you! We will call you on " "Do you need anymore help? "
+	}
+	text response "[TABLE FULFILLMENT ] What\'s the code? - Color?TxtResp1" :
+		inputs in en {
+			"What\'s the category? "
+	}
+	text response "[CONTACT]-I need help - contact - yesTxtResp2" :
+		inputs in en {
+			"Ok. "
+	}
+	text response "[TABLE FULFILLMENT ] What\'s the code?TxtResp1" :
+		inputs in en {
+			"What\'s the color? "
+	}
+	text response "Default Welcome IntentTxtResp1" :
+		inputs in en {
+			"Hi! " ,
+			"Hello! " ,
+			"Good day! " ,
+			"Greetings! "
+	}
+	text response "Default Welcome IntentTxtResp2" :
+		inputs in nl {
+			"Hallo! " ,
+			"Goedendag! "
+	}
+	text response "[CONTACT]-I need help - contact - noTxtResp2" :
+		inputs in en {
+			"Have a good day! "
+	}
+	text response "[SKYPE] Welcome.TxtResp1" :
+		inputs in en {
+			"Hi, I\'m the cloudtricks.eu chatbot. Ask me for help. "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in nl {
+			"Ik begrijp het niet. " ,
+			"Ik versta het niet. "
+	}
+	text response "Default Fallback IntentTxtResp2" :
+		inputs in en {
+			"I didn\'t get that. Can you say it again? " ,
+			"I missed what you said. Say it again? " ,
+			"Sorry, could you say that again? " ,
+			"Sorry, can you say that again? " ,
+			"Can you say that again? " ,
+			"Sorry, I didn\'t get that. " ,
+			"Sorry, what was that? " ,
+			"One more time? " ,
+			"What was that? " ,
+			"Say that again? " ,
+			"I didn\'t get that. " ,
+			"I missed that. "
+	}
+	text response "[CONTACT]-I need help - contact - yes - customTxtResp2" :
+		inputs in en {
+			"Ok. We will get back to you soon. "
+	}
+
+flows :
+	- user "[CONTACT]-I need help" => chatbot "[CONTACT]-I need helpTxtResp1" => user "[CONTACT]-I need help - contact" => chatbot "[TABLE FULFILLMENT ] What\'s the code? - Color? - Category?TxtResp1" , "[CONTACT]-I need help - contactTxtResp2" { => user "[CONTACT]-I need help - contact - yes" => chatbot "[TABLE FULFILLMENT ] What\'s the code? - Color? - Category?TxtResp1" , "[CONTACT]-I need help - contact - yesTxtResp2" => user "[SKYPE] Welcome" => chatbot "[TABLE FULFILLMENT ] What\'s the code? - Color? - Category?TxtResp1" , "[CONTACT]-I need help - contact - yes - customTxtResp2" ; => user "[CONTACT]-I need help - contact - no" => chatbot "[TABLE FULFILLMENT ] What\'s the code? - Color? - Category?TxtResp1" , "[CONTACT]-I need help - contact - noTxtResp2" ; } ;
+	- user "[TRANSLATE Fulfillment - Multilang] EN - I need help" => chatbot HttpRequest , HttpResponse ;
+	- user "[TRANSLATED-RESPONSE]" => chatbot "[TRANSLATED-RESPONSE]TxtResp1" ;
+	- user "[TRANSLATE Fulfillment - Multilang] NL - Ik heb hulp nodig" => chatbot HttpRequest , HttpResponse ;
+	- user "[TABLE FULFILLMENT ] What\'s the code?" => chatbot "[TABLE FULFILLMENT ] What\'s the code?TxtResp1" => user "[TABLE FULFILLMENT ] What\'s the code? - Color?" => chatbot "[TABLE FULFILLMENT ] What\'s the code? - Color?TxtResp1" , "[TABLE FULFILLMENT ] What\'s the code? - Color? - Category?TxtResp1" => user "[TABLE FULFILLMENT ] What\'s the code? - Color? - Category?" => chatbot HttpRequest , HttpResponse , "[TABLE FULFILLMENT ] What\'s the code? - Color? - Category?TxtResp1" ;
+	- user "Default Welcome Intent" => chatbot "Default Welcome IntentTxtResp1" , "Default Welcome IntentTxtResp2" ;
+	- user "[SKYPE] Welcome" => chatbot "[SKYPE] Welcome.TxtResp1" ;
+	- user "Default Fallback Intent" => chatbot "Default Fallback IntentTxtResp1" , "Default Fallback IntentTxtResp2" ;
+

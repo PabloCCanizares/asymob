@@ -1,0 +1,45 @@
+Chatbot HHandoffDAgent language : en
+
+intents :
+
+"Default Welcome Intent" :
+
+"Default Fallback Intent - fallback" Fallback :
+
+actions :
+	Request post HttpRequest :
+		URL : "https://<example>" ;
+	Response HttpResponse :
+		Request : HttpRequest ;
+		inputs in en {
+			request. text
+	}
+	text response "Default Welcome IntentTxtResp1" :
+		inputs in en {
+			"Hi! I\'m an agent designed to demonstrate operator requests. You can ask me about my purpose, or ask to speak with a person. If I fail to understand your statement twice in a row, I\'ll connect you with a person automatically. How can I help you? "
+	}
+	text response "Operator RequestTxtResp1" :
+		inputs in en {
+			"No problem! I\'ll hand you over to a live operator. Just one moment... " ,
+			"No worries! I\'ll connect you with a live operator. One moment... "
+	}
+	text response "What\'s My Purpose?TxtResp1" :
+		inputs in en {
+			"I\'m a very simple agent designed to help developers learn how to escalate conversations from an agent to a real human operator! What else can I help you with? " ,
+			"I\'m designed to help developers learn how to escalate conversations from an agent to a real human operator! What else can I do for you? " ,
+			"I\'m a very simple agent designed to help developers learn how to escalate conversations from an agent to a real human operator! What else can I tell you? "
+	}
+	text response "Default Fallback Intent - fallbackTxtResp1" :
+		inputs in en {
+			"I\'m not sure I can help with that. I\'m connecting you with a customer service agent. "
+	}
+	text response "Default Fallback IntentTxtResp1" :
+		inputs in en {
+			"You can ask me about my purpose, or ask to speak with a person. How can I help you? " ,
+			"I can either connect you with a customer service agent or tell you about my purpose. How can I help you? "
+	}
+
+flows :
+	- user "Default Welcome Intent" => chatbot "What\'s My Purpose?TxtResp1" ;
+	- user "Default Fallback Intent - fallback" => chatbot "Default Fallback IntentTxtResp1" => user "Default Fallback Intent - fallback" => chatbot "Default Fallback Intent - fallbackTxtResp1" ;
+
