@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="HHandoffDAgent">
+  <intents name="Default Welcome Intent"/>
+  <intents name="Default Fallback Intent - fallback" fallbackIntent="true"/>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="https://&lt;example>" method="POST"/>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hi! I'm an agent designed to demonstrate operator requests. You can ask me about my purpose, or ask to speak with a person. If I fail to understand your statement twice in a row, I'll connect you with a person automatically. How can I help you? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Operator RequestTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="No problem! I'll hand you over to a live operator. Just one moment... "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="No worries! I'll connect you with a live operator. One moment... "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="What's My Purpose?TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I'm a very simple agent designed to help developers learn how to escalate conversations from an agent to a real human operator! What else can I help you with? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I'm designed to help developers learn how to escalate conversations from an agent to a real human operator! What else can I do for you? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I'm a very simple agent designed to help developers learn how to escalate conversations from an agent to a real human operator! What else can I tell you? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback Intent - fallbackTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I'm not sure I can help with that. I'm connecting you with a customer service agent. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="You can ask me about my purpose, or ask to speak with a person. How can I help you? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I can either connect you with a customer service agent or tell you about my purpose. How can I help you? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.4"/>
+  </flows>
+  <flows intent="//@intents.1">
+    <target actions="//@actions.6">
+      <outcoming intent="//@intents.1">
+        <target actions="//@actions.5"/>
+      </outcoming>
+    </target>
+  </flows>
+  <languages>ENGLISH</languages>
+</generator:Bot>

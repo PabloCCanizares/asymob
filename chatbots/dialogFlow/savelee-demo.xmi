@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="ASCII"?>
+<generator:Bot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generator="http://generator" name="savelee-demo">
+  <intents name="[CONTACT]-I need help">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I would like to get in contact with you"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I would like to get in touch with Google"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I am interested in Google Cloud"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need help"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I would like to get in touch with Google Cloud"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I work for "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.0/@parameters.0" textReference="ING"/>
+        <tokens xsi:type="generator:Literal" text=", i need help"/>
+      </inputs>
+    </inputs>
+    <parameters name="company" entity="//@entities.2" required="true">
+      <prompts language="ENGLISH">
+        <prompts>Hi, we're happy to help. For which company are you working for?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="[TRANSLATE Fulfillment - Multilang] EN - I need help">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need help with "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="starting a program"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I need help with "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.1/@parameters.0" textReference="opening a program"/>
+      </inputs>
+    </inputs>
+    <parameters name="task" entity="//@entities.0"/>
+  </intents>
+  <intents name="[TRANSLATED-RESPONSE]">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="start een programma"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="starting a program"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="start a program"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="[TABLE FULFILLMENT ] What's the code? - Color? - Category?">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Category "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="1"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="category"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="The category is "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.3/@parameters.0" textReference="category"/>
+      </inputs>
+    </inputs>
+    <parameters name="category" entity="//@entities.3" required="true">
+      <prompts language="ENGLISH">
+        <prompts>What's the Category number?</prompts>
+      </prompts>
+    </parameters>
+    <parameters name="color" entity="//@entities.1" required="true"/>
+  </intents>
+  <intents name="[CONTACT]-I need help - contact">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="0651536814"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="+"/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.4/@parameters.0" textReference="31651536814"/>
+      </inputs>
+    </inputs>
+    <parameters name="phone-number" required="true"/>
+  </intents>
+  <intents name="[TRANSLATE Fulfillment - Multilang] NL - Ik heb hulp nodig">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ik heb hulp nodig met het "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="starten van een programma"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Ik heb hulp nodig met "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.5/@parameters.0" textReference="starten van een programma"/>
+      </inputs>
+    </inputs>
+    <parameters name="task" entity="//@entities.0"/>
+  </intents>
+  <intents name="[TABLE FULFILLMENT ] What's the code? - Color?">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="The color is "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="Red"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.6/@parameters.0" textReference="Red"/>
+      </inputs>
+    </inputs>
+    <parameters name="color" entity="//@entities.1" required="true">
+      <prompts language="ENGLISH">
+        <prompts>What's the color?</prompts>
+      </prompts>
+    </parameters>
+  </intents>
+  <intents name="[CONTACT]-I need help - contact - yes">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ok"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="exactly"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't mind"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="okay"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="of course"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sure"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="sounds good"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="yes"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="that's correct"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="confirm"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I agree"/>
+      </inputs>
+    </inputs>
+    <inputs language="DUTCH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="doe maar"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="mee eens"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="dat klopt"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="klinkt goed"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="natuurlijk"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="dat wil ik wel"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ja"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ja graag"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="akkoord"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="prima"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="[TABLE FULFILLMENT ] What's the code?">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="What's the code?"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="Default Welcome Intent">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hoi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hi "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="Petra"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hey"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hallo"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hello"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hi"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hi "/>
+        <tokens xsi:type="generator:ParameterReferenceToken" parameter="//@intents.9/@parameters.0" textReference="Lee"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="Hi there"/>
+      </inputs>
+    </inputs>
+    <parameters name="given-name"/>
+  </intents>
+  <intents name="[CONTACT]-I need help - contact - no">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't think so"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="thanks but no"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not interested"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I disagree"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="definitely not"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="not really"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="don't do it"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="I don't want that"/>
+      </inputs>
+    </inputs>
+    <inputs language="DUTCH">
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="absoluut niet"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="niet echt"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="doe dat niet"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="geen interesse"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="ik dacht het niet"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="dat wil ik niet"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="dat vind ik niet"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="nee bedankt"/>
+      </inputs>
+      <inputs xsi:type="generator:TrainingPhrase">
+        <tokens xsi:type="generator:Literal" text="nee"/>
+      </inputs>
+    </inputs>
+  </intents>
+  <intents name="[SKYPE] Welcome."/>
+  <intents name="Default Fallback Intent" fallbackIntent="true"/>
+  <entities name="task">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="starten van een programma">
+        <values>starten van programma</values>
+        <values>opstarten van een programma</values>
+        <values>starten van een programma</values>
+        <values>openen van een programma</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="start a program">
+        <values>start a program</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="opening a program">
+        <values>opening a program</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="color">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Blue">
+        <values>Blue</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Green">
+        <values>Green</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Red">
+        <values>Red</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="company">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="Tridios">
+        <values>Tridios</values>
+        <values>Tridios Bank</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="ING">
+        <values>ING</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="ABN">
+        <values>ABN</values>
+        <values>ABN Amro</values>
+        <values>Abn Amro</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="NN">
+        <values>NN</values>
+        <values>Nationale Nederlanden</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Achmea">
+        <values>Achmea</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="CZ">
+        <values>CZ</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="Rabo">
+        <values>Rabo</values>
+        <values>Rabobank</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <entities name="category">
+    <inputs language="ENGLISH">
+      <inputs xsi:type="generator:SimpleInput" name="category">
+        <values>category</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="3">
+        <values>3</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="1">
+        <values>1</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="4">
+        <values>4</values>
+      </inputs>
+      <inputs xsi:type="generator:SimpleInput" name="2">
+        <values>2</values>
+      </inputs>
+    </inputs>
+  </entities>
+  <actions xsi:type="generator:HTTPRequest" name="HttpRequest" URL="https://us-central1-leeboonstra-blogdemos.cloudfunctions.net/ingdemorouter" method="POST">
+    <basicAuth key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </basicAuth>
+    <headers key="">
+      <value xsi:type="generator:Literal" text=""/>
+    </headers>
+  </actions>
+  <actions xsi:type="generator:HTTPResponse" name="HttpResponse" HTTPRequest="//@actions.0">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+    <inputs language="DUTCH">
+      <inputs>
+        <tokens xsi:type="generator:HTTPRequestToke"/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="[CONTACT]-I need helpTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What's your phone number we can reach you on? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="[TRANSLATED-RESPONSE]TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Let me help you! - Laat mij jou helpen! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="[TABLE FULFILLMENT ] What's the code? - Color? - Category?TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text=" "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="[CONTACT]-I need help - contactTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Thank you! We will call you on "/>
+        <tokens xsi:type="generator:Literal" text="Do you need anymore help? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="[TABLE FULFILLMENT ] What's the code? - Color?TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What's the category? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="[CONTACT]-I need help - contact - yesTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ok. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="[TABLE FULFILLMENT ] What's the code?TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What's the color? "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hi! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hello! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Good day! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Greetings! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Welcome IntentTxtResp2">
+    <inputs language="DUTCH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hallo! "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Goedendag! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="[CONTACT]-I need help - contact - noTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Have a good day! "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="[SKYPE] Welcome.TxtResp1">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Hi, I'm the cloudtricks.eu chatbot. Ask me for help. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp1">
+    <inputs language="DUTCH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ik begrijp het niet. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ik versta het niet. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="Default Fallback IntentTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. Can you say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed what you said. Say it again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, could you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Can you say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, I didn't get that. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Sorry, what was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="One more time? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="What was that? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Say that again? "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I didn't get that. "/>
+      </inputs>
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="I missed that. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <actions xsi:type="generator:Text" name="[CONTACT]-I need help - contact - yes - customTxtResp2">
+    <inputs language="ENGLISH">
+      <inputs>
+        <tokens xsi:type="generator:Literal" text="Ok. We will get back to you soon. "/>
+      </inputs>
+    </inputs>
+  </actions>
+  <flows intent="//@intents.0">
+    <target actions="//@actions.2">
+      <outcoming intent="//@intents.4">
+        <target actions="//@actions.4 //@actions.5">
+          <outcoming intent="//@intents.7">
+            <target actions="//@actions.4 //@actions.7">
+              <outcoming intent="//@intents.11">
+                <target actions="//@actions.4 //@actions.15"/>
+              </outcoming>
+            </target>
+          </outcoming>
+          <outcoming intent="//@intents.10">
+            <target actions="//@actions.4 //@actions.11"/>
+          </outcoming>
+        </target>
+      </outcoming>
+    </target>
+  </flows>
+  <flows intent="//@intents.1">
+    <target actions="//@actions.0 //@actions.1"/>
+  </flows>
+  <flows intent="//@intents.2">
+    <target actions="//@actions.3"/>
+  </flows>
+  <flows intent="//@intents.5">
+    <target actions="//@actions.0 //@actions.1"/>
+  </flows>
+  <flows intent="//@intents.8">
+    <target actions="//@actions.8">
+      <outcoming intent="//@intents.6">
+        <target actions="//@actions.6 //@actions.4">
+          <outcoming intent="//@intents.3">
+            <target actions="//@actions.0 //@actions.1 //@actions.4"/>
+          </outcoming>
+        </target>
+      </outcoming>
+    </target>
+  </flows>
+  <flows intent="//@intents.9">
+    <target actions="//@actions.9 //@actions.10"/>
+  </flows>
+  <flows intent="//@intents.11">
+    <target actions="//@actions.12"/>
+  </flows>
+  <flows intent="//@intents.12">
+    <target actions="//@actions.13 //@actions.14"/>
+  </flows>
+  <languages>ENGLISH</languages>
+  <languages>DUTCH</languages>
+</generator:Bot>
