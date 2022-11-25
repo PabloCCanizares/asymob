@@ -30,6 +30,7 @@ import generator.UserInteraction;
 
 public class FlowAnalyser {
 
+	private boolean bCompactRefPhrases;
 	private final int ALL_PHRASES = 0;
 	private final int SINGLE_PHRASE = 1;
 	IntentAnalyser intentAnalyser;
@@ -38,11 +39,13 @@ public class FlowAnalyser {
 	
 	public FlowAnalyser()
 	{
+		bCompactRefPhrases=false;
 		intentAnalyser = new IntentAnalyser();
 		inputAnalyser = new InputAnalyser();
 		tokenAnalyser = new TokenAnalyser();
 	}
 	public FlowAnalyser(Conversor converter) {
+		bCompactRefPhrases = false;
 		intentAnalyser = new IntentAnalyser(converter);
 		inputAnalyser = new InputAnalyser(converter);
 		tokenAnalyser = new TokenAnalyser(converter);
@@ -90,6 +93,7 @@ public class FlowAnalyser {
 		EList<TextLanguageInput> textLanInputList;
 		EList<TextInput> textInputList;
 		LinkedList<String> retList, auxList;
+		String strCompactPhrase;
 		actionText = (Text) actionIn;
 
 		retList = null;
@@ -110,7 +114,16 @@ public class FlowAnalyser {
 							if(!bRef)
 								auxList =extractPhrasesFromTextAction(textIn,nComposingDeep);
 							else
+							{
 								auxList = extractPhrasesFromTextActionByRef(textIn);
+													
+								if(bCompactRefPhrases)
+								{
+									strCompactPhrase = Common.listToString(auxList);
+									auxList = new LinkedList<String>();
+									auxList.add(strCompactPhrase);
+								}
+							}
 							
 							if(auxList != null && auxList.size()>0)
 								retList.addAll(auxList);
@@ -345,19 +358,21 @@ public class FlowAnalyser {
 	}
 	private LinkedList<String> extractPhrasesFromTextActionByRef(TextInput textIn) {
 		EList<Token> tokenList;
-		String strText;
+		String strText, strPhrase;
 		LinkedList<String> retList;
 		
 		retList= null;
+		strPhrase="";
 		if(textIn != null)
 		{
 			retList = new LinkedList<String>();
 			tokenList = textIn.getTokens();
 			for(Token tokIndex: tokenList)
 			{
-				strText = tokenAnalyser.getTokenText(tokIndex, true);
+				strText = tokenAnalyser.getTokenText(tokIndex, true);				
 				retList.add(strText);
 			}
+
 		}
 		
 		return retList;
@@ -452,6 +467,10 @@ public class FlowAnalyser {
 			}
 		}
 		return retList;
+	}
+	public void setCompactRefPhrases(boolean bMode) {
+		bCompactRefPhrases = bMode;
+		
 	}
 
 }

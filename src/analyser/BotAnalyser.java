@@ -3,17 +3,24 @@ package analyser;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.emf.common.util.EList;
 import generator.Action;
 import generator.Bot;
 import generator.BotInteraction;
+import generator.Element;
+import generator.Entity;
+import generator.EntityInput;
 import generator.Intent;
 import generator.IntentInput;
 import generator.IntentLanguageInputs;
 import generator.Language;
+import generator.LanguageInput;
 import generator.Literal;
 import generator.ParameterReferenceToken;
+import generator.SimpleInput;
 import generator.Token;
 import generator.TrainingPhrase;
 import generator.UserInteraction;
@@ -21,14 +28,21 @@ public class BotAnalyser {
 
 	private final int ALL_PHRASES = 0;
 	FlowAnalyser flowAnalyser;
-	
+	EntityAnalyser entityAnalyser;
+	IntentAnalyser intentAnalyser;
+	boolean bParameterNameMode;
 	public BotAnalyser()
 	{
 		flowAnalyser = new FlowAnalyser();
+		entityAnalyser = new EntityAnalyser();
+		intentAnalyser = new IntentAnalyser();
+		bParameterNameMode= false;
 	}
 	public BotAnalyser(Conversor converter)
 	{
+		intentAnalyser = new IntentAnalyser(converter);
 		flowAnalyser = new FlowAnalyser(converter);
+		entityAnalyser = new EntityAnalyser(converter);
 	}
 	private List<Intent> extractAllIntentInputs(Bot botIn)
 	{
@@ -130,7 +144,12 @@ public class BotAnalyser {
 				paramRefIn = (ParameterReferenceToken) token;
 				
 				if(paramRefIn != null)
-					strText = 	paramRefIn.getTextReference();
+				{
+					if(!bParameterNameMode)
+						strText = 	paramRefIn.getTextReference();
+					else
+						strText = 	"$"+paramRefIn.getParameter().getName();
+				}
 			}
 		}
 
@@ -400,7 +419,8 @@ public class BotAnalyser {
 			hashMapPrhases = new HashMap<Language, LinkedList<LinkedList<String>>>();
 			for(Intent intentIn: intentList)
 			{
-				if(intentIn != null)
+				//Filter list
+				if(intentIn != null &&  !intentIn.isFallbackIntent())
 				{
 					retList = new LinkedList<String>();
 					//Analyse the different languages
@@ -480,4 +500,17 @@ public class BotAnalyser {
 		
 		return bRet;
 	}
+	public Map<String, LinkedList<String>> getEntityMap(Entity entityIn) {
+	  return entityAnalyser.extractEntityMap(entityIn);		
+	}
+	public void setParameterMode(boolean bParameterMode) {
+		this.bParameterNameMode=true;
+	}
+	public void setCompactRefPhrasesMode(boolean bMode) {
+		this.flowAnalyser.setCompactRefPhrases(bMode);		
+	}
+	public LinkedList<String> extractAllIntentParameterPromts(Intent intent) {
+		return this.intentAnalyser.extractAllIntentParameterPromts(intent);		
+	}
+	
 }

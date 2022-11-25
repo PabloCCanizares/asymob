@@ -38,7 +38,7 @@ public class asymob_test {
 			{
 				if(botTester.applyTrainingPhrasesToChatbot())
 				{
-					botTester.saveToDisk("/localSpace/chatbots/CongaModels/mysteryAnimal_copy.xmi");
+					botTester.saveToDisk("/localSpace/chatbots/CongaModels/bikeShop_copy.xmi");
 				}
 			}
 		}

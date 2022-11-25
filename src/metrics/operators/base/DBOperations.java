@@ -51,6 +51,54 @@ public class DBOperations {
 		return fValue;
 	}
 
+	public static float getMin(ReadOnlyMetricDB db, EMetricOperator metricIn) {
+		int nIntElements, nFloatElements, nParam, nMinimum;
+		float fValue, fParams, fMinimum;
+		LinkedList<MetricValue> metricResList;
+		
+		fMinimum = Float.MAX_VALUE;
+		nMinimum=Integer.MAX_VALUE;
+		nIntElements=nFloatElements=0;
+		fValue = -1;
+		fParams = 0;
+		
+		//access to the DB
+		if(db != null)
+		{
+			metricResList = db.getIntentMetric(metricIn);
+			
+			if(metricResList != null && metricResList.size()>0)
+			{
+				for(MetricValue metricVal: metricResList)
+				{
+					if(metricVal != null && metricVal instanceof IntegerMetricValue)
+					{
+						
+						nParam = ((IntegerMetricValue)metricVal).getIntValue();
+						if(nParam<nMinimum)
+							nMinimum = nParam;
+						
+						nIntElements++;
+					}
+					else if (metricVal != null && metricVal instanceof FloatMetricValue)
+					{
+						fParams += ((FloatMetricValue) metricVal).getFloatValue();
+						
+						if(fParams<fMinimum)
+							fMinimum = fParams;
+						
+						nFloatElements++;
+					}
+				}
+				if(nIntElements>0)
+					fValue = nMinimum;
+				else if (nFloatElements>0)
+					fValue = fMinimum;
+			}
+		}
+		return fValue;
+	}
+	
 	public static float getAverage(ReadOnlyMetricDB db, EMetricCategory eCategory, EMetricOperator metricIn) {
 		int nElements, nParams;
 		float fValue, fParams;

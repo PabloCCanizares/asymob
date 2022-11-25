@@ -30,7 +30,6 @@ public class AvgFlowLen extends BotMetricBase{
 			{
 				nAux = botAnalyser.analyseMaxLenght(userIn);
 				nMaxFlow = Math.max(nAux, nMaxFlow);
-
 			}
 			
 			metricRet = new IntegerMetricValue(this, nMaxFlow);

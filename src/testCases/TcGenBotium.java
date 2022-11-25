@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.emf.common.util.EList;
@@ -17,13 +19,16 @@ import analyser.flowTree.TreeInterAction;
 import auxiliar.Common;
 import generator.Action;
 import generator.Bot;
+import generator.Entity;
 import generator.Intent;
 import generator.Text;
 import generator.UserInteraction;
+import transformation.dialogflow.ConversorBotium;
 
 public class TcGenBotium implements ITestCaseGenerator {
 
 	BotAnalyser botAnalyser;
+	
 	String strPath;
 	private final String USER_UTTER_TAG = "user";
 	private final String BOT_UTTER_TAG = "actions";
@@ -79,14 +84,16 @@ public class TcGenBotium implements ITestCaseGenerator {
 
 		List<Pair<UserInteraction, List<Action>>> flowActionsTemp;
 		TreeBranch treeBranch;
+		String strEntityName;
+		Map<String, LinkedList<String>> entityMap;
 		boolean bRet;
 		
 		//Initialise
 		bRet = false;
 		if(botIn != null)
 		{
-			botAnalyser = new BotAnalyser();
-			
+			botAnalyser = new BotAnalyser(new ConversorBotium());
+			botAnalyser.setCompactRefPhrasesMode(true);
 			for(UserInteraction flow: botIn.getFlows())
 			{
 				//Explore the flow, and extract a tree in form of a list of pairs <UserInteraction, List<Action>>
@@ -96,13 +103,71 @@ public class TcGenBotium implements ITestCaseGenerator {
 				treeBranch = new TreeBranch(flowActionsTemp);
 				
 				createFlowTestCase(treeBranch);
+								
 				/*
 				System.out.printf("Handling flow %d\n", nIndex);
 				handleFlow(nIndex, botAnalyser, flow);
 				nIndex++;*/
 			}
+			//Extract the entities
+			for(Entity ent: botIn.getEntities())
+			{
+				strEntityName = ent.getName();
+				entityMap = botAnalyser.getEntityMap(ent);
+				
+				createEntityTestCase(strEntityName, entityMap);
+			}
+			
 		}
 		return bRet;
+	}
+
+	private void createEntityTestCase(String strEntityName, Map<String, LinkedList<String>> entityMap) {
+		String literalName, strConvoBuffer;
+		LinkedList<String> synList;
+		int nElement;
+		literalName = strConvoBuffer = "";
+		nElement =0;
+		try
+		{
+			strConvoBuffer = strConvoBuffer.concat("     |$"+strEntityName+"\n");
+			//Loop the entityMap updating the buffer
+		    for (Entry<String, LinkedList<String>> entry : entityMap.entrySet()) {
+		    	literalName = entry.getKey();
+		    	synList = entry.getValue();
+		        System.out.println(literalName + "=" + synList.toString());
+		        
+		        for(String syn: synList)
+		        {
+		        	strConvoBuffer =  strConvoBuffer.concat(String.format("case%d|%s\n", nElement, syn));
+		        	nElement++;
+		        }
+		    }
+		    
+		    //Create the file and save to disk
+		    createScriptingMemory(strEntityName, strConvoBuffer);
+		}
+		catch(Exception e)
+		{
+			System.out.println("[TcGenBotium::createEntityTestCase] Exception while creating a entity script memory");
+		}
+	}
+
+	private void createScriptingMemory(String strEntityName, String strConvoBuffer) {
+		File convoFile;
+		BufferedWriter writer;
+
+		try {
+			convoFile = Common.fileWithDirectoryAssurance(this.strPath, String.format("%s.scriptingmemory.txt",strEntityName));
+			writer = new BufferedWriter(new FileWriter(convoFile));
+			
+			writer.write(strConvoBuffer);
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private void createFlowTestCase(TreeBranch treeBranch) {
@@ -132,8 +197,8 @@ public class TcGenBotium implements ITestCaseGenerator {
 				//Single intent
 				exportIntentFile(treeIntentAction.getIntent());
 				
-				//Multiple Actions
-				exportActionsFile(treeIntentAction.getActions());
+				//Multiple Actions & prompts
+				exportActionsFile(treeIntentAction.getIntent(), treeIntentAction.getActions());
 				
 			}
 			exportConvoFile(strConvoName, strConvoBuffer);
@@ -164,16 +229,26 @@ public class TcGenBotium implements ITestCaseGenerator {
 		
 	}
 
-	private void exportActionsFile(List<Action> actions) {		
+	private void exportActionsFile(Intent intent, List<Action> actions) {		
 		String strActionFileName;
-		LinkedList<String> retList;
+		LinkedList<String> retList, auxList;
 		
 		for(Action actIndex: actions)
 		{
 			strActionFileName = constructActionFileName(actIndex);
 			
-			retList = botAnalyser.extractAllActionPhrases(actIndex);
+			retList = (LinkedList<String>) botAnalyser.extractAllActionPhrasesByRef(actIndex);
 
+			auxList = botAnalyser.extractAllIntentParameterPromts(intent);
+			
+			if(auxList!=null)
+			{
+				if(retList == null)
+					retList = auxList;
+				else
+					retList.addAll(auxList);
+			}
+			
 			if(retList != null)
 			{
 				//Bot utterance fil
@@ -191,6 +266,7 @@ public class TcGenBotium implements ITestCaseGenerator {
 		strIntentFileName = constructIntentFileName(intent);
 		
 		//Intent phrase
+		botAnalyser.setParameterMode(true);
 		userPhrases = botAnalyser.extractAllIntentPhrases(intent);
 		
 		//User utterance file

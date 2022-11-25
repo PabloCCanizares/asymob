@@ -278,4 +278,89 @@ public class Common {
 		
 		return strRet;
 	}
+	
+	public static LinkedList<Integer> ConvertFloatToPercentages(float fPositive, float fNeutral, float fNegative) {
+		
+		LinkedList<Integer> intRet;
+		int[] intOrderArray, intSentiments;
+		float[] flArray;
+		int nPartialSum, nAdjustIndex;
+		
+		intRet = new LinkedList<Integer>();
+		nPartialSum=0;
+		intSentiments = new int[3];
+
+		//intSentiments[0] = (int) (Math.floor((float)100*((float)nNeutral/(float)nTotal)));
+		//Store the non-decimal part
+		intSentiments[0] = (int)fPositive;
+		intSentiments[1] = (int)fNeutral;
+		intSentiments[2] = (int)fNegative;
+		
+		for(int i=0;i<intSentiments.length;i++)
+		{
+			nPartialSum += intSentiments[i];
+		}
+		nAdjustIndex = 100 - nPartialSum;
+		
+		if(nPartialSum > 0 && nAdjustIndex>0)
+		{
+			flArray = new float[3];
+			intOrderArray = new int[3];
+			
+			//Initialise positions
+			for(int i=0;i<intOrderArray.length;i++)
+			{
+				intOrderArray[i]=i;
+			}
+			
+			//store the decimal part
+			flArray[0] = (float)fPositive-intSentiments[0];
+			flArray[1] = (float)fNeutral-intSentiments[1];
+			flArray[2] = (float)fNegative-intSentiments[2];
+			
+			//sort the decimal part
+			for(int i=0;i<flArray.length;i++)
+			{
+				for(int j=i+1;j>0&&i+1<flArray.length;j--)
+				{
+					//swap
+					if(flArray[j]>flArray[i])
+					{
+						float flAux;
+						int nAux;
+						
+						flAux = flArray[i];
+						flArray[i]=flArray[j];
+						flArray[j] = flAux;
+						
+						nAux = intOrderArray[i];
+						intOrderArray[i] = intOrderArray[j];
+						intOrderArray[j]=nAux;
+					}
+				}
+			}
+			
+			for(int i=0;i<nAdjustIndex;i++)
+			{
+				intSentiments[i%intSentiments.length]++;
+			}
+		}
+		for(int i=0;i<intSentiments.length;i++)
+		{
+			intRet.add(intSentiments[i]);
+		}
+		
+		return intRet;
+	}
+
+	public static LinkedList<String> mergeLists(LinkedList<String> botList1, LinkedList<String> botList2) {
+		
+		LinkedList<String> retList;
+		
+		retList = new LinkedList<String>();
+		retList.addAll(botList1);
+		retList.addAll(botList2);
+		
+		return retList;
+	}
 }

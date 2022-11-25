@@ -42,6 +42,7 @@ DONE.
 * Hacer un operador en java, para dejarlo como basico. (creo que nos seria de valor re-hacer el de los sinonimos y antonimos) (DONE 08/02/21)
 ==================================================================================================
 PENDING.
+* Mejorar botium export [https://floriantreml.medium.com/botium-in-a-nutshell-part-2-writing-chatbot-tests-8726204c8da6]
 
 *Exportacion a Dialogflow.
 
@@ -60,7 +61,6 @@ los artifices de la generación de cada frase. Pair<EMutationOperator, String>
 
 *Gestión de los actions con HTTPRequest y response
 
-
 *Chequeo core botium.
 
 *Incluir la deteccion de que la gramatica de las respuestas, y sobre todo de las output (a veces se forman mal)
@@ -68,13 +68,52 @@ los artifices de la generación de cada frase. Pair<EMutationOperator, String>
 Posibles nuevos operadores:
 * Intercambio de simbolos de interrogación, a exclamacion.
 * Eliminación de tildes de manera aleatoria. 
-* Eliminar algun tag? Podemos tener bots muy centrados en sus tags, en sus
+* Eliminar algun tag? Podemos tener bots muy centrados en sus tags
 * Incluir un required de más?
+* Cambiar una palabra por su antónimo, y ver si cambia el tono de la frase
 
 *Parónimos, homónimos, meronimos, hipónimos.
-*MEjora de entidades: utilizar hipónimos para incrementar el conjunto de instancia de la entidad, y generar sinónimos de cada uno de ellos (Contracciones) 
+*Mejora de entidades: utilizar hipónimos para incrementar el conjunto de instancia de la entidad, y generar sinónimos de cada uno de ellos (Contracciones) 
 *Mejora de parámetros: Reescribir los prompts
 
+==================================================================================================
+Testing NLP-Intense chatbots
+[https://livablesoftware.com/testing-challenges-for-nlp-intensive-bots/]
+Tipos de testing:
+Metamorphic: potential_mrs
+Unit test: Botium
+Performance: Medir el rendimiento. Podemos hacerlo con rasa
+Back-to-back testing: could be used to test the bot quality when using different NLP engines or configurations. 
+[For example, a bot deployed over DialogFlow may work better/worse than the same bot deployed over IBM Watson.]
+
+Security testing...
+Conformance: Que si el chatbot trata de algo, que sepa contestar. O si dice que es en ingles, que las frases sean en ingles.
+
+*Cobertura
+ -Ya que partimos de una cobertura total. Probar a hacer test suite prioritization (tratar de reducir el tamaño de training phrases muy parecidas, incluso de arreglar el CNF alto)
+ -Cobertura de entidades?
+
+*Operadores de mutacion de estructura de chatbots? 
+INTENTS:
+* Cambiar las frases de entrenamiento de intent por otro.
+* Reescribir las frases en negativo, o con el verbo contrario.
+* Cambiar el idioma de la training phrase?
+* Eliminar las training phrases de un intent
+* Anyadir un nuevo lenguaje, cambiar el lenguaje y traducir esas frases en ese lenguaje 
+
+PARAMETERS:
+* Cambiar un parámetro de entidad 
+* Cambiar el prompt de un parámetro 
+* Cambiar un tipo por @any
+
+ENTITIES:
+* Cambiar una entidad de tipo.
+* Insertar en lugar de sinonimos, antonimos
+* Eliminar todos los Literales menos 1
+
+FLOWS:
+* Cambiar un flow (apuntando a otro intent)
+* Swap flow: intercambiar el intent de orden si el CL es suficientemente grande
 
 ==================================================================================================
 Ideas:
@@ -90,6 +129,14 @@ Bot de discord.
 *[No] Anotación automática de frases con coreNLP y uso de entidades?
 
 * Testing de entidades y de expresiones regulares.   
+
+* Utilizar BLEU para generar traducciones buenas en la generación de testcases
+
+*Comprobacion de que se cumplen los idiomas propuestos.
+
+*Capturar las excepciones de stanford tokenizer
+
+*Capturar las excepciones de heap java error
 ==================================================================================================
 CORENLP (OpenSource)(https://corenlp.run/)
 WORDNET (OpenSource)(http://wordnetweb.princeton.edu/perl/webwn)

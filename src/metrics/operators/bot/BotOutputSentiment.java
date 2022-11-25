@@ -19,7 +19,7 @@ import support.stanford.StandfordPipeline;
 
 public class BotOutputSentiment extends BotMetricBase{
 
-	private final boolean PRINT = true; 
+	private final boolean PRINT = false; 
 	public BotOutputSentiment() {
 		super(EMetricOperator.eBotOutputSentiment);
 	}

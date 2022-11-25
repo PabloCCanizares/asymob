@@ -19,12 +19,11 @@ public class IntentNumPhrases extends IntentMetricBase{
 		
 		inAnalyser = new IntentAnalyser();
 		nPhrases = inAnalyser.getTotalPhrases(this.intentIn);
-		
 		metricRet = new IntegerMetricValue(this, nPhrases);
 	}
 	@Override
 	public void setMetadata() {
-		this.strMetricName = "INTP";
+		this.strMetricName = "TPI";
 		this.strMetricDescription = "Number of training phrases";
 	}
 }

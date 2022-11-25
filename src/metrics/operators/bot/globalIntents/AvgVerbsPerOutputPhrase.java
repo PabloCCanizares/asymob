@@ -44,6 +44,7 @@ public class AvgVerbsPerOutputPhrase extends BotMetricBase{
 		
 		fValue=0;
 		nWords=0;
+		nPhrases=0;
 		botAnalyser = new BotAnalyser();
 		intentAnalyser = new IntentAnalyser();
 		
@@ -60,22 +61,39 @@ public class AvgVerbsPerOutputPhrase extends BotMetricBase{
 				{
 					try
 					{
-						if(strPhrase.length()<500)
-						{
+						//nPhrases=0;
+						//if(strPhrase.length()<500)
+						//{
+							if(strPhrase.length()>500)
+								System.out.println("[WARNING] The output phrase may be too large, Size: "+ strPhrase.length()+" | Phrase: "+strPhrase);
+							else if (strPhrase.length()>1000)
+								System.out.println("[WARNING] The output phrase is too large, Size: "+ strPhrase.length());
+							
 							if(VPOP_PRINT)
 								System.out.println(METRIC_NAME+" - Analysing phrase ["+String.format("%d]",strPhrase.length())+" "+strPhrase);
 							
+						
 							taggedPhraseList = StandfordTagger.getInstance().getTaggedWordList(strPhrase);
 							nWords +=  StandfordTagger.getInstance().countElements(taggedPhraseList, StandfordTagger.VERB_TAG);
-						}
+							nPhrases +=StandfordTagger.getInstance().getTagListLen(taggedPhraseList);
+							
+							if(strPhrase.length()>150 && StandfordTagger.getInstance().getTagListLen(taggedPhraseList)>1)
+								System.out.println("");
+						/*}
+						else
+							System.out.println("[ERROR] The output phrase is too large, Size: "+ strPhrase.length());*/
 
 					}catch(Exception e)
 					{
 						System.out.println("Exception: "+e.getMessage());
 					}
+					catch (Error e)
+				     {
+				         System.out.println("[ERROR] Exception while calculating metric VPOP.");
+				     }
 				}
 				
-				nPhrases = phrasesList.size();
+				//nPhrases = phrasesList.size();
 				
 				if(nWords >0 && nPhrases >0)
 					fValue = (float)((float)nWords/(float)nPhrases);

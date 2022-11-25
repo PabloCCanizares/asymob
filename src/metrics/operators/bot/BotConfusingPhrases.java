@@ -60,8 +60,8 @@ public class BotConfusingPhrases extends BotMetricBase{
 						if(confusingAux.size()>0)
 						{
 							confusingPhrases.addAll(confusingAux);
-							nConfusingPhrases+= confusingAux.size()-1;
-							
+							//nConfusingPhrases+= confusingAux.size()-1;//Not al confusing
+							nConfusingPhrases++;
 							if(CNF_PRINT)
 								System.out.print("CNF:"+confusingAux+"\n");
 						}
@@ -80,7 +80,7 @@ public class BotConfusingPhrases extends BotMetricBase{
 		LinkedList<String> newPhraseComp, retList;
 		float[][] embeddings;
 		float fConfusing;
-		int nConfusingPhrases;
+		int nConfusingPhrases, i;
 		
 		nConfusingPhrases = 0;
 		//Create new LinkedList
@@ -91,7 +91,9 @@ public class BotConfusingPhrases extends BotMetricBase{
 		
 		embeddings = TensorflowHandler.getInstance().predict(newPhraseComp);
 		
-		for(int i=1;i<newPhraseComp.size();i++)
+		i=1;
+		//for(int i=1;i<newPhraseComp.size();i++)
+		while(i<newPhraseComp.size() && nConfusingPhrases==0)
 		{
 			fConfusing = (float) cosineSimilarity(embeddings[0], embeddings[i]);
 			
@@ -103,7 +105,22 @@ public class BotConfusingPhrases extends BotMetricBase{
 				retList.add(newPhraseComp.get(i));
 				nConfusingPhrases++;
 			}
+			i++;
 		}
+		
+		/*for(int i=1;i<newPhraseComp.size();i++)
+		{
+			fConfusing = (float) cosineSimilarity(embeddings[0], embeddings[i]);
+			
+			if(fConfusing > fThresold)
+			{
+				if(retList.size() ==0)
+					retList.add(strPhrase);
+				
+				retList.add(newPhraseComp.get(i));
+				nConfusingPhrases++;
+			}
+		}*/
 		return retList;
 	}
 

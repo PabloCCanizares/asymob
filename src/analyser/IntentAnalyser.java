@@ -11,6 +11,7 @@ import generator.IntentInput;
 import generator.IntentLanguageInputs;
 import generator.Parameter;
 import generator.ParameterReferenceToken;
+import generator.PromptLanguage;
 import generator.RegexInput;
 import generator.Token;
 import generator.TrainingPhrase;
@@ -394,5 +395,32 @@ public class IntentAnalyser {
 			}
 		}
 		return nRet;
+	}
+
+	public LinkedList<String> extractAllIntentParameterPromts(Intent intentIn) {
+		LinkedList<String> retList;
+		LinkedList<Parameter> paramList;
+
+		try {
+		
+			retList = new LinkedList<String>();
+			for(Parameter param: intentIn.getParameters())
+			{
+				for(PromptLanguage prompt: param.getPrompts())
+				{
+					for(String strPrompt: prompt.getPrompts())
+					{
+						retList.add(strPrompt);
+					}
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception catched while extracting parameters prompts");
+			retList = null;
+		}
+
+		return retList;
 	}
 }

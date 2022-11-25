@@ -35,7 +35,7 @@ public class ChaosPhraseGenerator extends VariantPhraseGeneratorBase{
 	
 
 	/**
-	 * Generates a set of training phrases taking into consideration both an IOntentInput and a set of mutation operators
+	 * Generates a set of training phrases taking into consideration both an IntentInput and a set of mutation operators
 	 * @param inputIn: Input used as base to generate the new set of phrases
 	 * @param cfgIn
 	 * @return

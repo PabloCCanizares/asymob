@@ -26,7 +26,7 @@ import ai.djl.translate.TranslatorContext;
 public class TensorflowHandler {
 
 	private static TensorflowHandler instance;
-	private Predictor<String[], float[][]> predictor;
+	private Predictor<String[], float[][]> predictor=null;
 	
 	public static TensorflowHandler getInstance()
 	{
@@ -40,7 +40,8 @@ public class TensorflowHandler {
 	
 	private TensorflowHandler()
 	{
-		loadModel();
+		if(predictor == null)
+			loadModel();
 	}
 	
 	public void loadModel()

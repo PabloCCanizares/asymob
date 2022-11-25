@@ -204,4 +204,18 @@ public class StandfordTagger {
 
 		return nRet;
 	}
+	public int getTagListLen(List<List<TaggedWord>> taggedPhraseList) {
+		int nRet;
+		nRet = 0;
+		
+		if(taggedPhraseList != null)
+		{
+			for(List<TaggedWord> tagList: taggedPhraseList)
+			{
+				nRet++;
+			}
+		}
+
+		return nRet;
+	}
 }
