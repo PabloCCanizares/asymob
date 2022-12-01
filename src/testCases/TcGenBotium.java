@@ -45,7 +45,6 @@ public class TcGenBotium implements ITestCaseGenerator {
 		
 		try
 		{
-
 			this.strPath = strPath; 
 			botAnalyser = new BotAnalyser();
 			
@@ -93,10 +92,13 @@ public class TcGenBotium implements ITestCaseGenerator {
 		if(botIn != null)
 		{
 			botAnalyser = new BotAnalyser(new ConversorBotium());
+			//Extract the parameter type, not the text referece
 			botAnalyser.setCompactRefPhrasesMode(true);
 			for(UserInteraction flow: botIn.getFlows())
 			{
-				//Explore the flow, and extract a tree in form of a list of pairs <UserInteraction, List<Action>>
+				//TODO: Aqui para empezar, hay que extraer un arbol al uso. Extraer N ramas.
+				//La variable flowActionsTemp tiene que ser una lista.
+				//Explore the flow, and extract multiple trees in form of a list of pairs <UserInteraction, List<Action>>
 				flowActionsTemp = botAnalyser.plainActionTreeInBranches(flow);
 				
 				//Create the tree branch, and save into list
@@ -184,14 +186,25 @@ public class TcGenBotium implements ITestCaseGenerator {
 			
 			//This represents a single convo, whose name is composed by appending the names of the intents
 			//We will only know the name of the convo, once the whole branch has been completely explored. 
+			
+			//TODO: La idea es, dividir los intents y las respuestas. Podemos hacer un first approach conteniendo todas
+			//las combinaciones aqui, para no sobrecargar de convos.
+			
+			//Igualmente, todo se reduce a:
+			//Intent: nombre + frases entrenamiento.
+			//Actions: nombre + respuestas
+			
 			while(treeBranch.hasNext())
 			{
 				treeIntentAction = treeBranch.getNext();
 				
+				//TODO: Mover de aqui, mientras vamos probando
+				botAnalyser.splitByParameterConvenion(treeIntentAction);
+				
 				//Update convoName
 				strConvoName = updateConvoName(strConvoName, treeIntentAction);
 				
-				//Update convoBuffer
+				//Update convoBuffer: includes the #me and #bot calls
 				strConvoBuffer = updateConvoBuffer(treeIntentAction, strConvoBuffer); 
 						
 				//Single intent
@@ -239,7 +252,7 @@ public class TcGenBotium implements ITestCaseGenerator {
 			
 			retList = (LinkedList<String>) botAnalyser.extractAllActionPhrasesByRef(actIndex);
 
-			auxList = botAnalyser.extractAllIntentParameterPromts(intent);
+			auxList = botAnalyser.extractAllIntentParameterPrompts(intent);
 			
 			if(auxList!=null)
 			{

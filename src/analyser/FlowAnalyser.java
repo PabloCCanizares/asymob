@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.tuple.Pair;
@@ -472,5 +473,40 @@ public class FlowAnalyser {
 		bCompactRefPhrases = bMode;
 		
 	}
-
+	public List<Pair<UserInteraction, List<Action>>> plainActionTreeInBranches(UserInteraction userActIn) {
+		
+		List<Pair<UserInteraction, List<Action>>> combinedList, partialList;
+		List<Action> actionList;
+		BotInteraction botInteraction;
+		Pair<UserInteraction, List<Action>> pairIntentAction;
+		EList<UserInteraction> userActionList;
+		
+		combinedList = null;
+		actionList = null;
+		if(userActIn !=null)
+		{
+			combinedList = new LinkedList<Pair<UserInteraction,List<Action>>>();
+			botInteraction = userActIn.getTarget();
+			
+			if(botInteraction != null)
+			{
+				actionList = botInteraction.getActions();
+				pairIntentAction = Pair.of(userActIn, actionList);
+				combinedList.add(pairIntentAction);
+			}
+			userActionList = botInteraction.getOutcoming();
+			if(botInteraction.getOutcoming() != null)
+			{
+				//Here we have another intent with a action list
+				for(UserInteraction userAct: userActionList)
+				{
+					partialList = plainActionTreeInBranches(userAct);
+					combinedList.addAll(partialList);
+				}
+			}
+				
+		}
+		
+		return combinedList;
+	}
 }

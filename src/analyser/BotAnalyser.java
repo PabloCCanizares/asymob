@@ -7,6 +7,9 @@ import java.util.Map;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.emf.common.util.EList;
+
+import analyser.flowTree.TreeInterAction;
+import analyser.flowTree.intentSplitter.IntentSplitter;
 import generator.Action;
 import generator.Bot;
 import generator.BotInteraction;
@@ -19,6 +22,7 @@ import generator.IntentLanguageInputs;
 import generator.Language;
 import generator.LanguageInput;
 import generator.Literal;
+import generator.Parameter;
 import generator.ParameterReferenceToken;
 import generator.SimpleInput;
 import generator.Token;
@@ -89,6 +93,7 @@ public class BotAnalyser {
 		TrainingPhrase trainIn;
 		EList<Token> tokenList;
 		LinkedList<String> retList;
+		String strPhrase;
 		
 		retList = null;
 		//Find all the inputs and process them
@@ -97,7 +102,7 @@ public class BotAnalyser {
 			retList = new LinkedList<String>();
 			for (IntentInput input : inputList) {
 				
-				if (input instanceof TrainingPhrase) {
+				/*if (input instanceof TrainingPhrase) {
 					trainIn = (TrainingPhrase) input;
 
 					if(trainIn != null)
@@ -115,10 +120,35 @@ public class BotAnalyser {
 						if(!strPhrase.isEmpty() && !strPhrase.isBlank())
 							retList.add(strPhrase);
 					}
-				}
+				}*/
+				strPhrase = convertTrainingPhraseToString(input);
+				if(strPhrase != null && !strPhrase.isEmpty() && !strPhrase.isBlank())
+					retList.add(strPhrase);
 			}
 		}
 		return retList;
+	}
+	public String convertTrainingPhraseToString(IntentInput input) {
+		TrainingPhrase trainIn;
+		EList<Token> tokenList;
+		String strPhrase;
+		
+		strPhrase = "";
+		if (input instanceof TrainingPhrase) {
+			trainIn = (TrainingPhrase) input;
+
+			if(trainIn != null)
+			{
+				tokenList = trainIn.getTokens();
+								
+				strPhrase = "";
+				for(Token tokIn: tokenList)
+				{
+					strPhrase+=getTokenText(tokIn);
+				}
+			}
+		}
+		return strPhrase;
 	}
 	
 	private String getTokenText(Token token) {
@@ -235,7 +265,7 @@ public class BotAnalyser {
 	
 	public List<Pair<UserInteraction, List<Action>>> plainActionTreeInBranches(UserInteraction userActIn) {
 	
-		List<Pair<UserInteraction, List<Action>>> combinedList, partialList;
+		/*List<Pair<UserInteraction, List<Action>>> combinedList, partialList;
 		List<Action> actionList;
 		BotInteraction botInteraction;
 		Pair<UserInteraction, List<Action>> pairIntentAction;
@@ -267,8 +297,10 @@ public class BotAnalyser {
 				
 		}
 		
-		return combinedList;
+		return combinedList;*/ 
+		return flowAnalyser.plainActionTreeInBranches(userActIn);
 	}
+	//TODO: Deprecated
 	public List<Pair<UserInteraction, Action>> plainActionTree(UserInteraction userActIn) {
 		List<Pair<UserInteraction, Action>> combinedList, partialList;
 		List<Action> actionList;
@@ -308,43 +340,7 @@ public class BotAnalyser {
 		
 		return combinedList;
 	}
-	/*public List<TreeBranch> plainActionTreeList(UserInteraction userActIn, TreeBranchList listIn) {
-		TreeBranchList combinedList, partialList;
-		List<Action> actionList;
-		BotInteraction botInteraction;
-		TreeInterAction pairIntentAction;
-		EList<UserInteraction> userActionList;
-		
-		combinedList = null;
-		actionList = null;
-		try
-		{
-			combinedList = new TreeBranchList();
-			botInteraction = userActIn.getTarget();
-			actionList = botInteraction.getActions();
-			if(actionList != null)
-			{
-				//combinedList = (TreeBranchList) SerializationUtils.clone((T) listIn); 
-				//listIn.insertIntentActionList(userActIn, actionList);				
-			}
-
-			userActionList = botInteraction.getOutcoming();
-			if(botInteraction.getOutcoming() != null)
-			{
-				//Here we have another intent with a action list
-				for(UserInteraction userAct: userActionList)
-				{
-					partialList = plainActionTreeList(userAct);
-					combinedList.addAll(partialList);
-				}
-			}
-		}catch(Exception e)
-		{
-			System.out.println("[plainActionTreeList] Exception plaining tree");
-		}
-		
-		return combinedList;
-	}*/
+	
 	public EList<Action> extractActionList(UserInteraction userActIn) {
 		EList<Action> retList;
 		BotInteraction botInteraction;
@@ -509,8 +505,54 @@ public class BotAnalyser {
 	public void setCompactRefPhrasesMode(boolean bMode) {
 		this.flowAnalyser.setCompactRefPhrases(bMode);		
 	}
-	public LinkedList<String> extractAllIntentParameterPromts(Intent intent) {
-		return this.intentAnalyser.extractAllIntentParameterPromts(intent);		
+	public LinkedList<String> extractAllIntentParameterPrompts(Intent intent) {
+		return this.intentAnalyser.extractAllIntentParameterPrompts(intent);		
 	}
 	
+	//De aqui para abajo, tratar de extraer esta info en nuevas clases
+	public void splitByParameterConvenion(TreeInterAction treeIntentAction)
+	{
+		Intent intentIn;
+		LinkedList<Parameter> paramList;
+		LinkedList<IntentInput> intentInputList;
+		IntentSplitter splitter;
+		int nParameters;
+		//La idea es, de esta dupla intent, lista de acciones: generar una lista de <intent, acciones>
+		//Hay que separarlos por frases de entrenamiento teniendo en cuenta:
+		//*Los parametros requeridos del intent
+		//*Un intent nuevo, por cada conjunto de frases que tenga el mismo tipo de parametros:
+		//Ej: Un intent tiene 2 parametros requeridos. Si X frases de entrenamiento tienen el parametro p1, pero le falta el p2: formaran un grupo
+		//Si Y frases tienen p1 y p2, formaran otro.
+		
+		//
+		//Sacamos la lista de parametros requeridos del intent 
+		intentIn = treeIntentAction.getIntent();
+		paramList = this.intentAnalyser.getRequiredParameters(intentIn);
+		splitter = new IntentSplitter(paramList);
+		
+		if(paramList != null)
+			nParameters = paramList.size();
+		else
+			nParameters = 0;
+		
+		if(nParameters>0)
+		{
+			System.out.printf("splitByParameterConvenion - Number of required parameters detected: %d, max: %d", nParameters, 2^nParameters);
+			//Con el número de parameters p, sabemos la cota superior de grupos que va a haber: 2^p
+			
+			//A partir de aqui, analizamos frase a frase, y nos devolverá una lista de booleanos
+			intentInputList= this.intentAnalyser.extractAllInputs(intentIn, Language.ENGLISH);
+			
+			for(IntentInput intentInput: intentInputList)
+			{
+				//Analizamos en cada intent, que parametros ha encontrado, y con esto se generaun grupo
+				splitter.matchParameters(intentInput);
+			}
+			//splitter.analyseIntentGroups();
+		}
+		else
+			System.out.println("splitByParameterConvenion - No parameters found");
+		
+		
+	}
 }

@@ -15,7 +15,6 @@ public class TreeBranchList {
 	public void add(TreeBranch treeBranch) {
 		if(treeBranch != null)
 			branchList.add(treeBranch);
-		
 	}
 	
 }
