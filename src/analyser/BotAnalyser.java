@@ -9,7 +9,10 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.emf.common.util.EList;
 
 import analyser.flowTree.TreeInterAction;
-import analyser.flowTree.intentSplitter.IntentSplitter;
+import analyser.flowTree.conversationSplitter.ConversationSplitter;
+import analyser.flowTree.conversationSplitter.IntentConversationGroup;
+import analyser.flowTree.conversationSplitter.IntentSplitter;
+import edu.stanford.nlp.quoteattribution.Sieves.QMSieves.ConversationalSieve;
 import generator.Action;
 import generator.Bot;
 import generator.BotInteraction;
@@ -34,12 +37,15 @@ public class BotAnalyser {
 	FlowAnalyser flowAnalyser;
 	EntityAnalyser entityAnalyser;
 	IntentAnalyser intentAnalyser;
+	ConversationSplitter conversationSplitter;
+	
 	boolean bParameterNameMode;
 	public BotAnalyser()
 	{
 		flowAnalyser = new FlowAnalyser();
 		entityAnalyser = new EntityAnalyser();
 		intentAnalyser = new IntentAnalyser();
+		conversationSplitter = new ConversationSplitter();
 		bParameterNameMode= false;
 	}
 	public BotAnalyser(Conversor converter)
@@ -47,6 +53,7 @@ public class BotAnalyser {
 		intentAnalyser = new IntentAnalyser(converter);
 		flowAnalyser = new FlowAnalyser(converter);
 		entityAnalyser = new EntityAnalyser(converter);
+		conversationSplitter = new ConversationSplitter(converter);
 	}
 	private List<Intent> extractAllIntentInputs(Bot botIn)
 	{
@@ -128,6 +135,7 @@ public class BotAnalyser {
 		}
 		return retList;
 	}
+	//TODO: Este metodo deberia estar en intent
 	public String convertTrainingPhraseToString(IntentInput input) {
 		TrainingPhrase trainIn;
 		EList<Token> tokenList;
@@ -150,7 +158,7 @@ public class BotAnalyser {
 		}
 		return strPhrase;
 	}
-	
+	//TODO: Este metodo está repetido en TokenAnalyser
 	private String getTokenText(Token token) {
 		String strText;
 		Literal litIn;
@@ -508,51 +516,11 @@ public class BotAnalyser {
 	public LinkedList<String> extractAllIntentParameterPrompts(Intent intent) {
 		return this.intentAnalyser.extractAllIntentParameterPrompts(intent);		
 	}
-	
-	//De aqui para abajo, tratar de extraer esta info en nuevas clases
-	public void splitByParameterConvenion(TreeInterAction treeIntentAction)
-	{
-		Intent intentIn;
-		LinkedList<Parameter> paramList;
-		LinkedList<IntentInput> intentInputList;
-		IntentSplitter splitter;
-		int nParameters;
-		//La idea es, de esta dupla intent, lista de acciones: generar una lista de <intent, acciones>
-		//Hay que separarlos por frases de entrenamiento teniendo en cuenta:
-		//*Los parametros requeridos del intent
-		//*Un intent nuevo, por cada conjunto de frases que tenga el mismo tipo de parametros:
-		//Ej: Un intent tiene 2 parametros requeridos. Si X frases de entrenamiento tienen el parametro p1, pero le falta el p2: formaran un grupo
-		//Si Y frases tienen p1 y p2, formaran otro.
+	public void splitConversationByParam(TreeInterAction treeIntentAction) {
 		
-		//
-		//Sacamos la lista de parametros requeridos del intent 
-		intentIn = treeIntentAction.getIntent();
-		paramList = this.intentAnalyser.getRequiredParameters(intentIn);
-		splitter = new IntentSplitter(paramList);
-		
-		if(paramList != null)
-			nParameters = paramList.size();
-		else
-			nParameters = 0;
-		
-		if(nParameters>0)
-		{
-			System.out.printf("splitByParameterConvenion - Number of required parameters detected: %d, max: %d", nParameters, 2^nParameters);
-			//Con el número de parameters p, sabemos la cota superior de grupos que va a haber: 2^p
-			
-			//A partir de aqui, analizamos frase a frase, y nos devolverá una lista de booleanos
-			intentInputList= this.intentAnalyser.extractAllInputs(intentIn, Language.ENGLISH);
-			
-			for(IntentInput intentInput: intentInputList)
-			{
-				//Analizamos en cada intent, que parametros ha encontrado, y con esto se generaun grupo
-				splitter.matchParameters(intentInput);
-			}
-			//splitter.analyseIntentGroups();
-		}
-		else
-			System.out.println("splitByParameterConvenion - No parameters found");
-		
-		
+		this.conversationSplitter.splitByParameterConvenion(treeIntentAction);
+				
 	}
+	
+	
 }

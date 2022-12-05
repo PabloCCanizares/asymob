@@ -10,9 +10,10 @@ public class asymob_basic_TcGeneration {
 		botTester = new Asymob();
 		
 		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
-		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
+		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
+		if(botTester.loadChatbot("/Users/pablocc/Documents/Github/asymob/chatbots/Conga/bikeShop.xmi"))
 		{
-			botTester.generateTestCases("/localSpace/chatbots/Models/bikeShop");
+			botTester.generateTestCases("/Users/pablocc/Documents/Github/asymob/chatbots/Conga/bikeShop");
 		}
 	}
 }

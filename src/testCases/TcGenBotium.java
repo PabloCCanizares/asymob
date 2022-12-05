@@ -199,7 +199,12 @@ public class TcGenBotium implements ITestCaseGenerator {
 				treeIntentAction = treeBranch.getNext();
 				
 				//TODO: Mover de aqui, mientras vamos probando
+				//Aqui sacamos el nombre de los intents y sus acciones
 				botAnalyser.splitByParameterConvenion(treeIntentAction);
+								
+				Aqui tendriamos una lista de pares de la conversacion
+				La idea seria pre-procesarlo, para obtener ramas completas
+				Es decir, unalista de conversationgroups, e ir añadiendolos
 				
 				//Update convoName
 				strConvoName = updateConvoName(strConvoName, treeIntentAction);

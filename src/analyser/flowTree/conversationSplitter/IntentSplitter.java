@@ -1,13 +1,17 @@
-package analyser.flowTree.intentSplitter;
+package analyser.flowTree.conversationSplitter;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import analyser.IntentAnalyser;
 import generator.IntentInput;
 import generator.Parameter;
 import generator.TrainingPhrase;
+import metrics.db.MetricDbSingleEntry;
 
 public class IntentSplitter {
 	String strIntentName;
@@ -15,8 +19,9 @@ public class IntentSplitter {
 	LinkedList<Parameter> intentParameters;
 	HashMap<String, LinkedList<TrainingPhrase>> mapIntentGroups;
 	
-	public IntentSplitter(LinkedList<Parameter> reqParameters)
+	public IntentSplitter(String strIntentName, LinkedList<Parameter> reqParameters)
 	{
+		this.strIntentName = strIntentName;
 		this.intentParameters = reqParameters;
 		intentAnalyser = new IntentAnalyser();
 		mapIntentGroups = new HashMap<String, LinkedList<TrainingPhrase>> ();
@@ -42,7 +47,7 @@ public class IntentSplitter {
 	public void manageEntry(String strCode, TrainingPhrase trainingIn) {
 
 		LinkedList<TrainingPhrase> traininphraseList;
-		System.out.println("manageEntry - Init");
+		//System.out.println("manageEntry - Init");
 		
 		if(mapIntentGroups.containsKey(strCode))
 		{
@@ -59,7 +64,7 @@ public class IntentSplitter {
 			traininphraseList.add(trainingIn);
 			mapIntentGroups.put(strCode, traininphraseList);
 		}
-		System.out.println("manageEntry - End");
+		//System.out.println("manageEntry - End");
 		
 	}
 	
@@ -107,8 +112,25 @@ public class IntentSplitter {
 		return bRet;
 	}
 	//TODO: Se puede detectar que los prompts no estan probados.
-	public void processGroups(String strIntentName)
+	public LinkedList<IntentConversationGroup> processGroups()
 	{
-		//Esto devuelve una lista de pares: grupo: -> lista de frases de entrenamiento
+		String strHashCode;
+		LinkedList<TrainingPhrase> phraseList;
+		IntentConversationGroup groupInfo;
+		LinkedList<IntentConversationGroup> retList;
+		Iterator<Entry<String, LinkedList<TrainingPhrase>>> it;
+		retList = new LinkedList<IntentConversationGroup>();
+		it = this.mapIntentGroups.entrySet().iterator();
+		
+		while(it.hasNext())
+		{
+			Map.Entry pair = (Map.Entry)it.next();
+			phraseList = (LinkedList<TrainingPhrase>) pair.getValue();
+			strHashCode = (String) pair.getKey();
+			groupInfo = new IntentConversationGroup(strIntentName, strHashCode, intentParameters, phraseList);
+			retList.add(groupInfo);
+		}
+		
+		return retList;
 	}
 }

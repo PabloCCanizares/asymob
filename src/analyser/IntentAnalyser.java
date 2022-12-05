@@ -20,15 +20,18 @@ import generator.TrainingPhrase;
 
 public class IntentAnalyser {
 
+	private TokenAnalyser tokenAnalyser;
 	private final Language CONST_LANGUAGE = Language.ENGLISH;
 	private Conversor converter;
+	
 	public IntentAnalyser(Conversor converter) {
 		this.converter = converter;
+		tokenAnalyser = new TokenAnalyser(converter);
 	}
 
 	public IntentAnalyser() {
-
 		converter =null;
+		tokenAnalyser = new TokenAnalyser();
 	}
 
 	/**
@@ -107,6 +110,7 @@ public class IntentAnalyser {
 		return tokenRet;
 	}
 
+	
 	private EList<Token> extractTokensFromInput(IntentInput inputIn) {
 		EList<Token>  retList;
 		TrainingPhrase trainIn;
@@ -161,7 +165,7 @@ public class IntentAnalyser {
 		return retList;
 	}
 	
-	LinkedList<IntentInput> extractAllInputs(Intent intentIn, Language lanIn) {
+	public LinkedList<IntentInput> extractAllInputs(Intent intentIn, Language lanIn) {
 		List<IntentLanguageInputs> listLanguages;
 		LinkedList<IntentInput> retList;
 		EList<IntentInput> inputList;
@@ -287,6 +291,38 @@ public class IntentAnalyser {
 		return nRet;
 	}
 	
+	public LinkedList<String> convertTrainingPhrasesToString(LinkedList<TrainingPhrase> phraseList, boolean bRefMode)
+	{
+		LinkedList<String> retList;
+		EList<Token> tokenList;
+		String strPhrase;
+		
+		retList = null;
+		if(phraseList != null)
+		{
+			retList = new LinkedList<String>();
+			//Dynamically check if are training phrases [TrainingPhrase] 
+			for(TrainingPhrase tp: phraseList)
+			{
+				
+				if (tp instanceof TrainingPhrase) {
+					tokenList = (EList<Token>) tp.getTokens();
+					
+					strPhrase = "";
+					for(Token tokIn: tokenList)
+					{
+						strPhrase+=tokenAnalyser.getTokenText(tokIn, bRefMode);
+					}
+					
+					retList.add(strPhrase);
+				}
+			}
+		}
+
+
+		
+		return retList;
+	}
 	public LinkedList<String> extractStringTrainingPhrasesFromIntent(Intent intentIn)
 	{
 		LinkedList<IntentInput>  intentList;
