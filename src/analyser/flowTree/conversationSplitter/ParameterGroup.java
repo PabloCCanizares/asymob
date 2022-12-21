@@ -27,7 +27,7 @@ public class ParameterGroup {
 			nLen = strCode.length();
 			for(int i=0;i<nLen;i++)
 			{
-				if(strCode.indexOf(i) == '0')
+				if(strCode.charAt(i) == '0')
 					paramActiveList.addLast(false);
 				else
 					paramActiveList.addLast(true);				
@@ -97,4 +97,5 @@ public class ParameterGroup {
 	public String getCode() {
 		return this.strCode;
 	}
+
 }

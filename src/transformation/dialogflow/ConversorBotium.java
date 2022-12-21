@@ -34,9 +34,9 @@ public class ConversorBotium implements Conversor{
 		else if(dataType.equals(DefaultEntity.NUMBER.getName()))
 			strRet ="@sys.number-integer";
 		else if(dataType.equals(DefaultEntity.DATE.getName()))
-			strRet ="$date";
+			strRet ="$dateIn";
 		else if(dataType.equals(DefaultEntity.TIME.getName()))
-			strRet ="$time";
+			strRet ="$timeIn";
 		else
 			strRet = "$"+strAux;
 		

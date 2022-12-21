@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 
 import auxiliar.Common;
+import generator.Element;
 import generator.Intent;
 import generator.IntentInput;
 import generator.IntentLanguageInputs;
@@ -81,6 +82,53 @@ public class IntentAnalyser {
 		return tokenRet;
 	}
 
+	/**
+	 * Search the Tokens of an Intent, which have an specific param name
+	 * @param intentIn: Intent where the search is performed.
+	 * @param paramIn: Parameter used to match the search.
+	 * @return
+	 */
+	public LinkedList<Token> searchTokensByParam(Intent intentIn, String strParamName)
+	{
+		List<IntentInput> inputList;
+		List<Token> tokenList, tokenFilteredList;
+		LinkedList<Token> tokenRet;
+		
+		tokenRet = null;
+		try
+		{
+			//Initialise the return list
+			tokenRet = new LinkedList<Token>();
+			
+			//Check if the intent input is null
+			if(intentIn == null)
+				throw new Exception("The input intent is empty");
+			
+			//Extract the input list
+			inputList = extractAllInputs(intentIn);
+			
+			//Check if the inputlist is null
+			if(inputList == null)
+				throw new Exception("The input list is empty");
+			
+			for(IntentInput intent: inputList)
+			{
+				tokenList = extractTokensFromInput(intent);
+				
+				tokenFilteredList = filterTokensByParam(tokenList, strParamName);
+				
+				if(tokenFilteredList != null)
+					tokenRet.addAll(tokenFilteredList);
+			}
+		}
+		catch(Exception e)
+		{
+			tokenRet = null;
+			System.out.println("[searchTokensByParam] Exception while searching: "+e.getMessage());
+		}
+		return tokenRet;
+	}
+	
 	private List<Token> filterTokensByParam(List<Token> tokenList, Parameter paramIn) {
 		
 		List<Token> tokenRet;
@@ -109,7 +157,39 @@ public class IntentAnalyser {
 		
 		return tokenRet;
 	}
-
+	private List<Token> filterTokensByParam(List<Token> tokenList, String strParamNameIn) {
+		
+		String strParamName;
+		List<Token> tokenRet;
+		ParameterReferenceToken paramRef;
+		
+		tokenRet = null;
+		if(tokenList != null && strParamNameIn != null)
+		{
+			
+			for(Token tokIn: tokenList)
+			{
+				if (tokIn instanceof ParameterReferenceToken)
+				{
+					paramRef = (ParameterReferenceToken) tokIn;
+							
+					if(paramRef != null)
+					{
+						strParamName = ((Element) paramRef).getName();
+						if(strParamName.equals(strParamNameIn))
+						{
+							if(tokenRet == null)
+								tokenRet = new LinkedList<Token>();
+							
+							tokenRet.add(tokIn);
+						}
+					}
+				}
+			}
+		}
+		
+		return tokenRet;
+	}
 	
 	private EList<Token> extractTokensFromInput(IntentInput inputIn) {
 		EList<Token>  retList;
@@ -569,5 +649,89 @@ public class IntentAnalyser {
 
 		return paramRet;
 	}
+
+	public LinkedList<String> extractIntentParameterPrompts(Intent intentIn, LinkedList<Parameter> paramList) {
+		LinkedList<String> retList;
+
+		try {
+		
+			retList = new LinkedList<String>();
+			for(Parameter param: paramList)
+			{
+				for(PromptLanguage prompt: param.getPrompts())
+				{
+					for(String strPrompt: prompt.getPrompts())
+					{
+						retList.add(strPrompt);
+					}
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception catched while extracting parameters prompts");
+			retList = null;
+		}
+
+		return retList;
+	}
+
+	public LinkedList<String> extractIntentParameterDefaultValues(Intent intentIn, Parameter param) {
+		LinkedList<String> retList;
+		LinkedList<IntentInput> intentInputList;
+		LinkedList<Token> tokList;
+		String strValue;
+		
+		retList = null;
+		
+		//Extract the intentInput list, english language
+		intentInputList = this.extractAllInputs(intentIn, CONST_LANGUAGE);
+		
+		if(intentInputList != null && intentInputList.size()>0)
+		{
+			retList = new LinkedList<String>();
+			tokList = this.searchTokensByParam(intentIn, param);
+			retList = this.tokenAnalyser.convertTokenListToStringList(tokList);
+			
+		}
+		
+		return retList;
+	}
+	public LinkedList<String> extractIntentParameterDefaultValues(Intent intentIn, String strParamName) {
+		LinkedList<String> retList;
+		LinkedList<IntentInput> intentInputList;
+		LinkedList<Token> tokList;
+		String strValue;
+		
+		retList = null;
+		
+		//Extract the intentInput list, english language
+		intentInputList = this.extractAllInputs(intentIn, CONST_LANGUAGE);
+		
+		if(intentInputList != null && intentInputList.size()>0)
+		{
+			retList = new LinkedList<String>();
+			tokList = this.searchTokensByParam(intentIn, strParamName);
+			retList = this.tokenAnalyser.convertTokenListToStringList(tokList);
+			
+		}
+		
+		return retList;
+	}
+	public LinkedList<String> extractParameterPrompt(Parameter param) {
+		LinkedList<String> retList;
+		
+		retList = new LinkedList<String>();
+		for(PromptLanguage prompt: param.getPrompts())
+		{
+			for(String strPrompt: prompt.getPrompts())
+			{
+				retList.add(strPrompt);
+			}
+		}
+
+		return retList;
+	}
+
 	
 }

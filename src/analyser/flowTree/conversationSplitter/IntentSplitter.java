@@ -74,13 +74,16 @@ public class IntentSplitter {
 		
 		strRet="";
 		
-		//Iterate the 
-		for(Parameter param: this.intentParameters)
+		if(this.intentParameters != null)
 		{
-			if(checkParamInList(paramListIn, param))
-				strRet = strRet.concat("1");
-			else
-				strRet = strRet.concat("0");
+			//Iterate the 
+			for(Parameter param: this.intentParameters)
+			{
+				if(checkParamInList(paramListIn, param))
+					strRet = strRet.concat("1");
+				else
+					strRet = strRet.concat("0");
+			}
 		}
 		
 		return strRet;

@@ -22,7 +22,7 @@ import metrics.db.MetricDataBase;
 import metrics.reports.MetricReport;
 import metrics.reports.MetricReportGenerator;
 import testCases.ITestCaseGenerator;
-import testCases.TcGenBotium;
+import testCases.botium.TcGenBotium;
 import training.IVariantPhraseGenerator;
 import training.VariationsCollectionText;
 import training.simple.SimplePhraseGenerator;

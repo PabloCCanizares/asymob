@@ -13,8 +13,10 @@ import generator.Parameter;
 public class ConversationSplitter {
 
 	private IntentAnalyser intentAnalyser;
+	private Conversor converter;
 	
 	public ConversationSplitter(Conversor converter) {
+		this.converter = converter;
 		intentAnalyser = new IntentAnalyser(converter);
 	}
 
@@ -22,12 +24,13 @@ public class ConversationSplitter {
 		intentAnalyser = new IntentAnalyser();
 	}
 
-	public void splitByParameterConvenion(TreeInterAction treeIntentAction)
+	public LinkedList<ConversationGroup> splitByParameterConvenion(TreeInterAction treeIntentAction)
 	{
 		LinkedList<ConversationGroup> conversationList;
 		LinkedList<IntentConversationGroup> intentGroupList;
 		ActionConversationGroup actionGroup;
 		ConversationGroup conversationPair;
+		
 		//First, we analyse the intents
 		intentGroupList = separateIntentByParamRequirements(treeIntentAction);
 
@@ -36,14 +39,12 @@ public class ConversationSplitter {
 		for(IntentConversationGroup intentGroup: intentGroupList)
 		{
 			//Given a group, obtain the output
-			//TODO: Aqui nos quedamos, hay que construir las acciones
-			//dada la informacion de intent.
-			//Se reduce a: si tiene todos los paramertros, lista de acciones traducidas
-			//Si le falta algun parametro: se le incluye el prompt correspondiente
-			actionGroup = new ActionConversationGroup(intentGroup);
+			actionGroup = new ActionConversationGroup(this.converter);
 			
-			conversationPair = new ConversationGroup(intentGroup, actionGroup);
-			conversationList.add(conversationPair);
+			if(actionGroup.extractActions(intentGroup, treeIntentAction)) {
+				conversationPair = new ConversationGroup(intentGroup, actionGroup);
+				conversationList.add(conversationPair);
+			}
 		}
 		
 		//Finally, we return the list of pairs, group - actions (to be plained)
@@ -81,7 +82,7 @@ public class ConversationSplitter {
 			else
 				nParameters = 0;
 	
-			if(nParameters>0)
+			if(nParameters>-1)
 			{
 				System.out.printf("splitByParameterConvenion - Number of required parameters detected: %d, max: %d\n", nParameters, 2^nParameters);
 				//Con el número de parameters p, sabemos la cota superior de grupos que va a haber: 2^p
@@ -97,14 +98,17 @@ public class ConversationSplitter {
 				intentGroupList = splitter.processGroups();
 	
 				//Print the groups to understand the 
-				System.out.println("Total groups extracted: "+intentGroupList.size());
+				/*System.out.println("Total groups extracted: "+intentGroupList.size());
 				for(IntentConversationGroup groupInfo: intentGroupList)
 				{
 					System.out.println(groupInfo.ToString());
-				}
+				}*/
 			}
 			else
+			{
 				System.out.println("splitByParameterConvenion - No parameters found");
+				//emptyGroup = new IntentConversationGroup(strIntentName, "", null, phraseList);
+			}
 		}
 		catch(Exception e)
 		{

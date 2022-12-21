@@ -9,6 +9,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.emf.common.util.EList;
 
 import analyser.flowTree.TreeInterAction;
+import analyser.flowTree.conversationSplitter.ConversationGroup;
 import analyser.flowTree.conversationSplitter.ConversationSplitter;
 import analyser.flowTree.conversationSplitter.IntentConversationGroup;
 import analyser.flowTree.conversationSplitter.IntentSplitter;
@@ -516,11 +517,50 @@ public class BotAnalyser {
 	public LinkedList<String> extractAllIntentParameterPrompts(Intent intent) {
 		return this.intentAnalyser.extractAllIntentParameterPrompts(intent);		
 	}
-	public void splitConversationByParam(TreeInterAction treeIntentAction) {
+	public LinkedList<ConversationGroup> splitConversationByParam(TreeInterAction treeIntentAction) {
 		
-		this.conversationSplitter.splitByParameterConvenion(treeIntentAction);
-				
+		return this.conversationSplitter.splitByParameterConvenion(treeIntentAction);
+	}
+	public LinkedList<String> extractParameterPrompt(Parameter param) {
+		return this.intentAnalyser.extractParameterPrompt(param);
+		
+	}
+	public LinkedList<String> extractAllBotParameterValues(Bot botIn, Parameter param) {
+		
+		LinkedList<String> retList, auxList;
+		EList<Intent> intentList;
+		
+		retList = new LinkedList<String>();
+		//Extract all intents
+		intentList = botIn.getIntents();
+		for(Intent intentIn: intentList)
+		{
+			//Iterate
+			auxList = this.intentAnalyser.extractIntentParameterDefaultValues(intentIn, param);	
+			
+			if(auxList != null)
+				retList.addAll(auxList);
+		}
+		return retList;
 	}
 	
+	public LinkedList<String> extractAllBotParameterValues(Bot botIn, String strName) {
+		
+		LinkedList<String> retList, auxList;
+		EList<Intent> intentList;
+		
+		retList = new LinkedList<String>();
+		//Extract all intents
+		intentList = botIn.getIntents();
+		for(Intent intentIn: intentList)
+		{
+			//Iterate
+			auxList = this.intentAnalyser.extractIntentParameterDefaultValues(intentIn, strName);	
+			
+			if(auxList != null)
+				retList.addAll(auxList);
+		}
+		return retList;
+	}
 	
 }

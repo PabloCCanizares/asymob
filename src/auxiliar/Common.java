@@ -249,6 +249,19 @@ public class Common {
 		}
 		return strRet;
 	}
+	public static String listToStringWithBreak(LinkedList<String> listRet) {
+		String strRet;
+		
+		strRet="";
+		if(listRet != null)
+		{
+			for(String strIn: listRet)
+			{
+				strRet += strIn+"\n";
+			}
+		}
+		return strRet;
+	}
 	public static String intListToString(LinkedList<Integer> listRet) {
 		String strRet;
 		

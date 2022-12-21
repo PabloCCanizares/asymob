@@ -31,11 +31,15 @@ public class IntentConversationGroup {
 	}
 	public String getIntentGroupName()
 	{
-		String strRet;
+		String strRet, strCode;
 		
 		if(paramGroupInfo != null && strIntentName != null)
 		{
-			strRet = strIntentName+"_"+paramGroupInfo.getCode();
+			strCode = paramGroupInfo.getCode();
+			if(strCode != null && !strCode.isBlank())
+				strRet = strIntentName+"_"+strCode;
+			else
+				strRet = strIntentName;
 		}
 		else
 		{
@@ -54,5 +58,18 @@ public class IntentConversationGroup {
 		}
 		
 		return strRet;
+	}
+
+	public LinkedList<String> getPlainTrainingPhases()
+	{
+		return stringTrainingPhrases;
+	}
+	public boolean areAllParametersPresent() {
+		return paramGroupInfo != null ? paramGroupInfo.checkAllParameters(true) : false;
+	}
+
+	public LinkedList<Parameter> getNotPresentParameters() {
+		return paramGroupInfo != null ? paramGroupInfo.getParametersNotPresent() : null;
+		
 	}
 }
