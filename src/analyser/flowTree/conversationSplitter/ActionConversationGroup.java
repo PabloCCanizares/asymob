@@ -12,14 +12,20 @@ import generator.Action;
 import generator.Intent;
 import generator.Parameter;
 
+/**
+ * Contains all the elements necessaries to create and complement the actions of a conversation. 
+ * List of responses in plain text, map of parameters with its corresponding prompts, and finishing phrases
+ * @author Pablo C. Ca&ntildeizares
+ *
+ */
 public class ActionConversationGroup {
 	
 	//Analizadores
 	FlowAnalyser flowAnalyser;
 	IntentAnalyser intentAnalyser;
-	//Lista de respuestas
-	LinkedList<String> responseList;
 	TreeInterAction treeIntentAction;
+	//Lista de respuestas
+	LinkedList<String> responseList; //Responses in plain text	
 	Map<String, LinkedList<String>> paramValueMap;	//Map used for rebuild a conversation (with parameter prompts and parameters value)
 	LinkedList<String> finishingResponsesList; //List of chatbot responses when the chatbot have all the parameters
 	
@@ -58,9 +64,11 @@ public class ActionConversationGroup {
 				auxList = intentAnalyser.extractIntentParameterPrompts(intentIn, paramList);
 				
 				//Get all the finishing phrases (to rebuild the conversation in the future)
+				//Finishing phrses in terms of: the last phrases typed by the chatbot when an intent finishes
+				//I.E: After scheduling an appointment, chatbot says: "Ok, let me see if we can fit you in. Tomorrow at 3pm is fine! Do you need a repair or just a tune-up?"
 				finishingResponsesList = extractAllPhrases(treeIntentAction);
 				
-				//Iterate the non present parameters, and fill the map with all posible values for future tasks ()
+				//Iterate the non present parameters, and fill the map with all posible values for future tasks 
 				for(Parameter param: paramList)
 				{
 					
@@ -99,7 +107,7 @@ public class ActionConversationGroup {
 	}
 
 	public String getActionGroupName() {
-		//TODO: Peligrisimo
+		//TODO: Peligrosisimo
 		return treeIntentAction!=null ? treeIntentAction.getActions().get(0).getName() : "";
 	}
 

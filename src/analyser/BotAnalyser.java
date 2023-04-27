@@ -4,10 +4,12 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.emf.common.util.EList;
 
+import analyser.flowTree.TreeBranch;
 import analyser.flowTree.TreeInterAction;
 import analyser.flowTree.conversationSplitter.ConversationGroup;
 import analyser.flowTree.conversationSplitter.ConversationSplitter;
@@ -195,18 +197,6 @@ public class BotAnalyser {
 		return strText;
 	}
 
-	/*public int analyseNumPaths(UserInteraction userActIn)
-	{
-		List<Pair<UserInteraction, List<Action>>> treeBranch;
-		int nRet;
-		
-		nRet = 0;
-		treeBranch = plainActionTreeInBranches(userActIn);
-		
-		if(treeBranch != null)
-			nRet = treeBranch.size();
-		return nRet;
-	}*/
 	public int analyseNumPaths(UserInteraction userActIn)
 	{
 		BotInteraction botInteraction;
@@ -272,42 +262,18 @@ public class BotAnalyser {
 		return nRet;
 	}
 	
-	public List<Pair<UserInteraction, List<Action>>> plainActionTreeInBranches(UserInteraction userActIn) {
+	public TreeBranch plainActionTreeInBranches(UserInteraction userActIn) {
 	
-		/*List<Pair<UserInteraction, List<Action>>> combinedList, partialList;
-		List<Action> actionList;
-		BotInteraction botInteraction;
-		Pair<UserInteraction, List<Action>> pairIntentAction;
-		EList<UserInteraction> userActionList;
+		List<Pair<UserInteraction, List<Action>>> flowActionsTemp;
+		TreeBranch treeBranch;
 		
-		combinedList = null;
-		actionList = null;
-		if(userActIn !=null)
-		{
-			combinedList = new LinkedList<Pair<UserInteraction,List<Action>>>();
-			botInteraction = userActIn.getTarget();
-			
-			if(botInteraction != null)
-			{
-				actionList = botInteraction.getActions();
-				pairIntentAction = Pair.of(userActIn, actionList);
-				combinedList.add(pairIntentAction);
-			}
-			userActionList = botInteraction.getOutcoming();
-			if(botInteraction.getOutcoming() != null)
-			{
-				//Here we have another intent with a action list
-				for(UserInteraction userAct: userActionList)
-				{
-					partialList = plainActionTreeInBranches(userAct);
-					combinedList.addAll(partialList);
-				}
-			}
-				
-		}
+		//Plan the user interAct tree
+		flowActionsTemp =flowAnalyser.plainActionTreeInBranches(userActIn);
 		
-		return combinedList;*/ 
-		return flowAnalyser.plainActionTreeInBranches(userActIn);
+		//Create an intermediate representation tree branch, a simplified representation of a tree and save into list
+		treeBranch = new TreeBranch(flowActionsTemp);
+		
+		return treeBranch;
 	}
 	//TODO: Deprecated
 	public List<Pair<UserInteraction, Action>> plainActionTree(UserInteraction userActIn) {
@@ -519,7 +485,7 @@ public class BotAnalyser {
 	}
 	public LinkedList<ConversationGroup> splitConversationByParam(TreeInterAction treeIntentAction) {
 		
-		return this.conversationSplitter.splitByParameterConvenion(treeIntentAction);
+		return this.conversationSplitter.splitByParameters(treeIntentAction);
 	}
 	public LinkedList<String> extractParameterPrompt(Parameter param) {
 		return this.intentAnalyser.extractParameterPrompt(param);
@@ -541,14 +507,18 @@ public class BotAnalyser {
 			if(auxList != null)
 				retList.addAll(auxList);
 		}
+
+		
 		return retList;
 	}
 	
 	public LinkedList<String> extractAllBotParameterValues(Bot botIn, String strName) {
 		
 		LinkedList<String> retList, auxList;
+		List<String> uniqueList;
 		EList<Intent> intentList;
 		
+		uniqueList = null;
 		retList = new LinkedList<String>();
 		//Extract all intents
 		intentList = botIn.getIntents();
@@ -560,6 +530,17 @@ public class BotAnalyser {
 			if(auxList != null)
 				retList.addAll(auxList);
 		}
+		if(retList != null)
+		{
+			uniqueList = retList		
+	                .stream() // get sequential stream
+	                .distinct() // distinct method
+	                .collect(Collectors.toList()); // collected to new unique list
+			
+			retList.clear();
+			retList.addAll(uniqueList);
+		}
+	    
 		return retList;
 	}
 	

@@ -1,19 +1,17 @@
-package testCases.botium;
+package testCases.botium.testcase;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 
-import analyser.flowTree.TreeInterAction;
-
 /**
- * This class contains a fragment of conversation that consists of  single intent and a single action
+ * This class contains a fragment of conversation that consists of a single intent and a single action
  * @author Pablo C. Ca&ntildeizares
  *
  */
 public class BotiumTestCaseFragment {
 
-	boolean bInline;
-	boolean bReverse;
+	boolean bInline;		//If the fragment includes phrases inline (without the TAG)
+	boolean bReverse;		//If the fragment must be written in an inverted way (user - bot <-> bot - user)
 	BotiumIntent intent; 
 	BotiumAction action;
 	
@@ -34,6 +32,13 @@ public class BotiumTestCaseFragment {
 		this.bReverse = bReverse;
 	}
 	
+	public BotiumTestCaseFragment(String strIntent, String strAction, LinkedList<String> defaultResp, LinkedList<String> defaultPrompts, boolean bReverse) {
+		this.intent = new BotiumIntent(strIntent, defaultResp);
+		this.action = new BotiumAction(strAction, defaultPrompts);
+		this.bInline = false;
+		this.bReverse = bReverse;
+	}
+
 	public String getIntentName() {
 		return intent!=null ? intent.getName(): "";
 	}

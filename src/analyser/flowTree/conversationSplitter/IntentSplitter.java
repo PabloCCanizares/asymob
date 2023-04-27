@@ -3,7 +3,6 @@ package analyser.flowTree.conversationSplitter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -11,8 +10,12 @@ import analyser.IntentAnalyser;
 import generator.IntentInput;
 import generator.Parameter;
 import generator.TrainingPhrase;
-import metrics.db.MetricDbSingleEntry;
 
+/**
+ * This class splits an Intent into different groups by considering the required parameters of the training phrases
+ * @author Pablo C. Ca&ntildeizares
+ *
+ */
 public class IntentSplitter {
 	String strIntentName;
 	IntentAnalyser intentAnalyser;
@@ -26,6 +29,10 @@ public class IntentSplitter {
 		intentAnalyser = new IntentAnalyser();
 		mapIntentGroups = new HashMap<String, LinkedList<TrainingPhrase>> ();
 	}
+	/**
+	 * Places the input intent in its corresponding group. This group will be determined by its code
+	 * @param intentInput: Input intent
+	 */
 	public void matchParameters(IntentInput intentInput) {
 		LinkedList<Parameter> localParamList;
 		String strCode;
@@ -33,17 +40,23 @@ public class IntentSplitter {
 		
 		if(intentInput instanceof TrainingPhrase)
 		{
+			//Extract a list of required parameters
 			localParamList = intentAnalyser.getParametersFromIntentInput(intentInput);
 			
 			//Generate the code, i.e: "01" that represent that the parameter 0 is not present but parameter 1 is present.
 			strCode = generateHashCode(localParamList);
 			
-			//manage group
+			//Manage group: given a code, insert the intentInput into its corresponding group
 			manageEntry(strCode, (TrainingPhrase) intentInput);
 		}
 
 	}
 
+	/**
+	 * Given a code, insert the input Training phrase into a group (or creates a new one if it not exists)
+	 * @param strCode: Code corresponding with the group
+	 * @param trainingIn: Input training phrase
+	 */
 	public void manageEntry(String strCode, TrainingPhrase trainingIn) {
 
 		LinkedList<TrainingPhrase> traininphraseList;
@@ -88,6 +101,12 @@ public class IntentSplitter {
 		
 		return strRet;
 	}
+	/**
+	 * Check if a parameter is present in the list
+	 * @param paramListIn: List of parameters where the search is performed
+	 * @param param: Parameter to be searched
+	 * @return True if the parameter is present in the list
+	 */
 	private boolean checkParamInList(LinkedList<Parameter> paramListIn, Parameter param) {
 		boolean bRet;
 		int nIndex;

@@ -24,7 +24,12 @@ public class ConversationSplitter {
 		intentAnalyser = new IntentAnalyser();
 	}
 
-	public LinkedList<ConversationGroup> splitByParameterConvenion(TreeInterAction treeIntentAction)
+	/**
+	 * 
+	 * @param treeIntentAction
+	 * @return
+	 */
+	public LinkedList<ConversationGroup> splitByParameters(TreeInterAction treeIntentAction)
 	{
 		LinkedList<ConversationGroup> conversationList;
 		LinkedList<IntentConversationGroup> intentGroupList;
@@ -92,7 +97,7 @@ public class ConversationSplitter {
 	
 				for(IntentInput intentInput: intentInputList)
 				{
-					//Analizamos en cada intent, que parametros ha encontrado, y con esto se generaun grupo
+					//Analizamos en cada intent, que parametros ha encontrado, y con esto se genera un grupo
 					splitter.matchParameters(intentInput);
 				}
 				intentGroupList = splitter.processGroups();

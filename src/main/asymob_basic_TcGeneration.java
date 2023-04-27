@@ -7,13 +7,24 @@ public class asymob_basic_TcGeneration {
 	public static void main(String[] args) {
 		
 		Asymob botTester;
+		String strPathIn, strPathOut;
 		botTester = new Asymob();
 		
-		//if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop_short.xmi"))
-		if(botTester.loadChatbot("/localSpace/chatbots/CongaModels/bikeShop.xmi"))
-		//if(botTester.loadChatbot("/Users/pablocc/Documents/Github/asymob/chatbots/Conga/bikeShop.xmi"))
+		if(args.length>2)
 		{
-			botTester.generateTestCases("/localSpace/chatbots/bikeShop");
+			strPathIn = args[0];
+			strPathOut = args[1];
+		}
+		else
+		{
+			strPathIn = "/localSpace/chatbots/CongaModels/bikeShop.xmi";
+			strPathOut = "/localSpace/chatbots/bikeShop";			
+		}
+		
+		if(botTester.loadChatbot(strPathIn))
+		{
+			botTester.printBotSummary();
+			botTester.generateTestCases(strPathOut);
 		}
 	}
 }

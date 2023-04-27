@@ -473,6 +473,11 @@ public class FlowAnalyser {
 		bCompactRefPhrases = bMode;
 		
 	}
+	/**
+	 * Converts a UserInteraction, that can be considered as a Tree, into a list of pairs UserInteraction, List<Action>
+	 * @param userActIn Interaction to be processed
+	 * @return List of pairs UserInteraction, List<Action>
+	 */
 	public List<Pair<UserInteraction, List<Action>>> plainActionTreeInBranches(UserInteraction userActIn) {
 		
 		List<Pair<UserInteraction, List<Action>>> combinedList, partialList;

@@ -9,10 +9,17 @@ import org.apache.commons.lang3.tuple.Pair;
 import generator.Action;
 import generator.UserInteraction;
 
+/**
+ * Intermediate class used to generate test case, receives a list of userInteraction-List<Action> and encapsulate it
+ * and provide a set of 
+ * @author Pablo C. Ca&ntildeizares
+ *
+ */
 public class TreeBranch {
 
 	ListIterator<TreeInterAction> iterator;
 	List<TreeInterAction> branch;
+	
 	public TreeBranch(List<Pair<UserInteraction, List<Action>>> flowActionsTemp) {
 		branch = new LinkedList<TreeInterAction>();
 		

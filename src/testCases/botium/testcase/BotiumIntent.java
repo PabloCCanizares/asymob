@@ -1,4 +1,4 @@
-package testCases.botium;
+package testCases.botium.testcase;
 
 import java.util.LinkedList;
 

@@ -243,25 +243,6 @@ public class Asymob {
 	
 	public boolean validateBot()
 	{
-		//TODO: Create a new package of validation, and include:
-		/*
-		 * Validaciones de Intents (todos ellos warnings):
-			- No debería haber dos frases de entrenamiento iguales
-			- Las frases de entrenamiento deberían tener algo más que parametros 
-			de tipo textual (si solo tiene parametros textuales pueden emparejarse 
-			con cualquier interaccion del usuario)
-			- Los intents deberían tener al menos tres frases de entrenamiento o 
-			una expresion regular
-			- Valido las expresiones regulares
-			- Los intents deberían definir tantos lenguajes como los que tiene el bot
-			
-		 * Validaciones de Flows (todos ellos errores):
-			- Dos flujos de conversacion no pueden empezar por el mismo intent
-			- Para usar una accion que referencie parametros en el flujo de 
-			conversacion, previamente debe estar el intent que contenga el parametro
-			- En el fujo de conversación, Antes de una HttpResponse debe ir la 
-			HttpRequest que hace referencia
-		 */
 		return false;
 	}
 	

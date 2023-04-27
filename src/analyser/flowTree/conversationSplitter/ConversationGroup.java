@@ -3,20 +3,21 @@ package analyser.flowTree.conversationSplitter;
 import java.util.LinkedList;
 
 import generator.Parameter;
-import testCases.botium.BotiumAction;
+import testCases.botium.testcase.BotiumAction;
 
 public class ConversationGroup {
 
 	boolean bDisabledIntent;
 	boolean bDisabledAction;
+
+	private IntentConversationGroup intentGroup;
+	private ActionConversationGroup actionGroup;
 	
 	public ConversationGroup(IntentConversationGroup intentGroupIn, ActionConversationGroup actionGroupIn) {
 		this.intentGroup = intentGroupIn;
 		this.actionGroup = actionGroupIn;
 		bDisabledIntent = bDisabledAction = false;
 	}
-	private IntentConversationGroup intentGroup;
-	private ActionConversationGroup actionGroup;
 	
 	public String getIntentGroupName() {
 		return intentGroup != null ? intentGroup.getIntentGroupName() : "";

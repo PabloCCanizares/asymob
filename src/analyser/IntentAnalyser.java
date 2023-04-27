@@ -77,7 +77,7 @@ public class IntentAnalyser {
 		catch(Exception e)
 		{
 			tokenRet = null;
-			System.out.println("[searchTokensByParam] Exception while searching: "+e.getMessage());
+			System.out.println("[IntentAnalyser - searchTokensByParam] Exception while searching: "+e.getMessage());
 		}
 		return tokenRet;
 	}
@@ -124,7 +124,7 @@ public class IntentAnalyser {
 		catch(Exception e)
 		{
 			tokenRet = null;
-			System.out.println("[searchTokensByParam] Exception while searching: "+e.getMessage());
+			System.out.println("[IntentAnalyser - searchTokensByParam] Exception while searching: "+strParamName+". / "+e.getMessage());
 		}
 		return tokenRet;
 	}
@@ -162,11 +162,11 @@ public class IntentAnalyser {
 		String strParamName;
 		List<Token> tokenRet;
 		ParameterReferenceToken paramRef;
-		
+		Parameter paramAux;
 		tokenRet = null;
 		if(tokenList != null && strParamNameIn != null)
 		{
-			
+			strParamName = null;
 			for(Token tokIn: tokenList)
 			{
 				if (tokIn instanceof ParameterReferenceToken)
@@ -175,8 +175,17 @@ public class IntentAnalyser {
 							
 					if(paramRef != null)
 					{
-						strParamName = ((Element) paramRef).getName();
-						if(strParamName.equals(strParamNameIn))
+						//strParamName = ((Element) paramRef).getName();
+						paramAux = paramRef.getParameter();
+
+						if(paramAux!= null)
+							strParamName = paramAux.getName();
+						else if (paramRef instanceof Parameter)
+							strParamName = ((Parameter) paramRef).getName();
+						else if (paramRef instanceof Element)
+							strParamName = ((Element) paramRef).getName();
+						
+						if(strParamName != null && strParamName.equals(strParamNameIn))
 						{
 							if(tokenRet == null)
 								tokenRet = new LinkedList<Token>();
@@ -730,6 +739,8 @@ public class IntentAnalyser {
 			}
 		}
 
+		//Finally the default one?
+		retList.add("What is the "+param.getName()+"?");
 		return retList;
 	}
 
