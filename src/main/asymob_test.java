@@ -29,7 +29,7 @@ public class asymob_test {
 		{
 			botTester.printBotSummary();
 			
-			botTester.generateTestCases("/localSpace/chatbots/CongaModels/bikeShop");
+			//botTester.generateTestCases("/localSpace/chatbots/CongaModels/bikeShop");
 			
 			mutOpSet = selectMutationOperators();
 			//if(botTester.generateTrainingPhrasesByIntentId("Hours", mutOpSet))

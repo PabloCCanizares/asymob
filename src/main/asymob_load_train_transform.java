@@ -25,7 +25,7 @@ public class asymob_load_train_transform {
 		{
 			botTester.printBotSummary();
 			
-			botTester.generateTestCases("/localSpace/chatbots/CongaModels/bikeShop_test");
+			//botTester.generateTestCases("/localSpace/chatbots/CongaModels/bikeShop_test");
 			
 			mutOpSet = selectMutationOperators();
 			//if(botTester.generateTrainingPhrasesByIntentId("Make Appointment - custom", mutOpSet))

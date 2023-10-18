@@ -21,7 +21,11 @@ import metrics.MetricOperatorsSet;
 import metrics.db.MetricDataBase;
 import metrics.reports.MetricReport;
 import metrics.reports.MetricReportGenerator;
+import testCases.BasicTestCaseGenerator;
+import testCases.ExhaustiveTestCaseGenerator;
 import testCases.ITestCaseGenerator;
+import testCases.ITestSelectionStrategy;
+import testCases.MediumTestCaseGenerator;
 import testCases.botium.TcGenBotium;
 import training.IVariantPhraseGenerator;
 import training.VariationsCollectionText;
@@ -246,15 +250,26 @@ public class Asymob {
 		return false;
 	}
 	
-	public boolean generateTestCases(String strPath)
+	public boolean generateTestCases(String strPath, String method)
 	{
 		boolean bRet;
 		
 		bRet = false;
-		
+		ITestSelectionStrategy selectionStrategy = null;
 		if(currentBot != null)
 		{
-			ITestCaseGenerator tcGen = new TcGenBotium();
+			switch(method) {
+			case "Basic":
+				selectionStrategy = new BasicTestCaseGenerator();
+				break;
+			case "Medium":
+				selectionStrategy = new MediumTestCaseGenerator();
+				break;
+			default:
+				selectionStrategy = new ExhaustiveTestCaseGenerator();
+				break;
+			}			
+			ITestCaseGenerator tcGen = new TcGenBotium(selectionStrategy);
 			tcGen.generateTestCases(currentBot, strPath);
 		}
 				

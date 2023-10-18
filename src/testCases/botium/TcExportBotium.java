@@ -187,7 +187,7 @@ public class TcExportBotium {
 
 		strIntentName = strIntentName.replace(" ", "_");
 		if(!strConvoName.isBlank())
-			strConvoName = strConvoName+"->"+ strIntentName;
+			strConvoName = strConvoName+"-!"+ strIntentName;
 		else
 			strConvoName = strIntentName;
 
@@ -251,13 +251,13 @@ public class TcExportBotium {
 		{
 			nFragmentId=0;
 			for(BotiumTestCase bTc: tcList)
-			{
+			{				
 				exportTestCase(bTc, nFragmentId);
 				nFragmentId++;
 			}
 		}
 
-	}	
+	}
 	//deprecated
 	/*private String updateConvoName(String strConvoName, TreeInterAction treeIntentAction) {
 		return updateConvoName(strConvoName, treeIntentAction.getIntentName());

@@ -17,14 +17,20 @@ public class asymob_basic_TcGeneration {
 		}
 		else
 		{
-			strPathIn = "/localSpace/chatbots/CongaModels/bikeShop.xmi";
-			strPathOut = "/localSpace/chatbots/bikeShop";			
+			// /PERSONAL/TRABAJO/MISO/asymob/chatbots/conga/bikeShop.xmi
+			strPathIn = "/PERSONAL/TRABAJO/MISO/asymob/chatbots/conga/bikeShop.xmi";
+			strPathOut = "/PERSONAL/TRABAJO/MISO/asymob-output";			
 		}
 		
 		if(botTester.loadChatbot(strPathIn))
 		{
+			
+			// Medium
+			// Exhaustive
+			// Basic			
+			String method = "Exhaustive";
 			botTester.printBotSummary();
-			botTester.generateTestCases(strPathOut);
+			botTester.generateTestCases(strPathOut, method);
 		}
 	}
 }
