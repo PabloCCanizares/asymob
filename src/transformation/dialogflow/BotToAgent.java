@@ -398,6 +398,7 @@ public class BotToAgent implements ITransformation{
 			}*/
 			 for(UserInteraction userIn: flows)
 			{
+				 //TODO: Esto 
 				indexList = botAnalyser.plainActionTree(userIn);
 				processIntentListIntoMap(intentActionMap, indexList);				
 			}

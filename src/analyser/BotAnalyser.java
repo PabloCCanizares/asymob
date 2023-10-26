@@ -100,8 +100,6 @@ public class BotAnalyser {
 		return retList;
 	}
 	private LinkedList<String> extractTrainingPhrasesFromInput(EList<IntentInput> inputList) {
-		TrainingPhrase trainIn;
-		EList<Token> tokenList;
 		LinkedList<String> retList;
 		String strPhrase;
 		
@@ -112,25 +110,6 @@ public class BotAnalyser {
 			retList = new LinkedList<String>();
 			for (IntentInput input : inputList) {
 				
-				/*if (input instanceof TrainingPhrase) {
-					trainIn = (TrainingPhrase) input;
-
-					if(trainIn != null)
-					{
-						tokenList = trainIn.getTokens();
-						
-						String strPhrase;
-						
-						strPhrase = "";
-						for(Token tokIn: tokenList)
-						{
-							strPhrase+=getTokenText(tokIn);
-							
-						}
-						if(!strPhrase.isEmpty() && !strPhrase.isBlank())
-							retList.add(strPhrase);
-					}
-				}*/
 				strPhrase = convertTrainingPhraseToString(input);
 				if(strPhrase != null && !strPhrase.isEmpty() && !strPhrase.isBlank())
 					retList.add(strPhrase);
@@ -261,7 +240,7 @@ public class BotAnalyser {
 		}
 		return nRet;
 	}
-	
+	//TODO: Deprecated, but 
 	public TreeBranch plainActionTreeInBranches(UserInteraction userActIn) {
 	
 		List<Pair<UserInteraction, List<Action>>> flowActionsTemp;
@@ -275,6 +254,17 @@ public class BotAnalyser {
 		
 		return treeBranch;
 	}
+	//Este funciona bien.
+	public LinkedList<TreeBranch> plainActionTreeInBranchesList(UserInteraction userActIn) {
+		
+		LinkedList<TreeBranch> treeBranchList;
+		
+		//Plan the user interAct tree
+		treeBranchList = flowAnalyser.plainFlowInBranches(userActIn);
+		
+		
+		return treeBranchList;
+	}	
 	//TODO: Deprecated
 	public List<Pair<UserInteraction, Action>> plainActionTree(UserInteraction userActIn) {
 		List<Pair<UserInteraction, Action>> combinedList, partialList;
@@ -310,7 +300,6 @@ public class BotAnalyser {
 					combinedList.addAll(partialList);
 				}
 			}
-				
 		}
 		
 		return combinedList;

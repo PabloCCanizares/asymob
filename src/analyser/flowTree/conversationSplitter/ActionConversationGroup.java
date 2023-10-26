@@ -133,4 +133,9 @@ public class ActionConversationGroup {
 		return this.finishingResponsesList;
 	}
 
+	public String getSingleResponse() {
+		return  responseList != null ? responseList.getFirst(): "";
+	}
+	
+
 }

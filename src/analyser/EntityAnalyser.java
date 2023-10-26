@@ -63,7 +63,7 @@ public class EntityAnalyser {
 		return nRet;
 	}
 	
-	Map<String, LinkedList<String>> extractEntityMap(Entity entityIn) {
+	public Map<String, LinkedList<String>> extractEntityMap(Entity entityIn) {
 		
 		Map<String, LinkedList<String>> mapRet;
 		LinkedList<String> listSyn;
@@ -72,7 +72,6 @@ public class EntityAnalyser {
 		{
 			for(EntityInput enIn: lan.getInputs())
 			{
-				
 				if(enIn instanceof SimpleInput)
 				{
 					listSyn = new LinkedList<String>();

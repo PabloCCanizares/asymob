@@ -72,4 +72,33 @@ public class IntentConversationGroup {
 		return paramGroupInfo != null ? paramGroupInfo.getParametersNotPresent() : null;
 		
 	}
+
+	public void reduceTo(int nPhrases) {
+		LinkedList<TrainingPhrase> tpAuxList;
+		
+		tpAuxList = new LinkedList<TrainingPhrase>();
+		
+		for(int i=0;i<nPhrases&&i<trainingPhrases.size();i++)
+		{
+			tpAuxList.add(trainingPhrases.get(i));
+		}
+		
+		trainingPhrases.clear();
+		
+		for(TrainingPhrase tp: tpAuxList)
+		{
+			trainingPhrases.add(tp);
+		}
+		
+		plainTrainingPhrases();
+	}
+
+	public int getNumPresentParameters() {
+		return paramGroupInfo != null ? paramGroupInfo.getNumPresentParameters() : 0;
+	}
+
+	public String getSingleTP() {
+		// TODO Auto-generated method stub
+		return  trainingPhrases != null ? stringTrainingPhrases.getFirst(): "";		
+	}
 }

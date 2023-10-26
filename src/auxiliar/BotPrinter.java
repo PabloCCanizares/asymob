@@ -27,6 +27,7 @@ public class BotPrinter  {
 		printEntities(botIn.getEntities());
 		printActions(botIn.getActions());
 		printFlows(botIn.getFlows());
+		
 	}
 	
 	private static void printFlows(EList<UserInteraction> flowList) {

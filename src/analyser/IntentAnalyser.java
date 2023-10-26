@@ -631,6 +631,25 @@ public class IntentAnalyser {
 		
 		return paramRet;
 	}
+	public LinkedList<Parameter> getParameters(Intent intentIn)
+	{
+		LinkedList<Parameter> paramRet;
+		
+		try
+		{
+			paramRet = new LinkedList<Parameter>();
+			for(Parameter param: intentIn.getParameters())
+			{
+				paramRet.add(param);
+			}
+		}
+		catch (Exception e)
+		{
+			paramRet = null;
+		}
+		
+		return paramRet;
+	}
 	public LinkedList<Parameter> getParametersFromIntentInput(IntentInput inputIn)
 	{
 		int nRet;

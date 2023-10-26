@@ -33,6 +33,11 @@ public class TreeBranch {
 		}
 	}
 
+	public TreeBranch(TreeInterAction pairIntentAction) {
+		branch = new LinkedList<TreeInterAction>();
+		branch.add(pairIntentAction);
+	}
+
 	public void resetIndex()
 	{
 		if(branch != null)
@@ -46,6 +51,11 @@ public class TreeBranch {
 
 	public TreeInterAction getNext() {
 		return iterator != null ? iterator.next() : null;
+	}
+
+	public void addParent(TreeInterAction pairIntentAction) {
+		branch.add(0,pairIntentAction);
+		
 	}
 	
 }

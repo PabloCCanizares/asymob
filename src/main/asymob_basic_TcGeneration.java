@@ -1,6 +1,7 @@
 package main;
 
 import core.Asymob;
+import testCases.strategies.ETestCaseGenerationStrategy;
 
 public class asymob_basic_TcGeneration {
 
@@ -18,8 +19,10 @@ public class asymob_basic_TcGeneration {
 		else
 		{
 			// /PERSONAL/TRABAJO/MISO/asymob/chatbots/conga/bikeShop.xmi
-			strPathIn = "/PERSONAL/TRABAJO/MISO/asymob/chatbots/conga/bikeShop.xmi";
-			strPathOut = "/PERSONAL/TRABAJO/MISO/asymob-output";			
+			//strPathIn = "/PERSONAL/TRABAJO/MISO/asymob/chatbots/conga/bikeShop.xmi";
+			//strPathOut = "/PERSONAL/TRABAJO/MISO/asymob-output";
+			strPathIn = "/localSpace/chatbots/CongaModels/bikeShop.xmi";
+			strPathOut = "/localSpace/chatbots/CongaModels/bikeShop_test";	
 		}
 		
 		if(botTester.loadChatbot(strPathIn))
@@ -30,7 +33,7 @@ public class asymob_basic_TcGeneration {
 			// Basic			
 			String method = "Exhaustive";
 			botTester.printBotSummary();
-			botTester.generateTestCases(strPathOut, method);
+			botTester.generateTestCases(strPathOut, ETestCaseGenerationStrategy.ePARAMEXHAUSTIVE);
 		}
 	}
 }

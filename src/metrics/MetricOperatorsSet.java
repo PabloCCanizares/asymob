@@ -114,7 +114,6 @@ public class MetricOperatorsSet {
 	public Metric getNextBotMetric() {
 		return itBotMetric!= null ? itBotMetric.next() : null;
 	}
-
 	public Metric getNextIntentMetric()
 	{
 		return itIntentMetric!= null ? itIntentMetric.next() : null;

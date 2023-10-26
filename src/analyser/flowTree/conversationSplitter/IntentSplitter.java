@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 
 import analyser.IntentAnalyser;
 import generator.IntentInput;
+import generator.Language;
 import generator.Parameter;
 import generator.TrainingPhrase;
 
@@ -16,9 +17,15 @@ import generator.TrainingPhrase;
  * @author Pablo C. Ca&ntildeizares
  *
  */
+//TODO: Change name to IntentParamAggregator
+
 public class IntentSplitter {
+	private int LOG = 0;
+	float fParamCoverage;
 	String strIntentName;
+	
 	IntentAnalyser intentAnalyser;
+	LinkedList<Boolean> coveredParameters;
 	LinkedList<Parameter> intentParameters;
 	HashMap<String, LinkedList<TrainingPhrase>> mapIntentGroups;
 	
@@ -28,6 +35,12 @@ public class IntentSplitter {
 		this.intentParameters = reqParameters;
 		intentAnalyser = new IntentAnalyser();
 		mapIntentGroups = new HashMap<String, LinkedList<TrainingPhrase>> ();
+		
+		fParamCoverage = 0;
+		coveredParameters = new LinkedList<Boolean>();
+		
+		for(Parameter param: reqParameters)
+			coveredParameters.add(false);
 	}
 	/**
 	 * Places the input intent in its corresponding group. This group will be determined by its code
@@ -45,6 +58,9 @@ public class IntentSplitter {
 			
 			//Generate the code, i.e: "01" that represent that the parameter 0 is not present but parameter 1 is present.
 			strCode = generateHashCode(localParamList);
+			
+			//Update the coverage with the new input phrases
+			fParamCoverage = updateParamCoverage(strCode);
 			
 			//Manage group: given a code, insert the intentInput into its corresponding group
 			manageEntry(strCode, (TrainingPhrase) intentInput);
@@ -71,7 +87,8 @@ public class IntentSplitter {
 		}
 		else
 		{
-			System.out.println("manageEntry - Created new group with code: "+strCode);
+			if(LOG>0)
+				System.out.println("manageEntry - Created new group with code: "+strCode);
 			//create list and insert into the key
 			traininphraseList = new LinkedList<TrainingPhrase>();
 			traininphraseList.add(trainingIn);
@@ -154,5 +171,55 @@ public class IntentSplitter {
 		}
 		
 		return retList;
+	}
+
+	private float updateParamCoverage(String strCode) {
+		float fRet, fTotal, fCovered;
+		
+		if (this.fParamCoverage < 1)
+		{
+			fCovered = 0;
+			fTotal = strCode.length();
+			
+			
+			for (int i = 0; i < strCode.length(); i++) {
+			    if (strCode.charAt(i) == '1') 
+			    {
+			    	fCovered++;
+			    	coveredParameters.set(i, true);
+			    }
+			}
+			if(LOG>0)
+				System.out.println("Partial: "+ fCovered / fTotal+ " | Acc: "+countCoverage(coveredParameters)/fTotal);
+			
+			fCovered = countCoverage(coveredParameters);
+			fRet = fCovered / fTotal;
+			
+			if(fRet < fParamCoverage)
+				fRet = fParamCoverage;
+		}
+		else
+			fRet = fParamCoverage;
+		
+		return fRet;
+	}
+	private float countCoverage(LinkedList<Boolean> coveredParameters) {
+		
+		int nElements;
+		
+		nElements = 0;
+		for(Boolean elem: coveredParameters)
+			if(elem)
+				nElements++;
+		
+		return nElements;
+	}
+	public int getNumParameters()
+	{
+		return intentParameters != null ? intentParameters.size() : 0;
+	}
+	public float getMaxParamCoverage()
+	{
+		return fParamCoverage;
 	}
 }

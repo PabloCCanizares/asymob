@@ -16,11 +16,11 @@ import generator.Entity;
 import generator.Parameter;
 import generator.UserInteraction;
 import testCases.ITestCaseGenerator;
-import testCases.ITestSelectionStrategy;
 import testCases.botium.testcase.BotiumAction;
 import testCases.botium.testcase.BotiumIntent;
 import testCases.botium.testcase.BotiumTestCase;
 import testCases.botium.testcase.BotiumTestCaseFragment;
+import testCases.strategies.ITestSelectionStrategy;
 import transformation.dialogflow.ConversorBotium;
 
 
@@ -125,22 +125,24 @@ public class TcGenBotium implements ITestCaseGenerator {
 	 * @param flows
 	 */
 	private void exportFlows(EList<UserInteraction> flows) {
-		TreeBranch treeBranch;
+		LinkedList<TreeBranch> treeBranchList;
 		LinkedList<BotiumTestCase> tcList;
 		
 		//The flows are iterated, and converted into a list of pairs <UserInteraction, List<Actions>>
 		for(UserInteraction flow: flows)
 		{
 			//Explore the flow, and plain the flow tree into several branches: 
-			// List of TreeInterAction: UserInteraction - List of actions
-			//Create the tree branch, a simplified representation of a tree and save into list	
-			treeBranch = botAnalyser.plainActionTreeInBranches(flow);
+			// List of Trees
+			treeBranchList = botAnalyser.plainActionTreeInBranchesList(flow);
 
 			//Create the test case and save to disk: each Tc is a convo in botium
-			tcList = createTestCasesFromBranches(treeBranch);
-			
-			//Export the Tc list
-			botExport.exportTestCases(tcList);
+			for(TreeBranch treeBranch: treeBranchList)
+			{
+				tcList = createTestCasesFromBranches(treeBranch);
+				
+				//Export the Tc list
+				botExport.exportTestCases(tcList);
+			}
 		}
 	}
 	/**

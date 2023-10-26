@@ -1,4 +1,4 @@
-package testCases;
+package testCases.strategies;
 
 import java.util.LinkedList;
 

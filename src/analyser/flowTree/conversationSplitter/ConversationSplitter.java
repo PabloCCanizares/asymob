@@ -12,6 +12,7 @@ import generator.Parameter;
 
 public class ConversationSplitter {
 
+	private int LOG=0;
 	private IntentAnalyser intentAnalyser;
 	private Conversor converter;
 	
@@ -79,6 +80,8 @@ public class ConversationSplitter {
 			//
 			//Sacamos la lista de parametros requeridos del intent 
 			intentIn = treeIntentAction.getIntent();
+			
+			//TODO: Adaptar desde aqui
 			paramList = this.intentAnalyser.getRequiredParameters(intentIn);
 			splitter = new IntentSplitter(intentIn.getName(),paramList);
 	
@@ -89,7 +92,8 @@ public class ConversationSplitter {
 	
 			if(nParameters>-1)
 			{
-				System.out.printf("splitByParameterConvenion - Number of required parameters detected: %d, max: %d\n", nParameters, 2^nParameters);
+				if(LOG>0)
+					System.out.printf("splitByParameterConvenion - Number of required parameters detected: %d, max: %d\n", nParameters, 2^nParameters);
 				//Con el número de parameters p, sabemos la cota superior de grupos que va a haber: 2^p
 	
 				//A partir de aqui, analizamos frase a frase, y nos devolverá una lista de booleanos
@@ -114,6 +118,7 @@ public class ConversationSplitter {
 				System.out.println("splitByParameterConvenion - No parameters found");
 				//emptyGroup = new IntentConversationGroup(strIntentName, "", null, phraseList);
 			}
+			//TODO: Hasta aqui. Este codigo lo hemos pasado a intentSplitter (que cambiara de nombre a IntentParamAggregator)
 		}
 		catch(Exception e)
 		{
@@ -122,4 +127,50 @@ public class ConversationSplitter {
 		
 		return intentGroupList;
 	}
+	
+	public IntentSplitter intentAggregator(Intent intentIn, boolean bRequired)
+	{
+		int nParameters;
+		LinkedList<Parameter> paramList;
+		LinkedList<IntentInput> intentInputList;
+		IntentSplitter splitter;
+		
+		if(bRequired)
+			paramList = this.intentAnalyser.getRequiredParameters(intentIn);
+		else
+			paramList = this.intentAnalyser.getParameters(intentIn);
+		
+		splitter = new IntentSplitter(intentIn.getName(),paramList);
+
+		if(paramList != null)
+			nParameters = paramList.size();
+		else
+			nParameters = 0;
+
+		if(nParameters>-1)
+		{
+			if(LOG>0)
+				System.out.printf("splitByParameterConvenion ["+intentIn.getName()+"] Number of required parameters detected: %d, max: %d\n", nParameters, 2^nParameters);
+			//Con el número de parameters p, sabemos la cota superior de grupos que va a haber: 2^p
+
+			//A partir de aqui, analizamos frase a frase, y nos devolverá una lista de booleanos
+			intentInputList= this.intentAnalyser.extractAllInputs(intentIn, Language.ENGLISH);
+
+			for(IntentInput intentInput: intentInputList)
+			{
+				//Analizamos en cada intent, que parametros ha encontrado, y con esto se genera un grupo
+				splitter.matchParameters(intentInput);
+			}
+			if(LOG>0)
+				System.out.printf("Coverage: "+splitter.getMaxParamCoverage()+"\n");
+			
+		}
+		else
+		{
+			System.out.println("splitByParameterConvenion - No parameters found");
+			//emptyGroup = new IntentConversationGroup(strIntentName, "", null, phraseList);
+		}
+		
+		return splitter;
+	}	
 }

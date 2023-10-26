@@ -1,4 +1,4 @@
-package testCases;
+package testCases.strategies;
 
 import java.util.LinkedList;
 
@@ -13,7 +13,7 @@ import testCases.botium.testcase.BotiumIntent;
 import testCases.botium.testcase.BotiumTestCase;
 import testCases.botium.testcase.BotiumTestCaseFragment;
 
-public class MediumTestCaseGenerator implements ITestSelectionStrategy {
+public class ExhaustiveTestCaseGenerator implements ITestSelectionStrategy {
 	
 	final boolean DEBUG = false;
 
@@ -35,7 +35,6 @@ public class MediumTestCaseGenerator implements ITestSelectionStrategy {
 			treeBranch.resetIndex();
 			
 			//We iterate the all the tree branches (conversation paths)
-			boolean flag = false;
 			while(treeBranch.hasNext())
 			{
 				treeIntentAction = treeBranch.getNext();
@@ -50,13 +49,11 @@ public class MediumTestCaseGenerator implements ITestSelectionStrategy {
 				//TODO: Aqui deberiamos poder trazar estrategias. Esta divide los grupos en archivos.
 				//Otra podría ser incluirlo todo en un archivo como estaba antes
 				//Acto seguido, se recorren todos los grupos y
-				auxTcList = new LinkedList<BotiumTestCase>();				
-				boolean controlAux = false;
+				auxTcList = new LinkedList<BotiumTestCase>();
 				for(ConversationGroup conversation: conversationGroupList)
 				{
-					String actionGroupName = conversation.getActionGroupName();
-					//Check wheter the conversation group is complete
-					//TODO: Explicar que es un TcFragment y por que se usa.
+					//Convert the conversation group into a tcFragment: 
+					// A pair Intent (+training phrases) - Action (+chatbot responses)
 					botTestCaseFragment = convertConvGroupToTcFragment(conversation);
 
 					//It may have a single or multiple fragments per group: If the phrase is not complete
@@ -73,62 +70,24 @@ public class MediumTestCaseGenerator implements ITestSelectionStrategy {
 					{
 						//Para cada uno de los test cases que hay, hay que añadirles los fragmentos nuevos
 						for(BotiumTestCase botTcIn: testcaseList)
-						{		
+						{
 							//Para cada TC que tenga la lista original, 
 							auxTc = botTcIn.dup();
-							
-							boolean isFirst = true;
-							boolean hasFragments = false;
-							boolean addAuxTc = false;
-							boolean add = false;
-							//Add all the existing fragments							
+
+							//Add all the existing fragments
 							for(BotiumTestCaseFragment tcFragment: tcFragmentList)
-							{ 
-								String tcFragIntentName = tcFragment.getIntentName();
-								if (!actionGroupName.contains("_")) {
-									auxTc.addFragment(tcFragment);
-									add = true;
-								}else {
-									if(!flag) {
-										auxTc.addFragment(tcFragment);
-										add = true;
-										controlAux = true;										
-									}else {
-										if (tcFragIntentName != null && tcFragIntentName.contains("_") && isFirst) {
-											hasFragments = true;
-											if(flowHasIntentWithAllParams(auxTc, tcFragment)) {												
-												auxTc.addFragment(tcFragment);												
-												addAuxTc = true;
-												add = true;
-											}	
-										} else {
-											if (!hasFragments) {										
-												auxTc.addFragment(tcFragment);
-												add = true;
-											}									
-										}
-										
-										if(hasFragments && !isFirst && addAuxTc) {
-											auxTc.addFragment(tcFragment);
-											add = true;
-										}										
-									}																		
-								}								
-								isFirst = false;
-							}	
-							if(add) {
-								auxTcList.add(auxTc);
-							}													
+							{
+								auxTc.addFragment(tcFragment);
+							}
+
+							auxTcList.add(auxTc);
 						}
 					}
 					else
 					{
 						//Create a new test case
-						flag = false;
 						auxTc = new BotiumTestCase();
-						if(actionGroupName.contains("_")) {
-							flag = true;
-						}
+
 						//Add all the existing fragments
 						for(BotiumTestCaseFragment tcFragment: tcFragmentList)
 						{
@@ -138,10 +97,6 @@ public class MediumTestCaseGenerator implements ITestSelectionStrategy {
 					}
 				}
 				testcaseList = auxTcList;
-
-				if(controlAux && !flag) {
-					flag = true;
-				}
 			}
 
 		}
@@ -150,37 +105,9 @@ public class MediumTestCaseGenerator implements ITestSelectionStrategy {
 			testcaseList = null;
 			System.out.println("[TcGenBotium::createFlowTestCase] Exception while creating a flow");
 		}
-		
+
 		return testcaseList;
     }
-    
-    private boolean flowHasIntentWithAllParams(BotiumTestCase auxTc,BotiumTestCaseFragment tcFragment ) {
-    	String numbers = "";
-    	for(BotiumTestCaseFragment testCase: auxTc.getFragments()) {
-			if(testCase.getIntentName() != null && testCase.getIntentName().contains("_")) {
-				numbers = testCase.getIntentName().split("_")[1];
-			}						
-		};
-		if(allParams(numbers)) {
-			return true;
-		}		
-		String[] controlParameters = tcFragment.getIntentName().split("_");
-		if(allParams(controlParameters[1])){
-			return true;
-		}
-		return false;
-    }
-    
-    private boolean allParams(String numbers) {		
-		char fistNumber = '1';
-		for(int i = 0; i < numbers.length(); i++) {
-			char currentNumber = numbers.charAt(i);
-			if(currentNumber != fistNumber) {
-				return false;
-			}
-		}
-		return true;
-	}
     
     private BotiumTestCaseFragment convertConvGroupToTcFragment(ConversationGroup conversation) {
 		String strActionGroupName;

@@ -13,6 +13,12 @@ import analyser.BotAnalyser;
 import auxiliar.BotPrinter;
 import auxiliar.BotResourcesManager;
 import auxiliar.Common;
+import coverage.CoverageMethod;
+import coverage.EntityCoverage;
+import coverage.ICoverageMeter;
+import coverage.IntentCoverage;
+import coverage.LiteralCoverage;
+import coverage.ParamCoverage;
 import generator.Bot;
 import generator.Intent;
 import metrics.IMetricAnalyser;
@@ -21,12 +27,14 @@ import metrics.MetricOperatorsSet;
 import metrics.db.MetricDataBase;
 import metrics.reports.MetricReport;
 import metrics.reports.MetricReportGenerator;
-import testCases.BasicTestCaseGenerator;
-import testCases.ExhaustiveTestCaseGenerator;
 import testCases.ITestCaseGenerator;
-import testCases.ITestSelectionStrategy;
-import testCases.MediumTestCaseGenerator;
 import testCases.botium.TcGenBotium;
+import testCases.strategies.BasicTestCaseGenerator;
+import testCases.strategies.ETestCaseGenerationStrategy;
+import testCases.strategies.ExhaustiveTestCaseGenerator;
+import testCases.strategies.ITestSelectionStrategy;
+import testCases.strategies.MediumTestCaseGenerator;
+import testCases.strategies.StateLocatorStrategy;
 import training.IVariantPhraseGenerator;
 import training.VariationsCollectionText;
 import training.simple.SimplePhraseGenerator;
@@ -44,6 +52,7 @@ public class Asymob {
 	private ITransformation botTransformation = null;
 	private IMetricAnalyser botMetrics = null;
 	private BotResourcesManager botResourceManager = null;
+	private ICoverageMeter coverageMeter;
 	
 	public Asymob()
 	{
@@ -250,7 +259,7 @@ public class Asymob {
 		return false;
 	}
 	
-	public boolean generateTestCases(String strPath, String method)
+	public boolean generateTestCases(String strPath, ETestCaseGenerationStrategy eStrategy)
 	{
 		boolean bRet;
 		
@@ -258,15 +267,21 @@ public class Asymob {
 		ITestSelectionStrategy selectionStrategy = null;
 		if(currentBot != null)
 		{
-			switch(method) {
-			case "Basic":
+			switch(eStrategy) {
+			case ePARAMBASIC:
 				selectionStrategy = new BasicTestCaseGenerator();
 				break;
-			case "Medium":
+			case ePARAMMEDIUM:
 				selectionStrategy = new MediumTestCaseGenerator();
 				break;
-			default:
+			case ePARAMEXHAUSTIVE:
 				selectionStrategy = new ExhaustiveTestCaseGenerator();
+				break;
+			case ePATHSTATELOCATOR:
+				selectionStrategy = new StateLocatorStrategy();
+				break;
+			default:
+				selectionStrategy = null;
 				break;
 			}			
 			ITestCaseGenerator tcGen = new TcGenBotium(selectionStrategy);
@@ -274,6 +289,35 @@ public class Asymob {
 		}
 				
 		return bRet;
+	}
+	public float measureCoverage(CoverageMethod eMethod)
+	{
+		float fRet;
+		
+		fRet = -1;
+		switch(eMethod)
+		{
+			case eINTENT:
+				coverageMeter = new IntentCoverage();
+				break;
+			case ePARAM:
+				coverageMeter = new ParamCoverage();
+				break;
+			case eENTITY:
+				coverageMeter = new EntityCoverage();
+				break;
+			case eLITERAL:
+				coverageMeter = new LiteralCoverage();
+				break;
+		default:
+			return -2;
+		}		
+		
+		if(coverageMeter != null)
+			fRet = coverageMeter.measureCoverage(this.currentBot, CoverageMethod.eINTENT);
+		
+		return fRet;
+				
 	}
 	public boolean applyTrainingPhrasesToChatbot() {
 		boolean bRet;

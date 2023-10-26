@@ -66,5 +66,21 @@ public class ConversationGroup {
 	public LinkedList<String> getFinishingResponse() {
 		// TODO Auto-generated method stub
 		return actionGroup.getFinishingResponse();
-	}	
+	}
+
+	public void reduceTo(int nPhrases) {
+		intentGroup.reduceTo(nPhrases);
+	}
+
+	public int getNumPresentParam() {
+		// TODO Auto-generated method stub
+		return  intentGroup != null ? intentGroup.getNumPresentParameters(): null;
+	}
+
+	public String getSingleResponse() {
+		return  actionGroup != null ? actionGroup.getSingleResponse(): null;
+	}
+
+	public String getSintleTrainingPhrase() {
+		return  intentGroup != null ? intentGroup.getSingleTP(): null;	}	
 }

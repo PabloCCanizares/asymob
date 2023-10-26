@@ -1,4 +1,4 @@
-package testCases;
+package testCases.strategies;
 
 import java.util.LinkedList;
 
@@ -13,7 +13,7 @@ import testCases.botium.testcase.BotiumIntent;
 import testCases.botium.testcase.BotiumTestCase;
 import testCases.botium.testcase.BotiumTestCaseFragment;
 
-public class ExhaustiveTestCaseGenerator implements ITestSelectionStrategy {
+public class BasicTestCaseGenerator implements ITestSelectionStrategy {
 	
 	final boolean DEBUG = false;
 
@@ -52,49 +52,62 @@ public class ExhaustiveTestCaseGenerator implements ITestSelectionStrategy {
 				auxTcList = new LinkedList<BotiumTestCase>();
 				for(ConversationGroup conversation: conversationGroupList)
 				{
-					//Check wheter the conversation group is complete
-					//TODO: Explicar que es un TcFragment y por que se usa.
-					botTestCaseFragment = convertConvGroupToTcFragment(conversation);
+					boolean add = false;
+					String actionGroupName = conversation.getActionGroupName();
+					if(actionGroupName.contains("_")) {
+						String[] controlParameters = actionGroupName.split("_");
+						if(isBasic(controlParameters[1])) {
+							add = true;
+						}
+					}else {
+						add = true;
+					}
+					
+					if (add) {
+						//Check wheter the conversation group is complete
+						//TODO: Explicar que es un TcFragment y por que se usa.
+						botTestCaseFragment = convertConvGroupToTcFragment(conversation);
 
-					//It may have a single or multiple fragments per group: If the phrase is not complete
-					//lacks some of the parameters, we need to complement it.					
-					tcFragmentList = complementConversation(conversation, botAnalyser);
+						//It may have a single or multiple fragments per group: If the phrase is not complete
+						//lacks some of the parameters, we need to complement it.					
+						tcFragmentList = complementConversation(conversation, botAnalyser);
 
-					if(tcFragmentList == null)
-						tcFragmentList = new LinkedList<BotiumTestCaseFragment>();
+						if(tcFragmentList == null)
+							tcFragmentList = new LinkedList<BotiumTestCaseFragment>();
 
-					tcFragmentList.addFirst(botTestCaseFragment);
+						tcFragmentList.addFirst(botTestCaseFragment);
 
-					//Iterate the testcase list, and add this fragment to all of them
-					if(!testcaseList.isEmpty())
-					{
-						//Para cada uno de los test cases que hay, hay que añadirles los fragmentos nuevos
-						for(BotiumTestCase botTcIn: testcaseList)
+						//Iterate the testcase list, and add this fragment to all of them
+						if(!testcaseList.isEmpty())
 						{
-							//Para cada TC que tenga la lista original, 
-							auxTc = botTcIn.dup();
+							//Para cada uno de los test cases que hay, hay que añadirles los fragmentos nuevos
+							for(BotiumTestCase botTcIn: testcaseList)
+							{							
+								//Para cada TC que tenga la lista original, 
+								auxTc = botTcIn.dup();
+
+								//Add all the existing fragments
+								for(BotiumTestCaseFragment tcFragment: tcFragmentList)
+								{
+									auxTc.addFragment(tcFragment);
+								}
+
+								auxTcList.add(auxTc);
+							}
+						}
+						else
+						{
+							//Create a new test case
+							auxTc = new BotiumTestCase();
 
 							//Add all the existing fragments
 							for(BotiumTestCaseFragment tcFragment: tcFragmentList)
 							{
 								auxTc.addFragment(tcFragment);
 							}
-
 							auxTcList.add(auxTc);
 						}
-					}
-					else
-					{
-						//Create a new test case
-						auxTc = new BotiumTestCase();
-
-						//Add all the existing fragments
-						for(BotiumTestCaseFragment tcFragment: tcFragmentList)
-						{
-							auxTc.addFragment(tcFragment);
-						}
-						auxTcList.add(auxTc);
-					}
+					}					
 				}
 				testcaseList = auxTcList;
 			}
@@ -108,6 +121,17 @@ public class ExhaustiveTestCaseGenerator implements ITestSelectionStrategy {
 
 		return testcaseList;
     }
+	
+	private boolean isBasic(String numbers) {		
+		char fistNumber = '1';
+		for(int i = 0; i < numbers.length(); i++) {
+			char currentNumber = numbers.charAt(i);
+			if(currentNumber != fistNumber) {
+				return false;
+			}
+		}
+		return true;
+	}
     
     private BotiumTestCaseFragment convertConvGroupToTcFragment(ConversationGroup conversation) {
 		String strActionGroupName;
@@ -193,6 +217,5 @@ public class ExhaustiveTestCaseGenerator implements ITestSelectionStrategy {
 	}
     
 }
-
 
 

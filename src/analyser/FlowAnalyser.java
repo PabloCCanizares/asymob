@@ -12,6 +12,8 @@ import org.eclipse.emf.common.util.EList;
 
 import com.fasterxml.jackson.databind.util.Converter;
 
+import analyser.flowTree.TreeBranch;
+import analyser.flowTree.TreeInterAction;
 import auxiliar.Common;
 import generator.Action;
 import generator.BotInteraction;
@@ -478,6 +480,7 @@ public class FlowAnalyser {
 	 * @param userActIn Interaction to be processed
 	 * @return List of pairs UserInteraction, List<Action>
 	 */
+	//TODO: Deprecated, not works properly
 	public List<Pair<UserInteraction, List<Action>>> plainActionTreeInBranches(UserInteraction userActIn) {
 		
 		List<Pair<UserInteraction, List<Action>>> combinedList, partialList;
@@ -486,6 +489,7 @@ public class FlowAnalyser {
 		Pair<UserInteraction, List<Action>> pairIntentAction;
 		EList<UserInteraction> userActionList;
 		
+		//TODO: It must return a list of lists
 		combinedList = null;
 		actionList = null;
 		if(userActIn !=null)
@@ -513,5 +517,63 @@ public class FlowAnalyser {
 		}
 		
 		return combinedList;
+	}
+	/**
+	 * Converts a UserInteraction, that can be considered as a Tree, into a list of pairs UserInteraction, List<Action>
+	 * @param userActIn Interaction to be processed
+	 * @return List of branches LinkedList<TreeBranch> 
+	 */
+	public LinkedList<TreeBranch> plainFlowInBranches(UserInteraction userActIn) {
+		
+		LinkedList<TreeBranch> combinedList, partialList;
+		List<Action> actionList;
+		BotInteraction botInteraction;
+		TreeInterAction pairIntentAction;
+		EList<UserInteraction> userActionList;
+		
+		combinedList = null;
+		actionList = null;
+		if(userActIn !=null)
+		{
+			combinedList = new LinkedList<TreeBranch>();
+			botInteraction = userActIn.getTarget();
+			
+			System.out.println("Intent: "+userActIn.getIntent().getName());
+			if(botInteraction != null)
+			{
+				actionList = botInteraction.getActions();
+				pairIntentAction = new TreeInterAction(userActIn, actionList);
+			
+				userActionList = botInteraction.getOutcoming();
+				if(userActionList != null && userActionList.size() > 0)
+				{
+					//Here we have another intent with a action list
+					for(UserInteraction userAct: userActionList)
+					{
+						partialList = plainFlowInBranches(userAct);
+									
+						addParent(pairIntentAction, partialList);
+						combinedList.addAll(partialList);
+					}
+				}
+				else
+				{
+					//Create empty list with the userAction as parent
+					combinedList.add(new TreeBranch(pairIntentAction));	
+				}
+			}
+		}
+		
+		return combinedList;
+	}
+	private void addParent(TreeInterAction pairIntentAction, LinkedList<TreeBranch> partialList) {
+		
+		if(pairIntentAction != null && partialList != null)
+		{
+			for(TreeBranch branch: partialList)
+			{
+				branch.addParent(pairIntentAction);
+			}
+		}
 	}
 }

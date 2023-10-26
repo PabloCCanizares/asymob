@@ -98,4 +98,22 @@ public class ParameterGroup {
 		return this.strCode;
 	}
 
+
+	int getNumPresentParameters() {
+		int nIndex;
+		
+		nIndex=0;
+		
+		// Check the sizes
+		if(paramList != null && paramActiveList != null && paramList.size() == paramActiveList.size())
+		{
+			for(boolean bPresent: paramActiveList)
+			{
+				if(bPresent)
+					nIndex++;
+			}
+		}
+		
+		return nIndex;
+	}	
 }
