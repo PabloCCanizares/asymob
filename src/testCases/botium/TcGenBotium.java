@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
 import org.eclipse.emf.common.util.EList;
 import analyser.BotAnalyser;
 import analyser.flowTree.TreeBranch;
@@ -20,6 +22,7 @@ import testCases.botium.testcase.BotiumAction;
 import testCases.botium.testcase.BotiumIntent;
 import testCases.botium.testcase.BotiumTestCase;
 import testCases.botium.testcase.BotiumTestCaseFragment;
+import testCases.strategies.ExhaustiveSingleLiteral;
 import testCases.strategies.ITestSelectionStrategy;
 import transformation.dialogflow.ConversorBotium;
 
@@ -159,17 +162,28 @@ public class TcGenBotium implements ITestCaseGenerator {
 		try
 		{
 			strConvoBuffer = strConvoBuffer.concat("     |$"+strEntityName+"\n");
-			//Loop the entityMap updating the buffer
-			for (Entry<String, LinkedList<String>> entry : entityMap.entrySet()) {
-				literalName = entry.getKey();
-				synList = entry.getValue();
-				System.out.println(literalName + "=" + synList.toString());
-
-				for(String syn: synList)
-				{
-					strConvoBuffer =  strConvoBuffer.concat(String.format("case%d|%s\n", nElement, syn));
-					nElement++;
+			if(!(selectionStrategy instanceof ExhaustiveSingleLiteral))
+			{
+				//Loop the entityMap updating the buffer
+				for (Entry<String, LinkedList<String>> entry : entityMap.entrySet()) {
+					literalName = entry.getKey();
+					synList = entry.getValue();
+					System.out.println(literalName + "=" + synList.toString());
+	
+	
+						for(String syn: synList)
+						{
+							strConvoBuffer =  strConvoBuffer.concat(String.format("case%d|%s\n", nElement, syn));
+							nElement++;
+						}
 				}
+			}
+			else
+			{
+				synList = entityMap.values().iterator().next();
+				String syn = synList.getFirst();
+				strConvoBuffer =  strConvoBuffer.concat(String.format("case%d|%s\n", nElement, syn));
+				nElement++;
 			}
 			if(nElement>0)
 			{
