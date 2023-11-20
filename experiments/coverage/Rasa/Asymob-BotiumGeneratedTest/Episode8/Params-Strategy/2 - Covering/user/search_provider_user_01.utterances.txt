@@ -1,0 +1,4 @@
+SEARCH_PROVIDER_USER_01
+I need a $facility_type
+find me a nearby $facility_type
+show me $facility_type

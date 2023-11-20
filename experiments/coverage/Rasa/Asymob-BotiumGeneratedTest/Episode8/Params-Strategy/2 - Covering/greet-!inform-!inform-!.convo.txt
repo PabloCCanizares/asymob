@@ -1,0 +1,20 @@
+TC-TC-greet-!inform-!inform.!-convo
+
+#me
+GREET_USER
+
+#bot
+INTENT greet
+
+#me
+$facility_type
+
+#bot
+INTENT inform
+
+#me
+$location
+
+#bot
+INTENT inform
+
