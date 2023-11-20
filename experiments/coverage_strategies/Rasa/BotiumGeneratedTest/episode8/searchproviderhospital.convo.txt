@@ -1,0 +1,9 @@
+search_provider_hospital
+
+#me
+hospital
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|...
+ENTITY_VALUES hospital|...

@@ -1,0 +1,9 @@
+search_provider_can-you-tell-me-a-nursing-home-in-oklahoma-city
+
+#me
+Can you tell me a nursing home in Oklahoma City ?
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES nursing home|Oklahoma City|...

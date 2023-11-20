@@ -1,0 +1,8 @@
+TC-goodbye-convo
+
+#me
+GOODBYE_USER
+
+#bot
+GOODBYE_ACTIONS
+

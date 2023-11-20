@@ -1,0 +1,26 @@
+TC-Make_Appointment_00-!Make_Appointment_-_custom_1-1-convo
+
+#me
+MAKE_APPOINTMENT_00_USER
+
+#bot
+What day do you want to come in?
+
+#me
+tomorrow
+
+#bot
+What time works for you?
+
+#me
+at 2pm
+
+#bot
+Ok, let me see if we can fit you in. Tomorrow at 3pm is fine! Do you need a repair or just a tune-up? 
+
+#me
+MAKE_APPOINTMENT_-_CUSTOM_1_USER
+
+#bot
+MAKE_APPOINTMENT_-_CUSTOM_1_ACTIONS
+

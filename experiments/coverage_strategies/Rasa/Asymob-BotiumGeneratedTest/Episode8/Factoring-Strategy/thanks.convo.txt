@@ -1,0 +1,8 @@
+TC-thanks-convo
+
+#me
+THANKS_USER
+
+#bot
+THANKS_ACTIONS
+

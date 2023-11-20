@@ -1,0 +1,4 @@
+NAME_ENTRY_ACTIONS
+Hello 
+$name
+ ,How may i Help you

@@ -1,0 +1,14 @@
+TC-greet-!mood_great-convo
+
+#me
+GREET_USER
+
+#bot
+GREET_ACTIONS
+
+#me
+MOOD_GREAT_USER
+
+#bot
+MOOD_GREAT_ACTIONS
+

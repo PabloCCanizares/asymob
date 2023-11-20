@@ -1,0 +1,26 @@
+TC-greet-!mood_unhappy-!deny-convo
+
+#me
+hey
+
+#bot
+Hey! How I could help you?
+
+#me
+sad
+
+#bot
+Here is something to cheer you up:
+
+#bot
+MEDIA nGF1K8f.jpg
+
+#bot
+Did that help you?
+
+#me
+DENY_USER
+
+#bot
+DENY_ACTIONS
+

@@ -1,0 +1,12 @@
+     |$page
+case0|cart review
+case1|cart confirm
+case2|purchase
+case3|sign up
+case4|welcome
+case5|home
+case6|cart
+case7|sign in
+case8|log in
+case9|login
+case10|signin

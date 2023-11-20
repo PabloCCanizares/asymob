@@ -1,0 +1,9 @@
+inform_mobile
+
+#me
+Mobile
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Mobile|...

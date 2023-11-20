@@ -1,0 +1,5 @@
+Life Insurance - Plan details - output 0
+✔️Premium: Rs. 1000 paid annually
+✔️Premium Payment Term: 6 Years (Regular)
+✔️Sum Assured: Rs 2,50,000
+✔️Plan Option: Daily hospital cash, surgical & critical illness

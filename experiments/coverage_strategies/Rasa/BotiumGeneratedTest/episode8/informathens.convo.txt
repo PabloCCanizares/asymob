@@ -1,0 +1,9 @@
+inform_athens
+
+#me
+Athens
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Athens|...

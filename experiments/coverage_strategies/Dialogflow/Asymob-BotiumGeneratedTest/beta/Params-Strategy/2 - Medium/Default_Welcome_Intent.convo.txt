@@ -1,0 +1,8 @@
+TC-Default_Welcome_Intent-convo
+
+#me
+DEFAULT_WELCOME_INTENT_USER
+
+#bot
+DEFAULT_WELCOME_INTENT_ACTIONS
+

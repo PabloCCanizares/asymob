@@ -1,0 +1,8 @@
+TC-info-convo
+
+#me
+INFO_USER
+
+#bot
+INFO_ACTIONS
+

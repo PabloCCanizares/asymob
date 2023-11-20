@@ -1,0 +1,9 @@
+inform_el-paso
+
+#me
+El Paso
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES El Paso|...

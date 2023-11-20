@@ -1,0 +1,9 @@
+inform_bunnell
+
+#me
+Bunnell
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Bunnell|...

@@ -1,0 +1,7 @@
+mission
+
+#me
+mission
+
+#bot
+INTENT mission

@@ -1,0 +1,11 @@
+End_Conversation
+end my session
+log out
+I want to log out
+I want to quit
+end dialogue
+end
+bye bye
+end conversation
+goodbye
+bye

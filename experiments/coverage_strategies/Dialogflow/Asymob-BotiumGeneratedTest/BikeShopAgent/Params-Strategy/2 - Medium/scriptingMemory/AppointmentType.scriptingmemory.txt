@@ -1,0 +1,12 @@
+     |$AppointmentType
+case0|fix
+case1|repair
+case2|mend
+case3|broken
+case4|flat tire
+case5|fixed
+case6|service
+case7|overhaul
+case8|maintenance
+case9|tune-up
+case10|tune up

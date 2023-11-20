@@ -1,0 +1,4 @@
+GOODBYE_ACTIONS
+Talk to you later!
+Have a good day.
+Until next time!

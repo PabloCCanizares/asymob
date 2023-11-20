@@ -1,0 +1,9 @@
+inform_tucson
+
+#me
+Tucson
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Tucson|...

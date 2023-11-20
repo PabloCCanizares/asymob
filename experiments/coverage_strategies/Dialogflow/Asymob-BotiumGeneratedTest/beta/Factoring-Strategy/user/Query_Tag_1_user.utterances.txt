@@ -1,0 +1,9 @@
+QUERY_TAG_1_USER
+I would like to know the tag of $category
+Give me the tag of $category
+Do the $category has any tag?
+I want to know the tag of $category
+what is the tag of $category
+could you please tell me the tag of $category?
+show me the tag of $category
+tag of $category

@@ -1,0 +1,2 @@
+     |$AppointmentType
+case0|fix

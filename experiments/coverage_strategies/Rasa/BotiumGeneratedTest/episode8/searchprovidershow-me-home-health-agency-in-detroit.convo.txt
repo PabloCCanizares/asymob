@@ -1,0 +1,9 @@
+search_provider_show-me-home-health-agency-in-detroit
+
+#me
+show me home health agency in Detroit
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES home health agency|Detroit|...

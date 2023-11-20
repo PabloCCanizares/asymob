@@ -1,0 +1,3 @@
+     |$date
+case0|tomorrow
+case1|next Thursday

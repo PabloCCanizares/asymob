@@ -1,0 +1,9 @@
+inform_hartsville
+
+#me
+Hartsville
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Hartsville|...

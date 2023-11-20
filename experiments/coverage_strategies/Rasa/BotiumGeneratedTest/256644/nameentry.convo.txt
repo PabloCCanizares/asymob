@@ -1,0 +1,7 @@
+name_entry
+
+#me
+name_entry
+
+#bot
+INTENT name_entry

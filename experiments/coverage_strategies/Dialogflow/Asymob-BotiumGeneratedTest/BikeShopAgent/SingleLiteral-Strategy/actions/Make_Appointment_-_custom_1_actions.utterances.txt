@@ -1,0 +1,8 @@
+MAKE_APPOINTMENT_-_CUSTOM_1_ACTIONS
+Okay, we’ll schedule a 
+$AppointmentType
+for tomorrow, 
+$date
+at 
+$time
+ We’ll see you then. 

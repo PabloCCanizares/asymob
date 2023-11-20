@@ -1,0 +1,7 @@
+info
+
+#me
+info
+
+#bot
+INTENT info

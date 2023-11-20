@@ -1,0 +1,9 @@
+inform_colorado
+
+#me
+Colorado
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Colorado|...

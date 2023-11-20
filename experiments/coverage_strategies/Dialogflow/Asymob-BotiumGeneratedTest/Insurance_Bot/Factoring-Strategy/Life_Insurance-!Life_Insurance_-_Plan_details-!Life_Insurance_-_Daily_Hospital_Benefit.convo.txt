@@ -1,0 +1,30 @@
+TC-Life_Insurance-!Life_Insurance_-_Plan_details-!Life_Insurance_-_Daily_Hospital_Benefit-convo
+
+#me
+Life Insurance
+
+#bot
+✔️Who needs it: Those with dependents
+
+✔️What it is: 
+- In the event of death, a life insurance policy pays a beneficiary an agreed-upon amount of money to cover the expenses left by the deceased
+
+- A beneficiary is a person or entity named in a policy who receives benefits, such as a spouse 
+
+#me
+Life Insurance - Plan details
+
+#bot
+✔️Premium: Rs. 1000 paid annually
+✔️Premium Payment Term: 6 Years (Regular)
+✔️Sum Assured: Rs 2,50,000
+✔️Plan Option: Daily hospital cash, surgical & critical illness 
+
+#bot
+
+#me
+LIFE_INSURANCE_-_DAILY_HOSPITAL_BENEFIT_USER
+
+#bot
+LIFE_INSURANCE_-_DAILY_HOSPITAL_BENEFIT_ACTIONS
+

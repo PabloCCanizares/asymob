@@ -1,0 +1,9 @@
+search_provider_i-am-in-amarillo-and-i-need-a-nursing-home
+
+#me
+i am in Amarillo and i need a nursing home
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES Amarillo|nursing home|...

@@ -1,0 +1,7 @@
+checklogin
+
+#me
+checklogin
+
+#bot
+INTENT checklogin

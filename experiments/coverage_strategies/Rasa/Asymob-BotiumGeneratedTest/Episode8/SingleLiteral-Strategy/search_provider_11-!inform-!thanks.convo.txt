@@ -1,0 +1,14 @@
+TC-search_provider_11-!inform-!thanks-convo
+
+#me
+SEARCH_PROVIDER_USER_11
+
+#bot
+INTENT search_provider
+
+#me
+THANKS_USER
+
+#bot
+THANKS_ACTIONS
+

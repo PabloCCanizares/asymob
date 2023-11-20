@@ -1,0 +1,5 @@
+Default Welcome Intent - output 0
+Hi! How are you doing?
+Hello! How can I help you?
+Good day! What can I do for you today?
+Greetings! How can I assist?

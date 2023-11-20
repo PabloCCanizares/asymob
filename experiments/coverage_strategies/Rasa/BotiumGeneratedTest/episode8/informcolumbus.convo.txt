@@ -1,0 +1,9 @@
+inform_columbus
+
+#me
+Columbus
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Columbus|...

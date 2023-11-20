@@ -1,0 +1,15 @@
+FACILITY_ACTIONS
+Electronics Devices and Circuit Laboratory,
+Digital Electronics and Circuit Laboratory,
+Communication Laboratory,
+Advanced Communication Laboratory,
+Linear Integrated Circuits Laboratory,
+Microcontroller Laboratory,
+Digitial Signal Processing Laboratory,
+VHDL Laboratory,
+VLSI Laboratory,
+PG Computer Centre,
+Wireless Communication Lab,
+M10x Center / Project Laboratory,
+ E - Class Room
+Thank you

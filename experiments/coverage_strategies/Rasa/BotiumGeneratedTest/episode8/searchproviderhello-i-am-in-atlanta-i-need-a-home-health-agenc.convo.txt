@@ -1,0 +1,9 @@
+search_provider_hello-i-am-in-atlanta-i-need-a-home-health-agenc
+
+#me
+hello i am in Atlanta i need a home health agenc
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES Atlanta|9wzi-peqs|...

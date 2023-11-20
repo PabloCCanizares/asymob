@@ -1,0 +1,9 @@
+name_entry_karthik
+
+#me
+Karthik
+
+#bot
+INTENT name_entry
+ENTITIES name|...
+ENTITY_VALUES Karthik|...

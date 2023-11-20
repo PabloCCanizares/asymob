@@ -1,0 +1,20 @@
+TC-Login_00-1-convo
+
+#me
+LOGIN_00_USER
+
+#bot
+Please enter your username
+
+#me
+username
+
+#bot
+Please enter your password
+
+#me
+password
+
+#bot
+... 
+

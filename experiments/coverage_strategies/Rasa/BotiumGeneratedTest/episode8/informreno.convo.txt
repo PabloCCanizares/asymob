@@ -1,0 +1,9 @@
+inform_reno
+
+#me
+Reno
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Reno|...

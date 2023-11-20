@@ -1,0 +1,9 @@
+inform_a-nursing-home
+
+#me
+a nursing home
+
+#bot
+INTENT inform
+ENTITIES facility_type|...
+ENTITY_VALUES nursing home|...

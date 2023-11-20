@@ -1,0 +1,9 @@
+inform_little
+
+#me
+Little
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Little|...

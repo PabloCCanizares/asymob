@@ -1,0 +1,2 @@
+     |$facility_type |$location
+case0|hospital|Caguas

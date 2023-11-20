@@ -1,0 +1,9 @@
+search_provider_show-me-nursing-home-in-knoxville
+
+#me
+show me nursing home in Knoxville
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES nursing home|Knoxville|...

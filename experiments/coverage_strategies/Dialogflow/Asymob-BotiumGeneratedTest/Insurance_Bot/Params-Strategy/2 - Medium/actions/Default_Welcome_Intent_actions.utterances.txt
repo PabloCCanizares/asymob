@@ -1,0 +1,3 @@
+DEFAULT_WELCOME_INTENT_ACTIONS
+Hey👋 Thank you for showing interest in our insurance 😍 
+ 

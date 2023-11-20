@@ -1,0 +1,9 @@
+inform_san-antonio
+
+#me
+San Antonio
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES San Antonio|...

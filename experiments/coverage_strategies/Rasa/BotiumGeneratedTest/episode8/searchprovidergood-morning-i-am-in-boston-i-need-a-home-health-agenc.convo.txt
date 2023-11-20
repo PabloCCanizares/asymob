@@ -1,0 +1,9 @@
+search_provider_good-morning-i-am-in-boston-i-need-a-home-health-agenc
+
+#me
+Good morning i am in Boston i need a home health agenc
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES Boston|9wzi-peqs|...

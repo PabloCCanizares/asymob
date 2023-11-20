@@ -1,0 +1,9 @@
+name_entry_shreya
+
+#me
+Shreya
+
+#bot
+INTENT name_entry
+ENTITIES name|...
+ENTITY_VALUES Shreya|...

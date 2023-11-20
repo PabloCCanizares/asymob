@@ -1,0 +1,11 @@
+Action_Cart_Add
+add 1 White Wisconsin Visor
+put 3 Wisconsin Football Hats to my cart
+add 6 Wisconsin Football Hats, please
+I want to add 9 Bucky Badger Pillow to my cart
+I want to add 2 Bucky Badger Keychain
+add 3 Bucky Badger Plush
+I want to buy 5 Bucky Crew Neck Sweatshirt
+could you please add 3 W Cloud Pillow?
+please add 2 Wisconsin Leggings to my cart
+add 1 Bucky Crew Neck Sweatshirt to cart

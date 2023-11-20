@@ -1,0 +1,11 @@
+QUERY_PRODUCT_-_REVIEW_USER
+what are the reviews
+show me the rating
+how many stars is this product
+rating
+what is the rating
+what does other user say about this product
+feedback of this product
+show me the review
+What is the review of this product
+review

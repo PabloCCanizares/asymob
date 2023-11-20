@@ -1,0 +1,9 @@
+name_entry_tulasidas
+
+#me
+Tulasidas
+
+#bot
+INTENT name_entry
+ENTITIES name|...
+ENTITY_VALUES Tulasidas|...

@@ -1,0 +1,14 @@
+Query_Product - Query_Product - review
+
+#me
+Query_Product
+
+#bot
+INTENT Query_Product
+
+#me
+Query_Product - review
+
+#bot
+Query_Product - review - output 0
+INTENT Query_Product - review

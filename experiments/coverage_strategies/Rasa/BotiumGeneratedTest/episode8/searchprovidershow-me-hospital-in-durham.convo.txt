@@ -1,0 +1,9 @@
+search_provider_show-me-hospital-in-durham
+
+#me
+show me hospital in Durham
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES hospital|Durham|...

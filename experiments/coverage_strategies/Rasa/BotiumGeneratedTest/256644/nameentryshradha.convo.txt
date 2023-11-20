@@ -1,0 +1,9 @@
+name_entry_shradha
+
+#me
+Shradha
+
+#bot
+INTENT name_entry
+ENTITIES name|...
+ENTITY_VALUES Shradha|...

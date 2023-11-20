@@ -1,0 +1,26 @@
+TC-greet-!search_provider_01-!inform-!thanks-convo
+
+#me
+Hi
+
+#bot
+INTENT greet
+
+#me
+SEARCH_PROVIDER_USER_01
+
+#bot
+INTENT search_provider
+
+#me
+Caguas
+
+#bot
+INTENT inform
+
+#me
+THANKS_USER
+
+#bot
+THANKS_ACTIONS
+	

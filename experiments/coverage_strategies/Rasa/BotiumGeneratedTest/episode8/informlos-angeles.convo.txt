@@ -1,0 +1,9 @@
+inform_los-angeles
+
+#me
+Los Angeles
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Los Angeles|...

@@ -1,0 +1,9 @@
+search_provider_find-me-a-nearby-home-health-agency
+
+#me
+find me a nearby home health agency
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|...
+ENTITY_VALUES home health agency|...

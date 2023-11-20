@@ -1,0 +1,9 @@
+search_provider_good-morning-i-am-in-nashville-i-need-a-home-health-agenc
+
+#me
+Good morning i am in Nashville i need a home health agenc
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES Nashville|9wzi-peqs|...

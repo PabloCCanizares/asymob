@@ -1,0 +1,9 @@
+search_provider_i-need-a-hospital-at-77474
+
+#me
+i need a hospital at 77474
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES hospital|77474|...

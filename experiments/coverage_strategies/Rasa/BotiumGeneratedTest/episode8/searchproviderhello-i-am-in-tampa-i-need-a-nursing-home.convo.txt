@@ -1,0 +1,9 @@
+search_provider_hello-i-am-in-tampa-i-need-a-nursing-home
+
+#me
+hello i am in Tampa i need a nursing  home
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES Tampa|b27b-2uc7|...

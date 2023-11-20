@@ -1,0 +1,7 @@
+Welcome Intent
+
+#me
+Welcome Intent
+
+#bot
+INTENT Welcome Intent

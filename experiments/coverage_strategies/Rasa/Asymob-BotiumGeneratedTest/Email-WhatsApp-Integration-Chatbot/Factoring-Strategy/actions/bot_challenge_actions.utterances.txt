@@ -1,0 +1,2 @@
+BOT_CHALLENGE_ACTIONS
+I am a bot, powered by Rasa.

@@ -1,0 +1,7 @@
+Action_Cart_Clear
+
+#me
+Action_Cart_Clear
+
+#bot
+INTENT Action_Cart_Clear

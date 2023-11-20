@@ -1,0 +1,11 @@
+ACTION_TAG_1_USER
+I only want $tag products
+I only want to see $tag ones
+show me only the $tag ones
+filter by the tag $tag
+could you please show me only the products that are $tag
+can you filter the products by $tag
+products that have tag $tag
+what are products that have $tag tag
+Show me products by $tag
+Show me all the $tag ones

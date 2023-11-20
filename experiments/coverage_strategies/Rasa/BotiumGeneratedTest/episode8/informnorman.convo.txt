@@ -1,0 +1,9 @@
+inform_norman
+
+#me
+Norman
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Norman|...

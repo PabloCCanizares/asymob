@@ -1,0 +1,9 @@
+inform_savannah
+
+#me
+Savannah
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Savannah|...

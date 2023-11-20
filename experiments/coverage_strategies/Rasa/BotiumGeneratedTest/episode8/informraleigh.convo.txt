@@ -1,0 +1,9 @@
+inform_raleigh
+
+#me
+Raleigh
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Raleigh|...

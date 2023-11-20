@@ -1,0 +1,9 @@
+inform_albuquerque
+
+#me
+Albuquerque
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Albuquerque|...

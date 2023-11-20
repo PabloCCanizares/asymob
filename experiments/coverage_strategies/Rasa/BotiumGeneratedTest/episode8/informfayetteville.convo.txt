@@ -1,0 +1,9 @@
+inform_fayetteville
+
+#me
+Fayetteville
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Fayetteville|...

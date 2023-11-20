@@ -1,0 +1,9 @@
+search_provider_i-need-a-hospital-in-waco
+
+#me
+i need a hospital in Waco
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES hospital|Waco|...

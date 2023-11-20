@@ -1,0 +1,9 @@
+inform_san-francisco
+
+#me
+San Francisco
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES San Francisco|...

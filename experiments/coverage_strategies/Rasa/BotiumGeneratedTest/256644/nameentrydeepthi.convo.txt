@@ -1,0 +1,9 @@
+name_entry_deepthi
+
+#me
+Deepthi
+
+#bot
+INTENT name_entry
+ENTITIES name|...
+ENTITY_VALUES Deepthi|...

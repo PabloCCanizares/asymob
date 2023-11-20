@@ -1,0 +1,7 @@
+search_provider
+
+#me
+search_provider
+
+#bot
+INTENT search_provider

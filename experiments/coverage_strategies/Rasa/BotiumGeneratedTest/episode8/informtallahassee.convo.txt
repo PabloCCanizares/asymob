@@ -1,0 +1,9 @@
+inform_tallahassee
+
+#me
+Tallahassee
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Tallahassee|...

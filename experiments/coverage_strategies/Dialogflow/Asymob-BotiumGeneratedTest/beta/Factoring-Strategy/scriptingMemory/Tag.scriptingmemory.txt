@@ -1,0 +1,25 @@
+     |$Tag
+case0|pants
+case1|sweats
+case2|hoodies
+case3|black
+case4|cotton
+case5|longsleeve
+case6|youth
+case7|grey
+case8|badger
+case9|red
+case10|printed
+case11|shortsleeve
+case12|keychain
+case13|visor
+case14|white
+case15|polyester
+case16|men
+case17|embroidered
+case18|pillow
+case19|logo
+case20|shorts
+case21|adult
+case22|fuzzy
+case23|women

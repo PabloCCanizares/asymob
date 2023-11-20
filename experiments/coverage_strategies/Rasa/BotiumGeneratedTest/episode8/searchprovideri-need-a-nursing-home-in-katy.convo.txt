@@ -1,0 +1,9 @@
+search_provider_i-need-a-nursing-home-in-katy
+
+#me
+i need a nursing home in Katy
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES nursing home|Katy|...

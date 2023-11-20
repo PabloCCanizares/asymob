@@ -1,0 +1,2 @@
+GOODBYE_ACTIONS
+Bye

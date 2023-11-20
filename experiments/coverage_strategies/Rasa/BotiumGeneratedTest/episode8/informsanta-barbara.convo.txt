@@ -1,0 +1,9 @@
+inform_santa-barbara
+
+#me
+Santa Barbara
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Santa Barbara|...

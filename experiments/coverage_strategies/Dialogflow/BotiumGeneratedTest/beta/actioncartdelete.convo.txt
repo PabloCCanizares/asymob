@@ -1,0 +1,7 @@
+Action_Cart_Delete
+
+#me
+Action_Cart_Delete
+
+#bot
+INTENT Action_Cart_Delete

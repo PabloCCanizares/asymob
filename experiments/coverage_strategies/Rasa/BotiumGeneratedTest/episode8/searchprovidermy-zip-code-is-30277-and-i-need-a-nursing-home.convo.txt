@@ -1,0 +1,9 @@
+search_provider_my-zip-code-is-30277-and-i-need-a-nursing-home
+
+#me
+my zip code is 30277 and i need a nursing home
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES 30277|nursing home|...

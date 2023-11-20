@@ -1,0 +1,20 @@
+TC-greet!search_provider_11-!inform-!thanks-convo
+
+#me
+Hi
+
+#bot
+INTENT greet
+
+#me
+SEARCH_PROVIDER_USER_11
+
+#bot
+INTENT search_provider
+
+#me
+Thank you
+
+#bot
+THANKS_ACTIONS
+

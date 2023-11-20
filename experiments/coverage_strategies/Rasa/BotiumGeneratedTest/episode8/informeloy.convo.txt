@@ -1,0 +1,9 @@
+inform_eloy
+
+#me
+Eloy
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Eloy|...

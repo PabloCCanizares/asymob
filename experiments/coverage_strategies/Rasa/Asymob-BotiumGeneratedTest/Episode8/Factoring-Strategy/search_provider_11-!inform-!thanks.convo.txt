@@ -1,0 +1,14 @@
+TC-search_provider_11-!inform-!thanks-convo
+
+#me
+Good morning i am in $location i need a $facility_type
+
+#bot
+INTENT search_provider
+
+#me
+Thank you
+
+#bot
+THANKS_ACTIONS
+

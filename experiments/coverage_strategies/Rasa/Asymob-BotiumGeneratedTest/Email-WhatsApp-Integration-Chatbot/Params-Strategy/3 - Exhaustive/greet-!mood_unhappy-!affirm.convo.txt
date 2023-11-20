@@ -1,0 +1,26 @@
+TC-greet-!mood_unhappy-!affirm-convo
+
+#me
+GREET_USER
+
+#bot
+GREET_ACTIONS
+
+#me
+MOOD_UNHAPPY_USER
+
+#bot
+Here is something to cheer you up:
+
+#bot
+MEDIA nGF1K8f.jpg
+
+#bot
+MOOD_UNHAPPY_ACTIONS
+
+#me
+AFFIRM_USER
+
+#bot
+AFFIRM_ACTIONS
+

@@ -1,0 +1,9 @@
+inform_tulsa
+
+#me
+Tulsa
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Tulsa|...

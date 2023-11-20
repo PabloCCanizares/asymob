@@ -1,0 +1,7 @@
+Query_Category
+
+#me
+Query_Category
+
+#bot
+INTENT Query_Category

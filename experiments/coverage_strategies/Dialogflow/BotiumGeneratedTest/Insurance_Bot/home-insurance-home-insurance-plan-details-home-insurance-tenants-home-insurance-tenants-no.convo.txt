@@ -1,0 +1,29 @@
+Home Insurance - Home Insurance - Plan Details - Home Insurance - Tenants - Home Insurance - Tenants - No
+
+#me
+Home Insurance
+
+#bot
+Home Insurance - output 0
+INTENT Home Insurance
+
+#me
+Home Insurance - Plan Details
+
+#bot
+Home Insurance - Plan Details - output 0
+INTENT Home Insurance - Plan Details
+
+#me
+Home Insurance - Tenants
+
+#bot
+Home Insurance - Tenants - output 0
+INTENT Home Insurance - Tenants
+
+#me
+Home Insurance - Tenants - No
+
+#bot
+Home Insurance - Tenants - No - output 0
+INTENT Home Insurance - Tenants - No

@@ -1,0 +1,6 @@
+     |$facility_type |$location
+case0|hospital|Caguas
+case1|hospital|Hammonton
+case2|hospital|Broussard
+case5|hospital|Magee
+case6|hospital|Houston

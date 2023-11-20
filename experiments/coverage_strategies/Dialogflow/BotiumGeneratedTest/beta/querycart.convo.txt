@@ -1,0 +1,7 @@
+Query_Cart
+
+#me
+Query_Cart
+
+#bot
+INTENT Query_Cart

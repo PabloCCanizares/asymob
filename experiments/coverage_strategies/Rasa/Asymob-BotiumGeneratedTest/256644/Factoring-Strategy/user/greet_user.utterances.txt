@@ -1,0 +1,7 @@
+GREET_USER
+hey
+hello
+hi
+good morning
+good evening
+hey there

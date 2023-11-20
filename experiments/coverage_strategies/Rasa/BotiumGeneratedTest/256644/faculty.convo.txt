@@ -1,0 +1,7 @@
+faculty
+
+#me
+faculty
+
+#bot
+INTENT faculty

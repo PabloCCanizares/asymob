@@ -1,0 +1,8 @@
+Default Welcome Intent
+
+#me
+Default Welcome Intent
+
+#bot
+Default Welcome Intent - output 0
+INTENT Default Welcome Intent

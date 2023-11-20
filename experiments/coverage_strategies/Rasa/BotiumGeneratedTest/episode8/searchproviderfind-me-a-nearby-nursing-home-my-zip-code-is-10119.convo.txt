@@ -1,0 +1,9 @@
+search_provider_find-me-a-nearby-nursing-home-my-zip-code-is-10119
+
+#me
+find me a nearby nursing home my zip code is 10119
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES nursing home|10119|...

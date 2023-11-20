@@ -1,0 +1,13 @@
+Make Appointment - Make Appointment - custom
+
+#me
+Make Appointment
+
+#bot
+INTENT Make Appointment
+
+#me
+Make Appointment - custom
+
+#bot
+INTENT Make Appointment - custom

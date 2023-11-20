@@ -1,0 +1,8 @@
+TC-faculty-convo
+
+#me
+FACULTY_USER
+
+#bot
+FACULTY_ACTIONS
+

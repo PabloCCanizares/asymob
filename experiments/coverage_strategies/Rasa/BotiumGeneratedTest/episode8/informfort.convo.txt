@@ -1,0 +1,9 @@
+inform_fort
+
+#me
+Fort
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Fort|...

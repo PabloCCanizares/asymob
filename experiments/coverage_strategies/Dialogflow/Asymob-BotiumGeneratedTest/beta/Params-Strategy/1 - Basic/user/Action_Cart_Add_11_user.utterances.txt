@@ -1,0 +1,11 @@
+ACTION_CART_ADD_11_USER
+add $quantity $Product
+put $quantity $Product to my cart
+add $quantity $Product, please
+I want to add $quantity $Product
+I want to add $quantity $Product
+add $quantity $Product
+I want to buy $quantity $Product
+could you please add $quantity $Product?
+please add $quantity $Product to my cart
+add $quantity $Product to cart

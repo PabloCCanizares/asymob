@@ -1,0 +1,7 @@
+hod
+
+#me
+hod
+
+#bot
+INTENT hod

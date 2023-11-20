@@ -1,0 +1,9 @@
+inform_port
+
+#me
+Port
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Port|...

@@ -1,0 +1,3 @@
+     |$time
+case0|at 2pm
+case1|4pm

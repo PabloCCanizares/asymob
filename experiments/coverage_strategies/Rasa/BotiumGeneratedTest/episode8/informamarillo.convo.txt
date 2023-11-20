@@ -1,0 +1,9 @@
+inform_amarillo
+
+#me
+Amarillo
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Amarillo|...

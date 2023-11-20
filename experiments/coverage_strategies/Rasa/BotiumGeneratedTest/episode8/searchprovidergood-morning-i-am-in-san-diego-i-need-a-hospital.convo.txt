@@ -1,0 +1,9 @@
+search_provider_good-morning-i-am-in-san-diego-i-need-a-hospital
+
+#me
+Good morning i am in San Diego i need a hospital
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES San Diego|xubh-q36u|...

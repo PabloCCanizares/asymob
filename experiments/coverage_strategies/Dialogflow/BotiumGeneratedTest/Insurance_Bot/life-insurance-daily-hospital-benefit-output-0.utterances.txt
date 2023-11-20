@@ -1,0 +1,4 @@
+Life Insurance - Daily Hospital Benefit - output 0
+✔️Daily hospital benefit provides a sum amount daily in case of hospitalization and this amount can be used per the insured’s need
+
+✔️The money can be used for meeting additional expenses that are not covered by health insurance or for even compensating the loss of income during the period of hospitalization

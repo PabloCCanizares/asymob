@@ -1,0 +1,9 @@
+search_provider_i-need-a-hospital-my-zip-code-is-77494
+
+#me
+i need a hospital my zip code is 77494
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES hospital|77494|...

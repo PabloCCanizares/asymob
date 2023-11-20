@@ -1,0 +1,14 @@
+Default Welcome Intent - Insurance - YES
+
+#me
+Default Welcome Intent
+
+#bot
+Default Welcome Intent - output 0
+INTENT Default Welcome Intent
+
+#me
+Insurance - YES
+
+#bot
+INTENT Insurance - YES

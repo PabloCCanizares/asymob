@@ -1,0 +1,9 @@
+inform_aurora
+
+#me
+Aurora
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Aurora|...

@@ -1,0 +1,9 @@
+inform_birmingham
+
+#me
+Birmingham
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Birmingham|...

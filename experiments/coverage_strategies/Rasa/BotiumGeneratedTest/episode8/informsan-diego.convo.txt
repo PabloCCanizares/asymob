@@ -1,0 +1,9 @@
+inform_san-diego
+
+#me
+San Diego
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES San Diego|...

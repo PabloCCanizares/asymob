@@ -1,0 +1,23 @@
+TC-greet-!monthly_expenses-!goodbye-convo
+
+#me
+hey
+
+#bot
+Hey! How I could help you?
+
+#me
+MONTHLY_EXPENSES_USER
+
+#bot
+MONTHLY_EXPENSES_ACTIONS
+
+#bot
+MEDIA PFBSQhF.png
+
+#me
+GOODBYE_USER
+
+#bot
+GOODBYE_ACTIONS
+

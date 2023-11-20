@@ -1,0 +1,9 @@
+inform_unalaska
+
+#me
+Unalaska
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Unalaska|...

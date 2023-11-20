@@ -1,0 +1,12 @@
+NAVIGATION_USER
+show me the $page page
+navigate to the page of $Product
+navigate to $Product
+navigate to $category category
+navigate to $page page
+take me to the page of $Product
+show me $Product
+take me to the $category page
+show me the $category
+show me the $page page
+take me to $page

@@ -1,0 +1,2 @@
+DENY_ACTIONS
+Bye

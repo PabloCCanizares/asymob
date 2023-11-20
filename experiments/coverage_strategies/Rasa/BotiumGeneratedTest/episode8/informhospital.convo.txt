@@ -1,0 +1,9 @@
+inform_hospital
+
+#me
+hospital
+
+#bot
+INTENT inform
+ENTITIES facility_type|...
+ENTITY_VALUES hospital|...

@@ -1,0 +1,9 @@
+search_provider_home-health-agency
+
+#me
+home health agency
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|...
+ENTITY_VALUES home health agency|...

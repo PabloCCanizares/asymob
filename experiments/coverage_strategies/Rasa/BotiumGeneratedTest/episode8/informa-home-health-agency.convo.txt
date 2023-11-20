@@ -1,0 +1,9 @@
+inform_a-home-health-agency
+
+#me
+a home health agency
+
+#bot
+INTENT inform
+ENTITIES facility_type|...
+ENTITY_VALUES home health agency|...

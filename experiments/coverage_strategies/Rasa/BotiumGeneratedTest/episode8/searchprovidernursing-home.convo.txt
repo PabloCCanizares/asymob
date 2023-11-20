@@ -1,0 +1,9 @@
+search_provider_nursing-home
+
+#me
+nursing home
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|...
+ENTITY_VALUES nursing home|...

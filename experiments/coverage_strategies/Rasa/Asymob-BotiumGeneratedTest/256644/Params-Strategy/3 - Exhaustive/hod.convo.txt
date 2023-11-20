@@ -1,0 +1,8 @@
+TC-hod-convo
+
+#me
+HOD_USER
+
+#bot
+HOD_ACTIONS
+

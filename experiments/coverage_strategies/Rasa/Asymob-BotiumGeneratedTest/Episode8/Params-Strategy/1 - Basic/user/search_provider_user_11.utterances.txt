@@ -1,0 +1,4 @@
+SEARCH_PROVIDER_USER_11
+Good morning i am in $location i need a $facility_type
+hi i am in $location i need a $facility_type
+Can you tell me a $facility_type in $location ?

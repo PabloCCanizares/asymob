@@ -1,0 +1,9 @@
+inform_kansas-location
+
+#me
+Kansas location
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Kansas location|...

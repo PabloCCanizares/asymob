@@ -1,0 +1,7 @@
+Hours
+
+#me
+Hours
+
+#bot
+INTENT Hours

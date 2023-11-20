@@ -1,0 +1,10 @@
+FACULTY_ACTIONS
+The faculty strength of the department is 31,
+ which includes
+3 Professors
+7 Associate Professors
+21 Assistant Professors. 
+Nine of the faculty have completed their PhDs in IITs and reputed universities in the area of Speech Processing, Image processing, Networking, Communication & Microelectronics.
+ Seven faculty members are pursuing their PhDs at IISc, IITs and other reputed institutions.
+ For more Information:https://sit.irins.org/faculty/index/Electronics+and+Communication+Engineering
+Thank you

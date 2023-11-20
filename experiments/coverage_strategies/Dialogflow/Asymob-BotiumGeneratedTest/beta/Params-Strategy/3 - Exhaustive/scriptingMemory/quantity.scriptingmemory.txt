@@ -1,0 +1,21 @@
+     |$quantity
+case0|one
+case1|1
+case2|2
+case3|two
+case4|3
+case5|three
+case6|4
+case7|four
+case8|5
+case9|five
+case10|6
+case11|six
+case12|7
+case13|seven
+case14|8
+case15|eight
+case16|9
+case17|nine
+case18|10
+case19|ten

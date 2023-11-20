@@ -1,0 +1,7 @@
+monthly_expenses
+
+#me
+monthly_expenses
+
+#bot
+INTENT monthly_expenses

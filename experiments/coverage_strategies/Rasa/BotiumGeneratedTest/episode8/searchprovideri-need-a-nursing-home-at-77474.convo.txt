@@ -1,0 +1,9 @@
+search_provider_i-need-a-nursing-home-at-77474
+
+#me
+i need a nursing home at 77474
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES nursing home|77474|...

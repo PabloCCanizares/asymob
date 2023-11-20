@@ -1,0 +1,9 @@
+search_provider_hi-i-am-in-santa-cruz-i-need-a-hospital
+
+#me
+hi i am in Santa Cruz i need a hospital
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES Santa Cruz|xubh-q36u|...

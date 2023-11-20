@@ -1,0 +1,9 @@
+inform_las-vegas
+
+#me
+Las Vegas
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Las Vegas|...

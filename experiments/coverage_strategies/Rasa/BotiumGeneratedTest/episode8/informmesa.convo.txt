@@ -1,0 +1,9 @@
+inform_mesa
+
+#me
+Mesa
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Mesa|...

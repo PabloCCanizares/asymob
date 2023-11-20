@@ -1,0 +1,9 @@
+search_provider_hi-i-am-in-chicago-i-need-a-nursing-home
+
+#me
+hi i am in Chicago i need a nursing  home
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES Chicago|b27b-2uc7|...

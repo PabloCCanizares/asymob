@@ -1,0 +1,7 @@
+     |$category
+case0|plushes
+case1|hats
+case2|tees
+case3|sweatshirts
+case4|bottoms
+case5|leggings

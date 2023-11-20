@@ -1,0 +1,7 @@
+Query_Tag
+
+#me
+Query_Tag
+
+#bot
+INTENT Query_Tag

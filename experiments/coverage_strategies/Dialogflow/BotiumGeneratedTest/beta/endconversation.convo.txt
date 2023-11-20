@@ -1,0 +1,7 @@
+End_Conversation
+
+#me
+End_Conversation
+
+#bot
+INTENT End_Conversation

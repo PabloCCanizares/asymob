@@ -1,0 +1,9 @@
+inform_yuma
+
+#me
+Yuma
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Yuma|...

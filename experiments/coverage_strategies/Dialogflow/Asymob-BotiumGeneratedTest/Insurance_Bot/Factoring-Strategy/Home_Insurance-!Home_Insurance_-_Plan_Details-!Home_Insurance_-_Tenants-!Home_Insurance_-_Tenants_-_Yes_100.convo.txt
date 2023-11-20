@@ -1,0 +1,44 @@
+TC-Home_Insurance-!Home_Insurance_-_Plan_Details-!Home_Insurance_-_Tenants-!Home_Insurance_-_Tenants_-_Yes_100-3-convo
+
+#begin
+SET_SCRIPTING_MEMORY given-name|alex
+
+#me
+Home Insurance
+
+#bot
+🏠Home insurance covers the structure of house and the contents which include prized possessions against damage from natural calamities like floods, earthquake, storm and man made events like riots, arson etc. 
+
+#bot
+⭐Benefits and Features of 🏠Home Insurance ✔️Complete coverage for any damage to your home or it's contents from natural calamities and man made events ✔️Benefits like round the clock customer service, immediate access to the insurance experts and quick customer service. 
+
+#me
+ok
+
+#bot
+Choose any of the Home insurance plan 👇🏼 
+
+#me
+For Tenants
+
+#bot
+Even though you are at the rented place. The sweet memories, important occasions are still to be cherished 🌼 
+
+#me
+HOME_INSURANCE_-_TENANTS_-_YES_100_USER
+
+#bot
+Thanks $given-name😍, Please provide us with your email address📧 & mobile number📱 to get in touch with you later.
+
+#me
+alex@kommunicate.io
+
+#bot
+What is the phone-number?
+
+#me
+7645576532
+
+#bot
+Thank you 
+

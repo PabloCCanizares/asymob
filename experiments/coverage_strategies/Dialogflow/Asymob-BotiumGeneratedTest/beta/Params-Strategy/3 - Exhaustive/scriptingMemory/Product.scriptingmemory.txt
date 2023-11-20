@@ -1,0 +1,17 @@
+     |$Product
+case0|Bucky Crew Neck Sweatshirt
+case1|150 Year Commemorative Hoodie
+case2|Bucky Badger Pillow
+case3|Bucky Badger Keychain
+case4|W Cloud Pillow
+case5|Wisconsin Running Shorts
+case6|Jump Around Shirt
+case7|Bucky Badger Plush
+case8|Wisconsin Leggings
+case9|Bucky Badger Leggings
+case10|Women's Wisconsin Cuddle Joggers
+case11|White Wisconsin Visor
+case12|Wisconsin Sweatpants
+case13|Wisconsin Football Hat
+case14|Game Day Bucky Plush
+case15|Wisconsin Qualifier Woven Short

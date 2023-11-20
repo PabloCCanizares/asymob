@@ -1,0 +1,11 @@
+QUERY_PRODUCT_1_USER
+show me the information about $Product
+tell me more about $Product
+tell me more about $Product
+tell me more about $Product
+tell me more about $Product
+tell me more about $Product
+tell me more about $Product
+tell me more about $Product
+tell me more about $Product
+show me the information about $Product

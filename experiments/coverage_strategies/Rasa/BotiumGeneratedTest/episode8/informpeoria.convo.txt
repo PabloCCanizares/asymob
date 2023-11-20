@@ -1,0 +1,9 @@
+inform_peoria
+
+#me
+Peoria
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Peoria|...

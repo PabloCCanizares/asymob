@@ -1,0 +1,9 @@
+inform_huntsville
+
+#me
+Huntsville
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Huntsville|...

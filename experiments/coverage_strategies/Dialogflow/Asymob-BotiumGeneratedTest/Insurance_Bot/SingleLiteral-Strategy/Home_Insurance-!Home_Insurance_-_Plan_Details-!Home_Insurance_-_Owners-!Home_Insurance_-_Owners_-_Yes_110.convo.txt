@@ -1,0 +1,39 @@
+TC-Home_Insurance-!Home_Insurance_-_Plan_Details-!Home_Insurance_-_Owners-!Home_Insurance_-_Owners_-_Yes_110-convo
+
+#begin
+SET_SCRIPTING_MEMORY given-name|alex
+SET_SCRIPTING_MEMORY email|alex@gmail.com
+
+#me
+HOME_INSURANCE_USER
+
+#bot
+HOME_INSURANCE_ACTIONS
+
+#bot
+⭐Benefits and Features of 🏠Home Insurance ✔️Complete coverage for any damage to your home or it's contents from natural calamities and man made events ✔️Benefits like round the clock customer service, immediate access to the insurance experts and quick customer service. 
+
+#me
+HOME_INSURANCE_-_PLAN_DETAILS_USER
+
+#bot
+HOME_INSURANCE_-_PLAN_DETAILS_ACTIONS
+
+#me
+HOME_INSURANCE_-_OWNERS_USER
+
+#bot
+HOME_INSURANCE_-_OWNERS_ACTIONS
+
+#me
+HOME_INSURANCE_-_OWNERS_-_YES_110_USER
+
+#bot
+What is the phone-number?
+
+#me
+7655545321
+
+#bot
+Thank you 
+

@@ -1,0 +1,7 @@
+inform
+
+#me
+inform
+
+#bot
+INTENT inform

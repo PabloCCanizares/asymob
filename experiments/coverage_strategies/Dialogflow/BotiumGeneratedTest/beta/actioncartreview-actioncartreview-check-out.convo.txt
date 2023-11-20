@@ -1,0 +1,13 @@
+Action_Cart_Review - Action_Cart_Review - Check Out
+
+#me
+Action_Cart_Review
+
+#bot
+INTENT Action_Cart_Review
+
+#me
+Action_Cart_Review - Check Out
+
+#bot
+INTENT Action_Cart_Review - Check Out

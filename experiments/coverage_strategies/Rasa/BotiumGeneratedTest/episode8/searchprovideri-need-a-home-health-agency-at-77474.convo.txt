@@ -1,0 +1,9 @@
+search_provider_i-need-a-home-health-agency-at-77474
+
+#me
+i need a home health agency at 77474
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES home health agency|77474|...

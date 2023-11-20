@@ -1,0 +1,9 @@
+search_provider_i-am-in-las-vegas-and-i-need-a-home-healt-agency
+
+#me
+i am in Las Vegas and i need a home healt agency
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES Las Vegas|home healt agency|...

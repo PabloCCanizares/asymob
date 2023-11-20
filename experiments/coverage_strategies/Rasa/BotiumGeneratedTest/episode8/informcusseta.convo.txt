@@ -1,0 +1,9 @@
+inform_cusseta
+
+#me
+Cusseta
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Cusseta|...

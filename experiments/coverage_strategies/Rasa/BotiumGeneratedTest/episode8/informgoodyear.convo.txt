@@ -1,0 +1,9 @@
+inform_goodyear
+
+#me
+Goodyear
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Goodyear|...

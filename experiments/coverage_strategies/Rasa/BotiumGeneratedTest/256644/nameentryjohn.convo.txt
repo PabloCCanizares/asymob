@@ -1,0 +1,9 @@
+name_entry_john
+
+#me
+John
+
+#bot
+INTENT name_entry
+ENTITIES name|...
+ENTITY_VALUES John|...

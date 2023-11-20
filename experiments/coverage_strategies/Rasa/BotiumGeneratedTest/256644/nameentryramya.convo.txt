@@ -1,0 +1,9 @@
+name_entry_ramya
+
+#me
+Ramya
+
+#bot
+INTENT name_entry
+ENTITIES name|...
+ENTITY_VALUES Ramya|...

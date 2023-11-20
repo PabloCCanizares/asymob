@@ -1,0 +1,9 @@
+inform_sierra
+
+#me
+Sierra
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Sierra|...

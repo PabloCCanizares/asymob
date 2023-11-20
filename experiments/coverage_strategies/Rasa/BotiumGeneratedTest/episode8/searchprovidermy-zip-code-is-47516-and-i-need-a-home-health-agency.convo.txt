@@ -1,0 +1,9 @@
+search_provider_my-zip-code-is-47516-and-i-need-a-home-health-agency
+
+#me
+my zip code is 47516 and i need a home health agency
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES 47516|home health agency|...

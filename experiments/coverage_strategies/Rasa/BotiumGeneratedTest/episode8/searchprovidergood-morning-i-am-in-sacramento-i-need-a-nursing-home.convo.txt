@@ -1,0 +1,9 @@
+search_provider_good-morning-i-am-in-sacramento-i-need-a-nursing-home
+
+#me
+Good morning i am in Sacramento i need a nursing  home
+
+#bot
+INTENT search_provider
+ENTITIES location|facility_type|...
+ENTITY_VALUES Sacramento|b27b-2uc7|...

@@ -1,0 +1,8 @@
+TC-bot_challenge-convo
+
+#me
+BOT_CHALLENGE_USER
+
+#bot
+BOT_CHALLENGE_ACTIONS
+

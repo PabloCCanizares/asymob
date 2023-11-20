@@ -1,0 +1,9 @@
+search_provider_find-me-a-nearby-hospital
+
+#me
+find me a nearby hospital
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|...
+ENTITY_VALUES hospital|...

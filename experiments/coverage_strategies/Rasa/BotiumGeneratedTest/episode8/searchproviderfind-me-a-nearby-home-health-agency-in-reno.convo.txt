@@ -1,0 +1,9 @@
+search_provider_find-me-a-nearby-home-health-agency-in-reno
+
+#me
+find me a nearby home health agency in Reno
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES home health agency|Reno|...

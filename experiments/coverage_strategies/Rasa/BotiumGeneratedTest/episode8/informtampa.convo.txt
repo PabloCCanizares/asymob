@@ -1,0 +1,9 @@
+inform_tampa
+
+#me
+Tampa
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Tampa|...

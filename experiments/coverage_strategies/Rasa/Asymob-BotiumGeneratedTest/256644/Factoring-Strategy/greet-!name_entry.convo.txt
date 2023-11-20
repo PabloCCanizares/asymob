@@ -1,0 +1,14 @@
+TC-greet-!name_entry-convo
+
+#me
+GREET_USER
+
+#bot
+GREET_ACTIONS
+
+#me
+NAME_ENTRY_USER
+
+#bot
+NAME_ENTRY_ACTIONS
+

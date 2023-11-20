@@ -1,0 +1,9 @@
+search_provider_good-morning-i-need-a-hospital-in-waco
+
+#me
+Good morning i need a hospital in Waco
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES hospital|Waco|...

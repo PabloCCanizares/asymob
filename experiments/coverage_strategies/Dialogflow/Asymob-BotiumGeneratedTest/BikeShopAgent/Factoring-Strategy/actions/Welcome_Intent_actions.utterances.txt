@@ -1,0 +1,3 @@
+WELCOME_INTENT_ACTIONS
+ 
+Hi, welcome to Hogarth's bike shop.  How can I help you? 

@@ -1,0 +1,9 @@
+inform_scottsdale
+
+#me
+Scottsdale
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Scottsdale|...

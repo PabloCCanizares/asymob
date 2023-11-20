@@ -1,0 +1,7 @@
+student
+
+#me
+student
+
+#bot
+INTENT student

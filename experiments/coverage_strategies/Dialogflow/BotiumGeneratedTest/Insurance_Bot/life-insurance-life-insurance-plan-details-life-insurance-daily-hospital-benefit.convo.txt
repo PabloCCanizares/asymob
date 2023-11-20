@@ -1,0 +1,22 @@
+Life Insurance - Life Insurance - Plan details - Life Insurance - Daily Hospital Benefit
+
+#me
+Life Insurance
+
+#bot
+Life Insurance - output 0
+INTENT Life Insurance
+
+#me
+Life Insurance - Plan details
+
+#bot
+Life Insurance - Plan details - output 0
+INTENT Life Insurance - Plan details
+
+#me
+Life Insurance - Daily Hospital Benefit
+
+#bot
+Life Insurance - Daily Hospital Benefit - output 0
+INTENT Life Insurance - Daily Hospital Benefit

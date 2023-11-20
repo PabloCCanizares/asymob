@@ -1,0 +1,9 @@
+search_provider_find-me-a-nearby-home-health-agency-my-zip-code-is-10119
+
+#me
+find me a nearby home health agency my zip code is 10119
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES home health agency|10119|...

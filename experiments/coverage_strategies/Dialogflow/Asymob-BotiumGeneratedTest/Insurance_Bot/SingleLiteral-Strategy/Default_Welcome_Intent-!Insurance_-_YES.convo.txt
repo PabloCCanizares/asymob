@@ -1,0 +1,13 @@
+TC-Default_Welcome_Intent-!Insurance_-_YES-convo
+
+#me
+DEFAULT_WELCOME_INTENT_USER
+
+#bot
+DEFAULT_WELCOME_INTENT_ACTIONS
+
+#me
+INSURANCE_-_YES_USER
+
+#bot
+

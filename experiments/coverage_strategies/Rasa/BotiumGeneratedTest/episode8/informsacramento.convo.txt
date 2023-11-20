@@ -1,0 +1,9 @@
+inform_sacramento
+
+#me
+Sacramento
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Sacramento|...

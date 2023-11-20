@@ -1,0 +1,9 @@
+inform_charleston
+
+#me
+Charleston
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Charleston|...

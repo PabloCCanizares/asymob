@@ -1,0 +1,11 @@
+ACTION_CART_DELETE_1_USER
+can you remove $Product please?
+get rid of the $Product in the cart
+please delete the product $Product
+please remove the item $Product
+I don't want the $Product in my cart anymore
+please take off the $Product from the cart
+remove $Product from the cart
+delete $Product from the cart
+remove $Product
+delete $Product

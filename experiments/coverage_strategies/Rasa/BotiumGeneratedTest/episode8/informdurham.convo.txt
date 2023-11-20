@@ -1,0 +1,9 @@
+inform_durham
+
+#me
+Durham
+
+#bot
+INTENT inform
+ENTITIES location|...
+ENTITY_VALUES Durham|...

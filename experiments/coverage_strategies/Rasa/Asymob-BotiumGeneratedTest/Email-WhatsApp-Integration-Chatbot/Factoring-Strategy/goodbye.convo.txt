@@ -1,0 +1,8 @@
+TC-goodbye-convo
+
+#me
+bye
+
+#bot
+Bye
+

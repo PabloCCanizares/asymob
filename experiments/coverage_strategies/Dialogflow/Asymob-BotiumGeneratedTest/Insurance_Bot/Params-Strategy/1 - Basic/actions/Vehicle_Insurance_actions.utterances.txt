@@ -1,0 +1,14 @@
+VEHICLE_INSURANCE_ACTIONS
+Motor insurance policy covers the policyholder in case of financial losses, resulting from an accident or other damages sustained by the insured vehicle. 
+
+What's included?
+✔️ Accidents, Personal Accident Cover
+✔️ Fire & Explosion
+✔️ Theft
+✔️ Calamities
+
+What’s not included?
+✔️ Depreciation
+✔️ Electrical & Mechanical Breakdown
+✔️ Illegal Driving 
+ 

@@ -1,0 +1,14 @@
+Vehicle Insurance - Vehicle Insurance - Plan Details
+
+#me
+Vehicle Insurance
+
+#bot
+Vehicle Insurance - output 0
+INTENT Vehicle Insurance
+
+#me
+Vehicle Insurance - Plan Details
+
+#bot
+INTENT Vehicle Insurance - Plan Details

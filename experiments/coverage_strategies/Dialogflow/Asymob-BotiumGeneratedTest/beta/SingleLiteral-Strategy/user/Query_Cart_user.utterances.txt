@@ -1,0 +1,11 @@
+QUERY_CART_USER
+please tell me items in my cart
+items in cart
+how many things do I have in my cart
+what items are in my cart
+could you show me the items in my cart?
+can you show me my cart
+show me what is in my cart
+what is in my cart now
+what do I have in my cart
+Show me cart

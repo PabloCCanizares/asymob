@@ -1,0 +1,9 @@
+search_provider_i-need-a-home-health-agency-in-clarksville
+
+#me
+i need a home health agency in Clarksville
+
+#bot
+INTENT search_provider
+ENTITIES facility_type|location|...
+ENTITY_VALUES home health agency|Clarksville|...

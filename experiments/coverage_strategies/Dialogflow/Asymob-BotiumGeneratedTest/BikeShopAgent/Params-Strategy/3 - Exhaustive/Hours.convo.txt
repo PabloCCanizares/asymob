@@ -1,0 +1,8 @@
+TC-Hours-convo
+
+#me
+HOURS_USER
+
+#bot
+HOURS_ACTIONS
+
